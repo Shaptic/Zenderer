@@ -1,0 +1,7 @@
+<map id="Zenderer/include/Zenderer/Audio/AudioManager.hpp" name="Zenderer/include/Zenderer/Audio/AudioManager.hpp">
+<area shape="rect" id="node5" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="243,261,409,288"/>
+<area shape="rect" id="node8" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="414,97,532,138"/>
+<area shape="rect" id="node11" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="614,187,681,213"/>
+<area shape="rect" id="node14" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="984,261,1195,288"/>
+<area shape="rect" id="node16" href="$_log_8inl_source.html" title="Log.inl" alt="" coords="681,261,740,288"/>
+</map>

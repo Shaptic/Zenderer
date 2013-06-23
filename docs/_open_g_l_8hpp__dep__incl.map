@@ -1,0 +1,10 @@
+<map id="Zenderer/include/Zenderer/CoreGraphics/OpenGL.hpp" name="Zenderer/include/Zenderer/CoreGraphics/OpenGL.hpp">
+<area shape="rect" id="node2" href="$_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files." alt="" coords="5,97,184,138"/>
+<area shape="rect" id="node6" href="$_drawable_8hpp_source.html" title="Zenderer/include/Zenderer\l/CoreGraphics/Drawable.hpp" alt="" coords="209,97,396,138"/>
+<area shape="rect" id="node7" href="$_vertex_array_8hpp.html" title="Zenderer/GraphicsCore/VertexArray.hpp &#45; A wrapper class for OpenGL Vertex Array Objects." alt="" coords="471,97,673,138"/>
+<area shape="rect" id="node3" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="237,187,408,229"/>
+<area shape="rect" id="node9" href="$_open_g_l_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/OpenGL.cpp" alt="" coords="698,97,875,138"/>
+<area shape="rect" id="node5" href="$_asset_manager_8cpp_source.html" title="Zenderer/src/Assets\l/AssetManager.cpp" alt="" coords="25,187,164,229"/>
+<area shape="rect" id="node4" href="$_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="247,278,397,319"/>
+<area shape="rect" id="node8" href="$_vertex_array_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/VertexArray.cpp" alt="" coords="483,187,660,229"/>
+</map>

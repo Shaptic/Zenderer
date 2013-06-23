@@ -1,0 +1,9 @@
+<map id="Zenderer/include/Zenderer/Audio/AudioManager.hpp" name="Zenderer/include/Zenderer/Audio/AudioManager.hpp">
+<area shape="rect" id="node2" href="$_audio2_d_8hpp.html" title="Zenderer/Audio/Audio2D.hpp &#45; Generic base class for audio files." alt="" coords="200,97,371,138"/>
+<area shape="rect" id="node8" href="$_audio_manager_8cpp_source.html" title="Zenderer/src/Audio\l/AudioManager.cpp" alt="" coords="395,97,529,138"/>
+<area shape="rect" id="node3" href="$_music2_d_8hpp.html" title="Zenderer/Audio/Music2D.hpp &#45; Long .ogg files used for music, dialogue, etc." alt="" coords="5,187,176,229"/>
+<area shape="rect" id="node5" href="$_sound2_d_8hpp.html" title="Zenderer/Audio/Sound2D.hpp &#45; Short .wav file sound effects used in&#45;game." alt="" coords="200,187,371,229"/>
+<area shape="rect" id="node7" href="$_audio2_d_8cpp_source.html" title="Zenderer/src/Audio\l/Audio2D.cpp" alt="" coords="395,187,525,229"/>
+<area shape="rect" id="node4" href="$_music2_d_8cpp_source.html" title="Zenderer/src/Audio\l/Music2D.cpp" alt="" coords="25,278,156,319"/>
+<area shape="rect" id="node6" href="$_sound2_d_8cpp_source.html" title="Zenderer/src/Audio\l/Sound2D.cpp" alt="" coords="220,278,351,319"/>
+</map>
