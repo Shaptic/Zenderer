@@ -1,0 +1,29 @@
+*[Zenderer](https://github.com/Ruskiy69/IronClad)* To-Do List
+=====================
+
+### High priority
+* Re-write all uses of logging to use singleton access
+
+### Normal priority
+* Plan rendering architecture
+* Implement primitive drawing
+
+### Low priority
+* Update to GLFW 3
+* Test audio API
+
+### In Progress
+* Write VAO Wrapper
+* Write high-speed stack memory allocator
+
+### Complete
+* Logging system
+* Subsystem architecture
+* Math functions
+* 3D Vector
+* .ini file parser
+* Asset manager
+* WAV sound playing
+* Audio manager
+* Settings module
+
