@@ -1,6 +1,9 @@
-== Zenderer -- v0.1 pre-release ==
+Zenderer -- v0.1 pre-release
+================================
 
-=== About ===
+About
+-----
+
 *Zenderer* grew out of increasing frustration with *IronClad*, an 
 OpenGL rendering engine I wrote from scratch in order to learn the 
 basics of OpenGL. As it starting growing into a game I dubbed 
@@ -13,11 +16,12 @@ I know now a ton more than I did when I first started creating
 *IronClad*, so I can guarantee that I will not make any of the
 same mistakes again.
 
-=== Installation ===
+Installation
+------------
 
 Installing *Zenderer* is quite trivial. All you need are the header 
 files found in `Zenderer/include`, and the `Zenderer.lib` file you can
-find in the `Binaries` directory of the project root. There is
+find in the `lib` directory of the project root. There is
 currently only support for Windows (*gasp*), due to the fact that I use
 Visual Studio and the Microsoft compiler for 95% of my C++ development.
 Thus, I can't guarantee any sort of cross-platform compatibility. This
@@ -33,7 +37,8 @@ as follows:
     -   OpenAL          (Open Audio Library)
     -   libvorbis       (OGG/Vorbis Audio Compression Algorithm)
     
-=== More Info ===
+More Info
+---------
 
 *Zenderer* comes with a very well-documented API, which you can easily find
 in the `docs` folder in this repository. It was generated using doxygen, 
