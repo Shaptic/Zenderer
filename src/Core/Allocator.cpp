@@ -48,10 +48,6 @@ bool CAllocator::Destroy()
         total += i;
     }
 
-    m_Log   << m_Log.SetSystem("Allocator")
-            << m_Log.SetMode(LogMode::ZEN_INFO)
-            << "Allocator destroyed." << CLog::endl;
-
     delete[] mp_head;
     return !(m_init = false);
 }

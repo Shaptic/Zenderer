@@ -12,7 +12,7 @@ bool zen::Init()
 
     CLog& Log = CLog::GetEngineLog();
     
-    Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Init")
+    Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Engine")
         << "Initializing Zenderer." << CLog::endl;
 
     Log << "Initializing GLFW: ";
@@ -60,16 +60,19 @@ void zen::Quit()
 {
     CLog& Log = CLog::GetEngineLog();
     
-    Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Quit")
+    Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Engine")
         << "Destroying components." << CLog::endl;
 
-    for(auto* sys : zen::CSubsystem::sp_allSystems)
+    for(auto& sys : zen::CSubsystem::sp_allSystems)
     {
+        Log << Log.SetMode(LogMode::ZEN_INFO)
+            << Log.SetSystem(sys->GetName())
+            << "Destroying component." << CLog::endl;
+
         if(!sys->Destroy())
         {
-            Log << Log.SetMode(LogMode::ZEN_ERROR) << Log.SetSystem("Quit")
-                << "Failed to destroy component: " << sys->GetName() 
-                << CLog::endl;
+            Log.SetMode(LogMode::ZEN_ERROR);
+            Log << "Failed to destroy component." << CLog::endl;
         }
     }
 

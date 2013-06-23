@@ -80,6 +80,7 @@ bool CWindow::Destroy()
     }
 
     glfwCloseWindow();
+
     return passed;
 }
 

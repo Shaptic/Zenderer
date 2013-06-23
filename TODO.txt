@@ -1,9 +1,6 @@
 *[Zenderer](https://github.com/Ruskiy69/IronClad)* To-Do List
 =====================
 
-### High priority
-* Re-write all uses of logging to use singleton access
-
 ### Normal priority
 * Plan rendering architecture
 * Implement primitive drawing
@@ -14,7 +11,6 @@
 
 ### In Progress
 * Write VAO Wrapper
-* Write high-speed stack memory allocator
 
 ### Complete
 * Logging system
@@ -26,4 +22,5 @@
 * WAV sound playing
 * Audio manager
 * Settings module
-
+* Write high-speed stack memory allocator
+* Re-write all uses of logging to use singleton access
