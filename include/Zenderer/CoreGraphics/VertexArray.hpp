@@ -65,23 +65,23 @@ namespace gfxcore
         bool Init();
         bool Destroy();
 
-        bool Bind() { return false; }
-        bool Unbind() { return false; }
+        bool Bind();
+        bool Unbind();
 
         bool AddData(const DrawBatch& D);
-        
+
         /**
          * Offloads local vertex data to the GPU.
          *  If there is existing buffer data on the GPU, this will copy the
          *  buffer locally and append any data that was added recently
-         *  (via AddData()) to the end of the buffer. Then it will be 
+         *  (via AddData()) to the end of the buffer. Then it will be
          *  sent off to the GPU again.
          *
          *  This will return `false` only in a release build, in debug builds
          *  any failed OpenGL operations will close the program.
          *
          * @return  `true` if everything was offloaded without errors;
-         *          `false` otherwise. 
+         *          `false` otherwise.
          *
          * @see     zen::gfxcore::vertex_t
          * @see     Zenderer/CoreGraphics/OpenGL.hpp
@@ -99,6 +99,13 @@ namespace gfxcore
         const index_t*  const GetIndicesFromGPU()   const;
 
         bool Offloaded()        const;
+
+        void Draw()
+        {
+            this->Bind();
+            GL(glDrawElements(GL_TRIANGLES, m_icount, INDEX_TYPE, nullptr));
+            this->Unbind();
+        }
 
     private:
         std::vector<index_t>    m_vaoIndices;

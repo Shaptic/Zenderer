@@ -18,9 +18,9 @@
  *
  * @addtogroup CoreGraphics
  *  This group is a low-level abstraction layer over various API-specific
- *  functionality. Currently, @a Zenderer only supports OpenGL, but with a 
+ *  functionality. Currently, @a Zenderer only supports OpenGL, but with a
  *  good level of abstraction, it should be possible to adapt it to use
- *  DirectX for rendering, as well. 
+ *  DirectX for rendering, as well.
  * @{
  **/
 
@@ -49,6 +49,8 @@
 
 namespace zen
 {
+    void ZEN_API Quit();
+
 namespace gfxcore
 {
     /**
@@ -56,20 +58,20 @@ namespace gfxcore
      *  Mostly used internally for debugging, this will check valid
      *  execution of an OpenGL call. It should be used in congruence with
      *  the macro defined at the top of this file (GL(f)).
-     *  This function won't really work well without the macro, as too 
+     *  This function won't really work well without the macro, as too
      *  many things have to be passed as parameters for accuracy; it'd be
      *  unwieldy to pass the string of the OpenGL function call by hand
      *  every time.
-     *  
+     *
      * @param   char*       OpenGL call expression
      * @param   uint32_t    Line number of function call
      * @param   char*       File name of function call
-     * 
+     *
      * @return  `true`      if there was no error, and
      *          `false`     otherwise, though the assertion will exit.
      **/
     static inline ZEN_API bool glCheck(const char* expr,
-                                       const uint32_t line, 
+                                       const uint32_t line,
                                        const char* file)
     {
         GLenum error_code = glGetError();
@@ -102,7 +104,7 @@ namespace gfxcore
     class ZEN_API CGLSubsystem
     {
     public:
-        CGLSubsystem();
+        CGLSubsystem(string_t name = "Renderer");
         virtual ~CGLSubsystem(){}
 
         virtual bool Init()     = 0;
@@ -113,11 +115,18 @@ namespace gfxcore
 
         virtual GLuint GetObjectHandle() = 0;
 
+        virtual inline const string_t& GetName() const
+        { return m_name; }
+
+        friend void zen::Quit();
+
     protected:
         bool m_init;
 
     private:
         static std::vector<CGLSubsystem*> sp_allGLSystems;
+
+        string_t m_name;
     };
 }   // namespace gfx
 }   // namespace zen
