@@ -95,7 +95,7 @@ namespace gfxcore
     {
         math::vector_t  position;   ///< Vertex position
         math::vector_t  tc;         ///< Vertex texture coordinates
-        math::vector_t  color;      ///< Vertex color
+        color4f_t       color;      ///< Vertex color
     };
 
     /// A wrapper for OpenGL objects with proper cleanup.
