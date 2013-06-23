@@ -36,9 +36,6 @@
 // Screen output
 #include <iostream>
 
-// Function pointer / lambda wrapper
-#include <functional>
-
 #include "Zenderer/Core/ErrorHandling.hpp"
 #include "Zenderer/Core/Types.hpp"
 
