@@ -29,6 +29,7 @@
 
 namespace zen
 {
+    /// An optional custom allocator for high-speed memory requests.
     class ZEN_API CAllocator : public CSubsystem
     {
     public:
@@ -51,7 +52,7 @@ namespace zen
             return (T*)this->operator()(count * sizeof(T));
         }
 
-        static CAllocator& GetInstance();
+        static CAllocator& Get();
         
         static const uint16_t ALLOC_SIZE = 4;
     

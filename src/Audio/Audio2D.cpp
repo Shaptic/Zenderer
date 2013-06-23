@@ -3,12 +3,13 @@
 using namespace zen;
 using sfx::CAudio2D;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 CAudio2D::CAudio2D() : 
     m_error_code(AL_NO_ERROR), m_loop(false)
 {
-    m_AL.buffers = g_Alloc.get<ALuint>(1);
+    m_AL.buffers = new ALuint[1];
     m_AL.buffer_count = 1;
     m_AL.volume = 0.75;
     m_AL.source = 0;
@@ -16,7 +17,7 @@ CAudio2D::CAudio2D() :
 
 CAudio2D::~CAudio2D()
 {
-    g_Alloc.Free(m_AL.buffers);
+    delete[] m_AL.buffers;
 }
 
 int CAudio2D::GetAudioState() const
@@ -35,10 +36,9 @@ const void* const CAudio2D::GetData() const
 
 void CAudio2D::UnloadSource()
 {
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << g_EngineLog.SetSystem("Audio")
-                << "Unloading source (" << m_AL.source << ")."
-                << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+            << m_Log.SetSystem("Audio")
+            << "Unloading source (" << m_AL.source << ")." << CLog::endl;
 
     CAudioManager::FreeSource(m_AL.source);
 }

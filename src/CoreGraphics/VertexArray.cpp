@@ -79,7 +79,7 @@ bool CVertexArray::Offload()
     { 
         // Copy existing buffer data from GPU to local buffer. 
         const vertex_t* const data = this->GetVerticesFromGPU();
-        vertex_t* tmp  = g_Alloc.get<vertex_t>(bsize / sizeof(vertex_t));
+        vertex_t* tmp  = new vertex_t[bsize / sizeof(vertex_t)];
         memcpy(tmp, data, bsize); 
         glUnmapBuffer(GL_ARRAY_BUFFER); 
   
@@ -111,7 +111,7 @@ bool CVertexArray::Offload()
     {
         // Copy from GPU to local buffer.
         const index_t* const data = this->GetIndicesFromGPU();
-        index_t* tmp  = g_Alloc.get<index_t>(bsize / sizeof(index_t));
+        index_t* tmp  = new index_t[bsize / sizeof(index_t)];
         memcpy(tmp, data, bsize);
         glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER);
   

@@ -2,7 +2,8 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 using sfx::CMusic2D;
 
@@ -10,8 +11,8 @@ CMusic2D::CMusic2D() : m_active(0),
     m_ogg_buffer(nullptr),
     m_format(AL_FORMAT_STEREO16), m_freq(0)
 {
-    g_Alloc.Free(m_AL.buffers);
-    m_AL.buffers = g_Alloc.get<ALuint>(CMusic2D::BUFFER_COUNT);
+    if(m_AL.buffers) delete[] m_AL.buffers;
+    m_AL.buffers = new ALuint[CMusic2D::BUFFER_COUNT];
     m_AL.buffer_count = CMusic2D::BUFFER_COUNT;
 
     ov_clear(&m_ogg);
@@ -54,10 +55,9 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
     
     if(pFile == nullptr)
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "Failed to open '" << filename << "'."
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << m_Log.SetSystem("Audio") << "Failed to open '"
+                << filename << "'." << CLog::endl;
     }
     
     // Validate proper .ogg format
@@ -66,10 +66,9 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
         ov_clear(&m_ogg);
         fclose(pFile);
         
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "'" << filename << "' is not a valid .ogg file."
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << m_Log.SetSystem("Audio") << "'" << filename
+                << "' is not a valid .ogg file." << CLog::endl;
         
         return (m_loaded = false);
     }
@@ -93,9 +92,9 @@ void CMusic2D::Play()
 {
     if(!this->IsLoaded())
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "No file loaded" << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << m_Log.SetSystem("Audio")
+                << "No file loaded" << CLog::endl;
 
         return;
     }
@@ -105,10 +104,9 @@ void CMusic2D::Play()
     // it's a stream.
     if(this->GetAudioState() == AL_PLAYING)
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "Already playing '" << m_filename << "'"
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << m_Log.SetSystem("Audio")
+                << "Already playing '" << m_filename << "'" << CLog::endl;
         
         return;
     }
@@ -116,10 +114,9 @@ void CMusic2D::Play()
     m_AL.source = CAudioManager::CreateSource();
     if(m_AL.source == -1) return;
 
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << g_EngineLog.SetSystem("Audio")
-                << "Playing '" << m_filename << "' ("
-                << m_AL.source << ")" << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+            << m_Log.SetSystem("Audio") << "Playing '" << m_filename
+            << "' (" << m_AL.source << ")" << CLog::endl;
 
     AL(alSourcef(m_AL.source, AL_GAIN, m_AL.volume));
     AL(alSourceQueueBuffers(m_AL.source, CMusic2D::BUFFER_COUNT, m_AL.buffers));
@@ -160,8 +157,8 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
     uint16_t total = 0;
     int bits = 0;
     
-    if(m_ogg_buffer) g_Alloc.Free(m_ogg_buffer);
-    m_ogg_buffer = g_Alloc.get<char>(CMusic2D::READ_SIZE);
+    if(m_ogg_buffer) delete[] m_ogg_buffer;
+    m_ogg_buffer = new char[CMusic2D::READ_SIZE];
     
     while(total < CMusic2D::READ_SIZE)
     {
@@ -177,7 +174,7 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
         else if(size < 0) 
         {
             ov_clear(&m_ogg);
-            g_Alloc.Free(m_ogg_buffer);
+            delete[] m_ogg_buffer;
             m_ogg_buffer = nullptr;
             
             CAudioManager::OGGError(size);
@@ -190,12 +187,12 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
     if(total == 0)
     {
         ov_clear(&m_ogg);
-        g_Alloc.Free(m_ogg_buffer);
+        delete[] m_ogg_buffer;
         m_ogg_buffer = nullptr;
         
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                    << g_EngineLog.SetSystem("OpenAL")
-                    << "Reached end of audio file." << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << m_Log.SetSystem("OpenAL")
+                << "Reached end of audio file." << CLog::endl;
         return false;
     }
     

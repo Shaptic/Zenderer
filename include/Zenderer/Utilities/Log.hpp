@@ -3,7 +3,7 @@
  *  Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     2.0
+ * @version     2.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -39,11 +39,6 @@
 #include "Zenderer/Core/ErrorHandling.hpp"
 #include "Zenderer/Core/Types.hpp"
 
-/// Friendly macro to simplify using the global engine log.
-#define USING_ZENDERER_LOG  \
-    using util::CLog;       \
-    using util::LogMode;
-
 namespace zen
 {
 
@@ -62,7 +57,11 @@ namespace util
         ZEN_FATAL   ///< Critical error causing immediate exit
     };
 
-    /// Creates a special file stream to store logging information.
+    /**
+     * Creates a special file stream to store logging information.
+     *  If desirable, it can be inherited to provide a dummy logger to 
+     *  the engine for speed or whatever other reason.
+     **/
     class ZEN_API CLog
     {
     public:
@@ -128,7 +127,7 @@ namespace util
          *
          * @see     CLog::Newline()
          **/
-        inline CLog& operator<< (CLog& (CLog::*)());    // Dat syntax
+        virtual inline CLog& operator<< (CLog& (CLog::*)()); // Dat syntax
         
         /**
          * Logs given data.
@@ -155,7 +154,7 @@ namespace util
          *
          * @see     Destroy()
          **/
-        bool Init();
+        virtual bool Init();
 
         /**
          * Writes out any leftover data and closes the file stream.
@@ -168,16 +167,16 @@ namespace util
          * @return  `true`  if Init() had called successfully, and
          *          `false` if not.
          **/
-        bool Destroy();
+        virtual bool Destroy();
 
         /// Toggles console output.
         void ToggleStdout();
 
         /// Sets the output mode to something in util::LogMode.
-        inline CLog& SetMode(const LogMode& Mode);
+        virtual inline CLog& SetMode(const LogMode& Mode);
 
         /// Sets the current logging subsystem.
-        inline CLog& SetSystem(const string_t& sys);
+        virtual inline CLog& SetSystem(const string_t& sys);
 
         /// Sets the log filename for a call to Init() after Destroy().
         inline void SetFilename(const string_t& fn);
@@ -202,7 +201,7 @@ namespace util
 
     private:
         /// Writes stream to the file and moves to the next line.
-        CLog& Newline();
+        virtual CLog& Newline();
         
         std::stringstream   m_str;
         std::ofstream       m_log;

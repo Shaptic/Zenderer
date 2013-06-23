@@ -43,7 +43,6 @@
 
 // Core API
 #include "Core/Types.hpp"
-#include "Core/Globals.hpp"
 #include "Math/Math.hpp"
 #include "Utilities/Utilities.hpp"
 

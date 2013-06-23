@@ -30,17 +30,19 @@
 // Screen output
 #include <iostream>
 
-#include "Zenderer/Core/Globals.hpp"
+#include "Zenderer/Core/Types.hpp"
+#include "Log.hpp"
 
 // Assertions only run in debug builds.
 #ifdef _DEBUG
   /// Assertion macro for convenience
-  #define ZEN_ASSERT(expr) \
-    zen::util::runtime_assert(expr, #expr, __LINE__, __FILE__)
+  #define ZEN_ASSERT(expression) \
+    zen::util::runtime_assert(expression, #expression, __LINE__, __FILE__)
 
   /// Assertion with a custom message
-  #define ZEN_ASSERTM(expr, msg)    \
-    zen::util::runtime_assert(expr, #expr, __LINE__, __FILE__, msg)
+  #define ZEN_ASSERTM(expression, msg)    \
+    zen::util::runtime_assert(expression, \
+        #expression, __LINE__, __FILE__, msg)
 
 #else
   #define ZEN_ASSERT(expr)
@@ -53,8 +55,8 @@ namespace util
 {
     /**
      * Executes a verification of an expression, crashing on error.
-     *  This function plays nicely with zen::util::g_EngineLog, using
-     *  it to store the fatal error messages to output them directly
+     *  This function plays nicely with zen::util::CLog::GetEngineLog(),
+     *  using it to store the fatal error messages to output them directly
      *  to the screen.
      *  This function can, but likely should not be called directly,
      *  since it relates to the preprocessor macro ZEN_ASSERT (defined

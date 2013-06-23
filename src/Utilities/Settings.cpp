@@ -2,7 +2,8 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 using util::CSettings;
 using util::COption;
@@ -69,7 +70,8 @@ std::ostream& util::operator<<(std::ostream& o, const COption& Opt)
  ***************************************************************/
 
 CSettings::CSettings(const string_t filename) :
-    CSubsystem("Settings"), m_filename(filename)
+    CSubsystem("Settings"), m_Log(CLog::GetEngineLog()),
+    m_filename(filename)
 {}
 
 CSettings::~CSettings() {}
@@ -113,9 +115,9 @@ COption& CSettings::operator[](const string_t& opt)
 #else
     const string_t& hash = opt;
     
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << g_EngineLog.SetSystem("Settings")
-                << "Accessing option '" << opt << "'." << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+            << m_Log.SetSystem("Settings") << "Accessing option '"
+            << opt << "'." << CLog::endl;
 #endif // _DEBUG
 
     auto iter = m_Options.find(hash);

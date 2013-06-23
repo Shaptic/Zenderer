@@ -126,6 +126,8 @@ namespace asset
         virtual bool Destroy() = 0;
         
         static uint32_t s_seed;
+
+        util::CLog& m_Log;
         
         string_t    m_filename;
         string_t    m_error_str;

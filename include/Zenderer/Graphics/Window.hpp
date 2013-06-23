@@ -30,6 +30,7 @@
 #include <cmath>
 
 #include "Zenderer/Core/Subsystem.hpp"
+#include "Zenderer/Utilities/Log.hpp"
 #include "Zenderer/Math/Vector.hpp"
 
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
@@ -124,6 +125,7 @@ namespace gfx
         void SetClearBits(const uint32_t bits);
 
     private:
+        util::CLog&             m_Log;
         asset::CAssetManager*   mp_Assets;
 
         math::vector_t  m_Dimensions;

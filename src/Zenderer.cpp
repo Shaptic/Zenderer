@@ -2,16 +2,15 @@
 
 using zen::util::CLog;
 using zen::util::LogMode;
-using zen::g_EngineLog;
 
 using zen::sfx::CAudioManager;
 
 bool zen::Init()
 {
-    if(!g_EngineLog.Init())
+    if(!CLog::GetEngineLog().Init())
         return false;
 
-    CLog& Log = g_EngineLog;
+    CLog& Log = CLog::GetEngineLog();
     
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Init")
         << "Initializing Zenderer." << CLog::endl;
@@ -59,7 +58,7 @@ bool zen::Init()
 
 void zen::Quit()
 {
-    CLog& Log = g_EngineLog;
+    CLog& Log = CLog::GetEngineLog();
     
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Quit")
         << "Destroying components." << CLog::endl;

@@ -119,6 +119,7 @@ namespace asset
         
         static std::list<CAsset*> sp_allAssets;
 
+        util::CLog& m_Log;
         std::list<CAsset*> mp_managerAssets;
     };
     

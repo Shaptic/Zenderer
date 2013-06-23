@@ -2,7 +2,8 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 using sfx::CSound2D;
 
@@ -31,10 +32,10 @@ bool CSound2D::LoadFromFile(const string_t& filename)
         m_error_str  = alutGetErrorString(m_error_code);
         alDeleteBuffers(1, &m_AL.buffers[0]);
 
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "Failed to load '"  << filename << "' ("
-                    << m_error_str << ")." << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << m_Log.SetSystem("Audio")
+                << "Failed to load '"  << filename << "' ("
+                << m_error_str << ")." << CLog::endl;
 
         return (m_loaded = false);
     }
@@ -47,9 +48,9 @@ void CSound2D::Play()
 {
     if(!this->IsLoaded())
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "No file loaded" << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << m_Log.SetSystem("Audio")
+                << "No file loaded" << CLog::endl;
         
         return;
     }
@@ -59,10 +60,10 @@ void CSound2D::Play()
     // it's a stream.
     if(this->GetAudioState() == AL_PLAYING)
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                    << g_EngineLog.SetSystem("Audio")
-                    << "Already playing '" << m_filename << "'"
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << m_Log.SetSystem("Audio")
+                << "Already playing '" << m_filename << "'"
+                << CLog::endl;
         
         return;
     }
@@ -71,10 +72,10 @@ void CSound2D::Play()
     m_AL.source = CAudioManager::CreateSource();
     if(!m_AL.source) return;
 
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << g_EngineLog.SetSystem("Audio")
-                << "Playing '" << m_filename << "' ("
-                << m_AL.source << ")" << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+            << m_Log.SetSystem("Audio")
+            << "Playing '" << m_filename << "' ("
+            << m_AL.source << ")" << CLog::endl;
 
     AL(alSourcei(m_AL.source, AL_BUFFER, m_AL.buffers[0]));
     AL(alSourcef(m_AL.source, AL_GAIN, m_AL.volume));

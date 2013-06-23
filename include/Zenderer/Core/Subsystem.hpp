@@ -61,7 +61,7 @@ namespace zen
 
         /// Sets a custom output log.
         inline void SetLog(util::CLog& Log)
-        { mp_Log = &Log; }
+        { m_Log = Log; }
 
         /// Retrieves the subsystem name.
         inline const string_t& GetName() const 
@@ -77,7 +77,7 @@ namespace zen
 
         static std::vector<CSubsystem*> sp_allSystems;
 
-        util::CLog* mp_Log;
+        util::CLog& m_Log;
         string_t    m_name;
         bool        m_init;
     };

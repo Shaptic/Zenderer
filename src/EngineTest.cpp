@@ -50,7 +50,7 @@ static const char* SAMPLE_XML[] = {
         std::cout << "} --- " << i->content << std::endl;
     }
 
-    util::CSettings& Settings = util::g_EngineSettings;
+    util::CSettings& Settings = util::CSettings::GetEngineInstance();
 
     Settings["PLAYER_NAME"] = "Zenderer Player";
     Settings["PLAYER_HEALTH"] = 100ULL;
@@ -68,6 +68,8 @@ static const char* SAMPLE_XML[] = {
 
     size_t health = Settings["PLAYER_HEALTH"];
     std::cout << "Health: " << health << std::endl;
+
+    CAllocator& g_Alloc = CAllocator::Get();
 
     int*    arr1 = g_Alloc.get<int>(2);
     char*   arr2 = g_Alloc.get<char>(45);

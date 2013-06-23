@@ -2,11 +2,10 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG;
-
+using util::LogMode;
 using util::CINIParser;
 
-CINIParser::CINIParser() 
+CINIParser::CINIParser() : m_Log(util::CLog::GetEngineLog())
 {
     m_pairs.clear();
 }
@@ -18,14 +17,14 @@ CINIParser::~CINIParser()
 
 bool CINIParser::LoadFromFile(const string_t& filename)
 {
-    g_EngineLog.SetSystem("Parser");
+    m_Log.SetSystem("Parser");
     
     std::ifstream in(filename);
     if(!in)
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                    << "Failed to open '" << filename << "'."
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << "Failed to open '" << filename << "'."
+                << CLog::endl;
 
         return false;
     }
@@ -43,9 +42,9 @@ bool CINIParser::LoadFromFile(const string_t& filename)
             
         if(!this->ParseLine(line))
         {
-            g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                        << "Malformed line on line " << line_no
-                        << " of '" << filename << "'." << CLog::endl;
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                    << "Malformed line on line " << line_no
+                    << " of '" << filename << "'." << CLog::endl;
         }
     }
     
@@ -77,15 +76,15 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
         if(line.empty() || line[0] == '/' || line[0] == '<')
             continue;
         
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                    << "Parsing line " << line_no << " of '"
-                    << filename << "': " << line << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << "Parsing line " << line_no << " of '"
+                << filename << "': " << line << CLog::endl;
 
         if(!this->ParseLine(line))
         {
-            g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                              << "Malformed line in file stream ("
-                              << filename << ")." << CLog::endl;
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                    << "Malformed line in file stream (" << filename
+                    << ")." << CLog::endl;
         }
     }
     

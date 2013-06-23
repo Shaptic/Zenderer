@@ -2,7 +2,8 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 using sfx::CAudioManager;
 
@@ -65,6 +66,8 @@ int CAudioManager::GetAvailableSource(const uint16_t index)
 
 ALuint CAudioManager::CreateSource()
 {
+    CLog& g_EngineLog = CLog::GetEngineLog();
+
     int index = CAudioManager::GetAvailableSourceIndex();
     
     if(index == -1)
@@ -121,6 +124,8 @@ bool CAudioManager::alCheck(const char*     expr,
 
 void CAudioManager::OGGError(const int error_code)
 {
+    CLog& g_EngineLog = CLog::GetEngineLog();
+
     g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
                 << g_EngineLog.SetSystem("Audio")
                 << "OGG Error #" << error_code << " (";

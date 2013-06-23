@@ -2,15 +2,17 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 std::vector<CSubsystem*> CSubsystem::sp_allSystems;
 
 CSubsystem::CSubsystem(const string_t name) :
-    m_name(name), m_init(false), mp_Log(nullptr)
+    m_Log(CLog::GetEngineLog()),
+    m_name(name), m_init(false)
 {
-    // Fake like log output (static initialization order).
-    std::cout << "[INFO ] " << name << " -- Created component." << std::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO) << m_Log.SetSystem(name)
+            << "Created component." << CLog::endl;
 
     sp_allSystems.push_back(this);
 }
@@ -18,9 +20,9 @@ CSubsystem::CSubsystem(const string_t name) :
 CSubsystem::~CSubsystem()
 {
     // Use log since it's destroyed last.
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_INFO)
-                << g_EngineLog.SetSystem(this->GetName())
-                << "Destroyed component." << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+            << m_Log.SetSystem(this->GetName())
+            << "Destroyed component." << CLog::endl;
 
     m_init = false;
 }

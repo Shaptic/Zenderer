@@ -2,14 +2,15 @@
 
 using namespace zen;
 using namespace util;
+
 using gfx::CWindow;
 
 CWindow::CWindow(const uint16_t     width,
                  const uint16_t     height,
                  const string_t&    caption) :
-    CSubsystem("Window"), mp_Assets(nullptr),
-    m_Dimensions(width, height), m_caption(caption),
-    m_clearbits(GL_COLOR_BUFFER_BIT),
+    CSubsystem("Window"), m_Log(CLog::GetEngineLog()),
+    mp_Assets(nullptr), m_Dimensions(width, height),
+    m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),
     m_fullscreen(
 #ifdef _DEBUG
         false)
@@ -25,16 +26,16 @@ CWindow::~CWindow()
 
 bool CWindow::Init()
 {
-    g_EngineLog << g_EngineLog.SetSystem("Window")
-                << g_EngineLog.SetMode(LogMode::ZEN_INFO)
-                << "Set up window (" << m_Dimensions.x << "x"
-                << m_Dimensions.y << "): " << m_caption << CLog::endl;
+    m_Log   << m_Log.SetSystem("Window")
+            << m_Log.SetMode(LogMode::ZEN_INFO)
+            << "Set up window (" << m_Dimensions.x << "x"
+            << m_Dimensions.y << "): " << m_caption << CLog::endl;
 
     uint16_t major = (int)ZENDERER_GL_VERSION;
     uint16_t minor = floor(((ZENDERER_GL_VERSION - major) * 10) + 0.5);
 
-    g_EngineLog << "Minimum OpenGL version: " << major << "." << minor
-                << CLog::endl;
+    m_Log   << "Minimum OpenGL version: " << major << "." << minor
+            << CLog::endl;
 
     // Set up window to be version major.minor and core profile only.
     glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, major);
@@ -45,11 +46,11 @@ bool CWindow::Init()
     if(glfwOpenWindow(800, 600, 8, 8, 8, 8,
         24, 8, (m_fullscreen ? GLFW_FULLSCREEN : GLFW_WINDOW)) == GL_FALSE)
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_FATAL)
-                    << "Failed to create OpenGL window v" << major
-                    << '.' << minor << " (fullscreen = " 
-                    << (m_fullscreen ? "true" : "false") << ")!"
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
+                << "Failed to create OpenGL window v" << major
+                << '.' << minor << " (fullscreen = " 
+                << (m_fullscreen ? "true" : "false") << ")!"
+                << CLog::endl;
 
         return false;
     }

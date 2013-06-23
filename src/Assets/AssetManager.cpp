@@ -3,11 +3,12 @@
 using namespace zen;
 using namespace asset;
 
-USING_ZENDERER_LOG;
+using util::CLog;
+using util::LogMode;
 
 std::list<CAsset*> CAssetManager::sp_allAssets;
 
-CAssetManager::CAssetManager()
+CAssetManager::CAssetManager() : m_Log(CLog::GetEngineLog())
 {
     mp_managerAssets.clear();
 }
@@ -51,7 +52,7 @@ bool CAssetManager::Delete(CAsset* const pAsset)
     {
         if(*b == pAsset && (*b)->GetOwner() == pAsset->GetOwner())
         {
-            g_Alloc.Free(*b);
+            delete *b;
             mp_managerAssets.erase(b);
             
             // Remove from global storage
@@ -99,10 +100,10 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERT(!filename.empty());
     
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << g_EngineLog.SetSystem("AssetManager")
-                << "Searching for '" << filename << "':" << owner << "."
-                << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+            << m_Log.SetSystem("AssetManager")
+            << "Searching for '" << filename << "':" << owner << "."
+            << CLog::endl;
     
     uint32_t hash = util::string_hash(filename);
 
@@ -122,10 +123,9 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
 
 CAsset* CAssetManager::Find(const assetid_t id) const
 {
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << g_EngineLog.SetSystem("AssetManager")
-                << "Searching for asset with ID " << id << '.'
-                << CLog::endl;
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+            << m_Log.SetSystem("AssetManager")
+            << "Searching for asset with ID " << id << '.' << CLog::endl;
     
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
     for( ; b != e; ++b)

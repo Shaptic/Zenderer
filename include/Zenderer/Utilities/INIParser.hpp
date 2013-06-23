@@ -28,8 +28,8 @@
 #include <map>
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Core/Globals.hpp"
 
+#include "Log.hpp"
 #include "Assert.hpp"
 #include "Helpers.hpp"
 
@@ -161,6 +161,7 @@ namespace util
         // buffer when nothing is found in the 'const' version.
         static string_t s_empty;
         
+        CLog& m_Log;
         pair_t m_pairs;
     };
     

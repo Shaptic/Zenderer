@@ -2,7 +2,8 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 void zen::util::runtime_assert(     const bool expression,
     const string_t expression_str,  const size_t line_no,
@@ -10,7 +11,7 @@ void zen::util::runtime_assert(     const bool expression,
 {
     if(expression) return;
     
-    CLog& Log = g_EngineLog;
+    util::CLog& Log = util::CLog::GetEngineLog();
     
     // Flush old output (if any).
     Log << CLog::endl;

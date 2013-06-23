@@ -147,6 +147,7 @@ namespace util
         }
 
     private:
+        CLog&       m_Log;
         settings_t  m_Options;
         string_t    m_filename;
     };

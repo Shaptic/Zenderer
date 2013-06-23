@@ -20,7 +20,6 @@
  **/
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Core/Globals.hpp"
 
 #include "Log.hpp"
 #include "Assert.hpp"
@@ -138,6 +137,7 @@ namespace util
                        std::function<int(const size_t, XMLNode*)> callback);
     
         XMLList_t m_XMLTree;
+        CLog& m_Log;
     };
 
     XMLList_t::iterator CXMLParser::begin()

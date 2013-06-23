@@ -2,7 +2,8 @@
 
 using namespace zen;
 
-USING_ZENDERER_LOG;
+using util::CLog;
+using util::LogMode;
 
 CAllocator::CAllocator(size_t initial /*= (1 << 16)*/) : 
     CSubsystem("Allocator"),
@@ -38,18 +39,18 @@ bool CAllocator::Destroy()
     {
         if(!IsFree(i))
         {
-            g_EngineLog << g_EngineLog.SetSystem("Allocator")
-                        << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                        << i << " byte memory leak found."
-                        << CLog::endl;
+            m_Log   << m_Log.SetSystem("Allocator")
+                    << m_Log.SetMode(LogMode::ZEN_ERROR)
+                    << i << " byte memory leak found."
+                    << CLog::endl;
         }
 
         total += i;
     }
 
-    g_EngineLog << g_EngineLog.SetSystem("Allocator")
-                << g_EngineLog.SetMode(LogMode::ZEN_INFO)
-                << "Allocator destroyed." << CLog::endl;
+    m_Log   << m_Log.SetSystem("Allocator")
+            << m_Log.SetMode(LogMode::ZEN_INFO)
+            << "Allocator destroyed." << CLog::endl;
 
     delete[] mp_head;
     return !(m_init = false);
@@ -105,24 +106,20 @@ void* CAllocator::operator()(size_t bytes)
 
     if(ptr == nullptr)
     {
-        USING_ZENDERER_LOG
-
-            g_EngineLog << g_EngineLog.SetSystem("Allocator")
-            << g_EngineLog.SetMode(LogMode::ZEN_FATAL)
-            << "Out of memory." << CLog::endl;
+        m_Log   << m_Log.SetSystem("Allocator")
+                << m_Log.SetMode(LogMode::ZEN_FATAL)
+                << "Out of memory." << CLog::endl;
     }
     else
     {
 #ifdef _DEBUG
-        USING_ZENDERER_LOG
-
-            static uint32_t alloc = 0;
+        static uint32_t alloc = 0;
 
         alloc += bytes;
-        g_EngineLog << g_EngineLog.SetSystem("Allocator")
-            << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-            << "Allocated " << bytes << " bytes [0x" << ptr
-            << "] (" << alloc << " total)." << CLog::endl;
+        m_Log   << m_Log.SetSystem("Allocator")
+                << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << "Allocated " << bytes << " bytes [0x" << ptr
+                << "] (" << alloc << " total)." << CLog::endl;
 #endif // _DEBUG
     }
 
@@ -177,15 +174,13 @@ size_t CAllocator::Free(void* ptr)
             }
 
 #ifdef _DEBUG
-            USING_ZENDERER_LOG
-
-                static uint32_t total_freed = 0;
+            static uint32_t total_freed = 0;
             total_freed += freed + 1;
 
-            g_EngineLog << g_EngineLog.SetSystem("Allocator")
-                << g_EngineLog.SetMode(LogMode::ZEN_DEBUG)
-                << "Freed " << freed << " bytes ("
-                << total_freed << " total)." << CLog::endl;
+            m_Log   << m_Log.SetSystem("Allocator")
+                    << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                    << "Freed " << freed << " bytes ("
+                    << total_freed << " total)." << CLog::endl;
 #endif // _DEBUG
             // Freed an even number of bytes
             return freed;
@@ -198,8 +193,9 @@ size_t CAllocator::Free(void* ptr)
     return 0;
 }
 
-CAllocator& CAllocator::GetInstance()
+CAllocator& CAllocator::Get()
 {
-    static CAllocator Global;
-    return Global;
+    static CAllocator Alloc;
+    Alloc.Init();
+    return Alloc;
 }

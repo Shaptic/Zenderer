@@ -132,9 +132,6 @@
     <ClInclude Include="include\Zenderer\Core\Allocator.hpp">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\Core\Globals.hpp">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">

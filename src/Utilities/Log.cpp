@@ -51,9 +51,12 @@ bool CLog::Destroy()
     time_t now;
     time(&now);
 
-    m_log << "[INFO ] Log -- Log closed on " << ctime(&now);
+    m_mode = LogMode::ZEN_INFO;
+    m_system = "Log";
+    (*this) << "Log closed on " << ctime(&now) << CLog::endl;
 
     m_log.close();
+
     return !(m_init = false);
 }
 

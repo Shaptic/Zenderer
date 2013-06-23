@@ -2,11 +2,12 @@
   
 using namespace zen;
 
-USING_ZENDERER_LOG
+using util::CLog;
+using util::LogMode;
 
 using util::CXMLParser;
 
-CXMLParser::CXMLParser()
+CXMLParser::CXMLParser() : m_Log(CLog::GetEngineLog())
 { 
     m_XMLTree.clear();
 }
@@ -22,10 +23,10 @@ bool CXMLParser::LoadFromFile(const string_t& filename)
     
     if(!file)
     {
-        g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                    << g_EngineLog.SetSystem("XML Parser")
-                    << "Failed to open '" << filename << "'."
-                    << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << m_Log.SetSystem("XML Parser")
+                << "Failed to open '" << filename << "'."
+                << CLog::endl;
 
         return false;
     }
@@ -47,8 +48,7 @@ void CXMLParser::ClearTree()
 
     while(i != m_XMLTree.end())
     {
-        g_Alloc.Free(*i);
-        (*i)->~XMLNode();
+        delete *i;
         i = m_XMLTree.erase(i);
     }
 
@@ -58,11 +58,13 @@ void CXMLParser::ClearTree()
 void CXMLParser::ShowXMLError(const uint32_t line_no, const string_t& line,
                               const string_t& reason)
 {
-    g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
-                << g_EngineLog.SetSystem("XML Parser")
-                << "Malformed XML on line " << line_no
-                << ": " << line << " (" << reason << ") "
-                << CLog::endl;
+    CLog& Log = CLog::GetEngineLog();
+
+    Log << Log.SetMode(LogMode::ZEN_ERROR)
+        << Log.SetSystem("XML Parser")
+        << "Malformed XML on line " << line_no
+        << ": " << line << " (" << reason << ") "
+        << CLog::endl;
 }
 
 /// @see zen::asset::CAssetManager::Find
@@ -180,7 +182,7 @@ int CXMLParser::CreateNode(const string_t& line,
         // If it's not an end tag, parse it and recurse on it.
         else if(line.find("</") == string_t::npos)
         {
-            XMLNode* pNode  = new (g_Alloc.get<XMLNode>(1)) XMLNode();
+            XMLNode* pNode  = new XMLNode;
             pNode->parent   = parent;
             pNode->children.clear();
             
@@ -195,8 +197,7 @@ int CXMLParser::CreateNode(const string_t& line,
             if(end == end2 || end2 == index + 1)
             {
                 ShowXMLError(i + 1, line, "invalid XML tag");
-                g_Alloc.Free(pNode);
-                pNode->~XMLNode();
+                delete pNode;
                 return -1;
             }
             
