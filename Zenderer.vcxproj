@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{616F150B-D660-4458-BF69-4453FA1CD57B}</ProjectGuid>
+    <RootNamespace>Zenderer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>ZENDERER_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Zenderer\Assets\Asset.hpp" />
+    <ClInclude Include="include\Zenderer\Assets\AssetManager.hpp" />
+    <ClInclude Include="include\Zenderer\Audio\Audio2D.hpp" />
+    <ClInclude Include="include\Zenderer\Audio\AudioManager.hpp" />
+    <ClInclude Include="include\Zenderer\Audio\Music2D.hpp" />
+    <ClInclude Include="include\Zenderer\Audio\Sound2D.hpp" />
+    <ClInclude Include="include\Zenderer\CoreGraphics\OpenGL.hpp" />
+    <ClInclude Include="include\Zenderer\CoreGraphics\VertexArray.hpp" />
+    <ClInclude Include="include\Zenderer\Core\Allocator.hpp" />
+    <ClInclude Include="include\Zenderer\Core\ErrorHandling.hpp" />
+    <ClInclude Include="include\Zenderer\Core\Globals.hpp" />
+    <ClInclude Include="include\Zenderer\Core\Subsystem.hpp" />
+    <ClInclude Include="include\Zenderer\Core\Types.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
+    <ClInclude Include="include\Zenderer\Math\Math.hpp" />
+    <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
+    <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Assert.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Log.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Settings.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Utilities.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\XMLParser.hpp" />
+    <ClInclude Include="include\Zenderer\Zenderer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Assets\Asset.cpp" />
+    <ClCompile Include="src\Assets\AssetManager.cpp" />
+    <ClCompile Include="src\Audio\Audio2D.cpp" />
+    <ClCompile Include="src\Audio\AudioManager.cpp" />
+    <ClCompile Include="src\Audio\Music2D.cpp" />
+    <ClCompile Include="src\Audio\Sound2D.cpp" />
+    <ClCompile Include="src\CoreGraphics\OpenGL.cpp" />
+    <ClCompile Include="src\CoreGraphics\VertexArray.cpp" />
+    <ClCompile Include="src\Core\Allocator.cpp" />
+    <ClCompile Include="src\Core\ErrorHandling.cpp" />
+    <ClCompile Include="src\Core\Subsystem.cpp" />
+    <ClCompile Include="src\EngineTest.cpp" />
+    <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\Math\MathCore.cpp" />
+    <ClCompile Include="src\Utilities\Assert.cpp" />
+    <ClCompile Include="src\Utilities\Helpers.cpp" />
+    <ClCompile Include="src\Utilities\INIParser.cpp" />
+    <ClCompile Include="src\Utilities\Log.cpp" />
+    <ClCompile Include="src\Utilities\Settings.cpp" />
+    <ClCompile Include="src\Utilities\XMLParser.cpp" />
+    <ClCompile Include="src\Zenderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\Zenderer\Assets\Asset.inl" />
+    <None Include="include\Zenderer\Assets\AssetManager.inl" />
+    <None Include="include\Zenderer\Math\MathCore.inl" />
+    <None Include="include\Zenderer\Math\Vector.inl" />
+    <None Include="include\Zenderer\Utilities\INIParser.inl" />
+    <None Include="include\Zenderer\Utilities\Log.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
