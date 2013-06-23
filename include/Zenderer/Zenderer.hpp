@@ -51,6 +51,7 @@
 
 // Graphics API
 #include "Graphics/Window.hpp"
+#include "CoreGraphics/VertexArray.hpp"
 
 // Assets
 #include "Assets/AssetManager.hpp"

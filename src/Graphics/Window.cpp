@@ -48,7 +48,7 @@ bool CWindow::Init()
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
                 << "Failed to create OpenGL window v" << major
-                << '.' << minor << " (fullscreen = " 
+                << '.' << minor << " (fullscreen = "
                 << (m_fullscreen ? "true" : "false") << ")!"
                 << CLog::endl;
 
@@ -59,11 +59,16 @@ bool CWindow::Init()
 
     if(m_fullscreen) glfwDisable(GLFW_MOUSE_CURSOR);
 
+    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
+        m_Dimensions.y, 256, -256);
+
     if(glewInit() != GLEW_OK) return false;
 
     // Clears a weird error of glewInit() giving 1280 (invalid enumerant)
     /// @see https://www.opengl.org/wiki/OpenGL_Loading_Library#GLEW
     glGetError();
+
+    GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
 
     return (m_init = true);
 }
@@ -73,7 +78,7 @@ bool CWindow::Destroy()
     bool passed = true;
     if(mp_Assets != nullptr)
     {
-        for(size_t i = 0; i < mp_Assets->GetAssetCount(); ++i) 
+        for(size_t i = 0; i < mp_Assets->GetAssetCount(); ++i)
         {
             if(!mp_Assets->Delete(i)) passed = false;
         }
@@ -101,7 +106,7 @@ void CWindow::AttachAssetManager(asset::CAssetManager& Mgr)
     mp_Assets = &Mgr;
 }
 
-void zen::gfx::CWindow::Update() const
+void CWindow::Update() const
 {
     if(this->IsInit()) glfwSwapBuffers();
 }

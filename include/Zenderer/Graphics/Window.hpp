@@ -32,6 +32,7 @@
 #include "Zenderer/Core/Subsystem.hpp"
 #include "Zenderer/Utilities/Log.hpp"
 #include "Zenderer/Math/Vector.hpp"
+#include "Zenderer/Math/Matrix.hpp"
 
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/Assets/AssetManager.hpp"
@@ -69,7 +70,7 @@ namespace gfx
          *  Switching in and out of fullscreen mode requires a complete
          *  destruction and re-creation of the OpenGL context, invalidating
          *  any and all handles to OpenGL objects like textures, vertex
-         *  buffers, and shaders. Thus, it is necessary for the user to 
+         *  buffers, and shaders. Thus, it is necessary for the user to
          *  attempt to keep track reloading assets and OpenGL data as
          *  needed.
          *  If a manager was given via AttachAssetManager(), an attempt
@@ -77,9 +78,9 @@ namespace gfx
          *  zen::asset::CAsset::Reload method. The optional `loaded`
          *  parameter will be set to the number of assets that were
          *  reloaded successfully, based on the return value of the method.
-         *  
+         *
          * @param   int*    Track number of assets reloaded (optional=`nullptr`)
-         *  
+         *
          * @return  `true`  if the window is now in fullscreen mode, and
          *          `false` if it was changed to windowed mode.
          **/
@@ -87,15 +88,15 @@ namespace gfx
 
         inline bool EnableFullscreen();     ///< Enables fullscreen mode.
         inline bool DisableFullscreen();    ///< Disables fullscreen mode.
-        
+
         /**
          * Allows for assets to be properly reloaded when toggling fs mode.
          *  When going into (or out of) fullscreen mode, the current OpenGL
          *  context is destroyed, thus invalidating any and all handles to
          *  textures, shaders, vertex buffers, and other critical
-         *  properties used during rendering. By attaching a proper asset 
+         *  properties used during rendering. By attaching a proper asset
          *  manager to the window, these can be reloaded on-the-fly when
-         *  switching contexts. 
+         *  switching contexts.
          *  Since the asset base class (zen::asset::CAsset) stores a
          *  filename, this can be used to reload the asset when necessary.
          *  Keep in mind that assets that were generated programmatically
@@ -104,7 +105,7 @@ namespace gfx
          *  rendering context.
          *
          * @param   asset::CAssetManager&   Manager to attach to window
-         * 
+         *
          * @see     zen::asset::CAsset
          * @see     EnableFullscreen()
          * @see     DisableFullscreen()
@@ -117,19 +118,23 @@ namespace gfx
          *  By default, calling Clear() will clear the color buffer. This
          *  method allows the user to specify exactly which bits get
          *  cleared.
-         * 
+         *
          * @param   uint32_t    Bits
-         * 
+         *
          * @see     GL/gl.h
          **/
         void SetClearBits(const uint32_t bits);
+
+        inline const math::matrix4x4_t& GetProjectionMatrix() const
+        { return m_ProjMatrix; }
 
     private:
         util::CLog&             m_Log;
         asset::CAssetManager*   mp_Assets;
 
-        math::vector_t  m_Dimensions;
-        string_t        m_caption;
+        math::vector_t      m_Dimensions;
+        math::matrix4x4_t   m_ProjMatrix;
+        string_t            m_caption;
 
         uint32_t        m_clearbits;
         bool            m_fullscreen;
