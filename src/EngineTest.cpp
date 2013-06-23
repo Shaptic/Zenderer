@@ -63,11 +63,8 @@ static const char* SAMPLE_XML[] = {
                     << i.second << std::endl;
     */
 
-    Settings["PLAYER_ALIVE"] = false;
-    std::cout << "Player: " << Settings["PLAYER_ALIVE"] << std::endl;
-
+    Settings["PLAYER_ALIVE"] = 42;
     size_t health = Settings["PLAYER_HEALTH"];
-    std::cout << "Health: " << health << std::endl;
 
     CAllocator& g_Alloc = CAllocator::Get();
 
@@ -87,13 +84,42 @@ static const char* SAMPLE_XML[] = {
     Sound.LoadFromFile("Crackle.wav");
     Sound.Play();
 
+    color4f_t Teal(0.0, 1.0, 1.0, 1.0);
+
+    gfxcore::CVertexArray Vao;
+    gfxcore::DrawBatch D;
+
+    gfxcore::index_t i[] = {0, 1, 3, 3, 1, 2};
+
+    D.Vertices  = new gfxcore::vertex_t[4];
+    D.vcount    = 4;
+    D.Indices   = i;
+    D.icount    = 6;
+
+    D.Vertices[0].position = math::vector_t(0, 0);
+    D.Vertices[1].position = math::vector_t(400, 0);
+    D.Vertices[2].position = math::vector_t(400, 200);
+    D.Vertices[3].position = math::vector_t(0, 200);
+
+    D.Vertices[0].color =
+    D.Vertices[1].color =
+    D.Vertices[2].color =
+    D.Vertices[3].color = color4f_t(1, 0, 0, 1);
+
+    Vao.Init();
+    Vao.AddData(D);
+    Vao.Offload();
+
     while(glfwGetWindowParam(GLFW_OPENED))
     {
-        Window.Clear(color4f_t(0.f, 1.f, 1.f, 1.f));
+        Window.Clear(Teal);
+        Vao.Draw();
         Window.Update();
         Sound.Update();
     }
-    
+
+    Vao.Destroy();
+
     /*
     std::for_each(arr1 , arr1 + 2,
         [](const int i) {

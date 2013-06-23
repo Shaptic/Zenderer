@@ -89,6 +89,7 @@
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
+    <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />
     <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Assert.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="src\Core\Subsystem.cpp" />
     <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
     <ClCompile Include="src\Utilities\Assert.cpp" />
     <ClCompile Include="src\Utilities\Helpers.cpp" />

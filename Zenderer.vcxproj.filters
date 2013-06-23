@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Assets">
       <UniqueIdentifier>{24773011-ef70-408c-a961-1b37651e7666}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Drawing">
-      <UniqueIdentifier>{1917909b-5fc5-440c-96d3-55a7c9d0ae90}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Utilities">
       <UniqueIdentifier>{d65e253a-681e-4c10-9fd7-14eec69c2cc1}</UniqueIdentifier>
     </Filter>
@@ -132,6 +129,9 @@
     <ClInclude Include="include\Zenderer\Core\Allocator.hpp">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Math\Matrix.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -196,6 +196,9 @@
     </ClCompile>
     <ClCompile Include="src\Core\Allocator.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Matrix.cpp">
+      <Filter>Source Files\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
