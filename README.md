@@ -31,11 +31,11 @@ There are various dependencies for this engine. Luckily, they are all
 cross platform and are relatively easy to build from source. They are
 as follows:  
 
-    -   GLEW            (OpenGL Extension Wrangler Library)
-    -   GLFW            (OpenGL FrameWork)
-    -   Freetype 2      (TrueType Font Library)
-    -   OpenAL          (Open Audio Library)
-    -   libvorbis       (OGG/Vorbis Audio Compression Algorithm)
+- GLEW          (OpenGL Extension Wrangler Library)
+- GLFW          (OpenGL FrameWork)
+- Freetype 2    (TrueType Font Library)
+- OpenAL        (Open Audio Library)
+- libvorbis     (OGG/Vorbis Audio Compression Algorithm)
     
 #### More Info
 
