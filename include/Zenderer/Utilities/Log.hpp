@@ -16,9 +16,6 @@
  *  limitations under the License.
  *
  * @addtogroup Utilities
- *  Contains a collection of various helpful functions that are not related
- *  to the primary engine in any way.
- *
  * @{
  **/
 
@@ -41,11 +38,6 @@
 
 namespace zen
 {
-
-/**
- * Contains various utilities that can help with loading, rendering,
- * logging, and debugging.
- **/
 namespace util
 {
     /// Log output types
