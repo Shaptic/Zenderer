@@ -29,24 +29,59 @@ namespace zen
 {
 namespace gfxcore
 {
-    class ZEN_API CShader : asset::CAsset
+    class ZEN_API CShader : public asset::CAsset
     {
     public:
-        CShader();
+        CShader(const GLenum shader_type);
         ~CShader();
 
-        bool LoadFromFile(const string_t& vertex, const string_t& pixel);
-        bool LoadFromRaw(const string_t& vertex, const string_t& pixel);
+        bool LoadFromFile(const string_t& filename);
+        bool LoadFromExisting(const CAsset* const pCopyShader);
+        bool LoadFromRaw(const string_t& string);
+
+        /// Returns the OpenGL shader handle (cast it to `GLuint` to use).
+        const void* const GetData() const
+        {
+            return reinterpret_cast<const void* const>(m_shader);
+        }
+
+    private:
+        bool Destroy();
+
+        GLuint m_shader;
+        string_t m_vfilename, m_ffilename;
+    };
+
+    class ZEN_API CShaderSet
+    {
+    public:
+        CShaderSet();
+        ~CShaderSet();
+
+        bool LoadFromFile(const string_t& vs, const string_t& fs);
+        bool LoadVertexShaderFromFile(const string_t& filename);
+        bool LoadFragmentShaderFromFile(const string_t& filename);
+
+        bool LoadFromStr(const string_t& vs, const string_t& fs);
+        bool LoadVertexShaderFromStr(const string_t& str);
+        bool LoadFragmentShaderFromStr(const string_t& str);
+
+        bool CreateShaderObject();
 
         bool Bind();
         bool Unbind();
 
+        uint16_t GetShaderObject();
         short GetUniformLocation(const string_t& name);
         short GetAttributeLocation(const string_t& name);
 
+        const string_t& GetError() const;
+
     private:
-        GLint m_vshader, m_fshader;
-        string_t m_vfilename, m_ffilename;
+        CShader* mp_VShader;
+        CShader* mp_FShader;
+
+        string_t m_errorstr;
     };
 }   // namespace gfxcore
 }   // namespace zen
