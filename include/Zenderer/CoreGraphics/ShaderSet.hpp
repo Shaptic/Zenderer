@@ -1,9 +1,10 @@
 /**
  * @file
- *  Zenderer/CoreGraphics/ShaderSet.hpp - A wrapper class for OpenGL shaders containing a set of shader objects.
+ *  Zenderer/CoreGraphics/ShaderSet.hpp - A wrapper class for OpenGL
+ *  shaders containing a set of shader objects.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -22,43 +23,76 @@
 #ifndef ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 #define ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 
-#include "Zenderer/Assets/Asset.hpp"
-#include "OpenGL.hpp"
+#include "Zenderer/Assets/AssetManager.hpp"
+#include "Shader.hpp"
 
 namespace zen
 {
 namespace gfxcore
 {
-    class ZEN_API CShader : public asset::CAsset
-    {
-    public:
-        CShader(const GLenum shader_type);
-        ~CShader();
-
-        bool LoadFromFile(const string_t& filename);
-        bool LoadFromExisting(const CAsset* const pCopyShader);
-        bool LoadFromRaw(const string_t& string);
-
-        /// Returns the OpenGL shader handle (cast it to `GLuint` to use).
-        const void* const GetData() const
-        {
-            return reinterpret_cast<const void* const>(m_shader);
-        }
-
-    private:
-        bool Destroy();
-
-        GLuint m_shader;
-        string_t m_vfilename, m_ffilename;
-    };
+    using util::CLog;
+    using util::LogMode;
 
     class ZEN_API CShaderSet
     {
     public:
-        CShaderSet();
-        ~CShaderSet();
+        CShaderSet(asset::CAssetManager& Assets) :
+            m_AssetManager(Assets), m_Log(CLog::GetEngineLog()),
+            mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
+            m_error_str("")
+        {
 
-        bool LoadFromFile(const string_t& vs, const string_t& fs);
+        }
+
+        ~CShaderSet()
+        {
+            this->Destroy();
+        }
+
+        /**
+         * Loads a set of shader assets from a file and creates an object.
+         *  Unlike the other `Load*()` methods, this function *WILL* create
+         *  a shader object.
+         *
+         * @param   string_t    Vertex shader filename
+         * @param   string_t    Fragment (pixel) shader filename
+         *
+         * @return  `true` if the shader program compiled and linked,
+         *          `false` otherwise.
+         *
+         * @see     GetError()
+         **/
+        bool LoadFromFile(const string_t& vs, const string_t& fs)
+        {
+            // Kill any existing shader programs.
+            this->Destroy();
+
+            mp_FShader = m_AssetManager.Create<CShader>(vs);
+            mp_VShader = m_AssetManager.Create<CShader>(fs);
+
+            if(mp_FShader == nullptr || !mp_FShader->IsLoaded())
+            {
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                        << m_Log.SetSystem("ShaderSet")
+                        << "Failed to load fragment shader from '"
+                        << fs << "'." << CLog::endl;
+
+                return false;
+            }
+
+            if(mp_VShader == nullptr || !mp_VShader->IsLoaded())
+            {
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                        << m_Log.SetSystem("ShaderSet")
+                        << "Failed to load vertex shader from '"
+                        << fs << "'." << CLog::endl;
+
+                return false;
+            }
+
+            return this->CreateShaderObject();
+        }
+
         bool LoadVertexShaderFromFile(const string_t& filename);
         bool LoadFragmentShaderFromFile(const string_t& filename);
 
@@ -66,22 +100,158 @@ namespace gfxcore
         bool LoadVertexShaderFromStr(const string_t& str);
         bool LoadFragmentShaderFromStr(const string_t& str);
 
-        bool CreateShaderObject();
+        bool CreateShaderObject()
+        {
+            if(mp_FShader == nullptr || mp_VShader == nullptr)
+            {
+                m_error_str = "No shader objects loaded.";
 
-        bool Bind();
-        bool Unbind();
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                        << m_Log.SetSystem("ShaderSet")
+                        << m_error_str << CLog::endl;
 
-        uint16_t GetShaderObject();
-        short GetUniformLocation(const string_t& name);
-        short GetAttributeLocation(const string_t& name);
+                return false;
+            }
 
-        const string_t& GetError() const;
+            // Create shader program and attach shaders.
+            m_program = glCreateProgram();
+            glAttachShader(m_program, mp_VShader->GetShaderObject());
+            glAttachShader(m_program, mp_FShader->GetShaderObject());
+
+            // Link the compiled shader objects to the program.
+            GLint err = GL_NO_ERROR;
+            glLinkProgram(m_program);
+            glGetProgramiv(m_program, GL_LINK_STATUS, &err);
+
+            // Link failed?
+            if(err == GL_FALSE)
+            {
+                int length  = 0;
+
+                // Get log length to make an appropriate buffer.
+                glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &length);
+
+                // Delete old log.
+                m_error_str.clear();
+
+                // Get log.
+                char* buffer = new char[length];
+                glGetProgramInfoLog(m_program, length, &length, buffer);
+                glDeleteProgram(m_program);
+
+                m_error_str = buffer;
+                delete[] buffer;
+
+                // Show log.
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                    << m_Log.SetSystem("ShaderSet")
+                    << "Failed to link shader objects to program: "
+                    << m_error_str << "." << CLog::endl;
+
+                this->Destroy();
+
+                return false;
+            }
+
+            return true;
+        }
+
+        bool Bind()
+        {
+            if(m_program == 0)
+            {
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                        << m_Log.SetSystem("ShaderSet")
+                        << "No shader program loaded." << CLog::endl;
+
+                return false;
+            }
+
+            GL(glUseProgram(m_program));
+            return true;
+        }
+
+        bool Unbind()
+        {
+            if(m_program == 0)
+            {
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                        << m_Log.SetSystem("ShaderSet")
+                        << "No shader program loaded." << CLog::endl;
+
+                return false;
+            }
+
+            GL(glUseProgram(0));
+            return true;
+        }
+
+        /// Non-const because the returned handle can modify the state.
+        uint16_t GetShaderObject()
+        {
+            return m_program;
+        }
+
+        short GetUniformLocation(const string_t& name)
+        {
+            if(m_program == 0) return -1;
+
+            GLint loc = -1;
+            GL(loc = glGetUniformLocation(m_program, name.c_str()));
+            return loc;
+        }
+
+        short GetAttributeLocation(const string_t& name)
+        {
+            if(m_program == 0) return -1;
+
+            GLint loc = -1;
+            GL(loc = glGetAttribLocation(m_program, name.c_str()));
+            return loc;
+        }
+
+        const string_t& GetError() const
+        {
+            return m_error_str;
+        }
 
     private:
+        void Destroy()
+        {
+            m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                    << m_Log.SetSystem("ShaderSet")
+                    << "Destorying shader set." << CLog::endl;
+
+            if(mp_FShader != nullptr)
+            {
+                m_AssetManager.Delete(mp_FShader);
+                mp_FShader = nullptr;
+            }
+
+            if(mp_VShader != nullptr)
+            {
+                m_AssetManager.Delete(mp_VShader);
+                mp_VShader = nullptr;
+            }
+
+            if(m_program > 0)
+            {
+                GL(glDeleteProgram(m_program));
+                m_program = 0;
+            }
+
+            m_error_str = "";
+        }
+
+        asset::CAssetManager&   m_AssetManager;
+        util::CLog&             m_Log;
+
         CShader* mp_VShader;
         CShader* mp_FShader;
 
-        string_t m_errorstr;
+        string_t m_error_str;
+
+        GLuint m_program;
     };
 }   // namespace gfxcore
 }   // namespace zen

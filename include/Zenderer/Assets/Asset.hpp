@@ -49,18 +49,18 @@ namespace asset
      *  owner address. Thus, CAsset::LoadFromFile() should be sure to call
      *  util::string_hash and store the value internally in
      *  CAsset::m_filename_hash. By default, if this value is not stored the
-     *  base class will hash it on-the-fly, which obviously can be undesirable
-     *  with successive calls.
+     *  base class will hash it on-the-fly, which obviously can be
+     *  undesirable with successive calls.
      *
-     *  Another requirement for all inheriting classes is the ability to load
-     *  a copy of an asset from an existing asset using only existing virtual
-     *  methods found in the base class. These will likely include
+     *  Another requirement for all inheriting classes is the ability to
+     *  load a copy of an asset from an existing asset using only existing
+     *  virtual methods found in the base class. These will likely include
      *  CAsset::GetFilename() and CAsset::GetData().
      *
-     *  All assets are assigned a (hopefully) unique ID at instantiation based
-     *  on their address in memory. This ID can be used to find the asset using
-     *  the asset manager, assuming the ID is known but the asset is not. The
-     *  ID is also for in comparison.
+     *  All assets are assigned a (hopefully) unique ID at instantiation
+     *  based on their address in memory. This ID can be used to find the
+     *  asset using the asset manager, assuming the ID is known but the
+     *  asset is not. The ID is also used in comparison.
      *
      * @see util::hash()
      * @see util::string_hash()
@@ -80,10 +80,17 @@ namespace asset
 
         /**
          * Copies an asset from another.
+         *  By default, this just copies all of the asset metadata over,
+         *  excluding any implementation-specific data.
+         *  It's recommended to overload this method, and then just call
+         *  CAsset::LoadFromExisting() again internally to ensure all 
+         *  metadata is copied (if that's desired).
+         *
          * @param   CAsset*   Asset to create a copy from
+         *
          * @return `true` if copied successfully, `false` otherwise.
          **/
-        virtual bool LoadFromExisting(const CAsset* const pCopy) = 0;
+        virtual bool LoadFromExisting(const CAsset* const pCopy);
 
         /// Returns the hashed filename for quicker comparison.
         inline uint32_t GetFilenameHash() const;

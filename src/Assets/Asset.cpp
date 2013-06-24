@@ -27,3 +27,14 @@ CAsset::~CAsset()
             << "Asset with ID " << m_id << " destroyed."
             << CLog::endl;
 }
+
+bool CAsset::LoadFromExisting(const CAsset* const pCopy)
+{
+    m_error_str     = pCopy->m_error_str;
+    m_filename      = pCopy->m_filename;
+    m_filename_hash = pCopy->m_filename_hash;
+    mp_owner        = pCopy->mp_owner;
+    m_loaded        = pCopy->m_loaded;
+
+    return true;
+}

@@ -9,18 +9,18 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     // There is no existing asset matching the criteria.
     if(pResult == nullptr)
     {
-        util::g_EngineLog << util::g_EngineLog.SetMode(LogMode::ZEN_INFO)
-                          << util::g_EngineLog.SetSystem("AssetManager")
-                          << "Loading '" << filename << "' ... ";
+        m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+                << m_Log.SetSystem("AssetManager") << "Loading '"
+                << filename << "' ... " << CLog::endl;
 
         // Create a new original asset.
-        pAsset = new (g_Alloc.get<T>(1)) T(owner);
+        T* pAsset = new T(owner);
 
         // Make sure we allocated successfully.
         ZEN_ASSERTM(pAsset != nullptr, "out of memory");
 
         // Load the asset from disk.
-        return this->FinalizeAsset(pAsset->LoadFromFile(Copier), pAsset);
+        return this->FinalizeAsset(pAsset->LoadFromFile(filename), pAsset);
     }
 
     // Return existing asset.
@@ -33,12 +33,12 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
 template<typename T>
 T* CAssetManager::Recreate(const T* const Copier, const void* const owner)
 {
-    util::g_EngineLog << util::g_EngineLog.SetMode(LogMode::ZEN_INFO)
-                      << util::g_EngineLog.SetSystem("AssetManager")
-                      << "Copying '" << filename << "' ... ";
+    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+            << m_Log.SetSystem("AssetManager") << "Copying '"
+            << filename << "' ... " << CLog::endl;
 
     // Create a new asset.
-    T* pAsset = new (g_Alloc.get<T>(1)) (owner);
+    T* pAsset = new T(owner);
 
     // Make sure we allocated successfully.
     ZEN_ASSERTM(pAsset != nullptr, "out of memory");
@@ -52,8 +52,7 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
 {
     if(success)
     {
-        util::g_EngineLog << "Success. ID: (" << pAsset->GetID() << ").";
-        util::g_EngineLog.Newline();
+        m_Log << "Success. ID: (" << pAsset->GetID() << ")." << CLog::endl;
 
         // Add to containers and return.
         CAssetManager::sp_allAssets.push_back(pAsset);
@@ -62,8 +61,8 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
     }
     else
     {
-        util::g_EngineLog << util::g_EngineLog.SetMode(LogMode::ZEN_ERROR) << "Failure.";
-        util::g_EngineLog.Newline();
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << "Failure." << CLog::endl;
 
         // Clean up on failure.
         delete pAsset;
