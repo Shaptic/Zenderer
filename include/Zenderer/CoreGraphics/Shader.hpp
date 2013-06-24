@@ -34,149 +34,53 @@ namespace zen
 {
 namespace gfxcore
 {
-    using util::CLog;
-    using util::LogMode;
-
     class ZEN_API CShader : public asset::CAsset
     {
     public:
-        CShader(const void* const ptr) : CAsset(ptr), m_object(0) {}
-        ~CShader()
-        {
-            this->Destroy();
-        }
+        CShader(const void* const ptr);
+        ~CShader();
 
-        bool LoadFromFile(const string_t& filename)
-        {
-            if(m_loaded) this->Destroy();
+        /**
+         * Loads a shader from a file. 
+         *  The shader type is interpreted from the filename. Since this
+         *  is a sub-class of asset::CAsset, you cannot pass any extra 
+         *  parameters to the object on creation.
+         *  Filenames ending in `.vs` are interpreted to be vertex shaders,
+         *  and those ending in `.fs` or `.ps` are interpreted to be fragment
+         *  (or pixel) shaders.
+         *
+         * @param   string_t    Filename to load from
+         *
+         * @return  `true`  if the file loaded and the shader compiled
+         *           `false` otherwise.   
+         **/
+        bool LoadFromFile(const string_t& filename);
+        
+        /// @overload
+        bool LoadFromExisting(const CAsset* const pCopyShader);
+        
+        /// @overload
+        bool LoadFromRaw(const string_t& string);
 
-            std::ifstream file(filename);
-            std::stringstream source;
-            std::string line;
-
-            if(!file)
-            {
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("Shader") << "Failed to open '"
-                        << filename << "'." << CLog::endl;
-
-                return false;
-            }
-
-            while(std::getline(file, line))
-            {
-                source << line << std::endl;
-            }
-
-            file.close();
-
-            if(!this->LoadFromRaw(source.str())) return false;
-
-            this->SetFilename(filename);
-            return (m_loaded = true);
-        }
-
-        bool LoadFromExisting(const CAsset* const pCopyShader)
-        {
-            // The given parameter must must must be a CShader* instance
-            // in actuality. There is no way to test for this.
-
-            const CShader* const pCopy =
-                reinterpret_cast<const CShader* const>(pCopyShader);
-
-            ZEN_ASSERT(pCopyShader != nullptr);
-            ZEN_ASSERT(pCopy != nullptr);
-
-            m_object = reinterpret_cast<decltype(m_object)>
-                (pCopyShader->GetData());
-
-            m_type = pCopy->m_type;
-
-            return CAsset::LoadFromExisting(pCopyShader);
-        }
-
-        bool LoadFromRaw(const string_t& string)
-        {
-            ZEN_ASSERT(!string.empty());
-
-            const char* src = string.c_str();
-
-            // Create shader object.
-            GLuint shader = GL(glCreateShader(m_type));
-
-            // Compile
-            GLint error_code = GL_NO_ERROR;
-            GLint length = string.length();
-            GL(glShaderSource(shader, 1, &src, &length));
-
-            ZEN_ASSERT(length == string.length());
-
-            GL(glCompileShader(shader));
-            GL(glGetShaderiv(shader, GL_COMPILE_STATUS, &error_code));
-
-            // We have an error
-            if(error_code == GL_FALSE)
-            {
-                GL(glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length));
-
-                ZEN_ASSERT(length > 0);
-
-                // Error buffer
-                char* buffer = new char[length];
-
-                GL(glGetShaderInfoLog(shader, length, &length, buffer));
-                GL(glDeleteShader(shader));
-
-                m_error_str = buffer;
-                delete[] buffer;
-                buffer = nullptr;
-
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("Shader")
-                        << "Failed to compile shader: " << m_error_str
-                        << CLog::endl;
-
-                return (m_loaded = false);
-            }
-
-            m_object = shader;
-            this->SetFilename("Raw shader string");
-            m_error_str.clear();
-
-            return (m_loaded = true);
-        }
-
+        /// Destroys the OpenGL shader object.
+        bool Destroy();
+        
         /// Returns the OpenGL shader handle (cast it to `GLuint` to use).
-        const void* const GetData() const
-        {
-            return reinterpret_cast<const void* const>(m_object);
-        }
+        const void* const GetData() const;
 
-        inline GLuint GetShaderObject()
-        {
-            return m_object;
-        }
-
-        bool Destroy()
-        {
-            if(m_object > 0)
-            {
-                GL(glDeleteShader(m_object));
-
-                m_filename = "";
-                m_object = m_filename_hash = 0;
-            }
-
-            return !(m_loaded = false);
-        }
+        /// Returns the raw OpenGL shader handle.
+        GLuint GetShaderObject();
+        
+        /// Returns the shader log.
+        const string_t& GetShaderLog();
 
     private:
-        GLuint m_object;        ///< OpenGL shader object handle
-        GLenum m_type;          ///< Shader type (fragment, vertex, etc.)
+        string_t m_shader_log;  ///< Log string from shader compilation.
+        GLuint m_object;        ///< OpenGL shader object handle.
+        GLenum m_type;          ///< Shader type (fragment, vertex, etc).
     };
 }   // namespace gfxcore
 }   // namespace zen
-
 
 #endif // ZENDERER__CORE_GRAPHICS__SHADER_HPP
 

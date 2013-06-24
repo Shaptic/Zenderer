@@ -38,23 +38,18 @@ namespace gfxcore
     class ZEN_API CShaderSet
     {
     public:
-        CShaderSet(asset::CAssetManager& Assets) :
-            m_AssetManager(Assets), m_Log(CLog::GetEngineLog()),
-            mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
-            m_error_str("")
-        {
-
-        }
-
-        ~CShaderSet()
-        {
-            this->Destroy();
-        }
+        CShaderSet(asset::CAssetManager& Assets);
+        ~CShaderSet();
 
         /**
-         * Loads a set of shader assets from a file and creates an object.
-         *  Unlike the other `Load*()` methods, this function *WILL* create
-         *  a shader object.
+         * Loads a set of shader assets from a file.
+         *  Unlike most of the other `Load*()` methods, this function
+         *  *WILL* create a shader object, and thus a useable, bindable
+         *  shader.
+         *
+         *  You can check for a linker error through GetError() and a 
+         *  generic log through GetLinkerLog() in order to test for warnings
+         *  or other messages.
          *
          * @param   string_t    Vertex shader filename
          * @param   string_t    Fragment (pixel) shader filename
@@ -63,197 +58,87 @@ namespace gfxcore
          *          `false` otherwise.
          *
          * @see     GetError()
+         * @see     GetLinkerLog()
          **/
-        bool LoadFromFile(const string_t& vs, const string_t& fs)
-        {
-            // Kill any existing shader programs.
-            this->Destroy();
-
-            mp_FShader = m_AssetManager.Create<CShader>(vs);
-            mp_VShader = m_AssetManager.Create<CShader>(fs);
-
-            if(mp_FShader == nullptr)
-            {
-                this->ShowLoadError(fs, "fragment");
-                return false;
-            }
-
-            if(mp_VShader == nullptr)
-            {
-                this->ShowLoadError(vs, "vertex");
-                return false;
-            }
-
-            return this->CreateShaderObject();
-        }
-
-        bool LoadVertexShaderFromFile(const string_t& filename)
-        {
-            this->Destroy();
-            
-            mp_VShader = m_AssetManager.Create<CShader>(filename);
-            if(mp_VShader == nullptr)
-            {
-                this->ShowLoadError(filename, "vertex");
-                return false;
-            }
-            
-            return true;
-        }
+        bool LoadFromFile(const string_t& vs, const string_t& fs);
         
-        bool LoadFragmentShaderFromFile(const string_t& filename)
-        {
-            
-        }
+        /**
+         * Loads a vertex shader from a file.
+         *  This only loads a shader. The extension on the file is
+         *  irrelevant, because the filename will be dynamically modified
+         *  in order to fit the specification for dynamic shader type 
+         *  inferencing. See the docs for CShader for that.
+         *
+         *  This method doesn't create a shader program, so a call to 
+         *  the relevant method is required (CreateShaderObject()).
+         *
+         * @param   string_t    Shader filename
+         *
+         * @return `true` if the shader object loaded from the file,
+         *          `false` otherwise.
+         *
+         * @see     GetError()
+         * @see     CreateShaderObject()
+         **/
+        bool LoadVertexShaderFromFile(const string_t& filename);
+        
+        /**
+         * @copydoc LoadVertexShaderFromFile()
+         * @brief   Loads a fragment (pixel) shader from a file.
+         **/
+        bool LoadFragmentShaderFromFile(const string_t& filename);
 
+        /**
+         * Loads a set of shader objects from a raw string.
+         * @copydetails zen::gfxcore::CShaderSet::LoadFromFile()
+         **/
         bool LoadFromStr(const string_t& vs, const string_t& fs);
+        
+        /// Loads a vertex shader from a raw string (no linking).
         bool LoadVertexShaderFromStr(const string_t& str);
+        
+        /// Loads a fragment shader from a raw string (no linking).
         bool LoadFragmentShaderFromStr(const string_t& str);
 
-        bool CreateShaderObject()
-        {
-            if(mp_FShader == nullptr || mp_VShader == nullptr)
-            {
-                m_error_str = "No shader objects loaded.";
+        /**
+         * Links loaded shaders together into a useable program.
+         *  This will take the loaded vertex and fragment shader objects
+         *  and bring them together into an OpenGL shader program that
+         *  can then be bound to a rendering context and used.
+         *
+         *  You can check for a linker error through GetError() and a 
+         *  generic log through GetLinkerLog() in order to test for warnings
+         *  or other messages.
+         *
+         * @return  `true` if it linked successfully, `false` otherwise.
+         *
+         * @pre     A vertex and fragment shader was loaded successfully.
+         *
+         * @see     GetError()
+         * @see     GetLinkerLog()
+         **/
+        bool CreateShaderObject();
 
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("ShaderSet")
-                        << m_error_str << CLog::endl;
-
-                return false;
-            }
-
-            // Create shader program and attach shaders.
-            m_program = glCreateProgram();
-            glAttachShader(m_program, mp_VShader->GetShaderObject());
-            glAttachShader(m_program, mp_FShader->GetShaderObject());
-
-            // Link the compiled shader objects to the program.
-            GLint err = GL_NO_ERROR;
-            glLinkProgram(m_program);
-            glGetProgramiv(m_program, GL_LINK_STATUS, &err);
-
-            // Link failed?
-            if(err == GL_FALSE)
-            {
-                int length  = 0;
-
-                // Get log length to make an appropriate buffer.
-                glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &length);
-
-                // Delete old log.
-                m_error_str.clear();
-
-                // Get log.
-                char* buffer = new char[length];
-                glGetProgramInfoLog(m_program, length, &length, buffer);
-                glDeleteProgram(m_program);
-
-                m_error_str = buffer;
-                delete[] buffer;
-
-                // Show log.
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("ShaderSet")
-                        << "Failed to link shader objects to program: "
-                        << m_error_str << "." << CLog::endl;
-
-                this->Destroy();
-
-                return false;
-            }
-
-            return true;
-        }
-
-        bool Bind()
-        {
-            if(m_program == 0)
-            {
-                this->ShowProgramError();
-                return false;
-            }
-
-            GL(glUseProgram(m_program));
-            return true;
-        }
-
-        bool Unbind()
-        {
-            if(m_program == 0)
-            {
-                this->ShowProgramError();
-                return false;
-            }
-
-            GL(glUseProgram(0));
-            return true;
-        }
+        /// Binds the shader program to the rendering context for use.
+        bool Bind();
+        
+        /// Removes any shader program from the rendering context.
+        bool Unbind();
 
         /// Non-const because the returned handle can modify the state.
-        uint16_t GetShaderObject()
-        {
-            return m_program;
-        }
-
-        short GetUniformLocation(const string_t& name)
-        {
-            if(m_program == 0)
-            {
-                this->ShowProgramError();
-                return -1;
-            }
-
-            GLint loc = -1;
-            GL(loc = glGetUniformLocation(m_program, name.c_str()));
-            return loc;
-        }
-
-        short GetAttributeLocation(const string_t& name)
-        {
-            if(m_program == 0)
-            {
-                this->ShowProgramError();
-                return -1;
-            }
-
-            GLint loc = -1;
-            GL(loc = glGetAttribLocation(m_program, name.c_str()));
-            return loc;
-        }
-
-        const string_t& GetError() const
-        {
-            return m_error_str;
-        }
+        uint16_t GetShaderObject();
+        
+        /// Returns the index of a shader uniform location in VRAM.
+        short GetUniformLocation(const string_t& name);
+        
+        /// Returns the index of a shader attribute location in VRAM.
+        short GetAttributeLocation(const string_t& name);
+        
+        const string_t& GetError() const;
+        const string_t& GetLinkerLog() const;
 
     private:
-        void Destroy()
-        {
-            m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-                    << m_Log.SetSystem("ShaderSet")
-                    << "Destorying shader set." << CLog::endl;
-
-            if(mp_FShader != nullptr)
-            {
-                m_AssetManager.Delete(mp_FShader);
-                mp_FShader = nullptr;
-            }
-
-            if(mp_VShader != nullptr)
-            {
-                m_AssetManager.Delete(mp_VShader);
-                mp_VShader = nullptr;
-            }
-
-            if(m_program > 0)
-            {
-                GL(glDeleteProgram(m_program));
-                m_program = 0;
-            }
-
-            m_error_str = "";
-        }
+        void Destroy();
         
         inline void ShowLoadError(const string_t& filename, const string_t& shader)
         {
@@ -286,6 +171,7 @@ namespace gfxcore
         CShader* mp_FShader;
 
         string_t m_error_str;
+        string_t m_link_log;
 
         GLuint m_program;
     };
