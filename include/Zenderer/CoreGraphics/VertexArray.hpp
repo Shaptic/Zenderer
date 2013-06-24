@@ -4,7 +4,7 @@
  *  Vertex Array Objects.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -49,11 +49,12 @@ namespace gfxcore
     /// Type of indices.
     static const GLenum INDEX_TYPE = GL_UNSIGNED_BYTE;
 
+    /// A collection of drawing data to pass to a CVertexArray.
     struct DrawBatch
     {
-        vertex_t*   Vertices;
-        index_t*    Indices;
-        size_t      vcount, icount;
+        vertex_t*   Vertices;       ///< Vertex array
+        index_t*    Indices;        ///< Index array
+        size_t      vcount, icount; ///< Vertex / index count
     };
 
     class ZEN_API CVertexArray : CGLSubsystem
@@ -98,7 +99,7 @@ namespace gfxcore
         const vertex_t* const GetVerticesFromGPU()  const;
         const index_t*  const GetIndicesFromGPU()   const;
 
-        bool Offloaded()        const;
+        bool Offloaded() const;
 
         void Draw()
         {

@@ -180,5 +180,7 @@ namespace zen
  *  // Have to call destructor manually.
  *  DynamicLight->~CLight();
  *  g_Alloc.Free(DynamicLight);
+ * @endcode
+ *
  **/
 

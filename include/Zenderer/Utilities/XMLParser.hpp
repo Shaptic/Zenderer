@@ -50,7 +50,7 @@ namespace util
      *
      * Given:
      *
-     * @code
+     * @code{.xml}
      * <!-- Sample XML file -->
      * <html>
      *      <body background="nothing">
@@ -191,7 +191,7 @@ namespace util
  *
  *      is perfectly valid as far as this parser is concerned!
  *
- *      @code
+ *      @code{.xml}
  *      <!-- Examples of invalid tags -->
  *      <sometag
  *      >
@@ -211,7 +211,7 @@ namespace util
  *      a `&lt;!-- ` prefix and end with a ` --&gt;` suffix. The spaces
  *      *are required*.
  *
- *      @code
+ *      @code{.xml}
  *      <!-- Examples of invalid comments -->
  *      <!-- No closing tag
  *      <!--No space after prefix -->
@@ -225,7 +225,7 @@ namespace util
  *      be anything between the option name and its value (other than the
  *      `=` character, of course).
  *
- *      @code
+ *      @code{.xml}
  *      <!-- The perfect XML tag with options: -->
  *      <best_tag option1="the best" option2="tag ever">
  *      </best_tag>
