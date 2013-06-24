@@ -22,6 +22,11 @@
 #ifndef ZENDERER__CORE_GRAPHICS__SHADER_HPP
 #define ZENDERER__CORE_GRAPHICS__SHADER_HPP
 
+#include <fstream>
+#include <sstream>
+#include <string>
+
+#include "Zenderer/Utilities/Assert.hpp"
 #include "Zenderer/Assets/Asset.hpp"
 #include "OpenGL.hpp"
 

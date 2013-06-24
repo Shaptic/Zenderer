@@ -23,6 +23,8 @@
 #ifndef ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 #define ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 
+#include <sstream>
+
 #include "Zenderer/Assets/AssetManager.hpp"
 #include "Shader.hpp"
 
@@ -70,31 +72,39 @@ namespace gfxcore
             mp_FShader = m_AssetManager.Create<CShader>(vs);
             mp_VShader = m_AssetManager.Create<CShader>(fs);
 
-            if(mp_FShader == nullptr || !mp_FShader->IsLoaded())
+            if(mp_FShader == nullptr)
             {
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("ShaderSet")
-                        << "Failed to load fragment shader from '"
-                        << fs << "'." << CLog::endl;
-
+                this->ShowLoadError(fs, "fragment");
                 return false;
             }
 
-            if(mp_VShader == nullptr || !mp_VShader->IsLoaded())
+            if(mp_VShader == nullptr)
             {
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("ShaderSet")
-                        << "Failed to load vertex shader from '"
-                        << fs << "'." << CLog::endl;
-
+                this->ShowLoadError(vs, "vertex");
                 return false;
             }
 
             return this->CreateShaderObject();
         }
 
-        bool LoadVertexShaderFromFile(const string_t& filename);
-        bool LoadFragmentShaderFromFile(const string_t& filename);
+        bool LoadVertexShaderFromFile(const string_t& filename)
+        {
+            this->Destroy();
+            
+            mp_VShader = m_AssetManager.Create<CShader>(filename);
+            if(mp_VShader == nullptr)
+            {
+                this->ShowLoadError(filename, "vertex");
+                return false;
+            }
+            
+            return true;
+        }
+        
+        bool LoadFragmentShaderFromFile(const string_t& filename)
+        {
+            
+        }
 
         bool LoadFromStr(const string_t& vs, const string_t& fs);
         bool LoadVertexShaderFromStr(const string_t& str);
@@ -144,9 +154,9 @@ namespace gfxcore
 
                 // Show log.
                 m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                    << m_Log.SetSystem("ShaderSet")
-                    << "Failed to link shader objects to program: "
-                    << m_error_str << "." << CLog::endl;
+                        << m_Log.SetSystem("ShaderSet")
+                        << "Failed to link shader objects to program: "
+                        << m_error_str << "." << CLog::endl;
 
                 this->Destroy();
 
@@ -160,10 +170,7 @@ namespace gfxcore
         {
             if(m_program == 0)
             {
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("ShaderSet")
-                        << "No shader program loaded." << CLog::endl;
-
+                this->ShowProgramError();
                 return false;
             }
 
@@ -175,10 +182,7 @@ namespace gfxcore
         {
             if(m_program == 0)
             {
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << m_Log.SetSystem("ShaderSet")
-                        << "No shader program loaded." << CLog::endl;
-
+                this->ShowProgramError();
                 return false;
             }
 
@@ -194,7 +198,11 @@ namespace gfxcore
 
         short GetUniformLocation(const string_t& name)
         {
-            if(m_program == 0) return -1;
+            if(m_program == 0)
+            {
+                this->ShowProgramError();
+                return -1;
+            }
 
             GLint loc = -1;
             GL(loc = glGetUniformLocation(m_program, name.c_str()));
@@ -203,7 +211,11 @@ namespace gfxcore
 
         short GetAttributeLocation(const string_t& name)
         {
-            if(m_program == 0) return -1;
+            if(m_program == 0)
+            {
+                this->ShowProgramError();
+                return -1;
+            }
 
             GLint loc = -1;
             GL(loc = glGetAttribLocation(m_program, name.c_str()));
@@ -241,6 +253,30 @@ namespace gfxcore
             }
 
             m_error_str = "";
+        }
+        
+        inline void ShowLoadError(const string_t& filename, const string_t& shader)
+        {
+            static std::stringstream error_stream;
+            
+            error_stream.str(std::string());
+            error_stream << "Failed to load " << shader << " shader from '"
+                         << filename << "'.";
+                         
+            m_error_str = error_stream.str();
+            
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                    << m_Log.SetSystem("ShaderSet")
+                    << error_stream.str() << CLog::endl;
+        }
+        
+        inline void ShowProgramError()
+        {
+            m_error_str = "No shader program loaded.";
+            
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                    << m_Log.SetSystem("ShaderSet")
+                    << m_error_str << CLog::endl;
         }
 
         asset::CAssetManager&   m_AssetManager;
