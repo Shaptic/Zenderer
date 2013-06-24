@@ -38,7 +38,7 @@
 
 #include "Zenderer/Core/Types.hpp"
 
-// Undefine these function macros so we can make our own and 
+// Undefine these function macros so we can make our own and
 // not have them conflict.
 #ifdef max
   #undef max
@@ -65,11 +65,11 @@ namespace math
     /**
      * Returns a value that is a portion of the way between Start and End
      *  The weight is clamped to the range [0, 1].
-     *  
+     *
      * @param   T       Starting value
      * @param   T       Ending value
      * @param   real_t  Percentage in between values
-     * 
+     *
      * @return  Value between start and ending values.
      **/
     template<typename T>
@@ -78,11 +78,11 @@ namespace math
     /**
      * Tests to see if a value is in a given range (inclusive).
      *  The type can be any type supporting the <= and >= operators.
-     *  
+     *
      * @param   T   Value to test
      * @param   T   Minimum range
      * @param   T   Maximum range
-     * 
+     *
      * @return  `true` if T in [minimum, maximum], and
      *          `false` if not.
      **/

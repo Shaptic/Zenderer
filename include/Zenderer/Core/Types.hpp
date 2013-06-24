@@ -54,7 +54,7 @@ namespace zen
 
     /**
      * Character sequence representation used throughout the engine.
-     *  Currently, this just defaults to `std::string`, but there may be 
+     *  Currently, this just defaults to `std::string`, but there may be
      *  a future implementation in which there is a custom string class
      *  created tailored specifically for the engine.
      **/
@@ -62,7 +62,7 @@ namespace zen
 
     /**
      * Clamps a value in the provided range [min, max].
-     * 
+     *
      * @param   T&  Value to clamp
      * @param   T   Minimum
      * @param   T   Maximum
@@ -86,7 +86,7 @@ namespace zen
                   const float a = 1.f) : r(r), g(g), b(b), a(a) {}
 
         void Clamp()
-        { 
+        {
             clamp<float>(r, 0, 1);
             clamp<float>(g, 0, 1);
             clamp<float>(b, 0, 1);

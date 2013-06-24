@@ -18,13 +18,13 @@ CSound2D::~CSound2D()
 bool CSound2D::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERT(!filename.empty());
-    
+
     AL(alGenBuffers(1, &m_AL.buffers[0]));
 
     // #lazylyfe
     m_AL.buffers[0] = alutCreateBufferFromFile(filename.c_str());
-    
-    // This doesn't use the `AL` macro because we need 
+
+    // This doesn't use the `AL` macro because we need
     // to do some buffer clean up.
     if(m_AL.buffers[0] == AL_NONE)
     {
@@ -51,11 +51,11 @@ void CSound2D::Play()
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("Audio")
                 << "No file loaded" << CLog::endl;
-        
+
         return;
     }
-    
-    // Check to see if we are already playing; if so, 
+
+    // Check to see if we are already playing; if so,
     // do nothing. We cannot play from the start since
     // it's a stream.
     if(this->GetAudioState() == AL_PLAYING)
@@ -64,10 +64,10 @@ void CSound2D::Play()
                 << m_Log.SetSystem("Audio")
                 << "Already playing '" << m_filename << "'"
                 << CLog::endl;
-        
+
         return;
     }
-    
+
     this->UnloadSource();
     m_AL.source = CAudioManager::CreateSource();
     if(!m_AL.source) return;

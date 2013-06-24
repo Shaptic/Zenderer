@@ -53,9 +53,9 @@ namespace zen
         }
 
         static CAllocator& Get();
-        
+
         static const uint16_t ALLOC_SIZE = 4;
-    
+
     private:
         static inline
         size_t Pad(size_t& bytes)
@@ -65,7 +65,7 @@ namespace zen
             return (!i) ? bytes : (bytes += ALLOC_SIZE - i);
         }
 
-        static inline 
+        static inline
         bool IsFree(const size_t block)
         {
             return ((block & 0x1) == 1);
@@ -91,13 +91,13 @@ namespace zen
 
 /**
  * @class zen::CAllocator
- * 
+ *
  * @description
  *
  * Let us assume a memory structure like so:
  *
- * 0000 0000 0000 0000  0000 0000 0000 0000  0000 0000 0000 0000 
- * 
+ * 0000 0000 0000 0000  0000 0000 0000 0000  0000 0000 0000 0000
+ *
  * Thus we store an internal `std::list<int>` containing only a single
  * value: 47.
  * 47 because there are 48 free bytes, and we differentiate between free
@@ -110,7 +110,7 @@ namespace zen
  * _______________  Next block pointer
  *                |
  *                v
- * 1111 1111 1111 0000  0000 0000 0000 0000  0000 0000 0000 0000 
+ * 1111 1111 1111 0000  0000 0000 0000 0000  0000 0000 0000 0000
  * ^
  * |______ Head pointer
  *
@@ -125,7 +125,7 @@ namespace zen
  *            Next block pointer ___________________________
  *                                                          |
  *                                                          v
- * 0000 0000 0000 1111  1111 1111 1111 1111  1111 1111 1111 0000 
+ * 0000 0000 0000 1111  1111 1111 1111 1111  1111 1111 1111 0000
  * ^
  * |______ Head pointer
  *
@@ -134,25 +134,25 @@ namespace zen
  *
  * Finally, let's assume the user requests an allocation of 8 bytes.
  * From the next block pointer (shown above), there is no viable 8-byte
- * chunk to allocate, so the search begins from the head. 
+ * chunk to allocate, so the search begins from the head.
  *
  * This is actually done by analyzing the internal memory `list`. With
- * a request of 8 bytes and a final free block of 3 bytes (since the 
+ * a request of 8 bytes and a final free block of 3 bytes (since the
  * next block pointer always points to the last free block, so `list.end()`)
  * we start the search from `list.begin()`, giving us 11 which we know as
  * a free block of 12 bytes. Thus we can return the head pointer and make
  * the list contain `{ 8, 3, 32, 3}`.
  *
- * As you can see, the memory becomes fairly fragmented, and a subsequent 
- * request to allocate 8 bytes would fail, despite there being 8 bytes 
+ * As you can see, the memory becomes fairly fragmented, and a subsequent
+ * request to allocate 8 bytes would fail, despite there being 8 bytes
  * available. This is impossible to remedy without a lot of slow memory
  * movement, which would in turn cause all of the allocated pointers to be
  * completely invalid on the user end.
- * 
+ *
  * @example Allocation
- * 
+ *
  * Dynamic Memory Allocation
- * 
+ *
  * @code
  *  // Allocate char[4]
  *  char* data0 = g_Alloc.get<char>(4);
@@ -162,11 +162,11 @@ namespace zen
  *  int* data2 = g_Alloc();             // assuming sizeof(int) == 4
  *  int* data3 = g_Alloc(sizeof(int));
  *  int* data4 = g_Alloc.get<int>(1);
- *  
+ *
  *  // Implicit with global overloading operator new
  *  gfx::CLight* DynamicLight   = new gfx::CLight;
  *  gfx::CLight* DynamicLights  = new gfx::CLight[5];
- *  
+ *
  *  // Equivalent to
  *  gfx::CLight* DynamicLight = g_Alloc.get<gfx::CLight>(1);    // and
  *  gfx::CLight* DynamicLight2 = g_Alloc.get<gfx::CLight>(5);
@@ -176,7 +176,7 @@ namespace zen
  *
  *  // Double-deletion is safe, but will log an error
  *  g_Alloc.Free(data0);
- *  
+ *
  *  // Have to call destructor manually.
  *  DynamicLight->~CLight();
  *  g_Alloc.Free(DynamicLight);

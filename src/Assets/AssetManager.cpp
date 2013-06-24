@@ -34,7 +34,7 @@ bool CAssetManager::Destroy()
 
         mp_managerAssets.clear();
     }
-    
+
     return !(m_init = false);
 }
 
@@ -42,19 +42,19 @@ bool CAssetManager::Delete(CAsset* const pAsset)
 {
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERT(pAsset != nullptr);
-    
+
     // Verify that this is our asset to delete.
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
     auto s = CAssetManager::sp_allAssets.begin(),
          t = CAssetManager::sp_allAssets.end();
-    
+
     for( ; b != e; )
     {
         if(*b == pAsset && (*b)->GetOwner() == pAsset->GetOwner())
         {
             delete *b;
             mp_managerAssets.erase(b);
-            
+
             // Remove from global storage
             for( ; s != t; )
             {
@@ -71,7 +71,7 @@ bool CAssetManager::Delete(CAsset* const pAsset)
             (*b)->Destroy();
             return true;
         }
-        
+
         ++b;
     }
 
@@ -84,7 +84,7 @@ bool CAssetManager::Delete(const uint32_t index)
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERTM(index < this->GetAssetCount() && index >= 0,
                 "index out of range");
-    
+
     if(this->GetAssetCount() == 0) return false;
 
     std::list<CAsset*>::iterator it = mp_managerAssets.begin();
@@ -99,12 +99,12 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
 {
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERT(!filename.empty());
-    
+
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("AssetManager")
             << "Searching for '" << filename << "':" << owner << "."
             << CLog::endl;
-    
+
     uint32_t hash = util::string_hash(filename);
 
     // Speed comparisons: http://ideone.com/eaIbCB
@@ -126,7 +126,7 @@ CAsset* CAssetManager::Find(const assetid_t id) const
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("AssetManager")
             << "Searching for asset with ID " << id << '.' << CLog::endl;
-    
+
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
     for( ; b != e; ++b)
     {

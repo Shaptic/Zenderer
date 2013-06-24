@@ -103,7 +103,7 @@ namespace util
 
         bool Init();
         bool Destroy();
-        
+
         /**
          * Retrieves the value of an option (creates if non-existing).
          *  This will search for an option setting with the given name,
@@ -136,7 +136,7 @@ namespace util
 
         /// Starting iterator (for range-based `for()` loops).
         settings_t::iterator begin(){ return m_Options.begin(); }
-        
+
         /// Ending iterator (for range-based `for()` loops).
         settings_t::iterator end()  { return m_Options.end(); }
 

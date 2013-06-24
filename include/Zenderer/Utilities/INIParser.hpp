@@ -53,25 +53,25 @@ namespace util
          *          `false` otherwise.
          **/
         bool LoadFromFile(const string_t& filename);
-        
+
         /**
          * Fills the key-value dictionary by parsing a file stream.
          *  This is more versatile than the generic LoadFromFile(), since
          *  you can specify where in the stream you would like to start
          *  and where you would like to end. By default, the whole file is
-         *  read. 
+         *  read.
          *  This comes in handy if a file, for example, has several entity
          *  specifications, so there's more than one "texture" key. Thus
          *  you could read until "<entity>", mark that, read till
          *  "</entity>", mark that, then pass the stream to this method
          *  and it would only give you the key-value pairs found in that
          *  section of the file.
-         *  
+         *
          * @param   std::ifstream   File stream to read
          * @param   std::streampos  Starting point in the stream    (opt=0)
          * @param   std::streampos  Ending point in the stream      (opt=END)
          * @param   char*           Filename the stream comes from  (opt="file")
-         * 
+         *
          * @return  `true` if at least one pair was parsed,
          *          `false` otherwise, or if the given filestream was not open.
          **/
@@ -79,7 +79,7 @@ namespace util
                             const std::streampos& start = 0,
                             const std::streampos& finish= -1,
                             const char* filename = "file");
-        bool LoadFromStream(const char**    str, 
+        bool LoadFromStream(const char**    str,
                             const uint32_t  start,
                             const uint32_t  finish);
 
@@ -90,9 +90,9 @@ namespace util
          * Retrieves a value based on a key in the dictionary.
          *  If the file stream contained `texture=Data.tga`, and you
          *  called GetValue("texture"), the function gives back "Data.tga".
-         * 
+         *
          * @param   std::string     Key to access
-         * 
+         *
          * @return  Value if it exists, empty string otherwise.
          **/
         std::string GetValue(const string_t& key) const;
@@ -100,11 +100,11 @@ namespace util
         /// Attempts to return an integer representation of a value.
         /// @warning No error checking is performed on conversion.
         inline int GetValuei(const string_t& key) const;
-        
+
         /// Attempts to return a boolean representation of a value.
         /// @warning No error checking is performed on conversion.
         inline bool GetValueb(const string_t& key) const;
-        
+
         /// Attempts to return a floating point representation of a value.
         /// @warning No error checking is performed on conversion.
         inline float GetValuef(const string_t& key) const;
@@ -113,13 +113,13 @@ namespace util
          * Returns an array of values from a key-value pair based on a char.
          *  This will split the 'value' part of a pair based on a
          *  delimiter, and return the result.
-         *  
+         *
          * @param   std::string     Key to access
          * @param   char            Character to split 'value' on
-         * 
+         *
          * @return  Result if 'key' exists,
          *          the 'value' in the pair (in a `vector`) if not.
-         *          
+         *
          * @see     zen::util::split()
          **/
         std::vector<string_t> GetValues(const string_t& key,
@@ -131,8 +131,8 @@ namespace util
         /**
          * Finds the first instance of a string within a file stream.
          *  This function basically reads a file until it finds an instance
-         *  of `finder` in the current line OR up until it reaches the 
-         *  optional `max_pos` argument, which specifies a position in 
+         *  of `finder` in the current line OR up until it reaches the
+         *  optional `max_pos` argument, which specifies a position in
          *  the stream to stop at, whichever comes first.
          *  If `max_pos` is left at the default, -1, the search
          *  is done till EOF (or some other reason causing `std::getline`
@@ -140,11 +140,11 @@ namespace util
          *
          *  The function will return the stream to its starting point
          *  as it was when the function was called.
-         *  
+         *
          * @param   std::ifstream&  Stream to search
          * @param   string_t        String to find
          * @param   std::streampos  Place to stop search (optional=`EOF`)
-         * 
+         *
          * @return  Position the requested string was found at,
          *          `std::streampos(-1)` if it was not found.
          *
@@ -156,15 +156,15 @@ namespace util
 
     private:
         bool ParseLine(const string_t& line);
-        
+
         // An empty string, so GetValue() doesn't return a temporary
         // buffer when nothing is found in the 'const' version.
         static string_t s_empty;
-        
+
         CLog& m_Log;
         pair_t m_pairs;
     };
-    
+
     #include "INIParser.inl"
 }   // namespace util
 }   // namespace zen
@@ -176,7 +176,7 @@ namespace util
  *
  * @description
  *  This file parser defines a very generic type of parsing, since most
- *  files (meshes, levels) in @a Zenderer use a similar formatting. 
+ *  files (meshes, levels) in @a Zenderer use a similar formatting.
  *  For example, in a ZenLevel (see specs/ZenLevel) , an entity can be
  *  placed like so:
  *
@@ -184,11 +184,11 @@ namespace util
  *          texture=Quad.tga
  *          position=100,200
  *      </entity>
- *      
+ *
  *  So you can see that values are split up by an '=' delimiter. Thus,
  *  this generic parser can create a dictionary of values that can
- *  then be easily accessed. 
- *  This eliminates the need to read the file sequentially and worry 
+ *  then be easily accessed.
+ *  This eliminates the need to read the file sequentially and worry
  *  about what might come later and what options are defined while
  *  you're reading.
  *  Now, you can read in the file (or portion of a file), and then
@@ -211,7 +211,7 @@ namespace util
  *  file=example.txt
  *  author=me
  *  package=zenderer
- *  
+ *
  *  // here is the point:
  *  values1=stuff,morestuff,finalstuff
  *  values2=data:moredata:finaldata
@@ -220,7 +220,7 @@ namespace util
  *  And we want to retrieve the values after `values1` and
  *  `values2` separately, since zen::util::CINIParser::GetValue()
  *  with `"values1"` as an argument would return
- *  `"stuff,morestuff,finalstuff"`. We can thus use 
+ *  `"stuff,morestuff,finalstuff"`. We can thus use
  *  zen::util::CINIParser::GetValues() to achieve the effect we
  *  want, like so:
  *

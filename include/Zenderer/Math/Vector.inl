@@ -17,24 +17,24 @@ bool vectorf_t::operator!=(const vectorf_t& Other) const
     return !((*this) == Other);
 }
 
-vectorf_t vectorf_t::operator^(const vectorf_t& Other) const 
+vectorf_t vectorf_t::operator^(const vectorf_t& Other) const
 {
     return vectorf_t(y * Other.z - z * Other.y,
                      x * Other.z - z * Other.x,
                      x * Other.y - y * Other.x);
 }
 
-real_t vectorf_t::operator*(const vectorf_t& Other) const 
+real_t vectorf_t::operator*(const vectorf_t& Other) const
 {
     return x * Other.x + y * Other.y + z * Other.z;
 }
 
-vectorf_t vectorf_t::operator*(const real_t scalar) const 
+vectorf_t vectorf_t::operator*(const real_t scalar) const
 {
     return vectorf_t(x * scalar, y * scalar, z * scalar);
 }
 
-vectorf_t vectorf_t::operator/(const real_t scalar) const 
+vectorf_t vectorf_t::operator/(const real_t scalar) const
 {
     return (*this) * (1 / scalar);
 }
@@ -49,7 +49,7 @@ vectorf_t vectorf_t::operator+(const real_t value) const
     return vectorf_t(x + value, y + value, z + value);
 }
 
-vectorf_t vectorf_t::operator-(const vectorf_t& Other) const 
+vectorf_t vectorf_t::operator-(const vectorf_t& Other) const
 {
     return vectorf_t(x - Other.x, y - Other.y, z - Other.z);
 }

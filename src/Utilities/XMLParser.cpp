@@ -1,5 +1,5 @@
 #include "Zenderer/Utilities/XMLParser.hpp"
-  
+
 using namespace zen;
 
 using util::CLog;
@@ -8,7 +8,7 @@ using util::LogMode;
 using util::CXMLParser;
 
 CXMLParser::CXMLParser() : m_Log(CLog::GetEngineLog())
-{ 
+{
     m_XMLTree.clear();
 }
 
@@ -20,7 +20,7 @@ CXMLParser::~CXMLParser()
 bool CXMLParser::LoadFromFile(const string_t& filename)
 {
     std::ifstream file(filename);
-    
+
     if(!file)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
@@ -107,7 +107,7 @@ int CXMLParser::ParseTree(const char** str, const int index,
                           util::XMLNode* parent)
 {
     int i = index;
-    
+
     while(str != nullptr && str[i] != nullptr)
     {
         // CreateNode() is responsible for increasing the list index.
@@ -116,12 +116,12 @@ int CXMLParser::ParseTree(const char** str, const int index,
                     return this->ParseTree(str, i, pNode);
             }
         );
-        
-        // Some error occurred here, so we move back up 
+
+        // Some error occurred here, so we move back up
         // through the recursion stack.
         if(i < 0) return i;
     }
-    
+
     return -1;
 }
 
@@ -130,7 +130,7 @@ int CXMLParser::ParseTree(std::ifstream& file, const int index,
 {
     string_t line;
     int i = index;
-    
+
     while(std::getline(file, line))
     {
         i = this->CreateNode(line, parent, i,
@@ -138,7 +138,7 @@ int CXMLParser::ParseTree(std::ifstream& file, const int index,
                     return this->ParseTree(file, idex, pNode);
             }
         );
-        
+
         if(i == 0)
         {
             m_XMLTree.push_back(parent);
@@ -146,7 +146,7 @@ int CXMLParser::ParseTree(std::ifstream& file, const int index,
         }
         else if(i < 0) break;
     }
-    
+
     return i;
 }
 
@@ -162,7 +162,7 @@ int CXMLParser::CreateNode(const string_t& line,
         // Next line plz.
         return ++i;
     }
-    
+
     // Some sort of start tag?
     else if(line.find('<') != string_t::npos)
     {
@@ -178,16 +178,16 @@ int CXMLParser::CreateNode(const string_t& line,
             this->ShowXMLError(i + 1, line, "single-line tags forbidden");
             return -1;
         }
-        
+
         // If it's not an end tag, parse it and recurse on it.
         else if(line.find("</") == string_t::npos)
         {
             XMLNode* pNode  = new XMLNode;
             pNode->parent   = parent;
             pNode->children.clear();
-            
+
             if(parent != nullptr) parent->children.push_back(pNode);
-            
+
             // Parse the tag name (e.g. 'test' from <test>).
             const size_t index = line.find('<');
             const size_t end   = line.find(' ', index);
@@ -200,7 +200,7 @@ int CXMLParser::CreateNode(const string_t& line,
                 delete pNode;
                 return -1;
             }
-            
+
             pNode->name = line.substr(index + 1, min(end, end2) - 1);
 
             util::stripl(pNode->name);
@@ -211,18 +211,18 @@ int CXMLParser::CreateNode(const string_t& line,
                line.find('=', index) != string_t::npos)
             {
                 size_t last = end;
-                
+
                 for( ; ; )
                 {
                     size_t start    = last + 1;
                     size_t keyindex = line.find('=', start);
-                    
+
                     // No more options?
                     if(keyindex == string_t::npos) break;
-                    
+
                     size_t valstart = line.find('"', keyindex);
                     size_t valend   = line.find('"', valstart + 1);
-                    
+
                     // Check if we have both characters.
                     // Offset the start so we skip the first " character in substr().
                     if(valstart++ == string_t::npos || valend == string_t::npos)
@@ -232,7 +232,7 @@ int CXMLParser::CreateNode(const string_t& line,
                         // Attempt to save by ending option at tag end.
                         valend = line.find('>', index);
                     }
-                    
+
                     string_t key = line.substr(start, keyindex - start);
                     string_t val = line.substr(valstart, valend - valstart);
 
@@ -243,17 +243,17 @@ int CXMLParser::CreateNode(const string_t& line,
                     last = valend + 1;
                 }
             }
-    
+
             m_XMLTree.push_back(pNode);
-            
+
             // Error so pass it along.
             if((i = callback(i + 1, pNode)) == -1)
                 return i;
-                
+
             // No error so next line.
             else return ++i;
         }
-        
+
         // End of node
         else if(line.find("</") != string_t::npos)
         {

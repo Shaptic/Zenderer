@@ -1,7 +1,7 @@
 /**
  * @file
  *  Zenderer/Assets/Asset.hpp - An abstract base class used by all managed
- *  assets in @a Zenderer. 
+ *  assets in @a Zenderer.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     2.0
@@ -35,8 +35,8 @@ namespace asset
 {
     /// For unique asset ID.
     typedef uint32_t assetid_t;
-    
-    /** 
+
+    /**
      * Used throughout @a Zenderer to act as an asset.
      *  Assets can include audio files, shaders, or any other data that can
      *  be loaded from disk with a filename.
@@ -44,22 +44,22 @@ namespace asset
      *  Inheriting classes are required to be able to successfully reload
      *  themselves if they have been given a filename originally. Thus it is
      *  recommended to store the filename given to CAsset::LoadFromFile()
-     *  internally. In addition, comparisons between assets to check for 
+     *  internally. In addition, comparisons between assets to check for
      *  equivalence is typically done by comparing the filename hash and the
      *  owner address. Thus, CAsset::LoadFromFile() should be sure to call
      *  util::string_hash and store the value internally in
-     *  CAsset::m_filename_hash. By default, if this value is not stored the 
+     *  CAsset::m_filename_hash. By default, if this value is not stored the
      *  base class will hash it on-the-fly, which obviously can be undesirable
      *  with successive calls.
      *
      *  Another requirement for all inheriting classes is the ability to load
      *  a copy of an asset from an existing asset using only existing virtual
      *  methods found in the base class. These will likely include
-     *  CAsset::GetFilename() and CAsset::GetData(). 
+     *  CAsset::GetFilename() and CAsset::GetData().
      *
      *  All assets are assigned a (hopefully) unique ID at instantiation based
      *  on their address in memory. This ID can be used to find the asset using
-     *  the asset manager, assuming the ID is known but the asset is not. The 
+     *  the asset manager, assuming the ID is known but the asset is not. The
      *  ID is also for in comparison.
      *
      * @see util::hash()
@@ -70,14 +70,14 @@ namespace asset
     public:
         /// Logs some information.
         virtual ~CAsset();
-        
+
         /**
          * Loads an asset from the disk.
          * @param   string_t  Filename to load asset from
          * @return `true` if loaded successfully, `false` otherwise.
          **/
         virtual bool LoadFromFile(const string_t& filename) = 0;
-        
+
         /**
          * Copies an asset from another.
          * @param   CAsset*   Asset to create a copy from
@@ -87,13 +87,13 @@ namespace asset
 
         /// Returns the hashed filename for quicker comparison.
         inline uint32_t GetFilenameHash() const;
-        
+
         /// Returns the unique asset ID.
         inline assetid_t GetID() const;
-        
+
         /// Returns the filename used to load the asset.
         virtual inline const string_t& GetFilename() const;
-        
+
         /// Returns raw asset data (usually for reloading).
         virtual const void* const GetData() const = 0;
 
@@ -102,40 +102,40 @@ namespace asset
 
         /// Returns the last error string.
         inline const string_t& GetError() const;
-        
+
         /// Has LoadFromFile() been called successfully?
         inline bool IsLoaded() const;
-        
+
         /// Sets the asset owner.
         inline void SetOwner(const void* const owner);
-        
+
         /// Overrides the asset filename.
         inline void SetFilename(const string_t& filename);
-        
+
         /// Only asset::CAssetManager can create CAsset instances.
         friend class CAssetManager;
-        
+
     protected:
         /// Only asset::CAssetManager can create CAsset instances.
         CAsset(const void* const owner = nullptr);
-        
+
         /// No copy or assignment of assets.
         CAsset(const CAsset& Disabled);             /* = delete; */
         CAsset& operator=(const CAsset& Disabled); /* = delete; */
-        
+
         virtual bool Destroy() = 0;
-        
+
         static uint32_t s_seed;
 
         util::CLog& m_Log;
-        
+
         string_t    m_filename;
         string_t    m_error_str;
         uint32_t    m_filename_hash, m_id;
         bool        m_loaded;
         const void* mp_owner;
     };
-    
+
     #include "Asset.inl"
 }   // namespace asset
 }   // namespace zen

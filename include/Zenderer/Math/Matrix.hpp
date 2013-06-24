@@ -31,7 +31,7 @@ namespace math
 {
     /**
      * 4x4 matrix representation.
-     *  This is in place to support various linear transformation 
+     *  This is in place to support various linear transformation
      *  operations required for moving vertices around in OpenGL
      *  terms. Currently, there is only support for creating projection
      *  matrices for the rendering window / shaders to use.

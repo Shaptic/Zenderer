@@ -37,24 +37,24 @@ namespace sfx
     public:
         CAudio2D();
         virtual ~CAudio2D();
-        
+
         virtual bool LoadFromFile(const string_t& filename) = 0;
-        
+
         /// Called once.
         virtual void Play() = 0;
-        
+
         /// Called every frame after Play()
         virtual void Update() = 0;
-        
+
         /// Returns true if the stream is ready to Update()
         inline bool Ready() const;
-        
+
         /// Unloads the OpenAL source handle.
         void UnloadSource();
-        
+
         ALenum              GetAudioState() const;
         const void* const   GetData()       const;
-        
+
     protected:
         bool Destroy() { this->UnloadSource(); return true; }
 
@@ -62,7 +62,7 @@ namespace sfx
         {
             ALuint* buffers;
             size_t  buffer_count;
-            
+
             ALuint   source;
             real_t  volume;
         };

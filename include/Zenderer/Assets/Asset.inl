@@ -5,7 +5,7 @@ uint32_t CAsset::GetFilenameHash() const
             m_filename_hash);
 }
 
-uint32_t CAsset::GetID() const 
+uint32_t CAsset::GetID() const
 {
     return m_id;
 }
@@ -38,7 +38,7 @@ void CAsset::SetOwner(const void* const owner)
 void CAsset::SetFilename(const string_t& filename)
 {
     ZEN_ASSERT(!filename.empty());
-    
+
     m_filename = filename;
     m_filename_hash = util::string_hash(filename);
 }

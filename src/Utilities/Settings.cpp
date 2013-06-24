@@ -25,7 +25,7 @@ COption& COption::operator=(const COption& Opt)
     m_value = Opt.m_value;
     return (*this);
 }
-            
+
 COption& COption::operator=(const string_t& name)
 {
     m_value = name;
@@ -79,11 +79,11 @@ CSettings::~CSettings() {}
 bool CSettings::Init()
 {
     if(m_filename.empty()) return (m_init = true);
-    
+
     util::CINIParser Parser;
     if(!Parser.LoadFromFile(m_filename))
         return (m_init = false);
-    
+
     // Copy the values from the key=value parser
     // into the internal options dictionary.
     const auto& dict = Parser.GetPairs();
@@ -97,7 +97,7 @@ bool CSettings::Init()
 #endif  // _DEBUG
         ] = i.second;
     }
-    
+
     return (m_init = true);
 }
 
@@ -114,20 +114,20 @@ COption& CSettings::operator[](const string_t& opt)
     uint32_t hash = util::string_hash(opt);
 #else
     const string_t& hash = opt;
-    
+
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Settings") << "Accessing option '"
             << opt << "'." << CLog::endl;
 #endif // _DEBUG
 
     auto iter = m_Options.find(hash);
-    
+
     if(iter == m_Options.end())
     {
         // Create a new blank option and return it
         m_Options[hash] = COption();
         return m_Options[hash];
     }
-    
+
     return iter->second;
 }

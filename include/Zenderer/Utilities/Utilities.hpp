@@ -1,6 +1,6 @@
 /**
  * @file
- *  Utilities/Utilities.hpp - Includes all relevant headers in a batch and 
+ *  Utilities/Utilities.hpp - Includes all relevant headers in a batch and
  *  defines the hashing function.
  *
  * @author      George Kudrayvtsev (halcyon)

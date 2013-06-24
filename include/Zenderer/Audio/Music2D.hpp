@@ -35,35 +35,35 @@ namespace sfx
     public:
         CMusic2D();
         virtual ~CMusic2D();
-        
+
         /// Loads an `.ogg` file from disk.
         bool LoadFromFile(const string_t& filename);
-        
+
         /**
          * Plays the file (if loaded).
-         *  This should only be called a single time, and 
+         *  This should only be called a single time, and
          *  then subsequent calls should be to Update().
          **/
         void Play();
-        
+
         /// Updates the internal file stream for continuous play.
         void Update();
-        
+
         /// Is the stream ready to call Update()?
         bool Ready() const;
 
     private:
         bool FillChunk(const uint32_t buffer);
-        
+
         // Read in 32-byte chunks.
-        static const uint16_t READ_SIZE = (1 << 15); 
-        
+        static const uint16_t READ_SIZE = (1 << 15);
+
         // How many buffers for streaming?
         static const uint8_t BUFFER_COUNT = 3;
-        
+
         // Which AL buffer is in use?
         uint8_t     m_active;
-        
+
         // ogg data
         OggVorbis_File  m_ogg;          // Vorbis file handle
         char*       m_ogg_buffer;       // Raw OGG data buffer

@@ -34,7 +34,7 @@ bool CLog::Init()
 
     time_t now;
     time(&now);
-    
+
     m_log << "[INFO ] Log -- Log initialized on " << ctime(&now);
     this->Newline();
 
@@ -63,7 +63,7 @@ bool CLog::Destroy()
 CLog& CLog::Newline()
 {
     if(m_str.str().empty() || !this->IsInit()) return (*this);
-    
+
 #ifndef _DEBUG
     if(m_mode == util::LogMode::ZEN_DEBUG) return (*this);
 #endif // _DEBUG

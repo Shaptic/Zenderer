@@ -35,13 +35,13 @@ namespace sfx
     public:
         CSound2D();
         virtual ~CSound2D();
-        
+
         bool LoadFromFile(const string_t& filename);
         bool LoadFromExisting(const CAsset* const pCopy){ return true; }
-        
+
         /// Plays the sound effect no matter what (if loaded).
         void Play();
-        
+
         /// This only checks for looping.
         inline void Update()
         {
@@ -50,7 +50,7 @@ namespace sfx
                 this->Play();
             }
         }
-        
+
         /// Always returns `true` if the file is loaded.
         inline bool Ready() const { return true; }
     };

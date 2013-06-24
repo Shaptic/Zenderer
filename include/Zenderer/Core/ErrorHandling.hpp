@@ -40,17 +40,17 @@ namespace zen
      *  format
      *      `[title] -- message.\n`
      *  Both will exit the program after output.
-     *  
-     *  This error handler should be used as a last-level fall-back for 
+     *
+     *  This error handler should be used as a last-level fall-back for
      *  when all others fail. The "prettier" error handlers should be used
      *  in most cases, and this one should be used when there is a failure
      *  to load a proper rendering context, a font fails to load, or some
-     *  other critical error that would prevent the error window from 
+     *  other critical error that would prevent the error window from
      *  creating or displaying properly.
-     * 
+     *
      * @param   message     Error message to output
      * @param   title       Caption on Windows, prefix otherwise.
-     * 
+     *
      * @see     zen::gfx::error_window
      **/
     void error_fallback(const char* message, const char* title = "Error");

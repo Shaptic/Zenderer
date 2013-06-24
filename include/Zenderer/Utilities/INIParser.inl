@@ -2,7 +2,7 @@ inline int CINIParser::GetValuei(const string_t& key) const
 {
     return atoi(this->GetValue(key).c_str());
 }
-    
+
 inline bool CINIParser::GetValueb(const string_t& key) const
 {
     return (toupper(key) == "TRUE" ||

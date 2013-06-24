@@ -19,7 +19,7 @@
  * @addtogroup Utilities
  * @{
  **/
- 
+
 #ifndef ZENDERER__UTILITIES__HELPERS_HPP
 #define ZENDERER__UTILITIES__HELPERS_HPP
 
@@ -61,7 +61,7 @@ namespace util
 
     /**
      * Splits a string into a list of substrings based on a delimiter.
-     *  
+     *
      * @param   string_t    Text to split
      * @param   char        Delimiter value
      * @param   size_t      Guess at how many values there will be (optional)
@@ -78,7 +78,7 @@ namespace util
      * @return  Uppercase equivalent.
      **/
     ZEN_API string_t toupper(const string_t& str);
-    
+
     /**
      * Converts a string to its uppercase equivalent (in-place).
      * @param   string_t&    String to convert
@@ -88,18 +88,18 @@ namespace util
     /**
      * Calculates a hash for some value.
      *  This algorithm is ripped from the MurmurHash2 algorithm.
-     *  
+     *
      *  When called by CAsset::CAsset(), it uses the CAsset::s_seed
      *  value for the seed, which is automatically generated
      *  by the CAssetManager on initialization.
-     * 
+     *
      * @author  Austin Appleby
      * @version r144
      *
      * @param   void*       Data to hash
      * @param   uint32_t    Size of the data
      * @param   uint32_t    Random seed to hash with (optional=`69`)
-     * 
+     *
      * @return  The hash value.
      *
      * @see     https://sites.google.com/site/murmurhash/
@@ -120,11 +120,11 @@ namespace util
         {
             uint32_t k = *(uint32_t*)data;
 
-            k *= m; 
-            k ^= k >> r; 
-            k *= m; 
+            k *= m;
+            k ^= k >> r;
+            k *= m;
 
-            h *= m; 
+            h *= m;
             h ^= k;
 
             data += 4;
@@ -147,7 +147,7 @@ namespace util
 
         return h;
     }
-    
+
     /**
      * Hashes a string to a unique value.
      *  This is just a shortcut to zen::util::hash() for strings.
@@ -162,7 +162,7 @@ namespace util
     {
         return hash(str.c_str(), str.size(), seed);
     }
-    
+
 }   // namespace util
 }   // namespace zen
 

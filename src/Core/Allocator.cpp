@@ -5,7 +5,7 @@ using namespace zen;
 using util::CLog;
 using util::LogMode;
 
-CAllocator::CAllocator(size_t initial /*= (1 << 16)*/) : 
+CAllocator::CAllocator(size_t initial /*= (1 << 16)*/) :
     CSubsystem("Allocator"),
     mp_head(nullptr),
     mp_ptr(nullptr),

@@ -18,7 +18,7 @@ CINIParser::~CINIParser()
 bool CINIParser::LoadFromFile(const string_t& filename)
 {
     m_Log.SetSystem("Parser");
-    
+
     std::ifstream in(filename);
     if(!in)
     {
@@ -28,18 +28,18 @@ bool CINIParser::LoadFromFile(const string_t& filename)
 
         return false;
     }
-    
+
     string_t line;
     size_t line_no = 0;
-    
+
     while(std::getline(in, line))
     {
         ++line_no;
-        
+
         util::stripl(line);
         if(line.empty() || line[0] == '/' || line[0] == '<')
             continue;
-            
+
         if(!this->ParseLine(line))
         {
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
@@ -47,25 +47,25 @@ bool CINIParser::LoadFromFile(const string_t& filename)
                     << " of '" << filename << "'." << CLog::endl;
         }
     }
-    
+
     return (line_no > 0);
 }
 
-bool CINIParser::LoadFromStream(std::ifstream& file, 
+bool CINIParser::LoadFromStream(std::ifstream& file,
                              const std::streampos& start,
                              const std::streampos& finish,
                              const char* filename)
 {
     ZEN_ASSERTM(file, "bad file stream");
-    
+
     file.seekg(start, std::ios::beg);
-    
+
     string_t line;
-    
+
 #ifdef _DEBUG
     size_t line_no = 0;
 #endif // _DEBUG
-    
+
     while(std::getline(file, line) && file.tellg() < finish)
     {
 #ifdef _DEBUG
@@ -75,7 +75,7 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
         util::stripl(line);
         if(line.empty() || line[0] == '/' || line[0] == '<')
             continue;
-        
+
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << "Parsing line " << line_no << " of '"
                 << filename << "': " << line << CLog::endl;
@@ -87,7 +87,7 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
                     << ")." << CLog::endl;
         }
     }
-    
+
     file.seekg(start, std::ios::beg);
     return (!file.bad());
 }
@@ -107,10 +107,10 @@ std::streampos CINIParser::FindInFile(std::ifstream& stream,
                                    const std::streampos& max_pos)
 {
     ZEN_ASSERTM(stream, "bad file stream");
-    
+
     string_t line;
     std::streampos start = stream.tellg();
-    
+
     while(std::getline(stream, line) &&
          (max_pos == std::streampos(-1) || stream.tellg() < max_pos))
     {
@@ -121,7 +121,7 @@ std::streampos CINIParser::FindInFile(std::ifstream& stream,
             return ret;
         }
     }
-    
+
     stream.seekg(start, std::ios::beg);
     return std::streampos(-1);
 }
@@ -130,11 +130,11 @@ bool CINIParser::ParseLine(const string_t& line)
 {
     util::stripl(line);
     util::stript(line);
-    
+
     std::vector<string_t> pair = util::split(line, '=');
-    
+
     if(pair.size() != 2) return false;
-    
+
     m_pairs[pair[0]] = pair[1];
     return true;
 }

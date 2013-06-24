@@ -44,13 +44,13 @@ namespace math
      * Represents a point in 3D rectangular-coordinate space.
      *  Supports all vector operations such as cross products,
      *  dot products, movement, scaling, and rotation.
-     *  
+     *
      *  By default, components are real number values, but it can also
      *  be instantiated with integers if necessary. See vectori_t for this.
      *
      * @todo Add support for translation via matrices.
      * @todo Write vectori_t;
-     * 
+     *
      * @see USE_DOUBLE_PRECISION
      **/
     struct ZEN_API vectorf_t
@@ -80,11 +80,11 @@ namespace math
 
         /**
          * Calculates the cross product of two vectors.
-         *  The cross product of two vectors is a vector that is 
+         *  The cross product of two vectors is a vector that is
          *  perpendicular to both operators. e.g. i = j ^ k.
-         * 
+         *
          * @param   vectorf_t&   The vector to cross with
-         * 
+         *
          * @return  A 3D vector normal to both vectors.
          **/
         inline vectorf_t operator^(const vectorf_t& Other) const;
@@ -168,7 +168,7 @@ namespace math
          *      y = -x * sin(d) + y * cos(d)
          *
          * @param   real_t  The rotation angle in radians.
-         * 
+         *
          * @info    The coordinate system adjustment was removed.
          **/
         inline void Rotate(const real_t radians);
@@ -194,7 +194,7 @@ namespace math
          * @param   vectorf_t&   Vector to test cross product on
          *
          * @return  2D cross product (z-component of 3D cross).
-         * 
+         *
          * @see     operator*(const vectorf_t&)
          **/
         inline real_t Cross2D(const vectorf_t& Other) const;

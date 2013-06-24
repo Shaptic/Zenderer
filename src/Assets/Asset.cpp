@@ -15,7 +15,7 @@ CAsset::CAsset(const void* const owner) :
     m_id(util::hash(this, sizeof(CAsset), CAsset::s_seed))
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
-            << m_Log.SetSystem("Asset") 
+            << m_Log.SetSystem("Asset")
             << "Created asset with ID " << m_id << "."
             << CLog::endl;
 }
@@ -23,7 +23,7 @@ CAsset::CAsset(const void* const owner) :
 CAsset::~CAsset()
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
-            << m_Log.SetSystem("Asset") 
+            << m_Log.SetSystem("Asset")
             << "Asset with ID " << m_id << " destroyed."
             << CLog::endl;
 }

@@ -24,19 +24,19 @@ CMusic2D::~CMusic2D()
 }
 
 bool CMusic2D::LoadFromFile(const string_t& filename)
-{   
+{
     ZEN_ASSERTM(!filename.empty(), "no filename");
     ZEN_ASSERTM(CAudioManager::IsInit(), "OpenAL not initialized");
-    
+
     m_error_code = AL_NO_ERROR;
     m_error_str  = "No error";
-    
+
     // Delete existing source
     if(m_AL.source == 0)
     {
         this->UnloadSource();
     }
-    
+
     // Delete existing stream
     for(size_t i = 0; i < CMusic2D::BUFFER_COUNT; ++i)
     {
@@ -46,41 +46,41 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
             m_AL.buffers[i] = 0;
         }
     }
-    
+
     // Reset to 0's
     memset(m_AL.buffers, 0, CMusic2D::BUFFER_COUNT * sizeof(ALuint));
 
     // Open the OGG file.
     FILE* pFile = fopen(filename.c_str(), "rb");
-    
+
     if(pFile == nullptr)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Audio") << "Failed to open '"
                 << filename << "'." << CLog::endl;
     }
-    
+
     // Validate proper .ogg format
     if(ov_open_callbacks(pFile, &m_ogg, NULL, 0, OV_CALLBACKS_DEFAULT) < 0)
     {
         ov_clear(&m_ogg);
         fclose(pFile);
-        
+
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Audio") << "'" << filename
                 << "' is not a valid .ogg file." << CLog::endl;
-        
+
         return (m_loaded = false);
     }
-    
+
     vorbis_info* pInfo = ov_info(&m_ogg, -1);
     if(pInfo->channels == 1)
         m_format = AL_FORMAT_MONO16;
-        
+
     m_freq = pInfo->rate;
-    
+
     AL(alGenBuffers(CMusic2D::BUFFER_COUNT, m_AL.buffers));
-    
+
     for(size_t i = 0; i < CMusic2D::BUFFER_COUNT; ++i)
         if(!this->FillChunk(m_AL.buffers[i])) return false;
 
@@ -98,8 +98,8 @@ void CMusic2D::Play()
 
         return;
     }
-    
-    // Check to see if we are already playing; if so, 
+
+    // Check to see if we are already playing; if so,
     // do nothing. We cannot play from the start since
     // it's a stream.
     if(this->GetAudioState() == AL_PLAYING)
@@ -107,10 +107,10 @@ void CMusic2D::Play()
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("Audio")
                 << "Already playing '" << m_filename << "'" << CLog::endl;
-        
+
         return;
     }
-    
+
     m_AL.source = CAudioManager::CreateSource();
     if(m_AL.source == -1) return;
 
@@ -126,20 +126,20 @@ void CMusic2D::Play()
 void CMusic2D::Update()
 {
     int processed;
- 
+
     AL(alGetSourcei(m_AL.source, AL_BUFFERS_PROCESSED, &processed));
- 
+
     while(processed--)
     {
         // Temporary buffer handle
         ALuint buffer;
-        
+
         // Pop from front of queue
         AL(alSourceUnqueueBuffers(m_AL.source, 1, &buffer));
- 
+
         // Load from stream
         FillChunk(buffer);
- 
+
         // Push to back of queue
         AL(alSourceQueueBuffers(m_AL.source, 1, &buffer));
     }
@@ -156,13 +156,13 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
 {
     uint16_t total = 0;
     int bits = 0;
-    
+
     if(m_ogg_buffer) delete[] m_ogg_buffer;
     m_ogg_buffer = new char[CMusic2D::READ_SIZE];
-    
+
     while(total < CMusic2D::READ_SIZE)
     {
-        int size = ov_read(&m_ogg, m_ogg_buffer + total, 
+        int size = ov_read(&m_ogg, m_ogg_buffer + total,
                            CMusic2D::READ_SIZE - total,
                            /* little endian */ 0,
                            /* 16-bit        */ 2,
@@ -170,32 +170,32 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
                            &bits);
 
         if(size > 0) total += size;
-        
-        else if(size < 0) 
+
+        else if(size < 0)
         {
             ov_clear(&m_ogg);
             delete[] m_ogg_buffer;
             m_ogg_buffer = nullptr;
-            
+
             CAudioManager::OGGError(size);
             return false;
         }
-        
+
         else break;
     }
-    
+
     if(total == 0)
     {
         ov_clear(&m_ogg);
         delete[] m_ogg_buffer;
         m_ogg_buffer = nullptr;
-        
+
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("OpenAL")
                 << "Reached end of audio file." << CLog::endl;
         return false;
     }
-    
+
     AL(alBufferData(buffer, m_format, m_ogg_buffer, total, m_freq));
 
     return true;

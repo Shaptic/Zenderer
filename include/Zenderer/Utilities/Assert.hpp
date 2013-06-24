@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/Utilities/Assert.hpp - A debug utility for verifying 
+ *  Zenderer/Utilities/Assert.hpp - A debug utility for verifying
  *  program state at runtime.
  *
  * @author      George Kudrayvtsev (halcyon)
@@ -61,14 +61,14 @@ namespace util
      *  This function can, but likely should not be called directly,
      *  since it relates to the preprocessor macro ZEN_ASSERT (defined
      *  above) to evaluate the given expression as a string.
-     *  The stored error is as follows:  
+     *  The stored error is as follows:
      *
      *       [FATAL] Assert -- `expression_str` failed at line `line_no` of `file_name`: `_msg_`
      *
      *  The variable names above are replaced with their respective values,
      *  naturally.
      *
-     *  If this is used with the `ZEN_ASSERT` macro, this will ONLY 
+     *  If this is used with the `ZEN_ASSERT` macro, this will ONLY
      *  actually do things in Debug builds, with `_DEBUG` specified.
      **/
     ZEN_API void runtime_assert(const bool      expression,

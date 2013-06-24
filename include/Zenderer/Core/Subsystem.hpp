@@ -49,7 +49,7 @@ namespace zen
 
         /**
          * Cleans up the subsystem completely.
-         *  Typically, a subsystem can be re-initialized by setting new 
+         *  Typically, a subsystem can be re-initialized by setting new
          *  parameters via various Set* methods and calling Init() again,
          *  but this is specific to the inheriting class.
          **/
@@ -64,7 +64,7 @@ namespace zen
         { m_Log = Log; }
 
         /// Retrieves the subsystem name.
-        inline const string_t& GetName() const 
+        inline const string_t& GetName() const
         { return m_name; }
 
         friend ZEN_API bool Init();
@@ -91,16 +91,16 @@ namespace zen
 
 /**
  * @class zen::CSubsystem
- * 
+ *
  * @description
- *  A valid engine subsystem can be initialized and destroyed without 
+ *  A valid engine subsystem can be initialized and destroyed without
  *  relying on the con/destructor. This is intentional so that errors can
- *  be handled gracefully by the caller, or internally if need be. A 
+ *  be handled gracefully by the caller, or internally if need be. A
  *  subsystem can accept a custom log (zen::util::CLog), found in
- *  Utilities/Log.hpp, but should preferably just be the global engine log 
+ *  Utilities/Log.hpp, but should preferably just be the global engine log
  *  that is created on engine initialization. If a custom log stream is
  *  provided (via SetCustomLog()), any output will theoretically be logged
- *  to both the global engine log and the given stream, but this is 
+ *  to both the global engine log and the given stream, but this is
  *  implementation-specific to the derived classes. Most likely won't,
  *  largely due to exclusively to laziness and no desire to check
  *  `if(mp_Log != NULL)` every single time something needs to be done.
@@ -110,33 +110,33 @@ namespace zen
  *  you see that since a subsystem takes no parameters by default (a design
  *  limitation of C++ and inheritance in general), you can pass things to
  *  the constructor that the Init() method will use during actual
- *  initialization. 
- *  
+ *  initialization.
+ *
  *  The CSubsystem constructor takes an optional string parameter that will
- *  give a name to the subsystem, which is useful for logging various 
+ *  give a name to the subsystem, which is useful for logging various
  *  actions later. This defaults to just "Subsystem".
  *
  * @example Subsystem
  *  @section bare_min A Bare Minimum Example
- *  
+ *
  *  A valid subsystem could behave in a way similar to the example below.
  *  Let us assume that we have declared a derived class named `CRenderer`
  *  that takes a parameter for initialization and only implements the bare
  *  minimum methods implemented, as we will show here:
- *  
+ *
  *  @code
  *  CRenderer::CRenderer(const int a) : CSubsystem("Renderer"), m_a(a) {}
- *  
+ *
  *  bool CRenderer::Init()
  *  {
  *      if(m_a == 69)
  *          return (m_init = true);
  *      return false;
- *      
+ *
  *      // Yay for one-liners:
  *      return (m_init = (m_a == 69));
  *  }
- *  
+ *
  *  bool CRenderer::Destroy()
  *  {
  *      if(m_init)  return !(m_init = false);

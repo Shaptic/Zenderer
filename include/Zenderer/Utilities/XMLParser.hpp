@@ -49,7 +49,7 @@ namespace util
      * A single XML node.
      *
      * Given:
-     * 
+     *
      * @code
      * <!-- Sample XML file -->
      * <html>
@@ -68,7 +68,7 @@ namespace util
      *  options     | `["background": "nothing"]`
      *  content     | `"Some text"`
      *  name        | `"body"`
-     **/    
+     **/
     struct ZEN_API XMLNode
     {
         XMLNode*        parent;     ///< Parent node
@@ -85,22 +85,22 @@ namespace util
     public:
         /// Does nothing.
         CXMLParser();
-    
+
         /// Clears the internal XML tree.
         ~CXMLParser();
-    
+
         /// Loads and parses an XML file from disk.
         bool LoadFromFile(const string_t& filename);
-    
+
         /// Loads and parses XML data from a string.
         bool LoadFromString(const char** str);
 
         /// Retrieve the immutable node data for the first tag occurrence.
         const XMLNode* const FindNode(const string_t& name) const;
-    
+
         /// Retrieve the mutable node data for the first tag occurrence.
         XMLNode* FindNode(const string_t& name);
-    
+
         /// Deletes the XML tree.
         void ClearTree();
 
@@ -127,15 +127,15 @@ namespace util
         static void ShowXMLError(const uint32_t line_no,
                                  const string_t& line,
                                  const string_t& reason);
-    
+
     private:
         /// Recursive method to parse an XML tree.
         int ParseTree(const char** str, const int index, XMLNode* parent);
         int ParseTree(std::ifstream& f, const int index, XMLNode* parent);
-    
+
         int CreateNode(const string_t& line, XMLNode* parent, int i,
                        std::function<int(const size_t, XMLNode*)> callback);
-    
+
         XMLList_t m_XMLTree;
         CLog& m_Log;
     };
@@ -149,13 +149,13 @@ namespace util
     {
         return m_XMLTree.cbegin();
     }
-    
+
     XMLList_t::iterator CXMLParser::end()
     {
         return m_XMLTree.end();
     }
 
-    const XMLList_t::const_iterator CXMLParser::cend() const 
+    const XMLList_t::const_iterator CXMLParser::cend() const
     {
         return m_XMLTree.cend();
     }
@@ -171,7 +171,7 @@ namespace util
  * @description
  *  This parser is definitely not W3C compliant and will only accept
  *  a very strict subset of standard XML code.
- *  
+ *
  *  @section Format
  *
  *  @subsection Tags
@@ -180,9 +180,9 @@ namespace util
  *      Tag names cannot contain spaces; well, theoretically, they can,
  *      but it's undefined behavior since I haven't tested it.
  *      Tags must be on lines by themselves, as well as their closing tags.
- *      Tags without a body are not allowed. 
+ *      Tags without a body are not allowed.
  *      There must be an equal number of opening and closing tags, but
- *      they don't have to necessarily have identical names :) 
+ *      they don't have to necessarily have identical names :)
  *      meaning
  *
  *          <open>
@@ -208,7 +208,7 @@ namespace util
  *
  *  @subsection Comments
  *      Comments can only span a single line. They are distinguished by
- *      a `&lt;!-- ` prefix and end with a ` --&gt;` suffix. The spaces 
+ *      a `&lt;!-- ` prefix and end with a ` --&gt;` suffix. The spaces
  *      *are required*.
  *
  *      @code
@@ -248,6 +248,6 @@ namespace util
  *  In summation: stay perfect. If you think it might not work, it
  *  probably wont :)
  **/
- 
+
 /** @} **/
  
