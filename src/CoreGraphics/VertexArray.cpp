@@ -37,7 +37,7 @@ bool CVertexArray::Init()
 
 bool CVertexArray::Destroy()
 {
-    if(!m_init) return false;
+    if(!m_init) return true;
 
     ZEN_ASSERT(m_vao != 0);
     ZEN_ASSERT(m_vbo != 0);
