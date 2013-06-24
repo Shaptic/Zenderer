@@ -132,7 +132,7 @@ namespace asset
         string_t    m_filename;
         string_t    m_error_str;
         uint32_t    m_filename_hash, m_id;
-        bool        m_loaded;        
+        bool        m_loaded;
         const void* mp_owner;
     };
     

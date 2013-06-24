@@ -81,6 +81,7 @@
     <ClInclude Include="include\Zenderer\Audio\Music2D.hpp" />
     <ClInclude Include="include\Zenderer\Audio\Sound2D.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\OpenGL.hpp" />
+    <ClInclude Include="include\Zenderer\CoreGraphics\ShaderSet.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\VertexArray.hpp" />
     <ClInclude Include="include\Zenderer\Core\Allocator.hpp" />
     <ClInclude Include="include\Zenderer\Core\ErrorHandling.hpp" />

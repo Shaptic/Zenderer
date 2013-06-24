@@ -132,6 +132,9 @@
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\CoreGraphics\ShaderSet.hpp">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">

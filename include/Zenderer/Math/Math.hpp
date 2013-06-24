@@ -25,6 +25,7 @@
 
 #include "MathCore.hpp"
 #include "Vector.hpp"
+#include "Matrix.hpp"
 
 #endif // ZENDERER__MATH__MATH_HPP
 
