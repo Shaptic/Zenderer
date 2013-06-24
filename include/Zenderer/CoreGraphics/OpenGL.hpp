@@ -114,6 +114,8 @@ namespace gfxcore
         virtual bool Unbind()   = 0;
 
         virtual GLuint GetObjectHandle() = 0;
+        
+        inline bool IsInit() { return m_init; }
 
         virtual inline const string_t& GetName() const
         { return m_name; }

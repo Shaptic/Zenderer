@@ -30,6 +30,9 @@
 #include "Zenderer/Assets/Asset.hpp"
 #include "OpenGL.hpp"
 
+/// File path to engine-specific shader files.
+#define ZENDERER_SHADER_PATH "Zenderer/Shaders/"
+
 namespace zen
 {
 namespace gfxcore
