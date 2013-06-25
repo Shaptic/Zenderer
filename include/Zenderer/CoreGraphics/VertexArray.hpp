@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/GraphicsCore/VertexArray.hpp - A wrapper class for OpenGL
+ *  Zenderer/CoreGraphics/VertexArray.hpp - A wrapper class for OpenGL
  *  Vertex Array Objects.
  *
  * @author      George Kudrayvtsev (halcyon)

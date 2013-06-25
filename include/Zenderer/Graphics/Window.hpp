@@ -39,6 +39,8 @@
 
 namespace zen
 {
+
+/// Encompasses all user-level graphics APIs.
 namespace gfx
 {
     /// Minimum supported OpenGL API version.
