@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('classzen_1_1_c_allocator.html','');});
 <div class="contents">
 
 <p>An optional custom allocator for high-speed memory requests.  
-</p>
+ <a href="classzen_1_1_c_allocator.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>&quot;</code></p>
 <div class="dynheader">
@@ -219,7 +219,22 @@ static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsy
 <tr class="separator:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>Let us assume a memory structure like so:</p>
+<p>0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000</p>
+<p>Thus we store an internal <code>std::list&lt;int&gt;</code> containing only a single value: 47. 47 because there are 48 free bytes, and we differentiate between free and used bytes by making the number odd if they are free.</p>
+<p>When we want to allocate 9 bytes (for example, a tightly unpacked <code>struct</code> with a <code>char</code> and a <code>double</code> member), the memory structure would change to look like this:</p>
+<p>_______________ Next block pointer | v 1111 1111 1111 0000 0000 0000 0000 0000 0000 0000 0000 0000 ^ |______ Head pointer</p>
+<p>We pad the 9 bytes to 12 for alignment purposes (assuming a <code>CAllocator::BLOCK_SIZE</code> of 4), and now our interal byte <code>list</code> contains <code>{ 12, 35 }</code> because we have an occupied block of 12 bytes (even) followed by a free block of 35 bytes (odd).</p>
+<p>Let's assume again that we allocate 32 bytes, and then free our first 12 byte block. Now the memory structure looks like this: </p>
+<pre class="fragment">       Next block pointer ___________________________
+                                                     |
+                                                     v
+</pre><p> 0000 0000 0000 1111 1111 1111 1111 1111 1111 1111 1111 0000 ^ |______ Head pointer</p>
+<p>and our internal byte <code>list</code> contains <code>{ 11, 32, 3 }</code> for 12 free bytes, 32 used bytes, and 4 free bytes, respectively.</p>
+<p>Finally, let's assume the user requests an allocation of 8 bytes. From the next block pointer (shown above), there is no viable 8-byte chunk to allocate, so the search begins from the head.</p>
+<p>This is actually done by analyzing the internal memory <code>list</code>. With a request of 8 bytes and a final free block of 3 bytes (since the next block pointer always points to the last free block, so <code>list.end()</code>) we start the search from <code>list.begin()</code>, giving us 11 which we know as a free block of 12 bytes. Thus we can return the head pointer and make the list contain <code>{ 8, 3, 32, 3}</code>.</p>
+<p>As you can see, the memory becomes fairly fragmented, and a subsequent request to allocate 8 bytes would fail, despite there being 8 bytes available. This is impossible to remedy without a lot of slow memory movement, which would in turn cause all of the allocated pointers to be completely invalid on the user end. </p>
+
 <p>Definition at line <a class="el" href="_allocator_8hpp_source.html#l00033">33</a> of file <a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a373cf7aa19d780609ee1b5314a32bac8"></a>

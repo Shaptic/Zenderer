@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -137,7 +137,7 @@ $(document).ready(function(){initNavTree('_helpers_8hpp_source.html','');});
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                        <span class="keyword">const</span> <span class="keywordtype">size_t</span> approx = 0);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent.">toupper</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; str);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent.">toupper</a>(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; str);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78">  107</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> uint32_t <a class="code" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">hash</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* pdata, uint32_t size,</div>
@@ -156,11 +156,11 @@ $(document).ready(function(){initNavTree('_helpers_8hpp_source.html','');});
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            uint32_t k = *(uint32_t*)data;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            k *= m; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            k ^= k &gt;&gt; r; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            k *= m; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            k *= m;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            k ^= k &gt;&gt; r;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            k *= m;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            h *= m; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            h *= m;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            h ^= k;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            data += 4;</div>
@@ -183,13 +183,13 @@ $(document).ready(function(){initNavTree('_helpers_8hpp_source.html','');});
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span> h;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db">  160</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> uint32_t <a class="code" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">string_hash</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; str,</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                                               <span class="keyword">const</span> uint32_t seed = 69)</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    {</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">hash</a>(str.c_str(), str.size(), seed);</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}   <span class="comment">// namespace util</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}   <span class="comment">// namespace zen</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>

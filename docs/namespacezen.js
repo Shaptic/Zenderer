@@ -8,11 +8,14 @@ var namespacezen =
     [ "gfxcore", null, [
       [ "vertex_t", "structzen_1_1gfxcore_1_1vertex__t.html", "structzen_1_1gfxcore_1_1vertex__t" ],
       [ "CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html", "classzen_1_1gfxcore_1_1_c_g_l_subsystem" ],
+      [ "CShader", "classzen_1_1gfxcore_1_1_c_shader.html", "classzen_1_1gfxcore_1_1_c_shader" ],
+      [ "CShaderSet", "classzen_1_1gfxcore_1_1_c_shader_set.html", "classzen_1_1gfxcore_1_1_c_shader_set" ],
       [ "DrawBatch", "structzen_1_1gfxcore_1_1_draw_batch.html", "structzen_1_1gfxcore_1_1_draw_batch" ],
       [ "CVertexArray", "classzen_1_1gfxcore_1_1_c_vertex_array.html", "classzen_1_1gfxcore_1_1_c_vertex_array" ],
       [ "CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html", "classzen_1_1gfxcore_1_1_c_sorter" ]
     ] ],
     [ "gfx", null, [
+      [ "CEffect", "classzen_1_1gfx_1_1_c_effect.html", "classzen_1_1gfx_1_1_c_effect" ],
       [ "CWindow", "classzen_1_1gfx_1_1_c_window.html", "classzen_1_1gfx_1_1_c_window" ],
       [ "CSceneManager", "classzen_1_1gfx_1_1_c_scene_manager.html", null ]
     ] ],

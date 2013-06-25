@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('_asset_8inl_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;            m_filename_hash);</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;uint32_t CAsset::GetID()<span class="keyword"> const </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;uint32_t CAsset::GetID()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordflow">return</span> m_id;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
@@ -150,7 +150,7 @@ $(document).ready(function(){initNavTree('_asset_8inl_source.html','');});
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> CAsset::SetFilename(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ZEN_ASSERT(!filename.empty());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    m_filename = filename;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    m_filename_hash = <a class="code" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash</a>(filename);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>

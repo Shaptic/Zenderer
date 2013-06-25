@@ -125,4 +125,6 @@ namespace gfx
 }   // namespace zen
 
 #endif  // ZENDERER__GRAPHICS__EFFECT_HPP
+
+/** @} **/
  

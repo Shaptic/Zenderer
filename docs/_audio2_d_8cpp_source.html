@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -118,7 +118,7 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CAudio2D::CAudio2D() : </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CAudio2D::CAudio2D() :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    m_error_code(AL_NO_ERROR), m_loop(false)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_AL.buffers = <span class="keyword">new</span> ALuint[1];</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> CAudio2D::GetAudioState()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(m_AL.source == 0) <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> state;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    AL(alGetSourcei(m_AL.source, AL_SOURCE_STATE, &amp;state));</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> state;</div>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -156,6 +156,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1util_1_1_c_settings.html#a33261683fedb84d56ef9477247b89b4b">zen::util::CSettings</a>
 , <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a5fcb27d270dd8270023b72dcbd6acfa9">zen::util::CXMLParser</a>
 </li>
+<li>Bind()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a84230651feb9a4c8bb28f307845d9181">zen::gfxcore::CShaderSet</a>
+</li>
 </ul>
 
 
@@ -175,6 +178,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>Create()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa">zen::asset::CAssetManager</a>
 </li>
+<li>CreateShaderObject()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401">zen::gfxcore::CShaderSet</a>
+</li>
 <li>CreateSource()
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#a5c00dd3076e14440b4f6d5ee17cd5ea1">zen::sfx::CAudioManager</a>
 </li>
@@ -182,7 +188,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="structzen_1_1math_1_1vectorf__t.html#ad1e6cc3df2ecf0084fa02a21a7a1de8d">zen::math::vectorf_t</a>
 </li>
 <li>CSubsystem()
-: <a class="el" href="classzen_1_1_c_subsystem.html#ab3e6f6c78ae1a64c4063433136edf8cd">zen::CSubsystem</a>
+: <a class="el" href="classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb">zen::CSubsystem</a>
 </li>
 <li>CXMLParser()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a57ef047bac46de34e6dc890b47559ec1">zen::util::CXMLParser</a>
@@ -196,11 +202,16 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>Destroy()
 : <a class="el" href="classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed">zen::CAllocator</a>
-, <a class="el" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f">zen::util::CLog</a>
-, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">zen::gfx::CWindow</a>
-, <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>
 , <a class="el" href="classzen_1_1util_1_1_c_settings.html#ae08be94f7ac820aa5e61abb1d48c9adf">zen::util::CSettings</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">zen::gfx::CWindow</a>
+, <a class="el" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f">zen::util::CLog</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad6d26ebcd8bb0a2b0ba6764f8db28e8b">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2">zen::gfxcore::CShader</a>
+, <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>
 , <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a57f2b7429435b3683c2bdd1e5321c8c1">zen::asset::CAssetManager</a>
+</li>
+<li>Disable()
+: <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#ad096c93d5455aaa3e6a9564dad9995b3">zen::gfx::CEffect</a>
 </li>
 <li>DisableFullscreen()
 : <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08">zen::gfx::CWindow</a>
@@ -209,12 +220,15 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>Enable()
+: <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#ac58cc325318a367e677bbaffc43268af">zen::gfx::CEffect</a>
+</li>
 <li>EnableFullscreen()
 : <a class="el" href="classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee">zen::gfx::CWindow</a>
 </li>
 <li>end()
-: <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69">zen::util::CXMLParser</a>
-, <a class="el" href="classzen_1_1util_1_1_c_settings.html#a96ded7256e50a61d5e38beddf66e9e16">zen::util::CSettings</a>
+: <a class="el" href="classzen_1_1util_1_1_c_settings.html#a96ded7256e50a61d5e38beddf66e9e16">zen::util::CSettings</a>
+, <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69">zen::util::CXMLParser</a>
 </li>
 </ul>
 
@@ -224,7 +238,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="group___assets.html#ga297ea5291960e1b9444433e460218a54">zen::asset::CAssetManager</a>
 </li>
 <li>FindInFile()
-: <a class="el" href="group___utilities.html#ga6dcd1b91f04642dbee87b4d7b4d9909f">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a6dcd1b91f04642dbee87b4d7b4d9909f">zen::util::CINIParser</a>
 </li>
 <li>FindNode()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a1f08169cf0e30d1400a0254a466e5d6b">zen::util::CXMLParser</a>
@@ -239,6 +253,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>GetAssetCount()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564">zen::asset::CAssetManager</a>
 </li>
+<li>GetAttributeLocation()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a11018fa62d2b3f3ba764e9197530fa24">zen::gfxcore::CShaderSet</a>
+</li>
 <li>GetAvailableSource()
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61">zen::sfx::CAudioManager</a>
 </li>
@@ -248,6 +265,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>GetData()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231">zen::asset::CAsset</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb">zen::sfx::CAudio2D</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89">zen::gfxcore::CShader</a>
 </li>
 <li>GetEngineLog()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d">zen::util::CLog</a>
@@ -278,25 +296,35 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020">zen::asset::CAsset</a>
 </li>
 <li>GetPairs()
-: <a class="el" href="group___utilities.html#gab5ba9999369bf4454a64db8d45b5ee5e">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a76bcd06c50e0356a80b3ee034123aadc">zen::util::CINIParser</a>
+</li>
+<li>GetShaderLog()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#af573f0d43cb279c78640edbeca50f387">zen::gfxcore::CShader</a>
+</li>
+<li>GetShaderObject()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#af936c6fbb74be5f169ce3813752eeac9">zen::gfxcore::CShader</a>
 </li>
 <li>GetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d">zen::util::CLog</a>
 </li>
+<li>GetUniformLocation()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a839825794c47ce66f508c5c7d4fc835f">zen::gfxcore::CShaderSet</a>
+</li>
 <li>GetValue()
-: <a class="el" href="group___utilities.html#ga8b7f91e53336cd8c0e6707eac1c74fe2">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a8b7f91e53336cd8c0e6707eac1c74fe2">zen::util::CINIParser</a>
 </li>
 <li>GetValueb()
-: <a class="el" href="group___utilities.html#gaea41451a7d888f37f556828cb4dc5535">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aea41451a7d888f37f556828cb4dc5535">zen::util::CINIParser</a>
 </li>
 <li>GetValuef()
-: <a class="el" href="group___utilities.html#ga53fe17f3cfc5cebb01f7104d2b11fe5d">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a53fe17f3cfc5cebb01f7104d2b11fe5d">zen::util::CINIParser</a>
 </li>
 <li>GetValuei()
-: <a class="el" href="group___utilities.html#gaef355b201c3c5efd3ada50f1f694ca9c">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aef355b201c3c5efd3ada50f1f694ca9c">zen::util::CINIParser</a>
 </li>
 <li>GetValues()
-: <a class="el" href="group___utilities.html#gac57686358966190d7c29a88ff1c87429">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac57686358966190d7c29a88ff1c87429">zen::util::CINIParser</a>
 </li>
 </ul>
 
@@ -323,22 +351,43 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>LoadFragmentShaderFromFile()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e">zen::gfxcore::CShaderSet</a>
+</li>
+<li>LoadFragmentShaderFromStr()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a79ce501721c4e221581e4f5f750e274f">zen::gfxcore::CShaderSet</a>
+</li>
 <li>LoadFromExisting()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad9f063b46e205198c5e260c690fda484">zen::asset::CAsset</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a253256315aba27fb7ce909a3c025a22f">zen::gfxcore::CShader</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">zen::asset::CAsset</a>
 </li>
 <li>LoadFromFile()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0">zen::asset::CAsset</a>
-, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>
-, <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b">zen::util::CXMLParser</a>
-, <a class="el" href="group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8">zen::util::CINIParser</a>
-, <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>
+: <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">zen::gfxcore::CShader</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0">zen::asset::CAsset</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8">zen::util::CINIParser</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>
+, <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b">zen::util::CXMLParser</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>
+</li>
+<li>LoadFromRaw()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">zen::gfxcore::CShader</a>
+</li>
+<li>LoadFromStr()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6879dbb14e43fe9041e9a3d03e3c9fc1">zen::gfxcore::CShaderSet</a>
 </li>
 <li>LoadFromStream()
-: <a class="el" href="group___utilities.html#ga3ec9d6389a1a43a66e4fc4755f321ff4">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3ec9d6389a1a43a66e4fc4755f321ff4">zen::util::CINIParser</a>
 </li>
 <li>LoadFromString()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b">zen::util::CXMLParser</a>
+</li>
+<li>LoadVertexShaderFromFile()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68">zen::gfxcore::CShaderSet</a>
+</li>
+<li>LoadVertexShaderFromStr()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acf21477665b647aa7db5287a4a83c157">zen::gfxcore::CShaderSet</a>
 </li>
 </ul>
 
@@ -401,16 +450,18 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#a1aa1be3e46d348f176ebfa756363a6a5">zen::util::CLog</a>
 </li>
 <li>operator=()
-: <a class="el" href="structzen_1_1math_1_1vectorf__t.html#a4b362f0c1b56579d289cc8c24890958a">zen::math::vectorf_t</a>
-, <a class="el" href="classzen_1_1util_1_1_c_option.html#ad3d32c722af952aff701a56d0b1dde49">zen::util::COption</a>
+: <a class="el" href="classzen_1_1util_1_1_c_option.html#ad3d32c722af952aff701a56d0b1dde49">zen::util::COption</a>
+, <a class="el" href="structzen_1_1math_1_1vectorf__t.html#a4b362f0c1b56579d289cc8c24890958a">zen::math::vectorf_t</a>
+, <a class="el" href="classzen_1_1util_1_1_c_option.html#a6b96a9e520988bc6a7a93f5d2db5f0cd">zen::util::COption</a>
 </li>
 <li>operator==()
 : <a class="el" href="structzen_1_1math_1_1vectorf__t.html#ac7ba013855024a41d3d54d8f07bcdbc7">zen::math::vectorf_t</a>
-, <a class="el" href="classzen_1_1util_1_1_c_option.html#a87feea8dedabd95dc4eea01f441756e3">zen::util::COption</a>
+, <a class="el" href="classzen_1_1util_1_1_c_option.html#a126a66ce23187af399a28ffb28ac9ea5">zen::util::COption</a>
 </li>
 <li>operator[]()
-: <a class="el" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4">zen::util::CSettings</a>
-, <a class="el" href="classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31">zen::CAllocator</a>
+: <a class="el" href="classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31">zen::CAllocator</a>
+, <a class="el" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4">zen::util::CSettings</a>
+, <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6">zen::math::matrix4x4_t</a>
 </li>
 <li>operator^()
 : <a class="el" href="structzen_1_1math_1_1vectorf__t.html#abc018266c713bfed150560bddc1415f6">zen::math::vectorf_t</a>
@@ -421,8 +472,11 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
 <li>Play()
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a3b7e239fe6c2e676845fc385c4b7bab2">zen::sfx::CAudio2D</a>
-, <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7">zen::sfx::CSound2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36">zen::sfx::CMusic2D</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7">zen::sfx::CSound2D</a>
+</li>
+<li>Projection2D()
+: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a44adf36130e3df63e8c16ccf2b2b8316">zen::math::matrix4x4_t</a>
 </li>
 </ul>
 
@@ -437,7 +491,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c">zen::asset::CAssetManager</a>
 </li>
 <li>Reset()
-: <a class="el" href="group___utilities.html#gaf3b867e089ded53f3540e53a08236f5e">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#af3b867e089ded53f3540e53a08236f5e">zen::util::CINIParser</a>
 </li>
 <li>Rotate()
 : <a class="el" href="structzen_1_1math_1_1vectorf__t.html#a2d89f13a7dbdbf3a0c062986fc60943d">zen::math::vectorf_t</a>
@@ -462,6 +516,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>SetOwner()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ab43b0d72c2e2df204df3f582d10efeba">zen::asset::CAsset</a>
 </li>
+<li>SetParameter()
+: <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a95fa7b2a8bba84bd5322a53ff44fadb7">zen::gfx::CEffect</a>
+</li>
 <li>SetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7">zen::util::CLog</a>
 </li>
@@ -485,14 +542,17 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>Unbind()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a9067d6bb31b957b8e17ec3e98a46bdd8">zen::gfxcore::CShaderSet</a>
+</li>
 <li>UnloadSource()
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72">zen::sfx::CAudio2D</a>
 </li>
 <li>Update()
-: <a class="el" href="classzen_1_1gfx_1_1_c_window.html#add0da6a90f80b92718021ccaa032ff3b">zen::gfx::CWindow</a>
-, <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b">zen::sfx::CSound2D</a>
+: <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b">zen::sfx::CSound2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aa2d07ee000b0dfeabc800f46f580b649">zen::sfx::CMusic2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#ab2f2dcf0135d07daf4ac735ee59daec5">zen::sfx::CAudio2D</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c">zen::gfx::CWindow</a>
 </li>
 </ul>
 

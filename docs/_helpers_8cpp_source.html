@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -116,28 +116,28 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea">    5</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea" title="Strips leading whitespace from a string (in-place).">util::stripl</a>(std::string&amp; text)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">size_t</span> i = 0;    </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">size_t</span> i = 0;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">while</span>(text[i++] == <span class="charliteral">&#39; &#39;</span> || text[i] == <span class="charliteral">&#39;\t&#39;</span> &amp;&amp; i &lt; text.length());</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    text = text.substr(i - 1);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a75be5691bdb9c06944dc063450e3ca90">   12</a></span>&#160;std::string <a class="code" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea" title="Strips leading whitespace from a string (in-place).">util::stripl</a>(<span class="keyword">const</span> std::string&amp; text)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">size_t</span> i = 0;    </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">size_t</span> i = 0;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">while</span>(text[i++] == <span class="charliteral">&#39; &#39;</span> || text[i] == <span class="charliteral">&#39;\t&#39;</span> &amp;&amp; i &lt; text.length());</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> text.substr(i - 1);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c" title="Strips trailing whitespace from a string (in-place).">util::stript</a>(std::string&amp; text)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> i = text.length();    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> i = text.length();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">while</span>(text[--i] == <span class="charliteral">&#39; &#39;</span> || text[i] == <span class="charliteral">&#39;\t&#39;</span> &amp;&amp; i &gt;= 0);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    text = text.substr(0, i + 1);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a3826b0db2e11c31105d7dee750c2de04">   26</a></span>&#160;std::string <a class="code" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c" title="Strips trailing whitespace from a string (in-place).">util::stript</a>(<span class="keyword">const</span> std::string&amp; text)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> i = text.length();    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> i = text.length();</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">while</span>(text[--i] == <span class="charliteral">&#39; &#39;</span> || text[i] == <span class="charliteral">&#39;\t&#39;</span> &amp;&amp; i &gt;= 0);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> text.substr(0, i + 1);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
@@ -146,9 +146,9 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::vector&lt;string_t&gt; splitResults;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">size_t</span> last = 0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">if</span>(approx) splitResults.resize(approx);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">for</span>( ; ; )</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">size_t</span> index = text.find(delim, last);</div>
@@ -178,9 +178,9 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Start further in the string.</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        last = next;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ZEN_ASSERT(!splitResults.empty());</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> splitResults;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
@@ -189,7 +189,7 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> result(str);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : result)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        i = <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent.">::toupper</a>(i);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>

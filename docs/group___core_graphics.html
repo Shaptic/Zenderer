@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -122,9 +122,54 @@ Macros</h2></td></tr>
 <tr class="memitem:gadd7e49d426171a52326fe77251d93c3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadd7e49d426171a52326fe77251d93c3d"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>GL</b>(f)&#160;&#160;&#160;f; if(glGetError() != GL_NO_ERROR) return false;</td></tr>
 <tr class="separator:gadd7e49d426171a52326fe77251d93c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad13a32464d536179e9bb243578075a0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad13a32464d536179e9bb243578075a0c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c">ZENDERER_SHADER_PATH</a>&#160;&#160;&#160;&quot;Zenderer/Shaders/&quot;</td></tr>
+<tr class="memdesc:gad13a32464d536179e9bb243578075a0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">File path to engine-specific shader files. <br/></td></tr>
+<tr class="separator:gad13a32464d536179e9bb243578075a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7359d9b6b9dfd56a112725d085aa2f53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53">VBO_OFFSET</a>(c, object, field)</td></tr>
+<tr class="memdesc:ga7359d9b6b9dfd56a112725d085aa2f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirty macro to determine the offset of a field within a struct.  <a href="#ga7359d9b6b9dfd56a112725d085aa2f53">More...</a><br/></td></tr>
+<tr class="separator:ga7359d9b6b9dfd56a112725d085aa2f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Currently, <em>Zenderer</em> only supports OpenGL, but with a good level of abstraction, it should be possible to adapt it to use DirectX for rendering, as well. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga7359d9b6b9dfd56a112725d085aa2f53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VBO_OFFSET</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">c, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">object, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">(<span class="keywordtype">void</span>*)((c * <span class="keyword">sizeof</span>(<span class="keywordtype">object</span>)) +  \</div>
+<div class="line">            (<span class="keywordtype">long</span> int)&amp;(((<span class="keywordtype">object</span>*)<span class="keyword">nullptr</span>)-&gt;field))</div>
+</div><!-- fragment --><p>Used throughout the CVertexBuffer class to determine the offsets of data in the GPU buffers. </p>
+
+<p>Definition at line <a class="el" href="_vertex_array_8hpp_source.html#l00038">38</a> of file <a class="el" href="_vertex_array_8hpp_source.html">VertexArray.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

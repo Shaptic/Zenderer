@@ -1,24 +1,6 @@
 var group___utilities =
 [
     [ "zen", "namespacezen.html", null ],
-    [ "util", "namespacezen_1_1util.html", null ],
-    [ "CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html", [
-      [ "pair_t", "group___utilities.html#gafeefbaa65dfdd868ba009c8a8531428c", null ],
-      [ "CINIParser", "group___utilities.html#ga20c84eda45d2687f2ff9c1c9269a5083", null ],
-      [ "~CINIParser", "group___utilities.html#ga47316c05513638fd204ed6abd9aa0c06", null ],
-      [ "LoadFromFile", "group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8", null ],
-      [ "LoadFromStream", "group___utilities.html#ga3ec9d6389a1a43a66e4fc4755f321ff4", null ],
-      [ "LoadFromStream", "group___utilities.html#gaa4bf277e6c50fd30e2ccd91e36a8b135", null ],
-      [ "Reset", "group___utilities.html#gaf3b867e089ded53f3540e53a08236f5e", null ],
-      [ "GetValue", "group___utilities.html#ga8b7f91e53336cd8c0e6707eac1c74fe2", null ],
-      [ "GetValuei", "group___utilities.html#gaef355b201c3c5efd3ada50f1f694ca9c", null ],
-      [ "GetValueb", "group___utilities.html#gaea41451a7d888f37f556828cb4dc5535", null ],
-      [ "GetValuef", "group___utilities.html#ga53fe17f3cfc5cebb01f7104d2b11fe5d", null ],
-      [ "GetValues", "group___utilities.html#gac57686358966190d7c29a88ff1c87429", null ],
-      [ "GetPairs", "group___utilities.html#ga76bcd06c50e0356a80b3ee034123aadc", null ],
-      [ "GetPairs", "group___utilities.html#gab5ba9999369bf4454a64db8d45b5ee5e", null ],
-      [ "FindInFile", "group___utilities.html#ga6dcd1b91f04642dbee87b4d7b4d9909f", null ]
-    ] ],
     [ "CLog", "classzen_1_1util_1_1_c_log.html", [
       [ "CLog", "classzen_1_1util_1_1_c_log.html#a188d8bf9beb5f1faa7560ca028a8bf72", null ],
       [ "CLog", "classzen_1_1util_1_1_c_log.html#a042b3f3980addc9561a3817c088e5922", null ],
@@ -53,16 +35,5 @@ var group___utilities =
       [ "end", "classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69", null ],
       [ "cend", "classzen_1_1util_1_1_c_x_m_l_parser.html#a2c72e5d19878a84dd42ee5345985e862", null ],
       [ "ShowXMLError", "classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f", null ]
-    ] ],
-    [ "LoadFromFile", "group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8", null ],
-    [ "LoadFromStream", "group___utilities.html#ga3ec9d6389a1a43a66e4fc4755f321ff4", null ],
-    [ "Reset", "group___utilities.html#gaf3b867e089ded53f3540e53a08236f5e", null ],
-    [ "GetValue", "group___utilities.html#ga8b7f91e53336cd8c0e6707eac1c74fe2", null ],
-    [ "GetValuei", "group___utilities.html#gaef355b201c3c5efd3ada50f1f694ca9c", null ],
-    [ "GetValueb", "group___utilities.html#gaea41451a7d888f37f556828cb4dc5535", null ],
-    [ "GetValuef", "group___utilities.html#ga53fe17f3cfc5cebb01f7104d2b11fe5d", null ],
-    [ "GetValues", "group___utilities.html#gac57686358966190d7c29a88ff1c87429", null ],
-    [ "GetPairs", "group___utilities.html#ga76bcd06c50e0356a80b3ee034123aadc", null ],
-    [ "GetPairs", "group___utilities.html#gab5ba9999369bf4454a64db8d45b5ee5e", null ],
-    [ "FindInFile", "group___utilities.html#ga6dcd1b91f04642dbee87b4d7b4d9909f", null ]
+    ] ]
 ];

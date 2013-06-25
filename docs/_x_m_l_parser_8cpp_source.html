@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_x_m_l_parser_8hpp.html" title="Zenderer/Utilities/XMLParser.hpp - A minimalistic XML parsing utility.">Zenderer/Utilities/XMLParser.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html" title="A minimalistic XML parser that expects near-perfection from the user.">util::CXMLParser</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a57ef047bac46de34e6dc890b47559ec1">   10</a></span>&#160;CXMLParser::CXMLParser() : m_Log(<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>::GetEngineLog())</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{ </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_XMLTree.clear();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
@@ -132,7 +132,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b" title="Loads and parses an XML file from disk.">CXMLParser::LoadFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::ifstream file(filename);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(!file)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
@@ -218,7 +218,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                          <a class="code" href="structzen_1_1util_1_1_x_m_l_node.html" title="A single XML node.">util::XMLNode</a>* parent)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">int</span> i = index;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">while</span>(str != <span class="keyword">nullptr</span> &amp;&amp; str[i] != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">// CreateNode() is responsible for increasing the list index.</span></div>
@@ -227,12 +227,12 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    <span class="keywordflow">return</span> this-&gt;ParseTree(str, i, pNode);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            }</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        );</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// Some error occurred here, so we move back up </span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// Some error occurred here, so we move back up</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="comment">// through the recursion stack.</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span>(i &lt; 0) <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> line;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">int</span> i = index;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">while</span>(std::getline(file, line))</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        i = this-&gt;CreateNode(line, parent, i,</div>
@@ -249,7 +249,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    <span class="keywordflow">return</span> this-&gt;ParseTree(file, idex, pNode);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            }</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        );</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span>(i == 0)</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        {</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            m_XMLTree.push_back(parent);</div>
@@ -257,7 +257,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        }</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(i &lt; 0) <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
@@ -273,7 +273,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="comment">// Next line plz.</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">return</span> ++i;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">// Some sort of start tag?</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(line.find(<span class="charliteral">&#39;&lt;&#39;</span>) != string_t::npos)</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    {</div>
@@ -289,16 +289,16 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            this-&gt;<a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f" title="Outputs an XML error.">ShowXMLError</a>(i + 1, line, <span class="stringliteral">&quot;single-line tags forbidden&quot;</span>);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        }</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="comment">// If it&#39;s not an end tag, parse it and recurse on it.</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(line.find(<span class="stringliteral">&quot;&lt;/&quot;</span>) == string_t::npos)</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        {</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            XMLNode* pNode  = <span class="keyword">new</span> XMLNode;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            pNode-&gt;parent   = parent;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            pNode-&gt;<a class="code" href="structzen_1_1util_1_1_x_m_l_node.html#a31fa35bfe9b153c6b190080134d166a1" title="List of child nodes.">children</a>.clear();</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">if</span>(parent != <span class="keyword">nullptr</span>) parent-&gt;<a class="code" href="structzen_1_1util_1_1_x_m_l_node.html#a31fa35bfe9b153c6b190080134d166a1" title="List of child nodes.">children</a>.push_back(pNode);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="comment">// Parse the tag name (e.g. &#39;test&#39; from &lt;test&gt;).</span></div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> index = line.find(<span class="charliteral">&#39;&lt;&#39;</span>);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69" title="Returns ending iterator of tree (for range-based for() loops).">end</a>   = line.find(<span class="charliteral">&#39; &#39;</span>, index);</div>
@@ -311,7 +311,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <span class="keyword">delete</span> pNode;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            }</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            pNode-&gt;name = line.substr(index + 1, <a class="code" href="namespacezen_1_1math.html#ada9d465b2b43004ec4da17e3e3dafac6" title="Returns the minimum of two values (first value if same)">min</a>(end, end2) - 1);</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <a class="code" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea" title="Strips leading whitespace from a string (in-place).">util::stripl</a>(pNode-&gt;name);</div>
@@ -322,18 +322,18 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;               line.find(<span class="charliteral">&#39;=&#39;</span>, index) != string_t::npos)</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            {</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                <span class="keywordtype">size_t</span> last = <a class="code" href="classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69" title="Returns ending iterator of tree (for range-based for() loops).">end</a>;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                <span class="keywordflow">for</span>( ; ; )</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                {</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    <span class="keywordtype">size_t</span> start    = last + 1;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                    <span class="keywordtype">size_t</span> keyindex = line.find(<span class="charliteral">&#39;=&#39;</span>, start);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                    <span class="comment">// No more options?</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    <span class="keywordflow">if</span>(keyindex == string_t::npos) <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                    <span class="keywordtype">size_t</span> valstart = line.find(<span class="charliteral">&#39;&quot;&#39;</span>, keyindex);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                    <span class="keywordtype">size_t</span> valend   = line.find(<span class="charliteral">&#39;&quot;&#39;</span>, valstart + 1);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                    </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="comment">// Check if we have both characters.</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    <span class="comment">// Offset the start so we skip the first &quot; character in substr().</span></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    <span class="keywordflow">if</span>(valstart++ == string_t::npos || valend == string_t::npos)</div>
@@ -343,7 +343,7 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        <span class="comment">// Attempt to save by ending option at tag end.</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                        valend = line.find(<span class="charliteral">&#39;&gt;&#39;</span>, index);</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                    </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> key = line.substr(start, keyindex - start);</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> val = line.substr(valstart, valend - valstart);</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
@@ -354,17 +354,17 @@ $(document).ready(function(){initNavTree('_x_m_l_parser_8cpp_source.html','');})
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                    last = valend + 1;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                }</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            m_XMLTree.push_back(pNode);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            <span class="comment">// Error so pass it along.</span></div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keywordflow">if</span>((i = callback(i + 1, pNode)) == -1)</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="comment">// No error so next line.</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">return</span> ++i;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="comment">// End of node</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(line.find(<span class="stringliteral">&quot;&lt;/&quot;</span>) != string_t::npos)</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        {</div>

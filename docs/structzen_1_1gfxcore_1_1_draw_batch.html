@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -114,32 +114,40 @@ $(document).ready(function(){initNavTree('structzen_1_1gfxcore_1_1_draw_batch.ht
 <div class="title">zen::gfxcore::DrawBatch Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A collection of drawing data to pass to a <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a>.  
+</p>
+
+<p><code>#include &quot;<a class="el" href="_vertex_array_8hpp_source.html">VertexArray.hpp</a>&quot;</code></p>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::DrawBatch:</div>
 <div class="dyncontent">
 <div class="center"><img src="structzen_1_1gfxcore_1_1_draw_batch__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_draw_batch_coll__map" alt="Collaboration graph"/></div>
 <map name="zen_1_1gfxcore_1_1_draw_batch_coll__map" id="zen_1_1gfxcore_1_1_draw_batch_coll__map">
-<area shape="rect" id="node2" href="structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l+ color\l|}" alt="" coords="13,5,160,112"/></map>
+<area shape="rect" id="node2" href="structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="13,206,160,298"/><area shape="rect" id="node3" href="structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="37,5,136,141"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a840c53d7d48601c3a0672cfcfc3e480f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a840c53d7d48601c3a0672cfcfc3e480f"></a>
-<a class="el" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Vertices</b></td></tr>
+<a class="el" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1gfxcore_1_1_draw_batch.html#a840c53d7d48601c3a0672cfcfc3e480f">Vertices</a></td></tr>
+<tr class="memdesc:a840c53d7d48601c3a0672cfcfc3e480f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertex array. <br/></td></tr>
 <tr class="separator:a840c53d7d48601c3a0672cfcfc3e480f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83c7cacda425edf9caffaf5b141b13fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83c7cacda425edf9caffaf5b141b13fd"></a>
-index_t *&#160;</td><td class="memItemRight" valign="bottom"><b>Indices</b></td></tr>
+index_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1gfxcore_1_1_draw_batch.html#a83c7cacda425edf9caffaf5b141b13fd">Indices</a></td></tr>
+<tr class="memdesc:a83c7cacda425edf9caffaf5b141b13fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index array. <br/></td></tr>
 <tr class="separator:a83c7cacda425edf9caffaf5b141b13fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae97bf3356acd7fef63a4b99257a6aa58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae97bf3356acd7fef63a4b99257a6aa58"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>vcount</b></td></tr>
 <tr class="separator:ae97bf3356acd7fef63a4b99257a6aa58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa54ae28df17ec7cd2677ae9b5e9f584e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa54ae28df17ec7cd2677ae9b5e9f584e"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>icount</b></td></tr>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e">icount</a></td></tr>
+<tr class="memdesc:aa54ae28df17ec7cd2677ae9b5e9f584e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertex / index count. <br/></td></tr>
 <tr class="separator:aa54ae28df17ec7cd2677ae9b5e9f584e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_vertex_array_8hpp_source.html#l00052">52</a> of file <a class="el" href="_vertex_array_8hpp_source.html">VertexArray.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vertex_array_8hpp_source.html#l00053">53</a> of file <a class="el" href="_vertex_array_8hpp_source.html">VertexArray.hpp</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_vertex_array_8hpp_source.html">VertexArray.hpp</a></li>
 </ul>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,7 +110,8 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_g_l_subsyste
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">zen::gfxcore::CGLSubsystem Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
@@ -125,18 +126,19 @@ Inheritance diagram for zen::gfxcore::CGLSubsystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_g_l_subsystem__inherit__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map" id="zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 6 more...\l}" alt="" coords="12,219,191,443"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,248,128,472"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 7 more...\l}" alt="" coords="152,248,331,472"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::CGLSubsystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_g_l_subsystem__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1gfxcore_1_1_c_g_l_subsystem_coll__map" id="zen_1_1gfxcore_1_1_c_g_l_subsystem_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:abbdb5c1ad66dd08038e7ac268930e991"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbdb5c1ad66dd08038e7ac268930e991"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CGLSubsystem</b> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;Renderer&quot;)</td></tr>
+<tr class="separator:abbdb5c1ad66dd08038e7ac268930e991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a432fea1dd5947e6f254dcd3570a349e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a432fea1dd5947e6f254dcd3570a349e8"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
 <tr class="separator:a432fea1dd5947e6f254dcd3570a349e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,16 +154,28 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()
 <tr class="memitem:a26f9eca8110b4b06e104166f81cd9481"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26f9eca8110b4b06e104166f81cd9481"></a>
 virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectHandle</b> ()=0</td></tr>
 <tr class="separator:a26f9eca8110b4b06e104166f81cd9481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f51d92f06d547070a5231f10f21fb7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f51d92f06d547070a5231f10f21fb7e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInit</b> ()</td></tr>
+<tr class="separator:a8f51d92f06d547070a5231f10f21fb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05627df3b5723c2221d58d5a8da4732"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa05627df3b5723c2221d58d5a8da4732"></a>
+virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> () const </td></tr>
+<tr class="separator:aa05627df3b5723c2221d58d5a8da4732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ad4248e312e0b60e82ff78d6e7b53f382"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4248e312e0b60e82ff78d6e7b53f382"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
 <tr class="separator:ad4248e312e0b60e82ff78d6e7b53f382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a299b9079941c4aa17daa982ea5b6f99a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a299b9079941c4aa17daa982ea5b6f99a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>zen::Quit</b> ()</td></tr>
+<tr class="separator:a299b9079941c4aa17daa982ea5b6f99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00102">102</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00104">104</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a></li>
 <li>Zenderer/src/CoreGraphics/<a class="el" href="_open_g_l_8cpp_source.html">OpenGL.cpp</a></li>

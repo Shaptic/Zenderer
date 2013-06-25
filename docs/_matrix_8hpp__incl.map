@@ -1,0 +1,7 @@
+<map id="Zenderer/include/Zenderer/Math/Matrix.hpp" name="Zenderer/include/Zenderer/Math/Matrix.hpp">
+<area shape="rect" id="node2" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="168,96,253,123"/>
+<area shape="rect" id="node5" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="217,245,383,272"/>
+<area shape="rect" id="node8" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="159,171,261,197"/>
+<area shape="rect" id="node10" href="$_vector_8inl_source.html" title="Vector.inl" alt="" coords="337,171,415,197"/>
+<area shape="rect" id="node9" href="$_math_core_8inl_source.html" title="MathCore.inl" alt="" coords="98,245,192,272"/>
+</map>

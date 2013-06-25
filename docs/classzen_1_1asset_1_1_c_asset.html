@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -128,7 +128,7 @@ Inheritance diagram for zen::asset::CAsset:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset__inherit__graph.png" border="0" usemap="#zen_1_1asset_1_1_c_asset_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1asset_1_1_c_asset_inherit__map" id="zen_1_1asset_1_1_c_asset_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="{zen::sfx::CAudio2D\n|# m_error_code\l# m_AL\l# m_loop\l|+ CAudio2D()\l+ ~CAudio2D()\l+ LoadFromFile()\l+ Play()\l+ Update()\l+ Ready()\l+ UnloadSource()\l+ GetAudioState()\l+ GetData()\l# Destroy()\l}" alt="" coords="89,454,223,693"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="5,749,141,899"/><area shape="rect" id="node4" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="165,741,312,907"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html" title="{zen::gfxcore::CShader\n||+ CShader()\l+ ~CShader()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ Destroy()\l+ GetData()\l+ GetShaderObject()\l+ GetShaderLog()\l}" alt="" coords="5,476,155,671"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="{zen::sfx::CAudio2D\n|# m_error_code\l# m_AL\l# m_loop\l|+ CAudio2D()\l+ ~CAudio2D()\l+ LoadFromFile()\l+ Play()\l+ Update()\l+ Ready()\l+ UnloadSource()\l+ GetAudioState()\l+ GetData()\l# Destroy()\l}" alt="" coords="179,454,313,693"/><area shape="rect" id="node4" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="96,749,232,899"/><area shape="rect" id="node5" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="256,741,403,907"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::asset::CAsset:</div>
@@ -147,9 +147,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a3a5a49d12fc7f291f5de04a7f52757b0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)=0</td></tr>
 <tr class="memdesc:a3a5a49d12fc7f291f5de04a7f52757b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an asset from the disk.  <a href="#a3a5a49d12fc7f291f5de04a7f52757b0">More...</a><br/></td></tr>
 <tr class="separator:a3a5a49d12fc7f291f5de04a7f52757b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f063b46e205198c5e260c690fda484"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad9f063b46e205198c5e260c690fda484">LoadFromExisting</a> (const <a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> *const pCopy)=0</td></tr>
-<tr class="memdesc:ad9f063b46e205198c5e260c690fda484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an asset from another.  <a href="#ad9f063b46e205198c5e260c690fda484">More...</a><br/></td></tr>
-<tr class="separator:ad9f063b46e205198c5e260c690fda484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7628ec85ea3e8a6268acd18cb4ad40a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">LoadFromExisting</a> (const <a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> *const pCopy)</td></tr>
+<tr class="memdesc:ad7628ec85ea3e8a6268acd18cb4ad40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an asset from another.  <a href="#ad7628ec85ea3e8a6268acd18cb4ad40a">More...</a><br/></td></tr>
+<tr class="separator:ad7628ec85ea3e8a6268acd18cb4ad40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9fa59ebe5c3a989d77b9095a624fd37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9fa59ebe5c3a989d77b9095a624fd37"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37">GetFilenameHash</a> () const </td></tr>
 <tr class="memdesc:ae9fa59ebe5c3a989d77b9095a624fd37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hashed filename for quicker comparison. <br/></td></tr>
@@ -245,7 +245,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <div class="textblock"><p>Assets can include audio files, shaders, or any other data that can be loaded from disk with a filename.</p>
 <p>Inheriting classes are required to be able to successfully reload themselves if they have been given a filename originally. Thus it is recommended to store the filename given to <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">CAsset::LoadFromFile()</a> internally. In addition, comparisons between assets to check for equivalence is typically done by comparing the filename hash and the owner address. Thus, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">CAsset::LoadFromFile()</a> should be sure to call <a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash</a> and store the value internally in CAsset::m_filename_hash. By default, if this value is not stored the base class will hash it on-the-fly, which obviously can be undesirable with successive calls.</p>
 <p>Another requirement for all inheriting classes is the ability to load a copy of an asset from an existing asset using only existing virtual methods found in the base class. These will likely include <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174" title="Returns the filename used to load the asset.">CAsset::GetFilename()</a> and <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231" title="Returns raw asset data (usually for reloading).">CAsset::GetData()</a>.</p>
-<p>All assets are assigned a (hopefully) unique ID at instantiation based on their address in memory. This ID can be used to find the asset using the asset manager, assuming the ID is known but the asset is not. The ID is also for in comparison.</p>
+<p>All assets are assigned a (hopefully) unique ID at instantiation based on their address in memory. This ID can be used to find the asset using the asset manager, assuming the ID is known but the asset is not. The ID is also used in comparison.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">util::hash()</a> </dd>
 <dd>
 <a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash()</a> </dd></dl>
@@ -281,11 +281,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if loaded successfully, <code>false</code> otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>, and <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>.</p>
+<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">zen::gfxcore::CShader</a>, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>, and <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad9f063b46e205198c5e260c690fda484"></a>
+<a class="anchor" id="ad7628ec85ea3e8a6268acd18cb4ad40a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -293,7 +293,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool zen::asset::CAsset::LoadFromExisting </td>
+          <td class="memname">bool CAsset::LoadFromExisting </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> *const&#160;</td>
           <td class="paramname"><em>pCopy</em></td><td>)</td>
@@ -302,17 +302,20 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>By default, this just copies all of the asset metadata over, excluding any implementation-specific data. It's recommended to overload this method, and then just call <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a" title="Copies an asset from another.">CAsset::LoadFromExisting()</a> again internally to ensure all metadata is copied (if that's desired).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">CAsset*</td><td>Asset to create a copy from </td></tr>
+    <tr><td class="paramname">CAsset*</td><td>Asset to create a copy from</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if copied successfully, <code>false</code> otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="_asset_8cpp_source.html#l00031">31</a> of file <a class="el" href="_asset_8cpp_source.html">Asset.cpp</a>.</p>
 
 </div>
 </div>

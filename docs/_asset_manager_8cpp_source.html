@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        mp_managerAssets.clear();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
@@ -154,19 +154,19 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ZEN_ASSERT(this-&gt;<a class="code" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644" title="Returns the sub-system initialization status.">IsInit</a>());</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ZEN_ASSERT(pAsset != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Verify that this is our asset to delete.</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">auto</span> b = mp_managerAssets.begin(), e = mp_managerAssets.end();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">auto</span> s = CAssetManager::sp_allAssets.begin(),</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;         t = CAssetManager::sp_allAssets.end();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>( ; b != e; )</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span>(*b == pAsset &amp;&amp; (*b)-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020" title="Returns address of asset owner.">GetOwner</a>() == pAsset-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020" title="Returns address of asset owner.">GetOwner</a>())</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keyword">delete</span> *b;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            mp_managerAssets.erase(b);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">// Remove from global storage</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span>( ; s != t; )</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
@@ -183,7 +183,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            (*b)-&gt;Destroy();</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        ++b;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
@@ -196,7 +196,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    ZEN_ASSERT(this-&gt;<a class="code" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644" title="Returns the sub-system initialization status.">IsInit</a>());</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    ZEN_ASSERTM(index &lt; this-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564" title="Returns the amount of assets this manager has.">GetAssetCount</a>() &amp;&amp; index &gt;= 0,</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="stringliteral">&quot;index out of range&quot;</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564" title="Returns the amount of assets this manager has.">GetAssetCount</a>() == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    std::list&lt;CAsset*&gt;::iterator it = mp_managerAssets.begin();</div>
@@ -211,12 +211,12 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    ZEN_ASSERT(this-&gt;<a class="code" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644" title="Returns the sub-system initialization status.">IsInit</a>());</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    ZEN_ASSERT(!filename.empty());</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;AssetManager&quot;</span>)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Searching for &#39;&quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39;:&quot;</span> &lt;&lt; owner &lt;&lt; <span class="stringliteral">&quot;.&quot;</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    uint32_t <a class="code" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">hash</a> = <a class="code" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash</a>(filename);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// Speed comparisons: http://ideone.com/eaIbCB</span></div>
@@ -238,7 +238,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;AssetManager&quot;</span>)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Searching for asset with ID &quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">auto</span> b = mp_managerAssets.begin(), e = mp_managerAssets.end();</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">for</span>( ; b != e; ++b)</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>

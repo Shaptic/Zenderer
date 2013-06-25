@@ -7,6 +7,7 @@ var searchData=
   ['clog',['CLog',['../classzen_1_1util_1_1_c_log.html#a188d8bf9beb5f1faa7560ca028a8bf72',1,'zen::util::CLog::CLog(const string_t &amp;filename, const bool show_stdout=false)'],['../classzen_1_1util_1_1_c_log.html#a042b3f3980addc9561a3817c088e5922',1,'zen::util::CLog::CLog(const CLog &amp;Copy)']]],
   ['compf',['compf',['../namespacezen_1_1math.html#aabd370ffdf05dd995a20fc89408cad16',1,'zen::math']]],
   ['create',['Create',['../classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa',1,'zen::asset::CAssetManager']]],
+  ['createshaderobject',['CreateShaderObject',['../classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401',1,'zen::gfxcore::CShaderSet']]],
   ['createsource',['CreateSource',['../classzen_1_1sfx_1_1_c_audio_manager.html#a5c00dd3076e14440b4f6d5ee17cd5ea1',1,'zen::sfx::CAudioManager']]],
   ['cross2d',['Cross2D',['../structzen_1_1math_1_1vectorf__t.html#ad1e6cc3df2ecf0084fa02a21a7a1de8d',1,'zen::math::vectorf_t']]],
   ['csubsystem',['CSubsystem',['../classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb',1,'zen::CSubsystem::CSubsystem(const string_t name=&quot;Subsystem&quot;)'],['../classzen_1_1_c_subsystem.html#ab3e6f6c78ae1a64c4063433136edf8cd',1,'zen::CSubsystem::CSubsystem(const CSubsystem &amp;)']]],

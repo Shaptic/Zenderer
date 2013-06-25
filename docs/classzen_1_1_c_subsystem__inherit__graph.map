@@ -1,6 +1,6 @@
 <map id="zen::CSubsystem" name="zen::CSubsystem">
 <area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset_manager.html" title="{zen::asset::CAssetManager\n||+ CAssetManager()\l+ ~CAssetManager()\l+ Init()\l+ Destroy()\l+ Create()\l+ Recreate()\l+ Delete()\l+ Delete()\l+ Find()\l+ Find()\l+ GetAssetCount()\l+ Create()\l+ Recreate()\l+ FinalizeAsset()\l+ GetGlobalAssetCount()\l}" alt="" coords="5,293,189,576"/>
 <area shape="rect" id="node3" href="$classzen_1_1_c_allocator.html" title="An optional custom allocator for high&#45;speed memory requests." alt="" coords="214,345,324,525"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_window.html" title="{zen::gfx::CWindow\n||+ CWindow()\l+ ~CWindow()\l+ Init()\l+ Destroy()\l+ Clear()\l+ Clear()\l+ Update()\l+ ToggleFullscreen()\l+ EnableFullscreen()\l+ DisableFullscreen()\l+ AttachAssetManager()\l+ SetClearBits()\l}" alt="" coords="349,315,512,554"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_window.html" title="{zen::gfx::CWindow\n||+ CWindow()\l+ ~CWindow()\l+ Init()\l+ Destroy()\l+ Clear()\l+ Clear()\l+ Update()\l+ ToggleFullscreen()\l+ EnableFullscreen()\l+ DisableFullscreen()\l+ AttachAssetManager()\l+ SetClearBits()\l+ GetProjectionMatrix()\l}" alt="" coords="349,308,512,561"/>
 <area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_settings.html" title="{zen::util::CSettings\n||+ CSettings()\l+ ~CSettings()\l+ Init()\l+ Destroy()\l+ operator[]()\l+ begin()\l+ end()\l+ GetEngineInstance()\l}" alt="" coords="537,345,689,525"/>
 </map>

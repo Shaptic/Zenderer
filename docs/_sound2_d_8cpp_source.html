@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -129,13 +129,13 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">   18</a></span>&#160;<span class="keywordtype">bool</span> CSound2D::LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ZEN_ASSERT(!filename.empty());</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    AL(alGenBuffers(1, &amp;m_AL.buffers[0]));</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// #lazylyfe</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    m_AL.buffers[0] = alutCreateBufferFromFile(filename.c_str());</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// This doesn&#39;t use the `AL` macro because we need </span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// This doesn&#39;t use the `AL` macro because we need</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// to do some buffer clean up.</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(m_AL.buffers[0] == AL_NONE)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
@@ -162,11 +162,11 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;No file loaded&quot;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Check to see if we are already playing; if so, </span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Check to see if we are already playing; if so,</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// do nothing. We cannot play from the start since</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// it&#39;s a stream.</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(this-&gt;GetAudioState() == AL_PLAYING)</div>
@@ -175,10 +175,10 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Already playing &#39;&quot;</span> &lt;&lt; m_filename &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    this-&gt;UnloadSource();</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    m_AL.source = CAudioManager::CreateSource();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(!m_AL.source) <span class="keywordflow">return</span>;</div>

@@ -1,5 +1,12 @@
 <map id="Zenderer/include/Zenderer/Assets/AssetManager.hpp" name="Zenderer/include/Zenderer/Assets/AssetManager.hpp">
-<area shape="rect" id="node2" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="5,97,176,138"/>
-<area shape="rect" id="node4" href="$_asset_manager_8cpp_source.html" title="Zenderer/src/Assets\l/AssetManager.cpp" alt="" coords="200,97,339,138"/>
-<area shape="rect" id="node3" href="$_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="15,187,165,229"/>
+<area shape="rect" id="node2" href="$_shader_set_8hpp.html" title="Zenderer/CoreGraphics/ShaderSet.hpp &#45; A wrapper class for OpenGL shaders containing a set of shader o..." alt="" coords="192,97,387,138"/>
+<area shape="rect" id="node3" href="$_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp &#45; A high&#45;level shader wrapper intended to be used by the user..." alt="" coords="5,187,176,229"/>
+<area shape="rect" id="node9" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="461,97,632,138"/>
+<area shape="rect" id="node5" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="403,187,573,229"/>
+<area shape="rect" id="node11" href="$_asset_manager_8cpp_source.html" title="Zenderer/src/Assets\l/AssetManager.cpp" alt="" coords="656,97,795,138"/>
+<area shape="rect" id="node8" href="$_shader_set_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/ShaderSet.cpp" alt="" coords="201,187,377,229"/>
+<area shape="rect" id="node4" href="$_effect_8cpp_source.html" title="Zenderer/src/Graphics\l/Effect.cpp" alt="" coords="15,278,165,319"/>
+<area shape="rect" id="node6" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="291,285,479,312"/>
+<area shape="rect" id="node7" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="504,285,677,312"/>
+<area shape="rect" id="node10" href="$_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="598,187,748,229"/>
 </map>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_id(util::<a class="code" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">hash</a>(this, sizeof(CAsset), CAsset::s_seed))</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_INFO)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Asset&quot;</span>) </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Asset&quot;</span>)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Created asset with ID &quot;</span> &lt;&lt; m_id &lt;&lt; <span class="stringliteral">&quot;.&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
@@ -135,10 +135,21 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a34d3bc4ca78a32392f46b15e6f272ccc">   23</a></span>&#160;CAsset::~CAsset()</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_INFO)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Asset&quot;</span>) </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Asset&quot;</span>)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Asset with ID &quot;</span> &lt;&lt; m_id &lt;&lt; <span class="stringliteral">&quot; destroyed.&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">   31</a></span>&#160;<span class="keywordtype">bool</span> CAsset::LoadFromExisting(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">CAsset</a>* <span class="keyword">const</span> pCopy)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    m_error_str     = pCopy-&gt;m_error_str;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_filename      = pCopy-&gt;m_filename;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_filename_hash = pCopy-&gt;m_filename_hash;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    mp_owner        = pCopy-&gt;mp_owner;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    m_loaded        = pCopy-&gt;m_loaded;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

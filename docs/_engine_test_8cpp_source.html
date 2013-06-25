@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3031 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -175,54 +175,80 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp_source.html','');});
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">                    &lt;&lt; i.second &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    Settings[<span class="stringliteral">&quot;PLAYER_ALIVE&quot;</span>] = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Player: &quot;</span> &lt;&lt; Settings[<span class="stringliteral">&quot;PLAYER_ALIVE&quot;</span>] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    Settings[<span class="stringliteral">&quot;PLAYER_ALIVE&quot;</span>] = 42;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">size_t</span> health = Settings[<span class="stringliteral">&quot;PLAYER_HEALTH&quot;</span>];</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">size_t</span> health = Settings[<span class="stringliteral">&quot;PLAYER_HEALTH&quot;</span>];</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;Health: &quot;</span> &lt;&lt; health &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests.">CAllocator</a>&amp; g_Alloc = CAllocator::Get();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span>*    arr1 = g_Alloc.get&lt;<span class="keywordtype">int</span>&gt;(2);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">char</span>*   arr2 = g_Alloc.get&lt;<span class="keywordtype">char</span>&gt;(45);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">double</span>* arr3 = g_Alloc.get&lt;<span class="keywordtype">double</span>&gt;(5);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::fill(arr1 , arr1 + 2, 69);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests.">CAllocator</a>&amp; g_Alloc = CAllocator::Get();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span>*    arr1 = g_Alloc.get&lt;<span class="keywordtype">int</span>&gt;(2);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">char</span>*   arr2 = g_Alloc.get&lt;<span class="keywordtype">char</span>&gt;(45);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">double</span>* arr3 = g_Alloc.get&lt;<span class="keywordtype">double</span>&gt;(5);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::fill(arr1 , arr1 + 2, 69);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> Manager;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_window.html">gfx::CWindow</a> Window(800, 600, <span class="stringliteral">&quot;Hello, Zenderer.&quot;</span>);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> Manager;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_window.html">gfx::CWindow</a> Window(800, 600, <span class="stringliteral">&quot;Hello, Zenderer.&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    Window.Init();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    Window.AttachAssetManager(Manager);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Window.Init();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Window.AttachAssetManager(Manager);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a> Sound;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Sound.<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">LoadFromFile</a>(<span class="stringliteral">&quot;Crackle.wav&quot;</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    Sound.<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded).">Play</a>();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">while</span>(glfwGetWindowParam(GLFW_OPENED))</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        Window.Clear(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>(0.f, 1.f, 1.f, 1.f));</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        Window.Update();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        Sound.<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b" title="This only checks for looping.">Update</a>();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">    std::for_each(arr1 , arr1 + 2,</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">        [](const int i) {</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">            std::cout &lt;&lt; i &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">        }</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">    );</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">//g_Alloc.Free(arr1);</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    g_Alloc.Free(arr3);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    g_Alloc.Free(arr3);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    g_Alloc.Free(arr3);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">Quit</a>();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a> Sound;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Sound.<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">LoadFromFile</a>(<span class="stringliteral">&quot;Crackle.wav&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    Sound.<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded).">Play</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a> Teal(0.0, 1.0, 1.0, 1.0);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    gfxcore::CVertexArray Vao;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    gfxcore::DrawBatch D;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    gfxcore::index_t i[] = {0, 1, 3, 3, 1, 2};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    D.Vertices  = <span class="keyword">new</span> gfxcore::vertex_t[4];</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    D.vcount    = 4;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    D.Indices   = i;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    D.icount    = 6;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    D.Vertices[0].position = <a class="code" href="structzen_1_1math_1_1vectorf__t.html" title="Represents a point in 3D rectangular-coordinate space.">math::vector_t</a>(0, 0);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    D.Vertices[1].position = <a class="code" href="structzen_1_1math_1_1vectorf__t.html" title="Represents a point in 3D rectangular-coordinate space.">math::vector_t</a>(400, 0);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    D.Vertices[2].position = <a class="code" href="structzen_1_1math_1_1vectorf__t.html" title="Represents a point in 3D rectangular-coordinate space.">math::vector_t</a>(400, 200);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    D.Vertices[3].position = <a class="code" href="structzen_1_1math_1_1vectorf__t.html" title="Represents a point in 3D rectangular-coordinate space.">math::vector_t</a>(0, 200);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    D.Vertices[0].color =</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    D.Vertices[1].color =</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    D.Vertices[2].color =</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    D.Vertices[3].color = <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>(1, 0, 0, 1);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    Vao.Init();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    Vao.AddData(D);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Vao.Offload();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">while</span>(glfwGetWindowParam(GLFW_OPENED))</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        Window.Clear(Teal);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        Vao.Draw();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        Window.Update();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        Sound.<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b" title="This only checks for looping.">Update</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    Vao.Destroy();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">    std::for_each(arr1 , arr1 + 2,</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">        [](const int i) {</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">            std::cout &lt;&lt; i &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">        }</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">    );</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">//g_Alloc.Free(arr1);</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    g_Alloc.Free(arr3);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    g_Alloc.Free(arr3);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    g_Alloc.Free(arr3);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">Quit</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

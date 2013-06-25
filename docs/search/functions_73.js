@@ -5,6 +5,7 @@ var searchData=
   ['setlog',['SetLog',['../classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c',1,'zen::CSubsystem']]],
   ['setmode',['SetMode',['../classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2',1,'zen::util::CLog']]],
   ['setowner',['SetOwner',['../classzen_1_1asset_1_1_c_asset.html#ab43b0d72c2e2df204df3f582d10efeba',1,'zen::asset::CAsset']]],
+  ['setparameter',['SetParameter',['../classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const real_t *pValues, const size_t count)'],['../classzen_1_1gfx_1_1_c_effect.html#a95fa7b2a8bba84bd5322a53ff44fadb7',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const int *pValues, const size_t count)'],['../classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const math::matrix4x4_t &amp;Matrix)']]],
   ['setsystem',['SetSystem',['../classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7',1,'zen::util::CLog']]],
   ['showxmlerror',['ShowXMLError',['../classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f',1,'zen::util::CXMLParser']]],
   ['split',['split',['../namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a',1,'zen::util']]],

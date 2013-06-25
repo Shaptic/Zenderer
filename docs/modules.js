@@ -6,7 +6,6 @@ var modules =
     [ "CoreGraphics", "group___core_graphics.html", "group___core_graphics" ],
     [ "Engine", "group___engine.html", "group___engine" ],
     [ "Graphics", "group___graphics.html", "group___graphics" ],
-    [ "GraphicsCore", "group___graphics_core.html", "group___graphics_core" ],
     [ "Math", "group___math.html", "group___math" ],
     [ "Utilities", "group___utilities.html", "group___utilities" ]
 ];
