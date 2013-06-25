@@ -24,12 +24,12 @@ matrix4x4_t::matrix4x4_t(const real_t** ppvalues)
 
 matrix4x4_t::matrix4x4_t(const matrix4x4_t& Copy)
 {
-    memcpy(m_values, Copy.GetMatrixPointer(), sizeof(m_values));
+    memcpy(m_values, Copy.GetPointer(), sizeof(m_values));
 }
 
 matrix4x4_t& matrix4x4_t::operator=(const matrix4x4_t& Copy)
 {
-    memcpy(m_values, Copy.GetMatrixPointer(), sizeof(m_values));
+    memcpy(m_values, Copy.GetPointer(), sizeof(m_values));
 
     return (*this);
 }

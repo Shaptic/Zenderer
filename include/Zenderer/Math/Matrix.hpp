@@ -63,7 +63,7 @@ namespace math
 
         matrix4x4_t operator*(matrix4x4_t& Other)   const;
 
-        inline const real_t* GetMatrixPointer() const
+        inline const real_t* GetPointer() const
         { return reinterpret_cast<const real_t*>(m_values); }
 
         /**

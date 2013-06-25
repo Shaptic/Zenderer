@@ -88,6 +88,7 @@
     <ClInclude Include="include\Zenderer\Core\ErrorHandling.hpp" />
     <ClInclude Include="include\Zenderer\Core\Subsystem.hpp" />
     <ClInclude Include="include\Zenderer\Core\Types.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
@@ -110,11 +111,14 @@
     <ClCompile Include="src\Audio\Music2D.cpp" />
     <ClCompile Include="src\Audio\Sound2D.cpp" />
     <ClCompile Include="src\CoreGraphics\OpenGL.cpp" />
+    <ClCompile Include="src\CoreGraphics\Shader.cpp" />
+    <ClCompile Include="src\CoreGraphics\ShaderSet.cpp" />
     <ClCompile Include="src\CoreGraphics\VertexArray.cpp" />
     <ClCompile Include="src\Core\Allocator.cpp" />
     <ClCompile Include="src\Core\ErrorHandling.cpp" />
     <ClCompile Include="src\Core\Subsystem.cpp" />
     <ClCompile Include="src\EngineTest.cpp" />
+    <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
@@ -129,6 +133,7 @@
   <ItemGroup>
     <None Include="include\Zenderer\Assets\Asset.inl" />
     <None Include="include\Zenderer\Assets\AssetManager.inl" />
+    <None Include="include\Zenderer\Graphics\Effect.inl" />
     <None Include="include\Zenderer\Math\MathCore.inl" />
     <None Include="include\Zenderer\Math\Vector.inl" />
     <None Include="include\Zenderer\Utilities\INIParser.inl" />

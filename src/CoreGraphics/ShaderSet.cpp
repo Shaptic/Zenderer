@@ -55,7 +55,8 @@ bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 }
 
 bool CShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
-{    
+{
+    return false;
 }
 
 bool CShaderSet::CreateShaderObject()
@@ -102,7 +103,7 @@ bool CShaderSet::CreateShaderObject()
         
 #ifdef _DEBUG
         m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
-              << "Shader compilation log: " << m_shader_log << CLog::endl;
+              << "Shader compilation log: " << m_link_log << CLog::endl;
 #endif // _DEBUG
     }
         
@@ -186,7 +187,7 @@ void CShaderSet::Destroy()
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("ShaderSet")
-            << "Destorying shader set." << CLog::endl;
+            << "Destroying shader set." << CLog::endl;
 
     if(mp_FShader != nullptr)
     {

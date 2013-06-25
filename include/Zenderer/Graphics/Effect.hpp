@@ -23,11 +23,17 @@
 #ifndef ZENDERER__GRAPHICS__EFFECT_HPP
 #define ZENDERER__GRAPHICS__EFFECT_HPP
 
+#include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Assets/AssetManager.hpp"
+#include "Zenderer/Math/Matrix.hpp"
+#include "Zenderer/CoreGraphics/OpenGL.hpp"
+#include "Zenderer/CoreGraphics/ShaderSet.hpp"
+
 namespace zen
 {
 namespace gfx
 {
-    enum class EffectType : uint16_t
+    enum class EffectType : int16_t
     {
         NO_EFFECT = -1,
         GAUSSIAN_BLUR_H,
@@ -36,17 +42,17 @@ namespace gfx
         FADE,
         RIPPLE,
         ZEN_EFFECT_COUNT
-    }
-    
+    };
+
     /**
      * A high-level shader wrapper. 
      *  This class is very similar to the gfxcore::CShaderSet class,
      *  but creates a more user-friendly interface
      **/
-    class ZEN_API CEffect : public CGLSubsystem
+    class ZEN_API CEffect : public gfxcore::CGLSubsystem
     {
     public:
-        CEffect(const EffectType Type);
+        CEffect(asset::CAssetManager& Assets, const EffectType Type);
         ~CEffect();
         
         bool Init();
@@ -101,13 +107,15 @@ namespace gfx
         inline bool Enable();   ///< A more user-friendly alias for binding.
         inline bool Disable();  ///< A more user-friendly alias for unbinding.
         
-        inline const string_t& GetError() const;        
+        inline const string_t& GetError() const;
         inline void SetType(const EffectType Type);
         
     private:
         inline bool Bind();
         inline bool Unbind();
-        
+
+        util::CLog& m_Log;
+
         gfxcore::CShaderSet m_Shader;
         EffectType m_type;
     };

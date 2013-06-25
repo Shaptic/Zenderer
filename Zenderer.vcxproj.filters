@@ -138,6 +138,9 @@
     <ClInclude Include="include\Zenderer\CoreGraphics\Shader.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\Effect.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -206,6 +209,15 @@
     <ClCompile Include="src\Math\Matrix.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\CoreGraphics\Shader.cpp">
+      <Filter>Source Files\CoreGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CoreGraphics\ShaderSet.cpp">
+      <Filter>Source Files\CoreGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Effect.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">
@@ -225,6 +237,9 @@
     </None>
     <None Include="include\Zenderer\Utilities\INIParser.inl">
       <Filter>Header Files\Utilities</Filter>
+    </None>
+    <None Include="include\Zenderer\Graphics\Effect.inl">
+      <Filter>Header Files\Graphics</Filter>
     </None>
   </ItemGroup>
 </Project>

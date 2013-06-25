@@ -125,6 +125,9 @@ namespace gfxcore
         /// Removes any shader program from the rendering context.
         bool Unbind();
 
+        /// Destroys the shader program.
+        void Destroy();
+
         /// Non-const because the returned handle can modify the state.
         uint16_t GetShaderObject();
         
@@ -138,8 +141,6 @@ namespace gfxcore
         const string_t& GetLinkerLog() const;
 
     private:
-        void Destroy();
-        
         inline void ShowLoadError(const string_t& filename, const string_t& shader)
         {
             static std::stringstream error_stream;
