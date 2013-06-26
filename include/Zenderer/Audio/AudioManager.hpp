@@ -120,14 +120,14 @@ namespace sfx
          *  unwieldy to pass the string of the OpenAL function call by hand
          *  every time.
 
-         * @param   char*      OpenAL call expression
-         * @param   uint32_t   Line number of function call
-         * @param   char*      File name of function call
+         * @param   expr    OpenAL call expression
+         * @param   line    Line number of function call
+         * @param   file    File name of function call
          *
          * @return  `true`     if there was no error, and
          *           `false`    otherwise, though the assertion will exit.
          **/
-        static bool alCheck(const char* expression,
+        static bool alCheck(const char* expr,
                             const uint32_t line,
                             const char* file);
 

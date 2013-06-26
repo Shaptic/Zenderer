@@ -63,9 +63,9 @@ namespace zen
     /**
      * Clamps a value in the provided range [min, max].
      *
-     * @param   T&  Value to clamp
-     * @param   T   Minimum
-     * @param   T   Maximum
+     * @param   val     Value to clamp
+     * @param   minimum Minimum
+     * @param   maximum Maximum
      **/
     template<typename T>
     ZEN_API void clamp(T& val, const T& minumum, const T& maximum)

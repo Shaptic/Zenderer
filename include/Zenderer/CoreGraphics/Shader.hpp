@@ -52,7 +52,7 @@ namespace gfxcore
          *  and those ending in `.fs` or `.ps` are interpreted to be fragment
          *  (or pixel) shaders.
          *
-         * @param   string_t    Filename to load from
+         * @param   filename    Filename to load from
          *
          * @return  `true`  if the file loaded and the shader compiled
          *           `false` otherwise.   

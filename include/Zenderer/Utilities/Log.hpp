@@ -65,8 +65,8 @@ namespace util
          *  but cannot actually be one due to the fact that that class
          *  uses a log within it.
          *
-         * @param   string_t    Filename for output log
-         * @param   bool        Output logged info to the screen?
+         * @param   filename    Filename for output log
+         * @param   show_stdout Output logged info to the screen?
          *
          * @see     CLog::Init()
          * @see     CLog::ToggleStdout()
@@ -108,7 +108,7 @@ namespace util
          *
          *  And it will function identically.
          *
-         * @param   CLog&(CLog::*)()    CLog method function
+         * @param   method  CLog method function
          *
          * @return  A reference to oneself, to allow for chaining.
          *
@@ -119,7 +119,7 @@ namespace util
          *
          * @see     CLog::Newline()
          **/
-        virtual inline CLog& operator<< (CLog& (CLog::*)()); // Dat syntax
+        virtual inline CLog& operator<< (CLog& (CLog::*method)()); // Dat syntax
 
         /**
          * Logs given data.
@@ -128,7 +128,7 @@ namespace util
          *  The given data is written to an `std::stringstream`, and is
          *  only writted to the file when CLog::Newline() is called.
          *
-         * @param   T   Data to log
+         * @param   data    Data to log
          *
          * @return  A reference to itself, to 'daisy-chain' statements.
          **/

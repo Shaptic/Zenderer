@@ -63,9 +63,9 @@ namespace gfxcore
      *  unwieldy to pass the string of the OpenGL function call by hand
      *  every time.
      *
-     * @param   char*       OpenGL call expression
-     * @param   uint32_t    Line number of function call
-     * @param   char*       File name of function call
+     * @param   expr    OpenGL call expression
+     * @param   line    Line number of function call
+     * @param   file    File name of function call
      *
      * @return  `true`      if there was no error, and
      *          `false`     otherwise, though the assertion will exit.

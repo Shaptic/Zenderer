@@ -83,7 +83,7 @@ namespace math
          *  The cross product of two vectors is a vector that is
          *  perpendicular to both operators. e.g. i = j ^ k.
          *
-         * @param   vectorf_t&   The vector to cross with
+         * @param   Other   The vector to cross with
          *
          * @return  A 3D vector normal to both vectors.
          **/
@@ -99,7 +99,7 @@ namespace math
          *      B = (x2, y2, z2)
          *      A . B = x1*x2 + y1*y2 + z1*z2
          *
-         * @param   The vector to dot with.
+         * @param   Other   The vector to dot with.
          *
          * @return  The dot product as a scalar.
          **/
@@ -107,35 +107,35 @@ namespace math
 
         /**
          * Multiplies each component by a scalar factor.
-         * @param   real_t  The scalar
+         * @param   scalar  The component scaling factor
          * @return  A 2D resultant vector.
          **/
         inline vectorf_t operator*(const real_t scalar) const;
 
         /**
          * Divides each component by a scalar factor.
-         * @param   real_t  The scalar
+         * @param   scalar  The component scaling factor
          * @return  A 2D resultant vector.
          **/
         inline vectorf_t operator/(const real_t scalar) const;
 
         /**
          * Adds a given vector to the current vector, returning the result.
-         * @param   vectorf_t    The other vector
+         * @param   Other   The vector to add (component-wise)
          * @return  A 2D resultant vector.
          **/
         inline vectorf_t operator+(const vectorf_t& Other) const;
 
         /**
          * Adds a value to both components of the current vector.
-         * @param   real_t  The value to add
+         * @param   value   The value to add
          * @return  A 2D resultant vector.
          **/
         inline vectorf_t operator+(const real_t value) const;
 
         /**
          * Subtracts a given vector from the current vector, returning the result.
-         * @param   vectorf_t    The other vector
+         * @param   Other   The vector to subtract from the current vector
          * @return  A 2D resultant vector.
          **/
         inline vectorf_t operator-(const vectorf_t& Other) const;
@@ -167,7 +167,7 @@ namespace math
          *      x =  x * cos(d) + y * sin(d)
          *      y = -x * sin(d) + y * cos(d)
          *
-         * @param   real_t  The rotation angle in radians.
+         * @param   radians The rotation angle in radians.
          *
          * @info    The coordinate system adjustment was removed.
          **/
@@ -175,9 +175,9 @@ namespace math
 
         /**
          * Translates the current vector by a matrix.
-         * @param   matrix4x4_t&    Translation matrix
+         * @param   TransMat    Translation matrix
          **/
-        void Translate(const matrix4x4_t& trans_mat);
+        void Translate(const matrix4x4_t& TransMat);
 
         /**
          * Returns a scalar cross product value between two 2D vectors.
@@ -191,7 +191,7 @@ namespace math
          *  it's on the right (going c/w). This can also be done by
          *  examining the dot product.
          *
-         * @param   vectorf_t&   Vector to test cross product on
+         * @param   Other   Vector to test cross product on
          *
          * @return  2D cross product (z-component of 3D cross).
          *

@@ -56,8 +56,8 @@ namespace math
          *
          *  The index value is automatically clamped at [0, 3].
          *
-         * @param   uint8_t     Index
-         * @return  The real_t array at that index.
+         * @param   index   Row index to access
+         * @return  The `real_t` array at that index.
          **/
         real_t* operator[](uint8_t index);
 
@@ -69,10 +69,10 @@ namespace math
         /**
          * Creates a 2D projection matrix.
          *
-         * @param   uint16_t    Projection width
-         * @param   uint16_t    Projection height
-         * @param   uint16_t    Maximum projection depth
-         * @param   int         Minimum projection depth
+         * @param   width   Projection width
+         * @param   height  Projection height
+         * @param   max_z   Maximum projection depth
+         * @param   min_z   Minimum projection depth
          *
          * @return  The requested projection matrix.
          **/

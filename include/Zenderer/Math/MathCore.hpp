@@ -66,9 +66,9 @@ namespace math
      * Returns a value that is a portion of the way between Start and End
      *  The weight is clamped to the range [0, 1].
      *
-     * @param   T       Starting value
-     * @param   T       Ending value
-     * @param   real_t  Percentage in between values
+     * @param   Start   Starting value
+     * @param   End     Ending value
+     * @param   weight  Percentage in between values
      *
      * @return  Value between start and ending values.
      **/
@@ -79,9 +79,9 @@ namespace math
      * Tests to see if a value is in a given range (inclusive).
      *  The type can be any type supporting the <= and >= operators.
      *
-     * @param   T   Value to test
-     * @param   T   Minimum range
-     * @param   T   Maximum range
+     * @param   n       Value to test
+     * @param   minimum Minimum range (inclusive)
+     * @param   maximum Maximum range (inclusive)
      *
      * @return  `true` if T in [minimum, maximum], and
      *          `false` if not.

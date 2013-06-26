@@ -73,7 +73,7 @@ namespace asset
 
         /**
          * Loads an asset from the disk.
-         * @param   string_t  Filename to load asset from
+         * @param   filename    Filename to load asset from
          * @return `true` if loaded successfully, `false` otherwise.
          **/
         virtual bool LoadFromFile(const string_t& filename) = 0;
@@ -86,7 +86,7 @@ namespace asset
          *  CAsset::LoadFromExisting() again internally to ensure all 
          *  metadata is copied (if that's desired).
          *
-         * @param   CAsset*   Asset to create a copy from
+         * @param   pCopy   Asset to create a copy from
          *
          * @return `true` if copied successfully, `false` otherwise.
          **/

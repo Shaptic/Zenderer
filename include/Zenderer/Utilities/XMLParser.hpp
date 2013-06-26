@@ -120,9 +120,9 @@ namespace util
          *
          *  [ERROR] XML Parser -- Malformed XML on line `line_no`: `line` (`reason`)
          *
-         * @param   uint32_t    Line that the error occurred on
-         * @param   string_t    The actual XML line
-         * @param   string_t    The reason for the error
+         * @param   line_no Line that the error occurred on
+         * @param   line    The actual XML line
+         * @param   reason  The reason for the error
          **/
         static void ShowXMLError(const uint32_t line_no,
                                  const string_t& line,

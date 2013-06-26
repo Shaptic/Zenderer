@@ -59,8 +59,8 @@ namespace asset
          *  Assets created in different instances of this class are also
          *  considered to be completely separate.
          *
-         * @param   string_t    Filename to load asset from
-         * @param   void*       Address of asset owner (optional=`nullptr`)
+         * @param   filename    Filename to load asset from
+         * @param   owner       Address of asset owner (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it loaded successfully, and
          *          `nullptr` otherwise.
@@ -78,8 +78,8 @@ namespace asset
          *  Sometimes, though, it is desirable to have multiple copies of
          *  an asset, and this method will do so.
          *
-         * @param   T*      Assets to copy
-         * @param   void*   Address of asset owner (optional=`nullptr`)
+         * @param   Copier  Assets to copy
+         * @param   owner   Address of asset owner (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it copies successfully, and
          *          `nullptr` otherwise.
@@ -90,7 +90,7 @@ namespace asset
 
         /**
          * Permanently removes an asset from the internal container.
-         * @param   CAsset*     Asset to remove
+         * @param   pAsset  Asset to remove
          * @return  `true` if it was removed successfully, `false` otherwise.
          **/
         bool Delete(CAsset* const pAsset);

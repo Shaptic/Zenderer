@@ -33,28 +33,22 @@ namespace zen
 {
 namespace util
 {
-    /**
-     * Strips leading whitespace from a string (in-place).
-     * @param   string_t&    Text to strip whitespace from
-     **/
+    /// Strips leading whitespace from a string (in-place).
     ZEN_API void stripl(string_t& text);
 
     /**
      * Strips leading whitespace from a string (original untouched).
-     * @param   string_t    Text to strip whitespace from
+     * @param   text    Text to strip whitespace from
      * @return  String with stripped leading whitespace.
      **/
     ZEN_API string_t stripl(const string_t& text);
 
-    /**
-     * Strips trailing whitespace from a string (in-place).
-     * @param   string_t&    Text to strip whitespace from
-     **/
+    /// Strips trailing whitespace from a string (in-place).
     ZEN_API void stript(string_t& text);
 
     /**
      * Strips trailing whitespace from a string (original untouched).
-     * @param   string_t    Text to strip whitespace from
+     * @param   text    Text to strip whitespace from
      * @return  String with stripped trailing whitespace.
      **/
     ZEN_API string_t stript(const string_t& text);
@@ -62,9 +56,9 @@ namespace util
     /**
      * Splits a string into a list of substrings based on a delimiter.
      *
-     * @param   string_t    Text to split
-     * @param   char        Delimiter value
-     * @param   size_t      Guess at how many values there will be (optional)
+     * @param   text    Text to split
+     * @param   delim   Delimiter value
+     * @param   approx  Guess at how many values there will be (optional)
      *
      * @return  `std::vector` filled with split values.
      **/
@@ -74,15 +68,12 @@ namespace util
 
     /**
      * Converts an immutable string to its uppercase equivalent.
-     * @param   string_t    String to convert
+     * @param   str String to convert
      * @return  Uppercase equivalent.
      **/
     ZEN_API string_t toupper(const string_t& str);
 
-    /**
-     * Converts a string to its uppercase equivalent (in-place).
-     * @param   string_t&    String to convert
-     **/
+    /// Converts a string to its uppercase equivalent (in-place).
     ZEN_API void toupper(string_t& str);
 
     /**
@@ -96,9 +87,9 @@ namespace util
      * @author  Austin Appleby
      * @version r144
      *
-     * @param   void*       Data to hash
-     * @param   uint32_t    Size of the data
-     * @param   uint32_t    Random seed to hash with (optional=`69`)
+     * @param   pdata   Data to hash
+     * @param   size    Size of the data
+     * @param   seed    Random seed to hash with (optional=`69`)
      *
      * @return  The hash value.
      *
@@ -152,8 +143,8 @@ namespace util
      * Hashes a string to a unique value.
      *  This is just a shortcut to zen::util::hash() for strings.
      *
-     * @param   string_t    The string to hash
-     * @param   uint32_t    The hash seed value (optional=`69`)
+     * @param   str     The string to hash
+     * @param   seed    The hash seed value (optional=`69`)
      *
      * @return  A hash value.
      **/

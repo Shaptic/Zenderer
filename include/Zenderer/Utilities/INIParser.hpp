@@ -48,7 +48,7 @@ namespace util
 
         /**
          * Fills the dictionary with key=value pairs for the entire file.
-         * @param   string_t    Filename to parse
+         * @param   filename    Path to file to parse
          * @return  `true` if file was parsed successfully
          *          `false` otherwise.
          **/
@@ -67,10 +67,10 @@ namespace util
          *  and it would only give you the key-value pairs found in that
          *  section of the file.
          *
-         * @param   std::ifstream   File stream to read
-         * @param   std::streampos  Starting point in the stream    (opt=0)
-         * @param   std::streampos  Ending point in the stream      (opt=END)
-         * @param   char*           Filename the stream comes from  (opt="file")
+         * @param   file    File stream to read
+         * @param   start   Starting point in the stream    (opt=0)
+         * @param   finish  Ending point in the stream      (opt=END)
+         * @param   fn      Filename the stream comes from  (opt=`"file"`)
          *
          * @return  `true` if at least one pair was parsed,
          *          `false` otherwise, or if the given filestream was not open.
@@ -78,7 +78,7 @@ namespace util
         bool LoadFromStream(std::ifstream& file,
                             const std::streampos& start = 0,
                             const std::streampos& finish= -1,
-                            const char* filename = "file");
+                            const char* fn = "file");
         bool LoadFromStream(const char**    str,
                             const uint32_t  start,
                             const uint32_t  finish);
@@ -91,7 +91,7 @@ namespace util
          *  If the file stream contained `texture=Data.tga`, and you
          *  called GetValue("texture"), the function gives back "Data.tga".
          *
-         * @param   std::string     Key to access
+         * @param   key     Key to access
          *
          * @return  Value if it exists, empty string otherwise.
          **/
@@ -114,8 +114,8 @@ namespace util
          *  This will split the 'value' part of a pair based on a
          *  delimiter, and return the result.
          *
-         * @param   std::string     Key to access
-         * @param   char            Character to split 'value' on
+         * @param   key         Key to access
+         * @param   delimiter   Character to split 'value' on (optional=`comma`)
          *
          * @return  Result if 'key' exists,
          *          the 'value' in the pair (in a `vector`) if not.
@@ -141,9 +141,9 @@ namespace util
          *  The function will return the stream to its starting point
          *  as it was when the function was called.
          *
-         * @param   std::ifstream&  Stream to search
-         * @param   string_t        String to find
-         * @param   std::streampos  Place to stop search (optional=`EOF`)
+         * @param   stream  Stream to search
+         * @param   finder  String to find
+         * @param   max_pos Place to stop search (optional=`EOF`)
          *
          * @return  Position the requested string was found at,
          *          `std::streampos(-1)` if it was not found.

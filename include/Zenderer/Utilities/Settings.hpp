@@ -128,7 +128,7 @@ namespace util
          *  sub-class `COption` that acts just like a normal type but can
          *  be assigned to an `int`, a `float`, a `bool`, or a `string_t`.
          *
-         * @param   string_t    Option to get value of
+         * @param   opt     Option to get value of
          *
          * @return  A mutable option value.
          **/

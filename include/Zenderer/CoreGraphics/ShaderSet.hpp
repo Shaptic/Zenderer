@@ -51,8 +51,8 @@ namespace gfxcore
          *  generic log through GetLinkerLog() in order to test for warnings
          *  or other messages.
          *
-         * @param   string_t    Vertex shader filename
-         * @param   string_t    Fragment (pixel) shader filename
+         * @param   vs  Vertex shader filename
+         * @param   fs  Fragment (pixel) shader filename
          *
          * @return  `true` if the shader program compiled and linked,
          *          `false` otherwise.
@@ -72,7 +72,7 @@ namespace gfxcore
          *  This method doesn't create a shader program, so a call to 
          *  the relevant method is required (CreateShaderObject()).
          *
-         * @param   string_t    Shader filename
+         * @param   filename    Shader filename
          *
          * @return `true` if the shader object loaded from the file,
          *          `false` otherwise.

@@ -79,7 +79,7 @@ namespace gfx
          *  parameter will be set to the number of assets that were
          *  reloaded successfully, based on the return value of the method.
          *
-         * @param   int*    Track number of assets reloaded (optional=`nullptr`)
+         * @param   loaded  Track number of assets reloaded (optional=`nullptr`)
          *
          * @return  `true`  if the window is now in fullscreen mode, and
          *          `false` if it was changed to windowed mode.
@@ -104,7 +104,7 @@ namespace gfx
          *  be successfully reloaded and attached properly to the new
          *  rendering context.
          *
-         * @param   asset::CAssetManager&   Manager to attach to window
+         * @param   Mgr     Manager to attach to window
          *
          * @see     zen::asset::CAsset
          * @see     EnableFullscreen()
@@ -119,7 +119,7 @@ namespace gfx
          *  method allows the user to specify exactly which bits get
          *  cleared.
          *
-         * @param   uint32_t    Bits
+         * @param   bits    OpenGL bits to clear (`GL_*_BIT`)
          *
          * @see     GL/gl.h
          **/

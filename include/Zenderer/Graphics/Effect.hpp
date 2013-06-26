@@ -71,9 +71,9 @@ namespace gfx
          *  `float` or a `double`, GLSL only deals with
          *  single-precision uniform values.
          *
-         * @param   string_t    Parameter name
-         * @param   T*          Array of values of type T (or single)
-         * @param   size_t      Amount of values passed (optional=`1`)
+         * @param   name    Parameter name
+         * @param   pValues Array of values of type T (or single)
+         * @param   count   Amount of values passed (optional=`1`)
          *
          * @return  `true` if the parameter was found for the effect
          *          `false` if the effect was not loaded.
@@ -93,8 +93,8 @@ namespace gfx
          *  but it modifies a matrix instead of a primitive type
          *  (`int`, `float`, ...)
          *
-         * @param   string_t            Name of matrix parameter
-         * @param   math::matrix4x4_t   Matrix value to send to effect
+         * @param   name    Name of matrix parameter
+         * @param   Matrix  Matrix value to send to effect
          * 
          * @return  `true` if the parameter was found and set, 
          *          `false` otherwise.
