@@ -66,8 +66,7 @@ namespace asset
          *          `nullptr` otherwise.
          **/
         template<typename T>
-        T* Create(const string_t& filename,
-                  const void* const owner = nullptr);
+        T* Create(const string_t& filename, const void* const owner = nullptr);
                   
         /// Creates a raw managed asset instance (unloaded).
         template<typename T>
