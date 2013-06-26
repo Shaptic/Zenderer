@@ -4,7 +4,7 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERT(!filename.empty());
 
-    T* pResult = dynamic_cast<T*>(this->Find(filename, owner));
+    T* pResult = static_cast<T*>(this->Find(filename, owner));
 
     // There is no existing asset matching the criteria.
     if(pResult == nullptr)
@@ -28,6 +28,25 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     {
         return pResult;
     }
+}
+
+template<typename T>
+T* CAssetManager::Create(const void* const owner)
+{
+    ZEN_ASSERT(this->IsInit());
+    
+    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+            << m_Log.SetSystem("AssetManager")
+            << "Loading raw asset ... " << CLog::endl;
+
+    // Create a new original asset.
+    T* pAsset = new T(owner);
+
+    // Sanity check, because `new` should throw anyway.
+    ZEN_ASSERTM(pAsset != nullptr, "out of memory");
+
+    // Store internally.
+    return this->FinalizeAsset(true, pAsset);
 }
 
 template<typename T>
