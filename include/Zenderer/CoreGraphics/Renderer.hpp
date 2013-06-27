@@ -1,8 +1,3 @@
-// Thoughts:
-// 
-// If a primitive is not created by a scene (and hence has a VBO specified)
-// it can create it's own internal mini-scene for rendering.
-
 enum class RenderState : uint16_t
 {
     ZEN_NORMAL_RENDER,
@@ -12,16 +7,17 @@ enum class RenderState : uint16_t
     ZEN_POSTPROCESS_RENDER
 };
 
-class ZEN_API CSceneManager
+class ZEN_API CRenderer
 {
 public:
-    CSceneManager(const CSettings& Settings);
-    virtual ~CSceneManager();
+    virtual ~CRenderer();
     
     /// Only the scenes can modify graphical API state.
     friend class gfx::CScene;
     
 protected:
+    CRenderer(const CSettings& Settings);
+    
     virtual void SaveRenderState();
     virtual void PrepareRenderState(const RenderState& Type)
     {
