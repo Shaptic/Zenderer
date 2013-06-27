@@ -51,6 +51,12 @@ namespace zen
 {
     void ZEN_API Quit();
 
+/**
+ * Low level graphics layer.
+ *  Here we encompass a low-level graphics layer used internally by 
+ *  @a Zenderer for rendering operations. Most of these are abstracted
+ *  away by higher level APIs in `zen::gfx`.
+ **/
 namespace gfxcore
 {
     /**
