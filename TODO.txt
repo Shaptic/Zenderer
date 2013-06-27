@@ -2,15 +2,16 @@
 =====================
 
 ### Normal priority
-* Plan rendering architecture
-* Implement primitive drawing
+* Test shader/effect wrappers
+* Write scene class 
 
 ### Low priority
 * Update to GLFW 3
 * Test audio API
 
 ### In Progress
-* Write VAO Wrapper
+* Plan rendering architecture
+* Implement primitive drawing
 
 ### Complete
 * Logging system
@@ -24,3 +25,5 @@
 * Settings module
 * Write high-speed stack memory allocator
 * Re-write all uses of logging to use singleton access
+* Shader wrapper class
+* Write VAO Wrapper

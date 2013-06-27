@@ -1,9 +1,0 @@
-Zenderer Change Log
-===================
-
-Version 0.1 pre-release:
-- [06/14/2013] -- Changelog created
-- [06/21/2013] -- High-speed memory allocator completed
-- [06/22/2013] -- Global logger architecture modified
-- [06/22/2013] -- Github repository created
-- [06/22/2013] -- Allocator made optional until necessary
