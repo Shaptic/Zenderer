@@ -10,40 +10,74 @@
 namespace zen
 namespace gfxcore
 {
+    /**
+     * An abstract base class for all drawable primitives.
+     *  There are two ways to create renderable objects in @a Zenderer.
+     *
+     *  Firstly is through the `zen::gfx::CScene` class and its respective
+     *  `AddPrimitive()` or `AddEntity()` methods. This will attach an 
+     *  internal `zen::gfxcore::CVertexArray` object that stores scene
+     *  geometry. The scene itself takes care of the actual drawing, but
+     *  the user can still call the `Drawable::Draw()` method if they
+     *  want to do it again, post-render. 
+     *
+     *  The other way is to simply create a drawable object instance and
+     *  call `Draw()` on it. This will implicitly create a vertex array
+     *  object internally the first time, and will just use it every
+     *  subsequent call. Keep in mind that this object now can **NOT** 
+     *  be added to a scene. This functionality may be supported in future
+     *  revisions.
+     **/
     class ZEN_API CDrawable
     {
     public:
         CDrawable();
         virtual ~CDrawable();
         
-        virtual void Create(const math::vector_t& Position,
-                            const color4f_t& Color) = 0;
-                            
-        inline void Recreate() { this->Create(m_Position, m_Color); }
+        /// Creates initial vertex structure.
+        virtual void Create() = 0;
         
-        virtual void AttachTexture(const asset::CTexture* pTexture) = 0;
+        /**
+         * Moves the drawable to a certain location.
+         *  This doesn't rely on any vertex data, but rather uses
+         *  the model-view matrix to translate the object, thus
+         *  there is a default implementation.
+         *
+         * @param   Position    (x, y, z) coordinates where you want the object
+         **/
+        virtual void Move(const math::vector_t& Position);
         
-        void SetColor(const color4f_t& Color);
-        void SetColor(const real_t r, const real_t g,
-                      const real_t b, const real_t a);
-                      
-        void SetPosition(const math::vector_t& Position);
-        void SetPosition(const real_t x, const real_t y);
+        /**
+         * Attaches a texture to render on top of the primitive.
+         *  This really shouldn't be allowed on simple primitives, but it's
+         *  here if you need it. Keep in mind that this will override any
+         *  color settings you've made.
+         *  Likely this will only work well on quadrilateral primitives due
+         *  to difficulties setting texture coordinates on other shapes.
+         *
+         * @param   pTexture    The texture you want rendered
+         **/
+        virtual void AttachTexture(const gfx::CTexture* pTexture) = 0;
         
+        /// Sets all vertex colors to the given value.
+        virtual void SetColor(const color4f_t& Color);
+        
+        /// For setting things implicitly.
         friend class CSceneManager;
-        
     private:
-        asset::CTexture*    mp_Texture;
-        math::vector_t      m_Position;
+        CVertexArray*  mp_VAO;
+        gfx::CTexture* mp_Texture;
         
-        color4f_t           m_Color;
-        vertex_t*           mp_vertexList;
-        index_t*            mp_indexList;
+        math::vector_t m_Position;
         
-        size_t              m_vcount, m_icount;
+        color4f_t      m_Color;
+        vertex_t*      mp_vertexList;
+        index_t*       mp_indexList;
+        
+        size_t         m_vcount, m_icount;
     };
 
-    void CQuad::Create(const math::vector_t& Position, const color4f_t& Color)
+    void CQuad::Create()
     {
         if(mp_vertexList == nullptr)
         {
