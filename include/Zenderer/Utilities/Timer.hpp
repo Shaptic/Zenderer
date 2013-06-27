@@ -10,47 +10,75 @@ namespace zen
 {
 namespace util
 {
-    typedef std::chrono::high_resolution_clock clock_t;
-    typedef clock_t::time_point timepoint_t;
-    typedef std::chrono::milliseconds precision_t;
     typedef uint32_t time_t;
-    
-    using std::chrono::duration_cast;
  
-    // A high-precision timer class for controlling frame rates.
+    /**
+     * A high-precision timer class for controlling frame rates.
+     *  This class provides fairly generic timing functionality,
+     *  with the ability to start, stop, measure, and delay for
+     *  various periods of time. 
+     *  Most methods are virtual, allowing for a user to inherit
+     *  and implement their own custom timer, but still be able to
+     *  pass it around to various parts of the engine when necessary.
+     **/
     class CTimer
     {
     public:
-        CTimer(const uint16_t frames) : m_fps(frames) {}
-        virtual ~CTimer(){}
+        /// Shortcut for the type of clock we are using
+        typedef std::chrono::high_resolution_clock clock_t;
         
-        virtual time_t Start()
-        {
-            m_start = clock_t::now();
-            return duration_cast<precision_t>(m_start.time_since_epoch()).count();
-        }
+        /// Shortcut for time point structure.
+        typedef clock_t::time_point timepoint_t;
         
-        virtual time_t Finish()
-        {
-            m_end = clock_t::now();
-            return duration_cast<precision_t>(m_start.time_since_epoch()).count();
-        }
+        /// Shortcut for the precision we want.
+        typedef std::chrono::milliseconds precision_t;
+    
+        /// Constructs a timer with a custom frame rate.
+        CTimer(const uint16_t frames = 60);
+        virtual ~CTimer();
         
-        virtual time_t Elapsed()
-        {
-            return duration_cast<precision_t>(m_end - m_start).count();
-        }
+        virtual time_t Start();     ///< Marks start time and returns it.
+        virtual time_t Finish();    ///< Marks finish time and returns it.
+        virtual time_t Elapsed();   ///< Returns finish time - start time.
         
-        virtual time_t Delay()
-        {
-            timepoint_t::duration pause = clock_t::now() - m_start;
-            time_t ticks = duration_cast<precision_t>(pause).count();
-            
-            if(ticks < 1000.0 / m_fps)
-                std::this_thread::sleep_for(pause);
-                
-            return ticks;
-        }
+        /// Sleeps the current thread (defaults to milliseconds). 
+        template<typename T = precision_t>
+        virtual void Sleep(const time_t ticks);
+        
+        /**
+         * Delays the current thread appropriately to maintain frame-rate.
+         *  It is not necessary to call Finish() prior to this method, as
+         *  it will automatically use the immediate `timepoint` that it
+         *  was called at.
+         *
+         *  A solid game loop that utilizes the timer to regulate frame-rate
+         *  would function something like this:
+         *
+         *  @code
+         *  while(!m_quit)
+         *  {
+         *      m_Timer.Start();
+         *      // ...
+         *      // Handle events, game logic, renderering.
+         *      // ...
+         *
+         *      // Final update to draw everything.
+         *      m_Window.Update();
+         *
+         *      // Regulate frame-rate.
+         *      m_Timer.Delay();
+         *  }
+         *  @endcode
+         *
+         * @return  The amount of milliseconds the thread slept (if any).
+         **/
+        virtual time_t Delay();
+        
+        /// Returns the current clock time.
+        virtual time_t GetTime() const;
+        
+        /// Sets a custom frame-rate, overriding the constructor.
+        void SetFrameRate(const uint16_t fps);
         
     private:
         timepoint_t m_start, m_end;
