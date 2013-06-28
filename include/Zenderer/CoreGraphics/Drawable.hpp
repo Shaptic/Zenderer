@@ -1,3 +1,25 @@
+/**
+ * @file
+ *  Zenderer/CoreGraphics/Drawable.hpp - An abstract base class for drawing 
+ *  primitives.
+ *
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     1.0
+ * @copyright   Apache License v2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License").         \n
+ *  You may not use this file except in compliance with the License.        \n
+ *  You may obtain a copy of the License at:
+ *  http://www.apache.org/licenses/LICENSE-2.0                              \n
+ *  Unless required by applicable law or agreed to in writing, software     \n
+ *  distributed under the License is distributed on an "AS IS" BASIS,       \n
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
+ *  See the License for the specific language governing permissions and     \n
+ *  limitations under the License.
+ *
+ * @addtogroup CoreGraphics
+ * @{
+ **/
+
 #ifndef ZENDERER__CORE_GRAPHICS__DRAWABLE_HPP
 #define ZENDERER__CORE_GRAPHICS__DRAWABLE_HPP
 
@@ -8,6 +30,7 @@
 #include "OpenGL.hpp"
 
 namespace zen
+{
 namespace gfxcore
 {
     /**
@@ -58,7 +81,7 @@ namespace gfxcore
          *
          * @param   Position    (x, y, z) coordinates where you want the object
          **/
-        virtual void Move(const math::vector_t& Position)
+        void Move(const math::vector_t& Position)
         {
             m_Position = Position;
         }
@@ -76,7 +99,7 @@ namespace gfxcore
         virtual void AttachMaterial(const gfx::material_t* pMaterial) = 0;
         
         /// Sets all vertices to have a given color value.
-        virtual void SetColor(const color4f_t& Color)
+        void SetColor(const color4f_t& Color)
         {
             for(size_t i = 0; i < m_DrawData.vcount; ++i) 
             {
@@ -151,22 +174,23 @@ namespace gfxcore
         /// For setting things implicitly.
         friend class CSceneManager;
 
+    protected:
+        gfx::material_t*    mp_Material;
+        math::vector_t      m_Position;        
+        DrawBatch           m_DrawData;
+        bool                m_internal;
+        
     private:
         CVertexArray*       mp_VAO;
-        gfx::material_t*    mp_Material;
-        
         math::matrix4x4_t*  mp_MVMatrix;
-        math::vector_t      m_Position;
-        
         color4f_t           m_Color;
-        DrawBatch           m_DrawData;
         
         index_t             m_offset;
-        bool                m_internal;
     };
 
 }   // namespace gfxcore
 }   // namespace zen
 
 #endif // ZENDERER__CORE_GRAPHICS__DRAWABLE_HPP
+
 /** @} **/

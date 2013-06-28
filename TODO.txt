@@ -11,7 +11,7 @@
 
 ### In Progress
 * Plan rendering architecture
-* Implement primitive drawing
+* Implement quad drawing
 
 ### Complete
 * Logging system
@@ -27,3 +27,4 @@
 * Re-write all uses of logging to use singleton access
 * Shader wrapper class
 * Write VAO Wrapper
+* Implement primitive drawing basics
