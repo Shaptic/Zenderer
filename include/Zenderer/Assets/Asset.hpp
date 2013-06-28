@@ -34,7 +34,7 @@ namespace zen
 namespace asset
 {
     /// For unique asset ID.
-    typedef uint32_t assetid_t;
+    using assetid_t = uint32_t;
 
     /**
      * Used throughout @a Zenderer to act as an asset.

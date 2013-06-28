@@ -89,13 +89,13 @@ namespace util
 
     class ZEN_API CSettings : public CSubsystem
     {
-        typedef std::map<
+        using settings_t = std::map<
 #ifdef _DEBUG
             string_t,
 #else
             uint32_t,
 #endif // _DEBUG
-            COption>    settings_t;
+            COption>;
 
     public:
         CSettings(const string_t filename = "");

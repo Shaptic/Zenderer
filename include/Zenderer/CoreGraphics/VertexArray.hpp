@@ -44,7 +44,7 @@ namespace zen
 namespace gfxcore
 {
     /// Shortcut for easy modification.
-    typedef uint16_t index_t;
+    using index_t = uint16_t;
 
     /// Type of indices.
     static const GLenum INDEX_TYPE = GL_UNSIGNED_BYTE;

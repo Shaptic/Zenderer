@@ -10,7 +10,7 @@ namespace zen
 {
 namespace util
 {
-    typedef uint32_t time_t;
+    using time_t = uint32_t;
  
     /**
      * A high-precision timer class for controlling frame rates.
@@ -25,13 +25,13 @@ namespace util
     {
     public:
         /// Shortcut for the type of clock we are using
-        typedef std::chrono::high_resolution_clock clock_t;
+        using clock_t = std::chrono::high_resolution_clock;
         
         /// Shortcut for time point structure.
-        typedef clock_t::time_point timepoint_t;
+        using timepoint_t = clock_t::time_point;
         
         /// Shortcut for the precision we want.
-        typedef std::chrono::milliseconds precision_t;
+        using precision_t = std::chrono::milliseconds;
     
         /// Constructs a timer with a custom frame rate.
         CTimer(const uint16_t frames = 60);
