@@ -20,8 +20,8 @@
  * @{
  **/
 
-#ifndef ZENDERER__GRAPHICS_CORE__VERTEXBUFFER_HPP
-#define ZENDERER__GRAPHICS_CORE__VERTEXBUFFER_HPP
+#ifndef ZENDERER__CORE_GRAPHICS__VERTEXBUFFER_HPP
+#define ZENDERER__CORE_GRAPHICS__VERTEXBUFFER_HPP
 
 #include <vector>
 
@@ -135,6 +135,6 @@ namespace gfxcore
 }   // namespace gfxcore
 }   // namespace zen
 
-#endif // ZENDERER__GRAPHICS_CORE__VERTEXBUFFER_HPP
+#endif // ZENDERER__CORE_GRAPHICS__VERTEXBUFFER_HPP
 
 /** @} **/
