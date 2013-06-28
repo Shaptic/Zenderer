@@ -31,8 +31,21 @@ namespace gfxcore
     class ZEN_API CDrawable
     {
     public:
-        CDrawable();
-        virtual ~CDrawable();
+        CDrawable() : mp_VAO(nullptr), mp_Texture(nullptr), m_offset(0), m_internal(false)
+        {
+            m_DrawData.Vertices = nullptr;
+            m_DrawData.Indices  = nullptr;
+            m_DrawData.icount   =
+            m_DrawData.vcount   = 0;
+        }
+        
+        virtual ~CDrawable()
+        {
+            if(m_internal)
+            {
+                delete mp_VAO;
+            }
+        }
         
         /// Creates initial vertex structure.
         virtual void Create() = 0;
@@ -45,81 +58,113 @@ namespace gfxcore
          *
          * @param   Position    (x, y, z) coordinates where you want the object
          **/
-        virtual void Move(const math::vector_t& Position);
+        virtual void Move(const math::vector_t& Position)
+        {
+            m_Position = Position;
+        }
         
         /**
-         * Attaches a texture to render on top of the primitive.
+         * Attaches a material to render on top of the primitive.
          *  This really shouldn't be allowed on simple primitives, but it's
          *  here if you need it. Keep in mind that this will override any
          *  color settings you've made.
          *  Likely this will only work well on quadrilateral primitives due
          *  to difficulties setting texture coordinates on other shapes.
          *
-         * @param   pTexture    The texture you want rendered
+         * @param   pMaterial   The texture you want rendered
          **/
-        virtual void AttachTexture(const gfx::CTexture* pTexture) = 0;
+        virtual void AttachMaterial(const gfx::material_t* pMaterial) = 0;
         
-        /// Sets all vertex colors to the given value.
-        virtual void SetColor(const color4f_t& Color);
+        /// Sets all vertices to have a given color value.
+        virtual void SetColor(const color4f_t& Color)
+        {
+            for(size_t i = 0; i < m_DrawData.vcount; ++i) 
+            {
+                m_DrawData.Vertices[i].color = Color;
+            }
+        }
+        
+        /**
+         * Draws the primitive on-screen.
+         *  This implements the technique described above. If there is no
+         *  "owner" of the primitive (meaning no scene has set the internal
+         *  data), it will automatically create a CVertexArray instance,
+         *  a model-view matrix, and will use the default shader set.
+         *  This data will be re-used time after time on subsequent Draw() 
+         *  calls, not recreated every time.
+         *
+         * @param   is_bound    Have we bound things? (VAO, material, etc.)
+         *
+         * @return  `true` if drawing was successful, `false` otherwise.
+         **/
+        bool Draw(const bool is_bound = false)
+        {
+            if(mp_VAO == nullptr && !is_bound)
+            {
+                // Create a vertex array and load our data.
+                mp_VAO = new CVertexArray(GL_STATIC_DRAW);
+                m_offset = mp_VAO->AddData(m_DrawData);
+                if(!mp_VAO->Offload()) return false;
+                
+                // Create our model-view matrix.
+                *mp_MVMatrix = math::matrix4x4_t::CreateIdentityMatrix();
+
+                // So we can differntiate between a VAO from a `CScene`
+                // and the one we made ourselves.
+                m_internal = true;
+            }
+            
+            // If something isn't previously bound, we bind the VAO
+            // and the material. If no material, use global default.
+            if(!is_bound)
+            {
+                if(!mp_VAO->Bind()) return false;
+                if(mp_Material == nullptr)
+                {
+                    // Insert our coordinates to transform in the shader.
+                    // Ignore the Z coordinate because that's only used for depth
+                    // sorting internally anyway and has no effect on visuals.
+                    (*mp_MVMatrix)[0][3] = m_Position.x;
+                    (*mp_MVMatrix)[1][3] = m_Position.y;
+                    //(*mp_MVMatrix)[2][3] = m_Position.z;
+
+                    gfx::CEffect& Shader = CRenderer::GetDefaultEffect();
+                    if(!Shader.Enable()) return false;
+                    if(!Shader.SetParameter("mv", *mp_MVMatrix) || 
+                       !Shader.SetParameter("proj", CRenderer::GetProjectionMatrix()))
+                       return false;
+                }
+            }
+            
+            GL(glDrawElements(GL_TRIANGLES, m_DrawData.icount, 
+                    (void*)(sizeof(index_t) * m_offset)));
+                
+            if(!is_bound)
+            {
+                CRenderer::ResetMaterialState();
+                if(!mp_VAO->Unbind()) return false;
+            }
+            
+            return true;
+        }
         
         /// For setting things implicitly.
         friend class CSceneManager;
+
     private:
-        CVertexArray*  mp_VAO;
-        gfx::CTexture* mp_Texture;
+        CVertexArray*       mp_VAO;
+        gfx::material_t*    mp_Material;
         
-        math::vector_t m_Position;
+        math::matrix4x4_t*  mp_MVMatrix;
+        math::vector_t      m_Position;
         
-        color4f_t      m_Color;
-        vertex_t*      mp_vertexList;
-        index_t*       mp_indexList;
+        color4f_t           m_Color;
+        DrawBatch           m_DrawData;
         
-        size_t         m_vcount, m_icount;
+        index_t             m_offset;
+        bool                m_internal;
     };
 
-    void CQuad::Create()
-    {
-        if(mp_vertexList == nullptr)
-        {
-            mp_vertexList = new vertex_t[4];
-            m_vcount = 4;
-        }
-        
-        mp_vertexList[0].position = Position;
-        
-        mp_vertexList[1].position = math::vector_t(Position.x + m_Size.w,
-                                                   Position.y);
-                                                   
-        mp_vertexList[2].position = math::vector_t(Position.x + m_Size.w,
-                                                   Position.y + m_Size.h);
-
-        mp_vertexList[3].position = math::vector_t(Position.x,
-                                                   Position.y + m_Size.h);
-                                                   
-        mp_vertexList[0].color = mp_vertexList[1].color =
-        mp_vertexList[2].color = mp_vertexList[3].color = Color;
-        
-        mp_vertexList[0].tc = math::vector_t(0.0, 0.0);
-        mp_vertexList[1].tc = math::vector_t(1.0, 0.0);
-        mp_vertexList[2].tc = math::vector_t(1.0, 1.0);
-        mp_vertexList[3].tc = math::vector_t(0.0, 1.0);
-        
-        if(mp_indexList == nullptr)
-        {
-            mp_indexList = new index_t[6];
-            m_icount = 6;
-        }
-        
-        mp_indexList[0] = 0;
-        mp_indexList[1] = 1;
-        mp_indexList[2] = 3;
-        mp_indexList[3] = 3;
-        mp_indexList[4] = 1;
-        mp_indexList[5] = 2;
-        
-        m_Position  = Position;
-        m_Color     = Color;
-    }
 }   // namespace gfxcore
 }   // namespace zen
 

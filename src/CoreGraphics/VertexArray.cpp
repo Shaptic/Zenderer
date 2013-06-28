@@ -55,7 +55,7 @@ bool CVertexArray::Bind()
     if(!this->Init()) return false;
 
     GL(glBindVertexArray(m_vao));
-    GL(glEnableVertexAttribArray(0));       // Enable shader attribute 1
+    GL(glEnableVertexAttribArray(0));       // Enable shader attribute 0
     GL(glEnableVertexAttribArray(1));
     GL(glEnableVertexAttribArray(2));
     return true;
@@ -66,14 +66,11 @@ bool CVertexArray::Unbind()
     if(!this->Init()) return false;
 
     GL(glBindVertexArray(0));
-    GL(glDisableVertexAttribArray(0));
-    GL(glDisableVertexAttribArray(1));
-    GL(glDisableVertexAttribArray(2));
 
     return true;
 }
 
-bool CVertexArray::AddData(const DrawBatch& D)
+index_t CVertexArray::AddData(const DrawBatch& D)
 {
     ZEN_ASSERTM(D.vcount > 0, "no buffer vertices given");
     ZEN_ASSERTM(D.icount > 0, "no buffer indices given");
@@ -86,7 +83,7 @@ bool CVertexArray::AddData(const DrawBatch& D)
     for(size_t i = 0; i < D.icount; ++i)
         m_vaoIndices.push_back(D.Indices[i]);
 
-    return true;
+    return m_vaoIndices.size() + m_icount;
 }
 
 bool CVertexArray::Offload()

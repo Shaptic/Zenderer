@@ -69,7 +69,22 @@ namespace gfxcore
         bool Bind();
         bool Unbind();
 
-        bool AddData(const DrawBatch& D);
+        /**
+         * Adds data to the vertex buffer for drawing. 
+         *  This will append data to the internal buffers for processing.
+         *  Nothing is actually offloaded to the GPU; this must be done
+         *  with an explicit call to Offload().
+         *  It may be desirable to calculate where in the GPU the indices
+         *  were placed, possibly in order to properly call `glDrawElements`
+         *  later, so this is given as the return value.
+         *  When using this value for that purpose, be sure to multiplty by
+         *  sizeof(index_t) to get the accurate offset in bytes.
+         *
+         * @param   D       Vertex and index data to store internally
+         *
+         * @return  Internal index buffer offset value.
+         **/
+        index_t AddData(const DrawBatch& D);
 
         /**
          * Offloads local vertex data to the GPU.

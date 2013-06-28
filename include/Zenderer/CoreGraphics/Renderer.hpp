@@ -12,6 +12,15 @@ class ZEN_API CRenderer
 public:
     virtual ~CRenderer();
     
+    static CEffect& GetDefaultEffect();
+    static const math::matrix4x4_t& GetProjectionMatrix();
+    
+    static void ResetMaterialState()
+    {
+        glBindTexture(GL_TEXTURE_2D, 0);
+        glUseProgram(0);
+    }
+    
     /// Only the scenes can modify graphical API state.
     friend class gfx::CScene;
     
@@ -38,7 +47,7 @@ protected:
             break;
             
         case RenderState::OFFSCREEN_RENDER:
-            
+            break;
         }
         
         m_LastState = Type;
