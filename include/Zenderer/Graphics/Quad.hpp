@@ -68,7 +68,7 @@ namespace gfx
             indexList[5] = 2;
         }
 
-        void AttachMaterial(const void*/*gfx::material_t**/ pMaterial)
+        void AttachMaterial(const gfx::material_t* pMaterial)
         {
             gfxcore::vertex_t* vertexList = m_DrawData.Vertices;
             if(vertexList == nullptr) return;

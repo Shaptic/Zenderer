@@ -156,6 +156,9 @@
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\Material.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">

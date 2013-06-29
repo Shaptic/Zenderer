@@ -25,7 +25,6 @@
 #include "Zenderer/Utilities/Settings.hpp"
 #include "Zenderer/Math/Matrix.hpp"
 #include "Zenderer/Graphics/Effect.hpp"
-#include "Zenderer/Graphics/Quad.hpp"
 #include "OpenGL.hpp"
 
 namespace zen
@@ -115,12 +114,12 @@ namespace gfxcore
         virtual void PrepareFBORenderState();
         virtual void PrepareLightingRenderState();
 
-        gfx::CQuad          m_FullscreenQuad;
-        gfx::CEffect        m_DefaultShader;
+        CVertexArray    m_FullscreenQuad;
+        gfx::CEffect    m_DefaultShader;
         //gfx::CRenderTarget  m_FinalScene;
 
         RenderState         m_LastState;
-    }
+    };
 }   // namespace gfxcore
 }   // namespace zen
 

@@ -27,7 +27,7 @@
 #include "Zenderer/Math/Math.hpp"
 #include "VertexArray.hpp"
 #include "Renderer.hpp"
-//#include "Zenderer/Graphics/Material.hpp"
+#include "Zenderer/Graphics/Material.hpp"
 
 #include "OpenGL.hpp"
 
@@ -100,7 +100,7 @@ namespace gfxcore
          *
          * @param   pMaterial   The texture you want rendered
          **/
-        virtual void AttachMaterial(const void* /*gfx::material_t**/ pMaterial) = 0;
+        virtual void AttachMaterial(const gfx::material_t* pMaterial) = 0;
 
         /// Sets all vertices to have a given color value.
         void SetColor(const color4f_t& Color)
@@ -179,16 +179,15 @@ namespace gfxcore
         friend class CSceneManager;
 
     protected:
-        void*    mp_Material;
+        const gfx::material_t* mp_Material;
         math::vector_t      m_Position;
         DrawBatch           m_DrawData;
         bool                m_internal;
 
     private:
-        CVertexArray*       mp_VAO;
         math::matrix4x4_t*  mp_MVMatrix;
+        CVertexArray*       mp_VAO;
         color4f_t           m_Color;
-
         index_t             m_offset;
     };
 
