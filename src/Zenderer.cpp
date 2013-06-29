@@ -64,8 +64,10 @@ void zen::Quit()
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
         << "Destroying components." << CLog::endl;
 
-    for(auto& sys : zen::CSubsystem::sp_allSystems)
+    for(auto it = zen::CSubsystem::sp_allSystems.rbegin(); 
+        it != zen::CSubsystem::sp_allSystems.rend(); ++it)
     {
+        auto* sys = *it;
         Log << Log.SetMode(LogMode::ZEN_INFO)
             << Log.SetSystem(sys->GetName())
             << "Destroying component." << CLog::endl;
