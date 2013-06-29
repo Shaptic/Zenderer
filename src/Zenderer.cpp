@@ -12,6 +12,7 @@ bool zen::Init()
 
     CLog& Log = CLog::GetEngineLog();
 
+    Log << CLog::endl;
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
         << "Initializing Zenderer." << CLog::endl;
 

@@ -117,6 +117,7 @@
     <ClCompile Include="src\Audio\Music2D.cpp" />
     <ClCompile Include="src\Audio\Sound2D.cpp" />
     <ClCompile Include="src\CoreGraphics\OpenGL.cpp" />
+    <ClCompile Include="src\CoreGraphics\Renderer.cpp" />
     <ClCompile Include="src\CoreGraphics\Shader.cpp" />
     <ClCompile Include="src\CoreGraphics\ShaderSet.cpp" />
     <ClCompile Include="src\CoreGraphics\VertexArray.cpp" />

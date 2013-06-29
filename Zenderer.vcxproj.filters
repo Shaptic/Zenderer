@@ -236,6 +236,9 @@
     <ClCompile Include="src\Graphics\Effect.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\CoreGraphics\Renderer.cpp">
+      <Filter>Source Files\CoreGraphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">
