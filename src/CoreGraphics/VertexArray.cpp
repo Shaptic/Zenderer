@@ -52,7 +52,7 @@ bool CVertexArray::Destroy()
 
 bool CVertexArray::Bind()
 {
-    if(!this->Init()) return false;
+    if(!m_init) return false;
 
     GL(glBindVertexArray(m_vao));
     GL(glEnableVertexAttribArray(0));       // Enable shader attribute 0
@@ -216,5 +216,5 @@ size_t CVertexArray::GetIndexCount() const
 
 bool CVertexArray::Offloaded() const
 {
-    return (m_vaoIndices.size() > 0 && m_vaoVertices.size() > 0);
+    return (m_vaoIndices.size() == 0 && m_vaoVertices.size() == 0);
 }
