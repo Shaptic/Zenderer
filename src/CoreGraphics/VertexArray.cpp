@@ -26,7 +26,7 @@ bool CVertexArray::Init()
 
     GL(glGenVertexArrays(1, &m_vao));
     GL(glGenBuffers(1, &m_vbo));
-    GL(glGenBuffers(1, &m_vao));
+    GL(glGenBuffers(1, &m_ibo));
 
     ZEN_ASSERT(m_vao != 0);
     ZEN_ASSERT(m_vbo != 0);
@@ -79,11 +79,13 @@ index_t CVertexArray::AddData(const DrawBatch& D)
     for(size_t v = 0; v < D.vcount; ++v)
         m_vaoVertices.push_back(D.Vertices[v]);
 
+    size_t offset = m_vaoIndices.size();
+
     m_vaoIndices.resize(m_vaoIndices.size() + D.icount);
     for(size_t i = 0; i < D.icount; ++i)
         m_vaoIndices.push_back(D.Indices[i]);
 
-    return m_vaoIndices.size() + m_icount;
+    return offset + m_icount;
 }
 
 bool CVertexArray::Offload()
