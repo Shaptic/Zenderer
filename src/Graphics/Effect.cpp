@@ -10,7 +10,7 @@ using gfx::EffectType;
 
 CEffect::CEffect(
     asset::CAssetManager& Assets,
-    const EffectType Type) : 
+    const EffectType Type) :
     m_Log(CLog::GetEngineLog()), m_Shader(Assets), m_type(Type)
 {
 }
@@ -23,7 +23,7 @@ CEffect::~CEffect()
 bool CEffect::Init()
 {
     if(m_init) return true;
-    
+
     // m_type is guaranteed to be valid, except for counter.
     if(m_type == EffectType::ZEN_EFFECT_COUNT)
     {
@@ -31,14 +31,14 @@ bool CEffect::Init()
               << "ZEN_EFFECT_COUNT is not a valid effect." << CLog::endl;
         return (m_init = false);
     }
-    
+
     // All effects currently use the default vertex shader.
     m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs");
-    
+
     if(m_type == EffectType::NO_EFFECT)
         m_init = m_Shader.LoadFragmentShaderFromFile(
             ZENDERER_SHADER_PATH"Default.fs");
-            
+
     else if(m_type == EffectType::GAUSSIAN_BLUR_H)
         m_init = m_Shader.LoadFragmentShaderFromFile(
             ZENDERER_SHADER_PATH"GuassianBlurH.fs");
@@ -63,7 +63,7 @@ bool CEffect::Init()
 
         return (m_init = false);
     }
-    
+
     return (m_init = m_Shader.CreateShaderObject());
 }
 
@@ -81,16 +81,16 @@ bool CEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(!name.empty());
     ZEN_ASSERT(pValues != nullptr);
     ZEN_ASSERT(count > 0);
-    
+
     if(!this->Init()) return false;
-    
+
     GLint loc = m_Shader.GetUniformLocation(name);
     if(loc == -1) return false;
-    
-    if(count == 1)      GL(glUniform1f(loc, pValues[0]));
-    else if(count == 2) GL(glUniform2fv(loc, 1, pValues));
-    else if(count == 3) GL(glUniform3fv(loc, 1, pValues));
-    else if(count == 4) GL(glUniform4fv(loc, 1, pValues));
+
+    if(count == 1)      { GL(glUniform1f(loc, pValues[0]));  }
+    else if(count == 2) { GL(glUniform2fv(loc, 1, pValues)); }
+    else if(count == 3) { GL(glUniform3fv(loc, 1, pValues)); }
+    else if(count == 4) { GL(glUniform4fv(loc, 1, pValues)); }
     else
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
@@ -99,7 +99,7 @@ bool CEffect::SetParameter(const string_t& name,
                 << count << " real values." << CLog::endl;
         return false;
     }
-    
+
     return true;
 }
 
@@ -110,16 +110,16 @@ bool CEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(!name.empty());
     ZEN_ASSERT(pValues != nullptr);
     ZEN_ASSERT(count > 0);
-    
+
     if(!this->Init()) return false;
-    
+
     GLint loc = m_Shader.GetUniformLocation(name);
     if(loc == -1) return false;
-    
-    if(count == 1)      GL(glUniform1i(loc, pValues[0]));
-    else if(count == 2) GL(glUniform2iv(loc, 1, pValues));
-    else if(count == 3) GL(glUniform3iv(loc, 1, pValues));
-    else if(count == 4) GL(glUniform4iv(loc, 1, pValues));
+
+    if(count == 1)      { GL(glUniform1i(loc, pValues[0]));  }
+    else if(count == 2) { GL(glUniform2iv(loc, 1, pValues)); }
+    else if(count == 3) { GL(glUniform3iv(loc, 1, pValues)); }
+    else if(count == 4) { GL(glUniform4iv(loc, 1, pValues)); }
     else
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
@@ -128,7 +128,7 @@ bool CEffect::SetParameter(const string_t& name,
                 << count << " integer values." << CLog::endl;
         return false;
     }
-    
+
     return true;
 }
 
@@ -136,9 +136,9 @@ bool CEffect::SetParameter(const string_t& name,
                            const math::matrix4x4_t& Matrix)
 {
     ZEN_ASSERT(!name.empty());
-    
+
     if(!this->Init()) return false;
-    
+
     GLint loc = m_Shader.GetUniformLocation(name);
     GL(glUniformMatrix4fv(loc, 1, GL_TRUE, Matrix.GetPointer()));
     return (loc != -1);

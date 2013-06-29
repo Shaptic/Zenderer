@@ -82,13 +82,13 @@ bool CShader::LoadFromRaw(const string_t& string)
 
     GL(glCompileShader(shader));
     GL(glGetShaderiv(shader, GL_COMPILE_STATUS, &error_code));
-    
+
     // Retrieve log (if any).
     GL(glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length));
-    
+
     // Delete old logs
     m_error_str = m_shader_log = "";
-    
+
     if(length > 0)
     {
         char* buffer = new char[length];
@@ -98,26 +98,26 @@ bool CShader::LoadFromRaw(const string_t& string)
 
         m_error_str = buffer;
         m_shader_log = buffer;
-        
+
         delete[] buffer;
         buffer = nullptr;
-        
+
 #ifdef _DEBUG
         m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
               << "Shader compilation log: " << m_shader_log << CLog::endl;
 #endif // _DEBUG
     }
-    
+
     // We have an error
     if(error_code == GL_FALSE)
     {
         ZEN_ASSERT(length > 0);
-        
+
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Shader")
                 << "Failed to compile shader: " << m_error_str
                 << CLog::endl;
-        
+
         return (m_loaded = false);
     }
 

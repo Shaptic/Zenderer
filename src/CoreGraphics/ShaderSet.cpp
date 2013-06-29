@@ -43,14 +43,14 @@ bool CShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
 bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 {
     this->Destroy();
-    
+
     mp_VShader = m_AssetManager.Create<CShader>(filename);
     if(mp_VShader == nullptr)
     {
         this->ShowLoadError(filename, "vertex");
         return false;
     }
-    
+
     return true;
 }
 
@@ -100,13 +100,13 @@ bool CShaderSet::CreateShaderObject()
 
         m_error_str = m_link_log = buffer;
         delete[] buffer;
-        
+
 #ifdef _DEBUG
         m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
               << "Shader compilation log: " << m_link_log << CLog::endl;
 #endif // _DEBUG
     }
-        
+
     // Link failed?
     if(err == GL_FALSE)
     {

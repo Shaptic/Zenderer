@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/Graphics/Effect.hpp - A high-level shader wrapper intended to 
+ *  Zenderer/Graphics/Effect.hpp - A high-level shader wrapper intended to
  *  be used by the user, abstracting shader variable set up.
  *
  * @author      George Kudrayvtsev (halcyon)
@@ -45,7 +45,7 @@ namespace gfx
     };
 
     /**
-     * A high-level shader wrapper. 
+     * A high-level shader wrapper.
      *  This class is very similar to the gfxcore::CShaderSet class,
      *  but creates a more user-friendly interface
      **/
@@ -54,20 +54,20 @@ namespace gfx
     public:
         CEffect(asset::CAssetManager& Assets, const EffectType Type);
         ~CEffect();
-        
+
         bool Init();
         bool Destroy();
-        
+
         /**
          * Modifies the effect based on a certain parameter.
-         *  The parameter name must directly correspond to the 
+         *  The parameter name must directly correspond to the
          *  uniform variable name found in the respective effect
-         *  shader file. 
+         *  shader file.
          *
          *  There are multiple overloads to support a variety of
          *  parameter types and value combinations.
-         * 
-         *  Regardless of whether or not `real_t` is defined as a 
+         *
+         *  Regardless of whether or not `real_t` is defined as a
          *  `float` or a `double`, GLSL only deals with
          *  single-precision uniform values.
          *
@@ -86,7 +86,7 @@ namespace gfx
         bool SetParameter(const string_t& name,
                           const int* pValues,
                           const size_t count);
-        
+
         /**
          * Modifies a matrix parameter in the effect.
          *  The behavior of this method is identical to that of SetParameter(),
@@ -95,21 +95,22 @@ namespace gfx
          *
          * @param   name    Name of matrix parameter
          * @param   Matrix  Matrix value to send to effect
-         * 
-         * @return  `true` if the parameter was found and set, 
+         *
+         * @return  `true` if the parameter was found and set,
          *          `false` otherwise.
          *
          * @overload
          **/
         bool SetParameter(const string_t& name,
                           const math::matrix4x4_t& Matrix);
-        
+
         inline bool Enable();   ///< A more user-friendly alias for binding.
         inline bool Disable();  ///< A more user-friendly alias for unbinding.
-        
+
+        inline GLuint GetObjectHandle() { return m_Shader.GetShaderObject(); }
         inline const string_t& GetError() const;
         inline void SetType(const EffectType Type);
-        
+
     private:
         inline bool Bind();
         inline bool Unbind();
@@ -119,7 +120,7 @@ namespace gfx
         gfxcore::CShaderSet m_Shader;
         EffectType m_type;
     };
-    
+
     #include "Effect.inl"
 }   // namespace gfx
 }   // namespace zen
@@ -127,4 +128,3 @@ namespace gfx
 #endif  // ZENDERER__GRAPHICS__EFFECT_HPP
 
 /** @} **/
- 

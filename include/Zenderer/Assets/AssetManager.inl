@@ -34,7 +34,7 @@ template<typename T>
 T* CAssetManager::Create(const void* const owner)
 {
     ZEN_ASSERT(this->IsInit());
-    
+
     m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetManager")
             << "Loading raw asset ... " << CLog::endl;

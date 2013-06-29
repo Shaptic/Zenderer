@@ -44,9 +44,9 @@ namespace gfxcore
         ~CShader();
 
         /**
-         * Loads a shader from a file. 
+         * Loads a shader from a file.
          *  The shader type is interpreted from the filename. Since this
-         *  is a sub-class of asset::CAsset, you cannot pass any extra 
+         *  is a sub-class of asset::CAsset, you cannot pass any extra
          *  parameters to the object on creation.
          *  Filenames ending in `.vs` are interpreted to be vertex shaders,
          *  and those ending in `.fs` or `.ps` are interpreted to be fragment
@@ -55,25 +55,25 @@ namespace gfxcore
          * @param   filename    Filename to load from
          *
          * @return  `true`  if the file loaded and the shader compiled
-         *           `false` otherwise.   
+         *           `false` otherwise.
          **/
         bool LoadFromFile(const string_t& filename);
-        
+
         /// @overload
         bool LoadFromExisting(const CAsset* const pCopyShader);
-        
+
         /// @overload
         bool LoadFromRaw(const string_t& string);
 
         /// Destroys the OpenGL shader object.
         bool Destroy();
-        
+
         /// Returns the OpenGL shader handle (cast it to `GLuint` to use).
         const void* const GetData() const;
 
         /// Returns the raw OpenGL shader handle.
         GLuint GetShaderObject();
-        
+
         /// Returns the shader log.
         const string_t& GetShaderLog();
 

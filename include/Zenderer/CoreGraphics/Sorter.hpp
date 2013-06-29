@@ -42,35 +42,35 @@ namespace gfxcore
      **/
     class ZEN_API CSorter
     {
-    public:        
+    public:
         static inline const CEntity*
         SortByMaterial(const CEntity* pEnt1, const CEntity* pEnt2)
         {
             return CSorter::SortBy(pEnt1, pEnt2, MATERIAL_FLAG);
         }
-        
+
         static inline const CEntity*
         SortByDepth(const CEntity* pEnt1, const CEntity* pEnt2)
         {
             return CSorter::SortBy(pEnt1, pEnt2, DEPTH_FLAG);
         }
-        
+
         static inline const CEntity*
         SortByAlpha(const CEntity* pEnt1, const CEntity* pEnt2)
         {
             return CSorter::SortBy(pEnt1, pEnt2, ALPHA_FLAG);
         }
-        
+
         static inline uint32_t
         CreateSortFlag(const uint32_t material_id,  const uint32_t depth_value,
                        const uint32_t alpha_bit,    const uint32_t unused = 0)
         {
-            return  (material_id << MATERIAL_OFFSET)| 
-                    (depth_value << DEPTH_OFFSET)   | 
-                    (alpha_bit   << ALPHA_OFFSET)   | 
+            return  (material_id << MATERIAL_OFFSET)|
+                    (depth_value << DEPTH_OFFSET)   |
+                    (alpha_bit   << ALPHA_OFFSET)   |
                     (unused      << UNUSED_OFFSET);
         }
-        
+
         static const uint32_t MATERIAL_FLAG     = 0xFFF00000;
         static const uint32_t MATERIAL_OFFSET   = 20; // 20 bits into the flag
 
@@ -82,11 +82,11 @@ namespace gfxcore
 
         static const uint32_t UNUSED_FLAG       = 0x000007FF;
         static const uint32_t UNUSED_OFFSET     = 0;
-        
+
     private:
         // Not implemented; purely static class.
         CSorter(); ~CSorter();
-        
+
         static inline const CEntity*
         SortBy(const CEntity* pEnt1, const CEntity* pEnt2, const uint32_t flag)
         {

@@ -53,7 +53,7 @@ namespace zen
 
 /**
  * Low level graphics layer.
- *  Here we encompass a low-level graphics layer used internally by 
+ *  Here we encompass a low-level graphics layer used internally by
  *  @a Zenderer for rendering operations. Most of these are abstracted
  *  away by higher level APIs in `zen::gfx`.
  **/
@@ -120,7 +120,7 @@ namespace gfxcore
         virtual bool Unbind()   = 0;
 
         virtual GLuint GetObjectHandle() = 0;
-        
+
         inline bool IsInit() { return m_init; }
 
         virtual inline const string_t& GetName() const

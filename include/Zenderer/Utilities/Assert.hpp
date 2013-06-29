@@ -70,7 +70,7 @@ namespace util
      *
      *  If this is used with the `ZEN_ASSERT` macro, this will ONLY
      *  actually do things in Debug builds, with `_DEBUG` specified.
-     * 
+     *
      * @param   expr        Boolean expression to assert on
      * @param   expr_str    The boolean expression as a string (for output)
      * @param   line_no     The line number the assertion is occuring on

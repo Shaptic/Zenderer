@@ -47,7 +47,7 @@ namespace gfxcore
          *  *WILL* create a shader object, and thus a useable, bindable
          *  shader.
          *
-         *  You can check for a linker error through GetError() and a 
+         *  You can check for a linker error through GetError() and a
          *  generic log through GetLinkerLog() in order to test for warnings
          *  or other messages.
          *
@@ -61,15 +61,15 @@ namespace gfxcore
          * @see     GetLinkerLog()
          **/
         bool LoadFromFile(const string_t& vs, const string_t& fs);
-        
+
         /**
          * Loads a vertex shader from a file.
          *  This only loads a shader. The extension on the file is
          *  irrelevant, because the filename will be dynamically modified
-         *  in order to fit the specification for dynamic shader type 
+         *  in order to fit the specification for dynamic shader type
          *  inferencing. See the docs for CShader for that.
          *
-         *  This method doesn't create a shader program, so a call to 
+         *  This method doesn't create a shader program, so a call to
          *  the relevant method is required (CreateShaderObject()).
          *
          * @param   filename    Shader filename
@@ -81,7 +81,7 @@ namespace gfxcore
          * @see     CreateShaderObject()
          **/
         bool LoadVertexShaderFromFile(const string_t& filename);
-        
+
         /**
          * @copydoc LoadVertexShaderFromFile()
          * @brief   Loads a fragment (pixel) shader from a file.
@@ -93,10 +93,10 @@ namespace gfxcore
          * @copydetails zen::gfxcore::CShaderSet::LoadFromFile()
          **/
         bool LoadFromStr(const string_t& vs, const string_t& fs);
-        
+
         /// Loads a vertex shader from a raw string (no linking).
         bool LoadVertexShaderFromStr(const string_t& str);
-        
+
         /// Loads a fragment shader from a raw string (no linking).
         bool LoadFragmentShaderFromStr(const string_t& str);
 
@@ -106,7 +106,7 @@ namespace gfxcore
          *  and bring them together into an OpenGL shader program that
          *  can then be bound to a rendering context and used.
          *
-         *  You can check for a linker error through GetError() and a 
+         *  You can check for a linker error through GetError() and a
          *  generic log through GetLinkerLog() in order to test for warnings
          *  or other messages.
          *
@@ -121,7 +121,7 @@ namespace gfxcore
 
         /// Binds the shader program to the rendering context for use.
         bool Bind();
-        
+
         /// Removes any shader program from the rendering context.
         bool Unbind();
 
@@ -130,13 +130,13 @@ namespace gfxcore
 
         /// Non-const because the returned handle can modify the state.
         uint16_t GetShaderObject();
-        
+
         /// Returns the index of a shader uniform location in VRAM.
         short GetUniformLocation(const string_t& name);
-        
+
         /// Returns the index of a shader attribute location in VRAM.
         short GetAttributeLocation(const string_t& name);
-        
+
         const string_t& GetError() const;
         const string_t& GetLinkerLog() const;
 
@@ -144,22 +144,22 @@ namespace gfxcore
         inline void ShowLoadError(const string_t& filename, const string_t& shader)
         {
             static std::stringstream error_stream;
-            
+
             error_stream.str(std::string());
             error_stream << "Failed to load " << shader << " shader from '"
                          << filename << "'.";
-                         
+
             m_error_str = error_stream.str();
-            
+
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << m_Log.SetSystem("ShaderSet")
                     << error_stream.str() << CLog::endl;
         }
-        
+
         inline void ShowProgramError()
         {
             m_error_str = "No shader program loaded.";
-            
+
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << m_Log.SetSystem("ShaderSet")
                     << m_error_str << CLog::endl;
