@@ -49,7 +49,11 @@ namespace gfxcore
     public:
         virtual ~CRenderer();
 
-        static gfx::CEffect& GetDefaultEffect();
+        static gfx::CEffect& GetDefaultEffect()
+        {
+            return s_DefaultShader;
+        }
+
         static const math::matrix4x4_t& GetProjectionMatrix()
         {
             return s_ProjMatrix;

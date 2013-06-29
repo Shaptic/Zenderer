@@ -113,7 +113,11 @@ static const char* SAMPLE_XML[] = {
     while(glfwGetWindowParam(GLFW_OPENED))
     {
         Window.Clear(Teal);
+        gfxcore::CRenderer::GetDefaultEffect().Enable();
+        gfxcore::CRenderer::GetDefaultEffect().SetParameter("mv",
+            math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
+        gfxcore::CRenderer::GetDefaultEffect().Disable();
         Window.Update();
         Sound.Update();
     }

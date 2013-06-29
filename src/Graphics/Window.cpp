@@ -84,6 +84,9 @@ bool CWindow::Init()
 
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
     gfxcore::CRenderer::s_DefaultShader.Init();
+    gfxcore::CRenderer::s_DefaultShader.Enable();
+    gfxcore::CRenderer::s_DefaultShader.SetParameter("proj", m_ProjMatrix);
+    gfxcore::CRenderer::s_DefaultShader.Disable();
 
     return (m_init = true);
 }
