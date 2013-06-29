@@ -8,6 +8,7 @@
 ### Low priority
 * Update to GLFW 3
 * Test audio API
+* Work around existing shader deletion (one at a time)
 
 ### In Progress
 * Plan rendering architecture

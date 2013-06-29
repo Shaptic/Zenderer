@@ -32,6 +32,12 @@ bool CShader::LoadFromFile(const string_t& filename)
         return false;
     }
 
+    // Interpret type from filename (VS by default).
+    if(filename.find(".fs") != string_t::npos)
+    {
+        m_type = GL_FRAGMENT_SHADER;
+    }
+
     while(std::getline(file, line))
     {
         source << line << std::endl;
@@ -94,18 +100,14 @@ bool CShader::LoadFromRaw(const string_t& string)
         char* buffer = new char[length];
 
         GL(glGetShaderInfoLog(shader, length, &length, buffer));
-        GL(glDeleteShader(shader));
-
-        m_error_str = buffer;
+        
         m_shader_log = buffer;
 
         delete[] buffer;
         buffer = nullptr;
 
-#ifdef _DEBUG
         m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
               << "Shader compilation log: " << m_shader_log << CLog::endl;
-#endif // _DEBUG
     }
 
     // We have an error
@@ -113,10 +115,12 @@ bool CShader::LoadFromRaw(const string_t& string)
     {
         ZEN_ASSERT(length > 0);
 
+        GL(glDeleteShader(shader));
+        m_error_str = m_shader_log;
+
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << m_Log.SetSystem("Shader")
-                << "Failed to compile shader: " << m_error_str
-                << CLog::endl;
+                << m_Log.SetSystem("Shader") << "Failed to compile shader: "
+                << m_error_str << CLog::endl;
 
         return (m_loaded = false);
     }

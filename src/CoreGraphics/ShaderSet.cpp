@@ -42,7 +42,7 @@ bool CShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
 
 bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 {
-    this->Destroy();
+    //this->Destroy();
 
     mp_VShader = m_AssetManager.Create<CShader>(filename);
     if(mp_VShader == nullptr)
@@ -56,7 +56,16 @@ bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 
 bool CShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
 {
-    return false;
+    //this->Destroy();
+
+    mp_FShader = m_AssetManager.Create<CShader>(filename);
+    if(mp_FShader == nullptr)
+    {
+        this->ShowLoadError(filename, "fragment");
+        return false;
+    }
+
+    return true;
 }
 
 bool CShaderSet::CreateShaderObject()
@@ -73,19 +82,19 @@ bool CShaderSet::CreateShaderObject()
     }
 
     // Create shader program and attach shaders.
-    m_program = glCreateProgram();
-    glAttachShader(m_program, mp_VShader->GetShaderObject());
-    glAttachShader(m_program, mp_FShader->GetShaderObject());
+    m_program = GL(glCreateProgram());
+    GL(glAttachShader(m_program, mp_VShader->GetShaderObject()));
+    GL(glAttachShader(m_program, mp_FShader->GetShaderObject()));
 
     // Link the compiled shader objects to the program.
     GLint err = GL_NO_ERROR;
-    glLinkProgram(m_program);
-    glGetProgramiv(m_program, GL_LINK_STATUS, &err);
+    GL(glLinkProgram(m_program));
+    GL(glGetProgramiv(m_program, GL_LINK_STATUS, &err));
 
     int length  = 0;
 
     // Get log length to make an appropriate buffer.
-    glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &length);
+    GL(glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &length));
 
     // Delete old log.
     m_error_str.clear();
@@ -95,21 +104,21 @@ bool CShaderSet::CreateShaderObject()
     if(length > 0)
     {
         char* buffer = new char[length];
-        glGetProgramInfoLog(m_program, length, &length, buffer);
-        glDeleteProgram(m_program);
+        GL(glGetProgramInfoLog(m_program, length, &length, buffer));
 
-        m_error_str = m_link_log = buffer;
+        m_link_log = buffer;
         delete[] buffer;
 
-#ifdef _DEBUG
         m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
               << "Shader compilation log: " << m_link_log << CLog::endl;
-#endif // _DEBUG
     }
 
     // Link failed?
     if(err == GL_FALSE)
     {
+        GL(glDeleteProgram(m_program));
+        m_error_str = m_link_log;
+
         // Show log.
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("ShaderSet")
