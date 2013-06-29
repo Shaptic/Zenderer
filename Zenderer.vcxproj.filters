@@ -141,6 +141,21 @@
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\CoreGraphics\Drawable.hpp">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\CoreGraphics\Renderer.hpp">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\CoreGraphics\Sorter.hpp">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\Quad.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Math\Shapes.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">

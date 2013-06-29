@@ -51,8 +51,7 @@
 
 // Graphics API
 #include "Graphics/Window.hpp"
-#include "CoreGraphics/VertexArray.hpp"
-#include "CoreGraphics/ShaderSet.hpp"
+#include "Graphics/Quad.hpp"
 
 // Assets
 #include "Assets/AssetManager.hpp"
@@ -315,4 +314,3 @@ namespace zen
  *  @subsubsection example     Example File
  *
  **/
- 
