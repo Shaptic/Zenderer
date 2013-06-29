@@ -212,7 +212,7 @@ namespace math
 
     #include "Vector.inl"
 
-    using vector_t = vectorf_t;
+    typedef vectorf_t vector_t;
 }   // namespace math
 }   // namespace ic
 

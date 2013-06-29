@@ -40,10 +40,10 @@ namespace util
     struct ZEN_API XMLNode;
 
     /// Shortcut for a list of nodes.
-    using XMLList_t = std::vector<XMLNode*>;
+    typedef std::vector<XMLNode*> XMLList_t;
 
     /// Shortcut for an option dictionary.
-    using XMLOptions_t = std::map<string_t, string_t>;
+    typedef std::map<string_t, string_t> XMLOptions_t;
 
     /**
      * A single XML node.
@@ -250,4 +250,3 @@ namespace util
  **/
 
 /** @} **/
- 

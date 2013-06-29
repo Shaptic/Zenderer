@@ -34,7 +34,7 @@ namespace zen
 namespace asset
 {
     /// For unique asset ID.
-    using assetid_t = uint32_t;
+    typedef uint32_t assetid_t;
 
     /**
      * Used throughout @a Zenderer to act as an asset.
@@ -83,7 +83,7 @@ namespace asset
          *  By default, this just copies all of the asset metadata over,
          *  excluding any implementation-specific data.
          *  It's recommended to overload this method, and then just call
-         *  CAsset::LoadFromExisting() again internally to ensure all 
+         *  CAsset::LoadFromExisting() again internally to ensure all
          *  metadata is copied (if that's desired).
          *
          * @param   pCopy   Asset to create a copy from

@@ -46,12 +46,13 @@ namespace zen
      * Specifies whether the engine should use 'double' (64-bit) or 'float'
      * (32-bit) values for real_t numbers.
      **/
-     using real_t = 
+    typedef
 #ifdef ZEN_DOUBLE_PRECISION
-    double;
+    double
 #else
-    float;
+    float
 #endif // ZEN_DOUBLE_PRECISION
+    real_t;
 
     /**
      * Character sequence representation used throughout the engine.
@@ -59,7 +60,7 @@ namespace zen
      *  a future implementation in which there is a custom string class
      *  created tailored specifically for the engine.
      **/
-    using string_t = std::string;
+    typedef std::string string_t;
 
     /**
      * Clamps a value in the provided range [min, max].

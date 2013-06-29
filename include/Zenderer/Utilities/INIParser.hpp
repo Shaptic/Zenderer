@@ -44,7 +44,7 @@ namespace util
         CINIParser();
         virtual ~CINIParser();
 
-        using pair_t = std::map<string_t, string_t>;
+        typedef std::map<string_t, string_t> pair_t;
 
         /**
          * Fills the dictionary with key=value pairs for the entire file.

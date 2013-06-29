@@ -44,7 +44,7 @@ namespace zen
 namespace gfxcore
 {
     /// Shortcut for easy modification.
-    using index_t = uint16_t;
+    typedef uint16_t index_t;
 
     /// Type of indices.
     static const GLenum INDEX_TYPE = GL_UNSIGNED_BYTE;
@@ -70,7 +70,7 @@ namespace gfxcore
         bool Unbind();
 
         /**
-         * Adds data to the vertex buffer for drawing. 
+         * Adds data to the vertex buffer for drawing.
          *  This will append data to the internal buffers for processing.
          *  Nothing is actually offloaded to the GPU; this must be done
          *  with an explicit call to Offload().
