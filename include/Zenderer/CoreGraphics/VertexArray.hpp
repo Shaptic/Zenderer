@@ -47,7 +47,7 @@ namespace gfxcore
     typedef uint16_t index_t;
 
     /// Type of indices.
-    static const GLenum INDEX_TYPE = GL_UNSIGNED_BYTE;
+    static const GLenum INDEX_TYPE = GL_UNSIGNED_SHORT;
 
     /// A collection of drawing data to pass to a CVertexArray.
     struct DrawBatch

@@ -55,6 +55,9 @@
     <Filter Include="Source Files\CoreGraphics">
       <UniqueIdentifier>{fba4f9ce-6e3c-4948-a8bd-aaf4dcb41114}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{eccf4115-1b92-40c8-bba8-e5183fb42d99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -261,6 +264,45 @@
     </None>
     <None Include="include\Zenderer\Graphics\Effect.inl">
       <Filter>Header Files\Graphics</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\AmbientLight.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Animate.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Default.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Default.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\DirectionalLight.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Fade.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\FontRender.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlur.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlurH.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlurV.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\PointLight.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Ripple.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\ShadowCaster.fs">
+      <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

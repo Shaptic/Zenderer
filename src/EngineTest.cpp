@@ -37,48 +37,11 @@ static const char* SAMPLE_XML[] = {
 {
     Init();
 
-    util::CXMLParser XML;
-    XML.LoadFromString(SAMPLE_XML);
-    XML.LoadFromFile("sample.xml");
-
-    for(auto& i : XML)
-    {
-        std::cout << i << "[" << i->parent << "]: " << i->name << " {";
-        for(auto& j : i->options)
-            std::cout << j.first << " -> " << j.second << ", ";
-
-        std::cout << "} --- " << i->content << std::endl;
-    }
-
-    util::CSettings& Settings = util::CSettings::GetEngineInstance();
-
-    Settings["PLAYER_NAME"] = "Zenderer Player";
-    Settings["PLAYER_HEALTH"] = 100ULL;
-    Settings["PLAYER_SPEED"] = 5.0;
-    Settings["PLAYER_ALIVE"] = true;
-
-    /*
-    for(const auto& i : Settings)
-        std::cout   << i.first << " => "
-                    << i.second << std::endl;
-    */
-
-    Settings["PLAYER_ALIVE"] = 42;
-    size_t health = Settings["PLAYER_HEALTH"];
-
-    CAllocator& g_Alloc = CAllocator::Get();
-
-    int*    arr1 = g_Alloc.get<int>(2);
-    char*   arr2 = g_Alloc.get<char>(45);
-    double* arr3 = g_Alloc.get<double>(5);
-
-    std::fill(arr1 , arr1 + 2, 69);
-
     asset::CAssetManager Manager;
     gfx::CWindow Window(800, 600, "Hello, Zenderer.");
 
-    Window.Init();
     Window.AttachAssetManager(Manager);
+    Window.Init();
 
     sfx::CSound2D Sound;
     Sound.LoadFromFile("Crackle.wav");
@@ -101,6 +64,11 @@ static const char* SAMPLE_XML[] = {
     D.Vertices[2].position = math::vector_t(400, 200);
     D.Vertices[3].position = math::vector_t(0, 200);
 
+    D.Vertices[0].tc = math::vector_t(0.0, 0.0);
+    D.Vertices[1].tc = math::vector_t(1.0, 0.0);
+    D.Vertices[2].tc = math::vector_t(1.0, 1.0);
+    D.Vertices[3].tc = math::vector_t(0.0, 1.0);
+
     D.Vertices[0].color =
     D.Vertices[1].color =
     D.Vertices[2].color =
@@ -109,6 +77,10 @@ static const char* SAMPLE_XML[] = {
     Vao.Init();
     Vao.AddData(D);
     Vao.Offload();
+
+    D.Indices = nullptr;
+    delete[] D.Vertices;
+    D.vcount = D.icount = 0;
 
     while(glfwGetWindowParam(GLFW_OPENED))
     {
@@ -123,19 +95,6 @@ static const char* SAMPLE_XML[] = {
     }
 
     Vao.Destroy();
-
-    /*
-    std::for_each(arr1 , arr1 + 2,
-        [](const int i) {
-            std::cout << i << std::endl;
-        }
-    );
-    */
-
-    //g_Alloc.Free(arr1);
-    g_Alloc.Free(arr3);
-    g_Alloc.Free(arr3);
-    g_Alloc.Free(arr3);
 
     Quit();
 
