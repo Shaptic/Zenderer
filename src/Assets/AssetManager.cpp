@@ -8,7 +8,9 @@ using util::LogMode;
 
 std::list<CAsset*> CAssetManager::sp_allAssets;
 
-CAssetManager::CAssetManager() : m_Log(CLog::GetEngineLog())
+CAssetManager::CAssetManager() :
+    m_Log(CLog::GetEngineLog()),
+    CSubsystem("Assets")
 {
     mp_managerAssets.clear();
 }
