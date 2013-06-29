@@ -1,6 +1,7 @@
 /**
  * @file
- *  Zenderer/CoreGraphics/Renderer.hpp - A low-level class to take care of rendering state and other graphical management abstractions.
+ *  Zenderer/CoreGraphics/Renderer.hpp - A low-level class to take care of
+ *  rendering state and other graphical management abstractions.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -26,12 +27,15 @@
 #include "Zenderer/Math/Matrix.hpp"
 #include "Zenderer/Graphics/Effect.hpp"
 #include "OpenGL.hpp"
+#include "VertexArray.hpp"
 
 namespace zen
 {
+namespace gfx { class ZEN_API CWindow; }
+
 namespace gfxcore
 {
-    enum class RenderState : uint16_t
+    enum class ZEN_API RenderState : uint16_t
     {
         ZEN_NORMAL_RENDER,
         ZEN_OFFSCREEN_RENDER,
@@ -46,7 +50,10 @@ namespace gfxcore
         virtual ~CRenderer();
 
         static gfx::CEffect& GetDefaultEffect();
-        static const math::matrix4x4_t& GetProjectionMatrix();
+        static const math::matrix4x4_t& GetProjectionMatrix()
+        {
+            return s_ProjMatrix;
+        }
 
         static void ResetMaterialState()
         {
@@ -56,6 +63,7 @@ namespace gfxcore
 
         /// Only the scenes can modify graphical API state.
         //friend class gfx::CScene;
+        friend class gfx::CWindow;
 
     protected:
         CRenderer(const util::CSettings& Settings);
@@ -67,7 +75,7 @@ namespace gfxcore
             {
             case RenderState::ZEN_NORMAL_RENDER:
                 // @todo: set identity matrix, proj matrix from window.
-                m_DefaultShader.Enable();
+                s_DefaultShader.Enable();
                 //m_FullscreenQuad.Prepare();
                 //m_FinalTarget.GetTexture().Bind();
 
@@ -76,7 +84,7 @@ namespace gfxcore
                 // Return to previous state.
                 //m_FinalTarget.GetTexture().Unbind();
                 //m_FullscreenQuad.ResetState();
-                m_DefaultShader.Disable();
+                s_DefaultShader.Disable();
                 break;
 
             case RenderState::ZEN_OFFSCREEN_RENDER:
@@ -115,8 +123,9 @@ namespace gfxcore
         virtual void PrepareLightingRenderState();
 
         CVertexArray    m_FullscreenQuad;
-        gfx::CEffect    m_DefaultShader;
+        static gfx::CEffect s_DefaultShader;
         //gfx::CRenderTarget  m_FinalScene;
+        static math::matrix4x4_t s_ProjMatrix;
 
         RenderState         m_LastState;
     };

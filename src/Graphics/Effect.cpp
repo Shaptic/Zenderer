@@ -8,10 +8,12 @@ using util::LogMode;
 using gfx::CEffect;
 using gfx::EffectType;
 
-CEffect::CEffect(
-    asset::CAssetManager& Assets,
-    const EffectType Type) :
-    m_Log(CLog::GetEngineLog()), m_Shader(Assets), m_type(Type)
+asset::CAssetManager CEffect::s_DefaultManager;
+
+CEffect::CEffect(const EffectType Type, asset::CAssetManager* pAssets) :
+    m_Log(CLog::GetEngineLog()),
+    m_Shader(pAssets ? *pAssets : s_DefaultManager),
+    m_type(Type)
 {
 }
 
@@ -22,6 +24,8 @@ CEffect::~CEffect()
 
 bool CEffect::Init()
 {
+    s_DefaultManager.Init();
+
     if(m_init) return true;
 
     // m_type is guaranteed to be valid, except for counter.

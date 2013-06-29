@@ -35,7 +35,10 @@
 #include "Zenderer/Math/Matrix.hpp"
 
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
+#include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/Assets/AssetManager.hpp"
+
+#include "Effect.hpp"
 
 namespace zen
 {

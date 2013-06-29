@@ -47,12 +47,17 @@ bool CWindow::Init()
         24, 8, (m_fullscreen ? GLFW_FULLSCREEN : GLFW_WINDOW)) == GL_FALSE)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
-                << "Failed to create OpenGL window v" << major
-                << '.' << minor << " (fullscreen = "
-                << (m_fullscreen ? "true" : "false") << ")!"
-                << CLog::endl;
+                << "Failed to create OpenGL window v" << major << '.' << minor
+                << " (fullscreen = " << (m_fullscreen ? "true" : "false")
+                << ")!" << CLog::endl;
 
         return false;
+    }
+    else
+    {
+        m_Log   << "Created OpenGL window v" << major << '.' << minor
+                << " (fullscreen = " << (m_fullscreen ? "true" : "false")
+                << ")." << CLog::endl;
     }
 
     glfwSetWindowTitle(m_caption.c_str());
@@ -62,13 +67,23 @@ bool CWindow::Init()
     m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
         m_Dimensions.y, 256, -256);
 
-    if(glewInit() != GLEW_OK) return false;
+    m_Log << "Initializing GLEW: ";
+    glewExperimental = true;
+    if(glewInit() != GLEW_OK)
+    {
+        m_Log << m_Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        return false;
+    }
+    else m_Log << "SUCCESS." << CLog::endl;
 
     // Clears a weird error of glewInit() giving 1280 (invalid enumerant)
     /// @see https://www.opengl.org/wiki/OpenGL_Loading_Library#GLEW
     glGetError();
 
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
+
+    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
+    gfxcore::CRenderer::s_DefaultShader.Init();
 
     return (m_init = true);
 }
