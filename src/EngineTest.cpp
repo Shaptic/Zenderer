@@ -89,8 +89,13 @@ static const char* SAMPLE_XML[] = {
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
-    gfx::CLight L(Manager, gfx::LightType::ZEN_AMBIENT, Window.GetHeight());
-    L.Init();
+    gfx::CLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
+    L.Init(); 
+    L.Enable();
+    L.SetBrightness(0.005);
+    L.SetColor(0.0, 1.0, 0.0);
+    L.SetPosition(200, 100);
+    L.Disable();
 
     while(Window.IsOpen())
     {

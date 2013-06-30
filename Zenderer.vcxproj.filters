@@ -251,6 +251,9 @@
     <ClCompile Include="src\Utilities\Timer.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="src\Graphics\Light.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">

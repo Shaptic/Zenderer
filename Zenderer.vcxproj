@@ -149,6 +149,7 @@
     <ClCompile Include="src\Core\Subsystem.cpp" />
     <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
+    <ClCompile Include="src\Graphics\Light.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />

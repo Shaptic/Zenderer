@@ -43,7 +43,7 @@
 namespace zen
 {
     /**
-     * Specifies whether the engine should use 'double' (64-bit) or 'float'
+     * Specifies whether the engine should use 'double' (64-bit) or 'real_t'
      * (32-bit) values for real_t numbers.
      **/
     typedef
@@ -82,23 +82,45 @@ namespace zen
      **/
     struct ZEN_API color4f_t
     {
-        color4f_t(const float r = 0.f,
-                  const float g = 0.f,
-                  const float b = 0.f,
-                  const float a = 1.f) : r(r), g(g), b(b), a(a) {}
+        color4f_t(const real_t r = 0.f,
+                  const real_t g = 0.f,
+                  const real_t b = 0.f,
+                  const real_t a = 1.f) : r(r), g(g), b(b), a(a) {}
 
         void Clamp()
         {
-            clamp<float>(r, 0, 1);
-            clamp<float>(g, 0, 1);
-            clamp<float>(b, 0, 1);
-            clamp<float>(a, 0, 1);
+            clamp<real_t>(r, 0, 1);
+            clamp<real_t>(g, 0, 1);
+            clamp<real_t>(b, 0, 1);
+            clamp<real_t>(a, 0, 1);
         }
 
-        float r,    ///< Red
-              g,    ///< Green
-              b,    ///< Blue
-              a;    ///< Alpha
+        real_t r,   ///< Red
+               g,   ///< Green
+               b,   ///< Blue
+               a;   ///< Alpha
+    };
+
+    /**
+     * A 24-bit floating point color component (RGB).
+     *  Typically, this is expected to be in the range [0, 1].
+     **/
+    struct ZEN_API color3f_t
+    {
+        color3f_t(const real_t r = 0.0,
+                  const real_t g = 0.0,
+                  const real_t b = 0.0) : r(r), g(g), b(b) {}
+
+        void Clamp()
+        {
+            clamp<real_t>(r, 0, 1);
+            clamp<real_t>(g, 0, 1);
+            clamp<real_t>(b, 0, 1);
+        }
+
+        real_t r,   ///< Red
+               g,   ///< Green
+               b;   ///< Blue
     };
 }
 

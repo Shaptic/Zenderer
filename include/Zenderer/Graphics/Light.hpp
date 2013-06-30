@@ -59,107 +59,50 @@ namespace gfx
          * @param   window_h    The height of the OpenGL context 
          **/
         CLight(asset::CAssetManager& m_Assets, const LightType& Type,
-               const uint16_t window_h = 800) :
-            m_type(Type), m_Shader(m_Assets), m_height(window_h) {}
+               const uint16_t window_h = 800);
 
-        ~CLight() {}
+        ~CLight();
 
-        bool Init()
-        {
-            bool state = false;
+        bool Init();
 
-            state = m_Shader.LoadVertexShaderFromFile(
-                ZENDERER_SHADER_PATH"Default.vs");
+        bool Enable();
+        bool Disable();
 
-            switch(m_type)
-            {
-            case LightType::ZEN_AMBIENT:
-                state = state && m_Shader.LoadFragmentShaderFromFile(
-                    ZENDERER_SHADER_PATH"AmbientLight.fs");
-                break;
-
-            case LightType::ZEN_POINT:
-                state = state && m_Shader.LoadFragmentShaderFromFile(
-                    ZENDERER_SHADER_PATH"PointLight.fs");
-                break;
-
-            case LightType::ZEN_SPOTLIGHT:
-                state = state && m_Shader.LoadFragmentShaderFromFile(
-                    ZENDERER_SHADER_PATH"SpotLight.fs");
-                break;
-
-            default: break;
-            }
-
-            state = state && m_Shader.CreateShaderObject();
-
-            if(state)
-            {
-                m_loccol = m_Shader.GetUniformLocation("light_col");
-                m_locbrt = m_Shader.GetUniformLocation("light_brt");
-                m_locpos = m_Shader.GetUniformLocation("light_pos");
-                m_loctmx = m_Shader.GetUniformLocation("light_max");
-                m_loctmn = m_Shader.GetUniformLocation("light_min");
-
-                GLint mvloc     = m_Shader.GetUniformLocation("mv"),
-                      projloc   = m_Shader.GetUniformLocation("proj"),
-                      scrloc    = m_Shader.GetUniformLocation("scr_height");
-
-                if(m_loccol == -1   || m_locbrt == -1 || mvloc == -1 ||
-                   projloc == -1    || scrloc == -1)
-                {
-                    return false;
-                }
-                else
-                {
-                    // Set up the values we only need a single time.
-                    if(!m_Shader.Bind()) return false;
-
-                    GL(glUniformMatrix4fv(mvloc, 1, GL_TRUE, 
-                            math::matrix4x4_t
-                                ::GetIdentityMatrix().GetPointer()));
-
-                    GL(glUniformMatrix4fv(projloc, 1, GL_TRUE, 
-                            gfxcore::CRenderer
-                                   ::GetProjectionMatrix().GetPointer()));
-
-                    GL(glUniform1i(scrloc, m_height));
-
-                    return m_Shader.Unbind();
-                }
-            }
-
-            return state;
-        }
-
-        bool Enable()
-        {
-            return m_Shader.Bind();
-        }
-
-        bool Disable()
-        {
-            return m_Shader.Unbind();
-        }
+        void SetBrightness(const real_t brightness);
+        void SetColor(const real_t r, const real_t g, const real_t b);
+        void SetColor(const color3f_t& Color);
+        void SetAttenuation(const real_t c, const real_t l, const real_t q);
+        void SetAttenuation(const math::vector_t& Att);
+        void SetPosition(const real_t x, const real_t y);
+        void SetPosition(const math::vector_t& Pos);
+        void SetMaximumAngle(const real_t degrees);
+        void SetMinimumAngle(const real_t degrees);
 
     private:
-        static math::vector_t   s_DefaultColor, s_DefaultAttenuation,
+        // Default values
+        static math::vector_t   s_DefaultAttenuation,
                                 s_DefaultPosition;
-        static real_t           s_DefaultBrightness, 
-                                s_DefaultMaxAngle, s_DefaultMinAngle;
+        static color3f_t        s_DefaultColor;
+        static real_t           s_DefaultBrightness, s_DefaultMaxAngle,
+                                s_DefaultMinAngle;
 
         // We don't use the high-level effect to get more control
         // and minimize uniform parameter lookups.
         gfxcore::CShaderSet m_Shader;
 
+        math::vector_t  m_Att, m_Position, m_Max, m_Min;
+        color3f_t       m_Color;
+        real_t          m_brt;
+
         LightType m_type;
 
         // Uniform locations
         GLint m_loccol,     // Color
-            m_locbrt,     // Brightness
-            m_locpos,     // Position
-            m_loctmx,     // Minimum angle
-            m_loctmn;     // Maximum angle
+              m_locbrt,     // Brightness
+              m_locpos,     // Position
+              m_locatt,     // Attenuation
+              m_loctmx,     // Minimum angle ([loc]ation of [t]heta [m]a[x])
+              m_loctmn;     // Maximum angle
 
         // OpenGL context height (in pixels).
         uint16_t m_height;
