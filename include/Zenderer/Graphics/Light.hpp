@@ -68,15 +68,15 @@ namespace gfx
         bool Enable();
         bool Disable();
 
-        void SetBrightness(const real_t brightness);
-        void SetColor(const real_t r, const real_t g, const real_t b);
-        void SetColor(const color3f_t& Color);
-        void SetAttenuation(const real_t c, const real_t l, const real_t q);
-        void SetAttenuation(const math::vector_t& Att);
-        void SetPosition(const real_t x, const real_t y);
-        void SetPosition(const math::vector_t& Pos);
-        void SetMaximumAngle(const real_t degrees);
-        void SetMinimumAngle(const real_t degrees);
+        bool SetBrightness(const real_t brightness);
+        bool SetColor(const real_t r, const real_t g, const real_t b);
+        bool SetColor(const color3f_t& Color);
+        bool SetAttenuation(const real_t c, const real_t l, const real_t q);
+        bool SetAttenuation(const math::vector_t& Att);
+        bool SetPosition(const real_t x, const real_t y);
+        bool SetPosition(const math::vector_t& Pos);
+        bool SetMaximumAngle(const real_t degrees);
+        bool SetMinimumAngle(const real_t degrees);
 
     private:
         // Default values
@@ -107,6 +107,10 @@ namespace gfx
         // OpenGL context height (in pixels).
         uint16_t m_height;
     };
+
+    // Shortcut for light containers.
+    typedef std::vector<CLight*> LightSet_t;
+
 }   // namespace gfx
 }   // namespace zen
 

@@ -35,10 +35,11 @@ void main()
                             ( light_att.y * dist) + 
                             ( light_att.z * dist * dist));
 
-        // Do regular texture color.
-        out_color       = fs_color * texture2D(geometry, fs_texc);
-        
-        // Final fragment color is the light color * attenuation * brightness.
-        out_color  *= vec4(light_col, 1.0) * vec4(att, att, att, 1.0) * light_brt;
+        // Lit fragment color is the light color * attenuation * brightness.
+        out_color       = vec4(light_col, 1.0) * vec4(att, att, att, 1.0);
+        out_color       = fs_color * vec4(out_color.rgb * light_brt, 1.0);
+
+        // Add regular texture color.
+        //out_color  *= texture2D(geometry, fs_texc);
     }
 }

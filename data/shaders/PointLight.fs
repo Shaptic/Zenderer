@@ -30,5 +30,6 @@ void main()
 
     // Final fragment color is the light color * attenuation * brightness.
     out_color       = vec4(light_col, 1.0) * vec4(att, att, att, 1.0);
-    out_color      *= light_brt * fs_color * texture2D(geometry, fs_texc);
+    out_color       = fs_color * vec4(out_color.rgb * light_brt, 1.0);
+    //out_color      *= texture2D(geometry, fs_texc);
 }

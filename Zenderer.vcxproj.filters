@@ -289,9 +289,6 @@
     <None Include="data\shaders\Default.vs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="data\shaders\DirectionalLight.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="data\shaders\Fade.fs">
       <Filter>Shaders</Filter>
     </None>
@@ -314,6 +311,9 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="data\shaders\ShadowCaster.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="data\shaders\SpotLight.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

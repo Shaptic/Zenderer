@@ -167,7 +167,7 @@
     <None Include="data\shaders\Animate.fs" />
     <None Include="data\shaders\Default.fs" />
     <None Include="data\shaders\Default.vs" />
-    <None Include="data\shaders\DirectionalLight.fs" />
+    <None Include="data\shaders\SpotLight.fs" />
     <None Include="data\shaders\Fade.fs" />
     <None Include="data\shaders\FontRender.fs" />
     <None Include="data\shaders\GaussianBlur.vs" />

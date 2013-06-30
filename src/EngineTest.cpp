@@ -82,16 +82,19 @@ static const char* SAMPLE_XML[] = {
     delete[] D.Vertices;
     D.vcount = D.icount = 0;
 
-    gfx::CQuad Q(32, 32);
+    gfx::CQuad Q(32, 32); 
     Q.Create().Move(math::vector_t(100, 100));
 
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
-    gfx::CLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
-    L.Init(); 
-    L.Enable();
-    L.SetBrightness(0.005);
+    GL(glEnable(GL_BLEND));
+    GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+
+    gfx::CLight L(Manager, gfx::LightType::ZEN_SPOTLIGHT, Window.GetHeight());
+    L.Init();
+    L.Enable(); 
+    L.SetBrightness(0.05);
     L.SetColor(0.0, 1.0, 0.0);
     L.SetPosition(200, 100);
     L.Disable();
