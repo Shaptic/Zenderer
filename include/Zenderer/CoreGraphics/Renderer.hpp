@@ -65,6 +65,17 @@ namespace gfxcore
             glUseProgram(0);
         }
 
+        static void EnableAlphaBlending()
+        {
+            GL(glEnable(GL_BLEND));
+            GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+        }
+
+        static void DisableAlphaBlending()
+        {
+            GL(glDisable(GL_BLEND));
+        }
+
         /// Only the scenes can modify graphical API state.
         //friend class gfx::CScene;
         friend class gfx::CWindow;

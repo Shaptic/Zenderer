@@ -14,7 +14,7 @@
 
 ### In Progress
 * Plan rendering architecture
-* Write lighting wrapper
+* Write texture wrapper / loader
 
 ### Complete
 * Logging system
@@ -34,3 +34,4 @@
 * Test shader/effect wrappers
 * Update to GLFW 3
 * Implement quad drawing
+* Write lighting wrapper

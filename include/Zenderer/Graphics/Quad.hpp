@@ -67,19 +67,17 @@ namespace gfx
             m_DrawData.Indices[4] = 1;
             m_DrawData.Indices[5] = 2;
 
+            m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
+            m_DrawData.Vertices[1].tc = math::vector_t(1.0, 0.0);
+            m_DrawData.Vertices[2].tc = math::vector_t(1.0, 1.0);
+            m_DrawData.Vertices[3].tc = math::vector_t(0.0, 1.0);
+
             return (*this);
         }
 
         void AttachMaterial(const gfx::material_t* pMaterial)
         {
-            gfxcore::vertex_t* vertexList = m_DrawData.Vertices;
-            if(vertexList == nullptr) return;
-
-            vertexList[0].tc = math::vector_t(0.0, 0.0);
-            vertexList[1].tc = math::vector_t(1.0, 0.0);
-            vertexList[2].tc = math::vector_t(1.0, 1.0);
-            vertexList[3].tc = math::vector_t(0.0, 1.0);
-
+            if(m_DrawData.Vertices == nullptr) return;
             mp_Material = pMaterial;
         }
 

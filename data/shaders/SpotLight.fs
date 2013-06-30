@@ -21,25 +21,25 @@ void main()
     // Invert the fragment's y-value (I have no clue why this is necessary)
     vec2 pixel      = gl_FragCoord.xy;
     pixel.y         = scr_height - pixel.y;
-    
-    // Calculate distance to light from fragment.
     vec2 light_vec  = light_pos  - pixel;
-    float dist      = length(light_vec);
 
     out_color       = vec4(0.0, 0.0, 0.0, 1.0);
 
     if(dot(light_vec, light_max) > 0 && dot(light_vec, light_min) < 0)
     {
+        // Calculate distance to light from fragment.
+        float dist  = length(light_vec);
+
         // Calculate attenuation, or light influence factor.
         float att   = 1.0 / ( light_att.x + 
                             ( light_att.y * dist) + 
                             ( light_att.z * dist * dist));
 
         // Lit fragment color is the light color * attenuation * brightness.
-        out_color       = vec4(light_col, 1.0) * vec4(att, att, att, 1.0);
-        out_color       = fs_color * vec4(out_color.rgb * light_brt, 1.0);
+        out_color   = vec4(light_col, 1.0) * vec4(att, att, att, 1.0);
+        out_color   = fs_color * vec4(out_color.rgb * light_brt, 1.0);
 
         // Add regular texture color.
-        //out_color  *= texture2D(geometry, fs_texc);
+        out_color  *= texture2D(geometry, fs_texc);
     }
 }
