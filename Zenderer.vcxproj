@@ -107,6 +107,7 @@
     <ClInclude Include="include\Zenderer\CoreGraphics\Shader.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\ShaderSet.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Sorter.hpp" />
+    <ClInclude Include="include\Zenderer\CoreGraphics\Texture.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\VertexArray.hpp" />
     <ClInclude Include="include\Zenderer\Core\Allocator.hpp" />
     <ClInclude Include="include\Zenderer\Core\ErrorHandling.hpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
+    <ClCompile Include="src\stb_image.c" />
     <ClCompile Include="src\Utilities\Assert.cpp" />
     <ClCompile Include="src\Utilities\Helpers.cpp" />
     <ClCompile Include="src\Utilities\INIParser.cpp" />

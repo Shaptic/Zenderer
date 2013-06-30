@@ -58,6 +58,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{eccf4115-1b92-40c8-bba8-e5183fb42d99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Libs">
+      <UniqueIdentifier>{508e9b9f-99e4-4c0f-ac38-ee732879d652}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -168,6 +171,9 @@
     <ClInclude Include="include\Zenderer\Utilities\Timer.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\CoreGraphics\Texture.hpp">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -253,6 +259,9 @@
     </ClCompile>
     <ClCompile Include="src\Graphics\Light.cpp">
       <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stb_image.c">
+      <Filter>Source Files\Libs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

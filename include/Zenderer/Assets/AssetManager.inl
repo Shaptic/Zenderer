@@ -9,9 +9,9 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     // There is no existing asset matching the criteria.
     if(pResult == nullptr)
     {
-        m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+        m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
                 << m_Log.SetSystem("AssetManager") << "Loading '"
-                << filename << "' ... " << CLog::endl;
+                << filename << "' ... " << util::CLog::endl;
 
         // Create a new original asset.
         T* pAsset = new T(owner);
@@ -35,9 +35,9 @@ T* CAssetManager::Create(const void* const owner)
 {
     ZEN_ASSERT(this->IsInit());
 
-    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+    m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetManager")
-            << "Loading raw asset ... " << CLog::endl;
+            << "Loading raw asset ... " << util::CLog::endl;
 
     // Create a new original asset.
     T* pAsset = new T(owner);
@@ -52,7 +52,7 @@ T* CAssetManager::Create(const void* const owner)
 template<typename T>
 T* CAssetManager::Recreate(const T* const Copier, const void* const owner)
 {
-    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+    m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetManager") << "Copying '"
             << filename << "' ... " << CLog::endl;
 
@@ -71,7 +71,7 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
 {
     if(success)
     {
-        m_Log << "Success. ID: (" << pAsset->GetID() << ")." << CLog::endl;
+        m_Log << "Success. ID: (" << pAsset->GetID() << ")." << util::CLog::endl;
 
         // Add to containers and return.
         CAssetManager::sp_allAssets.push_back(pAsset);
@@ -80,8 +80,8 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
     }
     else
     {
-        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << "Failure." << CLog::endl;
+        m_Log   << m_Log.SetMode(util::LogMode::ZEN_ERROR)
+                << "Failure." << util::CLog::endl;
 
         // Clean up on failure.
         delete pAsset;

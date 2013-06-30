@@ -88,16 +88,18 @@ static const char* SAMPLE_XML[] = {
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
-    GL(glEnable(GL_BLEND));
-    GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+    gfxcore::CRenderer::EnableAlphaBlending();
 
-    gfx::CLight L(Manager, gfx::LightType::ZEN_SPOTLIGHT, Window.GetHeight());
+    gfx::CLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
     L.Init();
-    L.Enable(); 
-    L.SetBrightness(0.05);
-    L.SetColor(0.0, 1.0, 0.0);
+    L.Enable();
+    L.SetBrightness(0.5);
+    L.SetColor(1.0, 1.0, 1.0);
     L.SetPosition(200, 100);
     L.Disable();
+
+    gfxcore::CTexture* T = Manager.Create<gfxcore::CTexture>(
+        string_t("sample.png"));
 
     while(Window.IsOpen())
     {
@@ -112,11 +114,15 @@ static const char* SAMPLE_XML[] = {
         // Rendering
         Window.Clear(Teal);
 
-        L.Enable();
-        Vao.Draw();
-        L.Disable();
-
         Q.Draw();
+
+        T->Bind();
+        L.Enable();
+        //gfxcore::CRenderer::GetDefaultEffect().Enable();
+        Vao.Draw();
+        //gfxcore::CRenderer::GetDefaultEffect().Disable();
+        L.Disable();
+        T->Unbind();
 
         Window.Update();
 
