@@ -75,7 +75,8 @@ namespace gfxcore
         }
 
         /// Creates initial vertex structure.
-        virtual void Create() = 0;
+        /// @return Reference to itself for easy chaining.
+        virtual CDrawable& Create() = 0;
 
         /**
          * Moves the drawable to a certain location.

@@ -41,7 +41,7 @@ namespace gfx
             if(m_DrawData.Indices  != nullptr) delete m_DrawData.Indices;
         }
 
-        void Create()
+        CDrawable& Create()
         {
             if(m_DrawData.Vertices == nullptr)
             {
@@ -66,6 +66,8 @@ namespace gfx
             m_DrawData.Indices[3] = 3;
             m_DrawData.Indices[4] = 1;
             m_DrawData.Indices[5] = 2;
+
+            return (*this);
         }
 
         void AttachMaterial(const gfx::material_t* pMaterial)

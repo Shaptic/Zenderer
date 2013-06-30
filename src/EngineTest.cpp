@@ -83,8 +83,7 @@ static const char* SAMPLE_XML[] = {
     D.vcount = D.icount = 0;
 
     gfx::CQuad Q(32, 32);
-    Q.Create();
-    Q.Move(math::vector_t(100, 100));
+    Q.Create().Move(math::vector_t(100, 100));
 
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
