@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp_source.html','');})
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">if</span>(!this-&gt;Bind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            GL(glDrawElements(GL_TRIANGLES, m_icount, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices.">INDEX_TYPE</a>, <span class="keyword">nullptr</span>));</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">if</span>(!this-&gt;Unbind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> this-&gt;Unbind();</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">private</span>:</div>

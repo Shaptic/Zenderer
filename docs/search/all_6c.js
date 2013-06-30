@@ -2,6 +2,7 @@ var searchData=
 [
   ['lerp',['lerp',['../namespacezen_1_1math.html#aa04e1aca8290a6b0ee2b2ecc5ae2301e',1,'zen::math::lerp(const T &amp;Start, const T &amp;End, real_t weight)'],['../namespacezen_1_1math.html#a11a2003de96579faca9c94a27a66fc0c',1,'zen::math::lerp(const T &amp;Start, const T &amp;End, real_t weight)']]],
   ['light_2ehpp',['Light.hpp',['../_light_8hpp.html',1,'']]],
+  ['lighttype',['LightType',['../namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826',1,'zen::gfx']]],
   ['loadfragmentshaderfromfile',['LoadFragmentShaderFromFile',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e',1,'zen::gfxcore::CShaderSet']]],
   ['loadfragmentshaderfromstr',['LoadFragmentShaderFromStr',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a79ce501721c4e221581e4f5f750e274f',1,'zen::gfxcore::CShaderSet']]],
   ['loadfromexisting',['LoadFromExisting',['../classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a',1,'zen::asset::CAsset::LoadFromExisting()'],['../classzen_1_1gfxcore_1_1_c_shader.html#a253256315aba27fb7ce909a3c025a22f',1,'zen::gfxcore::CShader::LoadFromExisting()']]],

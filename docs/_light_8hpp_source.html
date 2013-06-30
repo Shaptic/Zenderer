@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -114,19 +114,31 @@ $(document).ready(function(){initNavTree('_light_8hpp_source.html','');});
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef ZENDERER__GRAPHICS__LIGHT_HPP</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__GRAPHICS__LIGHT_HPP</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>zen</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>gfx</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp - A high-level shader wrapper intended to be used by the user...">Effect.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html">   29</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_light.html">CLight</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__LIGHT_HPP</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>gfx</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">   32</a></span>&#160;    <a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keyword">enum class</span> <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826" title="Lighting types.">LightType</a> : int16_t</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ab3c4b7acce4ff425e4178f34fa31feda" title="An invalid light type.">ZEN_NO_LIGHT</a> = -1,  </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ad6a9a8bbf7cfad94a930fb41415c5e45" title="Uniform ambient light.">ZEN_AMBIENT</a>,        </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826aa02ccee980241cc8dbebea04bc40a144" title="Angled spot light.">ZEN_SPOTLIGHT</a>,      </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826a384d361ffe54757b8deb0f5d7c14b377" title="Omnidirectional point light.">ZEN_POINT</a>           </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html">   46</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826" title="Lighting types.">LightType</a>&amp; Type);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__LIGHT_HPP</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

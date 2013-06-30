@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,6 +124,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A high-level shader wrapper.  <a href="classzen_1_1gfx_1_1_c_effect.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html">CLight</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a light object acting on a graphical scene.  <a href="classzen_1_1gfx_1_1_c_light.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1gfx_1_1material__t.html">material_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +150,13 @@ Enumerations</h2></td></tr>
 <br/>
  }</td></tr>
 <tr class="separator:ae89a05f218ca7f9551bc5dd95e1ca36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa78535cbb9eb98cf3e87cb166a6ba826"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">LightType</a> : int16_t { <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ab3c4b7acce4ff425e4178f34fa31feda">ZEN_NO_LIGHT</a> = -1, 
+<a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ad6a9a8bbf7cfad94a930fb41415c5e45">ZEN_AMBIENT</a>, 
+<a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826aa02ccee980241cc8dbebea04bc40a144">ZEN_SPOTLIGHT</a>, 
+<a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826a384d361ffe54757b8deb0f5d7c14b377">ZEN_POINT</a>
+ }</td></tr>
+<tr class="memdesc:aa78535cbb9eb98cf3e87cb166a6ba826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lighting types.  <a href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">More...</a><br/></td></tr>
+<tr class="separator:aa78535cbb9eb98cf3e87cb166a6ba826"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -160,6 +168,35 @@ static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b1586
 <tr class="memdesc:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum supported OpenGL API version. <br/></td></tr>
 <tr class="separator:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="aa78535cbb9eb98cf3e87cb166a6ba826"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">zen::gfx::LightType</a> : int16_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="aa78535cbb9eb98cf3e87cb166a6ba826ab3c4b7acce4ff425e4178f34fa31feda"></a>ZEN_NO_LIGHT</em>&nbsp;</td><td class="fielddoc">
+<p>An invalid light type. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="aa78535cbb9eb98cf3e87cb166a6ba826ad6a9a8bbf7cfad94a930fb41415c5e45"></a>ZEN_AMBIENT</em>&nbsp;</td><td class="fielddoc">
+<p>Uniform ambient light. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="aa78535cbb9eb98cf3e87cb166a6ba826aa02ccee980241cc8dbebea04bc40a144"></a>ZEN_SPOTLIGHT</em>&nbsp;</td><td class="fielddoc">
+<p>Angled spot light. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="aa78535cbb9eb98cf3e87cb166a6ba826a384d361ffe54757b8deb0f5d7c14b377"></a>ZEN_POINT</em>&nbsp;</td><td class="fielddoc">
+<p>Omnidirectional point light. </p>
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="_light_8hpp_source.html#l00032">32</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
