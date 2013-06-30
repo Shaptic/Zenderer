@@ -100,3 +100,61 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__SORTER_CPP
 
 /** @} **/
+
+ /**
+ * @class       zen::gfxcore::CSorter
+ *
+ * @description
+ * @section     sort    Optimized Sorting Algorithm
+ * @subsection  expl    Explanation
+ * 
+ * In order to maximize rendering efficiency, it is important to
+ * make as little state changes as possible to the underlying 
+ * rendering API. For this, @a Zenderer implements a high-speed
+ * sorting technique that operates at maximum performance. 
+ * 
+ * Essentially, each entity internally stores a 32-bit integer
+ * consisted of various state flags describing material usage, 
+ * depth, transparency, and other data.
+ * 
+ * This state flag is used for comparing the scene graph prior
+ * to rendering in order to, for example, group all entities with
+ * identical materials together in order to minimize texture swaps.
+ *
+ * A material is defined as follows:
+ *
+ *     material = texture + vshader + fshader
+ *
+ * And a thorough explanation of the state bit definitions are ahead.
+ *
+ * We expect to have no more than 4096 materials in a single game. This
+ * can, of course, be easily expanded, but 4096 is more than enough for
+ * a standard 2D game. For this, we allocate 12 bits in the flag for
+ * storing a unique material ID (2<sup>12</sup> = 4096).
+ *
+ * Thus: 32 - 12 = 20 bits remaining.
+ *
+ * For depth information, we allocate 8 bits, giving us 256 different
+ * levels of depth for any entity in the game. Again this is perfectly
+ * acceptable for a 2D game.
+ *
+ * Thus: 20 - 8 = 12 bits remaining.
+ * 
+ * For transparency, we only need a single bit. to compare if a 
+ * 
+ * Thus: 12 - 1 = 11 bits remaining.
+ *
+ * The remaining bits are reserved for any future sorting requirements.
+ * 11 bits gives 2048 different values, surely large enough to accommodate
+ * any future requirements.
+ *
+ * @subsection  algo    Sorting
+ * The actual sorting process works as follows:
+ *
+ * The scene stores a list of entities for rendering. It also contains 
+ * an internal dictionary associating the various sorting parameters
+ * (material, depth) with a list of entities that use that parameter.
+ * 
+ * On addition of an entity from the scene, it's inserted into the 
+ * appropriate list based on its internal flags.
+ **/
