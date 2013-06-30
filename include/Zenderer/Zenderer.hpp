@@ -41,6 +41,9 @@
 #pragma comment(lib, "libvorbis.lib")
 #pragma comment(lib, "libogg.lib")
 
+// For random-ness
+#include <cstdlib>
+
 // Core API
 #include "Core/Types.hpp"
 #include "Math/Math.hpp"

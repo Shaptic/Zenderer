@@ -86,29 +86,34 @@ static const char* SAMPLE_XML[] = {
     Q.Create();
     Q.Move(math::vector_t(100, 100));
 
-    util::CTimer Timer;
-
-    // Sleep for a second.
-    Timer.Sleep(1000);
+    Window.ToggleVSYNC();
+    util::CTimer Timer(60);
 
     while(Window.IsOpen())
     {
         Timer.Start();
 
+        // Handle events
+        glfwPollEvents();
+
+        // Game logic
+        Sound.Update();
+
+        // Rendering
         Window.Clear(Teal);
+
         gfxcore::CRenderer::GetDefaultEffect().Enable();
         gfxcore::CRenderer::GetDefaultEffect().SetParameter("mv",
             math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
         gfxcore::CRenderer::GetDefaultEffect().Disable();
-        Q.Move(math::vector_t(100, 400));
+        
+        Q.Move(math::vector_t(rand() % 500, rand() % 600));
         Q.Draw();
-        Q.Move(math::vector_t(200, 400));
-        Q.Draw();
-        Window.Update();
-        glfwPollEvents();
-        Sound.Update();
 
+        Window.Update();
+
+        // Finalize
         Timer.Delay();
     }
 

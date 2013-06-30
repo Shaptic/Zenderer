@@ -42,6 +42,8 @@
 
 namespace zen
 {
+    typedef bool (APIENTRY* PFNWGLSWAPINTERVALFARPROC)(int);
+    static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
 
 /// Encompasses all user-level graphics APIs.
 namespace gfx
@@ -138,6 +140,17 @@ namespace gfx
 
         inline const math::matrix4x4_t& GetProjectionMatrix() const
         { return m_ProjMatrix; }
+
+        static inline bool ToggleVSYNC()
+        {
+            static bool on = true;
+
+            wglSwapIntervalEXT = (PFNWGLSWAPINTERVALFARPROC)
+                wglGetProcAddress("wglSwapIntervalEXT");
+            wglSwapIntervalEXT(on = !on);
+
+            return on;
+        }
 
     private:
         GLFWwindow*             mp_Window;

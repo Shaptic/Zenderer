@@ -162,19 +162,19 @@
     <ClCompile Include="src\Zenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Debug\Shaders\AmbientLight.fs" />
-    <None Include="..\Debug\Shaders\Animate.fs" />
-    <None Include="..\Debug\Shaders\Default.fs" />
-    <None Include="..\Debug\Shaders\Default.vs" />
-    <None Include="..\Debug\Shaders\DirectionalLight.fs" />
-    <None Include="..\Debug\Shaders\Fade.fs" />
-    <None Include="..\Debug\Shaders\FontRender.fs" />
-    <None Include="..\Debug\Shaders\GaussianBlur.vs" />
-    <None Include="..\Debug\Shaders\GaussianBlurH.fs" />
-    <None Include="..\Debug\Shaders\GaussianBlurV.fs" />
-    <None Include="..\Debug\Shaders\PointLight.fs" />
-    <None Include="..\Debug\Shaders\Ripple.fs" />
-    <None Include="..\Debug\Shaders\ShadowCaster.fs" />
+    <None Include="data\shaders\AmbientLight.fs" />
+    <None Include="data\shaders\Animate.fs" />
+    <None Include="data\shaders\Default.fs" />
+    <None Include="data\shaders\Default.vs" />
+    <None Include="data\shaders\DirectionalLight.fs" />
+    <None Include="data\shaders\Fade.fs" />
+    <None Include="data\shaders\FontRender.fs" />
+    <None Include="data\shaders\GaussianBlur.vs" />
+    <None Include="data\shaders\GaussianBlurH.fs" />
+    <None Include="data\shaders\GaussianBlurV.fs" />
+    <None Include="data\shaders\PointLight.fs" />
+    <None Include="data\shaders\Ripple.fs" />
+    <None Include="data\shaders\ShadowCaster.fs" />
     <None Include="include\Zenderer\Assets\Asset.inl" />
     <None Include="include\Zenderer\Assets\AssetManager.inl" />
     <None Include="include\Zenderer\Graphics\Effect.inl" />

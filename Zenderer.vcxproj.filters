@@ -274,43 +274,43 @@
     <None Include="include\Zenderer\Graphics\Effect.inl">
       <Filter>Header Files\Graphics</Filter>
     </None>
-    <None Include="..\Debug\Shaders\AmbientLight.fs">
+    <None Include="data\shaders\AmbientLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\Animate.fs">
+    <None Include="data\shaders\Animate.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\Default.fs">
+    <None Include="data\shaders\Default.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\Default.vs">
+    <None Include="data\shaders\Default.vs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\DirectionalLight.fs">
+    <None Include="data\shaders\DirectionalLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\Fade.fs">
+    <None Include="data\shaders\Fade.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\FontRender.fs">
+    <None Include="data\shaders\FontRender.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\GaussianBlur.vs">
+    <None Include="data\shaders\GaussianBlur.vs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\GaussianBlurH.fs">
+    <None Include="data\shaders\GaussianBlurH.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\GaussianBlurV.fs">
+    <None Include="data\shaders\GaussianBlurV.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\PointLight.fs">
+    <None Include="data\shaders\PointLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\Ripple.fs">
+    <None Include="data\shaders\Ripple.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\ShadowCaster.fs">
+    <None Include="data\shaders\ShadowCaster.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

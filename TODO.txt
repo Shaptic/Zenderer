@@ -9,6 +9,7 @@
 ### Low priority
 * Test audio API
 * Work around existing shader deletion (one at a time)
+* Allow variety of timer precisions to work with FPS delays
 
 ### In Progress
 * Plan rendering architecture

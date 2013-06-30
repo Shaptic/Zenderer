@@ -7,6 +7,9 @@ using zen::sfx::CAudioManager;
 
 bool zen::Init()
 {
+    // Seed random number generator.
+    srand(time(nullptr));
+
     if(!CLog::GetEngineLog().Init())
         return false;
 

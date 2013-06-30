@@ -56,7 +56,7 @@ namespace util
         /// Shortcut for time point structure.
         typedef clock_t::time_point timepoint_t;
 
-        /// Shortcut for the precision we want.
+        /// Shortcut for the precision we want (do not change if using delays).
         typedef std::chrono::milliseconds precision_t;
 
         /// Constructs a timer with a custom frame rate.
@@ -80,7 +80,10 @@ namespace util
          *  would function something like this:
          *
          *  @code
-         *  while(!m_quit)
+         *  // Cap at 24 frames per second.
+         *  CTimer m_Timer(24);
+         *
+         *  while(m_Window.IsOpen())
          *  {
          *      m_Timer.Start();
          *      // ...
@@ -108,6 +111,7 @@ namespace util
     private:
         timepoint_t m_start, m_end;
         uint16_t m_fps;
+        real_t m_delta;
     };
 }
 }

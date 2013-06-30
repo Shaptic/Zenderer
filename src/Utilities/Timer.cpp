@@ -8,7 +8,8 @@ using util::CLog;
 using util::LogMode;
 using util::CTimer;
 
-CTimer::CTimer(const uint16_t frames) : m_fps(frames) {}
+CTimer::CTimer(const uint16_t frames) :
+    m_fps(frames), m_delta(1000.0 / frames) {}
 
 CTimer::~CTimer(){}
 
@@ -37,19 +38,22 @@ void CTimer::Sleep(const util::time_t ticks)
 
 util::time_t CTimer::Delay()
 {
-    timepoint_t::duration pause(clock_t::now() - m_start);
-    time_t ticks = duration_cast<precision_t>(pause).count();
+    // Convert the time difference to milliseconds.
+    time_t ms = duration_cast<precision_t>(clock_t::now() - m_start).count();
 
-    if(ticks < 1000.0 / m_fps)
+    if(ms < m_delta)
+    {
+        precision_t pause(time_t(m_delta - ms));
         std::this_thread::sleep_for(pause);
 
 #if defined(ZEN_SHOW_DELAY) && defined(_DEBUG)
-    CLog& L = CLog::GetEngineLog();
-    L << L.SetMode(LogMode::ZEN_DEBUG) << L.SetSystem("Timer")
-      << "Delaying for " << ticks << "ms." << CLog::endl;
+        CLog& L = CLog::GetEngineLog();
+        L << L.SetMode(LogMode::ZEN_DEBUG) << L.SetSystem("Timer")
+          << "Delaying for " << pause.count() << "ms." << CLog::endl;
 #endif // ZEN_SHOW_DELAY
+    }
 
-    return ticks;
+    return ms;
 }
 
 util::time_t CTimer::GetTime() const
@@ -61,4 +65,7 @@ util::time_t CTimer::GetTime() const
 void CTimer::SetFrameRate(const uint16_t fps)
 {
     m_fps = fps;
+
+    // This relies on precision_t to be a millisecond.
+    m_delta = 1000.0 / m_fps;
 }
