@@ -49,7 +49,8 @@ namespace gfx
     /// Minimum supported OpenGL API version.
     static const real_t ZENDERER_GL_VERSION = 3.3;
 
-    class CWindow : public CSubsystem
+    /// Creates a renderable OpenGL context.
+    class ZEN_API CWindow : public CSubsystem
     {
     public:
         CWindow(const uint16_t w,

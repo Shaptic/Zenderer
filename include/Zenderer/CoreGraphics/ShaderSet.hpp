@@ -137,11 +137,15 @@ namespace gfxcore
         /// Returns the index of a shader attribute location in VRAM.
         short GetAttributeLocation(const string_t& name);
 
+        /// Returns error string.
         const string_t& GetError() const;
+
+        /// Returns shader program link result.
         const string_t& GetLinkerLog() const;
 
     private:
-        inline void ShowLoadError(const string_t& filename, const string_t& shader)
+        inline void ShowLoadError(
+            const string_t& filename, const string_t& shader)
         {
             static std::stringstream error_stream;
 
