@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -136,9 +136,9 @@ Collaboration diagram for zen::gfx::CEffect:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd7f5194c87223df306609d26c0116e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd7f5194c87223df306609d26c0116e6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CEffect</b> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Assets, const EffectType Type)</td></tr>
-<tr class="separator:afd7f5194c87223df306609d26c0116e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af722b466fb4f50255d1949110358f47b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af722b466fb4f50255d1949110358f47b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CEffect</b> (const EffectType Type, <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> *pAssets=nullptr)</td></tr>
+<tr class="separator:af722b466fb4f50255d1949110358f47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50e90b0eca7a078c18d25bf910832674"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50e90b0eca7a078c18d25bf910832674"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
 <tr class="separator:a50e90b0eca7a078c18d25bf910832674"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +161,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_effect.html#ad096c93d5455aaa3e6a9564dad9995b3">Disable</a> ()</td></tr>
 <tr class="memdesc:ad096c93d5455aaa3e6a9564dad9995b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A more user-friendly alias for unbinding. <br/></td></tr>
 <tr class="separator:ad096c93d5455aaa3e6a9564dad9995b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d755e512b17490bc59178da78d8c4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29d755e512b17490bc59178da78d8c4d"></a>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectHandle</b> ()</td></tr>
+<tr class="separator:a29d755e512b17490bc59178da78d8c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3238e4b5c27c7d88f5b1cd4a5387d448"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3238e4b5c27c7d88f5b1cd4a5387d448"></a>
 const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetError</b> () const </td></tr>
 <tr class="separator:a3238e4b5c27c7d88f5b1cd4a5387d448"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,9 +174,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetType</b> (const Ef
 <tr class="memitem:abbdb5c1ad66dd08038e7ac268930e991 inherit pub_methods_classzen_1_1gfxcore_1_1_c_g_l_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbdb5c1ad66dd08038e7ac268930e991"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CGLSubsystem</b> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;Renderer&quot;)</td></tr>
 <tr class="separator:abbdb5c1ad66dd08038e7ac268930e991 inherit pub_methods_classzen_1_1gfxcore_1_1_c_g_l_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f9eca8110b4b06e104166f81cd9481 inherit pub_methods_classzen_1_1gfxcore_1_1_c_g_l_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26f9eca8110b4b06e104166f81cd9481"></a>
-virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectHandle</b> ()=0</td></tr>
-<tr class="separator:a26f9eca8110b4b06e104166f81cd9481 inherit pub_methods_classzen_1_1gfxcore_1_1_c_g_l_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f51d92f06d547070a5231f10f21fb7e inherit pub_methods_classzen_1_1gfxcore_1_1_c_g_l_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f51d92f06d547070a5231f10f21fb7e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInit</b> ()</td></tr>
 <tr class="separator:a8f51d92f06d547070a5231f10f21fb7e inherit pub_methods_classzen_1_1gfxcore_1_1_c_g_l_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,15 +227,24 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
 <p>Regardless of whether or not <code>real_t</code> is defined as a <code>float</code> or a <code>double</code>, GLSL only deals with single-precision uniform values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Parameter name </td></tr>
-    <tr><td class="paramname">T*</td><td>Array of values of type T (or single) </td></tr>
-    <tr><td class="paramname">size_t</td><td>Amount of values passed (optional=<code>1</code>)</td></tr>
+    <tr><td class="paramname">name</td><td>Parameter name </td></tr>
+    <tr><td class="paramname">pValues</td><td>Array of values of type T (or single) </td></tr>
+    <tr><td class="paramname">count</td><td>Amount of values passed (optional=<code>1</code>)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the parameter was found for the effect <code>false</code> if the effect was not loaded. </dd></dl>
 
-<p>Definition at line <a class="el" href="_effect_8cpp_source.html#l00077">77</a> of file <a class="el" href="_effect_8cpp_source.html">Effect.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8cpp_source.html#l00081">81</a> of file <a class="el" href="_effect_8cpp_source.html">Effect.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfx_1_1_c_effect_a9b5c88176a1270848f43cab2d1030992_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_effect_a9b5c88176a1270848f43cab2d1030992_icgraph" alt=""/></div>
+<map name="classzen_1_1gfx_1_1_c_effect_a9b5c88176a1270848f43cab2d1030992_icgraph" id="classzen_1_1gfx_1_1_c_effect_a9b5c88176a1270848f43cab2d1030992_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#a390ab5cbbda04d584e29ffd3b853e347" title="Draws the primitive on&#45;screen." alt="" coords="181,5,344,46"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -270,7 +279,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
 </div><div class="memdoc">
 <p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
-<p>Definition at line <a class="el" href="_effect_8cpp_source.html#l00106">106</a> of file <a class="el" href="_effect_8cpp_source.html">Effect.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8cpp_source.html#l00110">110</a> of file <a class="el" href="_effect_8cpp_source.html">Effect.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,15 +309,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
 <p>The behavior of this method is identical to that of <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992" title="Modifies the effect based on a certain parameter.">SetParameter()</a>, but it modifies a matrix instead of a primitive type (<code>int</code>, <code>float</code>, ...)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Name of matrix parameter </td></tr>
-    <tr><td class="paramname"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a></td><td>Matrix value to send to effect</td></tr>
+    <tr><td class="paramname">name</td><td>Name of matrix parameter </td></tr>
+    <tr><td class="paramname">Matrix</td><td>Matrix value to send to effect</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the parameter was found and set, <code>false</code> otherwise.</dd></dl>
 <p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
-<p>Definition at line <a class="el" href="_effect_8cpp_source.html#l00135">135</a> of file <a class="el" href="_effect_8cpp_source.html">Effect.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8cpp_source.html#l00139">139</a> of file <a class="el" href="_effect_8cpp_source.html">Effect.cpp</a>.</p>
 
 </div>
 </div>
@@ -322,7 +331,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacezen.html">zen</a></li><li class="navelem"><b>gfx</b></li><li class="navelem"><a class="el" href="classzen_1_1gfx_1_1_c_effect.html">CEffect</a></li>
+    <li class="navelem"><a class="el" href="namespacezen.html">zen</a></li><li class="navelem"><a class="el" href="namespacezen_1_1gfx.html">gfx</a></li><li class="navelem"><a class="el" href="classzen_1_1gfx_1_1_c_effect.html">CEffect</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

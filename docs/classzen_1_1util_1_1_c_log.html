@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -143,9 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a569ed11d9b2dcd2f57753b000beb67e9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9">~CLog</a> ()</td></tr>
 <tr class="memdesc:a569ed11d9b2dcd2f57753b000beb67e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This destructor does nothing but call <a class="el" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream.">Destroy()</a>.  <a href="#a569ed11d9b2dcd2f57753b000beb67e9">More...</a><br/></td></tr>
 <tr class="separator:a569ed11d9b2dcd2f57753b000beb67e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aa1be3e46d348f176ebfa756363a6a5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_log.html#a1aa1be3e46d348f176ebfa756363a6a5">operator&lt;&lt;</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;(CLog::*)())</td></tr>
-<tr class="memdesc:a1aa1be3e46d348f176ebfa756363a6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a <a class="el" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a> method in-stream.  <a href="#a1aa1be3e46d348f176ebfa756363a6a5">More...</a><br/></td></tr>
-<tr class="separator:a1aa1be3e46d348f176ebfa756363a6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b47abac9f1cd45f5479be861290bfd6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_log.html#a4b47abac9f1cd45f5479be861290bfd6">operator&lt;&lt;</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;(CLog::*method)())</td></tr>
+<tr class="memdesc:a4b47abac9f1cd45f5479be861290bfd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a <a class="el" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a> method in-stream.  <a href="#a4b47abac9f1cd45f5479be861290bfd6">More...</a><br/></td></tr>
+<tr class="separator:a4b47abac9f1cd45f5479be861290bfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63ae1bf2dc31500af22930f7d5107622"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a63ae1bf2dc31500af22930f7d5107622"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_log.html#a63ae1bf2dc31500af22930f7d5107622">operator&lt;&lt;</a> (const T &amp;data)</td></tr>
 <tr class="memdesc:a63ae1bf2dc31500af22930f7d5107622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs given data.  <a href="#a63ae1bf2dc31500af22930f7d5107622">More...</a><br/></td></tr>
@@ -274,8 +274,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <p>This constructor does next to nothing. The filename that is passed will not be used to create a file until <a class="el" href="classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee" title="Opens a file stream with a custom filename given in the ctor.">Init()</a> is called. It acts exactly like a <a class="el" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">zen::CSubsystem</a> instance, but cannot actually be one due to the fact that that class uses a log within it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Filename for output log </td></tr>
-    <tr><td class="paramname">bool</td><td>Output logged info to the screen?</td></tr>
+    <tr><td class="paramname">filename</td><td>Filename for output log </td></tr>
+    <tr><td class="paramname">show_stdout</td><td>Output logged info to the screen?</td></tr>
   </table>
   </dd>
 </dl>
@@ -313,7 +313,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a1aa1be3e46d348f176ebfa756363a6a5"></a>
+<a class="anchor" id="a4b47abac9f1cd45f5479be861290bfd6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -321,10 +321,10 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a>&amp; zen::util::CLog::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp; zen::util::CLog::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;&#160;</td>
-          <td class="paramname">CLog::*)(</td><td>)</td>
+          <td class="paramtype"><a class="el" href="classzen_1_1util_1_1_c_log.html">CLog</a> &amp;(CLog::*)()&#160;</td>
+          <td class="paramname"><em>method</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -342,7 +342,7 @@ Log.Newline();
 </pre><p>And it will function identically.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">CLog&amp;(CLog::*)()</td><td><a class="el" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a> method function</td></tr>
+    <tr><td class="paramname">method</td><td><a class="el" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a> method function</td></tr>
   </table>
   </dd>
 </dl>
@@ -351,6 +351,8 @@ Log.Newline();
 <dd>
 This should only be called through the <code><a class="el" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">CLog::endl</a></code> pointer.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd>CLog::Newline() </dd></dl>
+
+<p>Definition at line <a class="el" href="_log_8hpp_source.html#l00002">2</a> of file <a class="el" href="_log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -372,7 +374,7 @@ template&lt;typename T &gt; </div>
 <p>Due to its templated nature, and the versatility of <code>std::ostream</code>, almost anything can be passed as an argument. The given data is written to an <code>std::stringstream</code>, and is only writted to the file when CLog::Newline() is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T</td><td>Data to log</td></tr>
+    <tr><td class="paramname">data</td><td>Data to log</td></tr>
   </table>
   </dd>
 </dl>
@@ -440,7 +442,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1util_1_1_c_log_a9d4bca1291fd1bcd8e8d8161cb27a44f_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_log_a9d4bca1291fd1bcd8e8d8161cb27a44f_icgraph" alt=""/></div>
 <map name="classzen_1_1util_1_1_c_log_a9d4bca1291fd1bcd8e8d8161cb27a44f_icgraph" id="classzen_1_1util_1_1_c_log_a9d4bca1291fd1bcd8e8d8161cb27a44f_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy()." alt="" coords="213,5,365,32"/><area shape="rect" id="node3" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="255,56,323,83"/><area shape="rect" id="node5" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="252,107,327,133"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992" title="Modifies the effect based on a certain parameter." alt="" coords="414,49,541,90"/></map>
+<area shape="rect" id="node2" href="classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy()." alt="" coords="213,5,365,32"/><area shape="rect" id="node3" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="255,56,323,83"/><area shape="rect" id="node6" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="252,107,327,133"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992" title="Modifies the effect based on a certain parameter." alt="" coords="414,49,541,90"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_drawable.html#a390ab5cbbda04d584e29ffd3b853e347" title="Draws the primitive on&#45;screen." alt="" coords="589,49,752,90"/></map>
 </div>
 </p>
 

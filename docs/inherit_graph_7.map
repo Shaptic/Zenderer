@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classzen_1_1gfxcore_1_1_c_sorter.html" title="A collection of sort methods to optimize rendering." alt="" coords="6,5,151,32"/>
+<area shape="rect" id="node1" href="$classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="6,31,199,57"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="278,5,397,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html" title="zen::gfxcore::CVertexArray" alt="" coords="248,56,427,83"/>
 </map>

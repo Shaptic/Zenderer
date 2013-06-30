@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_shader_8hpp_source.html','');});
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp - An abstract base class used by all managed assets in Zenderer.">Zenderer/Assets/Asset.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp - Includes necessary OpenGL-related headers and defines convenience ...">OpenGL.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c">   34</a></span>&#160;<span class="preprocessor">#define ZENDERER_SHADER_PATH &quot;Zenderer/Shaders/&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c">   34</a></span>&#160;<span class="preprocessor">#define ZENDERER_SHADER_PATH &quot;Shaders/&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
@@ -135,17 +135,17 @@ $(document).ready(function(){initNavTree('_shader_8hpp_source.html','');});
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">CShader</a>();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopyShader);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> LoadFromRaw(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; <span class="keywordtype">string</span>);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> GetData() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        GLuint GetShaderObject();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; GetShaderLog();</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">private</span>:</div>

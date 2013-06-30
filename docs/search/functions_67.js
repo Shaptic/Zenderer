@@ -18,10 +18,12 @@ var searchData=
   ['getshaderlog',['GetShaderLog',['../classzen_1_1gfxcore_1_1_c_shader.html#af573f0d43cb279c78640edbeca50f387',1,'zen::gfxcore::CShader']]],
   ['getshaderobject',['GetShaderObject',['../classzen_1_1gfxcore_1_1_c_shader.html#af936c6fbb74be5f169ce3813752eeac9',1,'zen::gfxcore::CShader::GetShaderObject()'],['../classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5',1,'zen::gfxcore::CShaderSet::GetShaderObject()']]],
   ['getsystem',['GetSystem',['../classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d',1,'zen::util::CLog']]],
+  ['gettime',['GetTime',['../classzen_1_1util_1_1_c_timer.html#a7dfd0b27da7d5331c542c21901d1c277',1,'zen::util::CTimer']]],
   ['getuniformlocation',['GetUniformLocation',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a839825794c47ce66f508c5c7d4fc835f',1,'zen::gfxcore::CShaderSet']]],
   ['getvalue',['GetValue',['../classzen_1_1util_1_1_c_i_n_i_parser.html#a8b7f91e53336cd8c0e6707eac1c74fe2',1,'zen::util::CINIParser']]],
   ['getvalueb',['GetValueb',['../classzen_1_1util_1_1_c_i_n_i_parser.html#aea41451a7d888f37f556828cb4dc5535',1,'zen::util::CINIParser']]],
   ['getvaluef',['GetValuef',['../classzen_1_1util_1_1_c_i_n_i_parser.html#a53fe17f3cfc5cebb01f7104d2b11fe5d',1,'zen::util::CINIParser']]],
   ['getvaluei',['GetValuei',['../classzen_1_1util_1_1_c_i_n_i_parser.html#aef355b201c3c5efd3ada50f1f694ca9c',1,'zen::util::CINIParser']]],
-  ['getvalues',['GetValues',['../classzen_1_1util_1_1_c_i_n_i_parser.html#ac57686358966190d7c29a88ff1c87429',1,'zen::util::CINIParser']]]
+  ['getvalues',['GetValues',['../classzen_1_1util_1_1_c_i_n_i_parser.html#ac57686358966190d7c29a88ff1c87429',1,'zen::util::CINIParser']]],
+  ['glcheck',['glCheck',['../namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524',1,'zen::gfxcore']]]
 ];

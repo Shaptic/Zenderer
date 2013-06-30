@@ -16,7 +16,7 @@ var structzen_1_1math_1_1vectorf__t =
     [ "Normalize", "structzen_1_1math_1_1vectorf__t.html#a23ba2415c353530ab3059d3321df8500", null ],
     [ "Magnitude", "structzen_1_1math_1_1vectorf__t.html#a91be6993bb1c9541a459cc0cf23632de", null ],
     [ "Rotate", "structzen_1_1math_1_1vectorf__t.html#a2d89f13a7dbdbf3a0c062986fc60943d", null ],
-    [ "Translate", "structzen_1_1math_1_1vectorf__t.html#ae70243b25fc6c07d00af8db5c77a94ea", null ],
+    [ "Translate", "structzen_1_1math_1_1vectorf__t.html#a59c45116fa5c2a0e94648606ae011766", null ],
     [ "Cross2D", "structzen_1_1math_1_1vectorf__t.html#ad1e6cc3df2ecf0084fa02a21a7a1de8d", null ],
     [ "GetNormalized", "structzen_1_1math_1_1vectorf__t.html#a38fcbd6268ed0a9b747b7bcfb57e1b3b", null ],
     [ "operator<<", "structzen_1_1math_1_1vectorf__t.html#a775d57084fb453f945455f0f37f0bcab", null ],

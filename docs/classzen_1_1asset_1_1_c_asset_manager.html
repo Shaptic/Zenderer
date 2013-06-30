@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -144,6 +144,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:af33976ad2ec3d734e8ee3c66f535aeaa"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa">Create</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename, const void *const owner=nullptr)</td></tr>
 <tr class="memdesc:af33976ad2ec3d734e8ee3c66f535aeaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an asset from a filename.  <a href="#af33976ad2ec3d734e8ee3c66f535aeaa">More...</a><br/></td></tr>
 <tr class="separator:af33976ad2ec3d734e8ee3c66f535aeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ee278bf92387e58908e744e35d89e0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a42ee278bf92387e58908e744e35d89e0"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a42ee278bf92387e58908e744e35d89e0"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a42ee278bf92387e58908e744e35d89e0">Create</a> (const void *const owner=nullptr)</td></tr>
+<tr class="memdesc:a42ee278bf92387e58908e744e35d89e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a raw managed asset instance (unloaded). <br/></td></tr>
+<tr class="separator:a42ee278bf92387e58908e744e35d89e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b3c4cec7356a6d9fc93c2193ed5f05c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6b3c4cec7356a6d9fc93c2193ed5f05c"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c">Recreate</a> (const T *const Copier, const void *const owner=nullptr)</td></tr>
 <tr class="memdesc:a6b3c4cec7356a6d9fc93c2193ed5f05c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of an existing asset.  <a href="#a6b3c4cec7356a6d9fc93c2193ed5f05c">More...</a><br/></td></tr>
@@ -167,6 +172,10 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2f74bcc038d6ba88b03d048c6e68f249"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename, const void *const owner)</td></tr>
 <tr class="separator:a2f74bcc038d6ba88b03d048c6e68f249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e47fb3f25831f2b28e018d1dc79818"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab3e47fb3f25831f2b28e018d1dc79818"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab3e47fb3f25831f2b28e018d1dc79818"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const void *const owner)</td></tr>
+<tr class="separator:ab3e47fb3f25831f2b28e018d1dc79818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e58c31383b98ca31da29478bc430060"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1e58c31383b98ca31da29478bc430060"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a1e58c31383b98ca31da29478bc430060"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Recreate</b> (const T *const Copier, const void *const owner)</td></tr>
@@ -261,8 +270,8 @@ template&lt;typename T &gt; </div>
 <p>Assets are set up on the <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">zen::asset::CAsset</a> base class, which guarantees the ability to load from a file. That's what this method will do: load an asset from a file. Since assets may be identical but claimed by different parts of the engine, such as vertex buffer and mesh data for unique scenes, it is possible to specify an "owner" for the asset. This is entirely optional, and the asset will default to having no unique owner. Assets created in different instances of this class are also considered to be completely separate.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Filename to load asset from </td></tr>
-    <tr><td class="paramname">void*</td><td>Address of asset owner (optional=<code>nullptr</code>)</td></tr>
+    <tr><td class="paramname">filename</td><td>Filename to load asset from </td></tr>
+    <tr><td class="paramname">owner</td><td>Address of asset owner (optional=<code>nullptr</code>)</td></tr>
   </table>
   </dd>
 </dl>
@@ -275,7 +284,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph" id="classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="247,5,417,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="238,70,426,111"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="255,5,425,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="246,70,434,111"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e" title="Loads a vertex shader from a file. " alt="" coords="237,135,443,177"/></map>
 </div>
 </p>
 
@@ -309,14 +318,14 @@ template&lt;typename T &gt; </div>
 <p>Since assets are set up such that there is only one existing copy at a time, calling <code>Create&lt;CMesh*&gt;("test.txt")</code> three times will give the same return value every time. Sometimes, though, it is desirable to have multiple copies of an asset, and this method will do so.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T*</td><td>Assets to copy </td></tr>
-    <tr><td class="paramname">void*</td><td>Address of asset owner (optional=<code>nullptr</code>)</td></tr>
+    <tr><td class="paramname">Copier</td><td>Assets to copy </td></tr>
+    <tr><td class="paramname">owner</td><td>Address of asset owner (optional=<code>nullptr</code>)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A dynamically created asset if it copies successfully, and <code>nullptr</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00035">35</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00054">54</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -335,20 +344,20 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">CAsset*</td><td>Asset to remove </td></tr>
+    <tr><td class="paramname">pAsset</td><td>Asset to remove </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if it was removed successfully, <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00041">41</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00043">43</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph" id="classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad6d26ebcd8bb0a2b0ba6764f8db28e8b" title="Destroys the shader program." alt="" coords="237,25,408,66"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855" title="Cleans up the subsystem completely." alt="" coords="253,90,392,131"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="693,29,864,70"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="457,25,645,66"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="465,90,636,131"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="237,5,408,46"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855" title="Cleans up the subsystem completely." alt="" coords="253,70,392,111"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="675,5,845,46"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="456,34,627,75"/></map>
 </div>
 </p>
 
@@ -369,7 +378,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00082">82</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00083">83</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -388,7 +397,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00124">124</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00125">125</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>

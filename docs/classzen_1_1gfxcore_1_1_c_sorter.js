@@ -1,7 +1,5 @@
 var classzen_1_1gfxcore_1_1_c_sorter =
 [
-    [ "CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html#ab70656832ec57ffd7b7875c9dc3d2515", null ],
-    [ "~CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html#a106abc90ce658cb7d96ce70eccb645c5", null ],
     [ "SortByMaterial", "classzen_1_1gfxcore_1_1_c_sorter.html#a867624a8cc8a05f1470a4504a08f1ee3", null ],
     [ "SortByDepth", "classzen_1_1gfxcore_1_1_c_sorter.html#ad6cb65e80284f42c9b590da69017375a", null ],
     [ "SortByAlpha", "classzen_1_1gfxcore_1_1_c_sorter.html#a6de593ebc8f18b090bff99af3b704edb", null ],

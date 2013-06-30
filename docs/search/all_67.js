@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['cwindow',['CWindow',['../classzen_1_1gfxcore_1_1_c_renderer.html#abfff065a33d46a78a93a509fa3d752b7',1,'zen::gfxcore::CRenderer']]],
   ['g',['g',['../structzen_1_1color4f__t.html#a3b66803f2d20e6503122421849adbf87',1,'zen::color4f_t']]],
   ['getassetcount',['GetAssetCount',['../classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564',1,'zen::asset::CAssetManager']]],
   ['getattributelocation',['GetAttributeLocation',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a11018fa62d2b3f3ba764e9197530fa24',1,'zen::gfxcore::CShaderSet']]],
@@ -19,11 +20,13 @@ var searchData=
   ['getshaderlog',['GetShaderLog',['../classzen_1_1gfxcore_1_1_c_shader.html#af573f0d43cb279c78640edbeca50f387',1,'zen::gfxcore::CShader']]],
   ['getshaderobject',['GetShaderObject',['../classzen_1_1gfxcore_1_1_c_shader.html#af936c6fbb74be5f169ce3813752eeac9',1,'zen::gfxcore::CShader::GetShaderObject()'],['../classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5',1,'zen::gfxcore::CShaderSet::GetShaderObject()']]],
   ['getsystem',['GetSystem',['../classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d',1,'zen::util::CLog']]],
+  ['gettime',['GetTime',['../classzen_1_1util_1_1_c_timer.html#a7dfd0b27da7d5331c542c21901d1c277',1,'zen::util::CTimer']]],
   ['getuniformlocation',['GetUniformLocation',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a839825794c47ce66f508c5c7d4fc835f',1,'zen::gfxcore::CShaderSet']]],
   ['getvalue',['GetValue',['../classzen_1_1util_1_1_c_i_n_i_parser.html#a8b7f91e53336cd8c0e6707eac1c74fe2',1,'zen::util::CINIParser']]],
   ['getvalueb',['GetValueb',['../classzen_1_1util_1_1_c_i_n_i_parser.html#aea41451a7d888f37f556828cb4dc5535',1,'zen::util::CINIParser']]],
   ['getvaluef',['GetValuef',['../classzen_1_1util_1_1_c_i_n_i_parser.html#a53fe17f3cfc5cebb01f7104d2b11fe5d',1,'zen::util::CINIParser']]],
   ['getvaluei',['GetValuei',['../classzen_1_1util_1_1_c_i_n_i_parser.html#aef355b201c3c5efd3ada50f1f694ca9c',1,'zen::util::CINIParser']]],
   ['getvalues',['GetValues',['../classzen_1_1util_1_1_c_i_n_i_parser.html#ac57686358966190d7c29a88ff1c87429',1,'zen::util::CINIParser']]],
+  ['glcheck',['glCheck',['../namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524',1,'zen::gfxcore']]],
   ['graphics',['Graphics',['../group___graphics.html',1,'']]]
 ];

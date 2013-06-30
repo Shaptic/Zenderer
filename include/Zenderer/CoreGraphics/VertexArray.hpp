@@ -120,7 +120,7 @@ namespace gfxcore
         {
             if(!this->Bind()) return false;
             GL(glDrawElements(GL_TRIANGLES, m_icount, INDEX_TYPE, nullptr));
-            if(!this->Unbind()) return false;
+            return this->Unbind();
         }
 
     private:

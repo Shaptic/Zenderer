@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -123,6 +123,10 @@ $(document).ready(function(){initNavTree('namespacezen_1_1math.html','');});
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">4x4 matrix representation.  <a href="classzen_1_1math_1_1matrix4x4__t.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1rect__t.html">rect_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1circle__t.html">circle_t</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1vectorf__t.html">vectorf_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a point in 3D rectangular-coordinate space.  <a href="structzen_1_1math_1_1vectorf__t.html#details">More...</a><br/></td></tr>
@@ -223,9 +227,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T</td><td>Starting value </td></tr>
-    <tr><td class="paramname">T</td><td>Ending value </td></tr>
-    <tr><td class="paramname">real_t</td><td>Percentage in between values</td></tr>
+    <tr><td class="paramname">Start</td><td>Starting value </td></tr>
+    <tr><td class="paramname">End</td><td>Ending value </td></tr>
+    <tr><td class="paramname">weight</td><td>Percentage in between values</td></tr>
   </table>
   </dd>
 </dl>
@@ -269,9 +273,9 @@ template&lt;typename T &gt; </div>
 <p>The type can be any type supporting the &lt;= and &gt;= operators.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T</td><td>Value to test </td></tr>
-    <tr><td class="paramname">T</td><td>Minimum range </td></tr>
-    <tr><td class="paramname">T</td><td>Maximum range</td></tr>
+    <tr><td class="paramname">n</td><td>Value to test </td></tr>
+    <tr><td class="paramname">minimum</td><td>Minimum range (inclusive) </td></tr>
+    <tr><td class="paramname">maximum</td><td>Maximum range (inclusive)</td></tr>
   </table>
   </dd>
 </dl>
@@ -314,9 +318,9 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T</td><td>Starting value </td></tr>
-    <tr><td class="paramname">T</td><td>Ending value </td></tr>
-    <tr><td class="paramname">real_t</td><td>Percentage in between values</td></tr>
+    <tr><td class="paramname">Start</td><td>Starting value </td></tr>
+    <tr><td class="paramname">End</td><td>Ending value </td></tr>
+    <tr><td class="paramname">weight</td><td>Percentage in between values</td></tr>
   </table>
   </dd>
 </dl>
@@ -360,9 +364,9 @@ template&lt;typename T &gt; </div>
 <p>The type can be any type supporting the &lt;= and &gt;= operators.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">T</td><td>Value to test </td></tr>
-    <tr><td class="paramname">T</td><td>Minimum range </td></tr>
-    <tr><td class="paramname">T</td><td>Maximum range</td></tr>
+    <tr><td class="paramname">n</td><td>Value to test </td></tr>
+    <tr><td class="paramname">minimum</td><td>Minimum range (inclusive) </td></tr>
+    <tr><td class="paramname">maximum</td><td>Maximum range (inclusive)</td></tr>
   </table>
   </dd>
 </dl>

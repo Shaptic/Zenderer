@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -184,9 +184,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stru
 <tr class="memitem:a2d89f13a7dbdbf3a0c062986fc60943d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1vectorf__t.html#a2d89f13a7dbdbf3a0c062986fc60943d">Rotate</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> radians)</td></tr>
 <tr class="memdesc:a2d89f13a7dbdbf3a0c062986fc60943d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates the current vector using the rotation matrix.  <a href="#a2d89f13a7dbdbf3a0c062986fc60943d">More...</a><br/></td></tr>
 <tr class="separator:a2d89f13a7dbdbf3a0c062986fc60943d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70243b25fc6c07d00af8db5c77a94ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1vectorf__t.html#ae70243b25fc6c07d00af8db5c77a94ea">Translate</a> (const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;trans_mat)</td></tr>
-<tr class="memdesc:ae70243b25fc6c07d00af8db5c77a94ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the current vector by a matrix.  <a href="#ae70243b25fc6c07d00af8db5c77a94ea">More...</a><br/></td></tr>
-<tr class="separator:ae70243b25fc6c07d00af8db5c77a94ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c45116fa5c2a0e94648606ae011766"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1vectorf__t.html#a59c45116fa5c2a0e94648606ae011766">Translate</a> (const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;TransMat)</td></tr>
+<tr class="memdesc:a59c45116fa5c2a0e94648606ae011766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the current vector by a matrix.  <a href="#a59c45116fa5c2a0e94648606ae011766">More...</a><br/></td></tr>
+<tr class="separator:a59c45116fa5c2a0e94648606ae011766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1e6cc3df2ecf0084fa02a21a7a1de8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1vectorf__t.html#ad1e6cc3df2ecf0084fa02a21a7a1de8d">Cross2D</a> (const <a class="el" href="structzen_1_1math_1_1vectorf__t.html">vectorf_t</a> &amp;Other) const </td></tr>
 <tr class="memdesc:ad1e6cc3df2ecf0084fa02a21a7a1de8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a scalar cross product value between two 2D vectors.  <a href="#ad1e6cc3df2ecf0084fa02a21a7a1de8d">More...</a><br/></td></tr>
 <tr class="separator:ad1e6cc3df2ecf0084fa02a21a7a1de8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,7 +248,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 <p>The cross product of two vectors is a vector that is perpendicular to both operators. e.g. i = j ^ k.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vectorf_t&amp;</td><td>The vector to cross with</td></tr>
+    <tr><td class="paramname">Other</td><td>The vector to cross with</td></tr>
   </table>
   </dd>
 </dl>
@@ -285,7 +285,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
  A = (x1, y1, z1) B = (x2, y2, z2) A . B = x1*x2 + y1*y2 + z1*z2</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>vector to dot with.</td></tr>
+    <tr><td class="paramname">Other</td><td>The vector to dot with.</td></tr>
   </table>
   </dd>
 </dl>
@@ -318,7 +318,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real_t</td><td>The scalar </td></tr>
+    <tr><td class="paramname">scalar</td><td>The component scaling factor </td></tr>
   </table>
   </dd>
 </dl>
@@ -351,7 +351,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real_t</td><td>The scalar </td></tr>
+    <tr><td class="paramname">scalar</td><td>The component scaling factor </td></tr>
   </table>
   </dd>
 </dl>
@@ -384,7 +384,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="structzen_1_1math_1_1vectorf__t.html" title="Represents a point in 3D rectangular-coordinate space.">vectorf_t</a></td><td>The other vector </td></tr>
+    <tr><td class="paramname">Other</td><td>The vector to add (component-wise) </td></tr>
   </table>
   </dd>
 </dl>
@@ -417,7 +417,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real_t</td><td>The value to add </td></tr>
+    <tr><td class="paramname">value</td><td>The value to add </td></tr>
   </table>
   </dd>
 </dl>
@@ -450,7 +450,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="structzen_1_1math_1_1vectorf__t.html" title="Represents a point in 3D rectangular-coordinate space.">vectorf_t</a></td><td>The other vector </td></tr>
+    <tr><td class="paramname">Other</td><td>The vector to subtract from the current vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -512,7 +512,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 <p>So the final rotation in OpenGL would be: x = x * cos(d) + y * sin(d) y = -x * sin(d) + y * cos(d)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">real_t</td><td>The rotation angle in radians.</td></tr>
+    <tr><td class="paramname">radians</td><td>The rotation angle in radians.</td></tr>
   </table>
   </dd>
 </dl>
@@ -522,7 +522,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 
 </div>
 </div>
-<a class="anchor" id="ae70243b25fc6c07d00af8db5c77a94ea"></a>
+<a class="anchor" id="a59c45116fa5c2a0e94648606ae011766"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -530,14 +530,14 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
           <td class="memname">void zen::math::vectorf_t::Translate </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>trans_mat</em></td><td>)</td>
+          <td class="paramname"><em>TransMat</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">matrix4x4_t&amp;</td><td>Translation matrix </td></tr>
+    <tr><td class="paramname">TransMat</td><td>Translation matrix </td></tr>
   </table>
   </dd>
 </dl>
@@ -569,7 +569,7 @@ static friend std::ostream &amp;&#160;</td><td class="memItemRight" valign="bott
 <p>This value can be used to determine which side of a vector another vector is on. If the return value is negative, the "Other" vector is on the left (going ccw). If positive, it's on the right (going c/w). This can also be done by examining the dot product.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vectorf_t&amp;</td><td>Vector to test cross product on</td></tr>
+    <tr><td class="paramname">Other</td><td>Vector to test cross product on</td></tr>
   </table>
   </dd>
 </dl>

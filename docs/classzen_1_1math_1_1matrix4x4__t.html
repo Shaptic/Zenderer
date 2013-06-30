@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -185,11 +185,11 @@ static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x
 <p>The index value is automatically clamped at [0, 3].</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uint8_t</td><td>Index </td></tr>
+    <tr><td class="paramname">index</td><td>Row index to access </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The real_t array at that index. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <code>real_t</code> array at that index. </dd></dl>
 
 <p>Definition at line <a class="el" href="_matrix_8cpp_source.html#l00037">37</a> of file <a class="el" href="_matrix_8cpp_source.html">Matrix.cpp</a>.</p>
 
@@ -240,10 +240,10 @@ static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">uint16_t</td><td>Projection width </td></tr>
-    <tr><td class="paramname">uint16_t</td><td>Projection height </td></tr>
-    <tr><td class="paramname">uint16_t</td><td>Maximum projection depth </td></tr>
-    <tr><td class="paramname">int</td><td>Minimum projection depth</td></tr>
+    <tr><td class="paramname">width</td><td>Projection width </td></tr>
+    <tr><td class="paramname">height</td><td>Projection height </td></tr>
+    <tr><td class="paramname">max_z</td><td>Maximum projection depth </td></tr>
+    <tr><td class="paramname">min_z</td><td>Minimum projection depth</td></tr>
   </table>
   </dd>
 </dl>

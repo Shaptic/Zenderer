@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -275,7 +275,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Filename to load asset from </td></tr>
+    <tr><td class="paramname">filename</td><td>Filename to load asset from </td></tr>
   </table>
   </dd>
 </dl>
@@ -309,7 +309,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <p>By default, this just copies all of the asset metadata over, excluding any implementation-specific data. It's recommended to overload this method, and then just call <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a" title="Copies an asset from another.">CAsset::LoadFromExisting()</a> again internally to ensure all metadata is copied (if that's desired).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">CAsset*</td><td>Asset to create a copy from</td></tr>
+    <tr><td class="paramname">pCopy</td><td>Asset to create a copy from</td></tr>
   </table>
   </dd>
 </dl>

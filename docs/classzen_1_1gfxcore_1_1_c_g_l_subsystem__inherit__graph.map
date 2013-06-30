@@ -1,4 +1,4 @@
 <map id="zen::gfxcore::CGLSubsystem" name="zen::gfxcore::CGLSubsystem">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,248,128,472"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 7 more...\l}" alt="" coords="152,248,331,472"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,249,147,487"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 7 more...\l}" alt="" coords="171,256,349,480"/>
 </map>

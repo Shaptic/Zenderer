@@ -1,7 +1,6 @@
 <map id="zen::asset::CAssetManager::Delete" name="zen::asset::CAssetManager::Delete">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ad6d26ebcd8bb0a2b0ba6764f8db28e8b" title="Destroys the shader program." alt="" coords="237,25,408,66"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855" title="Cleans up the subsystem completely." alt="" coords="253,90,392,131"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="693,29,864,70"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="457,25,645,66"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="465,90,636,131"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="237,5,408,46"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855" title="Cleans up the subsystem completely." alt="" coords="253,70,392,111"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="675,5,845,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="456,34,627,75"/>
 </map>

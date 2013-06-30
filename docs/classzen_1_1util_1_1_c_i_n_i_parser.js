@@ -4,7 +4,7 @@ var classzen_1_1util_1_1_c_i_n_i_parser =
     [ "CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html#a20c84eda45d2687f2ff9c1c9269a5083", null ],
     [ "~CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html#a47316c05513638fd204ed6abd9aa0c06", null ],
     [ "LoadFromFile", "classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8", null ],
-    [ "LoadFromStream", "classzen_1_1util_1_1_c_i_n_i_parser.html#a3ec9d6389a1a43a66e4fc4755f321ff4", null ],
+    [ "LoadFromStream", "classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae", null ],
     [ "LoadFromStream", "classzen_1_1util_1_1_c_i_n_i_parser.html#aa4bf277e6c50fd30e2ccd91e36a8b135", null ],
     [ "Reset", "classzen_1_1util_1_1_c_i_n_i_parser.html#af3b867e089ded53f3540e53a08236f5e", null ],
     [ "GetValue", "classzen_1_1util_1_1_c_i_n_i_parser.html#a8b7f91e53336cd8c0e6707eac1c74fe2", null ],

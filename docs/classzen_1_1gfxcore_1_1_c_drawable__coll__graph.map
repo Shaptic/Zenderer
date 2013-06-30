@@ -1,0 +1,8 @@
+<map id="zen::gfxcore::CDrawable" name="zen::gfxcore::CDrawable">
+<area shape="rect" id="node2" href="$structzen_1_1gfx_1_1material__t.html" title="{zen::gfx::material_t\n||}" alt="" coords="35,583,168,660"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="31,265,172,503"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="5,5,197,200"/>
+<area shape="rect" id="node5" href="$structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="193,568,356,675"/>
+<area shape="rect" id="node6" href="$structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="201,338,348,430"/>
+<area shape="rect" id="node7" href="$structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="225,35,324,171"/>
+</map>

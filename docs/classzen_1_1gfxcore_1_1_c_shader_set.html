@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -156,10 +156,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a9067d6bb31b957b8e17ec3e98a46bdd8">Unbind</a> ()</td></tr>
 <tr class="memdesc:a9067d6bb31b957b8e17ec3e98a46bdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any shader program from the rendering context. <br/></td></tr>
 <tr class="separator:a9067d6bb31b957b8e17ec3e98a46bdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6d26ebcd8bb0a2b0ba6764f8db28e8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6d26ebcd8bb0a2b0ba6764f8db28e8b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad6d26ebcd8bb0a2b0ba6764f8db28e8b">Destroy</a> ()</td></tr>
-<tr class="memdesc:ad6d26ebcd8bb0a2b0ba6764f8db28e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the shader program. <br/></td></tr>
-<tr class="separator:ad6d26ebcd8bb0a2b0ba6764f8db28e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b59d547f6c9080d58292fd532855f76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b59d547f6c9080d58292fd532855f76"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76">Destroy</a> ()</td></tr>
+<tr class="memdesc:a5b59d547f6c9080d58292fd532855f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the shader program. <br/></td></tr>
+<tr class="separator:a5b59d547f6c9080d58292fd532855f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f522b512733737174aa0aeb278a72a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f522b512733737174aa0aeb278a72a5"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5">GetShaderObject</a> ()</td></tr>
 <tr class="memdesc:a8f522b512733737174aa0aeb278a72a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-const because the returned handle can modify the state. <br/></td></tr>
@@ -210,8 +210,8 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
 <p>You can check for a linker error through GetError() and a generic log through GetLinkerLog() in order to test for warnings or other messages.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Vertex shader filename </td></tr>
-    <tr><td class="paramname">string_t</td><td>Fragment (pixel) shader filename</td></tr>
+    <tr><td class="paramname">vs</td><td>Vertex shader filename </td></tr>
+    <tr><td class="paramname">fs</td><td>Fragment (pixel) shader filename</td></tr>
   </table>
   </dd>
 </dl>
@@ -241,7 +241,7 @@ GetLinkerLog() </dd></dl>
 <p>This method doesn't create a shader program, so a call to the relevant method is required (<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Shader filename</td></tr>
+    <tr><td class="paramname">filename</td><td>Shader filename</td></tr>
   </table>
   </dd>
 </dl>
@@ -271,7 +271,7 @@ GetLinkerLog() </dd></dl>
 <p>This method doesn't create a shader program, so a call to the relevant method is required (<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Shader filename</td></tr>
+    <tr><td class="paramname">filename</td><td>Shader filename</td></tr>
   </table>
   </dd>
 </dl>
@@ -311,8 +311,8 @@ GetLinkerLog() </dd></dl>
 <p>You can check for a linker error through GetError() and a generic log through GetLinkerLog() in order to test for warnings or other messages.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Vertex shader filename </td></tr>
-    <tr><td class="paramname">string_t</td><td>Fragment (pixel) shader filename</td></tr>
+    <tr><td class="paramname">vs</td><td>Vertex shader filename </td></tr>
+    <tr><td class="paramname">fs</td><td>Fragment (pixel) shader filename</td></tr>
   </table>
   </dd>
 </dl>
@@ -343,7 +343,7 @@ GetLinkerLog() </dd></dl>
 <dd>
 GetLinkerLog() </dd></dl>
 
-<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00062">62</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00071">71</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -365,7 +365,7 @@ Here is the caller graph for this function:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacezen.html">zen</a></li><li class="navelem"><b>gfxcore</b></li><li class="navelem"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html">CShaderSet</a></li>
+    <li class="navelem"><a class="el" href="namespacezen.html">zen</a></li><li class="navelem"><a class="el" href="namespacezen_1_1gfxcore.html">gfxcore</a></li><li class="navelem"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html">CShaderSet</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

@@ -6,6 +6,10 @@ var dir_fb506ce3840802e4699f44ecb313702e =
     [ "Matrix.hpp", "_matrix_8hpp.html", [
       [ "matrix4x4_t", "classzen_1_1math_1_1matrix4x4__t.html", "classzen_1_1math_1_1matrix4x4__t" ]
     ] ],
+    [ "Shapes.hpp", "_shapes_8hpp.html", [
+      [ "rect_t", "structzen_1_1math_1_1rect__t.html", "structzen_1_1math_1_1rect__t" ],
+      [ "circle_t", "structzen_1_1math_1_1circle__t.html", "structzen_1_1math_1_1circle__t" ]
+    ] ],
     [ "Vector.hpp", "_vector_8hpp.html", "_vector_8hpp" ],
     [ "Vector.inl", "_vector_8inl_source.html", null ]
 ];

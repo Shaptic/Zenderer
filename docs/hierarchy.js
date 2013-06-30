@@ -9,15 +9,20 @@ var hierarchy =
       ] ]
     ] ],
     [ "zen::sfx::CAudioManager", "classzen_1_1sfx_1_1_c_audio_manager.html", null ],
-    [ "gfxcore::CDrawable", "classgfxcore_1_1_c_drawable.html", null ],
+    [ "zen::gfxcore::CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html", [
+      [ "zen::gfx::CQuad", "classzen_1_1gfx_1_1_c_quad.html", null ]
+    ] ],
     [ "zen::gfxcore::CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html", [
       [ "zen::gfx::CEffect", "classzen_1_1gfx_1_1_c_effect.html", null ],
       [ "zen::gfxcore::CVertexArray", "classzen_1_1gfxcore_1_1_c_vertex_array.html", null ]
     ] ],
     [ "zen::util::CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html", null ],
+    [ "zen::math::circle_t", "structzen_1_1math_1_1circle__t.html", null ],
+    [ "zen::gfx::CLight", "classzen_1_1gfx_1_1_c_light.html", null ],
     [ "zen::util::CLog", "classzen_1_1util_1_1_c_log.html", null ],
     [ "zen::color4f_t", "structzen_1_1color4f__t.html", null ],
     [ "zen::util::COption", "classzen_1_1util_1_1_c_option.html", null ],
+    [ "zen::gfxcore::CRenderer", "classzen_1_1gfxcore_1_1_c_renderer.html", null ],
     [ "zen::gfx::CSceneManager", "classzen_1_1gfx_1_1_c_scene_manager.html", null ],
     [ "zen::gfxcore::CShaderSet", "classzen_1_1gfxcore_1_1_c_shader_set.html", null ],
     [ "zen::gfxcore::CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html", null ],
@@ -27,9 +32,12 @@ var hierarchy =
       [ "zen::gfx::CWindow", "classzen_1_1gfx_1_1_c_window.html", null ],
       [ "zen::util::CSettings", "classzen_1_1util_1_1_c_settings.html", null ]
     ] ],
+    [ "zen::util::CTimer", "classzen_1_1util_1_1_c_timer.html", null ],
     [ "zen::util::CXMLParser", "classzen_1_1util_1_1_c_x_m_l_parser.html", null ],
     [ "zen::gfxcore::DrawBatch", "structzen_1_1gfxcore_1_1_draw_batch.html", null ],
+    [ "zen::gfx::material_t", "structzen_1_1gfx_1_1material__t.html", null ],
     [ "zen::math::matrix4x4_t", "classzen_1_1math_1_1matrix4x4__t.html", null ],
+    [ "zen::math::rect_t", "structzen_1_1math_1_1rect__t.html", null ],
     [ "zen::math::vectorf_t", "structzen_1_1math_1_1vectorf__t.html", null ],
     [ "zen::gfxcore::vertex_t", "structzen_1_1gfxcore_1_1vertex__t.html", null ],
     [ "zen::util::XMLNode", "structzen_1_1util_1_1_x_m_l_node.html", null ]

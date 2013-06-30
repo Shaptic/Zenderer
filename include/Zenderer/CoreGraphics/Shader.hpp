@@ -31,7 +31,7 @@
 #include "OpenGL.hpp"
 
 /// File path to engine-specific shader files.
-#define ZENDERER_SHADER_PATH "Shaders/"
+#define ZENDERER_SHADER_PATH "Zenderer/shaders/"
 
 namespace zen
 {

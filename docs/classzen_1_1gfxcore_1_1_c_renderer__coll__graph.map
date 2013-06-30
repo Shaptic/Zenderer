@@ -1,0 +1,6 @@
+<map id="zen::gfxcore::CRenderer" name="zen::gfxcore::CRenderer">
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,251,147,490"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="89,5,281,200"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 7 more...\l}" alt="" coords="171,259,349,483"/>
+<area shape="rect" id="node5" href="$classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="374,259,532,483"/>
+</map>

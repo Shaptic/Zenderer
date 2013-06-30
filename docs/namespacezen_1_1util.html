@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -133,6 +133,9 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_settings.html">CSettings</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html">CTimer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A high-precision timer class for controlling frame rates.  <a href="classzen_1_1util_1_1_c_timer.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">XMLNode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single XML node.  <a href="structzen_1_1util_1_1_x_m_l_node.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,6 +145,9 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a28ea33e8207517816d8309807731862b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28ea33e8207517816d8309807731862b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>time_t</b> = uint32_t</td></tr>
+<tr class="separator:a28ea33e8207517816d8309807731862b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2af5179e236a644056736aa6041e350f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2af5179e236a644056736aa6041e350f"></a>
 typedef std::vector&lt; <a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">XMLNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a2af5179e236a644056736aa6041e350f">XMLList_t</a></td></tr>
 <tr class="memdesc:a2af5179e236a644056736aa6041e350f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for a list of nodes. <br/></td></tr>
@@ -164,17 +170,19 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a17b714c4af1aed81d3e5994058d39abd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a17b714c4af1aed81d3e5994058d39abd">runtime_assert</a> (const bool expression, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> expression_str, const size_t line_no, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> file_name, const char *msg=NULL)</td></tr>
-<tr class="memdesc:a17b714c4af1aed81d3e5994058d39abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a verification of an expression, crashing on error.  <a href="#a17b714c4af1aed81d3e5994058d39abd">More...</a><br/></td></tr>
-<tr class="separator:a17b714c4af1aed81d3e5994058d39abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea">stripl</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
-<tr class="memdesc:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips leading whitespace from a string (in-place).  <a href="#a9f970dca52b6ce6ba2f93af6a7acb4ea">More...</a><br/></td></tr>
+<tr class="memitem:a2b1676b8d1927999654ed77688409574"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574">runtime_assert</a> (const bool expression, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> expression_str, const size_t line_no, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> file_name, const char *msg=nullptr)</td></tr>
+<tr class="memdesc:a2b1676b8d1927999654ed77688409574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a verification of an expression, crashing on error.  <a href="#a2b1676b8d1927999654ed77688409574">More...</a><br/></td></tr>
+<tr class="separator:a2b1676b8d1927999654ed77688409574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f970dca52b6ce6ba2f93af6a7acb4ea"></a>
+<a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea">stripl</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
+<tr class="memdesc:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips leading whitespace from a string (in-place). <br/></td></tr>
 <tr class="separator:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75be5691bdb9c06944dc063450e3ca90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a75be5691bdb9c06944dc063450e3ca90">stripl</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
 <tr class="memdesc:a75be5691bdb9c06944dc063450e3ca90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips leading whitespace from a string (original untouched).  <a href="#a75be5691bdb9c06944dc063450e3ca90">More...</a><br/></td></tr>
 <tr class="separator:a75be5691bdb9c06944dc063450e3ca90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a065432e1a575f5bcda1039580ebd794c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c">stript</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
-<tr class="memdesc:a065432e1a575f5bcda1039580ebd794c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips trailing whitespace from a string (in-place).  <a href="#a065432e1a575f5bcda1039580ebd794c">More...</a><br/></td></tr>
+<tr class="memitem:a065432e1a575f5bcda1039580ebd794c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a065432e1a575f5bcda1039580ebd794c"></a>
+<a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c">stript</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
+<tr class="memdesc:a065432e1a575f5bcda1039580ebd794c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips trailing whitespace from a string (in-place). <br/></td></tr>
 <tr class="separator:a065432e1a575f5bcda1039580ebd794c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3826b0db2e11c31105d7dee750c2de04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a3826b0db2e11c31105d7dee750c2de04">stript</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
 <tr class="memdesc:a3826b0db2e11c31105d7dee750c2de04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips trailing whitespace from a string (original untouched).  <a href="#a3826b0db2e11c31105d7dee750c2de04">More...</a><br/></td></tr>
@@ -185,8 +193,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff">toupper</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
 <tr class="memdesc:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an immutable string to its uppercase equivalent.  <a href="#abcd46d2b51e6e06f9d9c64e3d252c9ff">More...</a><br/></td></tr>
 <tr class="separator:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787ffd776fdb8470f900a21d71c85af4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4">toupper</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
-<tr class="memdesc:a787ffd776fdb8470f900a21d71c85af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to its uppercase equivalent (in-place).  <a href="#a787ffd776fdb8470f900a21d71c85af4">More...</a><br/></td></tr>
+<tr class="memitem:a787ffd776fdb8470f900a21d71c85af4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a787ffd776fdb8470f900a21d71c85af4"></a>
+<a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4">toupper</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
+<tr class="memdesc:a787ffd776fdb8470f900a21d71c85af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to its uppercase equivalent (in-place). <br/></td></tr>
 <tr class="separator:a787ffd776fdb8470f900a21d71c85af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6243a2677ad5feb0d748b19b9010b78"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78">hash</a> (const void *pdata, uint32_t size, const uint32_t seed=69)</td></tr>
 <tr class="memdesc:af6243a2677ad5feb0d748b19b9010b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash for some value.  <a href="#af6243a2677ad5feb0d748b19b9010b78">More...</a><br/></td></tr>
@@ -231,7 +240,7 @@ struct <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475"
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a17b714c4af1aed81d3e5994058d39abd"></a>
+<a class="anchor" id="a2b1676b8d1927999654ed77688409574"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -263,7 +272,7 @@ struct <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475"
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>msg</em> = <code>NULL</code>&#160;</td>
+          <td class="paramname"><em>msg</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -275,49 +284,26 @@ struct <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475"
 <p>This function plays nicely with <a class="el" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log.">zen::util::CLog::GetEngineLog()</a>, using it to store the fatal error messages to output them directly to the screen. This function can, but likely should not be called directly, since it relates to the preprocessor macro ZEN_ASSERT (defined above) to evaluate the given expression as a string. The stored error is as follows: </p>
 <pre class="fragment"> [FATAL] Assert -- `expression_str` failed at line `line_no` of `file_name`: `_msg_`
 </pre><p>The variable names above are replaced with their respective values, naturally.</p>
-<p>If this is used with the <code>ZEN_ASSERT</code> macro, this will ONLY actually do things in Debug builds, with <code>_DEBUG</code> specified. </p>
+<p>If this is used with the <code>ZEN_ASSERT</code> macro, this will ONLY actually do things in Debug builds, with <code>_DEBUG</code> specified.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>Boolean expression to assert on </td></tr>
+    <tr><td class="paramname">expr_str</td><td>The boolean expression as a string (for output) </td></tr>
+    <tr><td class="paramname">line_no</td><td>The line number the assertion is occuring on </td></tr>
+    <tr><td class="paramname">file_name</td><td>The file the assertion occurs in </td></tr>
+    <tr><td class="paramname">msg</td><td>A custom output message (optional=<code>nullptr</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Definition at line <a class="el" href="_assert_8cpp_source.html#l00008">8</a> of file <a class="el" href="_assert_8cpp_source.html">Assert.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespacezen_1_1util_a17b714c4af1aed81d3e5994058d39abd_icgraph.png" border="0" usemap="#namespacezen_1_1util_a17b714c4af1aed81d3e5994058d39abd_icgraph" alt=""/></div>
-<map name="namespacezen_1_1util_a17b714c4af1aed81d3e5994058d39abd_icgraph" id="namespacezen_1_1util_a17b714c4af1aed81d3e5994058d39abd_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1sfx_1_1_c_audio_manager.html#a184a2a112a64143f0315a8cc9aa80bde" title="Checks the validity of an OpenAL call." alt="" coords="173,5,341,46"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a9f970dca52b6ce6ba2f93af6a7acb4ea"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void zen::util::stripl </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string_t&amp;</td><td>Text to strip whitespace from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00005">5</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph.png" border="0" usemap="#namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph" alt=""/></div>
-<map name="namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph" id="namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file." alt="" coords="157,5,296,46"/><area shape="rect" id="node3" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="344,5,477,46"/></map>
+<div class="center"><img src="namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph.png" border="0" usemap="#namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph" alt=""/></div>
+<map name="namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph" id="namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph">
+<area shape="rect" id="node2" href="namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524" title="Checks the validity of an OpenGL call." alt="" coords="183,5,331,32"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d" title="Checks the validity of an OpenAL call." alt="" coords="173,57,341,98"/></map>
 </div>
 </p>
 
@@ -338,37 +324,13 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Text to strip whitespace from </td></tr>
+    <tr><td class="paramname">text</td><td>Text to strip whitespace from </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String with stripped leading whitespace. </dd></dl>
 
 <p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00012">12</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a065432e1a575f5bcda1039580ebd794c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void zen::util::stript </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string_t&amp;</td><td>Text to strip whitespace from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00019">19</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -387,7 +349,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Text to strip whitespace from </td></tr>
+    <tr><td class="paramname">text</td><td>Text to strip whitespace from </td></tr>
   </table>
   </dd>
 </dl>
@@ -428,9 +390,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>Text to split </td></tr>
-    <tr><td class="paramname">char</td><td>Delimiter value </td></tr>
-    <tr><td class="paramname">size_t</td><td>Guess at how many values there will be (optional)</td></tr>
+    <tr><td class="paramname">text</td><td>Text to split </td></tr>
+    <tr><td class="paramname">delim</td><td>Delimiter value </td></tr>
+    <tr><td class="paramname">approx</td><td>Guess at how many values there will be (optional)</td></tr>
   </table>
   </dd>
 </dl>
@@ -456,7 +418,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>String to convert </td></tr>
+    <tr><td class="paramname">str</td><td>String to convert </td></tr>
   </table>
   </dd>
 </dl>
@@ -472,30 +434,6 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place)." alt="" coords="174,5,293,32"/></map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="a787ffd776fdb8470f900a21d71c85af4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void zen::util::toupper </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string_t&amp;</td><td>String to convert </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00084">84</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -542,16 +480,16 @@ Here is the caller graph for this function:</div>
 <dl class="section version"><dt>Version</dt><dd>r144</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">void*</td><td>Data to hash </td></tr>
-    <tr><td class="paramname">uint32_t</td><td>Size of the data </td></tr>
-    <tr><td class="paramname">uint32_t</td><td>Random seed to hash with (optional=<code>69</code>)</td></tr>
+    <tr><td class="paramname">pdata</td><td>Data to hash </td></tr>
+    <tr><td class="paramname">size</td><td>Size of the data </td></tr>
+    <tr><td class="paramname">seed</td><td>Random seed to hash with (optional=<code>69</code>)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The hash value.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a href="https://sites.google.com/site/murmurhash/">https://sites.google.com/site/murmurhash/</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_helpers_8hpp_source.html#l00107">107</a> of file <a class="el" href="_helpers_8hpp_source.html">Helpers.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_helpers_8hpp_source.html#l00098">98</a> of file <a class="el" href="_helpers_8hpp_source.html">Helpers.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -598,14 +536,14 @@ Here is the caller graph for this function:</div>
 <p>This is just a shortcut to <a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">zen::util::hash()</a> for strings.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string_t</td><td>The string to hash </td></tr>
-    <tr><td class="paramname">uint32_t</td><td>The hash seed value (optional=<code>69</code>)</td></tr>
+    <tr><td class="paramname">str</td><td>The string to hash </td></tr>
+    <tr><td class="paramname">seed</td><td>The hash seed value (optional=<code>69</code>)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A hash value. </dd></dl>
 
-<p>Definition at line <a class="el" href="_helpers_8hpp_source.html#l00160">160</a> of file <a class="el" href="_helpers_8hpp_source.html">Helpers.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_helpers_8hpp_source.html#l00151">151</a> of file <a class="el" href="_helpers_8hpp_source.html">Helpers.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>

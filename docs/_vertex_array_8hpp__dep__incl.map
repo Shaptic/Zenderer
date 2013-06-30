@@ -1,6 +1,12 @@
 <map id="Zenderer/include/Zenderer/CoreGraphics/VertexArray.hpp" name="Zenderer/include/Zenderer/CoreGraphics/VertexArray.hpp">
-<area shape="rect" id="node2" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="116,97,287,138"/>
-<area shape="rect" id="node5" href="$_vertex_array_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/VertexArray.cpp" alt="" coords="311,97,488,138"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="5,187,192,213"/>
-<area shape="rect" id="node4" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="217,187,391,213"/>
+<area shape="rect" id="node2" href="$_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="47,187,233,229"/>
+<area shape="rect" id="node7" href="$_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="231,97,417,138"/>
+<area shape="rect" id="node11" href="$_vertex_array_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/VertexArray.cpp" alt="" coords="442,97,619,138"/>
+<area shape="rect" id="node3" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="55,278,225,319"/>
+<area shape="rect" id="node4" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="116,369,287,410"/>
+<area shape="rect" id="node5" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="5,459,192,485"/>
+<area shape="rect" id="node6" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="217,459,391,485"/>
+<area shape="rect" id="node8" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="257,187,428,229"/>
+<area shape="rect" id="node10" href="$_renderer_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="453,187,629,229"/>
+<area shape="rect" id="node9" href="$_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="301,278,451,319"/>
 </map>

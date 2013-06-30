@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -146,9 +146,9 @@ static ALuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01">FreeSource</a> (ALuint index)</td></tr>
 <tr class="memdesc:aa8af6f0acd2111500659b038fb256e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees an OpenAL source. <br/></td></tr>
 <tr class="separator:aa8af6f0acd2111500659b038fb256e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a184a2a112a64143f0315a8cc9aa80bde"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#a184a2a112a64143f0315a8cc9aa80bde">alCheck</a> (const char *expression, const uint32_t line, const char *file)</td></tr>
-<tr class="memdesc:a184a2a112a64143f0315a8cc9aa80bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the validity of an OpenAL call.  <a href="#a184a2a112a64143f0315a8cc9aa80bde">More...</a><br/></td></tr>
-<tr class="separator:a184a2a112a64143f0315a8cc9aa80bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a400e4194c5b8a08a72f8d00065f1eb2d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d">alCheck</a> (const char *expr, const uint32_t line, const char *file)</td></tr>
+<tr class="memdesc:a400e4194c5b8a08a72f8d00065f1eb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the validity of an OpenAL call.  <a href="#a400e4194c5b8a08a72f8d00065f1eb2d">More...</a><br/></td></tr>
+<tr class="separator:a400e4194c5b8a08a72f8d00065f1eb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99b8e3ee406f5571bce717ee2c30ecb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99b8e3ee406f5571bce717ee2c30ecb1"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1">OGGError</a> (const int error_code)</td></tr>
 <tr class="memdesc:a99b8e3ee406f5571bce717ee2c30ecb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs and outputs a readable error from an OGG error code. <br/></td></tr>
@@ -197,7 +197,7 @@ CAudioManager::s_sources[2] = 696969
 
 </div>
 </div>
-<a class="anchor" id="a184a2a112a64143f0315a8cc9aa80bde"></a>
+<a class="anchor" id="a400e4194c5b8a08a72f8d00065f1eb2d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -208,7 +208,7 @@ CAudioManager::s_sources[2] = 696969
           <td class="memname">bool CAudioManager::alCheck </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>expression</em>, </td>
+          <td class="paramname"><em>expr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -237,9 +237,9 @@ CAudioManager::s_sources[2] = 696969
 <p>Mostly used internally for debugging, this will check valid execution of an OpenAL call. It should be used in congruence with the macro defined at the top of this file (AL(f)). This function won't really work well without the macro, as too many things have to be passed as parameters for accuracy; it'd be unwieldy to pass the string of the OpenAL function call by hand every time.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">char*</td><td>OpenAL call expression </td></tr>
-    <tr><td class="paramname">uint32_t</td><td>Line number of function call </td></tr>
-    <tr><td class="paramname">char*</td><td>File name of function call</td></tr>
+    <tr><td class="paramname">expr</td><td>OpenAL call expression </td></tr>
+    <tr><td class="paramname">line</td><td>Line number of function call </td></tr>
+    <tr><td class="paramname">file</td><td>File name of function call</td></tr>
   </table>
   </dd>
 </dl>

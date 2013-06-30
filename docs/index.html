@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -138,7 +138,7 @@ Math</h2>
 <p>Math lies at the very core of computer graphics and game development. The math component does not include a subsystem object because it is primarily a bunch of loosely related objects and functions that do not need any sort of initialization. Almost all the other components rely on this component to function. It's at the core of the scene manager and basically the entire graphics component, since almost everything needs at least a position on the screen.</p>
 <h2><a class="anchor" id="comp_gfx"></a>
 Graphics</h2>
-<p>This is the bread and butter of the engine; this is what everyone really cares about. The graphics component of <em>Zenderer</em> is set up on a scene basis. A scene is an object that contains a vertex buffer for geometry, a render target to draw to, lists of post-processing effects (see <a class="el" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">zen::gfx::CEffect</a> for more), lists of lights (zen::gfx::CLight), and of course lists of drawable objects to render to the screen. Though viewing the raw source may be more beneficial than a textual explanation, the rendering process is outlined here.</p>
+<p>This is the bread and butter of the engine; this is what everyone really cares about. The graphics component of <em>Zenderer</em> is set up on a scene basis. A scene is an object that contains a vertex buffer for geometry, a render target to draw to, lists of post-processing effects (see <a class="el" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">zen::gfx::CEffect</a> for more), lists of lights (<a class="el" href="classzen_1_1gfx_1_1_c_light.html">zen::gfx::CLight</a>), and of course lists of drawable objects to render to the screen. Though viewing the raw source may be more beneficial than a textual explanation, the rendering process is outlined here.</p>
 <p>First, we render all of the scene geometry to an off-screen frame-buffer. This is done efficiently by sorting the geometry based on the material it uses (a material is a combination of a shader and a texture) and then batching draw calls with each type.</p>
 <p>Then we make a pass for each light and use additive blending to achieve realistic lighting effects. Finally, in order to properly post-process, a "ping-pong" technique is used on the rendered scene to overlay effects on top of one another. This is then drawn directly to the scene's render target (the screen by default) using a full-screen quad stored in a globally accessible vertex buffer.</p>
 <h2><a class="anchor" id="comp_sfx"></a>

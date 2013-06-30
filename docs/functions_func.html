@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3478 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3813 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -142,11 +143,18 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 &#160;
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>AddData()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40">zen::gfxcore::CVertexArray</a>
+</li>
 <li>alCheck()
-: <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#a184a2a112a64143f0315a8cc9aa80bde">zen::sfx::CAudioManager</a>
+: <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d">zen::sfx::CAudioManager</a>
 </li>
 <li>AttachAssetManager()
 : <a class="el" href="classzen_1_1gfx_1_1_c_window.html#ad13fadc423fea0583a1ef0b84b754ddf">zen::gfx::CWindow</a>
+</li>
+<li>AttachMaterial()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4f2b58cb141e7f2269f9efec7dc12d4f">zen::gfxcore::CDrawable</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_quad.html#ae759f2693112b9c3889276459c2a1d6f">zen::gfx::CQuad</a>
 </li>
 </ul>
 
@@ -167,7 +175,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a545ccfdabbcd898fea39617350a54e77">zen::asset::CAsset</a>
 </li>
 <li>Clear()
-: <a class="el" href="classzen_1_1gfx_1_1_c_window.html#af01be01157f5f15f4ef0f9db9bf7dca9">zen::gfx::CWindow</a>
+: <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7f0bbe1f4f851531112c92844555761f">zen::gfx::CWindow</a>
 </li>
 <li>ClearTree()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a11f42bb42eae7ddf87ef5e850af79c45">zen::util::CXMLParser</a>
@@ -177,6 +185,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 </li>
 <li>Create()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa">zen::asset::CAssetManager</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_quad.html#ad649025965b3dac6c1775a2f585a1393">zen::gfx::CQuad</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a42ee278bf92387e58908e744e35d89e0">zen::asset::CAssetManager</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a40568291bc5c60d5189d1a9e6785e0ee">zen::gfxcore::CDrawable</a>
 </li>
 <li>CreateShaderObject()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401">zen::gfxcore::CShaderSet</a>
@@ -190,6 +201,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>CSubsystem()
 : <a class="el" href="classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb">zen::CSubsystem</a>
 </li>
+<li>CTimer()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b">zen::util::CTimer</a>
+</li>
 <li>CXMLParser()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a57ef047bac46de34e6dc890b47559ec1">zen::util::CXMLParser</a>
 </li>
@@ -197,18 +211,21 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>Delay()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a83aee811294cd7b670b5edf36f931aa3">zen::util::CTimer</a>
+</li>
 <li>Delete()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37">zen::asset::CAssetManager</a>
 </li>
 <li>Destroy()
-: <a class="el" href="classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed">zen::CAllocator</a>
+: <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a57f2b7429435b3683c2bdd1e5321c8c1">zen::asset::CAssetManager</a>
 , <a class="el" href="classzen_1_1util_1_1_c_settings.html#ae08be94f7ac820aa5e61abb1d48c9adf">zen::util::CSettings</a>
-, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">zen::gfx::CWindow</a>
 , <a class="el" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f">zen::util::CLog</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad6d26ebcd8bb0a2b0ba6764f8db28e8b">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">zen::gfx::CWindow</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2">zen::gfxcore::CShader</a>
+, <a class="el" href="classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed">zen::CAllocator</a>
 , <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>
-, <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a57f2b7429435b3683c2bdd1e5321c8c1">zen::asset::CAssetManager</a>
 </li>
 <li>Disable()
 : <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#ad096c93d5455aaa3e6a9564dad9995b3">zen::gfx::CEffect</a>
@@ -216,10 +233,16 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>DisableFullscreen()
 : <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08">zen::gfx::CWindow</a>
 </li>
+<li>Draw()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a390ab5cbbda04d584e29ffd3b853e347">zen::gfxcore::CDrawable</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>Elapsed()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#aec940c7b0c86586c82b48deaf8473336">zen::util::CTimer</a>
+</li>
 <li>Enable()
 : <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#ac58cc325318a367e677bbaffc43268af">zen::gfx::CEffect</a>
 </li>
@@ -241,7 +264,10 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a6dcd1b91f04642dbee87b4d7b4d9909f">zen::util::CINIParser</a>
 </li>
 <li>FindNode()
-: <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a1f08169cf0e30d1400a0254a466e5d6b">zen::util::CXMLParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11">zen::util::CXMLParser</a>
+</li>
+<li>Finish()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#ac7f9ce94d7a8433c3bf6d8abf5898d38">zen::util::CTimer</a>
 </li>
 <li>FreeSource()
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01">zen::sfx::CAudioManager</a>
@@ -302,11 +328,14 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#af573f0d43cb279c78640edbeca50f387">zen::gfxcore::CShader</a>
 </li>
 <li>GetShaderObject()
-: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5">zen::gfxcore::CShaderSet</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#af936c6fbb74be5f169ce3813752eeac9">zen::gfxcore::CShader</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#af936c6fbb74be5f169ce3813752eeac9">zen::gfxcore::CShader</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5">zen::gfxcore::CShaderSet</a>
 </li>
 <li>GetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d">zen::util::CLog</a>
+</li>
+<li>GetTime()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a7dfd0b27da7d5331c542c21901d1c277">zen::util::CTimer</a>
 </li>
 <li>GetUniformLocation()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a839825794c47ce66f508c5c7d4fc835f">zen::gfxcore::CShaderSet</a>
@@ -378,7 +407,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6879dbb14e43fe9041e9a3d03e3c9fc1">zen::gfxcore::CShaderSet</a>
 </li>
 <li>LoadFromStream()
-: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3ec9d6389a1a43a66e4fc4755f321ff4">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae">zen::util::CINIParser</a>
 </li>
 <li>LoadFromString()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b">zen::util::CXMLParser</a>
@@ -395,6 +424,9 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>Magnitude()
 : <a class="el" href="structzen_1_1math_1_1vectorf__t.html#a91be6993bb1c9541a459cc0cf23632de">zen::math::vectorf_t</a>
+</li>
+<li>Move()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a67825824020cc2aa24133eab44432b9a">zen::gfxcore::CDrawable</a>
 </li>
 </ul>
 
@@ -447,7 +479,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="structzen_1_1math_1_1vectorf__t.html#a2b2b2102f61ea8132c0cd328f1553f4d">zen::math::vectorf_t</a>
 </li>
 <li>operator&lt;&lt;()
-: <a class="el" href="classzen_1_1util_1_1_c_log.html#a1aa1be3e46d348f176ebfa756363a6a5">zen::util::CLog</a>
+: <a class="el" href="classzen_1_1util_1_1_c_log.html#a4b47abac9f1cd45f5479be861290bfd6">zen::util::CLog</a>
 </li>
 <li>operator=()
 : <a class="el" href="classzen_1_1util_1_1_c_option.html#ad3d32c722af952aff701a56d0b1dde49">zen::util::COption</a>
@@ -503,9 +535,15 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 <li>SetClearBits()
 : <a class="el" href="classzen_1_1gfx_1_1_c_window.html#ac142af8c14b730f077e35445934ff0be">zen::gfx::CWindow</a>
 </li>
+<li>SetColor()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#aefa31d4c2e0ec951851cbab82ba5482a">zen::gfxcore::CDrawable</a>
+</li>
 <li>SetFilename()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30">zen::asset::CAsset</a>
-, <a class="el" href="classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d">zen::util::CLog</a>
+: <a class="el" href="classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d">zen::util::CLog</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30">zen::asset::CAsset</a>
+</li>
+<li>SetFrameRate()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b">zen::util::CTimer</a>
 </li>
 <li>SetLog()
 : <a class="el" href="classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c">zen::CSubsystem</a>
@@ -517,13 +555,19 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ab43b0d72c2e2df204df3f582d10efeba">zen::asset::CAsset</a>
 </li>
 <li>SetParameter()
-: <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a95fa7b2a8bba84bd5322a53ff44fadb7">zen::gfx::CEffect</a>
+: <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992">zen::gfx::CEffect</a>
 </li>
 <li>SetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7">zen::util::CLog</a>
 </li>
 <li>ShowXMLError()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f">zen::util::CXMLParser</a>
+</li>
+<li>Sleep()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a9940bde0c97c3a212a6c05f0a7311d26">zen::util::CTimer</a>
+</li>
+<li>Start()
+: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a420882d1e737fac3795122caff5c7c2a">zen::util::CTimer</a>
 </li>
 </ul>
 
@@ -536,7 +580,7 @@ $(document).ready(function(){initNavTree('functions_func.html','');});
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#a354fc06ab4cb37b616f5322cf2b333e1">zen::util::CLog</a>
 </li>
 <li>Translate()
-: <a class="el" href="structzen_1_1math_1_1vectorf__t.html#ae70243b25fc6c07d00af8db5c77a94ea">zen::math::vectorf_t</a>
+: <a class="el" href="structzen_1_1math_1_1vectorf__t.html#a59c45116fa5c2a0e94648606ae011766">zen::math::vectorf_t</a>
 </li>
 </ul>
 
