@@ -91,7 +91,7 @@ bool CShaderSet::CreateShaderObject()
     GL(glLinkProgram(m_program));
     GL(glGetProgramiv(m_program, GL_LINK_STATUS, &err));
 
-    int length  = 0;
+    int length = 0;
 
     // Get log length to make an appropriate buffer.
     GL(glGetProgramiv(m_program, GL_INFO_LOG_LENGTH, &length));
@@ -101,7 +101,7 @@ bool CShaderSet::CreateShaderObject()
     m_link_log.clear();
 
     // Get log.
-    if(length > 0)
+    if(length > 1)
     {
         char* buffer = new char[length];
         GL(glGetProgramInfoLog(m_program, length, &length, buffer));
@@ -109,8 +109,9 @@ bool CShaderSet::CreateShaderObject()
         m_link_log = buffer;
         delete[] buffer;
 
-        m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
-              << "Shader compilation log: " << m_link_log << CLog::endl;
+        m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                << m_Log.SetSystem("ShaderSet") << "Shader linker log: "
+                << m_link_log << CLog::endl;
     }
 
     // Link failed?

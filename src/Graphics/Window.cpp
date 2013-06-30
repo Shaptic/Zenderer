@@ -142,3 +142,14 @@ void CWindow::Update() const
 {
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }
+
+bool CWindow::ToggleVSYNC()
+{
+    static bool on = true;
+
+    wglSwapIntervalEXT = (PFNWGLSWAPINTERVALFARPROC)
+        wglGetProcAddress("wglSwapIntervalEXT");
+    wglSwapIntervalEXT(on = !on);
+
+    return on;
+}

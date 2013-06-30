@@ -54,9 +54,7 @@ namespace zen
     template<typename T>
     ZEN_API void clamp(T&, const T&, const T&);
 
-/**
- * Defines math-related functions and objects used throughout @a Zenderer.
- **/
+/// Defines math-related functions and objects used throughout @a Zenderer.
 namespace math
 {
     /// Famous mathematical constant.

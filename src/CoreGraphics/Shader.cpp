@@ -95,7 +95,7 @@ bool CShader::LoadFromRaw(const string_t& string)
     // Delete old logs
     m_error_str = m_shader_log = "";
 
-    if(length > 0)
+    if(length > 1)
     {
         char* buffer = new char[length];
 

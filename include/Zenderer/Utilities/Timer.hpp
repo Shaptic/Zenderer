@@ -24,7 +24,7 @@
 #define ZENDERER__UTILITIES__TIMER_HPP
 
 // Un/comment this line to show/hide delay info every frame (_DEBUG only).
-#define ZEN_SHOW_DELAY
+//#define ZEN_SHOW_DELAY
 
 #include <thread>
 #include <chrono>

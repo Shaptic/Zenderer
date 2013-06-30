@@ -10,6 +10,7 @@
 * Test audio API
 * Work around existing shader deletion (one at a time)
 * Allow variety of timer precisions to work with FPS delays
+* Figure out why lighting shaders need the screen offset uniform
 
 ### In Progress
 * Plan rendering architecture
