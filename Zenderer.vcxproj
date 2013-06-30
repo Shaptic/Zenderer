@@ -19,7 +19,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -42,6 +42,7 @@
     <IncludePath>$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
@@ -57,6 +58,20 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>cd data &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ..</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copying engine asset files.</Message>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>
+      </Message>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -92,6 +107,7 @@
     <ClInclude Include="include\Zenderer\Core\Subsystem.hpp" />
     <ClInclude Include="include\Zenderer\Core\Types.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Quad.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />

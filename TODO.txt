@@ -2,7 +2,9 @@
 =====================
 
 ### Normal priority
-* Write scene class 
+* Write scene class
+* Implement entity drawing
+* Implement texture loading (maybe SOIL or devIL?)
 
 ### Low priority
 * Test audio API
@@ -10,6 +12,7 @@
 
 ### In Progress
 * Plan rendering architecture
+* Write lighting wrapper
 
 ### Complete
 * Logging system
