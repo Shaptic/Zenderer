@@ -130,13 +130,15 @@ namespace gfxcore
             {
                 // Create a vertex array and load our data.
                 mp_VAO = new CVertexArray(GL_STATIC_DRAW);
+                mp_VAO->Init();
                 m_offset = mp_VAO->AddData(m_DrawData);
                 if(!mp_VAO->Offload()) return false;
 
                 // Create our model-view matrix.
-                *mp_MVMatrix = math::matrix4x4_t::CreateIdentityMatrix();
+                mp_MVMatrix = new math::matrix4x4_t;
+                (*mp_MVMatrix) = math::matrix4x4_t::CreateIdentityMatrix();
 
-                // So we can differntiate between a VAO from a `CScene`
+                // So we can differentiate between a VAO from a `CScene`
                 // and the one we made ourselves.
                 m_internal = true;
             }

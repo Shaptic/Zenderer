@@ -70,7 +70,6 @@ bool CAssetManager::Delete(CAsset* const pAsset)
                 ++s;
             }
 
-            (*b)->Destroy();
             return true;
         }
 

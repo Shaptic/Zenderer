@@ -60,9 +60,9 @@ static const char* SAMPLE_XML[] = {
     D.icount    = 6;
 
     D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(400, 0);
-    D.Vertices[2].position = math::vector_t(400, 200);
-    D.Vertices[3].position = math::vector_t(0, 200);
+    D.Vertices[1].position = math::vector_t(400, 10);
+    D.Vertices[2].position = math::vector_t(480, 200);
+    D.Vertices[3].position = math::vector_t(230, 200);
 
     D.Vertices[0].tc = math::vector_t(0.0, 0.0);
     D.Vertices[1].tc = math::vector_t(1.0, 0.0);
@@ -82,7 +82,11 @@ static const char* SAMPLE_XML[] = {
     delete[] D.Vertices;
     D.vcount = D.icount = 0;
 
-    while(glfwGetWindowParam(GLFW_OPENED))
+    gfx::CQuad Q(32, 32);
+    Q.Create();
+    Q.Move(math::vector_t(100, 100));
+
+    while(Window.IsOpen())
     {
         Window.Clear(Teal);
         gfxcore::CRenderer::GetDefaultEffect().Enable();
@@ -90,7 +94,12 @@ static const char* SAMPLE_XML[] = {
             math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
         gfxcore::CRenderer::GetDefaultEffect().Disable();
+        Q.Move(math::vector_t(100, 400));
+        Q.Draw();
+        Q.Move(math::vector_t(200, 400));
+        Q.Draw();
         Window.Update();
+        glfwPollEvents();
         Sound.Update();
     }
 

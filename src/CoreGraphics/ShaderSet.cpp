@@ -192,7 +192,7 @@ const string_t& CShaderSet::GetError() const
     return m_error_str;
 }
 
-void CShaderSet::Destroy()
+bool CShaderSet::Destroy()
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("ShaderSet")
@@ -217,4 +217,5 @@ void CShaderSet::Destroy()
     }
 
     m_error_str = "";
+    return true;
 }

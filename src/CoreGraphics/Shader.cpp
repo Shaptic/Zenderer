@@ -134,7 +134,7 @@ bool CShader::LoadFromRaw(const string_t& string)
 
 bool CShader::Destroy()
 {
-    if(m_object > 0)
+    if(m_object > 0 && glIsShader(m_object) == GL_TRUE)
     {
         GL(glDeleteShader(m_object));
 

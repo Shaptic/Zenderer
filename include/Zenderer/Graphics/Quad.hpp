@@ -35,37 +35,37 @@ namespace gfx
         CQuad(const math::rect_t& Size) : m_Size(Size) {}
         CQuad(const uint16_t w, const uint16_t h) : m_Size(0, 0, w, h) {}
 
-        ~CQuad();
+        ~CQuad()
+        {
+            if(m_DrawData.Vertices != nullptr) delete m_DrawData.Vertices;
+            if(m_DrawData.Indices  != nullptr) delete m_DrawData.Indices;
+        }
 
         void Create()
         {
-            // Aliases.
-            gfxcore::vertex_t* vertexList = m_DrawData.Vertices;
-            gfxcore::index_t* indexList = m_DrawData.Indices;
-
-            if(vertexList == nullptr)
+            if(m_DrawData.Vertices == nullptr)
             {
-                vertexList = new gfxcore::vertex_t[4];
+                m_DrawData.Vertices = new gfxcore::vertex_t[4];
                 m_DrawData.vcount = 4;
             }
 
-            vertexList[0].position = math::vector_t();
-            vertexList[1].position = math::vector_t(m_Size.w, 0.0);
-            vertexList[2].position = math::vector_t(m_Size.w, m_Size.h);
-            vertexList[3].position = math::vector_t(0.0, m_Size.h);
+            m_DrawData.Vertices[0].position = math::vector_t();
+            m_DrawData.Vertices[1].position = math::vector_t(m_Size.w, 0.0);
+            m_DrawData.Vertices[2].position = math::vector_t(m_Size.w, m_Size.h);
+            m_DrawData.Vertices[3].position = math::vector_t(0.0, m_Size.h);
 
-            if(indexList == nullptr)
+            if(m_DrawData.Indices == nullptr)
             {
-                indexList = new gfxcore::index_t[6];
+                m_DrawData.Indices = new gfxcore::index_t[6];
                 m_DrawData.icount = 6;
             }
 
-            indexList[0] = 0;
-            indexList[1] = 1;
-            indexList[2] = 3;
-            indexList[3] = 3;
-            indexList[4] = 1;
-            indexList[5] = 2;
+            m_DrawData.Indices[0] = 0;
+            m_DrawData.Indices[1] = 1;
+            m_DrawData.Indices[2] = 3;
+            m_DrawData.Indices[3] = 3;
+            m_DrawData.Indices[4] = 1;
+            m_DrawData.Indices[5] = 2;
         }
 
         void AttachMaterial(const gfx::material_t* pMaterial)
