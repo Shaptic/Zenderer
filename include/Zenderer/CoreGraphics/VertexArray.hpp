@@ -116,11 +116,11 @@ namespace gfxcore
 
         bool Offloaded() const;
 
-        void Draw()
+        bool Draw()
         {
-            this->Bind();
+            if(!this->Bind()) return false;
             GL(glDrawElements(GL_TRIANGLES, m_icount, INDEX_TYPE, nullptr));
-            this->Unbind();
+            if(!this->Unbind()) return false;
         }
 
     private:

@@ -62,15 +62,12 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
 
     string_t line;
 
-#ifdef _DEBUG
+    // For debugging.
     size_t line_no = 0;
-#endif // _DEBUG
 
     while(std::getline(file, line) && file.tellg() < finish)
     {
-#ifdef _DEBUG
         ++line_no;
-#endif // _DEBUG
 
         util::stripl(line);
         if(line.empty() || line[0] == '/' || line[0] == '<')

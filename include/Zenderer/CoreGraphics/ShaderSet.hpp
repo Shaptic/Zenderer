@@ -126,7 +126,7 @@ namespace gfxcore
         bool Unbind();
 
         /// Destroys the shader program.
-        void Destroy();
+        bool Destroy();
 
         /// Non-const because the returned handle can modify the state.
         uint16_t GetShaderObject();
