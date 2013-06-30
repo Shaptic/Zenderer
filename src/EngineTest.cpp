@@ -37,7 +37,7 @@ static const char* SAMPLE_XML[] = {
 {
     Init();
 
-    asset::CAssetManager Manager;
+    asset::CAssetManager Manager; Manager.Init();
     gfx::CWindow Window(800, 600, "Hello, Zenderer.");
 
     Window.AttachAssetManager(Manager);
@@ -72,7 +72,7 @@ static const char* SAMPLE_XML[] = {
     D.Vertices[0].color =
     D.Vertices[1].color =
     D.Vertices[2].color =
-    D.Vertices[3].color = color4f_t(1, 0, 0, 1);
+    D.Vertices[3].color = color4f_t(1, 1, 1, 1);
 
     Vao.Init();
     Vao.AddData(D);
@@ -89,6 +89,9 @@ static const char* SAMPLE_XML[] = {
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
+    gfx::CLight L(Manager, gfx::LightType::ZEN_AMBIENT, Window.GetHeight());
+    L.Init();
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -102,13 +105,10 @@ static const char* SAMPLE_XML[] = {
         // Rendering
         Window.Clear(Teal);
 
-        gfxcore::CRenderer::GetDefaultEffect().Enable();
-        gfxcore::CRenderer::GetDefaultEffect().SetParameter("mv",
-            math::matrix4x4_t::GetIdentityMatrix());
+        L.Enable();
         Vao.Draw();
-        gfxcore::CRenderer::GetDefaultEffect().Disable();
-        
-        Q.Move(math::vector_t(rand() % 500, rand() % 600));
+        L.Disable();
+
         Q.Draw();
 
         Window.Update();

@@ -59,7 +59,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>cd "$(MSBuildProjectDirectory)/data" &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ..</Command>
+      <Command>rmdir /s /q "$(OutputPath)/Zenderer" &amp; cd "$(MSBuildProjectDirectory)/data" &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ..</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying engine assets to output directory. </Message>
