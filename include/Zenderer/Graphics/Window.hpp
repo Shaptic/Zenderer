@@ -141,18 +141,16 @@ namespace gfx
         inline const math::matrix4x4_t& GetProjectionMatrix() const
         { return m_ProjMatrix; }
 
-        static inline bool ToggleVSYNC()
-        {
-            static bool on = true;
+        inline uint16_t GetWidth()  const { return m_Dimensions.x; }
+        inline uint16_t GetHeight() const { return m_Dimensions.y; }
 
-            wglSwapIntervalEXT = (PFNWGLSWAPINTERVALFARPROC)
-                wglGetProcAddress("wglSwapIntervalEXT");
-            wglSwapIntervalEXT(on = !on);
-
-            return on;
-        }
+        static bool ToggleVSYNC();
 
     private:
+        // Prevent copying.
+        CWindow(const CWindow&);
+        CWindow& operator=(const CWindow&);
+
         GLFWwindow*             mp_Window;
         util::CLog&             m_Log;
         asset::CAssetManager*   mp_Assets;

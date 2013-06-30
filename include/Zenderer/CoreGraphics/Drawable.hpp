@@ -90,6 +90,12 @@ namespace gfxcore
             m_Position = Position;
         }
 
+        /// @overload
+        void Move(const real_t x, const real_t y, const real_t z = 0.0)
+        {
+            m_Position = math::vector_t(x, y, z);
+        }
+
         /**
          * Attaches a material to render on top of the primitive.
          *  This really shouldn't be allowed on simple primitives, but it's
@@ -176,6 +182,12 @@ namespace gfxcore
 
             return true;
         }
+
+        inline const math::vector_t& GetPosition() const
+        { return m_Position; }
+
+        inline real_t GetX() const { return m_Position.x; }
+        inline real_t GetY() const { return m_Position.y; }
 
         /// For setting things implicitly.
         friend class CSceneManager;
