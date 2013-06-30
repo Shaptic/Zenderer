@@ -2,17 +2,14 @@
 =====================
 
 ### Normal priority
-* Test shader/effect wrappers
 * Write scene class 
 
 ### Low priority
-* Update to GLFW 3
 * Test audio API
 * Work around existing shader deletion (one at a time)
 
 ### In Progress
 * Plan rendering architecture
-* Implement quad drawing
 
 ### Complete
 * Logging system
@@ -29,3 +26,6 @@
 * Shader wrapper class
 * Write VAO Wrapper
 * Implement primitive drawing basics
+* Test shader/effect wrappers
+* Update to GLFW 3
+* Implement quad drawing

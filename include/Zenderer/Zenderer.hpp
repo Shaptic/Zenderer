@@ -29,9 +29,9 @@
 #pragma comment(lib, "GLEW32.lib")
 
 #ifdef _DEBUG
-  #pragma comment(lib, "GLFW_dbg.lib")
+  #pragma comment(lib, "GLFW3_DBG.lib")
 #else
-  #pragma comment(lib, "GLFW.lib")
+  #pragma comment(lib, "GLFW3.lib")
 #endif // _DEBUG
 
 // Link audio libraries

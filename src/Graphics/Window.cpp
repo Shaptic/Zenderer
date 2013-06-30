@@ -38,13 +38,22 @@ bool CWindow::Init()
             << CLog::endl;
 
     // Set up window to be version major.minor and core profile only.
-    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, major);
-    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, minor);
-    glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RED_BITS, 8);
+    glfwWindowHint(GLFW_BLUE_BITS, 8);
+    glfwWindowHint(GLFW_GREEN_BITS, 8);
+    glfwWindowHint(GLFW_ALPHA_BITS, 8);
+    glfwWindowHint(GLFW_DEPTH_BITS, 24);
+    glfwWindowHint(GLFW_STENCIL_BITS, 0);
 
     // Create the window.
-    if(glfwOpenWindow(800, 600, 8, 8, 8, 8,
-        24, 8, (m_fullscreen ? GLFW_FULLSCREEN : GLFW_WINDOW)) == GL_FALSE)
+    mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y, 
+        m_caption.c_str(), m_fullscreen ? glfwGetPrimaryMonitor() : nullptr,
+        nullptr);
+
+    if(mp_Window == nullptr)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
                 << "Failed to create OpenGL window v" << major << '.' << minor
@@ -60,9 +69,12 @@ bool CWindow::Init()
                 << ")." << CLog::endl;
     }
 
-    glfwSetWindowTitle(m_caption.c_str());
+    glfwMakeContextCurrent(mp_Window);
 
-    if(m_fullscreen) glfwDisable(GLFW_MOUSE_CURSOR);
+    if(m_fullscreen)
+    {
+        glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+    }
 
     m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
         m_Dimensions.y, 256, -256);
@@ -102,21 +114,23 @@ bool CWindow::Destroy()
         }
     }
 
-    glfwCloseWindow();
+    glfwDestroyWindow(mp_Window);
 
     return passed;
 }
 
-void CWindow::Clear()
+bool CWindow::Clear()
 {
     GL(glClear(m_clearbits));
     GL(glClearColor(0.f, 0.f, 0.f, 1.f));
+    return true;
 }
 
-void CWindow::Clear(const color4f_t& Color)
+bool CWindow::Clear(const color4f_t& Color)
 {
     GL(glClear(m_clearbits));
     GL(glClearColor(Color.r, Color.g, Color.b, Color.a));
+    return true;
 }
 
 void CWindow::AttachAssetManager(asset::CAssetManager& Mgr)
@@ -126,5 +140,5 @@ void CWindow::AttachAssetManager(asset::CAssetManager& Mgr)
 
 void CWindow::Update() const
 {
-    if(this->IsInit()) glfwSwapBuffers();
+    if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }

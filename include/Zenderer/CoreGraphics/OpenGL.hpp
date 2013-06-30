@@ -30,7 +30,7 @@
 #include <vector>
 
 #include "GL/glew.h"
-#include "GL/glfw.h"
+#include "GL/glfw3.h"
 
 #include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Math/Vector.hpp"

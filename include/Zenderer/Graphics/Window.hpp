@@ -62,10 +62,10 @@ namespace gfx
         bool Destroy();
 
         /// Clears the framebuffer to black.
-        void Clear();
+        bool Clear();
 
         /// Clears the framebuffer to a specified color.
-        void Clear(const color4f_t& Color);
+        bool Clear(const color4f_t& Color);
 
         /// Performs a context update.
         void Update() const;
@@ -93,6 +93,11 @@ namespace gfx
 
         inline bool EnableFullscreen();     ///< Enables fullscreen mode.
         inline bool DisableFullscreen();    ///< Disables fullscreen mode.
+
+        inline bool IsOpen() const 
+        {
+            return !glfwWindowShouldClose(mp_Window);
+        }
 
         /**
          * Allows for assets to be properly reloaded when toggling fs mode.
@@ -134,6 +139,7 @@ namespace gfx
         { return m_ProjMatrix; }
 
     private:
+        GLFWwindow*             mp_Window;
         util::CLog&             m_Log;
         asset::CAssetManager*   mp_Assets;
 
