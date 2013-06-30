@@ -165,6 +165,9 @@
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Utilities\Timer.hpp">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="src\CoreGraphics\Renderer.cpp">
       <Filter>Source Files\CoreGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utilities\Timer.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

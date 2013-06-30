@@ -47,7 +47,7 @@
 #include "Utilities/Utilities.hpp"
 
 // Custom memory allocator.
-#include "Core/Allocator.hpp"
+//#include "Core/Allocator.hpp"
 
 // Graphics API
 #include "Graphics/Window.hpp"

@@ -127,6 +127,7 @@
     <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Log.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Settings.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Timer.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Utilities.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\XMLParser.hpp" />
     <ClInclude Include="include\Zenderer\Zenderer.hpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="src\Utilities\INIParser.cpp" />
     <ClCompile Include="src\Utilities\Log.cpp" />
     <ClCompile Include="src\Utilities\Settings.cpp" />
+    <ClCompile Include="src\Utilities\Timer.cpp" />
     <ClCompile Include="src\Utilities\XMLParser.cpp" />
     <ClCompile Include="src\Zenderer.cpp" />
   </ItemGroup>

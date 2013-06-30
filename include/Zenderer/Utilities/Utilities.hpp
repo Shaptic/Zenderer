@@ -33,10 +33,10 @@
 #include "INIParser.hpp"
 #include "XMLParser.hpp"
 #include "Settings.hpp"
+#include "Timer.hpp"
 
 //#include "Loader.hpp"
 //#include "SysEvent.hpp"
-//#include "Timer.hpp"
 
 namespace zen
 {

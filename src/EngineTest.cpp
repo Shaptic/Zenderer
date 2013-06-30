@@ -86,8 +86,15 @@ static const char* SAMPLE_XML[] = {
     Q.Create();
     Q.Move(math::vector_t(100, 100));
 
+    util::CTimer Timer;
+
+    // Sleep for a second.
+    Timer.Sleep(1000);
+
     while(Window.IsOpen())
     {
+        Timer.Start();
+
         Window.Clear(Teal);
         gfxcore::CRenderer::GetDefaultEffect().Enable();
         gfxcore::CRenderer::GetDefaultEffect().SetParameter("mv",
@@ -101,6 +108,8 @@ static const char* SAMPLE_XML[] = {
         Window.Update();
         glfwPollEvents();
         Sound.Update();
+
+        Timer.Delay();
     }
 
     Vao.Destroy();

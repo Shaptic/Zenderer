@@ -1,17 +1,43 @@
+/**
+ * @file
+ *  Zenderer/Utilities/Timer.hpp - A native timer class for controlling engine
+ *  frame rates and other high-precision timing operations.
+ *
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     2.0
+ * @copyright   Apache License v2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License").         \n
+ *  You may not use this file except in compliance with the License.        \n
+ *  You may obtain a copy of the License at:
+ *  http://www.apache.org/licenses/LICENSE-2.0                              \n
+ *  Unless required by applicable law or agreed to in writing, software     \n
+ *  distributed under the License is distributed on an "AS IS" BASIS,       \n
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
+ *  See the License for the specific language governing permissions and     \n
+ *  limitations under the License.
+ *
+ * @addtogroup Utilities
+ * @{
+ **/
+
 #ifndef ZENDERER__UTILITIES__TIMER_HPP
 #define ZENDERER__UTILITIES__TIMER_HPP
+
+// Un/comment this line to show/hide delay info every frame (_DEBUG only).
+#define ZEN_SHOW_DELAY
 
 #include <thread>
 #include <chrono>
 
 #include "Zenderer/Core/Types.hpp"
+#include "Log.hpp"
 
 namespace zen
 {
 namespace util
 {
-    using time_t = uint32_t;
- 
+    typedef uint32_t time_t;
+
     /**
      * A high-precision timer class for controlling frame rates.
      *  This class provides fairly generic timing functionality,
@@ -25,26 +51,25 @@ namespace util
     {
     public:
         /// Shortcut for the type of clock we are using
-        using clock_t = std::chrono::high_resolution_clock;
-        
+        typedef std::chrono::high_resolution_clock clock_t;
+
         /// Shortcut for time point structure.
-        using timepoint_t = clock_t::time_point;
-        
+        typedef clock_t::time_point timepoint_t;
+
         /// Shortcut for the precision we want.
-        using precision_t = std::chrono::milliseconds;
-    
+        typedef std::chrono::milliseconds precision_t;
+
         /// Constructs a timer with a custom frame rate.
         CTimer(const uint16_t frames = 60);
         virtual ~CTimer();
-        
+
         virtual time_t Start();     ///< Marks start time and returns it.
         virtual time_t Finish();    ///< Marks finish time and returns it.
         virtual time_t Elapsed();   ///< Returns finish time - start time.
-        
+
         /// Sleeps the current thread (defaults to milliseconds). 
-        template<typename T = precision_t>
-        virtual void Sleep(const time_t ticks);
-        
+        void Sleep(const time_t ticks);
+
         /**
          * Delays the current thread appropriately to maintain frame-rate.
          *  It is not necessary to call Finish() prior to this method, as
@@ -59,7 +84,7 @@ namespace util
          *  {
          *      m_Timer.Start();
          *      // ...
-         *      // Handle events, game logic, renderering.
+         *      // Handle events, game logic, rendering.
          *      // ...
          *
          *      // Final update to draw everything.
@@ -73,13 +98,13 @@ namespace util
          * @return  The amount of milliseconds the thread slept (if any).
          **/
         virtual time_t Delay();
-        
+
         /// Returns the current clock time.
         virtual time_t GetTime() const;
-        
+
         /// Sets a custom frame-rate, overriding the constructor.
         void SetFrameRate(const uint16_t fps);
-        
+
     private:
         timepoint_t m_start, m_end;
         uint16_t m_fps;
