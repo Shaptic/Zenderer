@@ -1,7 +1,5 @@
 ## *[Zenderer](https://github.com/Ruskiy69/IronClad)* To-Do List
 
-**********************
-
 ### Normal priority  
 
 * [x] Logging system
@@ -24,10 +22,10 @@
 * [x] Write FBO wrapper
 * [ ] Write scene class
 * [ ] Full lighting support
-* [ ] Post*processing effect support
+* [ ] Post-processing effect support
 * [ ] Implement entity drawing
 * [ ] Implement basic physics
-* [ ] More complete matrix object
+* [ ] More complete 4x4 matrix class
 * [ ] Translation, rotation, scaling support for drawables/entities
 * [ ] Level file format specification and loader
 
