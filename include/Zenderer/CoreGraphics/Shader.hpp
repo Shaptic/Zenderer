@@ -37,6 +37,7 @@ namespace zen
 {
 namespace gfxcore
 {
+    /// A wrapper for OpenGL shader objects.
     class ZEN_API CShader : public asset::CAsset
     {
     public:

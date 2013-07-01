@@ -32,6 +32,7 @@ namespace zen
 {
 namespace sfx
 {
+    /// An abstract base class for audio objects.
     class ZEN_API CAudio2D : public asset::CAsset
     {
     public:
@@ -65,11 +66,10 @@ namespace sfx
 
             ALuint   source;
             real_t  volume;
-        };
+        } m_AL  // OpenAL data
 
-        uint32_t    m_error_code;       // OpenAL error code
-        ALData      m_AL;               // OpenAL audio data
-        bool        m_loop;             // Loop after finishing?
+        uint32_t    m_error_code;   // OpenAL error code
+        bool        m_loop;         // Loop after finishing?
     };
 
 }   // namespace sfx

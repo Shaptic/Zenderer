@@ -42,8 +42,6 @@
 
 namespace zen
 {
-    typedef bool (APIENTRY* PFNWGLSWAPINTERVALFARPROC)(int);
-    static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
 
 /// Encompasses all user-level graphics APIs.
 namespace gfx
@@ -97,7 +95,7 @@ namespace gfx
         inline bool EnableFullscreen();     ///< Enables fullscreen mode.
         inline bool DisableFullscreen();    ///< Disables fullscreen mode.
 
-        inline bool IsOpen() const 
+        bool IsOpen() const 
         {
             return !glfwWindowShouldClose(mp_Window);
         }

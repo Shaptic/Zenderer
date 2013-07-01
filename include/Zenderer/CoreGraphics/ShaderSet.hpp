@@ -35,6 +35,7 @@ namespace gfxcore
     using util::CLog;
     using util::LogMode;
 
+    /// A wrapper for a useable set of shaders (an OpenGL program).
     class ZEN_API CShaderSet
     {
     public:

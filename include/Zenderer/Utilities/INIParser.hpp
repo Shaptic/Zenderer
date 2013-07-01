@@ -204,7 +204,7 @@ namespace util
 /**
  * @fn zen::util::CINIParser::GetValues
  *
- * @example Parsing Multiple Values
+ * @example Parsing
  *  @section Usage
  *
  *  Let's assume we have a file whose contents look like so:

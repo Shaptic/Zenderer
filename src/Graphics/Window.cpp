@@ -5,6 +5,10 @@ using namespace util;
 
 using gfx::CWindow;
 
+// Sortcut for Windows VSYNC toggling.
+typedef bool (APIENTRY* PFNWGLSWAPINTERVALFARPROC)(int);
+static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
+
 CWindow::CWindow(const uint16_t     width,
                  const uint16_t     height,
                  const string_t&    caption) :
@@ -141,6 +145,11 @@ void CWindow::AttachAssetManager(asset::CAssetManager& Mgr)
 void CWindow::Update() const
 {
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
+}
+
+bool CWindow::IsOpen() const 
+{
+    return !glfwWindowShouldClose(mp_Window);
 }
 
 bool CWindow::ToggleVSYNC()

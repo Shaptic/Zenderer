@@ -151,7 +151,9 @@ namespace zen
  *
  * @example Allocation
  *
- * Dynamic Memory Allocation
+ * @section Dynamic Memory Allocation
+ * @subsection Warning
+ *  This example is deprecated and `CAllocator` is not used in @a Zenderer.
  *
  * @code
  *  // Allocate char[4]
@@ -163,15 +165,7 @@ namespace zen
  *  int* data3 = g_Alloc(sizeof(int));
  *  int* data4 = g_Alloc.get<int>(1);
  *
- *  // Implicit with global overloading operator new
- *  gfx::CLight* DynamicLight   = new gfx::CLight;
- *  gfx::CLight* DynamicLights  = new gfx::CLight[5];
- *
- *  // Equivalent to
- *  gfx::CLight* DynamicLight = g_Alloc.get<gfx::CLight>(1);    // and
- *  gfx::CLight* DynamicLight2 = g_Alloc.get<gfx::CLight>(5);
- *
- *  // Manually freeing the memory
+ * // Manually freeing the memory
  *  g_Alloc.Free(data0);
  *
  *  // Double-deletion is safe, but will log an error

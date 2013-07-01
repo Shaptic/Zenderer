@@ -29,6 +29,7 @@ namespace zen
 {
 namespace gfx
 {
+    /// A four-sided quadrilateral primitive.
     class ZEN_API CQuad : public gfxcore::CDrawable
     {
     public:

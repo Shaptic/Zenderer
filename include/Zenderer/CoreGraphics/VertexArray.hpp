@@ -57,7 +57,8 @@ namespace gfxcore
         size_t      vcount, icount; ///< Vertex / index count
     };
 
-    class ZEN_API CVertexArray : CGLSubsystem
+    /// A wrapper for OpenGL Vertex Array Objects.
+    class ZEN_API CVertexArray : public CGLSubsystem
     {
     public:
         CVertexArray(const GLenum vao_type = GL_STATIC_DRAW);
