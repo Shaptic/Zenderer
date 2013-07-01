@@ -3,6 +3,7 @@
 ----------------------
 
 ### Normal priority
+
 - [x] Logging system
 - [x] Subsystem architecture
 - [x] Math functions
@@ -31,6 +32,7 @@
 - [ ] Level file format specification and loader
 
 ### Low priority
+
 - [x] Write high-speed stack memory allocator
 - [x] Re-write all uses of logging to use singleton access
 - [x] Update to GLFW 3
@@ -41,5 +43,6 @@
 - [ ] Level editor
 
 ### In Progress
+
 - [ ] Plan rendering architecture
 - [ ] Test FBO wrapper
