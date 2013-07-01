@@ -1,6 +1,6 @@
 # Zenderer #
-v0.1 pre-release
-Copyright (c) George Kudrayvtsev 2013
+v0.1 pre-release  
+Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
 
