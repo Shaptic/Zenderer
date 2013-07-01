@@ -21,13 +21,14 @@
  *  the rendering engine. Actions such as moving an entity are performed
  *  with a combination of user-level contribution of `math::vector2_t`, and
  *  a low-level manipulation of `math::matrix4x4_t`. Collision detection
- *  and physical reactions require the `math::rect_t object`, which itself
- *  depends on `math::vector2_t`, as well. Do you want to locate the angle
+ *  and physical reactions require the `math::rect_t` object, which itself
+ *  might depend on `math::vector2_t`, as well. Do you want to locate the angle
  *  for firing a shot? Well then you likely need `math::rad` and
  *  `math::deg` to get sensible values for trigonometric functions.\n
  *  As you can see, the `Math` group is at the very core of the engine.
  *  It's critical enough to be a part of `Core`, but can do enough on its
  *  own that it deserves its own group.
+ *
  * @{
  **/
 

@@ -28,6 +28,7 @@ namespace zen
 {
 namespace math
 {
+    /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t
     {
         rect_t() : x(0.0), y(0.0), w(0), h(0) {}
@@ -38,6 +39,7 @@ namespace math
         uint32_t w, h;
     };
 
+    /// Represents a circle with position and radius.
     struct ZEN_API circle_t
     {
         circle_t() : x(0.0), y(0.0), r(0.0) {}

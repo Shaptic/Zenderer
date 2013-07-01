@@ -133,7 +133,7 @@ namespace asset
 #endif // ZENDERER__ASSETS__ASSET_MANAGER_HPP
 
 /**
- * @fn zen::asset::CAssetManager::Find(const string_t& filename, const void* const owner = nullptr) const
+ * @fn CAsset* zen::asset::CAssetManager::Find(const string_t& filename,const void* const owner)
  *
  * @description
  *  Technical details ahead:    \n

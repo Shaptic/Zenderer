@@ -212,6 +212,7 @@ namespace math
 
     #include "Vector.inl"
 
+    /// A shortcut for the default vector implementation in the engine.
     typedef vectorf_t vector_t;
 }   // namespace math
 }   // namespace ic

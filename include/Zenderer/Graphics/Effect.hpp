@@ -33,22 +33,23 @@ namespace zen
 {
 namespace gfx
 {
+    /**
+     * Names a distribution of effect types.
+     *  See the table in the CEffect documentation for appropriate
+     *  parameters for each of the effects.
+     **/
     enum class EffectType : int16_t
     {
-        NO_EFFECT = -1,
-        GAUSSIAN_BLUR_H,
-        GAUSSIAN_BLUR_V,
-        GRAYSCALE,
-        FADE,
-        RIPPLE,
-        ZEN_EFFECT_COUNT
+        NO_EFFECT = -1,     ///< No effect, default shaders
+        GAUSSIAN_BLUR_H,    ///< A horizontal Gaussian blur effect
+        GAUSSIAN_BLUR_V,    ///< A vertical Gaussian blur effect
+        GRAYSCALE,          ///< Makes the target grayscale 
+        FADE,               ///< Fades the target in/out
+        RIPPLE,             ///< Creates a centered ripple effect
+        ZEN_EFFECT_COUNT    ///< Total amount of effects
     };
 
-    /**
-     * A high-level shader wrapper.
-     *  This class is very similar to the gfxcore::CShaderSet class,
-     *  but creates a more user-friendly interface
-     **/
+    /// A high-level shader wrapper.
     class ZEN_API CEffect : public gfxcore::CGLSubsystem
     {
     public:
@@ -130,3 +131,120 @@ namespace gfx
 #endif  // ZENDERER__GRAPHICS__EFFECT_HPP
 
 /** @} **/
+
+/**
+ * @class zen::CEffect
+ *
+ * @description
+ *  This class is very similar to the gfxcore::CShaderSet class,
+ *  but creates a more user-friendly interface
+ *
+ * @htmlonly
+ *  <style>
+ *  table, td {
+ *    border: 1px solid;
+ *    border-collapse: collapse;
+ *    padding: 5px;
+ *  }
+ *  
+ *  table table, td td {
+ *    border: none;
+ *    padding-right: 15px;
+ *  }
+ *  
+ *  span {
+ *    font-family: monospace;
+ *  }
+ *  </style>
+ *  
+ *  <table>
+ *  <tr>
+ *    <th>Enumeration</th>
+ *    <th>Shaders</th>
+ *    <th>Description</th>
+ *    <th>Parameters</th>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>NO_EFFECT</pre></td>
+ *    <td><pre>Default.vs<br/>Default.fs</pre></td>
+ *    <td>Default rendering shader</td>
+ *    <td></td>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>GAUSSIAN_BLUR_H</pre></td>
+ *    <td><pre>GaussianBlur.vs<br/>GaussianBlurH.fs</pre></td>
+ *    <td>
+ *      Vertical Gaussian blur effect<br/>This should be used in combination with<br/>
+ *      <span>GAUSSIAN_BLUR_V</span> for optimal output
+ *    </td>
+ *    <td>
+ *      <table>
+ *      <tr>
+ *        <td><span>radius</span></td>
+ *        <td>The blur radius,<br/>between [0.0, 1.0]</td>
+ *      </tr>
+ *      </table>
+ *    </td>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>GAUSSIAN_BLUR_H</pre></td>
+ *    <td><pre>GaussianBlur.vs<br/>GaussianBlurV.fs</pre></td>
+ *    <td>
+ *      Horizontal Gaussian blur effect<br/>This should be used in combination with<br/>
+ *      <span>GAUSSIAN_BLUR_H</span> for optimal output
+ *    </td>
+ *    <td>
+ *      <table>
+ *      <tr>
+ *        <td><span>radius</span></td>
+ *        <td>The blur radius,<br/>between [0.0, 1.0]</td>
+ *      </tr>
+ *      </table>
+ *    </td>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>GRAYSCALE</pre></td>
+ *    <td><pre>Default.vs<br/>Grayscale.fs</pre></td>
+ *    <td>
+ *      Converts all colors to grayscale using NTSC weights<br/>
+ *      They are (0.299, 0.587, 0.114)
+ *    </td>
+ *    <td></td>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>FADE</pre></td>
+ *    <td><pre>Default.vs<br/>Fade.fs</pre></td>
+ *    <td>
+ *      Applies a weight to all of the colors to darken or lighten,<br/>
+ *      simulating a fading effect.
+ *    </td>
+ *    <td>
+ *      <table>
+ *      <tr>
+ *        <td><span>alpha</span></td>
+ *        <td>The fade level. 0.0 is fully faded to black.</td>
+ *      </tr>
+ *      </table>
+ *    </td>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>RIPPLE</pre></td>
+ *    <td><pre>Default.vs<br/>Ripple.fs</pre></td>
+ *    <td>Simulates a water ripple effect on a texture.</td>
+ *    <td>
+ *      <table>
+ *      <tr>
+ *        <td><span>time</span></td>
+ *        <td>The total time elapsed</td>
+ *      </tr>
+ *      <tr>
+ *        <td><span>rate </span></td>
+ *        <td>The rate at which to ripple</td>
+ *      </tr>
+ *      </table>
+ *    </td>
+ *  </tr>
+ *  </table>
+ * @endhtmlonly
+ *
+ **/

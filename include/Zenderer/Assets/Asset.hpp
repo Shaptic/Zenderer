@@ -17,6 +17,9 @@
  *  limitations under the License.
  *
  * @addtogroup Assets
+ *  A subsystem for creating, re-using, finding, and removing managed assets
+ *  in an optimized way, keeping creation to a minimum.
+ *
  * @{
  **/
 
@@ -31,6 +34,8 @@
 
 namespace zen
 {
+
+/// A namespace encompassing asset-related objects and managers.
 namespace asset
 {
     /// For unique asset ID.
@@ -61,6 +66,9 @@ namespace asset
      *  based on their address in memory. This ID can be used to find the
      *  asset using the asset manager, assuming the ID is known but the
      *  asset is not. The ID is also used in comparison.
+     *
+     *  Any class inheriting this base class does not necessarily need to
+     *  place itself within the zen::asset namespace.
      *
      * @see util::hash()
      * @see util::string_hash()
