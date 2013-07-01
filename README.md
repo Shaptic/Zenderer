@@ -39,9 +39,13 @@ as follows:
 All engine assets are stored in the `data` folder of the repository. If you 
 are using Visual Studio in junction with *Zenderer* for your project, the 
 included project file will automatically transfer the contents of the `data`
-folder to your expected output directory. In `Release` mode, it will attempt
-to generate documentation, but this will likely fail on your system and is 
-totally okay. I use this for myself internally to update the Doxygen docs.
+folder to the `Zenderer` folder of your expected output directory.
+You can see the various `ZENDERER_*_PATH` `#define`s sprinkled throughout the
+code to get an idea of where the engine will search for certain resources.
+For example, shader files are expected to be in `Zenderer/shaders/*`.
+In `Release` mode, the project will attempt to generate documentation, but
+this will likely fail on your system and is totally okay. I use this for
+myself internally to update the Doxygen docs.
     
 #### More Info ####
 
