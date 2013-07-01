@@ -50,29 +50,17 @@ bool CVertexArray::Destroy()
     return true;
 }
 
-bool CVertexArray::Bind()
+bool CVertexArray::Bind() const
 {
     if(!m_init) return false;
-
     GL(glBindVertexArray(m_vao));
-    GL(glEnableVertexAttribArray(0));       // Enable shader attribute 0
-    GL(glEnableVertexAttribArray(1));
-    GL(glEnableVertexAttribArray(2));
-
-    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
-    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
-
     return true;
 }
 
-bool CVertexArray::Unbind()
+bool CVertexArray::Unbind() const
 {
     if(!m_init) return false;
-
-    GL(glBindBuffer(GL_ARRAY_BUFFER, 0));
-    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
     GL(glBindVertexArray(0));
-
     return true;
 }
 
@@ -94,11 +82,16 @@ index_t CVertexArray::AddData(const DrawBatch& D)
     return offset + m_icount;
 }
 
+/// @see    http://stackoverflow.com/questions/8923174/opengl-vao-best-practices
 bool CVertexArray::Offload()
 {
     if(!this->Bind())       return false;
     if(this->Offloaded())   return false;
 
+    // Bind() only binds the VAO. We attach the VBO/IBO to it here.
+    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
+    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
+    
     // Check if there's existing data on the buffers.
     GLint bsize = 0;
     GL(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bsize));
@@ -179,17 +172,24 @@ bool CVertexArray::Offload()
                              GL_FALSE,          /* Normalized?      */
                              sizeof(vertex_t),  /* Size of field    */
         VBO_OFFSET(0, vertex_t, position)));    /* Size of offset   */
+        
+    // Enable shader attribute 0 (position)
+    GL(glEnableVertexAttribArray(0));
 
     // Specify texture coordinate position arrangement.
     // According to the diagram, texture coordinates
     // start at index 3.
     GL(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
                              VBO_OFFSET(0, vertex_t, tc)));
+    GL(glEnableVertexAttribArray(1));
 
     // Specify the color arrangement, starting at index 4.
     GL(glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
                              VBO_OFFSET(0, vertex_t, color)));
+    GL(glEnableVertexAttribArray(2));
 
+    // We do not unbind our buffers as they stay attached to the VAO.
+    
     // We're done, clean up buffers.
     m_vcount += m_vaoVertices.size();
     m_icount += m_vaoIndices.size();
