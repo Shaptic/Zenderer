@@ -66,8 +66,8 @@ namespace gfxcore
         bool Init();
         bool Destroy();
 
-        bool Bind();
-        bool Unbind();
+        bool Bind() const;
+        bool Unbind() const;
 
         /**
          * Adds data to the vertex buffer for drawing.

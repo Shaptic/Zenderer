@@ -104,16 +104,16 @@ namespace gfx
         bool SetParameter(const string_t& name,
                           const math::matrix4x4_t& Matrix);
 
-        inline bool Enable();   ///< A more user-friendly alias for binding.
-        inline bool Disable();  ///< A more user-friendly alias for unbinding.
+        inline bool Enable() const;     ///< A more user-friendly alias for binding.
+        inline bool Disable() const;    ///< A more user-friendly alias for unbinding.
 
         inline GLuint GetObjectHandle() { return m_Shader.GetShaderObject(); }
         inline const string_t& GetError() const;
         inline void SetType(const EffectType Type);
 
     private:
-        inline bool Bind();
-        inline bool Unbind();
+        inline bool Bind() const;
+        inline bool Unbind() const;
 
         static asset::CAssetManager s_DefaultManager;
 

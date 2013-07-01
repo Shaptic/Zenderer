@@ -116,8 +116,8 @@ namespace gfxcore
         virtual bool Init()     = 0;
         virtual bool Destroy()  = 0;
 
-        virtual bool Bind()     = 0;
-        virtual bool Unbind()   = 0;
+        virtual bool Bind() const   = 0;
+        virtual bool Unbind() const = 0;
 
         virtual GLuint GetObjectHandle() = 0;
 
