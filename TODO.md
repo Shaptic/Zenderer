@@ -1,4 +1,4 @@
-## *[Zenderer]*(https://github.com/Ruskiy69/IronClad)- [ ] To-Do List
+## *[Zenderer](https://github.com/Ruskiy69/IronClad)* To-Do List
 
 ----------------------
 
