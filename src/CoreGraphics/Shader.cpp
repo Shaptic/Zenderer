@@ -150,12 +150,12 @@ const void* const CShader::GetData() const
     return reinterpret_cast<const void* const>(m_object);
 }
 
-GLuint CShader::GetShaderObject()
+GLuint CShader::GetShaderObject() const
 {
     return m_object;
 }
 
-const string_t& CShader::GetShaderLog()
+const string_t& CShader::GetShaderLog() const
 {
     return m_shader_log;
 }

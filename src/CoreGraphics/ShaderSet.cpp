@@ -157,12 +157,12 @@ bool CShaderSet::Unbind()
     return true;
 }
 
-uint16_t CShaderSet::GetShaderObject()
+uint16_t CShaderSet::GetShaderObject() const
 {
     return m_program;
 }
 
-short CShaderSet::GetUniformLocation(const string_t& name)
+GLint CShaderSet::GetUniformLocation(const string_t& name) const
 {
     if(m_program == 0)
     {
@@ -175,7 +175,7 @@ short CShaderSet::GetUniformLocation(const string_t& name)
     return loc;
 }
 
-short CShaderSet::GetAttributeLocation(const string_t& name)
+GLint CShaderSet::GetAttributeLocation(const string_t& name) const
 {
     if(m_program == 0)
     {

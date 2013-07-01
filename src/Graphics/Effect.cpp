@@ -11,6 +11,7 @@ using gfx::EffectType;
 asset::CAssetManager CEffect::s_DefaultManager;
 
 CEffect::CEffect(const EffectType Type, asset::CAssetManager* pAssets) :
+    CGLSubsystem("ShaderSet"),
     m_Log(CLog::GetEngineLog()),
     m_Shader(pAssets ? *pAssets : s_DefaultManager),
     m_type(Type)
@@ -63,7 +64,8 @@ bool CEffect::Init()
     {
         // Fatal error because this shouldn't be possible.
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
-                << "Invalid effect type: " << (int16_t)m_type << "." << CLog::endl;
+                << "Invalid effect type: " << static_cast<int16_t>(m_type)
+                << "." << CLog::endl;
 
         return (m_init = false);
     }
@@ -99,8 +101,8 @@ bool CEffect::SetParameter(const string_t& name,
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Effect")
-                << "No appropriate parameter switch found for "
-                << count << " real values." << CLog::endl;
+                << "No appropriate parameter switch found for " << count
+                << " real values." << CLog::endl;
         return false;
     }
 
@@ -128,8 +130,8 @@ bool CEffect::SetParameter(const string_t& name,
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Effect")
-                << "No appropriate parameter switch found for "
-                << count << " integer values." << CLog::endl;
+                << "No appropriate parameter switch found for " << count
+                << " integer values." << CLog::endl;
         return false;
     }
 

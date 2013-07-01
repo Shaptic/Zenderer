@@ -72,10 +72,10 @@ namespace gfxcore
         const void* const GetData() const;
 
         /// Returns the raw OpenGL shader handle.
-        GLuint GetShaderObject();
+        GLuint GetShaderObject() const;
 
         /// Returns the shader log.
-        const string_t& GetShaderLog();
+        const string_t& GetShaderLog() const;
 
     private:
         string_t m_shader_log;  ///< Log string from shader compilation.

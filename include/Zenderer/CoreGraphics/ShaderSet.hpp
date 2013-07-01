@@ -128,14 +128,14 @@ namespace gfxcore
         /// Destroys the shader program.
         bool Destroy();
 
-        /// Non-const because the returned handle can modify the state.
-        uint16_t GetShaderObject();
+        /// Returns the shader program handle.
+        uint16_t GetShaderObject() const;
 
         /// Returns the index of a shader uniform location in VRAM.
-        short GetUniformLocation(const string_t& name);
+        GLint GetUniformLocation(const string_t& name) const;
 
         /// Returns the index of a shader attribute location in VRAM.
-        short GetAttributeLocation(const string_t& name);
+        GLint GetAttributeLocation(const string_t& name) const;
 
         /// Returns error string.
         const string_t& GetError() const;

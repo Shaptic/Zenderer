@@ -4,7 +4,6 @@
 ### Normal priority
 * Write scene class
 * Implement entity drawing
-* Implement texture loading (maybe SOIL or devIL?)
 
 ### Low priority
 * Test audio API
@@ -14,7 +13,7 @@
 
 ### In Progress
 * Plan rendering architecture
-* Write texture wrapper / loader
+* Write FBO wrapper
 
 ### Complete
 * Logging system
@@ -35,3 +34,5 @@
 * Update to GLFW 3
 * Implement quad drawing
 * Write lighting wrapper
+* Implement texture loading (used stb_image)
+* Write texture wrapper
