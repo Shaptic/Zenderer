@@ -1,19 +1,27 @@
-*[Zenderer](https://github.com/Ruskiy69/IronClad)* To-Do List
-=====================
+## *[Zenderer](https://github.com/Ruskiy69/IronClad)* To-Do List
+
+----------------------
 
 ### Normal priority
 * Write scene class
+* Full lighting support
+* Post-processing effect support
 * Implement entity drawing
+* Implement basic physics
+* More complete matrix object
+* Translation, rotation, scaling support for drawables/entities
+* Level file format specification and loader
 
 ### Low priority
 * Test audio API
 * Work around existing shader deletion (one at a time)
 * Allow variety of timer precisions to work with FPS delays
 * Figure out why lighting shaders need the screen offset uniform
+* Level editor
 
 ### In Progress
 * Plan rendering architecture
-* Write FBO wrapper
+* Test FBO wrapper
 
 ### Complete
 * Logging system
@@ -36,3 +44,4 @@
 * Write lighting wrapper
 * Implement texture loading (used stb_image)
 * Write texture wrapper
+* Write FBO wrapper

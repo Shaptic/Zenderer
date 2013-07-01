@@ -35,11 +35,18 @@ as follows:
 - Freetype 2    (TrueType Font Library)
 - OpenAL        (Open Audio Library)
 - libvorbis     (OGG/Vorbis Audio Compression Algorithm)
+
+All engine assets are stored in the `data` folder of the repository. If you 
+are using Visual Studio in junction with *Zenderer* for your project, the 
+included project file will automatically transfer the contents of the `data`
+folder to your expected output directory. In `Release` mode, it will attempt
+to generate documentation, but this will likely fail on your system and is 
+totally okay. I use this for myself internally to update the Doxygen docs.
     
 #### More Info ####
 
 *Zenderer* comes with a very well-documented API, which you can easily find
-in the `docs` folder in this repository. It was generated using doxygen, 
+in the `docs` folder in this repository. It was generated using Doxygen, 
 meaning the identical commentary can be found within the source code itself.
 
 Feel free to check out my blog [here](http://zenpandainteractive.blogspot.com).
