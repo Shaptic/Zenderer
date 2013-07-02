@@ -280,7 +280,8 @@ int      stbi_info_from_file  (FILE *f,                  int *x, int *y, int *co
 
 #endif
 
-
+// lr: added tool function: flip image vertically (for glTexImage2D)
+void stbi_flip_y(int w, int h, int comp, stbi_uc *data);
 
 // for image formats that explicitly notate that they have premultiplied alpha,
 // we just return the colors as stored in the file. set this flag to force

@@ -45,6 +45,7 @@ namespace gfxcore
             int32_t w, h, comp;
             unsigned char* raw = stbi_load("sample.png", &w, &h, &comp,
                 4 /* force 32-bit image (4 x 8-bit) */);
+            stbi_flip_y(w, h, 4, raw);
 
             if(raw == nullptr) return false;
 

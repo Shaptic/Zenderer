@@ -160,6 +160,24 @@ int      stbi_gif_test(stbi *s);
 stbi_uc *stbi_gif_load(stbi *s, int *x, int *y, int *comp, int req_comp);
 int      stbi_gif_info(stbi *s, int *x, int *y, int *comp);
 
+void stbi_flip_y(int w, int h, int comp, stbi_uc *data)
+{
+    stbi_uc t;
+    size_t y;
+    size_t i;
+    size_t stride = w * comp;
+    uint8 *out = data;
+
+    for (y = 0; y < (h>>1); ++y) {
+        stbi_uc *p1 = out + y * stride;
+        stbi_uc *p2 = out + (h-1-y) * stride;
+        for (i = 0; i < stride; ++i) {
+            t = p1[i];
+            p1[i] = p2[i];
+            p2[i] = t;
+        } 
+    }
+}
 
 // this is not threadsafe
 const char *failure_reason;
