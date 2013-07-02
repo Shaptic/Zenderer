@@ -10,7 +10,7 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     if(pResult == nullptr)
     {
         m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
-                << m_Log.SetSystem("AssetManager") << "Loading '"
+                << m_Log.SetSystem("AssetMgr") << "Loading '"
                 << filename << "' ... " << util::CLog::endl;
 
         // Create a new original asset.
@@ -36,7 +36,7 @@ T* CAssetManager::Create(const void* const owner)
     ZEN_ASSERT(this->IsInit());
 
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
-            << m_Log.SetSystem("AssetManager")
+            << m_Log.SetSystem("AssetMgr")
             << "Loading raw asset ... " << util::CLog::endl;
 
     // Create a new original asset.
@@ -53,7 +53,7 @@ template<typename T>
 T* CAssetManager::Recreate(const T* const Copier, const void* const owner)
 {
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
-            << m_Log.SetSystem("AssetManager") << "Copying '"
+            << m_Log.SetSystem("AssetMgr") << "Copying '"
             << filename << "' ... " << CLog::endl;
 
     // Create a new asset.

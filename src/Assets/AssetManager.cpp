@@ -10,7 +10,7 @@ std::list<CAsset*> CAssetManager::sp_allAssets;
 
 CAssetManager::CAssetManager() :
     m_Log(CLog::GetEngineLog()),
-    CSubsystem("Assets")
+    CSubsystem("AssetMgr")
 {
     mp_managerAssets.clear();
 }
@@ -102,7 +102,7 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
     ZEN_ASSERT(!filename.empty());
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-            << m_Log.SetSystem("AssetManager")
+            << m_Log.SetSystem("AssetMgr")
             << "Searching for '" << filename << "':" << owner << "."
             << CLog::endl;
 
@@ -125,7 +125,7 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
 CAsset* CAssetManager::Find(const assetid_t id) const
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-            << m_Log.SetSystem("AssetManager")
+            << m_Log.SetSystem("AssetMgr")
             << "Searching for asset with ID " << id << '.' << CLog::endl;
 
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
