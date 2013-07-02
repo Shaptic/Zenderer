@@ -105,9 +105,9 @@ namespace gfxcore
          **/
         bool Offload();
 
-        GLuint GetObjectHandle()    { return m_vao; }
-        GLuint GetVBOHandle()       { return m_vbo; }
-        GLuint GetIBOHandle()       { return m_ibo; }
+        GLuint GetObjectHandle() const  { return m_vao; }
+        GLuint GetVBOHandle()    const  { return m_vbo; }
+        GLuint GetIBOHandle()    const  { return m_ibo; }
 
         size_t GetVertexCount() const;
         size_t GetIndexCount()  const;

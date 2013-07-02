@@ -108,7 +108,7 @@ namespace gfx
         inline bool Enable() const;     ///< A more user-friendly alias for binding.
         inline bool Disable() const;    ///< A more user-friendly alias for unbinding.
 
-        inline GLuint GetObjectHandle() { return m_Shader.GetShaderObject(); }
+        inline GLuint GetObjectHandle() const;
         inline const string_t& GetError() const;
         inline void SetType(const EffectType Type);
 

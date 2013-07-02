@@ -119,7 +119,7 @@ namespace gfxcore
         virtual bool Bind() const   = 0;
         virtual bool Unbind() const = 0;
 
-        virtual GLuint GetObjectHandle() = 0;
+        virtual GLuint GetObjectHandle() const = 0;
 
         inline bool IsInit() { return m_init; }
 

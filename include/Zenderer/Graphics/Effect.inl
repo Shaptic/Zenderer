@@ -18,6 +18,11 @@ void CEffect::SetType(const EffectType Type)
     m_type = Type;
 }
 
+GLuint CEffect::GetObjectHandle() const
+{
+    return m_Shader.GetShaderObject();
+}
+
 bool CEffect::Bind() const
 {
     return m_Shader.Bind();
