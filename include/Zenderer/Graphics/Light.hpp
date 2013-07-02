@@ -64,9 +64,14 @@ namespace gfx
         ~CLight();
 
         bool Init();
+        bool IsInit() const;
 
-        bool Enable();
-        bool Disable();
+        bool Enable() const;
+        bool Disable() const;
+        
+        // Sometimes you don't care about the original position.
+        inline void Adjust(const real_t dx, const real_t dy)
+        { this->SetPosition(m_Position.x + dx, m_Position.y + dy); }
 
         bool SetBrightness(const real_t brightness);
         bool SetColor(const real_t r, const real_t g, const real_t b);
@@ -77,6 +82,10 @@ namespace gfx
         bool SetPosition(const math::vector_t& Pos);
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
+        
+        real_t                  GetBrightness() const   { return m_brt;     }
+        const color3f_t&        GetColor() const        { return m_Color;   }
+        const math::vector_t&   GetPosition() const     { return m_Position;}
 
     private:
         // Default values
@@ -106,6 +115,8 @@ namespace gfx
 
         // OpenGL context height (in pixels).
         uint16_t m_height;
+        
+        bool m_init;
     };
 
     // Shortcut for light containers.

@@ -45,6 +45,52 @@ namespace gfx
             return m_allPrimitives.back()->Create();
         }
         
+        /**
+         * Creates and adds a managed light instance to the scene.
+         *  The only setup performed on the light is the initial
+         *  loading of the effects. You can check that status by
+         *  just calling `IsInit()` on the returned instance.
+         *
+         *  Light render ordering is irrelevant, therefore there
+         *  is no `InsertLight()` or `GetLightIndex()` method 
+         *  like there are for the other renderable objects.
+         *
+         * @param   Type    The light type you wish to create
+         *
+         * @return  A created light instance.
+         **/
+        CLight& AddLight(const LightType& Type)
+        {
+            CLight* pNew = new CLight(Type);
+            pNew->Init();
+            m_allLights.push_back(pNew);
+            return *m_allLights.back();
+        }
+        
+        /**
+         * Adds an effect to be rendered on the whole scene.
+         *  This is a post-processing effect shader that will be applied
+         *  to the entire scene after lighting, geometry, etc is renderered.
+         *
+         *  You can check the creation status by checking the `GetError()`
+         *  method of the returned instance.
+         *
+         *  Though the effect execution order may matter, just add them in
+         *  the right order, because there are no `Insert()` or `GetIndex()`
+         *  methods provided for this, just like for lights.
+         *
+         * @param   Type    The type of post-processing you wish to add
+         *
+         * @return  The effect instance
+         **/
+        CEffect& AddEffect(const EffectType& Type)
+        {
+            CEffect* pNew = new CEffect(Type);
+            pNew->Init();
+            m_allPPFX.push_back(pNew);
+            return *m_allPPFX.back();
+        }
+        
         /** 
          * Inserts a primitive at a point in the draw queue.
          *  Sometimes, you need to have something drawn in a different order
@@ -74,6 +120,140 @@ namespace gfx
             return Ret;
         }
         
+        /// Renders the scene to the current render target.
+        bool Render() const
+        {
+            // We keep only one matrix instance and just 
+            // modify it for every object.
+            math::matrix4x4_t MV = math::matrix4x4_t::CreateIdentityMatrix();
+            
+            // Called every frame because there is no more appropriate
+            // time to call it. Things won't be offloaded multiple times.
+            m_Geometry.Offload();
+            
+            // Clear our frame buffers from the last drawing.
+            // We will be rendering to FBO1 at first.
+            m_FB02.Enable(); m_FBO2.Clear();
+            m_FB01.Enable(); m_FBO1.Clear();
+            
+            // Set the standard blending state.
+            CRenderer::EnableBlending();
+            
+            // All geometry is stored here.
+            m_VAO.Bind();
+            
+            // Prepare for primitive rendering.
+            material_t& M = CRenderer::GetBlankMaterial();
+            CEffect& E = CRenderer::GetDefaultEffect();
+            M.Enable();
+            
+            // Commence individual primitive rendering.
+            auto i = m_allPrimitives.begin(),
+                 j = m_allPrimitives.end();
+                 
+            for( ; i != j; ++i) 
+            {
+                MV.Translate((*i)->GetPosition());
+                MV.TranslateAdj(m_Camera);
+                
+                (*i)->Draw(true);
+            }
+            
+            M.Disable();
+            
+            // Shortcut reference.
+            const gfxcore::CVertexArray& FS =
+                    CRenderer::GetFullscreenVBO();
+            
+            // Primitive rendering is complete.
+            // Now, render lights with additive blending.
+            GLuint final_texture = m_FBO1.GetTexture();
+            
+            if(m_lighting)
+            {
+                // We want to render to the entire scene.
+                
+                // Lighting renders ON the geometry, so we
+                // bind the FBO1 texture to render onto. The
+                // final result ends up on the FBO2 texture.
+                m_FBO2.Enable();
+                CRenderer::EnableTexture(final_texture);
+                CRenderer::EnableAddBlendFunc();
+                
+                auto i = m_allLights.begin(),
+                     j = m_allLights.end();
+                     
+                for( ; i != j; ++i) 
+                {
+                    CLight& L = *(*i);
+                    L.Enable();
+                    
+                    // Move with scene
+                    L.Adjust(m_Camera.x, m_Camera.y);
+                    
+                    FS.Draw();
+                    
+                    // Restore state
+                    L.Adjust(-m_Camera.x, -m_Camera.y);
+                    L.Disable();
+                }
+                
+                final_texture = m_FBO2.GetTexture();
+            }
+            
+            CRenderer::EnableStdBlendFunc();
+            
+            // Ping-pong post-processing effects.
+            // This means one is drawn to FBO1, then FBO1's result
+            // is used to draw on FBO2, etc.
+            if(m_ppfx)
+            {
+                // If there was lighting, the first texture is 
+                // the second FBO.
+                CRenderTarget& One = m_lighting ? m_FBO2 : m_FBO1;
+                CRenderTarget& Two = m_lighting ? m_FBO1 : m_FBO2;
+                
+                auto i = m_PPFX.begin(),
+                     j = m_PPFX.end();
+                     
+                for(size_t c = 0; i != j; ++i, ++c) 
+                {
+                    bool even = ((c & 0x1) == 0);
+                    if(even)    Two.Enable();
+                    else        One.Enable();
+                    
+                    (*i)->Enable();
+                    CRenderer::EnableTexture(final_texture);
+                    FS.Draw();
+                    (*i)->Disable(); 
+                  
+                    if(even)    final_texture = Two.GetTexture();
+                    else        final_texture = One.GetTexture();    
+                }
+            }
+            
+            // Now we have the final scene data in `final_texture`
+            
+            // Doesn't matter which we disable.
+            m_FBO1.Disable();
+            
+            E.Enable();
+            CRenderer::EnableTexture(final_texture);
+            
+            // Make sure the right data is set.
+            E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+            E.SetParameter("proj", CRenderer::GetProjectionMatrix());
+                        
+            FS.Draw();
+            
+            CRenderer::EnableTexture(0);
+            E.Disable();
+            
+            return true;
+        }
+        
+        
+        /// Returns the queue index of a certain primitive (or -1).
         int32_t GetPrimitiveIndex(const gfxcore::Drawable& D)
         {
             auto i = m_allPrimitives.begin(),
@@ -88,14 +268,19 @@ namespace gfx
             return index;
         }
         
+        /// Vertifies the given index is within the valid range.
         bool IsValidPrimitiveIndex(int32_t i)
         {
             return (i > 0 && i < m_allPrimitives.size());
         }
         
     private:
+        util::CLog&             m_Log;
+        asset::CAssetManager    m_Assets;
         gfxcore::CVertexArray   m_Geometry;
         gfx::CRenderTarget      m_FBO1, m_FBO2;
+        
+        math::vector_t          m_Camera;
         
         // Lists of things that will be rendered.
         std::list<CLight*>      m_allLights;
