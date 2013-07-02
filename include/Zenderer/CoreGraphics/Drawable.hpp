@@ -191,6 +191,12 @@ namespace gfxcore
         inline real_t GetX() const { return m_Position.x; }
         inline real_t GetY() const { return m_Position.y; }
 
+        /// Shortcut for loading it manually.
+        inline void LoadIntoVAO(gfxcore::CVertexArray& VAO)
+        {
+            VAO.AddData(m_DrawData);
+        }
+
         /// For setting things implicitly.
         friend class CSceneManager;
 
