@@ -66,9 +66,9 @@ static const char* SAMPLE_XML[] = {
     D.Vertices[2].position = math::vector_t(T->GetWidth(), T->GetHeight());
     D.Vertices[3].position = math::vector_t(0, T->GetHeight());
 
-    D.Vertices[0].tc = math::vector_t(1.0, 0.0);
+    D.Vertices[0].tc = math::vector_t(0.0, 1.0);
     D.Vertices[1].tc = math::vector_t(1.0, 1.0);
-    D.Vertices[2].tc = math::vector_t(0.0, 1.0);
+    D.Vertices[2].tc = math::vector_t(1.0, 0.0);
     D.Vertices[3].tc = math::vector_t(0.0, 0.0);
 
     D.Vertices[0].color =
@@ -84,7 +84,7 @@ static const char* SAMPLE_XML[] = {
     D.Vertices[1].position = math::vector_t(800, 0);
     D.Vertices[2].position = math::vector_t(800, 600);
     D.Vertices[3].position = math::vector_t(0, 600);
-    
+
     gfxcore::CVertexArray FS;
     FS.Init();
     FS.AddData(D);
@@ -94,8 +94,8 @@ static const char* SAMPLE_XML[] = {
     delete[] D.Vertices;
     D.vcount = D.icount = 0;
 
-    gfx::CQuad Q(32, 32); 
-    Q.Create().Move(math::vector_t(100, 100));
+    gfx::CQuad Q(32, 32);
+    Q.Create();
     Q.SetColor(color4f_t(1));
 
     Window.ToggleVSYNC();
@@ -132,6 +132,8 @@ static const char* SAMPLE_XML[] = {
         T->Bind();
         gfxcore::CRenderer::GetDefaultEffect().Enable();
         gfxcore::CRenderer::GetDefaultEffect().SetParameter(
+            "proj", gfxcore::CRenderer::GetProjectionMatrix());
+        gfxcore::CRenderer::GetDefaultEffect().SetParameter(
             "mv", math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
         gfxcore::CRenderer::GetDefaultEffect().Disable();
@@ -143,14 +145,16 @@ static const char* SAMPLE_XML[] = {
 
         GL(glBindTexture(GL_TEXTURE_2D, RT.GetTexture()));
         gfxcore::CRenderer::GetDefaultEffect().Enable();
-        gfxcore::CRenderer::GetDefaultEffect().SetParameter(
-            "mv", math::matrix4x4_t::GetIdentityMatrix());
         FS.Draw();
         gfxcore::CRenderer::GetDefaultEffect().Disable();
         GL(glBindTexture(GL_TEXTURE_2D, 0));
 
         T->Bind();
         gfxcore::CRenderer::GetDefaultEffect().Enable();
+        math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
+        MV[0][3] = 100.0;
+        MV[1][3] = 100.0;
+        gfxcore::CRenderer::GetDefaultEffect().SetParameter("mv", MV);
         Vao.Draw();
         gfxcore::CRenderer::GetDefaultEffect().Disable();
         T->Unbind();
