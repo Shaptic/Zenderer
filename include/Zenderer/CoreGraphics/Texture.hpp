@@ -145,6 +145,9 @@ namespace gfxcore
             return true;
         }
 
+        uint16_t GetWidth()     const { return m_width; }
+        uint16_t GetHeight()    const { return m_height; }
+
         friend class asset::CAssetManager;
 
     private:

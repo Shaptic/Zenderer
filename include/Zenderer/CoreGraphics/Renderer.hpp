@@ -68,12 +68,14 @@ namespace gfxcore
         static void EnableAlphaBlending()
         {
             GL(glEnable(GL_BLEND));
+            GL(glDisable(GL_DEPTH_TEST));
             GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
         }
 
         static void DisableAlphaBlending()
         {
             GL(glDisable(GL_BLEND));
+            GL(glEnable(GL_DEPTH_TEST));
         }
 
         /// Only the scenes can modify graphical API state.

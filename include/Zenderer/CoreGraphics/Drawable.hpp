@@ -177,7 +177,8 @@ namespace gfxcore
 
             if(!is_bound)
             {
-                CRenderer::ResetMaterialState();
+                if(mp_Material != nullptr) CRenderer::ResetMaterialState();
+                else if(!CRenderer::GetDefaultEffect().Disable()) return false;
                 if(!mp_VAO->Unbind()) return false;
             }
 
@@ -202,7 +203,6 @@ namespace gfxcore
     private:
         math::matrix4x4_t*  mp_MVMatrix;
         CVertexArray*       mp_VAO;
-        color4f_t           m_Color;
         index_t             m_offset;
     };
 
