@@ -1,6 +1,9 @@
 #include "Zenderer/Graphics/RenderTarget.hpp"
 
 using namespace zen;
+
+using util::CLog;
+using util::LogMode;
 using gfx::CRenderTarget;
 
 CRenderTarget::CRenderTarget(const math::rect_t& Dimensions) :
@@ -10,7 +13,8 @@ CRenderTarget::CRenderTarget(const math::rect_t& Dimensions) :
 }
 
 CRenderTarget::CRenderTarget(const uint16_t w, const uint16_t h) : 
-    CGLSubsystem("RenderTarget"), m_Viewport(w, h)
+    CGLSubsystem("RenderTarget"), m_Log(CLog::GetEngineLog()),
+    m_Viewport(w, h)
 {
 }
 
@@ -66,6 +70,8 @@ bool CRenderTarget::Init()
 
 bool CRenderTarget::Destroy()
 {
+    if(!m_init) return false;
+
     m_init = false;
     this->Unbind();
     GL(glDeleteFramebuffers(1, &m_fbo));
@@ -74,6 +80,7 @@ bool CRenderTarget::Destroy()
     m_rbo_count = 0;
     delete[] m_rbos;
     m_rbos = nullptr;
+    return true;
 }
 
 bool CRenderTarget::Bind() const
@@ -81,12 +88,11 @@ bool CRenderTarget::Bind() const
     // Bind the framebuffer and set our viewport.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));
     GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));
-    return (m_bound = true);
+    return true;
 }
 
 bool CRenderTarget::Unbind() const
 {
-    m_bound = false;
     // Unbind the framebuffer and reset the viewport.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));
@@ -95,13 +101,10 @@ bool CRenderTarget::Unbind() const
 
 bool CRenderTarget::Clear()
 {
-    if(m_bound)
-    {
-        GL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
-        GL(glClearColor(0.f, 0.f, 0.f, 1.f));
-    }
-    
-    return m_bound;
+    GL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+    GL(glClearColor(0.f, 0.f, 0.f, 1.f));
+
+    return true;
 }
 
 bool CRenderTarget::AttachDepthBuffer()
@@ -113,12 +116,12 @@ bool CRenderTarget::AttachDepthBuffer()
     GL(glGenRenderbuffers(1, &rb));
     GL(glBindRenderbuffer(GL_RENDERBUFFER, rb));
     GL(glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24,  
-            width, height));
+            m_Viewport.x, m_Viewport.y));
     GL(glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT, 
             GL_RENDERBUFFER, rb));
 
     // Check status.
-    GLuint status = glCheckFramebufferStatus(GL_FRAMEBUFFER);            
+    GLuint status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if(status != GL_FRAMEBUFFER_COMPLETE)
     {
         m_error_str = "The depth buffer could not be attached.";

@@ -117,6 +117,7 @@
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Quad.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
+    <ClCompile Include="src\Graphics\RenderTarget.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />

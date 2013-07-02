@@ -174,6 +174,9 @@
     <ClInclude Include="include\Zenderer\CoreGraphics\Texture.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -262,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="src\stb_image.c">
       <Filter>Source Files\Libs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\RenderTarget.cpp">
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

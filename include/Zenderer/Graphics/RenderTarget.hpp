@@ -54,7 +54,7 @@ namespace gfx
         
         bool Clear();
         
-        bool AttachDepthBuffer();        
+        bool AttachDepthBuffer();
         bool AttachStencilBuffer();
         
         GLuint GetObjectHandle() const;
@@ -63,10 +63,10 @@ namespace gfx
     private:
         util::CLog& m_Log;
         math::vector_t m_OldViewport, m_Viewport;
+        string_t m_error_str;
         GLuint m_texture, m_fbo;
         GLuint* m_rbos;
         GLuint m_rbo_count;
-        bool m_bound;
     };
 }
 }
