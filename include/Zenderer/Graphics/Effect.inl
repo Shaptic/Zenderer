@@ -1,9 +1,9 @@
-bool CEffect::Enable()
+bool CEffect::Enable() const
 {
     return this->Bind();
 }
 
-bool CEffect::Disable()
+bool CEffect::Disable() const
 {
     return this->Unbind();
 }
@@ -18,12 +18,12 @@ void CEffect::SetType(const EffectType Type)
     m_type = Type;
 }
 
-bool CEffect::Bind()
+bool CEffect::Bind() const
 {
     return m_Shader.Bind();
 }
 
-bool CEffect::Unbind()
+bool CEffect::Unbind() const
 {
     return m_Shader.Unbind();
 }

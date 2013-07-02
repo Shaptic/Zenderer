@@ -133,7 +133,7 @@ bool CShaderSet::CreateShaderObject()
     return true;
 }
 
-bool CShaderSet::Bind()
+bool CShaderSet::Bind() const
 {
     if(m_program == 0)
     {
@@ -145,7 +145,7 @@ bool CShaderSet::Bind()
     return true;
 }
 
-bool CShaderSet::Unbind()
+bool CShaderSet::Unbind() const
 {
     if(m_program == 0)
     {

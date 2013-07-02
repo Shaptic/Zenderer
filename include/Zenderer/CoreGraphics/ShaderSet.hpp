@@ -121,10 +121,10 @@ namespace gfxcore
         bool CreateShaderObject();
 
         /// Binds the shader program to the rendering context for use.
-        bool Bind();
+        bool Bind() const;
 
         /// Removes any shader program from the rendering context.
-        bool Unbind();
+        bool Unbind() const;
 
         /// Destroys the shader program.
         bool Destroy();
@@ -146,7 +146,7 @@ namespace gfxcore
 
     private:
         inline void ShowLoadError(
-            const string_t& filename, const string_t& shader)
+            const string_t& filename, const string_t& shader) const
         {
             static std::stringstream error_stream;
 
@@ -154,20 +154,16 @@ namespace gfxcore
             error_stream << "Failed to load " << shader << " shader from '"
                          << filename << "'.";
 
-            m_error_str = error_stream.str();
-
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << m_Log.SetSystem("ShaderSet")
                     << error_stream.str() << CLog::endl;
         }
 
-        inline void ShowProgramError()
+        inline void ShowProgramError() const
         {
-            m_error_str = "No shader program loaded.";
-
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << m_Log.SetSystem("ShaderSet")
-                    << m_error_str << CLog::endl;
+                    << "No shader program loaded." << CLog::endl;
         }
 
         asset::CAssetManager&   m_AssetManager;

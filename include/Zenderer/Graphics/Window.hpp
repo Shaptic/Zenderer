@@ -4,7 +4,7 @@
  *  engine performs operations on.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -95,10 +95,7 @@ namespace gfx
         inline bool EnableFullscreen();     ///< Enables fullscreen mode.
         inline bool DisableFullscreen();    ///< Disables fullscreen mode.
 
-        bool IsOpen() const 
-        {
-            return !glfwWindowShouldClose(mp_Window);
-        }
+        bool IsOpen() const;
 
         /**
          * Allows for assets to be properly reloaded when toggling fs mode.

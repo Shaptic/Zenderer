@@ -147,7 +147,7 @@ void CWindow::Update() const
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }
 
-bool CWindow::IsOpen() const 
+bool CWindow::IsOpen() const
 {
     return !glfwWindowShouldClose(mp_Window);
 }
