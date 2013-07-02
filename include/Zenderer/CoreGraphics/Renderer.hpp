@@ -31,7 +31,7 @@
 
 namespace zen
 {
-namespace gfx { class ZEN_API CWindow; }
+namespace gfx { class ZEN_API CWindow; class ZEN_API CRenderTarget; }
 
 namespace gfxcore
 {
@@ -80,69 +80,24 @@ namespace gfxcore
 
         /// Only the scenes can modify graphical API state.
         //friend class gfx::CScene;
+
+        // Can modify and store static data
         friend class gfx::CWindow;
+        friend class gfx::CRenderTarget;
 
     protected:
         CRenderer(const util::CSettings& Settings);
 
-        virtual void SaveRenderState();
-        virtual void PrepareRenderState(const RenderState& Type)
-        {
-            switch(Type)
-            {
-            case RenderState::ZEN_NORMAL_RENDER:
-                // @todo: set identity matrix, proj matrix from window.
-                s_DefaultShader.Enable();
-                //m_FullscreenQuad.Prepare();
-                //m_FinalTarget.GetTexture().Bind();
-
-                m_FullscreenQuad.Draw();
-
-                // Return to previous state.
-                //m_FinalTarget.GetTexture().Unbind();
-                //m_FullscreenQuad.ResetState();
-                s_DefaultShader.Disable();
-                break;
-
-            case RenderState::ZEN_OFFSCREEN_RENDER:
-                break;
-            }
-
-            m_LastState = Type;
-        }
-
-        // Uses last render state.
-        virtual void ResetRenderState();
-
-        // CScene::Render() :
-        // ...
-        // gfxcore::CTexture* pWrapper =
-        //      m_Assets.Create<gfxcore::CTexture*>(this);
-        // pWrapper->LoadFromTexture(final_texture);
-        // m_Renderer.SetFinalTexture(pWrapper);
-        // ...
-
-        void SetFinalTexture(const void* pTexture) //gfxcore::CTexture* pTexture)
-        {
-            ZEN_ASSERT(pTexture != nullptr);
-
-            //m_FBOTexture = *pTexture;
-        }
-
-        void UpdateConfiguration();
-
         virtual inline bool Enable(const int flag);
         virtual inline bool Disable(const int flag);
 
-        virtual void PrepareAlphaRenderState();
         virtual void PreparePostFXRenderState();
         virtual void PrepareFBORenderState();
         virtual void PrepareLightingRenderState();
 
-        CVertexArray    m_FullscreenQuad;
-        static gfx::CEffect s_DefaultShader;
-        //gfx::CRenderTarget  m_FinalScene;
-        static math::matrix4x4_t s_ProjMatrix;
+        CVertexArray                m_FullscreenQuad;
+        static gfx::CEffect         s_DefaultShader;
+        static math::matrix4x4_t    s_ProjMatrix;
 
         RenderState         m_LastState;
     };

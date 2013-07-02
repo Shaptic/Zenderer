@@ -66,6 +66,10 @@ bool CRenderTarget::Init()
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glBindTexture(GL_TEXTURE_2D, 0));
 
+    m_Main = gfxcore::CRenderer::s_ProjMatrix;
+    m_ProjMatrix = math::matrix4x4_t::Projection2D(
+        m_Viewport.x, m_Viewport.y, 10, -10);
+
     return m_init = (status == GL_FRAMEBUFFER_COMPLETE);
 }
 
@@ -89,12 +93,15 @@ bool CRenderTarget::Bind() const
     // Bind the framebuffer and set our viewport.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));
     GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));
+    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
+
     return true;
 }
 
 bool CRenderTarget::Unbind() const
 {
     // Unbind the framebuffer and reset the viewport.
+    gfxcore::CRenderer::s_ProjMatrix = m_Main;
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));
     return true;

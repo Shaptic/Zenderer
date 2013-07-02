@@ -24,8 +24,9 @@
 #define ZENDERER__GRAPHICS__RENDER_TARGET_HPP
 
 #include "Zenderer/Utilities/Log.hpp"
-#include "Zenderer/Math/Shapes.hpp"
+#include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
+#include "Zenderer/CoreGraphics/Renderer.hpp"
 
 namespace zen
 {
@@ -56,14 +57,18 @@ namespace gfx
         
         bool AttachDepthBuffer();
         bool AttachStencilBuffer();
-        
+
         GLuint GetObjectHandle() const;
         GLuint GetTexture() const;
-        
+
     private:
         util::CLog& m_Log;
+        
         math::vector_t m_OldViewport, m_Viewport;
+        math::matrix4x4_t m_ProjMatrix, m_Main;
+
         string_t m_error_str;
+        
         GLuint m_texture, m_fbo;
         GLuint* m_rbos;
         GLuint m_rbo_count;
