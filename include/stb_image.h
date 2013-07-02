@@ -1,4 +1,4 @@
-/* stbi-1.33 - public domain JPEG/PNG reader - http://nothings.org/stb_image.c
+/* stbi-1.34 - public domain JPEG/PNG reader - http://nothings.org/stb_image.c
    when you control the images you're loading
                                      no warranty implied; use at your own risk
 
@@ -22,6 +22,7 @@
       - overridable dequantizing-IDCT, YCbCr-to-RGB conversion (define STBI_SIMD)
 
    Latest revisions:
+      1.34 (2013-07-01) support for y-flipping raw image data (duangle)
       1.33 (2011-07-14) minor fixes suggested by Dave Moore
       1.32 (2011-07-13) info support for all filetypes (SpartanJ)
       1.31 (2011-06-19) a few more leak fixes, bug in PNG handling (SpartanJ)
