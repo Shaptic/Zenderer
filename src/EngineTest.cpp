@@ -44,10 +44,12 @@ static const char* SAMPLE_XML[] = {
     Window.Init();
 
     sfx::CSound2D Sound;
-    Sound.LoadFromFile("Crackle.wav");
-    Sound.Play();
+    //Sound.LoadFromFile("Crackle.wav");
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
+
+    gfxcore::CTexture* T = Manager.Create<gfxcore::CTexture>(
+        string_t("sample.png"));
 
     gfxcore::CVertexArray Vao;
     gfxcore::DrawBatch D;
@@ -60,14 +62,14 @@ static const char* SAMPLE_XML[] = {
     D.icount    = 6;
 
     D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(400, 10);
-    D.Vertices[2].position = math::vector_t(480, 200);
-    D.Vertices[3].position = math::vector_t(230, 200);
+    D.Vertices[1].position = math::vector_t(T->GetWidth(), 0);
+    D.Vertices[2].position = math::vector_t(T->GetWidth(), T->GetHeight());
+    D.Vertices[3].position = math::vector_t(0, T->GetHeight());
 
-    D.Vertices[0].tc = math::vector_t(0.0, 0.0);
-    D.Vertices[1].tc = math::vector_t(1.0, 0.0);
-    D.Vertices[2].tc = math::vector_t(1.0, 1.0);
-    D.Vertices[3].tc = math::vector_t(0.0, 1.0);
+    D.Vertices[0].tc = math::vector_t(1.0, 0.0);
+    D.Vertices[1].tc = math::vector_t(1.0, 1.0);
+    D.Vertices[2].tc = math::vector_t(0.0, 1.0);
+    D.Vertices[3].tc = math::vector_t(0.0, 0.0);
 
     D.Vertices[0].color =
     D.Vertices[1].color =
@@ -78,12 +80,23 @@ static const char* SAMPLE_XML[] = {
     Vao.AddData(D);
     Vao.Offload();
 
+    D.Vertices[0].position = math::vector_t(0, 0);
+    D.Vertices[1].position = math::vector_t(800, 0);
+    D.Vertices[2].position = math::vector_t(800, 600);
+    D.Vertices[3].position = math::vector_t(0, 600);
+    
+    gfxcore::CVertexArray FS;
+    FS.Init();
+    FS.AddData(D);
+    FS.Offload();
+
     D.Indices = nullptr;
     delete[] D.Vertices;
     D.vcount = D.icount = 0;
 
     gfx::CQuad Q(32, 32); 
     Q.Create().Move(math::vector_t(100, 100));
+    Q.SetColor(color4f_t(1));
 
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
@@ -98,8 +111,10 @@ static const char* SAMPLE_XML[] = {
     L.SetPosition(200, 100);
     L.Disable();
 
-    gfxcore::CTexture* T = Manager.Create<gfxcore::CTexture>(
-        string_t("sample.png"));
+    gfx::CRenderTarget RT(800, 600);
+    RT.Init();
+
+    double x, y;
 
     while(Window.IsOpen())
     {
@@ -107,22 +122,41 @@ static const char* SAMPLE_XML[] = {
 
         // Handle events
         glfwPollEvents();
+        glfwGetCursorPos(Window.GetWindow(), &x, &y);
 
         // Game logic
         Sound.Update();
 
+        RT.Bind();
+        RT.Clear();
+        T->Bind();
+        gfxcore::CRenderer::GetDefaultEffect().Enable();
+        gfxcore::CRenderer::GetDefaultEffect().SetParameter(
+            "mv", math::matrix4x4_t::GetIdentityMatrix());
+        Vao.Draw();
+        gfxcore::CRenderer::GetDefaultEffect().Disable();
+        T->Unbind();
+        RT.Unbind();
+
         // Rendering
         Window.Clear(Teal);
 
-        Q.Draw();
+        GL(glBindTexture(GL_TEXTURE_2D, RT.GetTexture()));
+        gfxcore::CRenderer::GetDefaultEffect().Enable();
+        gfxcore::CRenderer::GetDefaultEffect().SetParameter(
+            "mv", math::matrix4x4_t::GetIdentityMatrix());
+        FS.Draw();
+        gfxcore::CRenderer::GetDefaultEffect().Disable();
+        GL(glBindTexture(GL_TEXTURE_2D, 0));
 
         T->Bind();
-        L.Enable();
-        //gfxcore::CRenderer::GetDefaultEffect().Enable();
+        gfxcore::CRenderer::GetDefaultEffect().Enable();
         Vao.Draw();
-        //gfxcore::CRenderer::GetDefaultEffect().Disable();
-        L.Disable();
+        gfxcore::CRenderer::GetDefaultEffect().Disable();
         T->Unbind();
+
+        Q.Move(x, y);
+        Q.Draw();
 
         Window.Update();
 
