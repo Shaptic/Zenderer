@@ -63,12 +63,12 @@ namespace gfx
 
     private:
         util::CLog& m_Log;
-        
+
         math::vector_t m_OldViewport, m_Viewport;
         math::matrix4x4_t m_ProjMatrix, m_Main;
 
         string_t m_error_str;
-        
+
         GLuint m_texture, m_fbo;
         GLuint* m_rbos;
         GLuint m_rbo_count;
