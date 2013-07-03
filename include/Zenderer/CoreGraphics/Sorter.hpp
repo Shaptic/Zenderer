@@ -24,7 +24,7 @@
 #define ZENDERER__CORE_GRAPHICS__SORTER_CPP
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Objects/Entity.hpp"
+//#include "Zenderer/Objects/Entity.hpp"
 
 namespace zen
 {
@@ -39,7 +39,7 @@ namespace gfxcore
      *
      *  You can read more about the sorting architecture in the documentation
      *  for the ic::gfx::CSceneManager class.
-     **/
+     **
     class ZEN_API CSorter
     {
     public:
@@ -93,7 +93,7 @@ namespace gfxcore
             return (pEnt1->GetSortFlag() & flag) < (pEnt2->GetSortFlag() & flag)
                 ?   pEnt1 : pEnt2;
         }
-    };
+    };*/
 }   // namespace gfxcore
 }   // namespace zen
 

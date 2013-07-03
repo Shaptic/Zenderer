@@ -1,6 +1,31 @@
+/**
+ * @file
+ *  Zenderer/Graphics/Scene.hpp - A high-level graphics rendering interface intended to abstract away all low-level rendering details.
+ *
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     1.0
+ * @copyright   Apache License v2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License").         \n
+ *  You may not use this file except in compliance with the License.        \n
+ *  You may obtain a copy of the License at:
+ *  http://www.apache.org/licenses/LICENSE-2.0                              \n
+ *  Unless required by applicable law or agreed to in writing, software     \n
+ *  distributed under the License is distributed on an "AS IS" BASIS,       \n
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
+ *  See the License for the specific language governing permissions and     \n
+ *  limitations under the License.
+ *
+ * @addtogroup Graphics
+ * @{
+ **/
+
+#ifndef ZENDERER__GRAPHICS__SCENE_HPP
+#define ZENDERER__GRAPHICS__SCENE_HPP
+
 #include "Zenderer/CoreGraphics/VertexArray.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/CoreGraphics/Sorter.hpp"
+#include "RenderTarget.hpp"
 
 #include "Window.hpp"
 #include "Quad.hpp"
@@ -10,7 +35,9 @@
 namespace zen
 {
 namespace gfx
-{    
+{
+    using gfxcore::CRenderer;
+
     class ZEN_API CScene
     {
     public:
@@ -58,10 +85,12 @@ namespace gfx
          * @param   Type    The light type you wish to create
          *
          * @return  A created light instance.
+         * 
+         * @todo    Fix window size
          **/
         CLight& AddLight(const LightType& Type)
         {
-            CLight* pNew = new CLight(Type);
+            CLight* pNew = new CLight(m_Assets, Type, 800);
             pNew->Init();
             m_allLights.push_back(pNew);
             return *m_allLights.back();
@@ -121,7 +150,7 @@ namespace gfx
         }
         
         /// Renders the scene to the current render target.
-        bool Render() const
+        bool Render()
         {
             // We keep only one matrix instance and just 
             // modify it for every object.
@@ -133,14 +162,14 @@ namespace gfx
             
             // Clear our frame buffers from the last drawing.
             // We will be rendering to FBO1 at first.
-            m_FB02.Enable(); m_FBO2.Clear();
-            m_FB01.Enable(); m_FBO1.Clear();
+            m_FBO2.Bind(); m_FBO2.Clear();
+            m_FBO1.Bind(); m_FBO1.Clear();
             
             // Set the standard blending state.
             CRenderer::EnableBlending();
             
             // All geometry is stored here.
-            m_VAO.Bind();
+            m_Geometry.Bind();
             
             // Prepare for primitive rendering.
             material_t& M = CRenderer::GetBlankMaterial();
@@ -158,13 +187,12 @@ namespace gfx
                 
                 (*i)->Draw(true);
             }
-            
+
             M.Disable();
-            
+
             // Shortcut reference.
-            const gfxcore::CVertexArray& FS =
-                    CRenderer::GetFullscreenVBO();
-            
+            gfxcore::CVertexArray& FS = CRenderer::GetFullscreenVBO();
+
             // Primitive rendering is complete.
             // Now, render lights with additive blending.
             GLuint final_texture = m_FBO1.GetTexture();
@@ -213,8 +241,8 @@ namespace gfx
                 CRenderTarget& One = m_lighting ? m_FBO2 : m_FBO1;
                 CRenderTarget& Two = m_lighting ? m_FBO1 : m_FBO2;
                 
-                auto i = m_PPFX.begin(),
-                     j = m_PPFX.end();
+                auto i = m_allPPFX.begin(),
+                     j = m_allPPFX.end();
                      
                 for(size_t c = 0; i != j; ++i, ++c) 
                 {
@@ -235,7 +263,7 @@ namespace gfx
             // Now we have the final scene data in `final_texture`
             
             // Doesn't matter which we disable.
-            m_FBO1.Disable();
+            m_FBO1.Unbind();
             
             E.Enable();
             CRenderer::EnableTexture(final_texture);
@@ -254,7 +282,7 @@ namespace gfx
         
         
         /// Returns the queue index of a certain primitive (or -1).
-        int32_t GetPrimitiveIndex(const gfxcore::Drawable& D)
+        int32_t GetPrimitiveIndex(const gfxcore::CDrawable& D)
         {
             auto i = m_allPrimitives.begin(),
                  j = m_allPrimitives.end();
@@ -268,7 +296,7 @@ namespace gfx
             return index;
         }
         
-        /// Vertifies the given index is within the valid range.
+        /// Verifies the given index is within the valid range.
         bool IsValidPrimitiveIndex(int32_t i)
         {
             return (i > 0 && i < m_allPrimitives.size());
@@ -283,10 +311,17 @@ namespace gfx
         math::vector_t          m_Camera;
         
         // Lists of things that will be rendered.
-        std::list<CLight*>      m_allLights;
-        std::list<CEffect*>     m_allEffects;        
-        std::list<CDrawable*>   m_allPrimitives;
+        std::list<CLight*>              m_allLights;
+        std::list<CEffect*>             m_allPPFX;
+        std::list<gfxcore::CDrawable*>  m_allPrimitives;
         //std::list<CEntity*> m_allEntities;
+
+        bool m_lighting, m_ppfx;
     };
 }
 }
+
+
+#endif // ZENDERER__GRAPHICS__SCENE_HPP
+
+/** @} **/

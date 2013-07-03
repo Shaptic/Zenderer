@@ -56,8 +56,7 @@
 #include "Graphics/Window.hpp"
 #include "Graphics/Quad.hpp"
 #include "Graphics/Light.hpp"
-#include "Graphics/RenderTarget.hpp"
-#include "CoreGraphics/Texture.hpp"
+#include "Graphics/Scene.hpp"
 
 // Assets
 #include "Assets/AssetManager.hpp"

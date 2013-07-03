@@ -75,9 +75,9 @@ namespace math
         /// Adjusts the translation matrix by a vector.
         inline void TranslateAdj(const math::vector_t& DV)
         {
-            m_values[0][3] += V.x;
-            m_values[1][3] += V.y;
-            m_values[2][3] += V.z;
+            m_values[0][3] += DV.x;
+            m_values[1][3] += DV.y;
+            m_values[2][3] += DV.z;
         }
 
         inline const real_t* GetPointer() const
