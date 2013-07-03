@@ -62,24 +62,10 @@ namespace gfxcore
 
                 return (m_loaded = false);
             }
-
-            GL(glGenTextures(1, &m_texture));
-            GL(glBindTexture(GL_TEXTURE_2D, m_texture));
-
-            GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8,
-                w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, raw));
-
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
             
-            GL(glBindTexture(GL_TEXTURE_2D, 0));
+            bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA, w, h, raw);
 
             stbi_image_free(raw);
-
-            m_width = w;
-            m_height = h;
             this->SetFilename(filename);
             return (m_loaded = true);
         }
@@ -95,19 +81,8 @@ namespace gfxcore
             const CTexture* const pCopyTexture = 
                 reinterpret_cast<const CTexture* const>(pCopy);
 
-            GL(glGenTextures(1, &m_texture));
-            GL(glBindTexture(GL_TEXTURE_2D, m_texture));
-            
-            GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8,
-                pCopyTexture->m_width, pCopyTexture->m_height, 0,
-                GL_RGBA, GL_UNSIGNED_BYTE, raw));
-
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
-            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
-            
-            GL(glBindTexture(GL_TEXTURE_2D, 0));
+            bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA,
+                pCopyTexture->m_width, pCopyTexture->m_height, raw);
 
             // new[] occured in GetData() so we are responsible for cleanup.
             delete[] raw;
@@ -116,9 +91,38 @@ namespace gfxcore
             m_height= pCopyTexture->m_height;
             this->SetFilename(pCopyTexture->GetFilename());
 
-            return (m_loaded = true);
+            return (m_loaded = ret);
         }
 
+        bool LoadFromRaw(const GLenum iformat, const GLenum format,
+                         const uint16_t w, const uint16_t h,
+                         const unsigned char* data)
+        {
+            if(m_loaded) this->Destroy();
+            
+            GL(glGenTextures(1, &m_texture));
+            GL(glBindTexture(GL_TEXTURE_2D, m_texture));
+
+            GL(glTexImage2D(GL_TEXTURE_2D, 0, iformat, w, h, 0, format,
+                    GL_UNSIGNED_BYTE, raw));
+
+            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
+            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
+            GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
+            
+            GL(glBindTexture(GL_TEXTURE_2D, 0));
+            
+            m_width = w;
+            m_height = h;
+            
+            std::stringstream ss;
+            ss << "Raw texture data " << ((void*)data) << '.';
+            this->SetFilename(ss.str());
+            
+            return true;
+        }
+        
         const void* const GetData() const
         {
             this->Bind();
