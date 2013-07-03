@@ -22,18 +22,57 @@
 #ifndef ZENDERER__GRAPHICS__MATERIAL_HPP
 #define ZENDERER__GRAPHICS__MATERIAL_HPP
 
-#include "Zenderer/Graphics/Effect.hpp"
-//#include "Zenderer/CoreGraphics/Texture.hpp"
+#include "Zenderer/Assets/AssetManager.hpp"
+#include "Zenderer/Utilities/INIParser.hpp"
+#include "Zenderer/CoreGraphics/Texture.hpp"
+#include "Effect.hpp"
 
 namespace zen
 {
+namespace gfxcore { class ZEN_API CRenderer; }
 namespace gfx
 {
-    struct ZEN_API material_t
+    /// Rendering data composed of a shader effect and a texture.
+    class ZEN_API CMaterial
     {
-        //gfxcore::CTexture* pTexture;
-        gfx::CEffect* pEffect;
+    public:
+        CMaterial(asset::CAssetMananger* Assets = nullptr) : 
+            m_Assets(Assets == nullptr ? CEffect::s_DefaultManager : *Assets),
+            mp_Texture(nullptr), mp_Effect(nullptr) {}
+
+        CMaterial(gfxcore::CTexture& Texture,
+                  gfx::CEffect& Effect,
+                  asset::CAssetMananger* Assets = nullptr) : 
+            m_Assets(Assets == nullptr ? CEffect::s_DefaultManager : *Assets),
+            mp_Texture(&Texture), mp_Effect(&Effect) {}
+
+        ~CMaterial();
+        
+        bool LoadFromFile(const string_t& filename);
+        bool LoadTextureFromFile(const string_t& filename);
+        bool LoadEffect(EffectType& Type);
+        
+        bool Attach(const CEffect& E, const gfxcore::CTexture& T);
+        
+        bool Enable() const;
+        bool EnableEffect() const;
+        bool EnableTexture() const;
+        
+        bool Disable() const;
+        bool DisableEffect() const;
+        bool DisableTexture() const;
+        
+        friend class ZEN_API CRenderer;
+        
+    private:
+        asset::CAssetManager& m_Assets;
+        gfxcore::CTexture* mp_Texture;
+        gfx::CEffect* mp_Effect;
+        
+        bool m_given;
     };
+    
+    typedef CMaterial material_t;
 }   // namespace gfx
 }   // namespace zen
 
