@@ -63,12 +63,12 @@ namespace gfxcore
         inline static bool DisableBlending();
         inline static bool DisableTexture();
 
-        inline static gfx::CMaterial&       GetDefaultMaterial();
-        inline static gfx::CEffect&         GetDefaultEffect();
-        inline static gfxcore::CTexture&    GetDefaultTexture();
+        inline static gfx::CMaterial&           GetDefaultMaterial();
+        inline static gfx::CEffect&             GetDefaultEffect();
+        inline static const gfxcore::CTexture&  GetDefaultTexture();
         
-        inline static const math::matrix4x4_t& GetProjectionMatrix();        
-        inline static const CVertexArray& GetFullscreenVBO();
+        inline static const math::matrix4x4_t&  GetProjectionMatrix();        
+        inline static const CVertexArray&       GetFullscreenVBO();
 
         /// Only the scenes can modify graphical API state.
         friend class gfx::CScene;

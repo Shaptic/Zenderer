@@ -173,8 +173,8 @@ namespace gfx
             m_Geometry.Bind();
             
             // Prepare for primitive rendering.
-            material_t& M = CRenderer::GetBlankMaterial();
-            CEffect& E = CRenderer::GetDefaultEffect();
+            material_t& M = CRenderer::GetDefaultMaterial();
+            CEffect& E = M.GetEffect();
             M.Enable();
             
             // Commence individual primitive rendering.
@@ -275,7 +275,7 @@ namespace gfx
             FS.Draw();
             
             CRenderer::EnableTexture(0);
-            E.Disable();
+            CRenderer::ResetMaterialState();
             
             return true;
         }
