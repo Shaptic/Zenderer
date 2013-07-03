@@ -99,12 +99,7 @@ bool CWindow::Init()
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
 
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
-    gfxcore::CRenderer::s_DefaultShader.Init();
-    gfxcore::CRenderer::s_DefaultShader.Enable();
-    gfxcore::CRenderer::s_DefaultShader.SetParameter("proj", m_ProjMatrix);
-    gfxcore::CRenderer::s_DefaultShader.Disable();
-
-    return (m_init = gfxcore::CRenderer::LoadVAO(m_Dimensions.x, m_Dimensions.y));
+    return (m_init = gfxcore::CRenderer::Init(m_Dimensions.x, m_Dimensions.y));
 }
 
 bool CWindow::Destroy()

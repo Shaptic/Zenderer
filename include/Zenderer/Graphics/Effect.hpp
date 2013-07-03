@@ -32,7 +32,7 @@
 namespace zen
 {
 namespace gfx
-{
+{    
     /**
      * Names a distribution of effect types.
      *  See the table in the CEffect documentation for appropriate
@@ -112,6 +112,8 @@ namespace gfx
         inline const string_t& GetError() const;
         inline void SetType(const EffectType Type);
 
+        friend class ZEN_API CMaterial;
+        
     private:
         inline bool Bind() const;
         inline bool Unbind() const;

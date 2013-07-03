@@ -3,12 +3,36 @@
 using namespace zen;
 using gfxcore::CRenderer;
 
-gfx::CEffect            CRenderer::s_DefaultShader(gfx::EffectType::NO_EFFECT);
+gfx::CMaterial          CRenderer::s_DefaultMaterial;
+gfx::CEffect            CRenderer::s_DefaultEffect(gfx::EffectType::NO_EFFECT);
+gfxcore::CTexture       CRenderer::s_DefaultTexture;
 gfxcore::CVertexArray   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
 math::matrix4x4_t       CRenderer::s_ProjMatrix;
+bool                    CRenderer::s_bool;
 
-bool CRenderer::LoadVAO(const uint16_t w, const uint16_t h)
+bool CRenderer::Init(const uint16_t w, const uint16_t h)
 {
+    // Load the default effect.
+    s_DefaultEffect.Init();
+    s_DefaultEffect.Enable();
+    s_DefaultEffect.SetParameter("mv", math::materix4x4_t::GetIdentityMatrix());
+    s_DefaultEffect.SetParameter("proj", s_ProjMatrix);
+    s_DefaultEffect.Disable();
+    
+    // Load the default texture (1x1 white pixel).
+    static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'}; 
+    gfxcore::CTexture* pTmp =
+        s_DefaultMaterial.m_Assets.Create<gfxcore::CTexture>();
+    
+    if(pTmp != nullptr)
+    {
+        s_DefaultTexture = *pTmp;
+        s_DefaultTexture.LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
+        s_DefaultTexture.SetFilename("Zenderer white texture");
+    }
+    
+    s_DefaultMaterial.Attach(s_DefaultEffect, s_DefaultTexture);
+    
     // Load a quad into the VAO.                
     gfxcore::DrawBatch D;
     gfxcore::index_t  i[] = {0, 1, 3, 3, 1, 2};
