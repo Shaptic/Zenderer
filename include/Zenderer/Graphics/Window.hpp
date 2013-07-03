@@ -139,6 +139,7 @@ namespace gfx
         inline uint16_t GetWidth()  const { return m_Dimensions.x; }
         inline uint16_t GetHeight() const { return m_Dimensions.y; }
 
+        /// @todo Remove when uneccessary.
         inline GLFWwindow* GetWindow() const { return mp_Window; }
 
         static bool ToggleVSYNC();

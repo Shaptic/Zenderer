@@ -31,76 +31,55 @@
 
 namespace zen
 {
-namespace gfx { class ZEN_API CWindow; class ZEN_API CRenderTarget; }
+
+namespace gfx
+{
+    // Forward declarations.
+    class ZEN_API CWindow;
+    class ZEN_API CRenderTarget;
+    class ZEN_API CScene;
+}
 
 namespace gfxcore
 {
-    enum class ZEN_API RenderState : uint16_t
-    {
-        ZEN_NORMAL_RENDER,
-        ZEN_OFFSCREEN_RENDER,
-        ZEN_ALPHA_RENDER,
-        ZEN_LIGHTING_RENDER,
-        ZEN_POSTPROCESS_RENDER
-    };
-
+    /// Abstracts away API-specific rendering operations.
     class ZEN_API CRenderer
     {
     public:
         virtual ~CRenderer();
 
-        static gfx::CEffect& GetDefaultEffect()
-        {
-            return s_DefaultShader;
-        }
+        inline static bool ResetMaterialState();
+        
+        inline static bool EnableBlending();
+        inline static bool EnableSTDBlendFunc();
+        inline static bool EnableTexture(const GLuint handle);
+        
+        inline static bool DisableBlending();
+        inline static bool DisableTexture();
 
-        static const math::matrix4x4_t& GetProjectionMatrix()
-        {
-            return s_ProjMatrix;
-        }
-
-        static void ResetMaterialState()
-        {
-            glBindTexture(GL_TEXTURE_2D, 0);
-            glUseProgram(0);
-        }
-
-        static void EnableAlphaBlending()
-        {
-            GL(glEnable(GL_BLEND));
-            GL(glDisable(GL_DEPTH_TEST));
-            GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
-        }
-
-        static void DisableAlphaBlending()
-        {
-            GL(glDisable(GL_BLEND));
-            GL(glEnable(GL_DEPTH_TEST));
-        }
+        inline static gfx::CEffect& GetDefaultEffect();
+        inline static const math::matrix4x4_t& GetProjectionMatrix();        
+        inline static const CVertexArray& GetFullscreenVBO();
 
         /// Only the scenes can modify graphical API state.
-        //friend class gfx::CScene;
+        friend class gfx::CScene;
 
         // Can modify and store static data
         friend class gfx::CWindow;
         friend class gfx::CRenderTarget;
 
     protected:
-        CRenderer(const util::CSettings& Settings);
+        explicit CRenderer(const util::CSettings& Settings);
 
-        virtual inline bool Enable(const int flag);
-        virtual inline bool Disable(const int flag);
+        /// Only to be called by `gfx::CWindow` ONCE.
+        static bool LoadVAO(const uint16_t w, const uint16_t h);
 
-        virtual void PreparePostFXRenderState();
-        virtual void PrepareFBORenderState();
-        virtual void PrepareLightingRenderState();
-
-        CVertexArray                m_FullscreenQuad;
+        static CVertexArray         s_FullscreenQuad;
         static gfx::CEffect         s_DefaultShader;
         static math::matrix4x4_t    s_ProjMatrix;
-
-        RenderState         m_LastState;
     };
+    
+    #include "Renderer.inl"
 }   // namespace gfxcore
 }   // namespace zen
 
