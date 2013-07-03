@@ -37,6 +37,7 @@ namespace zen
 namespace gfx
 {
     using gfxcore::CRenderer;
+    using gfxcore::BlendFunc;
 
     class ZEN_API CScene
     {
@@ -166,7 +167,7 @@ namespace gfx
             m_FBO1.Bind(); m_FBO1.Clear();
             
             // Set the standard blending state.
-            CRenderer::EnableBlending();
+            CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
             
             // All geometry is stored here.
             m_Geometry.Bind();
@@ -206,7 +207,7 @@ namespace gfx
                 // final result ends up on the FBO2 texture.
                 m_FBO2.Enable();
                 CRenderer::EnableTexture(final_texture);
-                CRenderer::EnableAddBlendFunc();
+                CRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
                 
                 auto i = m_allLights.begin(),
                      j = m_allLights.end();
@@ -227,9 +228,8 @@ namespace gfx
                 }
                 
                 final_texture = m_FBO2.GetTexture();
+                CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
             }
-            
-            CRenderer::EnableStdBlendFunc();
             
             // Ping-pong post-processing effects.
             // This means one is drawn to FBO1, then FBO1's result

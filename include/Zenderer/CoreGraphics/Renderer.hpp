@@ -35,29 +35,38 @@ namespace zen
 namespace gfx
 {
     // Forward declarations.
-    class ZEN_API CWindow;
-    class ZEN_API CRenderTarget;
-    class ZEN_API CScene;
+    class API CWindow;
+    class API CRenderTarget;
+    class API CScene;
 }
 
 namespace gfxcore
 {
+    enum class BlendFunc : uint16_t
+    {
+        DISABLE_BLEND,
+        ENABLE_BLEND,
+        STANDARD_BLEND,
+        ADDITIVE_BLEND
+    };
+    
     /// Abstracts away API-specific rendering operations.
     class ZEN_API CRenderer
     {
     public:
         virtual ~CRenderer();
-
-        inline static bool ResetMaterialState();
         
-        inline static bool EnableBlending();
-        inline static bool EnableSTDBlendFunc();
+        inline static bool BlendOperation(const BlendFunc& Func);
+        
         inline static bool EnableTexture(const GLuint handle);
-        
+        inline static bool ResetMaterialState();
         inline static bool DisableBlending();
         inline static bool DisableTexture();
 
-        inline static gfx::CEffect& GetDefaultEffect();
+        inline static gfx::CMaterial&       GetDefaultMaterial();
+        inline static gfx::CEffect&         GetDefaultEffect();
+        inline static gfxcore::CTexture&    GetDefaultTexture();
+        
         inline static const math::matrix4x4_t& GetProjectionMatrix();        
         inline static const CVertexArray& GetFullscreenVBO();
 
@@ -69,14 +78,17 @@ namespace gfxcore
         friend class gfx::CRenderTarget;
 
     protected:
-        explicit CRenderer(const util::CSettings& Settings);
+        explicit CRenderer();
 
         /// Only to be called by `gfx::CWindow` ONCE.
-        static bool LoadVAO(const uint16_t w, const uint16_t h);
+        static bool Init(const uint16_t w, const uint16_t h);
 
         static CVertexArray         s_FullscreenQuad;
-        static gfx::CEffect         s_DefaultShader;
+        static gfx::CMaterial       s_DefaultMaterial;
+        static gfx::CEffect         s_DefaultEffect;
+        static gfxcore::CTexture    s_DefaultTexture;
         static math::matrix4x4_t    s_ProjMatrix;
+        static bool                 s_blend;
     };
     
     #include "Renderer.inl"
