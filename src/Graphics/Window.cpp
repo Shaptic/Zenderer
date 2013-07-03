@@ -119,7 +119,6 @@ bool CWindow::Destroy()
     }
 
     glfwDestroyWindow(mp_Window);
-
     return passed;
 }
 
