@@ -104,7 +104,7 @@ bool CWindow::Init()
     gfxcore::CRenderer::s_DefaultShader.SetParameter("proj", m_ProjMatrix);
     gfxcore::CRenderer::s_DefaultShader.Disable();
 
-    return (m_init = true);
+    return (m_init = gfxcore::CRenderer::LoadVAO(m_Dimensions.x, m_Dimensions.y));
 }
 
 bool CWindow::Destroy()

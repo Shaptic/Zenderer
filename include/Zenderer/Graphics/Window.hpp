@@ -152,9 +152,9 @@ namespace gfx
         util::CLog&             m_Log;
         asset::CAssetManager*   mp_Assets;
 
-        math::vector_t      m_Dimensions;
-        math::matrix4x4_t   m_ProjMatrix;
-        string_t            m_caption;
+        math::Vector<uint16_t>  m_Dimensions;
+        math::matrix4x4_t       m_ProjMatrix;
+        string_t                m_caption;
 
         uint32_t        m_clearbits;
         bool            m_fullscreen;
