@@ -25,7 +25,7 @@
 #define IRON_CLAD__MATH__VECTOR_2_HPP
 
 #include <cmath>
-#include <iostream>
+#include <ostream>
 
 #include "Zenderer/Core/Types.hpp"
 #include "MathCore.hpp"
@@ -45,36 +45,59 @@ namespace math
      *  Supports all vector operations such as cross products,
      *  dot products, movement, scaling, and rotation.
      *
-     *  By default, components are real number values, but it can also
-     *  be instantiated with integers if necessary. See vectori_t for this.
+     *  The class is templated to store any sort of POD values that 
+     *  you'd like, such as `float`, `int`, `uint32_t`, etc.
+     *  Beware that any operations between mixed vector types will
+     *  return the type of the vector on the left-hand side of the
+     *  operation. e.g.:
      *
-     * @todo Add support for translation via matrices.
-     * @todo Write vectori_t;
+     *  @code
+     *  Vector<int> A(1, 2, 3);
+     *  Vector<float> B(1.1, 2.2, 3.3);
      *
-     * @see USE_DOUBLE_PRECISION
+     *  Vector<float> C = A + B;    // INVALID!
+     *  Vector<int> C = A + B;      // VALID
+     *  @endcode
+     *
+     *  Thus if you need a higher level of precision, keep that vector
+     *  instance on the right-hand side.
+     *  
+     *  There is a built-in shortcut to `vector_t` that is a floating-point
+     *  vector representation that is used throughout the engine.
+     *
+     * @todo    Add support for translation via matrices.
+     * @note    There is support for creating translation matrices via
+     *          vectors but not vice-versa.
+     *
+     * @see     USE_DOUBLE_PRECISION
      **/
-    struct ZEN_API vectorf_t
+    template<typename T>
+    struct ZEN_API Vector
     {
         /// The publicly-accessible vector components.
-        real_t x, y, z;
+        T x, y, z;
 
         /// Default constructor that moves the vector to the origin.
-        vectorf_t() : x(0), y(0), z(0) {}
+        Vector() : x(0), y(0), z(0) {}
 
         /// Constructor for any coordinate space (defaults to 2D).
-        vectorf_t(real_t x, real_t y, real_t z = 0) : x(x), y(y), z(z) {}
+        Vector(real_t x, real_t y, real_t z = 0) : x(x), y(y), z(z) {}
 
         /// Copies vector components from one to another.
-        vectorf_t(const vectorf_t& C) : x(C.x), y(C.y), z(C.z) {}
+        template<typename U>
+        Vector(const Vector<U>& C) : x(C.x), y(C.y), z(C.z) {}
 
         /// Assigns one vector to another.
-        inline vectorf_t& operator=(const vectorf_t& Copy);
+        template<typename U> inline
+        Vector<T>& operator=(const Vector<U>& Copy);
 
         /// Compares two vectors for equivalence.
-        inline bool operator==(const vectorf_t& Other) const;
+        template<typename U> inline
+        bool operator==(const Vector<U>& Other) const;
 
-        /// Opposite of vectorf_t::operator==()
-        inline bool operator!=(const vectorf_t& Other) const;
+        /// Opposite of Vector::operator==()
+        template<typename U> inline
+        bool operator!=(const Vector<U>& Other) const;
 
         // Begin mathematical vector operations.
 
@@ -87,14 +110,18 @@ namespace math
          *
          * @return  A 3D vector normal to both vectors.
          **/
-        inline vectorf_t operator^(const vectorf_t& Other) const;
+        template<typename U> inline
+        Vector<T> operator^(const Vector<U>& Other) const;
 
         /**
          * Calculates the dot product of two vectors.
          *  The dot product is useful in finding the angle between two
-         *  vectors. The formula for that is as follows:    \n
-         *      cos(T) = (A . B) / (|| A || * || B ||)      \n
-         *  The actual operation is defined as such:        \n
+         *  vectors. The formula for that is as follows:
+         *
+         *      cos(T) = (A . B) / (|| A || * || B ||)
+         *
+         *  The actual operation is defined as such:
+         *
          *      A = (x1, y1, z1)
          *      B = (x2, y2, z2)
          *      A . B = x1*x2 + y1*y2 + z1*z2
@@ -103,42 +130,45 @@ namespace math
          *
          * @return  The dot product as a scalar.
          **/
-        inline real_t operator*(const vectorf_t& Other) const;
+        template<typename U> inline
+        real_t operator*(const Vector<U>& Other) const;
 
         /**
          * Multiplies each component by a scalar factor.
          * @param   scalar  The component scaling factor
          * @return  A 2D resultant vector.
          **/
-        inline vectorf_t operator*(const real_t scalar) const;
+        inline Vector<T> operator*(const real_t scalar) const;
 
         /**
          * Divides each component by a scalar factor.
          * @param   scalar  The component scaling factor
          * @return  A 2D resultant vector.
          **/
-        inline vectorf_t operator/(const real_t scalar) const;
+        inline Vector<T> operator/(const real_t scalar) const;
 
         /**
          * Adds a given vector to the current vector, returning the result.
          * @param   Other   The vector to add (component-wise)
          * @return  A 2D resultant vector.
          **/
-        inline vectorf_t operator+(const vectorf_t& Other) const;
+        template<typename U> inline
+        Vector<T> operator+(const Vector<U>& Other) const;
 
         /**
          * Adds a value to both components of the current vector.
          * @param   value   The value to add
          * @return  A 2D resultant vector.
          **/
-        inline vectorf_t operator+(const real_t value) const;
+        inline Vector<T> operator+(const real_t value) const;
 
         /**
          * Subtracts a given vector from the current vector, returning the result.
          * @param   Other   The vector to subtract from the current vector
          * @return  A 2D resultant vector.
          **/
-        inline vectorf_t operator-(const vectorf_t& Other) const;
+        template<typename U> inline
+        Vector<T> operator-(const Vector<U>& Other) const;
 
         /**
          * Normalizes the current vector.
@@ -195,25 +225,28 @@ namespace math
          *
          * @return  2D cross product (z-component of 3D cross).
          *
-         * @see     operator*(const vectorf_t&)
+         * @see     operator*(const Vector&)
          **/
-        inline real_t Cross2D(const vectorf_t& Other) const;
+        template<typename U> inline
+        real_t Cross2D(const Vector<U>& Other) const;
 
         /**
          * Returns a normalized version of the current vector.
-         * @see vectorf_t::Normalize()
+         * @see Vector::Normalize()
          **/
-        inline vectorf_t GetNormalized() const;
+        inline Vector<T> GetNormalized() const;
 
         /// Outputs the vector in the form `<x, y, z>`
-        static friend std::ostream& operator<<(std::ostream& out,
-                                               const vectorf_t& Other);
+        template<typename U> friend
+        std::ostream& operator<<(std::ostream& out,
+                                 const Vector<U>& Other);
     };
 
     #include "Vector.inl"
 
     /// A shortcut for the default vector implementation in the engine.
-    typedef vectorf_t vector_t;
+    typedef Vector<real_t> vector_t;
+    
 }   // namespace math
 }   // namespace ic
 

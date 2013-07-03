@@ -1,4 +1,6 @@
-vectorf_t& vectorf_t::operator=(const vectorf_t& Copy)
+template<typename T>
+template<typename U>
+Vector<T>& Vector<T>::operator=(const Vector<U>& Copy)
 {
     x = Copy.x;
     y = Copy.y;
@@ -7,54 +9,70 @@ vectorf_t& vectorf_t::operator=(const vectorf_t& Copy)
     return *this;
 }
 
-bool vectorf_t::operator==(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+bool Vector<T>::operator==(const Vector<U>& Other) const
 {
     return compf(x, Other.x) && compf(y, Other.y) && compf(z, Other.z);
 }
 
-bool vectorf_t::operator!=(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+bool Vector<T>::operator!=(const Vector<U>& Other) const
 {
     return !((*this) == Other);
 }
 
-vectorf_t vectorf_t::operator^(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+Vector<T> Vector<T>::operator^(const Vector<U>& Other) const
 {
-    return vectorf_t(y * Other.z - z * Other.y,
+    return Vector<T>(y * Other.z - z * Other.y,
                      x * Other.z - z * Other.x,
                      x * Other.y - y * Other.x);
 }
 
-real_t vectorf_t::operator*(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+real_t Vector<T>::operator*(const Vector<U>& Other) const
 {
     return x * Other.x + y * Other.y + z * Other.z;
 }
 
-vectorf_t vectorf_t::operator*(const real_t scalar) const
+template<typename T>
+Vector<T> Vector<T>::operator*(const real_t scalar) const
 {
-    return vectorf_t(x * scalar, y * scalar, z * scalar);
+    return Vector<T>(x * scalar, y * scalar, z * scalar);
 }
 
-vectorf_t vectorf_t::operator/(const real_t scalar) const
+template<typename T>
+Vector<T> Vector<T>::operator/(const real_t scalar) const
 {
     return (*this) * (1 / scalar);
 }
 
-vectorf_t vectorf_t::operator+(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+Vector<T> Vector<T>::operator+(const Vector<U>& Other) const
 {
-    return vectorf_t(x + Other.x, y + Other.y, z + Other.z);
+    return Vector<T>(x + Other.x, y + Other.y, z + Other.z);
 }
 
-vectorf_t vectorf_t::operator+(const real_t value) const
+template<typename T>
+Vector<T> Vector<T>::operator+(const real_t value) const
 {
-    return vectorf_t(x + value, y + value, z + value);
+    return Vector<T>(x + value, y + value, z + value);
 }
 
-vectorf_t vectorf_t::operator-(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+Vector<T> Vector<T>::operator-(const Vector<U>& Other) const
 {
-    return vectorf_t(x - Other.x, y - Other.y, z - Other.z);
+    return Vector<T>(x - Other.x, y - Other.y, z - Other.z);
 }
 
-void vectorf_t::Normalize()
+template<typename T>
+void Vector<T>::Normalize()
 {
     real_t mag = this->Magnitude();
 
@@ -66,7 +84,8 @@ void vectorf_t::Normalize()
     }
 }
 
-void vectorf_t::Rotate(const real_t radians)
+template<typename T>
+void Vector<T>::Rotate(const real_t radians)
 {
     real_t c = cos(radians);
     real_t s = sin(radians);
@@ -76,26 +95,31 @@ void vectorf_t::Rotate(const real_t radians)
     y = old_x * s + y * c;
 }
 
-real_t vectorf_t::Cross2D(const vectorf_t& Other) const
+template<typename T>
+template<typename U>
+real_t Vector<T>::Cross2D(const Vector<U>& Other) const
 {
     return ((*this) ^ Other).Magnitude();
 }
 
-vectorf_t vectorf_t::GetNormalized() const
+template<typename T>
+Vector<T> Vector<T>::GetNormalized() const
 {
     real_t mag = this->Magnitude();
-    return vectorf_t(x / mag, y / mag);
+    return Vector<T>(x / mag, y / mag);
 }
 
-real_t vectorf_t::Magnitude() const
+template<typename T>
+real_t Vector<T>::Magnitude() const
 {
     return sqrt((*this) * (*this));
 }
 
-std::ostream& operator<<(std::ostream& out, const vectorf_t& V)
+template<typename U>
+std::ostream& operator<<(std::ostream& out, const Vector<U>& V)
 {
     out.setf(std::ios::fixed, std::ios::floatfield);
     out.precision(2);
-    out << "<" << V.x << ", " << V.y << ", " << V.z << ")";
+    out << "<" << V.x << ", " << V.y << ", " << V.z << ">";
     return out;
 }
