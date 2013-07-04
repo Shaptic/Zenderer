@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -125,18 +125,21 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">4x4 matrix representation.  <a href="classzen_1_1math_1_1matrix4x4__t.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1rect__t.html">rect_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a rectangle with position and dimensions.  <a href="structzen_1_1math_1_1rect__t.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1circle__t.html">circle_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a circle with position and radius.  <a href="structzen_1_1math_1_1circle__t.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1vectorf__t.html">vectorf_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a point in 3D rectangular-coordinate space.  <a href="structzen_1_1math_1_1vectorf__t.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a point in 3D rectangular-coordinate space.  <a href="structzen_1_1math_1_1_vector.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a20ed2103c22557290f4d8acc084b82eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20ed2103c22557290f4d8acc084b82eb"></a>
-typedef <a class="el" href="structzen_1_1math_1_1vectorf__t.html">vectorf_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>vector_t</b></td></tr>
-<tr class="separator:a20ed2103c22557290f4d8acc084b82eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad13384e6c7da9a29b4e646f6988a825c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad13384e6c7da9a29b4e646f6988a825c"></a>
+typedef <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">vector_t</a></td></tr>
+<tr class="memdesc:ad13384e6c7da9a29b4e646f6988a825c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shortcut for the default vector implementation in the engine. <br/></td></tr>
+<tr class="separator:ad13384e6c7da9a29b4e646f6988a825c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -178,9 +181,10 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a09b128482586c1f562b07ebd9c9b4dc4"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacezen_1_1math.html#a09b128482586c1f562b07ebd9c9b4dc4">in_range</a> (const T &amp;n, const T &amp;minimum, const T &amp;maximum)</td></tr>
 <tr class="memdesc:a09b128482586c1f562b07ebd9c9b4dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests to see if a value is in a given range (inclusive).  <a href="#a09b128482586c1f562b07ebd9c9b4dc4">More...</a><br/></td></tr>
 <tr class="separator:a09b128482586c1f562b07ebd9c9b4dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeeea34100c0a0b2561dd4b669d16509"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeeeea34100c0a0b2561dd4b669d16509"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structzen_1_1math_1_1vectorf__t.html">vectorf_t</a> &amp;V)</td></tr>
-<tr class="separator:aeeeea34100c0a0b2561dd4b669d16509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b014e1e562088106c6d22748ae681c"><td class="memTemplParams" colspan="2"><a class="anchor" id="a08b014e1e562088106c6d22748ae681c"></a>
+template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a08b014e1e562088106c6d22748ae681c"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;V)</td></tr>
+<tr class="separator:a08b014e1e562088106c6d22748ae681c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

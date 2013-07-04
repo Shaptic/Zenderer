@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vectorf_5ft',['vectorf_t',['../structzen_1_1math_1_1vectorf__t.html#aea8928aa7cb80c3e74a691326a3c25de',1,'zen::math::vectorf_t::vectorf_t()'],['../structzen_1_1math_1_1vectorf__t.html#ac37608bfec87d9ea7f8bfe9c58173114',1,'zen::math::vectorf_t::vectorf_t(real_t x, real_t y, real_t z=0)'],['../structzen_1_1math_1_1vectorf__t.html#ac30d9bc27ef4b5e3c79f1323a534cebb',1,'zen::math::vectorf_t::vectorf_t(const vectorf_t &amp;C)']]]
+  ['vector',['Vector',['../structzen_1_1math_1_1_vector.html#a04d95dd464e4e297d6552741cdefe4fb',1,'zen::math::Vector::Vector()'],['../structzen_1_1math_1_1_vector.html#aa14c105c7e514d6e3e860ba151911d9e',1,'zen::math::Vector::Vector(T x, T y, T z=0)'],['../structzen_1_1math_1_1_vector.html#a6b3f65bd14727cefb030a6a126dd4fc4',1,'zen::math::Vector::Vector(const Vector&lt; U &gt; &amp;C)']]]
 ];

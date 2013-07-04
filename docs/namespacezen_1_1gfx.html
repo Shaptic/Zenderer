@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('namespacezen_1_1gfx.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -126,29 +127,44 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html">CLight</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a light object acting on a graphical scene.  <a href="classzen_1_1gfx_1_1_c_light.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1gfx_1_1material__t.html">material_t</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_material.html">CMaterial</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering data composed of a shader effect and a texture.  <a href="classzen_1_1gfx_1_1_c_material.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_quad.html">CQuad</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A four-sided quadrilateral primitive.  <a href="classzen_1_1gfx_1_1_c_quad.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_render_target.html">CRenderTarget</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a target for all subsequent rendering operations.  <a href="classzen_1_1gfx_1_1_c_render_target.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_scene.html">CScene</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html">CWindow</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a renderable OpenGL context.  <a href="classzen_1_1gfx_1_1_c_window.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_scene_manager.html">CSceneManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"> <a href="classzen_1_1gfx_1_1_c_scene_manager.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af87835be09a9d82f987510725c8b72d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af87835be09a9d82f987510725c8b72d2"></a>
+typedef std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_light.html">CLight</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>LightSet_t</b></td></tr>
+<tr class="separator:af87835be09a9d82f987510725c8b72d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f29f8e8ce7cb8300e1eaa49f7b6c4aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f29f8e8ce7cb8300e1eaa49f7b6c4aa"></a>
+typedef <a class="el" href="classzen_1_1gfx_1_1_c_material.html">CMaterial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>material_t</b></td></tr>
+<tr class="separator:a7f29f8e8ce7cb8300e1eaa49f7b6c4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ae89a05f218ca7f9551bc5dd95e1ca36f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>EffectType</b> : int16_t { <br/>
-&#160;&#160;<b>NO_EFFECT</b> = -1, 
-<b>GAUSSIAN_BLUR_H</b>, 
-<b>GAUSSIAN_BLUR_V</b>, 
-<b>GRAYSCALE</b>, 
+<tr class="memitem:ae89a05f218ca7f9551bc5dd95e1ca36f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f">EffectType</a> : int16_t { <br/>
+&#160;&#160;<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105">NO_EFFECT</a> = -1, 
+<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa7518076b27aab061abff00b64bfb0713">GAUSSIAN_BLUR_H</a>, 
+<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fad3f0662c50be08466f7511628d75827c">GAUSSIAN_BLUR_V</a>, 
+<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fabfc52a030be6cc5e47fe83a81e3175a0">GRAYSCALE</a>, 
 <br/>
-&#160;&#160;<b>FADE</b>, 
-<b>RIPPLE</b>, 
-<b>ZEN_EFFECT_COUNT</b>
+&#160;&#160;<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa2445ee3d2e9877a973fe794a6b76c346">FADE</a>, 
+<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa3b68550e169b363f0d4937bba677d76d">RIPPLE</a>, 
+<a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa5637e9a02efb8d80d36a36cb388f3546">ZEN_EFFECT_COUNT</a>
 <br/>
  }</td></tr>
+<tr class="memdesc:ae89a05f218ca7f9551bc5dd95e1ca36f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Names a distribution of effect types.  <a href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f">More...</a><br/></td></tr>
 <tr class="separator:ae89a05f218ca7f9551bc5dd95e1ca36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa78535cbb9eb98cf3e87cb166a6ba826"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">LightType</a> : int16_t { <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ab3c4b7acce4ff425e4178f34fa31feda">ZEN_NO_LIGHT</a> = -1, 
 <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ad6a9a8bbf7cfad94a930fb41415c5e45">ZEN_AMBIENT</a>, 
@@ -163,12 +179,56 @@ Variables</h2></td></tr>
 <tr class="memitem:a7fc1cbadadf44939bd470783cd2b33d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fc1cbadadf44939bd470783cd2b33d2"></a>
 class <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CWindow</b></td></tr>
 <tr class="separator:a7fc1cbadadf44939bd470783cd2b33d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a534e225943c8387ba41403e841bdf232"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a534e225943c8387ba41403e841bdf232"></a>
+class <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CRenderTarget</b></td></tr>
+<tr class="separator:a534e225943c8387ba41403e841bdf232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20e89ec3d59082e2825d92df80de1387"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20e89ec3d59082e2825d92df80de1387"></a>
+class <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CScene</b></td></tr>
+<tr class="separator:a20e89ec3d59082e2825d92df80de1387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7063428bb7b670de6aa13b3ebc39b2b"></a>
 static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b">ZENDERER_GL_VERSION</a> = 3.3</td></tr>
 <tr class="memdesc:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum supported OpenGL API version. <br/></td></tr>
 <tr class="separator:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f">zen::gfx::EffectType</a> : int16_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>See the table in the <a class="el" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a> documentation for appropriate parameters for each of the effects. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105"></a>NO_EFFECT</em>&nbsp;</td><td class="fielddoc">
+<p>No effect, default shaders. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fa7518076b27aab061abff00b64bfb0713"></a>GAUSSIAN_BLUR_H</em>&nbsp;</td><td class="fielddoc">
+<p>A horizontal Gaussian blur effect. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fad3f0662c50be08466f7511628d75827c"></a>GAUSSIAN_BLUR_V</em>&nbsp;</td><td class="fielddoc">
+<p>A vertical Gaussian blur effect. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fabfc52a030be6cc5e47fe83a81e3175a0"></a>GRAYSCALE</em>&nbsp;</td><td class="fielddoc">
+<p>Makes the target grayscale. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fa2445ee3d2e9877a973fe794a6b76c346"></a>FADE</em>&nbsp;</td><td class="fielddoc">
+<p>Fades the target in/out. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fa3b68550e169b363f0d4937bba677d76d"></a>RIPPLE</em>&nbsp;</td><td class="fielddoc">
+<p>Creates a centered ripple effect. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fa5637e9a02efb8d80d36a36cb388f3546"></a>ZEN_EFFECT_COUNT</em>&nbsp;</td><td class="fielddoc">
+<p>Total amount of effects. </p>
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00041">41</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aa78535cbb9eb98cf3e87cb166a6ba826"></a>
 <div class="memitem">
 <div class="memproto">
@@ -193,7 +253,7 @@ static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b1586
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_light_8hpp_source.html#l00032">32</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_light_8hpp_source.html#l00034">34</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
 
 </div>
 </div>

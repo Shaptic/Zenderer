@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -117,7 +117,7 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Actions such as moving an entity are performed with a combination of user-level contribution of <code>math::vector2_t</code>, and a low-level manipulation of <code>math::matrix4x4_t</code>. Collision detection and physical reactions require the <code>math::rect_t object</code>, which itself depends on <code>math::vector2_t</code>, as well. Do you want to locate the angle for firing a shot? Well then you likely need <code>math::rad</code> and <code>math::deg</code> to get sensible values for trigonometric functions.<br/>
+<p>Actions such as moving an entity are performed with a combination of user-level contribution of <code>math::vector2_t</code>, and a low-level manipulation of <code>math::matrix4x4_t</code>. Collision detection and physical reactions require the <code>math::rect_t</code> object, which itself might depend on <code>math::vector2_t</code>, as well. Do you want to locate the angle for firing a shot? Well then you likely need <code>math::rad</code> and <code>math::deg</code> to get sensible values for trigonometric functions.<br/>
  As you can see, the <code>Math</code> group is at the very core of the engine. It's critical enough to be a part of <code>Core</code>, but can do enough on its own that it deserves its own group. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->

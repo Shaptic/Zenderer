@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -123,20 +123,118 @@ $(document).ready(function(){initNavTree('classzen_1_1gfx_1_1_c_light.html','');
 Collaboration diagram for zen::gfx::CLight:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_light__coll__graph.png" border="0" usemap="#zen_1_1gfx_1_1_c_light_coll__map" alt="Collaboration graph"/></div>
+<map name="zen_1_1gfx_1_1_c_light_coll__map" id="zen_1_1gfx_1_1_c_light_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a61007df4b0ff32a4b1cd48cb5d2060cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61007df4b0ff32a4b1cd48cb5d2060cd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CLight</b> (const <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">LightType</a> &amp;Type)</td></tr>
-<tr class="separator:a61007df4b0ff32a4b1cd48cb5d2060cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab363c7d9882dff55b50a72faedcd2ccc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html#ab363c7d9882dff55b50a72faedcd2ccc">CLight</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;m_Assets, const <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">LightType</a> &amp;Type, const uint16_t window_h=800)</td></tr>
+<tr class="memdesc:ab363c7d9882dff55b50a72faedcd2ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a light instance.  <a href="#ab363c7d9882dff55b50a72faedcd2ccc">More...</a><br/></td></tr>
+<tr class="separator:ab363c7d9882dff55b50a72faedcd2ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbc2641c459f93aebd72f3ff99fa0df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcbc2641c459f93aebd72f3ff99fa0df"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
+<tr class="separator:adcbc2641c459f93aebd72f3ff99fa0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a41b61cf148dc434c47efb07b57339"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9a41b61cf148dc434c47efb07b57339"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInit</b> () const </td></tr>
+<tr class="separator:ad9a41b61cf148dc434c47efb07b57339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5c3ae85e8081a181f101c01eac0672"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d5c3ae85e8081a181f101c01eac0672"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> () const </td></tr>
+<tr class="separator:a0d5c3ae85e8081a181f101c01eac0672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fa9064e9f4b80ecd0fed9a71675dcd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50fa9064e9f4b80ecd0fed9a71675dcd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> () const </td></tr>
+<tr class="separator:a50fa9064e9f4b80ecd0fed9a71675dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060680a44f4f9387c04ec14680f396ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a060680a44f4f9387c04ec14680f396ca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Adjust</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> dx, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> dy)</td></tr>
+<tr class="separator:a060680a44f4f9387c04ec14680f396ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24bfab8d3bcea9b7505907f35ba58164"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24bfab8d3bcea9b7505907f35ba58164"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetBrightness</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> brightness)</td></tr>
+<tr class="separator:a24bfab8d3bcea9b7505907f35ba58164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd7fedd4318f0181319fa0a554de9462"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd7fedd4318f0181319fa0a554de9462"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetColor</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> r, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> g, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> b)</td></tr>
+<tr class="separator:acd7fedd4318f0181319fa0a554de9462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9829f650d6b5e7c498ad386587d7c2de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9829f650d6b5e7c498ad386587d7c2de"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetColor</b> (const <a class="el" href="structzen_1_1color3f__t.html">color3f_t</a> &amp;Color)</td></tr>
+<tr class="separator:a9829f650d6b5e7c498ad386587d7c2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fb0fca148f12193b681fbeca3e8ea27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fb0fca148f12193b681fbeca3e8ea27"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetAttenuation</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> c, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> l, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> q)</td></tr>
+<tr class="separator:a1fb0fca148f12193b681fbeca3e8ea27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ac3bba22924c6b0417466007b3ff3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94ac3bba22924c6b0417466007b3ff3d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetAttenuation</b> (const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;Att)</td></tr>
+<tr class="separator:a94ac3bba22924c6b0417466007b3ff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e20c2400ebd02ba93d53aab025c6c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0e20c2400ebd02ba93d53aab025c6c4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetPosition</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> x, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> y)</td></tr>
+<tr class="separator:ae0e20c2400ebd02ba93d53aab025c6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5128a50da4d0be3710a65a555316269f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5128a50da4d0be3710a65a555316269f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetPosition</b> (const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;Pos)</td></tr>
+<tr class="separator:a5128a50da4d0be3710a65a555316269f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9fae4d974cb0a4012107b9753d6132"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c9fae4d974cb0a4012107b9753d6132"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetMaximumAngle</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> degrees)</td></tr>
+<tr class="separator:a6c9fae4d974cb0a4012107b9753d6132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6ce70d7bdb8c94817c24fac3535719"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d6ce70d7bdb8c94817c24fac3535719"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetMinimumAngle</b> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> degrees)</td></tr>
+<tr class="separator:a6d6ce70d7bdb8c94817c24fac3535719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab83a37120240e441474a175cfeb788bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab83a37120240e441474a175cfeb788bb"></a>
+<a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetBrightness</b> () const </td></tr>
+<tr class="separator:ab83a37120240e441474a175cfeb788bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab096df619edfd3323821a0e59ac5fc1c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab096df619edfd3323821a0e59ac5fc1c"></a>
+const <a class="el" href="structzen_1_1color3f__t.html">color3f_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetColor</b> () const </td></tr>
+<tr class="separator:ab096df619edfd3323821a0e59ac5fc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c24198faed09aab356916bbf38d6dbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c24198faed09aab356916bbf38d6dbd"></a>
+const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> () const </td></tr>
+<tr class="separator:a4c24198faed09aab356916bbf38d6dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Each lighting type has its own special variables and parameters that can be modified and accessed. See the raw shader files to learn the specific parameter names. </p>
 
-<p>Definition at line <a class="el" href="_light_8hpp_source.html#l00046">46</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<p>Definition at line <a class="el" href="_light_8hpp_source.html#l00048">48</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab363c7d9882dff55b50a72faedcd2ccc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CLight::CLight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>m_Assets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">LightType</a> &amp;&#160;</td>
+          <td class="paramname"><em>Type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>window_h</em> = <code>800</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The window height is required for the shader to perform some weird offset calculations that would otherwise give bad results in terms of light positioning. It defaults to 800px.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m_Assets</td><td>The asset manager to make the effect from </td></tr>
+    <tr><td class="paramname">Type</td><td>The light type you want </td></tr>
+    <tr><td class="paramname">window_h</td><td>The height of the OpenGL context </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_light_8cpp_source.html#l00015">15</a> of file <a class="el" href="_light_8cpp_source.html">Light.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/Graphics/<a class="el" href="_light_8hpp_source.html">Light.hpp</a></li>
+<li>Zenderer/src/Graphics/<a class="el" href="_light_8cpp_source.html">Light.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

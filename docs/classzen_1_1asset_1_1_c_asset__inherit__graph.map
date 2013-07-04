@@ -1,6 +1,7 @@
 <map id="zen::asset::CAsset" name="zen::asset::CAsset">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader.html" title="{zen::gfxcore::CShader\n||+ CShader()\l+ ~CShader()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ Destroy()\l+ GetData()\l+ GetShaderObject()\l+ GetShaderLog()\l}" alt="" coords="5,476,155,671"/>
-<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_audio2_d.html" title="{zen::sfx::CAudio2D\n|# m_error_code\l# m_AL\l# m_loop\l|+ CAudio2D()\l+ ~CAudio2D()\l+ LoadFromFile()\l+ Play()\l+ Update()\l+ Ready()\l+ UnloadSource()\l+ GetAudioState()\l+ GetData()\l# Destroy()\l}" alt="" coords="179,454,313,693"/>
-<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="96,749,232,899"/>
-<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="256,741,403,907"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="5,476,155,671"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_texture.html" title="{zen::gfxcore::CTexture\n||+ ~CTexture()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ GetData()\l+ Bind()\l+ Unbind()\l+ GetWidth()\l+ GetHeight()\l}" alt="" coords="179,476,332,671"/>
+<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="357,454,491,693"/>
+<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="273,749,409,899"/>
+<area shape="rect" id="node6" href="$classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="433,741,580,907"/>
 </map>

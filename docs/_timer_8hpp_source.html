@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,60 +110,65 @@ $(document).ready(function(){initNavTree('_timer_8hpp_source.html','');});
 <div class="title">Timer.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ZENDERER__UTILITIES__TIMER_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__UTILITIES__TIMER_HPP</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Zenderer/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>zen</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>util</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">using</span> time_t = uint32_t;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html">   24</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzen_1_1util_1_1_c_timer.html" title="A high-precision timer class for controlling frame rates.">CTimer</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a135575dfdb8476cb222876143f813f89">   28</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a135575dfdb8476cb222876143f813f89" title="Shortcut for the type of clock we are using.">clock_t</a> = std::chrono::high_resolution_clock;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a8614cbb98e862e9d54b73c1c0775cbc0">   31</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a8614cbb98e862e9d54b73c1c0775cbc0" title="Shortcut for time point structure.">timepoint_t</a> = clock_t::time_point;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#aaef132989e4b329924aedeb840ec275e">   34</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#aaef132989e4b329924aedeb840ec275e" title="Shortcut for the precision we want.">precision_t</a> = std::chrono::milliseconds;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b" title="Constructs a timer with a custom frame rate.">CTimer</a>(<span class="keyword">const</span> uint16_t frames = 60);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1util_1_1_c_timer.html" title="A high-precision timer class for controlling frame rates.">CTimer</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a420882d1e737fac3795122caff5c7c2a" title="Marks start time and returns it.">Start</a>();     </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#ac7f9ce94d7a8433c3bf6d8abf5898d38" title="Marks finish time and returns it.">Finish</a>();    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#aec940c7b0c86586c82b48deaf8473336" title="Returns finish time - start time.">Elapsed</a>();   </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = precision_t&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a76f8bc425e8a236a5956c24e693756b6" title="Sleeps the current thread (defaults to milliseconds).">Sleep</a>(<span class="keyword">const</span> time_t ticks);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a83aee811294cd7b670b5edf36f931aa3" title="Delays the current thread appropriately to maintain frame-rate.">Delay</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a7dfd0b27da7d5331c542c21901d1c277" title="Returns the current clock time.">GetTime</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b" title="Sets a custom frame-rate, overriding the constructor.">SetFrameRate</a>(<span class="keyword">const</span> uint16_t fps);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_timer.html#a8614cbb98e862e9d54b73c1c0775cbc0" title="Shortcut for time point structure.">timepoint_t</a> m_start, m_end;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        uint16_t m_fps;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    };</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // ZENDERER__UTILITIES__TIMER_HPP</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span></div>
+<a href="_timer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef ZENDERER__UTILITIES__TIMER_HPP</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__UTILITIES__TIMER_HPP</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// Un/comment this line to show/hide delay info every frame (_DEBUG only).</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//#define ZEN_SHOW_DELAY</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Zenderer/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file.">Log.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>zen</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>util</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> uint32_t time_t;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html">   50</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classzen_1_1util_1_1_c_timer.html" title="A high-precision timer class for controlling frame rates.">CTimer</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#acd485409b526a749c891de0f8892c726">   54</a></span>&#160;        <span class="keyword">typedef</span> std::chrono::high_resolution_clock <a class="code" href="classzen_1_1util_1_1_c_timer.html#acd485409b526a749c891de0f8892c726" title="Shortcut for the type of clock we are using.">clock_t</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a1086782663f0546069ea00ccaf574f82">   57</a></span>&#160;        <span class="keyword">typedef</span> clock_t::time_point <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1086782663f0546069ea00ccaf574f82" title="Shortcut for time point structure.">timepoint_t</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66">   60</a></span>&#160;        <span class="keyword">typedef</span> std::chrono::milliseconds <a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b" title="Constructs a timer with a custom frame rate.">CTimer</a>(<span class="keyword">const</span> uint16_t frames = 60);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1util_1_1_c_timer.html" title="A high-precision timer class for controlling frame rates.">CTimer</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae" title="Marks start time and returns it.">Start</a>();     </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd" title="Marks finish time and returns it.">Finish</a>();    </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001" title="Returns finish time - start time.">Elapsed</a>();   </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6" title="Sleeps the current thread (defaults to milliseconds).">Sleep</a>(<span class="keyword">const</span> time_t ticks);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame-rate.">Delay</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">virtual</span> time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c" title="Returns the current clock time.">GetTime</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b" title="Sets a custom frame-rate, overriding the constructor.">SetFrameRate</a>(<span class="keyword">const</span> uint16_t fps);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1086782663f0546069ea00ccaf574f82" title="Shortcut for time point structure.">timepoint_t</a> m_start, m_end;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        uint16_t m_fps;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> m_delta;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    };</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif // ZENDERER__UTILITIES__TIMER_HPP</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83649a668cc514157bc5eeec4c9e3f09.html">Utilities</a></li><li class="navelem"><b>Timer.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83649a668cc514157bc5eeec4c9e3f09.html">Utilities</a></li><li class="navelem"><a class="el" href="_timer_8hpp.html">Timer.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

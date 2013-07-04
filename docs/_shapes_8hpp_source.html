@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,28 +120,28 @@ $(document).ready(function(){initNavTree('_shapes_8hpp_source.html','');});
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>math</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="structzen_1_1math_1_1rect__t.html">   31</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="structzen_1_1math_1_1rect__t.html">rect_t</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html">rect_t</a>() : x(0.0), y(0.0), w(0), h(0) {}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        rect_t(<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> x, <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> y, uint32_t w, uint32_t h) :</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            x(x), y(y), w(w), h(h) {}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> x, y;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        uint32_t w, h;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="structzen_1_1math_1_1circle__t.html">   41</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="structzen_1_1math_1_1circle__t.html">circle_t</a></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="structzen_1_1math_1_1circle__t.html">circle_t</a>() : x(0.0), y(0.0), r(0.0) {}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        circle_t(<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> x, <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> y, <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> r) : x(x), y(y), r(r) {}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> x, y;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a> r;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}   <span class="comment">// namespace math</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif // ZENDERER__MATH__SHAPES_HPP</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="structzen_1_1math_1_1rect__t.html">   32</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">rect_t</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">rect_t</a>() : x(0.0), y(0.0), w(0), h(0) {}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        rect_t(<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y, uint32_t w, uint32_t h) :</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            x(x), y(y), w(w), h(h) {}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, y;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        uint32_t w, h;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="structzen_1_1math_1_1circle__t.html">   43</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="structzen_1_1math_1_1circle__t.html" title="Represents a circle with position and radius.">circle_t</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="structzen_1_1math_1_1circle__t.html" title="Represents a circle with position and radius.">circle_t</a>() : x(0.0), y(0.0), r(0.0) {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        circle_t(<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y, <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> r) : x(x), y(y), r(r) {}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, y;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> r;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}   <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // ZENDERER__MATH__SHAPES_HPP</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -11,7 +11,7 @@ var classzen_1_1sfx_1_1_c_audio2_d =
     [ "GetAudioState", "classzen_1_1sfx_1_1_c_audio2_d.html#aa7e21ad93cb2814a9519eb5f7513aa0e", null ],
     [ "GetData", "classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb", null ],
     [ "Destroy", "classzen_1_1sfx_1_1_c_audio2_d.html#a68df63abf75665546540e375a59b594a", null ],
+    [ "m_AL", "classzen_1_1sfx_1_1_c_audio2_d.html#a7e26bbc52b6555e6fe116ebaf50cc527", null ],
     [ "m_error_code", "classzen_1_1sfx_1_1_c_audio2_d.html#a93f482a8e975a9f6130f1366a70d702f", null ],
-    [ "m_AL", "classzen_1_1sfx_1_1_c_audio2_d.html#aeba0e70cd4c37645b635d754084320c5", null ],
     [ "m_loop", "classzen_1_1sfx_1_1_c_audio2_d.html#a4a83aad12f3ce5ca4156398153cedb62", null ]
 ];

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -128,7 +128,7 @@ Inheritance diagram for zen::asset::CAsset:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset__inherit__graph.png" border="0" usemap="#zen_1_1asset_1_1_c_asset_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1asset_1_1_c_asset_inherit__map" id="zen_1_1asset_1_1_c_asset_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html" title="{zen::gfxcore::CShader\n||+ CShader()\l+ ~CShader()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ Destroy()\l+ GetData()\l+ GetShaderObject()\l+ GetShaderLog()\l}" alt="" coords="5,476,155,671"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="{zen::sfx::CAudio2D\n|# m_error_code\l# m_AL\l# m_loop\l|+ CAudio2D()\l+ ~CAudio2D()\l+ LoadFromFile()\l+ Play()\l+ Update()\l+ Ready()\l+ UnloadSource()\l+ GetAudioState()\l+ GetData()\l# Destroy()\l}" alt="" coords="179,454,313,693"/><area shape="rect" id="node4" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="96,749,232,899"/><area shape="rect" id="node5" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="256,741,403,907"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="5,476,155,671"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_texture.html" title="{zen::gfxcore::CTexture\n||+ ~CTexture()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ GetData()\l+ Bind()\l+ Unbind()\l+ GetWidth()\l+ GetHeight()\l}" alt="" coords="179,476,332,671"/><area shape="rect" id="node4" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="357,454,491,693"/><area shape="rect" id="node5" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="273,749,409,899"/><area shape="rect" id="node6" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="433,741,580,907"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::asset::CAsset:</div>
@@ -155,7 +155,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memdesc:ae9fa59ebe5c3a989d77b9095a624fd37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hashed filename for quicker comparison. <br/></td></tr>
 <tr class="separator:ae9fa59ebe5c3a989d77b9095a624fd37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf4f65383e1dcbcb5e5e1f4ab0b9f292"></a>
-assetid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
+<a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
 <tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID. <br/></td></tr>
 <tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f322ed60cd2e8f6ed87423904709174"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f322ed60cd2e8f6ed87423904709174"></a>
@@ -246,11 +246,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <p>Inheriting classes are required to be able to successfully reload themselves if they have been given a filename originally. Thus it is recommended to store the filename given to <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">CAsset::LoadFromFile()</a> internally. In addition, comparisons between assets to check for equivalence is typically done by comparing the filename hash and the owner address. Thus, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">CAsset::LoadFromFile()</a> should be sure to call <a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash</a> and store the value internally in CAsset::m_filename_hash. By default, if this value is not stored the base class will hash it on-the-fly, which obviously can be undesirable with successive calls.</p>
 <p>Another requirement for all inheriting classes is the ability to load a copy of an asset from an existing asset using only existing virtual methods found in the base class. These will likely include <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174" title="Returns the filename used to load the asset.">CAsset::GetFilename()</a> and <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231" title="Returns raw asset data (usually for reloading).">CAsset::GetData()</a>.</p>
 <p>All assets are assigned a (hopefully) unique ID at instantiation based on their address in memory. This ID can be used to find the asset using the asset manager, assuming the ID is known but the asset is not. The ID is also used in comparison.</p>
+<p>Any class inheriting this base class does not necessarily need to place itself within the <a class="el" href="namespacezen_1_1asset.html" title="A namespace encompassing asset-related objects and managers.">zen::asset</a> namespace.</p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">util::hash()</a> </dd>
 <dd>
 <a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00068">68</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00076">76</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a3a5a49d12fc7f291f5de04a7f52757b0"></a>
 <div class="memitem">
@@ -281,7 +282,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if loaded successfully, <code>false</code> otherwise. </dd></dl>
 
-<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">zen::gfxcore::CShader</a>, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>, and <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>.</p>
+<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">zen::gfxcore::CShader</a>, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>, <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#a4ec7980697b53144b39f21c8a43ccee9">zen::gfxcore::CTexture</a>, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>, and <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>.</p>
 
 </div>
 </div>
@@ -329,7 +330,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacezen.html">zen</a></li><li class="navelem"><b>asset</b></li><li class="navelem"><a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a></li>
+    <li class="navelem"><a class="el" href="namespacezen.html">zen</a></li><li class="navelem"><a class="el" href="namespacezen_1_1asset.html">asset</a></li><li class="navelem"><a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

@@ -6,7 +6,8 @@ var namespacezen_1_1gfxcore =
     [ "CRenderer", "classzen_1_1gfxcore_1_1_c_renderer.html", "classzen_1_1gfxcore_1_1_c_renderer" ],
     [ "CShader", "classzen_1_1gfxcore_1_1_c_shader.html", "classzen_1_1gfxcore_1_1_c_shader" ],
     [ "CShaderSet", "classzen_1_1gfxcore_1_1_c_shader_set.html", "classzen_1_1gfxcore_1_1_c_shader_set" ],
-    [ "CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html", "classzen_1_1gfxcore_1_1_c_sorter" ],
+    [ "CTexture", "classzen_1_1gfxcore_1_1_c_texture.html", "classzen_1_1gfxcore_1_1_c_texture" ],
     [ "DrawBatch", "structzen_1_1gfxcore_1_1_draw_batch.html", "structzen_1_1gfxcore_1_1_draw_batch" ],
-    [ "CVertexArray", "classzen_1_1gfxcore_1_1_c_vertex_array.html", "classzen_1_1gfxcore_1_1_c_vertex_array" ]
+    [ "CVertexArray", "classzen_1_1gfxcore_1_1_c_vertex_array.html", "classzen_1_1gfxcore_1_1_c_vertex_array" ],
+    [ "CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html", null ]
 ];

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">gfxcore::CShader</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">gfxcore::CShader</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CShader::CShader(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr) :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    CAsset(ptr), m_object(0), m_type(GL_VERTEX_SHADER)</div>
@@ -124,12 +124,12 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;CShader::~CShader()</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2" title="Destroys the OpenGL shader object.">Destroy</a>();</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">   18</a></span>&#160;<span class="keywordtype">bool</span> CShader::LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">   18</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file.">CShader::LoadFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(m_loaded) this-&gt;Destroy();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(m_loaded) this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2" title="Destroys the OpenGL shader object.">Destroy</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::ifstream file(filename);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::stringstream source;</div>
@@ -137,8 +137,8 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span>(!file)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_ERROR)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Shader&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Failed to open &#39;&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Shader&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Failed to open &#39;&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39;.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -157,19 +157,19 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    file.close();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;LoadFromRaw(source.str())) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">LoadFromRaw</a>(source.str())) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    this-&gt;SetFilename(filename);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    this-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename.">SetFilename</a>(filename);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> (m_loaded = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a253256315aba27fb7ce909a3c025a22f">   54</a></span>&#160;<span class="keywordtype">bool</span> CShader::LoadFromExisting(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopyShader)</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a253256315aba27fb7ce909a3c025a22f">   54</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a253256315aba27fb7ce909a3c025a22f">CShader::LoadFromExisting</a>(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopyShader)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// The given parameter must must must be a CShader* instance</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// in actuality. There is no way to test for this.</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">CShader</a>* <span class="keyword">const</span> pCopy =</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">CShader</a>* const<span class="keyword">&gt;</span>(pCopyShader);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a>* <span class="keyword">const</span> pCopy =</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a>* const<span class="keyword">&gt;</span>(pCopyShader);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    ZEN_ASSERT(pCopyShader != <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ZEN_ASSERT(pCopy != <span class="keyword">nullptr</span>);</div>
@@ -182,7 +182,7 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> CAsset::LoadFromExisting(pCopyShader);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">   73</a></span>&#160;<span class="keywordtype">bool</span> CShader::LoadFromRaw(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; <span class="keywordtype">string</span>)</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">   73</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">CShader::LoadFromRaw</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; <span class="keywordtype">string</span>)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ZEN_ASSERT(!<span class="keywordtype">string</span>.empty());</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
@@ -207,18 +207,18 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">// Delete old logs</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    m_error_str = m_shader_log = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(length &gt; 0)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(length &gt; 1)</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">char</span>* buffer = <span class="keyword">new</span> <span class="keywordtype">char</span>[length];</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        GL(glGetShaderInfoLog(shader, length, &amp;length, buffer));</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        m_shader_log = buffer;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">delete</span>[] buffer;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        buffer = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_Log &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG) &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Shader&quot;</span>)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_Log &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG) &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Shader&quot;</span>)</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;Shader compilation log: &quot;</span> &lt;&lt; m_shader_log &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
@@ -230,21 +230,21 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        GL(glDeleteShader(shader));</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        m_error_str = m_shader_log;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_ERROR)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Shader&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Failed to compile shader: &quot;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Shader&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Failed to compile shader: &quot;</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                &lt;&lt; m_error_str &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">return</span> (m_loaded = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    m_object = shader;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    this-&gt;SetFilename(<span class="stringliteral">&quot;Raw shader string&quot;</span>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    this-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename.">SetFilename</a>(<span class="stringliteral">&quot;Raw shader string&quot;</span>);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    m_error_str.clear();</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> (m_loaded = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2">  135</a></span>&#160;<span class="keywordtype">bool</span> CShader::Destroy()</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2">  135</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2" title="Destroys the OpenGL shader object.">CShader::Destroy</a>()</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">if</span>(m_object &gt; 0)</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    {</div>
@@ -257,18 +257,18 @@ $(document).ready(function(){initNavTree('_shader_8cpp_source.html','');});
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">return</span> !(m_loaded = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;}</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89">  148</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> CShader::GetData()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89">  148</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89" title="Returns the OpenGL shader handle (cast it to GLuint to use).">CShader::GetData</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">void</span>* const<span class="keyword">&gt;</span>(m_object);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#af936c6fbb74be5f169ce3813752eeac9">  153</a></span>&#160;GLuint CShader::GetShaderObject()</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b">  153</a></span>&#160;GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b" title="Returns the raw OpenGL shader handle.">CShader::GetShaderObject</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> m_object;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#af573f0d43cb279c78640edbeca50f387">  158</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; CShader::GetShaderLog()</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf">  158</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf" title="Returns the shader log.">CShader::GetShaderLog</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">return</span> m_shader_log;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->

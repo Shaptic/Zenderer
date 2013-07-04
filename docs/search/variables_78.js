@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../structzen_1_1math_1_1vectorf__t.html#a0cc07d7842b67058c4ad54dbe10fca48',1,'zen::math::vectorf_t']]]
+  ['x',['x',['../structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7',1,'zen::math::Vector']]]
 ];

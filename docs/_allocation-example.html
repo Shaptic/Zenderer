@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -104,33 +104,29 @@ $(document).ready(function(){initNavTree('_allocation-example.html','');});
 <div class="title">Allocation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Dynamic Memory Allocation</p>
-<div class="fragment"><div class="line"><span class="comment">// Allocate char[4]</span></div>
-<div class="line"><span class="keywordtype">char</span>* data0 = g_Alloc.get&lt;<span class="keywordtype">char</span>&gt;(4);</div>
-<div class="line"><span class="keywordtype">char</span>* data1 = g_Alloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * 4);</div>
+<h1><a class="anchor" id="Dynamic"></a>
+Memory Allocation</h1>
+<h2><a class="anchor" id="Warning"></a>
+Warning</h2>
+<p>This example is deprecated and <code>CAllocator</code> is not used in <em>Zenderer</em>.</p>
+<div class="fragment"><div class="line"> <span class="comment">// Allocate char[4]</span></div>
+<div class="line"> <span class="keywordtype">char</span>* data0 = g_Alloc.get&lt;<span class="keywordtype">char</span>&gt;(4);</div>
+<div class="line"> <span class="keywordtype">char</span>* data1 = g_Alloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * 4);</div>
 <div class="line"></div>
-<div class="line"><span class="comment">// Allocate int</span></div>
-<div class="line"><span class="keywordtype">int</span>* data2 = g_Alloc();             <span class="comment">// assuming sizeof(int) == 4</span></div>
-<div class="line"><span class="keywordtype">int</span>* data3 = g_Alloc(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line"><span class="keywordtype">int</span>* data4 = g_Alloc.get&lt;<span class="keywordtype">int</span>&gt;(1);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">// Implicit with global overloading operator new</span></div>
-<div class="line">gfx::CLight* DynamicLight   = <span class="keyword">new</span> gfx::CLight;</div>
-<div class="line">gfx::CLight* DynamicLights  = <span class="keyword">new</span> gfx::CLight[5];</div>
-<div class="line"></div>
-<div class="line"><span class="comment">// Equivalent to</span></div>
-<div class="line">gfx::CLight* DynamicLight = g_Alloc.get&lt;gfx::CLight&gt;(1);    <span class="comment">// and</span></div>
-<div class="line">gfx::CLight* DynamicLight2 = g_Alloc.get&lt;gfx::CLight&gt;(5);</div>
+<div class="line"> <span class="comment">// Allocate int</span></div>
+<div class="line"> <span class="keywordtype">int</span>* data2 = g_Alloc();             <span class="comment">// assuming sizeof(int) == 4</span></div>
+<div class="line"> <span class="keywordtype">int</span>* data3 = g_Alloc(<span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
+<div class="line"> <span class="keywordtype">int</span>* data4 = g_Alloc.get&lt;<span class="keywordtype">int</span>&gt;(1);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Manually freeing the memory</span></div>
-<div class="line">g_Alloc.Free(data0);</div>
+<div class="line"> g_Alloc.Free(data0);</div>
 <div class="line"></div>
-<div class="line"><span class="comment">// Double-deletion is safe, but will log an error</span></div>
-<div class="line">g_Alloc.Free(data0);</div>
+<div class="line"> <span class="comment">// Double-deletion is safe, but will log an error</span></div>
+<div class="line"> g_Alloc.Free(data0);</div>
 <div class="line"></div>
-<div class="line"><span class="comment">// Have to call destructor manually.</span></div>
-<div class="line">DynamicLight-&gt;~CLight();</div>
-<div class="line">g_Alloc.Free(DynamicLight);</div>
+<div class="line"> <span class="comment">// Have to call destructor manually.</span></div>
+<div class="line"> DynamicLight-&gt;~CLight();</div>
+<div class="line"> g_Alloc.Free(DynamicLight);</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

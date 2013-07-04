@@ -12,7 +12,7 @@ var dir_83649a668cc514157bc5eeec4c9e3f09 =
       [ "COption", "classzen_1_1util_1_1_c_option.html", "classzen_1_1util_1_1_c_option" ],
       [ "CSettings", "classzen_1_1util_1_1_c_settings.html", "classzen_1_1util_1_1_c_settings" ]
     ] ],
-    [ "Timer.hpp", "_timer_8hpp_source.html", null ],
+    [ "Timer.hpp", "_timer_8hpp.html", "_timer_8hpp" ],
     [ "Utilities.hpp", "_utilities_8hpp.html", null ],
     [ "XMLParser.hpp", "_x_m_l_parser_8hpp.html", "_x_m_l_parser_8hpp" ]
 ];

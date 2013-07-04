@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,6 +124,8 @@ $(document).ready(function(){initNavTree('classzen_1_1math_1_1matrix4x4__t.html'
 Collaboration diagram for zen::math::matrix4x4_t:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t__coll__graph.png" border="0" usemap="#zen_1_1math_1_1matrix4x4__t_coll__map" alt="Collaboration graph"/></div>
+<map name="zen_1_1math_1_1matrix4x4__t_coll__map" id="zen_1_1math_1_1matrix4x4__t_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -144,8 +146,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3bce830d3b63cc3f759960f1495e1dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the matrix's elements at that row.  <a href="#a3bce830d3b63cc3f759960f1495e1dc6">More...</a><br/></td></tr>
 <tr class="separator:a3bce830d3b63cc3f759960f1495e1dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb99ea477f2389ad5244bcf826a7443a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb99ea477f2389ad5244bcf826a7443a"></a>
-<a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;Other) const </td></tr>
+<a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a">operator*</a> (<a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;Other) const </td></tr>
+<tr class="memdesc:adb99ea477f2389ad5244bcf826a7443a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiple two matrices together. <br/></td></tr>
 <tr class="separator:adb99ea477f2389ad5244bcf826a7443a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a41a4a908e13a44872da95b3421fdf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08a41a4a908e13a44872da95b3421fdf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf">Translate</a> (const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;V)</td></tr>
+<tr class="memdesc:a08a41a4a908e13a44872da95b3421fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the matrix by a vector. <br/></td></tr>
+<tr class="separator:a08a41a4a908e13a44872da95b3421fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8490c81757977f33c6e4482e8b6a70e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8490c81757977f33c6e4482e8b6a70e2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2">TranslateAdj</a> (const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;DV)</td></tr>
+<tr class="memdesc:a8490c81757977f33c6e4482e8b6a70e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the translation matrix by a vector. <br/></td></tr>
+<tr class="separator:a8490c81757977f33c6e4482e8b6a70e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082d67aac74477832c4c9165c2a62b3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a082d67aac74477832c4c9165c2a62b3d"></a>
 const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetPointer</b> () const </td></tr>
 <tr class="separator:a082d67aac74477832c4c9165c2a62b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -249,7 +260,7 @@ static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The requested projection matrix. </dd></dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00079">79</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00096">96</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>

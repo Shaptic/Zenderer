@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,22 +124,25 @@ $(document).ready(function(){initNavTree('classzen_1_1util_1_1_c_timer.html','')
 Collaboration diagram for zen::util::CTimer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1util_1_1_c_timer__coll__graph.png" border="0" usemap="#zen_1_1util_1_1_c_timer_coll__map" alt="Collaboration graph"/></div>
+<map name="zen_1_1util_1_1_c_timer_coll__map" id="zen_1_1util_1_1_c_timer_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a135575dfdb8476cb222876143f813f89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a135575dfdb8476cb222876143f813f89"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a135575dfdb8476cb222876143f813f89">clock_t</a> = std::chrono::high_resolution_clock</td></tr>
-<tr class="memdesc:a135575dfdb8476cb222876143f813f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for the type of clock we are using. <br/></td></tr>
-<tr class="separator:a135575dfdb8476cb222876143f813f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8614cbb98e862e9d54b73c1c0775cbc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8614cbb98e862e9d54b73c1c0775cbc0"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a8614cbb98e862e9d54b73c1c0775cbc0">timepoint_t</a> = clock_t::time_point</td></tr>
-<tr class="memdesc:a8614cbb98e862e9d54b73c1c0775cbc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for time point structure. <br/></td></tr>
-<tr class="separator:a8614cbb98e862e9d54b73c1c0775cbc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaef132989e4b329924aedeb840ec275e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaef132989e4b329924aedeb840ec275e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#aaef132989e4b329924aedeb840ec275e">precision_t</a> = std::chrono::milliseconds</td></tr>
-<tr class="memdesc:aaef132989e4b329924aedeb840ec275e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for the precision we want. <br/></td></tr>
-<tr class="separator:aaef132989e4b329924aedeb840ec275e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd485409b526a749c891de0f8892c726"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd485409b526a749c891de0f8892c726"></a>
+typedef <br class="typebreak"/>
+std::chrono::high_resolution_clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#acd485409b526a749c891de0f8892c726">clock_t</a></td></tr>
+<tr class="memdesc:acd485409b526a749c891de0f8892c726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for the type of clock we are using. <br/></td></tr>
+<tr class="separator:acd485409b526a749c891de0f8892c726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1086782663f0546069ea00ccaf574f82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1086782663f0546069ea00ccaf574f82"></a>
+typedef clock_t::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a1086782663f0546069ea00ccaf574f82">timepoint_t</a></td></tr>
+<tr class="memdesc:a1086782663f0546069ea00ccaf574f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for time point structure. <br/></td></tr>
+<tr class="separator:a1086782663f0546069ea00ccaf574f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a076b03defe2c3d8a1aa446bdba623d66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a076b03defe2c3d8a1aa446bdba623d66"></a>
+typedef std::chrono::milliseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66">precision_t</a></td></tr>
+<tr class="memdesc:a076b03defe2c3d8a1aa446bdba623d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for the precision we want (do not change if using delays). <br/></td></tr>
+<tr class="separator:a076b03defe2c3d8a1aa446bdba623d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -147,46 +150,40 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b">CTimer</a> (const uint16_t frames=60)</td></tr>
 <tr class="memdesc:a78be4602778472362818d4ecfde4449b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a timer with a custom frame rate. <br/></td></tr>
 <tr class="separator:a78be4602778472362818d4ecfde4449b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a420882d1e737fac3795122caff5c7c2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a420882d1e737fac3795122caff5c7c2a"></a>
-virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a420882d1e737fac3795122caff5c7c2a">Start</a> ()</td></tr>
-<tr class="memdesc:a420882d1e737fac3795122caff5c7c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks start time and returns it. <br/></td></tr>
-<tr class="separator:a420882d1e737fac3795122caff5c7c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7f9ce94d7a8433c3bf6d8abf5898d38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7f9ce94d7a8433c3bf6d8abf5898d38"></a>
-virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#ac7f9ce94d7a8433c3bf6d8abf5898d38">Finish</a> ()</td></tr>
-<tr class="memdesc:ac7f9ce94d7a8433c3bf6d8abf5898d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks finish time and returns it. <br/></td></tr>
-<tr class="separator:ac7f9ce94d7a8433c3bf6d8abf5898d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec940c7b0c86586c82b48deaf8473336"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec940c7b0c86586c82b48deaf8473336"></a>
-virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#aec940c7b0c86586c82b48deaf8473336">Elapsed</a> ()</td></tr>
-<tr class="memdesc:aec940c7b0c86586c82b48deaf8473336"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns finish time - start time. <br/></td></tr>
-<tr class="separator:aec940c7b0c86586c82b48deaf8473336"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f8bc425e8a236a5956c24e693756b6"><td class="memTemplParams" colspan="2"><a class="anchor" id="a76f8bc425e8a236a5956c24e693756b6"></a>
-template&lt;typename T  = precision_t&gt; </td></tr>
-<tr class="memitem:a76f8bc425e8a236a5956c24e693756b6"><td class="memTemplItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a76f8bc425e8a236a5956c24e693756b6">Sleep</a> (const time_t ticks)</td></tr>
-<tr class="memdesc:a76f8bc425e8a236a5956c24e693756b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeps the current thread (defaults to milliseconds). <br/></td></tr>
-<tr class="separator:a76f8bc425e8a236a5956c24e693756b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83aee811294cd7b670b5edf36f931aa3"><td class="memItemLeft" align="right" valign="top">virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a83aee811294cd7b670b5edf36f931aa3">Delay</a> ()</td></tr>
-<tr class="memdesc:a83aee811294cd7b670b5edf36f931aa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays the current thread appropriately to maintain frame-rate.  <a href="#a83aee811294cd7b670b5edf36f931aa3">More...</a><br/></td></tr>
-<tr class="separator:a83aee811294cd7b670b5edf36f931aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dfd0b27da7d5331c542c21901d1c277"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dfd0b27da7d5331c542c21901d1c277"></a>
-virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a7dfd0b27da7d5331c542c21901d1c277">GetTime</a> () const </td></tr>
-<tr class="memdesc:a7dfd0b27da7d5331c542c21901d1c277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current clock time. <br/></td></tr>
-<tr class="separator:a7dfd0b27da7d5331c542c21901d1c277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7ec276af3862a205dac144d964720ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7ec276af3862a205dac144d964720ae"></a>
+virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae">Start</a> ()</td></tr>
+<tr class="memdesc:aa7ec276af3862a205dac144d964720ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks start time and returns it. <br/></td></tr>
+<tr class="separator:aa7ec276af3862a205dac144d964720ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a447ec747ffd9f0f9f5b882d765e0c0bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a447ec747ffd9f0f9f5b882d765e0c0bd"></a>
+virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd">Finish</a> ()</td></tr>
+<tr class="memdesc:a447ec747ffd9f0f9f5b882d765e0c0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks finish time and returns it. <br/></td></tr>
+<tr class="separator:a447ec747ffd9f0f9f5b882d765e0c0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345aba9628d5327f118830cff5952001"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a345aba9628d5327f118830cff5952001"></a>
+virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001">Elapsed</a> ()</td></tr>
+<tr class="memdesc:a345aba9628d5327f118830cff5952001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns finish time - start time. <br/></td></tr>
+<tr class="separator:a345aba9628d5327f118830cff5952001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c2e04ea1b00c02788f693267a3e46f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c2e04ea1b00c02788f693267a3e46f6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6">Sleep</a> (const time_t ticks)</td></tr>
+<tr class="memdesc:a1c2e04ea1b00c02788f693267a3e46f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeps the current thread (defaults to milliseconds). <br/></td></tr>
+<tr class="separator:a1c2e04ea1b00c02788f693267a3e46f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c09eaf22a2d5738fd31620a9eecd455"><td class="memItemLeft" align="right" valign="top">virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455">Delay</a> ()</td></tr>
+<tr class="memdesc:a1c09eaf22a2d5738fd31620a9eecd455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays the current thread appropriately to maintain frame-rate.  <a href="#a1c09eaf22a2d5738fd31620a9eecd455">More...</a><br/></td></tr>
+<tr class="separator:a1c09eaf22a2d5738fd31620a9eecd455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b9f93a8630235c6b6b476289dad35c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85b9f93a8630235c6b6b476289dad35c"></a>
+virtual time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c">GetTime</a> () const </td></tr>
+<tr class="memdesc:a85b9f93a8630235c6b6b476289dad35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current clock time. <br/></td></tr>
+<tr class="separator:a85b9f93a8630235c6b6b476289dad35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8db939f6b0856914f6ddc9555fe7c88b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8db939f6b0856914f6ddc9555fe7c88b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b">SetFrameRate</a> (const uint16_t fps)</td></tr>
 <tr class="memdesc:a8db939f6b0856914f6ddc9555fe7c88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a custom frame-rate, overriding the constructor. <br/></td></tr>
 <tr class="separator:a8db939f6b0856914f6ddc9555fe7c88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9940bde0c97c3a212a6c05f0a7311d26"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9940bde0c97c3a212a6c05f0a7311d26"></a>
-template&lt;typename T  = precision_t&gt; </td></tr>
-<tr class="memitem:a9940bde0c97c3a212a6c05f0a7311d26"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html#a9940bde0c97c3a212a6c05f0a7311d26">Sleep</a> (const time_t ticks)</td></tr>
-<tr class="memdesc:a9940bde0c97c3a212a6c05f0a7311d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeps the current thread (defaults to milliseconds). <br/></td></tr>
-<tr class="separator:a9940bde0c97c3a212a6c05f0a7311d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides fairly generic timing functionality, with the ability to start, stop, measure, and delay for various periods of time. Most methods are virtual, allowing for a user to inherit and implement their own custom timer, but still be able to pass it around to various parts of the engine when necessary. </p>
 
-<p>Definition at line <a class="el" href="_timer_8hpp_source.html#l00024">24</a> of file <a class="el" href="_timer_8hpp_source.html">Timer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_timer_8hpp_source.html#l00050">50</a> of file <a class="el" href="_timer_8hpp_source.html">Timer.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a83aee811294cd7b670b5edf36f931aa3"></a>
+<a class="anchor" id="a1c09eaf22a2d5738fd31620a9eecd455"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -194,7 +191,7 @@ template&lt;typename T  = precision_t&gt; </td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">time_t CTimer::Delay </td>
+          <td class="memname">util::time_t CTimer::Delay </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -206,13 +203,16 @@ template&lt;typename T  = precision_t&gt; </td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>It is not necessary to call <a class="el" href="classzen_1_1util_1_1_c_timer.html#ac7f9ce94d7a8433c3bf6d8abf5898d38" title="Marks finish time and returns it.">Finish()</a> prior to this method, as it will automatically use the immediate <code>timepoint</code> that it was called at.</p>
+<p>It is not necessary to call <a class="el" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd" title="Marks finish time and returns it.">Finish()</a> prior to this method, as it will automatically use the immediate <code>timepoint</code> that it was called at.</p>
 <p>A solid game loop that utilizes the timer to regulate frame-rate would function something like this:</p>
-<div class="fragment"><div class="line"><span class="keywordflow">while</span>(!m_quit)</div>
+<div class="fragment"><div class="line"><span class="comment">// Cap at 24 frames per second.</span></div>
+<div class="line"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b" title="Constructs a timer with a custom frame rate.">CTimer</a> m_Timer(24);</div>
+<div class="line"></div>
+<div class="line"><span class="keywordflow">while</span>(m_Window.IsOpen())</div>
 <div class="line">{</div>
 <div class="line">    m_Timer.Start();</div>
 <div class="line">    <span class="comment">// ...</span></div>
-<div class="line">    <span class="comment">// Handle events, game logic, renderering.</span></div>
+<div class="line">    <span class="comment">// Handle events, game logic, rendering.</span></div>
 <div class="line">    <span class="comment">// ...</span></div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Final update to draw everything.</span></div>
@@ -223,7 +223,7 @@ template&lt;typename T  = precision_t&gt; </td></tr>
 <div class="line">}</div>
 </div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>The amount of milliseconds the thread slept (if any). </dd></dl>
 
-<p>Definition at line <a class="el" href="_timer_8cpp_source.html#l00036">36</a> of file <a class="el" href="_timer_8cpp_source.html">Timer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_timer_8cpp_source.html#l00039">39</a> of file <a class="el" href="_timer_8cpp_source.html">Timer.cpp</a>.</p>
 
 </div>
 </div>

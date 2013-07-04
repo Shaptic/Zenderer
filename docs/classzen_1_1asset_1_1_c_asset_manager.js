@@ -9,7 +9,7 @@ var classzen_1_1asset_1_1_c_asset_manager =
     [ "Recreate", "classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c", null ],
     [ "Delete", "classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37", null ],
     [ "Delete", "classzen_1_1asset_1_1_c_asset_manager.html#a696bdaf73242789c073ce64ad6589dec", null ],
-    [ "Find", "group___assets.html#ga297ea5291960e1b9444433e460218a54", null ],
+    [ "Find", "classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54", null ],
     [ "Find", "classzen_1_1asset_1_1_c_asset_manager.html#ad3cd3dc070c009c2c93bf4afda94d137", null ],
     [ "GetAssetCount", "classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564", null ],
     [ "GetGlobalAssetCount", "classzen_1_1asset_1_1_c_asset_manager.html#a74f6639a66860d3e93695ceb2a3aea07", null ],

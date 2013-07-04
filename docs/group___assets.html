@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -101,92 +101,22 @@ $(document).ready(function(){initNavTree('group___assets.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">Assets</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A subsystem for creating, re-using, finding, and removing managed assets in an optimized way, keeping creation to a minimum.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacezen"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen.html">zen</a></td></tr>
 <tr class="memdesc:namespacezen"><td class="mdescLeft">&#160;</td><td class="mdescRight">An all-encompassing namespace for any and all components of <em>Zenderer</em>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga297ea5291960e1b9444433e460218a54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ga297ea5291960e1b9444433e460218a54">zen::asset::CAssetManager::Find</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename, const void *const owner=nullptr) const </td></tr>
-<tr class="memdesc:ga297ea5291960e1b9444433e460218a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an asset by filename, if it exists.  <a href="#ga297ea5291960e1b9444433e460218a54">More...</a><br/></td></tr>
-<tr class="separator:ga297ea5291960e1b9444433e460218a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga297ea5291960e1b9444433e460218a54"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> * CAssetManager::Find </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *const&#160;</td>
-          <td class="paramname"><em>owner</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Technical details ahead: <br/>
-</p>
-<h1><a class="anchor" id="search"></a>
-Search</h1>
-<h2><a class="anchor" id="perf"></a>
-Performance Comparison</h2>
-<p>Finding assets may occur during runtime and must thus be optimized for speed as much as possible. During a thorough test of STL containers and their varied methods of access, I've come to the conclusion that hand-rolled iterator loops outperforms everything else.</p>
-<p>In a test of 100,000,000 (100 million) iterations over an <code>std::vector&lt;char&gt;</code>, benchmarks indicated the following:</p>
-<div class="fragment"><div class="line"><span class="comment">// Two vectors to prevent any issues with caching.</span></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">size_t</span> BIGNUM = 100000000;</div>
-<div class="line">std::vector&lt;char&gt; A, B;</div>
-<div class="line"></div>
-<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; BIGNUM; ++i)</div>
-<div class="line">{</div>
-<div class="line">  A.push_back(i);</div>
-<div class="line">  B.push_back(i);</div>
-<div class="line">}</div>
-</div><!-- fragment --><table class="doxtable">
-<tr>
-<th align="left">Code </th><th align="center">Access Type </th><th align="center">Speed</th></tr>
-<tr>
-<td align="left"><pre>for(size_t i = 0; i &lt; BIGNUM; ++i) ++A[i];</pre> </td><td align="center"><code>operator[]</code> </td><td align="center">191ms </td></tr>
-<tr>
-<td align="left"><pre>for(auto&amp; i : B)  ++i</pre> </td><td align="center">Range-Based <code>for()</code> loop </td><td align="center">139ms </td></tr>
-<tr>
-<td align="left"><pre>auto i = A.begin(), j = A.end();<br/>
-for( ; i != j; ++i) ++(*i)</pre> </td><td align="center">Optimized <code>iterator</code> </td><td align="center">107ms </td></tr>
-<tr>
-<td align="left"><pre>for(auto i = B.begin(); i != B.end(); ++i) ++(*i)</pre> </td><td align="center">Standard <code>iterator</code> </td><td align="center">112ms </td></tr>
-<tr>
-<td align="left"><pre>for(size_t i = 0; i &lt; BIGNUM; ++i) ++A.at(i) </pre> </td><td align="center"><code>std::vector&lt;T&gt;::at()</code> </td><td align="center">309ms </td></tr>
-<tr>
-<td align="left"><pre>for(auto i = B.begin(); i != B.end(); i++) ++(*i); </pre> </td><td align="center"><code>iterator++</code> </td><td align="center">416ms </td></tr>
-<tr>
-<td align="left"><pre>char* end = &amp;A[A.size() - 1];<br/>
-for(char* i = &amp;A[0]; i != end; i += sizeof(char)) ++(*c); </pre> </td><td align="center">Pointer arithmetic </td><td align="center">108ms </td></tr>
-</table>
-
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00098">98</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

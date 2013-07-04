@@ -45,7 +45,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
@@ -64,9 +64,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-".html",
-"classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa",
-"classzen_1_1util_1_1_c_settings.html"
+"_allocation-example.html",
+"classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37",
+"classzen_1_1sfx_1_1_c_audio2_d.html#a68df63abf75665546540e375a59b594a",
+"structzen_1_1color4f__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

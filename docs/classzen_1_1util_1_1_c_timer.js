@@ -1,16 +1,15 @@
 var classzen_1_1util_1_1_c_timer =
 [
-    [ "clock_t", "classzen_1_1util_1_1_c_timer.html#a135575dfdb8476cb222876143f813f89", null ],
-    [ "timepoint_t", "classzen_1_1util_1_1_c_timer.html#a8614cbb98e862e9d54b73c1c0775cbc0", null ],
-    [ "precision_t", "classzen_1_1util_1_1_c_timer.html#aaef132989e4b329924aedeb840ec275e", null ],
+    [ "clock_t", "classzen_1_1util_1_1_c_timer.html#acd485409b526a749c891de0f8892c726", null ],
+    [ "timepoint_t", "classzen_1_1util_1_1_c_timer.html#a1086782663f0546069ea00ccaf574f82", null ],
+    [ "precision_t", "classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66", null ],
     [ "CTimer", "classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b", null ],
     [ "~CTimer", "classzen_1_1util_1_1_c_timer.html#afd3f6595928cd20f7faaece75f017733", null ],
-    [ "Start", "classzen_1_1util_1_1_c_timer.html#a420882d1e737fac3795122caff5c7c2a", null ],
-    [ "Finish", "classzen_1_1util_1_1_c_timer.html#ac7f9ce94d7a8433c3bf6d8abf5898d38", null ],
-    [ "Elapsed", "classzen_1_1util_1_1_c_timer.html#aec940c7b0c86586c82b48deaf8473336", null ],
-    [ "Sleep", "classzen_1_1util_1_1_c_timer.html#a76f8bc425e8a236a5956c24e693756b6", null ],
-    [ "Delay", "classzen_1_1util_1_1_c_timer.html#a83aee811294cd7b670b5edf36f931aa3", null ],
-    [ "GetTime", "classzen_1_1util_1_1_c_timer.html#a7dfd0b27da7d5331c542c21901d1c277", null ],
-    [ "SetFrameRate", "classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b", null ],
-    [ "Sleep", "classzen_1_1util_1_1_c_timer.html#a9940bde0c97c3a212a6c05f0a7311d26", null ]
+    [ "Start", "classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae", null ],
+    [ "Finish", "classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd", null ],
+    [ "Elapsed", "classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001", null ],
+    [ "Sleep", "classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6", null ],
+    [ "Delay", "classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455", null ],
+    [ "GetTime", "classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c", null ],
+    [ "SetFrameRate", "classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b", null ]
 ];

@@ -1,7 +1,8 @@
 <map id="zen::util::CLog::Destroy" name="zen::util::CLog::Destroy">
 <area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy()." alt="" coords="213,5,365,32"/>
 <area shape="rect" id="node3" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="255,56,323,83"/>
-<area shape="rect" id="node6" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="252,107,327,133"/>
+<area shape="rect" id="node7" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="252,107,327,133"/>
 <area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992" title="Modifies the effect based on a certain parameter." alt="" coords="414,49,541,90"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a390ab5cbbda04d584e29ffd3b853e347" title="Draws the primitive on&#45;screen." alt="" coords="589,49,752,90"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="589,27,760,53"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="593,78,756,119"/>
 </map>

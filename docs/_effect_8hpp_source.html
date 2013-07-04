@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,62 +124,64 @@ $(document).ready(function(){initNavTree('_effect_8hpp_source.html','');});
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">enum class</span> EffectType : int16_t</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        NO_EFFECT = -1,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        GAUSSIAN_BLUR_H,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        GAUSSIAN_BLUR_V,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        GRAYSCALE,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        FADE,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        RIPPLE,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        ZEN_EFFECT_COUNT</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html">   52</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup.">gfxcore::CGLSubsystem</a></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>(<span class="keyword">const</span> EffectType Type, <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a>* pAssets = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; name,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                          <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;float&#39; (32-bit) values for real_t numbe...">real_t</a>* pValues,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; name,</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">int</span>* pValues,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; name,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                          <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>&amp; Matrix);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Enable();   </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Disable();  </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">inline</span> GLuint GetObjectHandle() { <span class="keywordflow">return</span> m_Shader.GetShaderObject(); }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; GetError() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> SetType(<span class="keyword">const</span> EffectType Type);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Bind();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Unbind();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> s_DefaultManager;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp; m_Log;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html">gfxcore::CShaderSet</a> m_Shader;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        EffectType m_type;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    };</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">    #include &quot;Effect.inl&quot;</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif  // ZENDERER__GRAPHICS__EFFECT_HPP</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f">   41</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> : int16_t</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105" title="No effect, default shaders.">NO_EFFECT</a> = -1,     </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa7518076b27aab061abff00b64bfb0713" title="A horizontal Gaussian blur effect.">GAUSSIAN_BLUR_H</a>,    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fad3f0662c50be08466f7511628d75827c" title="A vertical Gaussian blur effect.">GAUSSIAN_BLUR_V</a>,    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fabfc52a030be6cc5e47fe83a81e3175a0" title="Makes the target grayscale.">GRAYSCALE</a>,          </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa2445ee3d2e9877a973fe794a6b76c346" title="Fades the target in/out.">FADE</a>,               </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa3b68550e169b363f0d4937bba677d76d" title="Creates a centered ripple effect.">RIPPLE</a>,             </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa5637e9a02efb8d80d36a36cb388f3546" title="Total amount of effects.">ZEN_EFFECT_COUNT</a>    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html">   53</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup.">gfxcore::CGLSubsystem</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> Type, <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a>* pAssets = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; name,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                          <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a>* pValues,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; name,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">int</span>* pValues,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; name,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                          <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>&amp; Matrix);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Enable() <span class="keyword">const</span>;     </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Disable() <span class="keyword">const</span>;    </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">inline</span> GLuint GetObjectHandle() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; GetError() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> SetType(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> Type);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> CMaterial;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Bind() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> Unbind() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> s_DefaultManager;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp; m_Log;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program).">gfxcore::CShaderSet</a> m_Shader;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> m_type;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    };</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">    #include &quot;Effect.inl&quot;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif  // ZENDERER__GRAPHICS__EFFECT_HPP</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

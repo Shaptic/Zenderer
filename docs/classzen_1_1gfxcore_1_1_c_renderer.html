@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,103 +110,106 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_renderer.htm
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">zen::gfxcore::CRenderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstracts away API-specific rendering operations.  
+</p>
+
+<p><code>#include &quot;<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>&quot;</code></p>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::CRenderer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_renderer_coll__map" alt="Collaboration graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_renderer_coll__map" id="zen_1_1gfxcore_1_1_c_renderer_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,251,147,490"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="89,5,281,200"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 7 more...\l}" alt="" coords="171,259,349,483"/><area shape="rect" id="node5" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="374,259,532,483"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,769,147,1007"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="107,405,300,600"/><area shape="rect" id="node8" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="171,776,349,1000"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_texture.html" title="{zen::gfxcore::CTexture\n||+ ~CTexture()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ GetData()\l+ Bind()\l+ Unbind()\l+ GetWidth()\l+ GetHeight()\l}" alt="" coords="374,791,527,985"/><area shape="rect" id="node5" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset." alt="" coords="377,310,524,695"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="389,6,512,245"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="551,747,715,1029"/><area shape="rect" id="node9" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="739,761,897,1015"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ade9c4575e25503eda70f642b3a005c2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade9c4575e25503eda70f642b3a005c2a"></a>
+<tr class="memitem:a2b356e4ef3d3b41a279fed90a7fa6804"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b356e4ef3d3b41a279fed90a7fa6804"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>BlendOperation</b> (const BlendFunc &amp;Func)</td></tr>
+<tr class="separator:a2b356e4ef3d3b41a279fed90a7fa6804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab14ae2f572f0d2a405d8ebbee3e5bd52"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>EnableTexture</b> (const GLuint handle)</td></tr>
+<tr class="separator:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9f6b37fdd6d81a96308f4433f5d33dc"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMaterialState</b> ()</td></tr>
+<tr class="separator:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb3ee508010c41734d05713af4eeb461"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb3ee508010c41734d05713af4eeb461"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>DisableBlending</b> ()</td></tr>
+<tr class="separator:abb3ee508010c41734d05713af4eeb461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae184526b45d264101cc8e65186f8437e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae184526b45d264101cc8e65186f8437e"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>DisableTexture</b> ()</td></tr>
+<tr class="separator:ae184526b45d264101cc8e65186f8437e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b8cf1972ee128929caeb265e5a72ad1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b8cf1972ee128929caeb265e5a72ad1"></a>
+static <a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::material_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultMaterial</b> ()</td></tr>
+<tr class="separator:a0b8cf1972ee128929caeb265e5a72ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c30fb338b4e85403dbd749eb36f0843"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c30fb338b4e85403dbd749eb36f0843"></a>
 static <a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultEffect</b> ()</td></tr>
-<tr class="separator:ade9c4575e25503eda70f642b3a005c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cdb6603d782ce50ef0efd36b4456ac5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4cdb6603d782ce50ef0efd36b4456ac5"></a>
+<tr class="separator:a9c30fb338b4e85403dbd749eb36f0843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132f203b3ea6a332abd9e5ae14c730ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a132f203b3ea6a332abd9e5ae14c730ab"></a>
+static const <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultTexture</b> ()</td></tr>
+<tr class="separator:a132f203b3ea6a332abd9e5ae14c730ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f2b14f4475f2773c75e63438b9f328b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f2b14f4475f2773c75e63438b9f328b"></a>
 static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetProjectionMatrix</b> ()</td></tr>
-<tr class="separator:a4cdb6603d782ce50ef0efd36b4456ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6112ef3b24bf9813d6f386cb564c5076"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6112ef3b24bf9813d6f386cb564c5076"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMaterialState</b> ()</td></tr>
-<tr class="separator:a6112ef3b24bf9813d6f386cb564c5076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a8f2b14f4475f2773c75e63438b9f328b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a581ae9a207692ce6d466cbd06321a6c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a581ae9a207692ce6d466cbd06321a6c2"></a>
+static <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetFullscreenVBO</b> ()</td></tr>
+<tr class="separator:a581ae9a207692ce6d466cbd06321a6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6bffd9ebbf329dadca11a236fb7e5b50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6bffd9ebbf329dadca11a236fb7e5b50"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CRenderer</b> (const <a class="el" href="classzen_1_1util_1_1_c_settings.html">util::CSettings</a> &amp;Settings)</td></tr>
-<tr class="separator:a6bffd9ebbf329dadca11a236fb7e5b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af82a75033e4ffc706d8be1751025ad49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af82a75033e4ffc706d8be1751025ad49"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SaveRenderState</b> ()</td></tr>
-<tr class="separator:af82a75033e4ffc706d8be1751025ad49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30148f887225f753035f79c6cdd5777c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30148f887225f753035f79c6cdd5777c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PrepareRenderState</b> (const RenderState &amp;Type)</td></tr>
-<tr class="separator:a30148f887225f753035f79c6cdd5777c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6273474ad8cba9006004e70de3548540"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6273474ad8cba9006004e70de3548540"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetRenderState</b> ()</td></tr>
-<tr class="separator:a6273474ad8cba9006004e70de3548540"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5891e906cab1c0734e207a993efa4f38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5891e906cab1c0734e207a993efa4f38"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFinalTexture</b> (const void *pTexture)</td></tr>
-<tr class="separator:a5891e906cab1c0734e207a993efa4f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db330fab72eaa2fb1ffeec3908bc43e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2db330fab72eaa2fb1ffeec3908bc43e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateConfiguration</b> ()</td></tr>
-<tr class="separator:a2db330fab72eaa2fb1ffeec3908bc43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acda4bb709f608115d1a5e116980f3885"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acda4bb709f608115d1a5e116980f3885"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> (const int flag)</td></tr>
-<tr class="separator:acda4bb709f608115d1a5e116980f3885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afacba1f374943128ccc46e1369808609"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afacba1f374943128ccc46e1369808609"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> (const int flag)</td></tr>
-<tr class="separator:afacba1f374943128ccc46e1369808609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa881b7a1fe637a38c43c16627e85c5f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa881b7a1fe637a38c43c16627e85c5f8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PrepareAlphaRenderState</b> ()</td></tr>
-<tr class="separator:aa881b7a1fe637a38c43c16627e85c5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89b542954297f923351d78df4686267b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89b542954297f923351d78df4686267b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PreparePostFXRenderState</b> ()</td></tr>
-<tr class="separator:a89b542954297f923351d78df4686267b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0d157798efd3cfd76890ca80adc6a7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0d157798efd3cfd76890ca80adc6a7b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PrepareFBORenderState</b> ()</td></tr>
-<tr class="separator:af0d157798efd3cfd76890ca80adc6a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6670ee2daa9b8ffe44226b52872747d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6670ee2daa9b8ffe44226b52872747d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PrepareLightingRenderState</b> ()</td></tr>
-<tr class="separator:aa6670ee2daa9b8ffe44226b52872747d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:af977c83ac101bc6046428f26780247de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af977c83ac101bc6046428f26780247de"></a>
-<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_FullscreenQuad</b></td></tr>
-<tr class="separator:af977c83ac101bc6046428f26780247de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6f7544fd0eca8606abf5b6d0b7ca4e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6f7544fd0eca8606abf5b6d0b7ca4e0"></a>
-RenderState&#160;</td><td class="memItemRight" valign="bottom"><b>m_LastState</b></td></tr>
-<tr class="separator:aa6f7544fd0eca8606abf5b6d0b7ca4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a28934d82180c0f22e5475c655422f218"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28934d82180c0f22e5475c655422f218"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a28934d82180c0f22e5475c655422f218">Init</a> (const uint16_t w, const uint16_t h)</td></tr>
+<tr class="memdesc:a28934d82180c0f22e5475c655422f218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only to be called by <code><a class="el" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context.">gfx::CWindow</a></code> ONCE. <br/></td></tr>
+<tr class="separator:a28934d82180c0f22e5475c655422f218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a1a71cb2306d2dc5f5ad25cc6a0836096"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a71cb2306d2dc5f5ad25cc6a0836096"></a>
-static <a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultShader</b></td></tr>
-<tr class="separator:a1a71cb2306d2dc5f5ad25cc6a0836096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47cef31a4820a8e33a66801cf7905ad2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47cef31a4820a8e33a66801cf7905ad2"></a>
+static <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_FullscreenQuad</b></td></tr>
+<tr class="separator:a47cef31a4820a8e33a66801cf7905ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9d76926ab12a10060f466b9d04fc936"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9d76926ab12a10060f466b9d04fc936"></a>
+static <a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultMaterial</b></td></tr>
+<tr class="separator:ab9d76926ab12a10060f466b9d04fc936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa724f5f88f720ae97a3a1c65be4794d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa724f5f88f720ae97a3a1c65be4794d4"></a>
+static <a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultEffect</b></td></tr>
+<tr class="separator:aa724f5f88f720ae97a3a1c65be4794d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323db35936ddc3cf2e7e1d627576c9ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a323db35936ddc3cf2e7e1d627576c9ae"></a>
+static <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultTexture</b></td></tr>
+<tr class="separator:a323db35936ddc3cf2e7e1d627576c9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af99cbbd246356ae59ce471ac2ebedb51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af99cbbd246356ae59ce471ac2ebedb51"></a>
 static <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_ProjMatrix</b></td></tr>
 <tr class="separator:af99cbbd246356ae59ce471ac2ebedb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b53c6e2efd792d528771eb9fcb4184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43b53c6e2efd792d528771eb9fcb4184"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>s_blend</b></td></tr>
+<tr class="separator:a43b53c6e2efd792d528771eb9fcb4184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0b7dc24cd8f723b800fc6a9d875b70f"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#ae0b7dc24cd8f723b800fc6a9d875b70f">gfx::CScene</a></td></tr>
+<tr class="memdesc:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only the scenes can modify graphical API state. <br/></td></tr>
+<tr class="separator:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfff065a33d46a78a93a509fa3d752b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfff065a33d46a78a93a509fa3d752b7"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#abfff065a33d46a78a93a509fa3d752b7">gfx::CWindow</a></td></tr>
-<tr class="memdesc:abfff065a33d46a78a93a509fa3d752b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only the scenes can modify graphical API state. <br/></td></tr>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>gfx::CWindow</b></td></tr>
 <tr class="separator:abfff065a33d46a78a93a509fa3d752b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14380f792fa3dbf85331a316893a2786"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14380f792fa3dbf85331a316893a2786"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>gfx::CRenderTarget</b></td></tr>
+<tr class="separator:a14380f792fa3dbf85331a316893a2786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00047">47</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00054">54</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a></li>
+<li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_renderer_8inl_source.html">Renderer.inl</a></li>
 <li>Zenderer/src/CoreGraphics/<a class="el" href="_renderer_8cpp_source.html">Renderer.cpp</a></li>
 </ul>
 </div><!-- contents -->

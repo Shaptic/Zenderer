@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -114,6 +114,11 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_shader_set.h
 <div class="title">zen::gfxcore::CShaderSet Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A wrapper for a useable set of shaders (an OpenGL program).  
+</p>
+
+<p><code>#include &quot;<a class="el" href="_shader_set_8hpp_source.html">ShaderSet.hpp</a>&quot;</code></p>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::CShaderSet:</div>
 <div class="dyncontent">
@@ -148,40 +153,42 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ac18b1dc09d69ddcb700eba2f1c72f401"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401">CreateShaderObject</a> ()</td></tr>
 <tr class="memdesc:ac18b1dc09d69ddcb700eba2f1c72f401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links loaded shaders together into a useable program.  <a href="#ac18b1dc09d69ddcb700eba2f1c72f401">More...</a><br/></td></tr>
 <tr class="separator:ac18b1dc09d69ddcb700eba2f1c72f401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84230651feb9a4c8bb28f307845d9181"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84230651feb9a4c8bb28f307845d9181"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a84230651feb9a4c8bb28f307845d9181">Bind</a> ()</td></tr>
-<tr class="memdesc:a84230651feb9a4c8bb28f307845d9181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the shader program to the rendering context for use. <br/></td></tr>
-<tr class="separator:a84230651feb9a4c8bb28f307845d9181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9067d6bb31b957b8e17ec3e98a46bdd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9067d6bb31b957b8e17ec3e98a46bdd8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a9067d6bb31b957b8e17ec3e98a46bdd8">Unbind</a> ()</td></tr>
-<tr class="memdesc:a9067d6bb31b957b8e17ec3e98a46bdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any shader program from the rendering context. <br/></td></tr>
-<tr class="separator:a9067d6bb31b957b8e17ec3e98a46bdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84db9a8a0b89ccc416936e8753b55238"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84db9a8a0b89ccc416936e8753b55238"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a84db9a8a0b89ccc416936e8753b55238">Bind</a> () const </td></tr>
+<tr class="memdesc:a84db9a8a0b89ccc416936e8753b55238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the shader program to the rendering context for use. <br/></td></tr>
+<tr class="separator:a84db9a8a0b89ccc416936e8753b55238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef344e3ef9141d8460cfc0cfe5075112"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef344e3ef9141d8460cfc0cfe5075112"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#aef344e3ef9141d8460cfc0cfe5075112">Unbind</a> () const </td></tr>
+<tr class="memdesc:aef344e3ef9141d8460cfc0cfe5075112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any shader program from the rendering context. <br/></td></tr>
+<tr class="separator:aef344e3ef9141d8460cfc0cfe5075112"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b59d547f6c9080d58292fd532855f76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b59d547f6c9080d58292fd532855f76"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76">Destroy</a> ()</td></tr>
 <tr class="memdesc:a5b59d547f6c9080d58292fd532855f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the shader program. <br/></td></tr>
 <tr class="separator:a5b59d547f6c9080d58292fd532855f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f522b512733737174aa0aeb278a72a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f522b512733737174aa0aeb278a72a5"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8f522b512733737174aa0aeb278a72a5">GetShaderObject</a> ()</td></tr>
-<tr class="memdesc:a8f522b512733737174aa0aeb278a72a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-const because the returned handle can modify the state. <br/></td></tr>
-<tr class="separator:a8f522b512733737174aa0aeb278a72a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a839825794c47ce66f508c5c7d4fc835f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a839825794c47ce66f508c5c7d4fc835f"></a>
-short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a839825794c47ce66f508c5c7d4fc835f">GetUniformLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name)</td></tr>
-<tr class="memdesc:a839825794c47ce66f508c5c7d4fc835f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader uniform location in VRAM. <br/></td></tr>
-<tr class="separator:a839825794c47ce66f508c5c7d4fc835f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11018fa62d2b3f3ba764e9197530fa24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11018fa62d2b3f3ba764e9197530fa24"></a>
-short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a11018fa62d2b3f3ba764e9197530fa24">GetAttributeLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name)</td></tr>
-<tr class="memdesc:a11018fa62d2b3f3ba764e9197530fa24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader attribute location in VRAM. <br/></td></tr>
-<tr class="separator:a11018fa62d2b3f3ba764e9197530fa24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6072d2d3a77269ea40eeaa7d157cf8e8"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">GetShaderObject</a> () const </td></tr>
+<tr class="memdesc:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shader program handle. <br/></td></tr>
+<tr class="separator:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1640821acc07a4ce9f772a894e2c4ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1640821acc07a4ce9f772a894e2c4ae"></a>
+GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ae1640821acc07a4ce9f772a894e2c4ae">GetUniformLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name) const </td></tr>
+<tr class="memdesc:ae1640821acc07a4ce9f772a894e2c4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader uniform location in VRAM. <br/></td></tr>
+<tr class="separator:ae1640821acc07a4ce9f772a894e2c4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e62b3fd221feb916314d134885add00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e62b3fd221feb916314d134885add00"></a>
+GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00">GetAttributeLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name) const </td></tr>
+<tr class="memdesc:a8e62b3fd221feb916314d134885add00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader attribute location in VRAM. <br/></td></tr>
+<tr class="separator:a8e62b3fd221feb916314d134885add00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9dc6e638b6fbc08cb0c7d24ebdb2984"></a>
-const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetError</b> () const </td></tr>
+const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984">GetError</a> () const </td></tr>
+<tr class="memdesc:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns error string. <br/></td></tr>
 <tr class="separator:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b0612901e5ec33beabae368347b4d6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b0612901e5ec33beabae368347b4d6e"></a>
-const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetLinkerLog</b> () const </td></tr>
+const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e">GetLinkerLog</a> () const </td></tr>
+<tr class="memdesc:a2b0612901e5ec33beabae368347b4d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shader program link result. <br/></td></tr>
 <tr class="separator:a2b0612901e5ec33beabae368347b4d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_shader_set_8hpp_source.html#l00038">38</a> of file <a class="el" href="_shader_set_8hpp_source.html">ShaderSet.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_set_8hpp_source.html#l00039">39</a> of file <a class="el" href="_shader_set_8hpp_source.html">ShaderSet.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="acc6db9e44605d90b710f6262c367dc9f"></a>
 <div class="memitem">
@@ -207,7 +214,7 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
       </table>
 </div><div class="memdoc">
 <p>Unlike most of the other <code>Load*()</code> methods, this function <em>WILL</em> create a shader object, and thus a useable, bindable shader.</p>
-<p>You can check for a linker error through GetError() and a generic log through GetLinkerLog() in order to test for warnings or other messages.</p>
+<p>You can check for a linker error through <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> and a generic log through <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e" title="Returns shader program link result.">GetLinkerLog()</a> in order to test for warnings or other messages.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vs</td><td>Vertex shader filename </td></tr>
@@ -216,9 +223,9 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the shader program compiled and linked, <code>false</code> otherwise.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>GetError() </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> </dd>
 <dd>
-GetLinkerLog() </dd></dl>
+<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e" title="Returns shader program link result.">GetLinkerLog()</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00020">20</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
 
@@ -237,7 +244,7 @@ GetLinkerLog() </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This only loads a shader. The extension on the file is irrelevant, because the filename will be dynamically modified in order to fit the specification for dynamic shader type inferencing. See the docs for <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html">CShader</a> for that.</p>
+<p>This only loads a shader. The extension on the file is irrelevant, because the filename will be dynamically modified in order to fit the specification for dynamic shader type inferencing. See the docs for <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a> for that.</p>
 <p>This method doesn't create a shader program, so a call to the relevant method is required (<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -246,7 +253,7 @@ GetLinkerLog() </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the shader object loaded from the file, <code>false</code> otherwise.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>GetError() </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> </dd>
 <dd>
 <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a> </dd></dl>
 
@@ -267,7 +274,7 @@ GetLinkerLog() </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This only loads a shader. The extension on the file is irrelevant, because the filename will be dynamically modified in order to fit the specification for dynamic shader type inferencing. See the docs for <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html">CShader</a> for that.</p>
+<p>This only loads a shader. The extension on the file is irrelevant, because the filename will be dynamically modified in order to fit the specification for dynamic shader type inferencing. See the docs for <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a> for that.</p>
 <p>This method doesn't create a shader program, so a call to the relevant method is required (<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -276,7 +283,7 @@ GetLinkerLog() </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the shader object loaded from the file, <code>false</code> otherwise.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>GetError() </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> </dd>
 <dd>
 <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a> </dd></dl>
 
@@ -308,7 +315,7 @@ GetLinkerLog() </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Unlike most of the other <code>Load*()</code> methods, this function <em>WILL</em> create a shader object, and thus a useable, bindable shader.</p>
-<p>You can check for a linker error through GetError() and a generic log through GetLinkerLog() in order to test for warnings or other messages.</p>
+<p>You can check for a linker error through <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> and a generic log through <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e" title="Returns shader program link result.">GetLinkerLog()</a> in order to test for warnings or other messages.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vs</td><td>Vertex shader filename </td></tr>
@@ -317,9 +324,9 @@ GetLinkerLog() </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the shader program compiled and linked, <code>false</code> otherwise.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>GetError() </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> </dd>
 <dd>
-GetLinkerLog() </dd></dl>
+<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e" title="Returns shader program link result.">GetLinkerLog()</a> </dd></dl>
 
 </div>
 </div>
@@ -336,12 +343,12 @@ GetLinkerLog() </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This will take the loaded vertex and fragment shader objects and bring them together into an OpenGL shader program that can then be bound to a rendering context and used.</p>
-<p>You can check for a linker error through GetError() and a generic log through GetLinkerLog() in order to test for warnings or other messages.</p>
+<p>You can check for a linker error through <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> and a generic log through <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e" title="Returns shader program link result.">GetLinkerLog()</a> in order to test for warnings or other messages.</p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if it linked successfully, <code>false</code> otherwise.</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>A vertex and fragment shader was loaded successfully.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd>GetError() </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984" title="Returns error string.">GetError()</a> </dd>
 <dd>
-GetLinkerLog() </dd></dl>
+<a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e" title="Returns shader program link result.">GetLinkerLog()</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00071">71</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
 

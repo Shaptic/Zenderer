@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,15 +108,12 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_sorter.html'
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">zen::gfxcore::CSorter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A collection of sort methods to optimize rendering.  
+<p> 
  <a href="classzen_1_1gfxcore_1_1_c_sorter.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_sorter_8hpp_source.html">Sorter.hpp</a>&quot;</code></p>
@@ -124,55 +121,32 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_sorter.html'
 Collaboration diagram for zen::gfxcore::CSorter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_sorter__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_sorter_coll__map" alt="Collaboration graph"/></div>
+<map name="zen_1_1gfxcore_1_1_c_sorter_coll__map" id="zen_1_1gfxcore_1_1_c_sorter_coll__map">
+</map>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a867624a8cc8a05f1470a4504a08f1ee3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a867624a8cc8a05f1470a4504a08f1ee3"></a>
-static const CEntity *&#160;</td><td class="memItemRight" valign="bottom"><b>SortByMaterial</b> (const CEntity *pEnt1, const CEntity *pEnt2)</td></tr>
-<tr class="separator:a867624a8cc8a05f1470a4504a08f1ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6cb65e80284f42c9b590da69017375a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6cb65e80284f42c9b590da69017375a"></a>
-static const CEntity *&#160;</td><td class="memItemRight" valign="bottom"><b>SortByDepth</b> (const CEntity *pEnt1, const CEntity *pEnt2)</td></tr>
-<tr class="separator:ad6cb65e80284f42c9b590da69017375a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6de593ebc8f18b090bff99af3b704edb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6de593ebc8f18b090bff99af3b704edb"></a>
-static const CEntity *&#160;</td><td class="memItemRight" valign="bottom"><b>SortByAlpha</b> (const CEntity *pEnt1, const CEntity *pEnt2)</td></tr>
-<tr class="separator:a6de593ebc8f18b090bff99af3b704edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bd8801ad0c02c199da450e9ac74b606"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bd8801ad0c02c199da450e9ac74b606"></a>
-static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>CreateSortFlag</b> (const uint32_t material_id, const uint32_t depth_value, const uint32_t alpha_bit, const uint32_t unused=0)</td></tr>
-<tr class="separator:a3bd8801ad0c02c199da450e9ac74b606"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:af73b46ffeb7cfe886a9300c6e85de8dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af73b46ffeb7cfe886a9300c6e85de8dd"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MATERIAL_FLAG</b> = 0xFFF00000</td></tr>
-<tr class="separator:af73b46ffeb7cfe886a9300c6e85de8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a009f44ecfb0f63c468d03cc6383b4053"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a009f44ecfb0f63c468d03cc6383b4053"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MATERIAL_OFFSET</b> = 20</td></tr>
-<tr class="separator:a009f44ecfb0f63c468d03cc6383b4053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade046c7c54f46a219f3b141edd2a58e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade046c7c54f46a219f3b141edd2a58e0"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>DEPTH_FLAG</b> = 0x000FF000</td></tr>
-<tr class="separator:ade046c7c54f46a219f3b141edd2a58e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae192e4509528039e0d5c345281289263"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae192e4509528039e0d5c345281289263"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>DEPTH_OFFSET</b> = 12</td></tr>
-<tr class="separator:ae192e4509528039e0d5c345281289263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc96f79eaffee8fd00a10b2b3dfecaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabc96f79eaffee8fd00a10b2b3dfecaa"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ALPHA_FLAG</b> = 0x00000800</td></tr>
-<tr class="separator:aabc96f79eaffee8fd00a10b2b3dfecaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03f681912811c2fc3133f7cf12342a2c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03f681912811c2fc3133f7cf12342a2c"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ALPHA_OFFSET</b> = 11</td></tr>
-<tr class="separator:a03f681912811c2fc3133f7cf12342a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae69663c819dec868f0d1cb8f665ae056"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae69663c819dec868f0d1cb8f665ae056"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>UNUSED_FLAG</b> = 0x000007FF</td></tr>
-<tr class="separator:ae69663c819dec868f0d1cb8f665ae056"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4de7192dc04108ff5308fef7591916aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4de7192dc04108ff5308fef7591916aa"></a>
-static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>UNUSED_OFFSET</b> = 0</td></tr>
-<tr class="separator:a4de7192dc04108ff5308fef7591916aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is a static class with no member functions, and contains tools to sort an entity by material, depth, and alpha value. It utilizes a high-speed, low-level bit comparison technique to make comparisons as fast as possible.</p>
-<p>You can read more about the sorting architecture in the documentation for the ic::gfx::CSceneManager class. </p>
-
-<p>Definition at line <a class="el" href="_sorter_8hpp_source.html#l00043">43</a> of file <a class="el" href="_sorter_8hpp_source.html">Sorter.hpp</a>.</p>
+<div class="textblock"><h1><a class="anchor" id="sort"></a>
+Optimized Sorting Algorithm</h1>
+<h2><a class="anchor" id="expl"></a>
+Explanation</h2>
+<p>In order to maximize rendering efficiency, it is important to make as little state changes as possible to the underlying rendering API. For this, <em>Zenderer</em> implements a high-speed sorting technique that operates at maximum performance.</p>
+<p>Essentially, each entity internally stores a 32-bit integer consisted of various state flags describing material usage, depth, transparency, and other data.</p>
+<p>This state flag is used for comparing the scene graph prior to rendering in order to, for example, group all entities with identical materials together in order to minimize texture swaps.</p>
+<p>A material is defined as follows: </p>
+<pre class="fragment">material = texture + vshader + fshader
+</pre><p>And a thorough explanation of the state bit definitions are ahead.</p>
+<p>We expect to have no more than 4096 materials in a single game. This can, of course, be easily expanded, but 4096 is more than enough for a standard 2D game. For this, we allocate 12 bits in the flag for storing a unique material ID (2<sup>12</sup> = 4096).</p>
+<p>Thus: 32 - 12 = 20 bits remaining.</p>
+<p>For depth information, we allocate 8 bits, giving us 256 different levels of depth for any entity in the game. Again this is perfectly acceptable for a 2D game.</p>
+<p>Thus: 20 - 8 = 12 bits remaining.</p>
+<p>For transparency, we only need a single bit. to compare if a</p>
+<p>Thus: 12 - 1 = 11 bits remaining.</p>
+<p>The remaining bits are reserved for any future sorting requirements. 11 bits gives 2048 different values, surely large enough to accommodate any future requirements.</p>
+<h2><a class="anchor" id="algo"></a>
+Sorting</h2>
+<p>The actual sorting process works as follows:</p>
+<p>The scene stores a list of entities for rendering. It also contains an internal dictionary associating the various sorting parameters (material, depth) with a list of entities that use that parameter.</p>
+<p>On addition of an entity from the scene, it's inserted into the appropriate list based on its internal flags. </p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_sorter_8hpp_source.html">Sorter.hpp</a></li>
 </ul>

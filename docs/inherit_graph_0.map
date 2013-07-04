@@ -1,7 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset." alt="" coords="6,31,141,57"/>
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader.html" title="zen::gfxcore::CShader" alt="" coords="190,5,341,32"/>
-<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_audio2_d.html" title="zen::sfx::CAudio2D" alt="" coords="198,56,333,83"/>
-<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="391,31,527,57"/>
-<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="389,81,528,108"/>
+<area shape="rect" id="node1" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset." alt="" coords="6,56,141,83"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="191,5,342,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_texture.html" title="zen::gfxcore::CTexture" alt="" coords="190,56,343,83"/>
+<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="199,107,334,133"/>
+<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="393,81,529,108"/>
+<area shape="rect" id="node6" href="$classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="392,132,531,159"/>
 </map>

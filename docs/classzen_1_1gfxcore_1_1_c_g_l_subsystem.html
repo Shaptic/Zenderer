@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3824 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -126,7 +126,7 @@ Inheritance diagram for zen::gfxcore::CGLSubsystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_g_l_subsystem__inherit__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map" id="zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,249,147,487"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="{zen::gfxcore::CVertexArray\n||+ CVertexArray()\l+ ~CVertexArray()\l+ Init()\l+ Destroy()\l+ Bind()\l+ Unbind()\l+ AddData()\l+ Offload()\l+ GetObjectHandle()\l+ GetVBOHandle()\land 7 more...\l}" alt="" coords="171,256,349,480"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,249,147,487"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations." alt="" coords="171,249,333,487"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="357,256,536,480"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::CGLSubsystem:</div>
@@ -136,24 +136,24 @@ Collaboration diagram for zen::gfxcore::CGLSubsystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abbdb5c1ad66dd08038e7ac268930e991"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbdb5c1ad66dd08038e7ac268930e991"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CGLSubsystem</b> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;Renderer&quot;)</td></tr>
-<tr class="separator:abbdb5c1ad66dd08038e7ac268930e991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47a6626c01ac7766f2dee9381e9b4807"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47a6626c01ac7766f2dee9381e9b4807"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CGLSubsystem</b> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;OpenGL&quot;)</td></tr>
+<tr class="separator:a47a6626c01ac7766f2dee9381e9b4807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a432fea1dd5947e6f254dcd3570a349e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a432fea1dd5947e6f254dcd3570a349e8"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
 <tr class="separator:a432fea1dd5947e6f254dcd3570a349e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77f0ea66633645e772c8ca12ec6e8872"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77f0ea66633645e772c8ca12ec6e8872"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> ()=0</td></tr>
 <tr class="separator:a77f0ea66633645e772c8ca12ec6e8872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d917225a6c0fbde0343711fe22874c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d917225a6c0fbde0343711fe22874c3"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> ()=0</td></tr>
-<tr class="separator:a2d917225a6c0fbde0343711fe22874c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ae7a3a83a64b6c32df709831a56a6dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ae7a3a83a64b6c32df709831a56a6dd"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> ()=0</td></tr>
-<tr class="separator:a8ae7a3a83a64b6c32df709831a56a6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f9eca8110b4b06e104166f81cd9481"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26f9eca8110b4b06e104166f81cd9481"></a>
-virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectHandle</b> ()=0</td></tr>
-<tr class="separator:a26f9eca8110b4b06e104166f81cd9481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3147d5c699f63867f8158cd7108c6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa3147d5c699f63867f8158cd7108c6d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> () const =0</td></tr>
+<tr class="separator:afa3147d5c699f63867f8158cd7108c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f156a610268905fd5c1b10f5e48f354"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f156a610268905fd5c1b10f5e48f354"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> () const =0</td></tr>
+<tr class="separator:a2f156a610268905fd5c1b10f5e48f354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c51e85829c109daddc6f4a5aba66ac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c51e85829c109daddc6f4a5aba66ac8"></a>
+virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectHandle</b> () const =0</td></tr>
+<tr class="separator:a1c51e85829c109daddc6f4a5aba66ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f51d92f06d547070a5231f10f21fb7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f51d92f06d547070a5231f10f21fb7e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInit</b> ()</td></tr>
 <tr class="separator:a8f51d92f06d547070a5231f10f21fb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>

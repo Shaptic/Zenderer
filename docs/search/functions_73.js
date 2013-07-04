@@ -1,7 +1,7 @@
 var searchData=
 [
   ['setclearbits',['SetClearBits',['../classzen_1_1gfx_1_1_c_window.html#ac142af8c14b730f077e35445934ff0be',1,'zen::gfx::CWindow']]],
-  ['setcolor',['SetColor',['../classzen_1_1gfxcore_1_1_c_drawable.html#aefa31d4c2e0ec951851cbab82ba5482a',1,'zen::gfxcore::CDrawable']]],
+  ['setcolor',['SetColor',['../classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7',1,'zen::gfxcore::CDrawable']]],
   ['setfilename',['SetFilename',['../classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30',1,'zen::asset::CAsset::SetFilename()'],['../classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d',1,'zen::util::CLog::SetFilename()']]],
   ['setframerate',['SetFrameRate',['../classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b',1,'zen::util::CTimer']]],
   ['setlog',['SetLog',['../classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c',1,'zen::CSubsystem']]],
@@ -10,9 +10,9 @@ var searchData=
   ['setparameter',['SetParameter',['../classzen_1_1gfx_1_1_c_effect.html#a9b5c88176a1270848f43cab2d1030992',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const real_t *pValues, const size_t count)'],['../classzen_1_1gfx_1_1_c_effect.html#a95fa7b2a8bba84bd5322a53ff44fadb7',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const int *pValues, const size_t count)'],['../classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const math::matrix4x4_t &amp;Matrix)']]],
   ['setsystem',['SetSystem',['../classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7',1,'zen::util::CLog']]],
   ['showxmlerror',['ShowXMLError',['../classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f',1,'zen::util::CXMLParser']]],
-  ['sleep',['Sleep',['../classzen_1_1util_1_1_c_timer.html#a76f8bc425e8a236a5956c24e693756b6',1,'zen::util::CTimer::Sleep(const time_t ticks)'],['../classzen_1_1util_1_1_c_timer.html#a9940bde0c97c3a212a6c05f0a7311d26',1,'zen::util::CTimer::Sleep(const time_t ticks)']]],
+  ['sleep',['Sleep',['../classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6',1,'zen::util::CTimer']]],
   ['split',['split',['../namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a',1,'zen::util']]],
-  ['start',['Start',['../classzen_1_1util_1_1_c_timer.html#a420882d1e737fac3795122caff5c7c2a',1,'zen::util::CTimer']]],
+  ['start',['Start',['../classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae',1,'zen::util::CTimer']]],
   ['string_5fhash',['string_hash',['../namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db',1,'zen::util']]],
   ['stripl',['stripl',['../namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea',1,'zen::util::stripl(string_t &amp;text)'],['../namespacezen_1_1util.html#a75be5691bdb9c06944dc063450e3ca90',1,'zen::util::stripl(const string_t &amp;text)']]],
   ['stript',['stript',['../namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c',1,'zen::util::stript(string_t &amp;text)'],['../namespacezen_1_1util.html#a3826b0db2e11c31105d7dee750c2de04',1,'zen::util::stript(const string_t &amp;text)']]]
