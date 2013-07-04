@@ -94,10 +94,15 @@ static const char* SAMPLE_XML[] = {
     FS.AddData(D);
     FS.Offload();
 
+    D.Vertices[0].tc = math::vector_t(0.0, 0.0);
+    D.Vertices[1].tc = math::vector_t(0.0, 1.0);
+    D.Vertices[2].tc = math::vector_t(15.0, 1.0);
+    D.Vertices[3].tc = math::vector_t(15.0, 0.0);
+
     D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(Grass->GetWidth(), 0);
-    D.Vertices[2].position = math::vector_t(Grass->GetWidth(), Grass->GetWidth());
-    D.Vertices[3].position = math::vector_t(0, Grass->GetWidth());
+    D.Vertices[1].position = math::vector_t(0, -Grass->GetHeight());
+    D.Vertices[2].position = math::vector_t(15 * Grass->GetWidth(), -Grass->GetHeight());
+    D.Vertices[3].position = math::vector_t(15 * Grass->GetWidth(), 0);
 
     G.AddData(D);
     G.Offload();
@@ -191,8 +196,8 @@ static const char* SAMPLE_XML[] = {
             if((d > 0 && angle > 45.0) || (d < 0 && angle < -45.0))
                 d = -d;
 
-            MV.Translate(math::vector_t(300, 300));
             MV.Shear(math::vector_t(angle += d, 0.0));
+            MV.Translate(math::vector_t(300, 300));
 
             Default.SetParameter("proj", CRenderer::GetProjectionMatrix());
             Default.SetParameter("mv", MV);
