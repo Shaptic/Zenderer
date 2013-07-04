@@ -3,6 +3,7 @@
 #include "Zenderer/Zenderer.hpp"
 
 using namespace zen;
+using gfxcore::CRenderer;
 
 // Here's some perfect sample XML.
 static const char* SAMPLE_XML[] = {
@@ -101,7 +102,7 @@ static const char* SAMPLE_XML[] = {
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
-    gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+    CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 
     gfx::CLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
     L.Init();
@@ -116,6 +117,8 @@ static const char* SAMPLE_XML[] = {
 
     double x, y;
 
+    gfx::CEffect& Default = CRenderer::GetDefaultEffect();
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -127,36 +130,46 @@ static const char* SAMPLE_XML[] = {
         // Game logic
         Sound.Update();
 
-        RT.Bind();
-        RT.Clear();
-        T->Bind();
-        gfxcore::CRenderer::GetDefaultEffect().Enable();
-        gfxcore::CRenderer::GetDefaultEffect().SetParameter(
-            "proj", gfxcore::CRenderer::GetProjectionMatrix());
-        gfxcore::CRenderer::GetDefaultEffect().SetParameter(
-            "mv", math::matrix4x4_t::GetIdentityMatrix());
-        Vao.Draw();
-        gfxcore::CRenderer::ResetMaterialState();
-        RT.Unbind();
+        {
+            RT.Bind();
+            T->Bind();
+            Default.Enable();
+
+            Default.SetParameter("proj", CRenderer::GetProjectionMatrix());
+            Default.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+
+            RT.Clear();
+            Vao.Draw();
+
+            CRenderer::ResetMaterialState();
+            RT.Unbind();
+        }
 
         // Rendering
         Window.Clear(Teal);
 
-        GL(glBindTexture(GL_TEXTURE_2D, RT.GetTexture()));
-        gfxcore::CRenderer::GetDefaultEffect().Enable();
-        FS.Draw();
-        gfxcore::CRenderer::GetDefaultEffect().Disable();
-        GL(glBindTexture(GL_TEXTURE_2D, 0));
+        {
+            CRenderer::EnableTexture(RT.GetTexture());
+            Default.Enable();
 
-        T->Bind();
-        gfxcore::CRenderer::GetDefaultEffect().Enable();
-        math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
-        MV[0][3] = 100.0;
-        MV[1][3] = 100.0;
-        gfxcore::CRenderer::GetDefaultEffect().SetParameter("mv", MV);
-        Vao.Draw();
-        gfxcore::CRenderer::GetDefaultEffect().Disable();
-        T->Unbind();
+            FS.Draw();
+
+            CRenderer::ResetMaterialState();
+        }
+
+        {
+            T->Bind();
+            Default.Enable();
+
+            math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
+            MV[0][3] = 100.0;
+            MV[1][3] = 100.0;
+            Default.SetParameter("mv", MV);
+
+            Vao.Draw();
+
+            CRenderer::ResetMaterialState();
+        }
 
         Q.Move(x, y);
         Q.Draw();

@@ -66,7 +66,15 @@ namespace gfx
             return (m_given = true);
         }
 
-        bool Enable() const { if(mp_Effect) mp_Effect->Enable(); if(mp_Texture) mp_Texture->Bind(); return true; }
+        bool Enable() const
+        {
+            bool ret = true;
+            if(mp_Effect)   ret = mp_Effect->Enable();
+            if(mp_Texture)  ret = ret && mp_Texture->Bind();
+
+            return ret;
+        }
+
         bool EnableEffect() const;
         bool EnableTexture() const;
 

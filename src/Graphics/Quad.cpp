@@ -49,7 +49,7 @@ gfxcore::CDrawable& CQuad::Create()
     return (*this);
 }
 
-void CQuad::AttachMaterial(const gfx::material_t* pMaterial)
+void CQuad::AttachMaterial(gfx::material_t* pMaterial)
 {
     ZEN_ASSERT(pMaterial);
     if(m_DrawData.Vertices == nullptr) return;

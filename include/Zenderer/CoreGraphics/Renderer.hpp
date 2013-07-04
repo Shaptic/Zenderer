@@ -63,7 +63,7 @@ namespace gfxcore
         inline static bool DisableBlending();
         inline static bool DisableTexture();
 
-        inline static gfx::CMaterial&           GetDefaultMaterial();
+        inline static gfx::material_t&          GetDefaultMaterial();
         inline static gfx::CEffect&             GetDefaultEffect();
         inline static const gfxcore::CTexture&  GetDefaultTexture();
 

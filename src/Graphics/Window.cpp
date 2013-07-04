@@ -80,9 +80,6 @@ bool CWindow::Init()
         glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
     }
 
-    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
-        m_Dimensions.y, 256, -256);
-
     m_Log << "Initializing GLEW: ";
     glewExperimental = true;
     if(glewInit() != GLEW_OK)
@@ -97,6 +94,9 @@ bool CWindow::Init()
     glGetError();
 
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
+
+    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
+        m_Dimensions.y, 256, -256);
 
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
     return (m_init = gfxcore::CRenderer::Init(m_Dimensions.x, m_Dimensions.y));

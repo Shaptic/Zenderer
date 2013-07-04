@@ -47,7 +47,10 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
 
         // Create our model-view matrix.
         mp_MVMatrix = new math::matrix4x4_t;
-        (*mp_MVMatrix) = math::matrix4x4_t::CreateIdentityMatrix();
+       *mp_MVMatrix = math::matrix4x4_t::CreateIdentityMatrix();
+
+        // Our default set of material data
+        mp_Material = &CRenderer::GetDefaultMaterial();
 
         // So we can differentiate between a VAO from a `CScene`
         // and the one we made ourselves.
@@ -59,39 +62,46 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
     if(!is_bound)
     {
         if(!mp_VAO->Bind()) return false;
-        if(mp_Material == nullptr)
+
+        // Insert our coordinates to transform in the shader.
+        // Ignore the Z coordinate because that's only used for depth
+        // sorting internally anyway and has no effect on visuals.
+        (*mp_MVMatrix)[0][3] = m_Position.x;
+        (*mp_MVMatrix)[1][3] = m_Position.y;
+      //(*mp_MVMatrix)[2][3] = m_Position.z;
+
+        gfx::CEffect*       pEffect = nullptr;
+        gfxcore::CTexture*  pTexture= nullptr;
+
+        if(mp_Material == nullptr || mp_Material->GetEffect() == nullptr)
+            pEffect = &CRenderer::GetDefaultEffect();
+        else
+            pEffect = mp_Material->GetEffect();
+
+        if(mp_Material == nullptr || mp_Material->GetTexture() == nullptr)
+            pTexture = const_cast<gfxcore::CTexture*>(
+                &CRenderer::GetDefaultTexture());
+        else
+            pTexture= mp_Material->GetTexture();
+
+        pEffect->Enable();
+        pTexture->Bind();
+
+
+        if(!pEffect->SetParameter("mv", *mp_MVMatrix) ||
+           !pEffect->SetParameter("proj", CRenderer::GetProjectionMatrix()))
         {
-            // Insert our coordinates to transform in the shader.
-            // Ignore the Z coordinate because that's only used for depth
-            // sorting internally anyway and has no effect on visuals.
-            (*mp_MVMatrix)[0][3] = m_Position.x;
-            (*mp_MVMatrix)[1][3] = m_Position.y;
-            //(*mp_MVMatrix)[2][3] = m_Position.z;
-
-            // Guaranteed to have both shader and texture.
-            mp_Material         = &CRenderer::GetDefaultMaterial();
-            gfx::CEffect& Shader= *mp_Material->GetEffect();
-
-            mp_Material->Enable();
-            if(!Shader.SetParameter("mv", *mp_MVMatrix) ||
-               !Shader.SetParameter("proj", CRenderer::GetProjectionMatrix()))
-            {
-                mp_Material->Disable();
-                return false;
-            }
+            CRenderer::ResetMaterialState();
+            return false;
         }
     }
 
     GL(glDrawElements(GL_TRIANGLES, m_DrawData.icount,
             INDEX_TYPE, (void*)(sizeof(index_t) * m_offset)));
 
-    if(!is_bound)
-    {
-        CRenderer::ResetMaterialState();
-        if(!mp_VAO->Unbind()) return false;
-    }
-
-    return true;
+    return !is_bound ?
+        (CRenderer::ResetMaterialState() && mp_VAO->Unbind()) :
+        false;
 }
 
 void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO)

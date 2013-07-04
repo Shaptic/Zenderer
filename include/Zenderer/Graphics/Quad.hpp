@@ -37,8 +37,8 @@ namespace gfx
         CQuad(const uint16_t w, const uint16_t h);
         ~CQuad();
 
-        CDrawable& Create();
-        void AttachMaterial(const gfx::material_t* pMaterial);
+        virtual CDrawable& Create();
+        virtual void AttachMaterial(gfx::material_t* pMaterial);
 
     private:
         math::rect_t m_Size;
