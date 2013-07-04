@@ -118,6 +118,7 @@
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Quad.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Scene.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
@@ -143,7 +144,6 @@
     <ClCompile Include="src\Audio\Sound2D.cpp" />
     <ClCompile Include="src\CoreGraphics\Drawable.cpp" />
     <ClCompile Include="src\CoreGraphics\OpenGL.cpp" />
-    <ClCompile Include="src\CoreGraphics\Quad.cpp" />
     <ClCompile Include="src\CoreGraphics\Renderer.cpp" />
     <ClCompile Include="src\CoreGraphics\Shader.cpp" />
     <ClCompile Include="src\CoreGraphics\ShaderSet.cpp" />
@@ -185,6 +185,7 @@
     <None Include="data\shaders\ShadowCaster.fs" />
     <None Include="include\Zenderer\Assets\Asset.inl" />
     <None Include="include\Zenderer\Assets\AssetManager.inl" />
+    <None Include="include\Zenderer\CoreGraphics\Renderer.inl" />
     <None Include="include\Zenderer\Graphics\Effect.inl" />
     <None Include="include\Zenderer\Math\MathCore.inl" />
     <None Include="include\Zenderer\Math\Vector.inl" />

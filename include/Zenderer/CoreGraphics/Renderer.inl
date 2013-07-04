@@ -1,9 +1,19 @@
 // We inline all of the short functions so the compiler can optimize
 // them if need be, since they are called quite often.
 
+gfx::CMaterial& CRenderer::GetDefaultMaterial()
+{
+    return s_DefaultMaterial;
+}
+
 gfx::CEffect& CRenderer::GetDefaultEffect()
 {
-    return s_DefaultMaterial.GetEffect();
+    return *s_DefaultMaterial.GetEffect();
+}
+
+const gfxcore::CTexture& CRenderer::GetDefaultTexture()
+{
+    return *s_DefaultTexture;
 }
 
 const math::matrix4x4_t& CRenderer::GetProjectionMatrix()
@@ -27,24 +37,24 @@ bool CRenderer::BlendOperation(const BlendFunc& Func)
         GL(glEnable(GL_DEPTH_TEST));
         s_blend = false;
         break;
-        
+
     case BlendFunc::ENABLE_BLEND:
         GL(glEnable(GL_BLEND));
         GL(glDisable(GL_DEPTH_TEST));
         s_blend = true;
         break;
-        
+
     case BlendFunc::STANDARD_BLEND:
-        if(!m_blend) BlendOperation(BlendFunc::JUST_ENABLE);
+        if(!s_blend) BlendOperation(BlendFunc::ENABLE_BLEND);
         GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
         break;
-        
+
     case BlendFunc::ADDITIVE_BLEND:
-        if(!m_blend) BlendOperation(BlendFunc::JUST_ENABLE);
+        if(!s_blend) BlendOperation(BlendFunc::ENABLE_BLEND);
         GL(glBlendFunc(GL_ONE, GL_ONE));
         break;
     }
-    
+
     return true;
 }
 
@@ -59,7 +69,7 @@ bool CRenderer::DisableTexture()
     return EnableTexture(0);
 }
 
-const CVertexArray& CRenderer::GetFullscreenVBO()
+CVertexArray& CRenderer::GetFullscreenVBO()
 {
     return s_FullscreenQuad;
 }

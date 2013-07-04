@@ -25,7 +25,7 @@
 
 #include "Zenderer/Utilities/Settings.hpp"
 #include "Zenderer/Math/Matrix.hpp"
-#include "Zenderer/Graphics/Effect.hpp"
+#include "Zenderer/Graphics/Material.hpp"
 #include "OpenGL.hpp"
 #include "VertexArray.hpp"
 
@@ -35,9 +35,9 @@ namespace zen
 namespace gfx
 {
     // Forward declarations.
-    class API CWindow;
-    class API CRenderTarget;
-    class API CScene;
+    class ZEN_API CWindow;
+    class ZEN_API CRenderTarget;
+    class ZEN_API CScene;
 }
 
 namespace gfxcore
@@ -49,15 +49,15 @@ namespace gfxcore
         STANDARD_BLEND,
         ADDITIVE_BLEND
     };
-    
+
     /// Abstracts away API-specific rendering operations.
     class ZEN_API CRenderer
     {
     public:
         virtual ~CRenderer();
-        
+
         inline static bool BlendOperation(const BlendFunc& Func);
-        
+
         inline static bool EnableTexture(const GLuint handle);
         inline static bool ResetMaterialState();
         inline static bool DisableBlending();
@@ -66,9 +66,9 @@ namespace gfxcore
         inline static gfx::CMaterial&           GetDefaultMaterial();
         inline static gfx::CEffect&             GetDefaultEffect();
         inline static const gfxcore::CTexture&  GetDefaultTexture();
-        
-        inline static const math::matrix4x4_t&  GetProjectionMatrix();        
-        inline static const CVertexArray&       GetFullscreenVBO();
+
+        inline static const math::matrix4x4_t&  GetProjectionMatrix();
+        inline static CVertexArray&             GetFullscreenVBO();
 
         /// Only the scenes can modify graphical API state.
         friend class gfx::CScene;
@@ -86,11 +86,11 @@ namespace gfxcore
         static CVertexArray         s_FullscreenQuad;
         static gfx::CMaterial       s_DefaultMaterial;
         static gfx::CEffect         s_DefaultEffect;
-        static gfxcore::CTexture    s_DefaultTexture;
+        static gfxcore::CTexture*   s_DefaultTexture;
         static math::matrix4x4_t    s_ProjMatrix;
         static bool                 s_blend;
     };
-    
+
     #include "Renderer.inl"
 }   // namespace gfxcore
 }   // namespace zen

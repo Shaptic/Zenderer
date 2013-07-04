@@ -5,39 +5,39 @@ using gfxcore::CRenderer;
 
 gfx::CMaterial          CRenderer::s_DefaultMaterial;
 gfx::CEffect            CRenderer::s_DefaultEffect(gfx::EffectType::NO_EFFECT);
-gfxcore::CTexture       CRenderer::s_DefaultTexture;
+gfxcore::CTexture*      CRenderer::s_DefaultTexture;
 gfxcore::CVertexArray   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
 math::matrix4x4_t       CRenderer::s_ProjMatrix;
-bool                    CRenderer::s_bool;
+bool                    CRenderer::s_blend;
 
 bool CRenderer::Init(const uint16_t w, const uint16_t h)
 {
     // Load the default effect.
     s_DefaultEffect.Init();
     s_DefaultEffect.Enable();
-    s_DefaultEffect.SetParameter("mv", math::materix4x4_t::GetIdentityMatrix());
+    s_DefaultEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
     s_DefaultEffect.SetParameter("proj", s_ProjMatrix);
     s_DefaultEffect.Disable();
-    
+
     // Load the default texture (1x1 white pixel).
-    static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'}; 
+    static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
     gfxcore::CTexture* pTmp =
         s_DefaultMaterial.m_Assets.Create<gfxcore::CTexture>();
-    
+
     if(pTmp != nullptr)
     {
-        s_DefaultTexture = *pTmp;
-        s_DefaultTexture.LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
-        s_DefaultTexture.SetFilename("Zenderer white texture");
+        s_DefaultTexture = pTmp;
+        s_DefaultTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
+        s_DefaultTexture->SetFilename("Zenderer white texture");
     }
-    
-    s_DefaultMaterial.Attach(s_DefaultEffect, s_DefaultTexture);
-    
-    // Load a quad into the VAO.                
+
+    s_DefaultMaterial.Attach(s_DefaultEffect, *s_DefaultTexture);
+
+    // Load a quad into the VAO.
     gfxcore::DrawBatch D;
     gfxcore::index_t  i[] = {0, 1, 3, 3, 1, 2};
     gfxcore::vertex_t v[6];
-    
+
     D.Vertices  = v;
     D.vcount    = 4;
     D.Indices   = i;
@@ -60,4 +60,7 @@ bool CRenderer::Init(const uint16_t w, const uint16_t h)
 
     s_FullscreenQuad.Init();
     s_FullscreenQuad.AddData(D);
+    s_FullscreenQuad.Offload();
+
+    return true;
 }
