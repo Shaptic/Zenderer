@@ -105,12 +105,12 @@ bool CLight::Init()
     return state;
 }
 
-bool CLight::Enable()
+bool CLight::Enable() const
 {
     return m_Shader.Bind();
 }
 
-bool CLight::Disable()
+bool CLight::Disable() const
 {
     return m_Shader.Unbind();
 }
@@ -124,7 +124,7 @@ bool CLight::SetBrightness(const real_t brightness)
 
 bool CLight::SetColor(const real_t r, const real_t g, const real_t b)
 {
-    m_Color = color3f_t(r, g, b); 
+    m_Color = color3f_t(r, g, b);
     GL(glUniform3f(m_loccol, r, g, b));
     return true;
 }
