@@ -119,6 +119,8 @@ static const char* SAMPLE_XML[] = {
 
     gfx::CEffect& Default = CRenderer::GetDefaultEffect();
 
+    real_t angle = 45.0, d = -0.5;
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -162,8 +164,12 @@ static const char* SAMPLE_XML[] = {
             Default.Enable();
 
             math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
-            MV[0][3] = 100.0;
-            MV[1][3] = 100.0;
+
+            if((d > 0 && angle > 45.0) || (d < 0 && angle < -45.0))
+                d = -d;
+            printf("%0.5f, %0.2f\n", angle, d);
+            MV.Translate(math::vector_t(100, 100));
+            MV.Shear(math::vector_t(angle += d, 0.0));
             Default.SetParameter("mv", MV);
 
             Vao.Draw();

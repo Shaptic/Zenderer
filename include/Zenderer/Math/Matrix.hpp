@@ -80,6 +80,28 @@ namespace math
             m_values[2][3] += DV.z;
         }
 
+        /**
+         * Stretches the matrix by degree-angles in different directions.
+         *  X-direction shearing angles are as follows (in degrees):
+         *  
+         *          45.0 or 225.0    0       -45.0 or 135.0
+         *           /               |              \
+         *          /                |               \
+         * 
+         * @param   Angles  Vector containing x, y, and z shear angles (in deg)
+         * 
+         * @note    Only 2D shears are supported (X and Y directions).
+         * @todo    Add 3D shearing.
+         **/
+        inline void Shear(const math::vector_t& Angles)
+        {
+            if(!compf(Angles.x, 0.0f))
+                m_values[0][1] = -std::tan(rad(Angles.x));
+
+            if(!compf(Angles.y, 0.0f))
+                m_values[1][0] = -std::tan(rad(Angles.y));
+        }
+
         inline const real_t* GetPointer() const
         { return reinterpret_cast<const real_t*>(m_values); }
 
