@@ -101,7 +101,7 @@ static const char* SAMPLE_XML[] = {
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
-    gfxcore::CRenderer::EnableAlphaBlending();
+    gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 
     gfx::CLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
     L.Init();
@@ -130,13 +130,13 @@ static const char* SAMPLE_XML[] = {
         RT.Bind();
         RT.Clear();
         T->Bind();
-        gfxcore::CRenderer::GetDefaultEffect().Enable();
+        gfxcore::CRenderer::GetDefaultMaterial().Enable();
         gfxcore::CRenderer::GetDefaultEffect().SetParameter(
             "proj", gfxcore::CRenderer::GetProjectionMatrix());
         gfxcore::CRenderer::GetDefaultEffect().SetParameter(
             "mv", math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
-        gfxcore::CRenderer::GetDefaultEffect().Disable();
+        gfxcore::CRenderer::GetDefaultMaterial().Disable();
         T->Unbind();
         RT.Unbind();
 
