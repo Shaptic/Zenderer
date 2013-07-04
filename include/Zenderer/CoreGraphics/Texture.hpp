@@ -62,7 +62,7 @@ namespace gfxcore
 
                 return (m_loaded = false);
             }
-            
+
             bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA, w, h, raw);
 
             stbi_image_free(raw);
@@ -78,7 +78,7 @@ namespace gfxcore
             const unsigned char* raw =
                 reinterpret_cast<const unsigned char*>(pCopy->GetData());
 
-            const CTexture* const pCopyTexture = 
+            const CTexture* const pCopyTexture =
                 reinterpret_cast<const CTexture* const>(pCopy);
 
             bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA,
@@ -99,30 +99,30 @@ namespace gfxcore
                          const unsigned char* data)
         {
             if(m_loaded) this->Destroy();
-            
+
             GL(glGenTextures(1, &m_texture));
             GL(glBindTexture(GL_TEXTURE_2D, m_texture));
 
             GL(glTexImage2D(GL_TEXTURE_2D, 0, iformat, w, h, 0, format,
-                    GL_UNSIGNED_BYTE, raw));
+                    GL_UNSIGNED_BYTE, data));
 
             GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
             GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
             GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
             GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
-            
+
             GL(glBindTexture(GL_TEXTURE_2D, 0));
-            
+
             m_width = w;
             m_height = h;
-            
+
             std::stringstream ss;
             ss << "Raw texture data " << ((void*)data) << '.';
             this->SetFilename(ss.str());
-            
-            return true;
+
+            return (m_loaded = true);
         }
-        
+
         const void* const GetData() const
         {
             this->Bind();
