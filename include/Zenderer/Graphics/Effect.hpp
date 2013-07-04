@@ -81,12 +81,12 @@ namespace gfx
          **/
         bool SetParameter(const string_t& name,
                           const real_t* pValues,
-                          const size_t count);
+                          const size_t count = 1);
 
         /// @overload
         bool SetParameter(const string_t& name,
                           const int* pValues,
-                          const size_t count);
+                          const size_t count = 1);
 
         /**
          * Modifies a matrix parameter in the effect.

@@ -87,7 +87,6 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         pEffect->Enable();
         pTexture->Bind();
 
-
         if(!pEffect->SetParameter("mv", *mp_MVMatrix) ||
            !pEffect->SetParameter("proj", CRenderer::GetProjectionMatrix()))
         {
