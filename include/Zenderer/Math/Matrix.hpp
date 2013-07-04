@@ -82,7 +82,8 @@ namespace math
 
         /**
          * Stretches the matrix by degree-angles in different directions.
-         *  X-direction shearing angles are as follows (in degrees):
+         *  For future reference, x-direction shearing angles are as
+         *  follows (in degrees):
          *  
          *          45.0 or 225.0    0       -45.0 or 135.0
          *           /               |              \

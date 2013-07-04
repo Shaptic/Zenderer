@@ -52,6 +52,9 @@ static const char* SAMPLE_XML[] = {
     gfxcore::CTexture* T = Manager.Create<gfxcore::CTexture>(
         string_t("sample.png"));
 
+    gfxcore::CTexture* Grass = Manager.Create<gfxcore::CTexture>(
+        string_t("grass.png"));
+
     gfxcore::CVertexArray Vao;
     gfxcore::DrawBatch D;
 
@@ -86,10 +89,18 @@ static const char* SAMPLE_XML[] = {
     D.Vertices[2].position = math::vector_t(800, 600);
     D.Vertices[3].position = math::vector_t(0, 600);
 
-    gfxcore::CVertexArray FS;
-    FS.Init();
+    gfxcore::CVertexArray FS, G;
+    FS.Init(); G.Init();
     FS.AddData(D);
     FS.Offload();
+
+    D.Vertices[0].position = math::vector_t(0, 0);
+    D.Vertices[1].position = math::vector_t(Grass->GetWidth(), 0);
+    D.Vertices[2].position = math::vector_t(Grass->GetWidth(), Grass->GetWidth());
+    D.Vertices[3].position = math::vector_t(0, Grass->GetWidth());
+
+    G.AddData(D);
+    G.Offload();
 
     D.Indices = nullptr;
     delete[] D.Vertices;
@@ -119,7 +130,7 @@ static const char* SAMPLE_XML[] = {
 
     gfx::CEffect& Default = CRenderer::GetDefaultEffect();
 
-    real_t angle = 45.0, d = -0.5;
+    real_t angle = 45.0, d = -5.5;
 
     while(Window.IsOpen())
     {
@@ -163,15 +174,6 @@ static const char* SAMPLE_XML[] = {
             T->Bind();
             Default.Enable();
 
-            math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
-
-            if((d > 0 && angle > 45.0) || (d < 0 && angle < -45.0))
-                d = -d;
-            printf("%0.5f, %0.2f\n", angle, d);
-            MV.Translate(math::vector_t(100, 100));
-            MV.Shear(math::vector_t(angle += d, 0.0));
-            Default.SetParameter("mv", MV);
-
             Vao.Draw();
 
             CRenderer::ResetMaterialState();
@@ -179,6 +181,26 @@ static const char* SAMPLE_XML[] = {
 
         Q.Move(x, y);
         Q.Draw();
+
+        {
+            Default.Enable();
+            Grass->Bind();
+
+            math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
+
+            if((d > 0 && angle > 45.0) || (d < 0 && angle < -45.0))
+                d = -d;
+
+            MV.Translate(math::vector_t(300, 300));
+            MV.Shear(math::vector_t(angle += d, 0.0));
+
+            Default.SetParameter("proj", CRenderer::GetProjectionMatrix());
+            Default.SetParameter("mv", MV);
+
+            G.Draw();
+
+            CRenderer::ResetMaterialState();
+        }
 
         Window.Update();
 
