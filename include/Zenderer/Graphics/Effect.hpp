@@ -32,7 +32,7 @@
 namespace zen
 {
 namespace gfx
-{    
+{
     /**
      * Names a distribution of effect types.
      *  See the table in the CEffect documentation for appropriate
@@ -43,7 +43,7 @@ namespace gfx
         NO_EFFECT = -1,     ///< No effect, default shaders
         GAUSSIAN_BLUR_H,    ///< A horizontal Gaussian blur effect
         GAUSSIAN_BLUR_V,    ///< A vertical Gaussian blur effect
-        GRAYSCALE,          ///< Makes the target grayscale 
+        GRAYSCALE,          ///< Makes the target grayscale
         FADE,               ///< Fades the target in/out
         RIPPLE,             ///< Creates a centered ripple effect
         ZEN_EFFECT_COUNT    ///< Total amount of effects
@@ -113,7 +113,7 @@ namespace gfx
         inline void SetType(const EffectType Type);
 
         friend class ZEN_API CMaterial;
-        
+
     private:
         inline bool Bind() const;
         inline bool Unbind() const;
@@ -148,17 +148,17 @@ namespace gfx
  *    border-collapse: collapse;
  *    padding: 5px;
  *  }
- *  
+ *
  *  table table, td td {
  *    border: none;
  *    padding-right: 15px;
  *  }
- *  
+ *
  *  span {
  *    font-family: monospace;
  *  }
  *  </style>
- *  
+ *
  *  <table>
  *  <tr>
  *    <th>Enumeration</th>
