@@ -130,14 +130,13 @@ static const char* SAMPLE_XML[] = {
         RT.Bind();
         RT.Clear();
         T->Bind();
-        gfxcore::CRenderer::GetDefaultMaterial().Enable();
+        gfxcore::CRenderer::GetDefaultEffect().Enable();
         gfxcore::CRenderer::GetDefaultEffect().SetParameter(
             "proj", gfxcore::CRenderer::GetProjectionMatrix());
         gfxcore::CRenderer::GetDefaultEffect().SetParameter(
             "mv", math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
-        gfxcore::CRenderer::GetDefaultMaterial().Disable();
-        T->Unbind();
+        gfxcore::CRenderer::ResetMaterialState();
         RT.Unbind();
 
         // Rendering

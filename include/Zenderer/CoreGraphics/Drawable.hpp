@@ -87,7 +87,7 @@ namespace gfxcore
          *
          * @param   pMaterial   The texture you want rendered
          **/
-        virtual void AttachMaterial(const gfx::material_t* pMaterial) = 0;
+        virtual void AttachMaterial(gfx::material_t* pMaterial) = 0;
 
         /// Sets all vertices to have a given color value.
         void SetColor(const color4f_t& Color);
@@ -120,7 +120,7 @@ namespace gfxcore
         friend class CSceneManager;
 
     protected:
-        const gfx::material_t* mp_Material;
+        gfx::material_t*    mp_Material;
         math::vector_t      m_Position;
         DrawBatch           m_DrawData;
         bool                m_internal;

@@ -68,11 +68,17 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
             (*mp_MVMatrix)[1][3] = m_Position.y;
             //(*mp_MVMatrix)[2][3] = m_Position.z;
 
-            gfx::CEffect& Shader = CRenderer::GetDefaultEffect();
-            if(!Shader.Enable()) return false;
+            // Guaranteed to have both shader and texture.
+            mp_Material         = &CRenderer::GetDefaultMaterial();
+            gfx::CEffect& Shader= *mp_Material->GetEffect();
+
+            mp_Material->Enable();
             if(!Shader.SetParameter("mv", *mp_MVMatrix) ||
                !Shader.SetParameter("proj", CRenderer::GetProjectionMatrix()))
+            {
+                mp_Material->Disable();
                 return false;
+            }
         }
     }
 
@@ -81,8 +87,7 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
 
     if(!is_bound)
     {
-        if(mp_Material != nullptr) CRenderer::ResetMaterialState();
-        else if(!CRenderer::GetDefaultEffect().Disable()) return false;
+        CRenderer::ResetMaterialState();
         if(!mp_VAO->Unbind()) return false;
     }
 
