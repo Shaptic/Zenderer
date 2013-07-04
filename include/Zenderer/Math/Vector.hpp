@@ -81,7 +81,7 @@ namespace math
         Vector() : x(0), y(0), z(0) {}
 
         /// Constructor for any coordinate space (defaults to 2D).
-        Vector(real_t x, real_t y, real_t z = 0) : x(x), y(y), z(z) {}
+        Vector(T x, T y, T z = 0) : x(x), y(y), z(z) {}
 
         /// Copies vector components from one to another.
         template<typename U>
