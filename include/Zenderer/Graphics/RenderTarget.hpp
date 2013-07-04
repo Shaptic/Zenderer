@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/Graphics/RenderTarger.hpp - An object wrapper for OpenGL 
+ *  Zenderer/Graphics/RenderTarger.hpp - An object wrapper for OpenGL
  *  frame buffer objects.
  *
  * @author      George Kudrayvtsev (halcyon)
@@ -19,7 +19,7 @@
  * @addtogroup Graphics
  * @{
  **/
- 
+
 #ifndef ZENDERER__GRAPHICS__RENDER_TARGET_HPP
 #define ZENDERER__GRAPHICS__RENDER_TARGET_HPP
 
@@ -46,15 +46,15 @@ namespace gfx
         CRenderTarget(const uint16_t w, const uint16_t h);
 
         ~CRenderTarget();
-        
+
         bool Init();
         bool Destroy();
-        
+
         bool Bind() const;
         bool Unbind() const;
-        
+
         bool Clear();
-        
+
         bool AttachDepthBuffer();
         bool AttachStencilBuffer();
 

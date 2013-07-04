@@ -107,16 +107,16 @@ namespace gfxcore
  * @description
  * @section     sort    Optimized Sorting Algorithm
  * @subsection  expl    Explanation
- * 
+ *
  * In order to maximize rendering efficiency, it is important to
- * make as little state changes as possible to the underlying 
+ * make as little state changes as possible to the underlying
  * rendering API. For this, @a Zenderer implements a high-speed
- * sorting technique that operates at maximum performance. 
- * 
+ * sorting technique that operates at maximum performance.
+ *
  * Essentially, each entity internally stores a 32-bit integer
- * consisted of various state flags describing material usage, 
+ * consisted of various state flags describing material usage,
  * depth, transparency, and other data.
- * 
+ *
  * This state flag is used for comparing the scene graph prior
  * to rendering in order to, for example, group all entities with
  * identical materials together in order to minimize texture swaps.
@@ -139,9 +139,9 @@ namespace gfxcore
  * acceptable for a 2D game.
  *
  * Thus: 20 - 8 = 12 bits remaining.
- * 
- * For transparency, we only need a single bit. to compare if a 
- * 
+ *
+ * For transparency, we only need a single bit. to compare if a
+ *
  * Thus: 12 - 1 = 11 bits remaining.
  *
  * The remaining bits are reserved for any future sorting requirements.
@@ -151,10 +151,10 @@ namespace gfxcore
  * @subsection  algo    Sorting
  * The actual sorting process works as follows:
  *
- * The scene stores a list of entities for rendering. It also contains 
+ * The scene stores a list of entities for rendering. It also contains
  * an internal dictionary associating the various sorting parameters
  * (material, depth) with a list of entities that use that parameter.
- * 
- * On addition of an entity from the scene, it's inserted into the 
+ *
+ * On addition of an entity from the scene, it's inserted into the
  * appropriate list based on its internal flags.
  **/

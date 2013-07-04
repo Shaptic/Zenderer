@@ -11,7 +11,7 @@ uniform float       radius;
 void main(void)
 {
     vec4 sum = vec4(0.0);
- 
+
     // blur in y (horizontal)
     // take nine samples, with the distance 'radius' between them
     sum += texture2D(texture, vec2(fs_texc.x - 4.0*radius, fs_texc.y)) * 0.05;
@@ -23,6 +23,6 @@ void main(void)
     sum += texture2D(texture, vec2(fs_texc.x + 2.0*radius, fs_texc.y)) * 0.12;
     sum += texture2D(texture, vec2(fs_texc.x + 3.0*radius, fs_texc.y)) * 0.09;
     sum += texture2D(texture, vec2(fs_texc.x + 4.0*radius, fs_texc.y)) * 0.05;
- 
+
     final_color = sum * fs_color;
 }

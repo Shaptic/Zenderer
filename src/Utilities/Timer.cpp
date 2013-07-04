@@ -30,7 +30,7 @@ util::time_t CTimer::Elapsed()
     return duration_cast<precision_t>(m_end - m_start).count();
 }
 
-/// Sleeps the current thread (defaults to milliseconds). 
+/// Sleeps the current thread (defaults to milliseconds).
 void CTimer::Sleep(const util::time_t ticks)
 {
     std::this_thread::sleep_for(precision_t(ticks));

@@ -11,7 +11,7 @@ uniform float       radius;
 void main(void)
 {
     vec4 sum = vec4(0.0);
- 
+
     // blur in y (vertical)
     // take nine samples, with the distance 'radius' between them
     sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 4.0*radius))  * 0.05;

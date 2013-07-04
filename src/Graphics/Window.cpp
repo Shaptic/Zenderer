@@ -53,7 +53,7 @@ bool CWindow::Init()
     glfwWindowHint(GLFW_STENCIL_BITS, 0);
 
     // Create the window.
-    mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y, 
+    mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y,
         m_caption.c_str(), m_fullscreen ? glfwGetPrimaryMonitor() : nullptr,
         nullptr);
 

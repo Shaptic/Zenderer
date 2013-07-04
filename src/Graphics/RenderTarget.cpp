@@ -13,7 +13,7 @@ CRenderTarget::CRenderTarget(const math::rect_t& Dimensions) :
 {
 }
 
-CRenderTarget::CRenderTarget(const uint16_t w, const uint16_t h) : 
+CRenderTarget::CRenderTarget(const uint16_t w, const uint16_t h) :
     CGLSubsystem("RenderTarget"), m_Log(CLog::GetEngineLog()),
     m_Viewport(w, h), m_fbo(0), m_texture(0), m_rbos(nullptr), m_rbo_count(0)
 {
@@ -44,7 +44,7 @@ bool CRenderTarget::Init()
     GL(glBindTexture(GL_TEXTURE_2D, m_texture));
     GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
     GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-    GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Viewport.x, 
+    GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Viewport.x,
             m_Viewport.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr));
 
     // Attach texture to frame buffer.
@@ -58,7 +58,7 @@ bool CRenderTarget::Init()
     {
         m_error_str = "The frame buffer set up did not complete.";
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << m_Log.SetSystem("RenderTarget") << m_error_str 
+                << m_Log.SetSystem("RenderTarget") << m_error_str
                 << " Error code: " << status << CLog::endl;
     }
 
@@ -119,7 +119,7 @@ bool CRenderTarget::AttachDepthBuffer()
 {
     // Create the depth buffer.
     if(!this->Bind()) return false;
-    
+
     GLuint rb = 0;
     GL(glGenRenderbuffers(1, &rb));
     GL(glBindRenderbuffer(GL_RENDERBUFFER, rb));
@@ -134,7 +134,7 @@ bool CRenderTarget::AttachDepthBuffer()
     {
         m_error_str = "The depth buffer could not be attached.";
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << m_Log.SetSystem("RenderTarget") << m_error_str 
+                << m_Log.SetSystem("RenderTarget") << m_error_str
                 << " Error code: " << status << CLog::endl;
     }
     else
@@ -151,7 +151,7 @@ bool CRenderTarget::AttachDepthBuffer()
         // Add to internal render buffer array.
         m_rbos[m_rbo_count++] = rb;
     }
-    
+
     GL(glBindRenderbuffer(GL_RENDERBUFFER, 0));
     return (this->Unbind() && status == GL_FRAMEBUFFER_COMPLETE);
 }

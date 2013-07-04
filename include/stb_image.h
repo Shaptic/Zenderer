@@ -27,7 +27,7 @@
       1.32 (2011-07-13) info support for all filetypes (SpartanJ)
       1.31 (2011-06-19) a few more leak fixes, bug in PNG handling (SpartanJ)
       1.30 (2011-06-11) added ability to load files via io callbacks (Ben Wenger)
-      1.29 (2010-08-16) various warning fixes from Aurelien Pocheville 
+      1.29 (2010-08-16) various warning fixes from Aurelien Pocheville
       1.28 (2010-08-01) fix bug in GIF palette transparency (SpartanJ)
       1.27 (2010-08-01) cast-to-uint8 to fix warnings (Laurent Gomila)
                         allow trailing 0s at end of image data (Laurent Gomila)
@@ -40,23 +40,23 @@
 
 
  ============================    Contributors    =========================
-              
+
  Image formats                                Optimizations & bugfixes
     Sean Barrett (jpeg, png, bmp)                Fabian "ryg" Giesen
-    Nicolas Schulz (hdr, psd)                                                 
-    Jonathan Dummer (tga)                     Bug fixes & warning fixes           
-    Jean-Marc Lienher (gif)                      Marc LeBlanc               
-    Tom Seddon (pic)                             Christpher Lloyd           
-    Thatcher Ulrich (psd)                        Dave Moore                 
-                                                 Won Chun                   
-                                                 the Horde3D community      
- Extensions, features                            Janez Zemva                
-    Jetro Lauha (stbi_info)                      Jonathan Blow              
-    James "moose2000" Brown (iPhone PNG)         Laurent Gomila                             
+    Nicolas Schulz (hdr, psd)
+    Jonathan Dummer (tga)                     Bug fixes & warning fixes
+    Jean-Marc Lienher (gif)                      Marc LeBlanc
+    Tom Seddon (pic)                             Christpher Lloyd
+    Thatcher Ulrich (psd)                        Dave Moore
+                                                 Won Chun
+                                                 the Horde3D community
+ Extensions, features                            Janez Zemva
+    Jetro Lauha (stbi_info)                      Jonathan Blow
+    James "moose2000" Brown (iPhone PNG)         Laurent Gomila
     Ben "Disch" Wenger (io callbacks)            Aruelien Pocheville
     Martin "SpartanJ" Golini                     Ryamond Barbiero
                                                  David Woo
-                                                 
+
 
  If your name should be here but isn't, let Sean know.
 
@@ -81,7 +81,7 @@
 // Basic usage (see HDR discussion below):
 //    int x,y,n;
 //    unsigned char *data = stbi_load(filename, &x, &y, &n, 0);
-//    // ... process data if not NULL ... 
+//    // ... process data if not NULL ...
 //    // ... x = width, y = height, n = # 8-bit components per pixel ...
 //    // ... replace '0' with '1'..'4' to force that many components per pixel
 //    // ... but 'n' will always be the number that it would have been if you said 0
@@ -157,7 +157,7 @@
 // (linear) floats to preserve the full dynamic range:
 //
 //    float *data = stbi_loadf(filename, &x, &y, &n, 0);
-// 
+//
 // If you load LDR images through this interface, those images will
 // be promoted to floating point values, run through the inverse of
 // constants corresponding to the above:
@@ -179,7 +179,7 @@
 // I/O callbacks allow you to read from arbitrary sources, like packaged
 // files or some other source. Data read from callbacks are processed
 // through a small internal buffer (currently 128 bytes) to try to reduce
-// overhead. 
+// overhead.
 //
 // The three functions you must define are "read" (reads some bytes of data),
 // "skip" (skips some bytes of data), "eof" (reports if the stream is at the end).
@@ -231,7 +231,7 @@ stbi_uc *stbi_load_from_file  (FILE *f,                  int *x, int *y, int *co
 
 typedef struct
 {
-   int      (*read)  (void *user,char *data,int size);   // fill 'data' with 'size' bytes.  return number of bytes actually read 
+   int      (*read)  (void *user,char *data,int size);   // fill 'data' with 'size' bytes.  return number of bytes actually read
    void     (*skip)  (void *user,unsigned n);            // skip the next 'n' bytes
    int      (*eof)   (void *user);                       // returns nonzero if we are at end of file/data
 } stbi_io_callbacks;
@@ -245,7 +245,7 @@ stbi_uc *stbi_load_from_callbacks  (stbi_io_callbacks const *clbk, void *user, i
    float *stbi_loadf            (char const *filename,   int *x, int *y, int *comp, int req_comp);
    float *stbi_loadf_from_file  (FILE *f,                int *x, int *y, int *comp, int req_comp);
    #endif
-   
+
    float *stbi_loadf_from_callbacks  (stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp);
 
    void   stbi_hdr_to_ldr_gamma(float gamma);
@@ -266,7 +266,7 @@ int      stbi_is_hdr_from_file(FILE *f);
 
 // get a VERY brief reason for failure
 // NOT THREADSAFE
-const char *stbi_failure_reason  (void); 
+const char *stbi_failure_reason  (void);
 
 // free the loaded image -- this is just free()
 void     stbi_image_free      (void *retval_from_stbi_load);

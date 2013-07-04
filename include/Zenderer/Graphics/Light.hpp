@@ -41,7 +41,7 @@ namespace gfx
 
     /**
      * Represents a light object acting on a graphical scene.
-     *  Each lighting type has its own special variables and parameters 
+     *  Each lighting type has its own special variables and parameters
      *  that can be modified and accessed. See the raw shader files to learn
      *  the specific parameter names.
      **/
@@ -56,7 +56,7 @@ namespace gfx
          *
          * @param   m_Assets    The asset manager to make the effect from
          * @param   Type        The light type you want
-         * @param   window_h    The height of the OpenGL context 
+         * @param   window_h    The height of the OpenGL context
          **/
         CLight(asset::CAssetManager& m_Assets, const LightType& Type,
                const uint16_t window_h = 800);
@@ -68,7 +68,7 @@ namespace gfx
 
         bool Enable() const;
         bool Disable() const;
-        
+
         // Sometimes you don't care about the original position.
         inline void Adjust(const real_t dx, const real_t dy)
         { this->SetPosition(m_Position.x + dx, m_Position.y + dy); }
@@ -82,7 +82,7 @@ namespace gfx
         bool SetPosition(const math::vector_t& Pos);
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
-        
+
         real_t                  GetBrightness() const   { return m_brt;     }
         const color3f_t&        GetColor() const        { return m_Color;   }
         const math::vector_t&   GetPosition() const     { return m_Position;}
@@ -115,7 +115,7 @@ namespace gfx
 
         // OpenGL context height (in pixels).
         uint16_t m_height;
-        
+
         bool m_init;
     };
 

@@ -42,7 +42,7 @@ namespace util
      * A high-precision timer class for controlling frame rates.
      *  This class provides fairly generic timing functionality,
      *  with the ability to start, stop, measure, and delay for
-     *  various periods of time. 
+     *  various periods of time.
      *  Most methods are virtual, allowing for a user to inherit
      *  and implement their own custom timer, but still be able to
      *  pass it around to various parts of the engine when necessary.
@@ -67,7 +67,7 @@ namespace util
         virtual time_t Finish();    ///< Marks finish time and returns it.
         virtual time_t Elapsed();   ///< Returns finish time - start time.
 
-        /// Sleeps the current thread (defaults to milliseconds). 
+        /// Sleeps the current thread (defaults to milliseconds).
         void Sleep(const time_t ticks);
 
         /**

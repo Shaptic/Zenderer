@@ -31,8 +31,8 @@ void main()
         float dist  = length(light_vec);
 
         // Calculate attenuation, or light influence factor.
-        float att   = 1.0 / ( light_att.x + 
-                            ( light_att.y * dist) + 
+        float att   = 1.0 / ( light_att.x +
+                            ( light_att.y * dist) +
                             ( light_att.z * dist * dist));
 
         // Lit fragment color is the light color * attenuation * brightness.

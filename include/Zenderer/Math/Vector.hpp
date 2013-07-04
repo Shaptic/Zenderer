@@ -45,7 +45,7 @@ namespace math
      *  Supports all vector operations such as cross products,
      *  dot products, movement, scaling, and rotation.
      *
-     *  The class is templated to store any sort of POD values that 
+     *  The class is templated to store any sort of POD values that
      *  you'd like, such as `float`, `int`, `uint32_t`, etc.
      *  Beware that any operations between mixed vector types will
      *  return the type of the vector on the left-hand side of the
@@ -61,7 +61,7 @@ namespace math
      *
      *  Thus if you need a higher level of precision, keep that vector
      *  instance on the right-hand side.
-     *  
+     *
      *  There is a built-in shortcut to `vector_t` that is a floating-point
      *  vector representation that is used throughout the engine.
      *
@@ -246,7 +246,7 @@ namespace math
 
     /// A shortcut for the default vector implementation in the engine.
     typedef Vector<real_t> vector_t;
-    
+
 }   // namespace math
 }   // namespace ic
 

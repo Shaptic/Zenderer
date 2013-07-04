@@ -100,7 +100,7 @@ bool CShader::LoadFromRaw(const string_t& string)
         char* buffer = new char[length];
 
         GL(glGetShaderInfoLog(shader, length, &length, buffer));
-        
+
         m_shader_log = buffer;
 
         delete[] buffer;

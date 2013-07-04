@@ -63,7 +63,7 @@ namespace math
 
         /// Multiple two matrices together.
         matrix4x4_t operator*(matrix4x4_t& Other) const;
-        
+
         /// Translates the matrix by a vector.
         inline void Translate(const math::vector_t& V)
         {
@@ -71,7 +71,7 @@ namespace math
             m_values[1][3] = V.y;
             m_values[2][3] = V.z;
         }
-        
+
         /// Adjusts the translation matrix by a vector.
         inline void TranslateAdj(const math::vector_t& DV)
         {

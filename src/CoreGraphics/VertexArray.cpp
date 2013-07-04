@@ -91,7 +91,7 @@ bool CVertexArray::Offload()
     // Bind() only binds the VAO. We attach the VBO/IBO to it here.
     GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
     GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
-    
+
     // Check if there's existing data on the buffers.
     GLint bsize = 0;
     GL(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bsize));
@@ -172,7 +172,7 @@ bool CVertexArray::Offload()
                              GL_FALSE,          /* Normalized?      */
                              sizeof(vertex_t),  /* Size of field    */
         VBO_OFFSET(0, vertex_t, position)));    /* Size of offset   */
-        
+
     // Enable shader attribute 0 (position)
     GL(glEnableVertexAttribArray(0));
 
@@ -189,7 +189,7 @@ bool CVertexArray::Offload()
     GL(glEnableVertexAttribArray(2));
 
     // We do not unbind our buffers as they stay attached to the VAO.
-    
+
     // We're done, clean up buffers.
     m_vcount += m_vaoVertices.size();
     m_icount += m_vaoIndices.size();
