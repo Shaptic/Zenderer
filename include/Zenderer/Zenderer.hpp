@@ -232,6 +232,8 @@ namespace zen
  *
  * @section zlvl    ZenLevel
  *  @subsection zlvlspec    Specification
+ *      Levels in @a Zenderer combine the @ref entity specification 
+ *
  *
  *  @subsubsection zlvl_light  Light Options
  *      All floating point values can have a maximum of three decimal
@@ -263,20 +265,36 @@ namespace zen
  *  filename=sample.zlv
  *  title=Level 1 -- Tutorial
  *
- *  // Mesh from existing file
- *  <entity>
- *    position=100,200
- *    filename=grasstile.znt
+ *  // Place entity from existing texture file
+ *  <entity type="texture">
+ *    position=100,200,0
+ *    filename=textures/grass.png
  *  </entity>
  *
- *  // In-line mesh creation of a grass sprite tiled 4 times.
- *  <entity>
- *    position=100,100
- *    vertices=0,0,64,0,0,64,64,64
- *    texcoords=0,2,2,2,2,0,0,0
- *    <surface>
- *      texture=grass.tga
- *    </surface>
+ *  // Place entity from existing entity file
+ *  <entity type="file">
+ *    position=100,100,0
+ *    filename=assets/grass.znt
+ *  </entity>
+ *
+ *  // Place entity using in-line entity mesh creation.
+ *  // This is a tiled grass entity (2x2 tiles) 
+ *  // with a slight blur and vertex inversion for skewing,
+ *  // together with a dirt entity.
+ *  <entity type="inline">
+ *    position=0,0,0
+ *    <mesh>
+ *      width=64
+ *      height=64
+ *      repeat=1
+ *      invert=1
+ *      texture=textures/grass.png
+ *      shader=shaders/default.vs,shaders/GaussianBlurH.fs
+ *      params=radius:0.005
+ *    </mesh>
+ *    <mesh>
+ *      texture=textures/dirt.png
+ *    </mesh>
  *  </entity>
  *
  *  <light>
@@ -291,38 +309,42 @@ namespace zen
  *
  *  </pre>
  *
- * @section zent    ZenTity
- *  @subsection  zentspec    Specification
+ *  The in-line entity multi-mesh creation featured in the example file
+ *  would be equivalent to the following API code:
+ *  @code
+ *  CQuad Q1, Q2;
+ *  CMaterial M1, M2;
  *
- *  @subsubsection  example     Example File
- *  <pre>
- *  // This is an example ZenTity file with two
- *  // side-by-side quads; one has a texture and
- *  // the other is mapped with a texture and a
- *  // pair of shaders.
+ *  // Set up the first primitive.
+ *  M1.LoadEffect(EffectType::GAUSSIAN_BLUR_H);
+ *  M1.GetEffect()->Enable();
+ *  M1.GetEffect()->SetParameter("radius", 0.005);
+ *  M1.GetEffect()->Disable();
+ *  M1.LoadTextureFromFile("textures/grass.png");
  *
- *  filename=sample.znt
- *  author=George Kudrayvtsev
- *  version=1.0
+ *  Q1.Resize(64, 64);
+ *  Q1.SetRepeating(true);
+ *  Q1.SetInverted(true);
+ *  Q1.AttachMaterial(M1);
+ *  Q1.Create();
  *
- *  vertices=
- *  texcoords=0,1,1,1,1,0,0,0
- *  <surface>
- *    texture=Sample.tga
+ *  // Set up the second primitive.
+ *  M2.LoadTextureFromFile("textures/dirt.png");
+ *  Q2.AttachMaterial(M2);
  *
- *    vshader=Shader.vs
- *    fshader=Shader.fs
+ *  CEntity E;
+ *  E.AddPrimitiveMesh(Q1);
+ *  E.AddPrimitiveMesh(Q2);
+ *  E.Create();
  *
- *    // Or (only if both):
- *    // shaders=Shader.vs,Shader.fs
- *
- *    indices=0,1,3,3,1,2
- *  </surface>
- *  </pre>
- *
- * @secion  zmat    ZenFX
- *  @subsection zmatspec    Specification
+ *  // Later...
+ *  E.Draw();
+ *  @endcode
+ * 
+ * @section  ZMat           ZenFX
+ *  @subsection ZMatSpec    Specification
  *  Extension: `.zfx`
+ *
  *  This is a simple INI-like file that contains filenames
  *  to create custom materials from a combination of shaders
  *  and textures. The filenames can be paths, but they must
@@ -335,16 +357,124 @@ namespace zen
  *  | `vshader` | Vertex shader filename   | &#10004; |
  *  | `fshader` | Fragment shader filename | &#10004; |
  *  | `texture` | Texture filename         | &#10004; |
+ *  | `params`  | Shader parameters        | &#10005; |
  *
- *  @subsection zmatex      Example File
+ *  Shader parameters are options found in the shader files that
+ *  customize how it looks. They are optional, but can be included
+ *  if you desire a default effect.
+ *  They should all be on one line, in the form
+ *  `name1:val1,val2,val3;name2:val1`
+ *  Thus a shader wanting a `radius` of (10, 6) and a `time` of 0.34
+ *  would be specified like so:
+ *
+ *      params=radius:10,6;time:0.34
+ *
+ *
+ *  @subsection ZMatEx      Example File
+ *  This is an example ZenFX file using the default shaders and a fake
+ *  sample texture.
+ *
  *  @code
- *  // This is an example ZenFX file using the default shaders
- *  // and a fake sample texture.
+ *  // Example.zfx
  *  vshader=Zenderer/shaders/Default.vs
  *  fshader=Zenderer/shaders/Default.fs
- *
  *  texture=Assets/textures/Sample.png
  *  @endcode
+ *
+ * @section ZEnt            ZenTity
+ *  @subsection ZEntSpec    Specification
+ *  Extension: `.znt`
+ *
+ *  In @a Zenderer, entities are essentially extremely versatile
+ *  primitive instances. The most important distinction is
+ *  multi-primitive rendering. So if you had, for example, a 
+ *  table made of two leg textures and a top texture, you could
+ *  create a single entity from it. 
+ *
+ *  The file specification features a lot of optional values and 
+ *  valid/invalid combinations, all of which are detailed below.
+ *
+ *  The following keys are part of the raw entity specification, not the
+ *  individual primitive specification. 
+ *
+ *  |   Key      |     Description    | Required |           Notes           |
+ *  | :--------: | ------------------ | :------: | :------------------------ |
+ *  | `position` | Position on screen | &#10004; | In the form x,y,z         |
+ *  | `primcount`| # of primitives    | &#10005; | Allows for pre-allocation | 
+ *
+ *  The `z` on the `position` key is optional, but specifying depth is required 
+ *  for proper shadow rendering. It will default to 0.
+ *
+ *  The following are individual primitive options.
+ *  These are placed within a `<prim></prim>` block, which can
+ *  be repeated as many times as necessary.
+ *
+ *  |   Key     |     Description    | Required |               Notes               |
+ *  | :-------: | ------------------ | :------: | :-------------------------------- |
+ *  | `invert`  | Invert vertices?   | &#10005; | Defaults to `false`               |
+ *  | `repeat`  | Repeat texture?    | &#10005; | Defaults to `false`               | 
+ *  | `width`   | Primitive width    | &#10005; | Defaults to texture width         |
+ *  | `height`  | Primitive height   | &#10005; | Defaults to texture height        |
+ *  | `vshader` | Vertex shader file | &#10005; |                                   |
+ *  | `fshader` | Pixel shader file  | &#10005; | Pixel / Fragment                  |
+ *  | `texture` | Texture file       | &#10004; | This or material file             |
+ *  | `material`| Material file      | &#10004; | This or texture file              |
+ *  | `params`  | Shader parameters  | &#10005; | Format: `name:val1,val2;name:val1`|
+ *
+ *  If overlapping values are used for `material` and the texture file, 
+ *  the file keys will be preferred over the material file. Thus if you specify
+ *  `vshader`, `fshader`, `texture`, *and* `material`, the local files will be
+ *  loaded, as opposed to the material file.
+ *
+ *  If the shader files are left off, the default will be used (like for primitives).
+ *
+ *  The `primcount` option will allow for a tiny speed up in loading, but will only
+ *  make a real difference if the entity contains dozens of primitives.
+ *
+ *  For the boolean parameters (like `invert` and `repeat`), use `0` and `1` as
+ *  opposed to `true` and `false`.
+ *
+ *  @see    zen::gfx::CQuad
+ *
+ *  @subsubsection  ZEntEx  Example File
+ *  <pre>
+ *  // This is an example ZenTity file with two
+ *  // side-by-side quads; one has a texture and
+ *  // the other is mapped with a texture and a
+ *  // pair of shaders.
+ *
+ *  // Metadata, ignored.
+ *  filename=sample.znt
+ *  author=George Kudrayvtsev
+ *  version=1.0
+ *
+ *  // Position on-screen
+ *  position=100,100,5
+ *  primcount=2
+ *
+ *  // Tiled twice in X, twice in Y
+ *  // Slight horizontal blur, ready to be skewed along
+ *  // the top vertices.
+ *  <prim>
+ *    texture=textures/grass.png
+ *
+ *    vshader=shaders/Default.vs
+ *    fshader=shaders/GaussianBlurH.fs
+ *    params=radius:0.005
+ *
+ *    width=64
+ *    height=64
+ *
+ *    repeat=1
+ *    invert=1
+ *  </prim>
+ *
+ *  // Nothing special about this one
+ *  <prim>
+ *    texture=textures/dirt.png
+ *  </prim>
+ *
+ *  </pre>
  *
  * @section zanim   ZenImation
  *  @subsection zanimspec   Specification
