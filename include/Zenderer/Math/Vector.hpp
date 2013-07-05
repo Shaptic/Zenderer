@@ -5,7 +5,7 @@
  *  typical of such a structure.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.1.3
+ * @version     1.5.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -246,7 +246,16 @@ namespace math
 
     /// A shortcut for the default vector implementation in the engine.
     typedef Vector<real_t> vector_t;
+    
+    /// Floating-point vector shortcut.
+    typedef Vector<real_t> vectorf_t;
 
+    /// 16-bit unsigned integral vector shortcut.
+    typedef Vector<uint16_t> vectoru16_t;
+    
+    /// Standard 32-bit integral vector shortcut.
+    typedef Vector<int32_t> vectori_t;
+    
 }   // namespace math
 }   // namespace ic
 

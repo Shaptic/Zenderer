@@ -49,8 +49,8 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         mp_MVMatrix = new math::matrix4x4_t;
        *mp_MVMatrix = math::matrix4x4_t::CreateIdentityMatrix();
 
-        // Our default set of material data
-        mp_Material = &CRenderer::GetDefaultMaterial();
+        // Our default set of material data, if needed.
+        if(!mp_Material) mp_Material = &CRenderer::GetDefaultMaterial();
 
         // So we can differentiate between a VAO from a `CScene`
         // and the one we made ourselves.
@@ -69,24 +69,24 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         (*mp_MVMatrix)[0][3] = m_Position.x;
         (*mp_MVMatrix)[1][3] = m_Position.y;
       //(*mp_MVMatrix)[2][3] = m_Position.z;
+        
+        // Use our effect, or the default?
+        gfx::CEffect* pEffect = (mp_Material->GetEffect() == nullptr)
+                                ? &CRenderer::GetDefaultEffect()
+                                : mp_Material->GetEffect();
 
-        gfx::CEffect*       pEffect = nullptr;
-        gfxcore::CTexture*  pTexture= nullptr;
-
-        if(mp_Material == nullptr || mp_Material->GetEffect() == nullptr)
-            pEffect = &CRenderer::GetDefaultEffect();
-        else
-            pEffect = mp_Material->GetEffect();
-
-        if(mp_Material == nullptr || mp_Material->GetTexture() == nullptr)
-            pTexture = const_cast<gfxcore::CTexture*>(
-                &CRenderer::GetDefaultTexture());
-        else
-            pTexture= mp_Material->GetTexture();
+        // Use our texture, or the default?
+        // We need a default texture because otherwise the color would
+        // always be black due to the way the shader works.
+        gfxcore::CTexture* pTexture =
+            (mp_Material->GetTexture() == nullptr)
+            ? const_cast<gfxcore::CTexture*>(&CRenderer::GetDefaultTexture())
+            : mp_Material->GetTexture();
 
         pEffect->Enable();
         pTexture->Bind();
 
+        // All effects have these parameters in the vertex shader.
         if(!pEffect->SetParameter("mv", *mp_MVMatrix) ||
            !pEffect->SetParameter("proj", CRenderer::GetProjectionMatrix()))
         {

@@ -116,7 +116,13 @@ namespace gfxcore
         inline real_t GetX() const { return m_Position.x; }
         inline real_t GetY() const { return m_Position.y; }
 
-        /// Shortcut to prevent loading simple objects manually.
+        /**
+         * Shortcut to prevent loading simple objects manually.
+         *  This DOES NOT delete any internal vertex data, and thus 
+         *  can be called multiple times with various vertex settings.
+         *
+         * @param   VAO     The vertex array to store data into
+         **/
         void LoadIntoVAO(gfxcore::CVertexArray& VAO);
 
         /// For setting things implicitly.

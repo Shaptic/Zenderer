@@ -45,75 +45,51 @@ static const char* SAMPLE_XML[] = {
     Window.Init();
 
     sfx::CSound2D Sound;
-    //Sound.LoadFromFile("Crackle.wav");
+    Sound.LoadFromFile("Crackle.wav");
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
-    gfxcore::CTexture* T = Manager.Create<gfxcore::CTexture>(
-        string_t("sample.png"));
+    gfx::CMaterial Sample(&Manager);
+    gfx::CMaterial Grass(&Manager);
+    
+    Sample.LoadTextureFromFile("sample.png");
+    Sample.LoadEffect(gfx::EffectType::NO_EFFECT);
+    
+    Grass.LoadTextureFromFile("grass.png");
+    Grass.LoadEffect(gfx::EffectType::NO_EFFECT);
 
-    gfxcore::CTexture* Grass = Manager.Create<gfxcore::CTexture>(
-        string_t("grass.png"));
+    // Create the vertex buffers we will be using (inefficient).
+    gfxcore::CVertexArray Vao, FS, Gr;
+    Vao.Init(); FS.Init(); Gr.Init();
+        
+    // Quad to easily store vertex data
+    gfx::CQuad Default(T->GetWidth(), T->GetHeight());
+    Default.SetColor(color4f_t(1, 1, 1, 1));
+    Default.Create();
+    
+    // Regular quad
+    Default.LoadIntoVAO(Default);
 
-    gfxcore::CVertexArray Vao;
-    gfxcore::DrawBatch D;
-
-    gfxcore::index_t i[] = {0, 1, 3, 3, 1, 2};
-
-    D.Vertices  = new gfxcore::vertex_t[4];
-    D.vcount    = 4;
-    D.Indices   = i;
-    D.icount    = 6;
-
-    D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(T->GetWidth(), 0);
-    D.Vertices[2].position = math::vector_t(T->GetWidth(), T->GetHeight());
-    D.Vertices[3].position = math::vector_t(0, T->GetHeight());
-
-    D.Vertices[0].tc = math::vector_t(0.0, 1.0);
-    D.Vertices[1].tc = math::vector_t(1.0, 1.0);
-    D.Vertices[2].tc = math::vector_t(1.0, 0.0);
-    D.Vertices[3].tc = math::vector_t(0.0, 0.0);
-
-    D.Vertices[0].color =
-    D.Vertices[1].color =
-    D.Vertices[2].color =
-    D.Vertices[3].color = color4f_t(1, 1, 1, 1);
-
-    Vao.Init();
-    Vao.AddData(D);
+    // Full screen
+    Default.Resize(800, 600);
+    Default.Create();
+    Default.LoadIntoVAO(FS);
+    
+    // Stretched grass quad
+    Default.SetInverted(true);
+    Default.SetRepeating(true);
+    Default.AttachMaterial(CMaterial(nullptr, Grass));
+    Default.Resize(15 * Grass->GetWidth(), Grass->GetHeight());
+    Default.Create();
+    Default.LoadIntoVAO(Gr);
+    
     Vao.Offload();
-
-    D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(800, 0);
-    D.Vertices[2].position = math::vector_t(800, 600);
-    D.Vertices[3].position = math::vector_t(0, 600);
-
-    gfxcore::CVertexArray FS, G;
-    FS.Init(); G.Init();
-    FS.AddData(D);
     FS.Offload();
+    Gr.Offload();
 
-    D.Vertices[0].tc = math::vector_t(0.0, 0.0);
-    D.Vertices[1].tc = math::vector_t(0.0, 1.0);
-    D.Vertices[2].tc = math::vector_t(15.0, 1.0);
-    D.Vertices[3].tc = math::vector_t(15.0, 0.0);
-
-    D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(0, -Grass->GetHeight());
-    D.Vertices[2].position = math::vector_t(15 * Grass->GetWidth(), -Grass->GetHeight());
-    D.Vertices[3].position = math::vector_t(15 * Grass->GetWidth(), 0);
-
-    G.AddData(D);
-    G.Offload();
-
-    D.Indices = nullptr;
-    delete[] D.Vertices;
-    D.vcount = D.icount = 0;
-
-    gfx::CQuad Q(32, 32);
-    Q.Create();
-    Q.SetColor(color4f_t(1));
+    Default.Resize(32, 32);
+    Default.AttachMaterial(nullptr);
+    Default.Create();
 
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
@@ -131,10 +107,9 @@ static const char* SAMPLE_XML[] = {
     gfx::CRenderTarget RT(800, 600);
     RT.Init();
 
+    gfx::CEffect& DEffect = CRenderer::GetDefaultEffect();
+
     double x, y;
-
-    gfx::CEffect& Default = CRenderer::GetDefaultEffect();
-
     real_t angle = 45.0, d = -5.5;
 
     while(Window.IsOpen())
@@ -151,10 +126,10 @@ static const char* SAMPLE_XML[] = {
         {
             RT.Bind();
             T->Bind();
-            Default.Enable();
+            DEffect.Enable();
 
-            Default.SetParameter("proj", CRenderer::GetProjectionMatrix());
-            Default.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+            DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
+            DEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
 
             RT.Clear();
             Vao.Draw();
@@ -168,7 +143,7 @@ static const char* SAMPLE_XML[] = {
 
         {
             CRenderer::EnableTexture(RT.GetTexture());
-            Default.Enable();
+            DEffect.Enable();
 
             FS.Draw();
 
@@ -177,18 +152,18 @@ static const char* SAMPLE_XML[] = {
 
         {
             T->Bind();
-            Default.Enable();
+            DEffect.Enable();
 
             Vao.Draw();
 
             CRenderer::ResetMaterialState();
         }
 
-        Q.Move(x, y);
-        Q.Draw();
+        Default.Move(x, y);
+        Default.Draw();
 
         {
-            Default.Enable();
+            DEffect.Enable();
             Grass->Bind();
 
             math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
@@ -199,15 +174,17 @@ static const char* SAMPLE_XML[] = {
             MV.Shear(math::vector_t(angle += d, 0.0));
             MV.Translate(math::vector_t(300, 300));
 
-            Default.SetParameter("proj", CRenderer::GetProjectionMatrix());
-            Default.SetParameter("mv", MV);
+            DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
+            DEffect.SetParameter("mv", MV);
 
-            G.Draw();
+            Gr.Draw();
 
             CRenderer::ResetMaterialState();
         }
 
         Window.Update();
+        
+        //Sound.Update();
 
         // Finalize
         Timer.Delay();
