@@ -38,7 +38,7 @@ namespace gfx
         ~CQuad();
 
         virtual CDrawable& Create();
-        virtual void AttachMaterial(gfx::material_t* pMaterial);
+        virtual void AttachMaterial(gfx::CMaterial* pMaterial);
         
         /** 
          * Resizes the quad to a new dimension.

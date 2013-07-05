@@ -1,6 +1,7 @@
 /**
  * @file
- *  Zenderer/Graphics/Scene.hpp - A high-level graphics rendering interface intended to abstract away all low-level rendering details.
+ *  Zenderer/Graphics/Scene.hpp - A high-level graphics rendering interface
+ *  intended to abstract away all low-level rendering details.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -173,7 +174,7 @@ namespace gfx
             m_Geometry.Bind();
 
             // Prepare for primitive rendering.
-            material_t& M = CRenderer::GetDefaultMaterial();
+            CMaterial& M = CRenderer::GetDefaultMaterial();
             CEffect& E = *M.GetEffect();
             M.Enable();
 

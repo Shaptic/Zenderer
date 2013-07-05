@@ -52,7 +52,7 @@ gfxcore::CDrawable& CQuad::Create()
     return (*this);
 }
 
-void CQuad::AttachMaterial(gfx::material_t* pMaterial)
+void CQuad::AttachMaterial(gfx::CMaterial* pMaterial)
 {
     ZEN_ASSERT(pMaterial);
     mp_Material = pMaterial;
