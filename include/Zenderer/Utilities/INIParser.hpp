@@ -86,6 +86,9 @@ namespace util
         /// Clears the dictionary.
         void Reset();
 
+        /// Was the key found in the file stream?
+        bool Exists(const string_t& key) const;
+        
         /**
          * Retrieves a value based on a key in the dictionary.
          *  If the file stream contained `texture=Data.tga`, and you

@@ -94,6 +94,20 @@ void CINIParser::Reset()
     m_pairs.clear();
 }
 
+bool CINIParser::Exists(const string_t& key)
+{
+    return (m_pairs.find(key) == m_pairs.end());
+}
+
+const string_t& CINIParser::GetValue(const string_t& key)
+{
+    auto find = m_pairs.find(key);
+    
+    if(find == m_pairs.end()) return s_empty;
+    
+    return find->second;
+}
+
 CINIParser::pair_t& CINIParser::GetPairs()
 {
     return m_pairs;
