@@ -42,6 +42,7 @@
   #undef AL
 #endif // AL
 
+/// Automatic OpenAL call checking in debug builds.
 #ifdef _DEBUG
   #define AL(f) f; zen::sfx::CAudioManager::alCheck(#f, __LINE__, __FILE__);
 #else

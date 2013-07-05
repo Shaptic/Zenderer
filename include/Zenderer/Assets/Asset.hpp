@@ -41,38 +41,7 @@ namespace asset
     /// For unique asset ID.
     typedef uint32_t assetid_t;
 
-    /**
-     * Used throughout @a Zenderer to act as an asset.
-     *  Assets can include audio files, shaders, or any other data that can
-     *  be loaded from disk with a filename.
-     *
-     *  Inheriting classes are required to be able to successfully reload
-     *  themselves if they have been given a filename originally. Thus it is
-     *  recommended to store the filename given to CAsset::LoadFromFile()
-     *  internally. In addition, comparisons between assets to check for
-     *  equivalence is typically done by comparing the filename hash and the
-     *  owner address. Thus, CAsset::LoadFromFile() should be sure to call
-     *  util::string_hash and store the value internally in
-     *  CAsset::m_filename_hash. By default, if this value is not stored the
-     *  base class will hash it on-the-fly, which obviously can be
-     *  undesirable with successive calls.
-     *
-     *  Another requirement for all inheriting classes is the ability to
-     *  load a copy of an asset from an existing asset using only existing
-     *  virtual methods found in the base class. These will likely include
-     *  CAsset::GetFilename() and CAsset::GetData().
-     *
-     *  All assets are assigned a (hopefully) unique ID at instantiation
-     *  based on their address in memory. This ID can be used to find the
-     *  asset using the asset manager, assuming the ID is known but the
-     *  asset is not. The ID is also used in comparison.
-     *
-     *  Any class inheriting this base class does not necessarily need to
-     *  place itself within the zen::asset namespace.
-     *
-     * @see util::hash()
-     * @see util::string_hash()
-     **/
+    /// Used throughout @a Zenderer to act as a managed asset.
     class ZEN_API CAsset
     {
     public:
@@ -158,3 +127,37 @@ namespace asset
 #endif // ZENDERER__ASSETS__ASSET_HPP
 
 /** @} **/
+
+/**
+ * @class zen::asset::CAsset
+ * @description
+ *  Assets can include audio files, shaders, or any other data that can
+ *  be loaded from disk with a filename.
+ *
+ *  Inheriting classes are required to be able to successfully reload
+ *  themselves if they have been given a filename originally. Thus it is
+ *  recommended to store the filename given to CAsset::LoadFromFile()
+ *  internally. In addition, comparisons between assets to check for
+ *  equivalence is typically done by comparing the filename hash and the
+ *  owner address. Thus, CAsset::LoadFromFile() should be sure to call
+ *  util::string_hash and store the value internally in
+ *  CAsset::m_filename_hash. By default, if this value is not stored the
+ *  base class will hash it on-the-fly, which obviously can be
+ *  undesirable with successive calls.
+ *
+ *  Another requirement for all inheriting classes is the ability to
+ *  load a copy of an asset from an existing asset using only existing
+ *  virtual methods found in the base class. These will likely include
+ *  CAsset::GetFilename() and CAsset::GetData().
+ *
+ *  All assets are assigned a (hopefully) unique ID at instantiation
+ *  based on their address in memory. This ID can be used to find the
+ *  asset using the asset manager, assuming the ID is known but the
+ *  asset is not. The ID is also used in comparison.
+ *
+ *  Any class inheriting this base class does not necessarily need to
+ *  place itself within the zen::asset namespace.
+ *
+ * @see util::hash()
+ * @see util::string_hash()
+ **/
