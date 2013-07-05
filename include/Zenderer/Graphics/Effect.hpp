@@ -37,10 +37,13 @@ namespace gfx
      * Names a distribution of effect types.
      *  See the table in the CEffect documentation for appropriate
      *  parameters for each of the effects.
+     *
+     * @note    `CUSTOM_EFFECT` is only used by the material wrapper.
      **/
     enum class EffectType : int16_t
     {
         NO_EFFECT = -1,     ///< No effect, default shaders
+        CUSTOM_EFFECT,      ///< A custom effect loaded from a file
         GAUSSIAN_BLUR_H,    ///< A horizontal Gaussian blur effect
         GAUSSIAN_BLUR_V,    ///< A vertical Gaussian blur effect
         GRAYSCALE,          ///< Makes the target grayscale
@@ -115,6 +118,9 @@ namespace gfx
         friend class ZEN_API CMaterial;
 
     private:
+        // For the material to be able to load custom shaders.
+        bool LoadCustomEffect(const string_t& vs, const string_t& fs);
+        
         inline bool Bind() const;
         inline bool Unbind() const;
 

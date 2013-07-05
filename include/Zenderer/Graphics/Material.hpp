@@ -22,6 +22,7 @@
 #ifndef ZENDERER__GRAPHICS__MATERIAL_HPP
 #define ZENDERER__GRAPHICS__MATERIAL_HPP
 
+#include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Assets/AssetManager.hpp"
 #include "Zenderer/Utilities/INIParser.hpp"
 #include "Zenderer/CoreGraphics/Texture.hpp"
@@ -36,63 +37,42 @@ namespace gfx
     class ZEN_API CMaterial
     {
     public:
-        CMaterial(asset::CAssetManager* Assets = nullptr) :
-            m_Assets(Assets == nullptr ? CEffect::s_DefaultManager : *Assets),
-            mp_Texture(nullptr), mp_Effect(nullptr) {}
+        explicit CMaterial(asset::CAssetManager* Assets = nullptr);
+        CMaterial(gfxcore::CTexture& Texture, gfx::CEffect& Effect,
+                  asset::CAssetManager* Assets = nullptr);
 
-        CMaterial(gfxcore::CTexture& Texture,
-                  gfx::CEffect& Effect,
-                  asset::CAssetManager* Assets = nullptr) :
-            m_Assets(Assets == nullptr ? CEffect::s_DefaultManager : *Assets),
-            mp_Texture(&Texture), mp_Effect(&Effect) {}
-
-        ~CMaterial()
-        {
-            if(!m_given)
-            {
-                delete mp_Effect;
-                m_Assets.Delete(mp_Texture);
-            }
-        }
+        ~CMaterial();
 
         bool LoadFromFile(const string_t& filename);
         bool LoadTextureFromFile(const string_t& filename);
         bool LoadEffect(EffectType& Type);
 
-        bool Attach(CEffect& E, gfxcore::CTexture& T)
-        {
-            mp_Texture = &T;
-            mp_Effect  = &E;
-            return (m_given = true);
-        }
+        bool Attach(CEffect& E, gfxcore::CTexture& T);
+        bool Attach(CEffect&& E, gfxcore::CTexture&& T);    // Not allowed
 
-        bool Enable() const
-        {
-            bool ret = true;
-            if(mp_Effect)   ret = mp_Effect->Enable();
-            if(mp_Texture)  ret = ret && mp_Texture->Bind();
-
-            return ret;
-        }
+        bool Enable() const;
 
         bool EnableEffect() const;
         bool EnableTexture() const;
 
-        bool Disable() const { if(mp_Effect) mp_Effect->Disable(); if(mp_Texture) mp_Texture->Unbind(); return true; }
+        bool Disable() const;
         bool DisableEffect() const;
         bool DisableTexture() const;
 
-        CEffect* GetEffect()                    { return mp_Effect; }
-        gfxcore::CTexture* GetTexture() const   { return mp_Texture; }
+        CEffect* GetEffect();
+        gfxcore::CTexture* GetTexture() const;
 
-        friend class ZEN_API gfxcore::CRenderer;
+        friend class gfxcore::CRenderer;
 
     private:
-        asset::CAssetManager& m_Assets;
-        gfxcore::CTexture* mp_Texture;
-        gfx::CEffect* mp_Effect;
+        void Destroy();
+        
+        asset::CAssetManager&   m_Assets;
+        util::CLog&             m_Log;
+        gfxcore::CTexture*      mp_Texture;
+        gfx::CEffect*           mp_Effect;
 
-        bool m_given;
+        bool m_egiven, m_tgiven;
     };
 
     typedef CMaterial material_t;

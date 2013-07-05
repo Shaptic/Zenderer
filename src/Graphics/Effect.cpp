@@ -60,6 +60,16 @@ bool CEffect::Init()
         m_init = m_Shader.LoadFragmentShaderFromFile(
             ZENDERER_SHADER_PATH"Ripple.fs");
 
+    else if(m_type == EffectType::CUSTOM_EFFECT)
+    {
+        // Custom effects are only loaded from files via `CMaterial` class.
+        m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
+                << "Custom effects can only be loaded from .zfx files via the 
+                <<  "zen::gfx::CMaterial object." << CLog::endl;
+                
+        return(m_init = false);
+    }
+    
     else
     {
         // Fatal error because this shouldn't be possible.
@@ -148,4 +158,47 @@ bool CEffect::SetParameter(const string_t& name,
     GLint loc = m_Shader.GetUniformLocation(name);
     GL(glUniformMatrix4fv(loc, 1, GL_TRUE, Matrix.GetPointer()));
     return (loc != -1);
+}
+
+bool CEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
+{
+    ZEN_ASSERT(m_type == EffectType::CUSTOM_EFFECT);
+    
+    s_DefaultManager.Init();
+    if(m_init) this->Destroy();
+
+    // All effects currently use the default vertex shader.
+    m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs");
+
+    if(m_type == EffectType::NO_EFFECT)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"Default.fs");
+
+    else if(m_type == EffectType::GAUSSIAN_BLUR_H)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"GuassianBlurH.fs");
+
+    else if(m_type == EffectType::GAUSSIAN_BLUR_V)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"GuassianBlurV.fs");
+
+    else if(m_type == EffectType::GRAYSCALE)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"TTFRender.fs");
+
+    else if(m_type == EffectType::RIPPLE)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"Ripple.fs");
+
+    else
+    {
+        // Fatal error because this shouldn't be possible.
+        m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
+                << "Invalid effect type: " << static_cast<int16_t>(m_type)
+                << "." << CLog::endl;
+
+        return (m_init = false);
+    }
+
+    return (m_init = m_Shader.CreateShaderObject());
 }

@@ -43,7 +43,7 @@ bool CAssetManager::Destroy()
 bool CAssetManager::Delete(CAsset* const pAsset)
 {
     ZEN_ASSERT(this->IsInit());
-    ZEN_ASSERT(pAsset != nullptr);
+    if(pAsset == nullptr) return false;
 
     // Verify that this is our asset to delete.
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
