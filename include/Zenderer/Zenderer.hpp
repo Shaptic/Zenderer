@@ -103,8 +103,9 @@ namespace zen
  *      with C++ for about 2 years, and have grown from using the SDL API
  *      to creating a full-fledged 2D rendering engine as you can see here.
  *      I also develop software professionally, currently interning at a
- *      medical education company doing various back-end website
- *      development using PHP, XSLT, PostgreSQL, jQuery, and other tools.\n
+ *      medical education company doing back and front-end website
+ *      development using PHP, XML/XSLT, PostgreSQL, Javacript/jQuery, and
+ *      other web development tools.\n
  *      My current pet project is @a Praecursor, an awesome concept game in
  *      the form of a 2D platformer. The main game mechanic revolves around
  *      time manipulation to get through levels and past enemies. For now,
@@ -121,12 +122,12 @@ namespace zen
  *
  * @section install Installation
  *  Installing @a Zenderer is quite trivial. All you need are the header
- *  files found in `Zenderer/include`, and the `Zenderer.lib` file you can
- *  find in the `Binaries` directory of the project root. There is
+ *  files found in `Zenderer/include`, and all of the dependency libraries
+ *  you can find in the `lib` directory of the project root. There is
  *  currently only support for Windows (*gasp*), due to the fact that I use
  *  Visual Studio and the Microsoft compiler for 95% of my C++ development.
- *  Thus, I can't guarantee any sort of cross-platform compatibility. This
- *  is obviously a potential TODO for when everything else has been taken
+ *  Thus, I can't guarantee any sort of cross-platform compatibility. But,
+ *  this is obviously a potential TODO for when everything else has been taken
  *  care of.
  *
  *  There are various dependencies for this engine. Luckily, they are all
@@ -137,6 +138,11 @@ namespace zen
  *      -   Freetype 2      (TrueType Font Library)
  *      -   OpenAL          (Open Audio Library)
  *      -   libvorbis       (OGG/Vorbis Audio Compression Algorithm)
+ *
+ * @note    All file version numbers are meaningless until a stable
+ *          1.0.0-alpha release.
+ *
+ * @todo    Test cross-platform compatibility.
  *
  * @section arch    Architecture
  *  The @a Zenderer engine is broken up into multiple components so that
@@ -161,13 +167,14 @@ namespace zen
  *      logging utility in Zenderer/Utilities/Log.hpp that is fairly
  *      flexible and easy to use. There is also a file parser that works
  *      extremely well for files that utilize `key=value` pairs, such as
- *      .ini files. This `key=value` relationship is used extensively
+ *      `.ini` files. This `key=value` relationship is used extensively
  *      throughout @a Zenderer for level loading and other components. Also
  *      included are some file-loading functions, to load image files
- *      for sprite sheets or generic textures for use in the engine.
- *      Currently, there is only a TGA loader that is bundled with GLFW.
+ *      for sprite sheets or generic textures for use in the engine. It has 
+ *      only been tested internally with 24-bit and 32-bit `.png` files in 
+ *      RGB and RGBA format, respectively.
  *
- *      You can find some basic usage examples of all of these utilities
+ *      You can find some basic usage examples of these utilities
  *      in the [Examples](examples.html) tab above.
  *
  *  @subsection comp_math   Math

@@ -4,7 +4,7 @@
  *  around OpenGL textures.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -33,6 +33,7 @@ namespace zen
 {
 namespace gfxcore
 {
+    /// Low-level texture asset abstraction over OpenGL texture handles.
     class ZEN_API CTexture : public asset::CAsset
     {
     public:
@@ -178,3 +179,13 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__TEXTURE_HPP
 
 /** @} **/
+
+/**
+ * @class zen::gfxcore::CTexture
+ * @description
+ *  @a Zenderer uses `stb_image.c`, a single-file light-weight C library, 
+ *  to load a variety of image formats. It has only been tested internally
+ *  with 24-bit and 32-bit `.png` files. It will internally attempt force
+ *  a conversion to a 32-bit RGBA format. If this doesn't succeed, it will
+ *  obviously be apparent as soon as the texture is rendered.
+ **/

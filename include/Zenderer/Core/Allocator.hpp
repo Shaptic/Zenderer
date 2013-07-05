@@ -52,8 +52,10 @@ namespace zen
             return (T*)this->operator()(count * sizeof(T));
         }
 
+        /// Singleton accessor.
         static CAllocator& Get();
 
+        /// Default allocation size, in bytes. 
         static const uint16_t ALLOC_SIZE = 4;
 
     private:
@@ -91,28 +93,30 @@ namespace zen
 
 /**
  * @class zen::CAllocator
- *
  * @description
- *
  * Let us assume a memory structure like so:
  *
+ * <pre>
  * 0000 0000 0000 0000  0000 0000 0000 0000  0000 0000 0000 0000
+ * </pre>
  *
  * Thus we store an internal `std::list<int>` containing only a single
- * value: 47.
+ * value: `{ 47 }`.
  * 47 because there are 48 free bytes, and we differentiate between free
  * and used bytes by making the number odd if they are free.
  *
- * When we want to allocate 9 bytes (for example, a tightly unpacked
+ * When we want to allocate 9 bytes (for example, a non-padded
  * `struct` with a `char` and a `double` member), the memory structure
  * would change to look like this:
- *
+ * 
+ * <pre>
  * _______________  Next block pointer
  *                |
- *                v
+ *                V
  * 1111 1111 1111 0000  0000 0000 0000 0000  0000 0000 0000 0000
  * ^
  * |______ Head pointer
+ * </pre>
  *
  * We pad the 9 bytes to 12 for alignment purposes (assuming a
  * `CAllocator::BLOCK_SIZE` of 4), and now our interal byte `list`
@@ -122,12 +126,14 @@ namespace zen
  * Let's assume again that we allocate 32 bytes, and then free our first
  * 12 byte block. Now the memory structure looks like this:
  *
+ * <pre>
  *            Next block pointer ___________________________
  *                                                          |
- *                                                          v
+ *                                                          V
  * 0000 0000 0000 1111  1111 1111 1111 1111  1111 1111 1111 0000
  * ^
  * |______ Head pointer
+ * </pre>
  *
  * and our internal byte `list` contains `{ 11, 32, 3 }` for 12 free
  * bytes, 32 used bytes, and 4 free bytes, respectively.
@@ -141,7 +147,16 @@ namespace zen
  * next block pointer always points to the last free block, so `list.end()`)
  * we start the search from `list.begin()`, giving us 11 which we know as
  * a free block of 12 bytes. Thus we can return the head pointer and make
- * the list contain `{ 8, 3, 32, 3}`.
+ * the list contain `{ 8, 3, 32, 3}` and a memory structure like this:
+ *
+ * <pre>
+ *            ___ Next block pointer
+ *           |
+ *           V
+ * 1111 1111 0000 1111  1111 1111 1111 1111  1111 1111 1111 0000
+ * ^
+ * |______ Head pointer
+ * </pre>
  *
  * As you can see, the memory becomes fairly fragmented, and a subsequent
  * request to allocate 8 bytes would fail, despite there being 8 bytes
@@ -177,4 +192,3 @@ namespace zen
  * @endcode
  *
  **/
-
