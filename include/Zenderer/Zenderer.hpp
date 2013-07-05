@@ -286,8 +286,8 @@ namespace zen
  *    <mesh>
  *      width=64
  *      height=64
- *      repeat=1
- *      invert=1
+ *      repeat=true
+ *      invert=true
  *      texture=textures/grass.png
  *      shader=shaders/default.vs,shaders/GaussianBlurH.fs
  *      params=radius:0.005
@@ -427,12 +427,11 @@ namespace zen
  *  loaded, as opposed to the material file.
  *
  *  If the shader files are left off, the default will be used (like for primitives).
+ *  If the size is specified (`width`/`height`), *both* must be specified. Otherwise,
+ *  the default values are used for both of them. 
  *
  *  The `primcount` option will allow for a tiny speed up in loading, but will only
  *  make a real difference if the entity contains dozens of primitives.
- *
- *  For the boolean parameters (like `invert` and `repeat`), use `0` and `1` as
- *  opposed to `true` and `false`.
  *
  *  @see    zen::gfx::CQuad
  *
@@ -465,8 +464,8 @@ namespace zen
  *    width=64
  *    height=64
  *
- *    repeat=1
- *    invert=1
+ *    repeat=true
+ *    invert=true
  *  </prim>
  *
  *  // Nothing special about this one
