@@ -107,6 +107,9 @@ namespace gfxcore
          **/
         bool Draw(const bool is_bound = false);
 
+        /// Request to see if we can change the internal vertices or not.
+        bool IsModifiable() const { return (mp_VAO == nullptr || !mp_VAO->Offloaded()); }
+        
         inline const math::vector_t& GetPosition() const
         { return m_Position; }
 

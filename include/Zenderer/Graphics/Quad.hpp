@@ -39,6 +39,12 @@ namespace gfx
 
         virtual CDrawable& Create();
         virtual void AttachMaterial(gfx::material_t* pMaterial);
+        
+        /// This can only be called before `Draw()`
+        void Resize(const math::Vector<uint16_t>& Size);
+        
+        /// @overload
+        void Resize(const uint16_t w, const uint16_t h);
 
     private:
         math::rect_t m_Size;

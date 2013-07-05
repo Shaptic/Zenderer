@@ -56,3 +56,23 @@ void CQuad::AttachMaterial(gfx::material_t* pMaterial)
     mp_Material = pMaterial;
 }
 
+bool CQuad::Resize(const math::Vector<uint16_t>& Size)
+{
+    this->Resize(Size.x, Size.y);
+}
+
+bool CQuad::Resize(const uint16_t w, const uint16_t h)
+{
+    // Not Create()'d yet.
+    if(m_DrawData.Vertices == nullptr) return false;
+    
+    // Offload()'ed already.
+    if(!this->IsModifiable()) return false;
+    
+    m_Size.w = w;
+    m_Size.h = h;
+    
+    this->Create();
+    
+    return true;
+}
