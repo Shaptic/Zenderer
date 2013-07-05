@@ -110,7 +110,7 @@ namespace util
 
         /// Attempts to return a floating point representation of a value.
         /// @warning No error checking is performed on conversion.
-        inline float GetValuef(const string_t& key) const;
+        inline real_t GetValuer(const string_t& key) const;
 
         /**
          * Returns an array of values from a key-value pair based on a char.
