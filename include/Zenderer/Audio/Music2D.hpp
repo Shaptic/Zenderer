@@ -33,12 +33,11 @@ namespace sfx
     class ZEN_API CMusic2D : public CAudio2D
     {
     public:
-        CMusic2D();
         virtual ~CMusic2D();
-
+        
         /// Loads an `.ogg` file from disk.
         bool LoadFromFile(const string_t& filename);
-
+        
         /**
          * Plays the file (if loaded).
          *  This should only be called a single time, and
@@ -53,6 +52,8 @@ namespace sfx
         bool Ready() const;
 
     private:
+        CMusic2D();
+        
         bool FillChunk(const uint32_t buffer);
 
         // Read in 32-byte chunks.
@@ -73,4 +74,15 @@ namespace sfx
 }   // namespace zen
 
 #endif // ZENDERER__AUDIO__MUSIC_2D_HPP
+
 /** @} **/
+
+/**
+ * @class zen::sfx::CMusic2D
+ * @description
+ *  A managed asset that will stream large files in the Ogg-Vorbis (`.ogg`)
+ *  file format. This format is not recommended for files smaller than 96kB,
+ *  due to the streaming nature that stores 96kB of data at a time. A better 
+ *  alternative would be to use the zen::sfx::CSound2D class in combination
+ *  with an uncompressed `.wav` file.
+ **/

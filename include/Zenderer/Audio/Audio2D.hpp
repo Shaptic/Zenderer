@@ -36,9 +36,9 @@ namespace sfx
     class ZEN_API CAudio2D : public asset::CAsset
     {
     public:
-        CAudio2D();
         virtual ~CAudio2D();
-
+        
+        /// Loads an audio file from disk.
         virtual bool LoadFromFile(const string_t& filename) = 0;
 
         /// Called once.
@@ -57,6 +57,8 @@ namespace sfx
         const void* const   GetData()       const;
 
     protected:
+        CAudio2D();
+        
         bool Destroy() { this->UnloadSource(); return true; }
 
         struct ALData
@@ -76,4 +78,12 @@ namespace sfx
 }   // namespace zen
 
 #endif // ZENDERER__AUDIO__AUDIO_2D_HPP
+
 /** @} **/
+
+/**
+ * @class zen::sfx::CAudio2D
+ * @description
+ *  A managed audio asset object that acts as a unified base class
+ *  to support playing a variety of audio formats.
+ **/

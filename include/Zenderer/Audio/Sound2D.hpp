@@ -33,7 +33,6 @@ namespace sfx
     class ZEN_API CSound2D : public CAudio2D
     {
     public:
-        CSound2D();
         virtual ~CSound2D();
 
         bool LoadFromFile(const string_t& filename);
@@ -53,9 +52,26 @@ namespace sfx
 
         /// Always returns `true` if the file is loaded.
         inline bool Ready() const { return true; }
+        
+    private:
+        CSound2D();
     };
 }   // namespace sfx
 }   // namespace zen
 
 #endif // ZENDERER__AUDIO__SOUND_2D_HPP
+
 /** @} **/
+
+/**
+ * @class zen::sfx::CSound2D
+ * @description
+ *  This managed audio asset is designed primarily for short, 
+ *  repetitive sound effects stored in an uncompressed `.wav`
+ *  file format. 
+ *  It's not recommended to store or load large `.wav` files 
+ *  in your application, because of the uneccessary consumption 
+ *  of memory and disk space. A better alternative for long audio
+ *  is the OGG-Vorbis (`.ogg`) format, loadable through the 
+ *  zen::sfx::CMusic2D class.
+ **/

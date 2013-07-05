@@ -44,8 +44,8 @@ static const char* SAMPLE_XML[] = {
     Window.AttachAssetManager(Manager);
     Window.Init();
 
-    sfx::CSound2D Sound;
-    Sound.LoadFromFile("Crackle.wav");
+    sfx::CSound2D* Sound =
+        Manager.Create<sfx::CSound2D*>(string_t("Crackle.wav"));
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
