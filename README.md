@@ -1,5 +1,5 @@
 # Zenderer #
-v0.1 pre-release  
+v0.1.154-dev
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
@@ -18,24 +18,23 @@ same mistakes again.
 
 #### Installation ####
 
-Installing *Zenderer* is quite trivial. All you need are the header 
-files found in `Zenderer/include`, and the `Zenderer.lib` file you can
-find in the `lib` directory of the project root. There is
+Installing @a Zenderer is quite trivial. All you need are the header
+files found in `Zenderer/include`, and all of the dependency libraries
+you can find in the `lib` directory of the project root. There is
 currently only support for Windows (*gasp*), due to the fact that I use
 Visual Studio and the Microsoft compiler for 95% of my C++ development.
-Thus, I can't guarantee any sort of cross-platform compatibility. This
-is obviously a potential `TODO` for when everything else has been taken
+Thus, I can't guarantee any sort of cross-platform compatibility. But,
+this is obviously a potential TODO for when everything else has been taken
 care of.
- 
+
 There are various dependencies for this engine. Luckily, they are all
 cross platform and are relatively easy to build from source. They are
-as follows:  
-
-- GLEW          (OpenGL Extension Wrangler Library)
-- GLFW          (OpenGL FrameWork)
-- Freetype 2    (TrueType Font Library)
-- OpenAL        (Open Audio Library)
-- libvorbis     (OGG/Vorbis Audio Compression Algorithm)
+as follows:
+ - GLEW         (OpenGL Extension Wrangler Library)
+ - GLFW         (OpenGL FrameWork)
+ - Freetype 2   (TrueType Font Library)
+ - OpenAL       (Open Audio Library)
+ - libvorbis    (OGG/Vorbis Audio Compression Algorithm)
 
 All engine assets are stored in the `data` folder of the repository. If you 
 are using Visual Studio in junction with *Zenderer* for your project, the 
@@ -45,7 +44,7 @@ You can see the various `ZENDERER_*_PATH` `#define`s sprinkled throughout the
 code to get an idea of where the engine will search for certain resources.
 For example, shader files are expected to be in `Zenderer/shaders/*`.
 In `Release` mode, the project will attempt to generate documentation, but
-this will likely fail on your system and is totally okay. I use this for
+this will likely fail on your system, which is totally okay. I use this for
 myself internally to update the Doxygen docs.
     
 #### More Info ####
