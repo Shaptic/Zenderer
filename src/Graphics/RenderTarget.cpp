@@ -107,6 +107,12 @@ bool CRenderTarget::Unbind() const
     return true;
 }
 
+bool CRenderTarget::BindTexture() const
+{
+    if(m_texture == 0) return false;
+    return gfxcore::CRenderer::EnableTexture(m_texture);
+}
+
 bool CRenderTarget::Clear()
 {
     GL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));

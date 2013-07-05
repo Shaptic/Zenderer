@@ -59,6 +59,8 @@ static const char* SAMPLE_XML[] = {
     Grass.LoadEffect(gfx::EffectType::NO_EFFECT);
 
     // Create the vertex buffers we will be using (inefficient).
+    // Recommended practice would be to combine into one buffer
+    // to minimize state change.
     gfxcore::CVertexArray Vao, FS, Gr;
     Vao.Init(); FS.Init(); Gr.Init();
         
@@ -142,7 +144,7 @@ static const char* SAMPLE_XML[] = {
         Window.Clear(Teal);
 
         {
-            CRenderer::EnableTexture(RT.GetTexture());
+            RT.BindTexture();
             DEffect.Enable();
 
             FS.Draw();
@@ -190,7 +192,11 @@ static const char* SAMPLE_XML[] = {
         Timer.Delay();
     }
 
+    // This will be taken care of by Quit() automatically,
+    // but it's still a good practice.
     Vao.Destroy();
+    GR.Destroy();
+    FS.Destroy();
 
     Quit();
 
