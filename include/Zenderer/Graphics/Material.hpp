@@ -43,21 +43,33 @@ namespace gfx
 
         ~CMaterial();
 
+        /**
+         * Loads a material from a `.zfx` file.
+         * @see /specs.html#zmat
+         **/
         bool LoadFromFile(const string_t& filename);
+        
+        /// Loads a texture from disk.
         bool LoadTextureFromFile(const string_t& filename);
+        
+        /// Loads an effect from disk.
         bool LoadEffect(EffectType& Type);
 
+        /// Attaches the given effect/texture to the material.
         bool Attach(CEffect& E, gfxcore::CTexture& T);
-        bool Attach(CEffect&& E, gfxcore::CTexture&& T);    // Not allowed
+        
+        /// Temporary `rvalue` references are not allowed.
+        bool Attach(CEffect&& E, gfxcore::CTexture&& T);
 
-        bool Enable() const;
+        /// Enables the effect and texture for rendering.
+        bool Enable() const;        
+        bool EnableEffect() const;      ///< Enables only the effect.
+        bool EnableTexture() const;     ///< Enables only the texture.
 
-        bool EnableEffect() const;
-        bool EnableTexture() const;
-
+        /// Disables rendering with the effect/texture.
         bool Disable() const;
-        bool DisableEffect() const;
-        bool DisableTexture() const;
+        bool DisableEffect() const;     ///< Disables only the effect.
+        bool DisableTexture() const;    ///< Disables only the texture.
 
         CEffect* GetEffect();
         gfxcore::CTexture* GetTexture() const;
@@ -74,8 +86,6 @@ namespace gfx
 
         bool m_egiven, m_tgiven;
     };
-
-    typedef CMaterial material_t;
 }   // namespace gfx
 }   // namespace zen
 
