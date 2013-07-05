@@ -313,6 +313,32 @@ namespace zen
  *  </surface>
  *  </pre>
  *
+ * @secion  zmat    ZenFX
+ *  @subsection zmatspec    Specification
+ *  Extension: `.zfx`
+ *  This is a simple INI-like file that contains filenames
+ *  to create custom materials from a combination of shaders
+ *  and textures. The filenames can be paths, but they must
+ *  be complete relative paths that do not rely on the internal
+ *  short-cut macros, such as `ZENDERER_SHADER_PATH`.
+ *
+ *  Expected key-value pairs:
+ *  | Key       |        Description       | Required |
+ *  | --------- | ------------------------ | :------: |
+ *  | `vshader` | Vertex shader filename   | &#10004; |
+ *  | `fshader` | Fragment shader filename | &#10004; |
+ *  | `texture` | Texture filename         | &#10004; |
+ *
+ *  @subsection zmatex      Example File
+ *  @code
+ *  // This is an example ZenFX file using the default shaders
+ *  // and a fake sample texture.
+ *  vshader=Zenderer/shaders/Default.vs
+ *  fshader=Zenderer/shaders/Default.fs
+ *
+ *  texture=Assets/textures/Sample.png
+ *  @endcode
+ *
  * @section zanim   ZenImation
  *  @subsection zanimspec   Specification
  *
