@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -126,14 +126,14 @@ Inheritance diagram for zen::gfxcore::CDrawable:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable__inherit__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_drawable_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_drawable_inherit__map" id="zen_1_1gfxcore_1_1_c_drawable_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_quad.html" title="A four&#45;sided quadrilateral primitive." alt="" coords="23,336,149,472"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_quad.html" title="A four&#45;sided quadrilateral primitive." alt="" coords="23,352,149,547"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::CDrawable:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_drawable_coll__map" alt="Collaboration graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_drawable_coll__map" id="zen_1_1gfxcore_1_1_c_drawable_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,363,168,645"/><area shape="rect" id="node3" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="193,451,356,557"/><area shape="rect" id="node4" href="structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="201,206,348,298"/><area shape="rect" id="node5" href="structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="225,5,324,141"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,363,168,587"/><area shape="rect" id="node3" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="193,421,356,528"/><area shape="rect" id="node4" href="structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="201,206,348,298"/><area shape="rect" id="node5" href="structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="225,5,324,141"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -145,10 +145,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a65d35950a1094e90ac1e5aa9c4bb1bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the drawable to a certain location.  <a href="#a65d35950a1094e90ac1e5aa9c4bb1bc2">More...</a><br/></td></tr>
 <tr class="separator:a65d35950a1094e90ac1e5aa9c4bb1bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4932a9379f25d0b8e263a7f7b8ac0036">Move</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> x, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> y, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> z=0.0)</td></tr>
+<tr class="memdesc:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.  <a href="#a4932a9379f25d0b8e263a7f7b8ac0036">More...</a><br/></td></tr>
 <tr class="separator:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae861badf084a75ee94d4f1b0145dba25"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae861badf084a75ee94d4f1b0145dba25">AttachMaterial</a> (<a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::material_t</a> *pMaterial)=0</td></tr>
-<tr class="memdesc:ae861badf084a75ee94d4f1b0145dba25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a material to render on top of the primitive.  <a href="#ae861badf084a75ee94d4f1b0145dba25">More...</a><br/></td></tr>
-<tr class="separator:ae861badf084a75ee94d4f1b0145dba25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc7530f919a8642173c940d6f1807b7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#abbc7530f919a8642173c940d6f1807b7">AttachMaterial</a> (<a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> *pMaterial)=0</td></tr>
+<tr class="memdesc:abbc7530f919a8642173c940d6f1807b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a material to render on top of the primitive.  <a href="#abbc7530f919a8642173c940d6f1807b7">More...</a><br/></td></tr>
+<tr class="separator:abbc7530f919a8642173c940d6f1807b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19575263590fb0ef8eec10a6a14844c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19575263590fb0ef8eec10a6a14844c7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7">SetColor</a> (const <a class="el" href="structzen_1_1color4f__t.html">color4f_t</a> &amp;Color)</td></tr>
 <tr class="memdesc:a19575263590fb0ef8eec10a6a14844c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all vertices to have a given color value. <br/></td></tr>
@@ -156,6 +157,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:acaee6bd25adc67f4fbfcc0edf5fb8a7e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e">Draw</a> (const bool is_bound=false)</td></tr>
 <tr class="memdesc:acaee6bd25adc67f4fbfcc0edf5fb8a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the primitive on-screen.  <a href="#acaee6bd25adc67f4fbfcc0edf5fb8a7e">More...</a><br/></td></tr>
 <tr class="separator:acaee6bd25adc67f4fbfcc0edf5fb8a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf21d5edb63cff3e2e98cc287ed3289"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaf21d5edb63cff3e2e98cc287ed3289"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#aeaf21d5edb63cff3e2e98cc287ed3289">IsModifiable</a> () const </td></tr>
+<tr class="memdesc:aeaf21d5edb63cff3e2e98cc287ed3289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request to see if we can change the internal vertices or not. <br/></td></tr>
+<tr class="separator:aeaf21d5edb63cff3e2e98cc287ed3289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5996d9c20af4a349098a2f8af134142"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5996d9c20af4a349098a2f8af134142"></a>
 const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> () const </td></tr>
 <tr class="separator:ab5996d9c20af4a349098a2f8af134142"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,16 +170,15 @@ const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988
 <tr class="memitem:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54e399e7380b905d0544bb6c7e9a1dbf"></a>
 <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetY</b> () const </td></tr>
 <tr class="separator:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0be143258b456d9590d1462bf1d0ff3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0be143258b456d9590d1462bf1d0ff3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">LoadIntoVAO</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO)</td></tr>
-<tr class="memdesc:ae0be143258b456d9590d1462bf1d0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut to prevent loading simple objects manually. <br/></td></tr>
+<tr class="memitem:ae0be143258b456d9590d1462bf1d0ff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">LoadIntoVAO</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO)</td></tr>
+<tr class="memdesc:ae0be143258b456d9590d1462bf1d0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut to prevent loading simple objects manually.  <a href="#ae0be143258b456d9590d1462bf1d0ff3">More...</a><br/></td></tr>
 <tr class="separator:ae0be143258b456d9590d1462bf1d0ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a089a60566a97c9b34ec7b3596cd976aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a089a60566a97c9b34ec7b3596cd976aa"></a>
-<a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::material_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mp_Material</b></td></tr>
-<tr class="separator:a089a60566a97c9b34ec7b3596cd976aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957b9cf33c28051e5edf72d790cf2059"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a957b9cf33c28051e5edf72d790cf2059"></a>
+<a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mp_Material</b></td></tr>
+<tr class="separator:a957b9cf33c28051e5edf72d790cf2059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f1c956bc36ed57958af7577a4c26d27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f1c956bc36ed57958af7577a4c26d27"></a>
 <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Position</b></td></tr>
 <tr class="separator:a0f1c956bc36ed57958af7577a4c26d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -279,11 +283,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Make it work properly when <code>CQuad</code> is inverted. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ae861badf084a75ee94d4f1b0145dba25"></a>
+<a class="anchor" id="abbc7530f919a8642173c940d6f1807b7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -293,7 +297,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
         <tr>
           <td class="memname">virtual void zen::gfxcore::CDrawable::AttachMaterial </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::material_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> *&#160;</td>
           <td class="paramname"><em>pMaterial</em></td><td>)</td>
           <td></td>
         </tr>
@@ -312,7 +316,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classzen_1_1gfx_1_1_c_quad.html#a4feaf55ddd5ba0ae73af1e4bfb1ead6a">zen::gfx::CQuad</a>.</p>
+<p>Implemented in <a class="el" href="classzen_1_1gfx_1_1_c_quad.html#ade8c3e433d4f0833990667997680a417">zen::gfx::CQuad</a>.</p>
 
 </div>
 </div>
@@ -339,6 +343,31 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if drawing was successful, <code>false</code> otherwise. </dd></dl>
 
 <p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00038">38</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0be143258b456d9590d1462bf1d0ff3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDrawable::LoadIntoVAO </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>VAO</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This DOES NOT delete any internal vertex data, and thus can be called multiple times with various vertex settings.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">VAO</td><td>The vertex array to store data into </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00106">106</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
 
 </div>
 </div>

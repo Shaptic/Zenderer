@@ -75,6 +75,7 @@ namespace gfxcore
         void Move(const math::vector_t& Position);
 
         /// @overload
+        /// @todo   Make it work properly when `CQuad` is inverted.
         void Move(const real_t x, const real_t y, const real_t z = 0.0);
 
         /**

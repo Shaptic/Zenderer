@@ -1,7 +1,7 @@
 <map id="zen::gfx::CQuad" name="zen::gfx::CQuad">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives." alt="" coords="80,709,243,963"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,363,168,645"/>
-<area shape="rect" id="node4" href="$structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="193,451,356,557"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives." alt="" coords="80,651,243,919"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,363,168,587"/>
+<area shape="rect" id="node4" href="$structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="193,421,356,528"/>
 <area shape="rect" id="node5" href="$structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="201,206,348,298"/>
 <area shape="rect" id="node6" href="$structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="225,5,324,141"/>
 </map>

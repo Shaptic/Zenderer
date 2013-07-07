@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,8 +124,6 @@ $(document).ready(function(){initNavTree('classzen_1_1math_1_1matrix4x4__t.html'
 Collaboration diagram for zen::math::matrix4x4_t:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t__coll__graph.png" border="0" usemap="#zen_1_1math_1_1matrix4x4__t_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1math_1_1matrix4x4__t_coll__map" id="zen_1_1math_1_1matrix4x4__t_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -157,6 +155,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2">TranslateAdj</a> (const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;DV)</td></tr>
 <tr class="memdesc:a8490c81757977f33c6e4482e8b6a70e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts the translation matrix by a vector. <br/></td></tr>
 <tr class="separator:a8490c81757977f33c6e4482e8b6a70e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ea7a579fa5b9f8ef1481c11f8c1d115"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">Shear</a> (const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;Angles)</td></tr>
+<tr class="memdesc:a4ea7a579fa5b9f8ef1481c11f8c1d115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stretches the matrix by degree-angles in different directions.  <a href="#a4ea7a579fa5b9f8ef1481c11f8c1d115">More...</a><br/></td></tr>
+<tr class="separator:a4ea7a579fa5b9f8ef1481c11f8c1d115"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082d67aac74477832c4c9165c2a62b3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a082d67aac74477832c4c9165c2a62b3d"></a>
 const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetPointer</b> () const </td></tr>
 <tr class="separator:a082d67aac74477832c4c9165c2a62b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +204,44 @@ static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x
 <dl class="section return"><dt>Returns</dt><dd>The <code>real_t</code> array at that index. </dd></dl>
 
 <p>Definition at line <a class="el" href="_matrix_8cpp_source.html#l00037">37</a> of file <a class="el" href="_matrix_8cpp_source.html">Matrix.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ea7a579fa5b9f8ef1481c11f8c1d115"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::math::matrix4x4_t::Shear </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">math::vector_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>Angles</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>For future reference, x-direction shearing angles are as follows (in degrees): </p>
+<pre class="fragment">    45.0 or 225.0    0       -45.0 or 135.0
+     /               |              \
+    /                |               \
+</pre><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Angles</td><td><a class="el" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector</a> containing x, y, and z shear angles (in deg)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Only 2D shears are supported (X and Y directions). </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Add 3D shearing. </dd></dl>
+
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00097">97</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -260,7 +299,7 @@ static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The requested projection matrix. </dd></dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00096">96</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00119">119</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>

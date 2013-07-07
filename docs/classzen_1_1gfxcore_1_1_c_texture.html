@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,19 +115,24 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_texture.html
 <div class="title">zen::gfxcore::CTexture Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Low-level texture asset abstraction over OpenGL texture handles.  
+ <a href="classzen_1_1gfxcore_1_1_c_texture.html#details">More...</a></p>
+
+<p><code>#include &quot;<a class="el" href="_texture_8hpp_source.html">Texture.hpp</a>&quot;</code></p>
 <div class="dynheader">
 Inheritance diagram for zen::gfxcore::CTexture:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_texture__inherit__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_texture_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_texture_inherit__map" id="zen_1_1gfxcore_1_1_c_texture_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset." alt="" coords="8,5,155,405"/></map>
+<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="8,5,155,405"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::gfxcore::CTexture:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_texture__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_texture_coll__map" alt="Collaboration graph"/></div>
 <map name="zen_1_1gfxcore_1_1_c_texture_coll__map" id="zen_1_1gfxcore_1_1_c_texture_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset." alt="" coords="8,310,155,695"/><area shape="rect" id="node3" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="19,6,143,245"/></map>
+<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="8,310,155,695"/><area shape="rect" id="node3" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="19,6,143,245"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -209,7 +214,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classzen_1_1asset_1_1_c_asset"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classzen_1_1asset_1_1_c_asset')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classzen_1_1asset_1_1_c_asset.html">zen::asset::CAsset</a></td></tr>
 <tr class="memitem:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a545ccfdabbcd898fea39617350a54e77"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a545ccfdabbcd898fea39617350a54e77">CAsset</a> (const void *const owner=nullptr)</td></tr>
-<tr class="memdesc:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_classzen_1_1asset_1_1_c_asset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> can create <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">CAsset</a> instances. <br/></td></tr>
+<tr class="memdesc:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_classzen_1_1asset_1_1_c_asset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a> can create <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a> instances. <br/></td></tr>
 <tr class="separator:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe42ff44f3521e608b1637e86996a33a inherit pro_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe42ff44f3521e608b1637e86996a33a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#afe42ff44f3521e608b1637e86996a33a">CAsset</a> (const <a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> &amp;Disabled)</td></tr>
@@ -246,8 +251,10 @@ static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>s_seed</b>
 <tr class="separator:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_texture_8hpp_source.html#l00036">36</a> of file <a class="el" href="_texture_8hpp_source.html">Texture.hpp</a>.</p>
+<div class="textblock"><p><em>Zenderer</em> uses <code>stb_image.c</code>, a single-file light-weight C library, to load a variety of image formats.</p>
+<p>It has only been tested internally with 24-bit and 32-bit <code>.png</code> files. It will internally attempt force a conversion to a 32-bit RGBA format. If this doesn't succeed, it will obviously be apparent as soon as the texture is rendered. </p>
+
+<p>Definition at line <a class="el" href="_texture_8hpp_source.html#l00037">37</a> of file <a class="el" href="_texture_8hpp_source.html">Texture.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a4ec7980697b53144b39f21c8a43ccee9"></a>
 <div class="memitem">
@@ -280,7 +287,7 @@ static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>s_seed</b>
 
 <p>Implements <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0">zen::asset::CAsset</a>.</p>
 
-<p>Definition at line <a class="el" href="_texture_8hpp_source.html#l00041">41</a> of file <a class="el" href="_texture_8hpp_source.html">Texture.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_texture_8hpp_source.html#l00042">42</a> of file <a class="el" href="_texture_8hpp_source.html">Texture.hpp</a>.</p>
 
 </div>
 </div>

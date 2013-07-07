@@ -1,10 +1,10 @@
 <map id="zen::gfxcore::CRenderer" name="zen::gfxcore::CRenderer">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,769,147,1007"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,762,147,1001"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="107,405,300,600"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="171,776,349,1000"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_texture.html" title="{zen::gfxcore::CTexture\n||+ ~CTexture()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ GetData()\l+ Bind()\l+ Unbind()\l+ GetWidth()\l+ GetHeight()\l}" alt="" coords="374,791,527,985"/>
-<area shape="rect" id="node5" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset." alt="" coords="377,310,524,695"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="171,769,349,993"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_texture.html" title="Low&#45;level texture asset abstraction over OpenGL texture handles." alt="" coords="374,784,527,979"/>
+<area shape="rect" id="node5" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="377,310,524,695"/>
 <area shape="rect" id="node6" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="389,6,512,245"/>
-<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="551,747,715,1029"/>
-<area shape="rect" id="node9" href="$classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="739,761,897,1015"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="551,769,715,993"/>
+<area shape="rect" id="node9" href="$classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="739,747,897,1015"/>
 </map>

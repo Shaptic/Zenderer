@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,18 +119,18 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;CSound2D::CSound2D() {}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;CSound2D::CSound2D(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) : CAudio2D(owner) {}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;CSound2D::~CSound2D()</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    this-&gt;UnloadSource();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    this-&gt;<a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72" title="Unloads the OpenAL source handle.">UnloadSource</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">   18</a></span>&#160;<span class="keywordtype">bool</span> CSound2D::LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">   18</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">CSound2D::LoadFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ZEN_ASSERT(!filename.empty());</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    AL(alGenBuffers(1, &amp;m_AL.buffers[0]));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alGenBuffers(1, &amp;m_AL.buffers[0]));</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// #lazylyfe</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    m_AL.buffers[0] = alutCreateBufferFromFile(filename.c_str());</div>
@@ -143,8 +143,8 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        m_error_str  = alutGetErrorString(m_error_code);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        alDeleteBuffers(1, &amp;m_AL.buffers[0]);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_ERROR)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Failed to load &#39;&quot;</span>  &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39; (&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                &lt;&lt; m_error_str &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
@@ -155,12 +155,12 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> (m_loaded = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7">   47</a></span>&#160;<span class="keywordtype">void</span> CSound2D::Play()</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded).">CSound2D::Play</a>()</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;IsLoaded())</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#afc4ccb384bf6277fafeca9974ccdf017" title="Has LoadFromFile() been called successfully?">IsLoaded</a>())</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;No file loaded&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span>;</div>
@@ -171,26 +171,26 @@ $(document).ready(function(){initNavTree('_sound2_d_8cpp_source.html','');});
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// it&#39;s a stream.</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(this-&gt;GetAudioState() == AL_PLAYING)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Already playing &#39;&quot;</span> &lt;&lt; m_filename &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    this-&gt;UnloadSource();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    m_AL.source = CAudioManager::CreateSource();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    this-&gt;<a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72" title="Unloads the OpenAL source handle.">UnloadSource</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    m_AL.source = <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a5c00dd3076e14440b4f6d5ee17cd5ea1" title="Creates an OpenAL source handle and returns its handle.">CAudioManager::CreateSource</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(!m_AL.source) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG)</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Playing &#39;&quot;</span> &lt;&lt; m_filename &lt;&lt; <span class="stringliteral">&quot;&#39; (&quot;</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            &lt;&lt; m_AL.source &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    AL(alSourcei(m_AL.source, AL_BUFFER, m_AL.buffers[0]));</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    AL(alSourcef(m_AL.source, AL_GAIN, m_AL.volume));</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    AL(alSourcePlay(m_AL.source));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alSourcei(m_AL.source, AL_BUFFER, m_AL.buffers[0]));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alSourcef(m_AL.source, AL_GAIN, m_AL.volume));</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alSourcePlay(m_AL.source));</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -9,6 +9,7 @@ var classzen_1_1math_1_1matrix4x4__t =
     [ "operator*", "classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a", null ],
     [ "Translate", "classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf", null ],
     [ "TranslateAdj", "classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2", null ],
+    [ "Shear", "classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115", null ],
     [ "GetPointer", "classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d", null ],
     [ "Projection2D", "classzen_1_1math_1_1matrix4x4__t.html#a44adf36130e3df63e8c16ccf2b2b8316", null ],
     [ "CreateIdentityMatrix", "classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a", null ],

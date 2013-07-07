@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,11 +111,11 @@ About the Project</h2>
 <p><em>Zenderer</em> grew out of increasing frustration with <em>IronClad</em>, an OpenGL rendering engine I wrote from scratch in order to learn the basics of OpenGL. As it starting growing into a game I dubbed <em>Praecursor</em>, it became more and more unwieldy and totally inflexible in most contexts. Thus grew the need for a simpler, more user-friendly engine that I could use without worrying about low-level details to further pursue development of <em>Praecursor</em>, or to start a new project as I see fit. I know now a ton more than I did when I first started creating <em>IronClad</em>, so I can guarantee that I will not make any of the same mistakes again.</p>
 <h2><a class="anchor" id="about_me"></a>
 About Me</h2>
-<p>My name is George Kudrayvtsev and I have been programming for a hobby for around 5 years now. I started out with C++, dropped it for Python, then came back around. I've been developing games with C++ for about 2 years, and have grown from using the SDL API to creating a full-fledged 2D rendering engine as you can see here. I also develop software professionally, currently interning at a medical education company doing various back-end website development using PHP, XSLT, PostgreSQL, jQuery, and other tools.<br/>
+<p>My name is George Kudrayvtsev and I have been programming for a hobby for around 5 years now. I started out with C++, dropped it for Python, then came back around. I've been developing games with C++ for about 2 years, and have grown from using the SDL API to creating a full-fledged 2D rendering engine as you can see here. I also develop software professionally, currently interning at a medical education company doing back and front-end website development using PHP, XML/XSLT, PostgreSQL, Javacript/jQuery, and other web development tools.<br/>
  My current pet project is <em>Praecursor</em>, an awesome concept game in the form of a 2D platformer. The main game mechanic revolves around time manipulation to get through levels and past enemies. For now, though, that's on hold while I recover my bearings and put some time into this rendering engine to (hopefully) vastly improve what was brought about in <em>IronClad</em>. Feel free to check out my blog <a href="http://zenpandainteractive.blogspot.com">here</a> or my GitHub <a href="https://www.github.com/Ruskiy69">here</a>. You can also follow <em>Praecursor's</em> progress on Twitter <a href="https://www.twitter.com/PraecursorGame">here</a>, though it will probably be slow going for a while, with my job taking up most of my development energy and this engine taking everything else.</p>
 <h1><a class="anchor" id="install"></a>
 Installation</h1>
-<p>Installing <em>Zenderer</em> is quite trivial. All you need are the header files found in <code>Zenderer/include</code>, and the <code>Zenderer.lib</code> file you can find in the <code>Binaries</code> directory of the project root. There is currently only support for Windows (<em>gasp</em>), due to the fact that I use Visual Studio and the Microsoft compiler for 95% of my C++ development. Thus, I can't guarantee any sort of cross-platform compatibility. This is obviously a potential TODO for when everything else has been taken care of.</p>
+<p>Installing <em>Zenderer</em> is quite trivial. All you need are the header files found in <code>Zenderer/include</code>, and all of the dependency libraries you can find in the <code>lib</code> directory of the project root. There is currently only support for Windows (<em>gasp</em>), due to the fact that I use Visual Studio and the Microsoft compiler for 95% of my C++ development. Thus, I can't guarantee any sort of cross-platform compatibility. But, this is obviously a potential TODO for when everything else has been taken care of.</p>
 <p>There are various dependencies for this engine. Luckily, they are all cross platform and are relatively easy to build from source. They are as follows:</p>
 <ul>
 <li>GLEW (OpenGL Extension Wrangler Library)</li>
@@ -124,6 +124,8 @@ Installation</h1>
 <li>OpenAL (Open Audio Library)</li>
 <li>libvorbis (OGG/Vorbis Audio Compression Algorithm)</li>
 </ul>
+<dl class="section note"><dt>Note</dt><dd>All file version numbers are meaningless until a stable 1.0.0-alpha release.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Test cross-platform compatibility.</dd></dl>
 <h1><a class="anchor" id="arch"></a>
 Architecture</h1>
 <p>The <em>Zenderer</em> engine is broken up into multiple components so that the user can use whichever parts are necessary for them. Despite that, almost all of the components interact with each other a lot, so by using one you are most likely using multiple others. At the root of these various components is often times a <b>subsystem</b>. In <em>Zenderer</em>, a subsystem is defined as an object with startup and shutdown methods that clean up completely after themselves and depend on nothing. This basic idea was put into place after numerous crashes occurred in <em>IronClad</em> due to the graphics subsystem attempting drawing or the asset subsystem attempting cleanup after there was no more OpenGL context existing, thus invalidating any handles that these systems had. Hopefully as development progresses, this fundamental subsystem architecture will prevent a similar problem. <br/>
@@ -131,8 +133,8 @@ Architecture</h1>
 <p>Below are detailed explanations of each of the components.</p>
 <h2><a class="anchor" id="comp_util"></a>
 Utilities</h2>
-<p>These are general-purpose utilities that act as 'helper' objects and functions throughout the engine. You can find a very nice (IMO) logging utility in <a class="el" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file.">Zenderer/Utilities/Log.hpp</a> that is fairly flexible and easy to use. There is also a file parser that works extremely well for files that utilize <code>key=value</code> pairs, such as .ini files. This <code>key=value</code> relationship is used extensively throughout <em>Zenderer</em> for level loading and other components. Also included are some file-loading functions, to load image files for sprite sheets or generic textures for use in the engine. Currently, there is only a TGA loader that is bundled with GLFW.</p>
-<p>You can find some basic usage examples of all of these utilities in the <a href="examples.html">Examples</a> tab above.</p>
+<p>These are general-purpose utilities that act as 'helper' objects and functions throughout the engine. You can find a very nice (IMO) logging utility in <a class="el" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file.">Zenderer/Utilities/Log.hpp</a> that is fairly flexible and easy to use. There is also a file parser that works extremely well for files that utilize <code>key=value</code> pairs, such as <code>.ini</code> files. This <code>key=value</code> relationship is used extensively throughout <em>Zenderer</em> for level loading and other components. Also included are some file-loading functions, to load image files for sprite sheets or generic textures for use in the engine. It has only been tested internally with 24-bit and 32-bit <code>.png</code> files in RGB and RGBA format, respectively.</p>
+<p>You can find some basic usage examples of these utilities in the <a href="examples.html">Examples</a> tab above.</p>
 <h2><a class="anchor" id="comp_math"></a>
 Math</h2>
 <p>Math lies at the very core of computer graphics and game development. The math component does not include a subsystem object because it is primarily a bunch of loosely related objects and functions that do not need any sort of initialization. Almost all the other components rely on this component to function. It's at the core of the scene manager and basically the entire graphics component, since almost everything needs at least a position on the screen.</p>

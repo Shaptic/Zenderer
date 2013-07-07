@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('_renderer_8cpp_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>          CRenderer::s_DefaultMaterial;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>            CRenderer::s_DefaultEffect(gfx::EffectType::NO_EFFECT);</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a>*      CRenderer::s_DefaultTexture;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*      CRenderer::s_DefaultTexture;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>       CRenderer::s_ProjMatrix;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span>                    CRenderer::s_blend;</div>
@@ -133,8 +133,8 @@ $(document).ready(function(){initNavTree('_renderer_8cpp_source.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Load the default texture (1x1 white pixel).</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> white[] = {<span class="stringliteral">&#39;\xff&#39;</span>, <span class="stringliteral">&#39;\xff&#39;</span>, <span class="stringliteral">&#39;\xff&#39;</span>, <span class="stringliteral">&#39;\xff&#39;</span>};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a>* pTmp =</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        s_DefaultMaterial.m_Assets.Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a>&gt;();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTmp =</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        s_DefaultMaterial.m_Assets.Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(pTmp != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>

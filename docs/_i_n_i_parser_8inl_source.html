@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8inl_source.html','');})
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> CINIParser::GetValuei(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">return</span> atoi(this-&gt;GetValue(key).c_str());</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">return</span> std::stoi(this-&gt;GetValue(key));</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;}</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> CINIParser::GetValueb(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
@@ -121,9 +121,9 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8inl_source.html','');})
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;            this-&gt;GetValuei(key) != 0);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">float</span> CINIParser::GetValuef(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> CINIParser::GetValuer(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> atof(this-&gt;GetValue(key).c_str());</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> std::stod(this-&gt;GetValue(key));</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

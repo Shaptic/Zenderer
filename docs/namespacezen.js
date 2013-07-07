@@ -5,6 +5,7 @@ var namespacezen =
     [ "gfxcore", "namespacezen_1_1gfxcore.html", "namespacezen_1_1gfxcore" ],
     [ "gfx", "namespacezen_1_1gfx.html", "namespacezen_1_1gfx" ],
     [ "math", "namespacezen_1_1math.html", "namespacezen_1_1math" ],
+    [ "obj", "namespacezen_1_1obj.html", "namespacezen_1_1obj" ],
     [ "util", "namespacezen_1_1util.html", "namespacezen_1_1util" ],
     [ "CAllocator", "classzen_1_1_c_allocator.html", "classzen_1_1_c_allocator" ],
     [ "CSubsystem", "classzen_1_1_c_subsystem.html", "classzen_1_1_c_subsystem" ],

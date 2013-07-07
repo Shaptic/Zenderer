@@ -10,5 +10,6 @@ var searchData=
   ['insertprimitive',['InsertPrimitive',['../classzen_1_1gfx_1_1_c_scene.html#ad81f23a612562f04b546a602a4ffba07',1,'zen::gfx::CScene']]],
   ['isinit',['IsInit',['../classzen_1_1sfx_1_1_c_audio_manager.html#a0e37c14ea1008f7a514cbfc5b67a0914',1,'zen::sfx::CAudioManager::IsInit()'],['../classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644',1,'zen::CSubsystem::IsInit()'],['../classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa',1,'zen::util::CLog::IsInit()']]],
   ['isloaded',['IsLoaded',['../classzen_1_1asset_1_1_c_asset.html#afc4ccb384bf6277fafeca9974ccdf017',1,'zen::asset::CAsset']]],
+  ['ismodifiable',['IsModifiable',['../classzen_1_1gfxcore_1_1_c_drawable.html#aeaf21d5edb63cff3e2e98cc287ed3289',1,'zen::gfxcore::CDrawable']]],
   ['isvalidprimitiveindex',['IsValidPrimitiveIndex',['../classzen_1_1gfx_1_1_c_scene.html#ae5eca1c5ef4a55a06fb40c55515c8fe3',1,'zen::gfx::CScene']]]
 ];

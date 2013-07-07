@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('specs.html','');});
 ZenLevel</h1>
 <h2><a class="anchor" id="zlvlspec"></a>
 Specification</h2>
+<p>Levels in <em>Zenderer</em> combine the entity specification</p>
 <h3><a class="anchor" id="zlvl_light"></a>
 Light Options</h3>
 <p>All floating point values can have a maximum of three decimal places of precision in them. fp &ndash; floating-point</p>
@@ -136,48 +137,190 @@ Light Options</h3>
 </ul>
 <h3><a class="anchor" id="example"></a>
 Example File</h3>
-<pre>
- filename=sample.zlv
- title=Level 1 -- Tutorial</pre><pre> // Mesh from existing file
- &lt;entity&gt;
-   position=100,200
-   filename=grasstile.znt
- &lt;/entity&gt;</pre><pre> // In-line mesh creation of a grass sprite tiled 4 times.
- &lt;entity&gt;
-   position=100,100
-   vertices=0,0,64,0,0,64,64,64
-   texcoords=0,2,2,2,2,0,0,0
-   &lt;surface&gt;
-     texture=grass.tga
-   &lt;/surface&gt;
- &lt;/entity&gt;</pre><pre> &lt;light&gt;
-   // 2 --&gt; spotlight
-   type=2
-   color=0.050,0.762,0.556
-   attenuation=0.001,0.005,0.000
-   position=100,200
-   minangle=45.0
-   maxangle=225.0
- &lt;/light&gt;</pre><pre> </pre><h1><a class="anchor" id="zent"></a>
-ZenTity</h1>
-<h2><a class="anchor" id="zentspec"></a>
+<div class="fragment"><div class="line">filename=sample.zlv</div>
+<div class="line">title=Level 1 -- Tutorial</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Place entity from existing texture file</span></div>
+<div class="line">&lt;entity type=<span class="stringliteral">&quot;texture&quot;</span>&gt;</div>
+<div class="line">  position=100,200,0</div>
+<div class="line">  filename=textures/grass.png</div>
+<div class="line">&lt;/entity&gt;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Place entity from existing entity file</span></div>
+<div class="line">&lt;entity type=<span class="stringliteral">&quot;file&quot;</span>&gt;</div>
+<div class="line">  position=100,100,0</div>
+<div class="line">  filename=assets/grass.znt</div>
+<div class="line">&lt;/entity&gt;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Place entity using in-line entity mesh creation.</span></div>
+<div class="line"><span class="comment">// This is a tiled grass entity (2x2 tiles) </span></div>
+<div class="line"><span class="comment">// with a slight blur and vertex inversion for skewing,</span></div>
+<div class="line"><span class="comment">// together with a dirt entity.</span></div>
+<div class="line">&lt;entity type=<span class="stringliteral">&quot;inline&quot;</span>&gt;</div>
+<div class="line">  position=0,0,0</div>
+<div class="line">  &lt;mesh&gt;</div>
+<div class="line">    width=64</div>
+<div class="line">    height=64</div>
+<div class="line">    repeat=<span class="keyword">true</span></div>
+<div class="line">    invert=<span class="keyword">true</span></div>
+<div class="line">    texture=textures/grass.png</div>
+<div class="line">    shader=shaders/<span class="keywordflow">default</span>.vs,shaders/GaussianBlurH.fs</div>
+<div class="line">    params=radius:0.005</div>
+<div class="line">  &lt;/mesh&gt;</div>
+<div class="line">  &lt;mesh&gt;</div>
+<div class="line">    texture=textures/dirt.png</div>
+<div class="line">  &lt;/mesh&gt;</div>
+<div class="line">&lt;/entity&gt;</div>
+<div class="line"></div>
+<div class="line">&lt;light&gt;</div>
+<div class="line">  <span class="comment">// 2 --&gt; spotlight</span></div>
+<div class="line">  type=2</div>
+<div class="line">  color=0.050,0.762,0.556</div>
+<div class="line">  attenuation=0.001,0.005,0.000</div>
+<div class="line">  position=100,200</div>
+<div class="line">  minangle=45.0</div>
+<div class="line">  maxangle=225.0</div>
+<div class="line">&lt;/light&gt;</div>
+</div><!-- fragment --><p>The in-line entity multi-mesh creation featured in the example file would be equivalent to the following API code:</p>
+<div class="fragment"><div class="line">CQuad Q1, Q2;</div>
+<div class="line">CMaterial M1, M2;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Set up the first primitive.</span></div>
+<div class="line">M1.LoadEffect(EffectType::GAUSSIAN_BLUR_H);</div>
+<div class="line">M1.GetEffect()-&gt;Enable();</div>
+<div class="line">M1.GetEffect()-&gt;SetParameter(<span class="stringliteral">&quot;radius&quot;</span>, 0.005);</div>
+<div class="line">M1.GetEffect()-&gt;Disable();</div>
+<div class="line">M1.LoadTextureFromFile(<span class="stringliteral">&quot;textures/grass.png&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">Q1.Resize(64, 64);</div>
+<div class="line">Q1.SetRepeating(<span class="keyword">true</span>);</div>
+<div class="line">Q1.SetInverted(<span class="keyword">true</span>);</div>
+<div class="line">Q1.AttachMaterial(M1);</div>
+<div class="line">Q1.Create();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Set up the second primitive.</span></div>
+<div class="line">M2.LoadTextureFromFile(<span class="stringliteral">&quot;textures/dirt.png&quot;</span>);</div>
+<div class="line">Q2.AttachMaterial(M2);</div>
+<div class="line"></div>
+<div class="line">CEntity E;</div>
+<div class="line">E.AddPrimitiveMesh(Q1);</div>
+<div class="line">E.AddPrimitiveMesh(Q2);</div>
+<div class="line">E.Create();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Later...</span></div>
+<div class="line">E.Draw();</div>
+</div><!-- fragment --><h1><a class="anchor" id="ZMat"></a>
+ZenFX</h1>
+<h2><a class="anchor" id="ZMatSpec"></a>
 Specification</h2>
-<h3><a class="anchor" id="example"></a>
+<p>Extension: <code>.zfx</code></p>
+<p>This is a simple INI-like file that contains filenames to create custom materials from a combination of shaders and textures. The filenames can be paths, but they must be complete relative paths that do not rely on the internal short-cut macros, such as <code>ZENDERER_SHADER_PATH</code>.</p>
+<p>Expected key-value pairs: </p>
+<table class="doxtable">
+<tr>
+<th>Key </th><th>Description </th><th align="center">Required </th></tr>
+<tr>
+<td><code>vshader</code> </td><td>Vertex shader filename </td><td align="center">x </td></tr>
+<tr>
+<td><code>fshader</code> </td><td>Fragment shader filename </td><td align="center">x </td></tr>
+<tr>
+<td><code>texture</code> </td><td>Texture filename </td><td align="center">x </td></tr>
+<tr>
+<td><code>params</code> </td><td>Shader parameters </td><td align="center"></td></tr>
+</table>
+<p>Shader parameters are options found in the shader files that customize how it looks. They are optional, but can be included if you desire a default effect. They should all be on one line, in the form <code>name1:val1,val2,val3;name2:val1</code> Thus a shader wanting a <code>radius</code> of (10, 6) and a <code>time</code> of 0.34 would be specified like so: </p>
+<pre class="fragment">params=radius:10,6;time:0.34
+</pre><h2><a class="anchor" id="ZMatEx"></a>
+Example File</h2>
+<p>This is an example ZenFX file using the default shaders and a fake sample texture.</p>
+<div class="fragment"><div class="line"><span class="comment">// Example.zfx</span></div>
+<div class="line">vshader=Zenderer/shaders/Default.vs</div>
+<div class="line">fshader=Zenderer/shaders/Default.fs</div>
+<div class="line">texture=Assets/textures/Sample.png</div>
+</div><!-- fragment --><h1><a class="anchor" id="ZEnt"></a>
+ZenTity</h1>
+<h2><a class="anchor" id="ZEntSpec"></a>
+Specification</h2>
+<p>Extension: <code>.znt</code></p>
+<p>In <em>Zenderer</em>, entities are essentially extremely versatile primitive instances. The most important distinction is multi-primitive rendering. So if you had, for example, a table made of two leg textures and a top texture, you could create a single entity from it.</p>
+<p>The file specification features a lot of optional values and valid/invalid combinations, all of which are detailed below.</p>
+<p>The following keys are part of the raw entity specification, not the individual primitive specification.</p>
+<table class="doxtable">
+<tr>
+<th align="center">Key </th><th>Description </th><th align="center">Required </th><th align="left">Notes </th></tr>
+<tr>
+<td align="center"><code>position</code> </td><td>Position on screen </td><td align="center">x </td><td align="left">In the form x,y,z </td></tr>
+<tr>
+<td align="center"><code>primcount</code></td><td># of primitives </td><td align="center"></td><td align="left">Allows for pre-allocation </td></tr>
+</table>
+<p>The <code>z</code> on the <code>position</code> key is optional, but specifying depth is required for proper shadow rendering. It will default to 0.</p>
+<p>The following are individual primitive options. These are placed within a <code>&lt;prim&gt;&lt;/prim&gt;</code> block, which can be repeated as many times as necessary.</p>
+<table class="doxtable">
+<tr>
+<th align="center">Key </th><th>Description </th><th align="center">Required </th><th align="left">Notes </th></tr>
+<tr>
+<td align="center"><code>invert</code> </td><td>Invert vertices? </td><td align="center"></td><td align="left">Defaults to <code>false</code> </td></tr>
+<tr>
+<td align="center"><code>repeat</code> </td><td>Repeat texture? </td><td align="center"></td><td align="left">Defaults to <code>false</code> </td></tr>
+<tr>
+<td align="center"><code>width</code> </td><td>Primitive width </td><td align="center"></td><td align="left">Defaults to texture width </td></tr>
+<tr>
+<td align="center"><code>height</code> </td><td>Primitive height </td><td align="center"></td><td align="left">Defaults to texture height </td></tr>
+<tr>
+<td align="center"><code>vshader</code> </td><td>Vertex shader file </td><td align="center"></td><td align="left"></td></tr>
+<tr>
+<td align="center"><code>fshader</code> </td><td>Pixel shader file </td><td align="center"></td><td align="left">Pixel / Fragment </td></tr>
+<tr>
+<td align="center"><code>texture</code> </td><td>Texture file </td><td align="center">x </td><td align="left">This or material file </td></tr>
+<tr>
+<td align="center"><code>material</code></td><td>Material file </td><td align="center">x </td><td align="left">This or texture file </td></tr>
+<tr>
+<td align="center"><code>params</code> </td><td>Shader parameters </td><td align="center"></td><td align="left">Format: <code>name:val1,val2;name:val1</code> </td></tr>
+</table>
+<p>If overlapping values are used for <code>material</code> and the texture file, the file keys will be preferred over the material file. Thus if you specify <code>vshader</code>, <code>fshader</code>, <code>texture</code>, <em>and</em> <code>material</code>, the local files will be loaded, as opposed to the material file.</p>
+<p>If the shader files are left off, the default will be used (like for primitives). If the size is specified (<code>width</code>/<code>height</code>), <em>both</em> must be specified. Otherwise, the default values are used for both of them.</p>
+<p>The <code>primcount</code> option will allow for a tiny speed up in loading, but will only make a real difference if the entity contains dozens of primitives.</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values.">zen::gfx::CQuad::SetInverted()</a> </dd>
+<dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333" title="Repeat texture or stretch to fit.">zen::gfx::CQuad::SetRepeating()</a></dd></dl>
+<h3><a class="anchor" id="ZEntEx"></a>
 Example File</h3>
-<pre>
- // This is an example ZenTity file with two
- // side-by-side quads; one has a texture and
- // the other is mapped with a texture and a
- // pair of shaders.</pre><pre> filename=sample.znt
- author=George Kudrayvtsev
- version=1.0</pre><pre> vertices=
- texcoords=0,1,1,1,1,0,0,0
- &lt;surface&gt;
-   texture=Sample.tga</pre><pre>   vshader=Shader.vs
-   fshader=Shader.fs</pre><pre>   // Or (only if both):
-   // shaders=Shader.vs,Shader.fs</pre><pre>   indices=0,1,3,3,1,2
- &lt;/surface&gt;
- </pre><h1><a class="anchor" id="zanim"></a>
+<div class="fragment"><div class="line"><span class="comment">// This is an example ZenTity file with two</span></div>
+<div class="line"><span class="comment">// side-by-side quads; one has a texture and</span></div>
+<div class="line"><span class="comment">// the other is mapped with a texture and a</span></div>
+<div class="line"><span class="comment">// pair of shaders.</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Metadata, ignored.</span></div>
+<div class="line">filename=sample.znt</div>
+<div class="line">author=George Kudrayvtsev</div>
+<div class="line">version=1.0</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Position on-screen</span></div>
+<div class="line">position=100,100,5</div>
+<div class="line">primcount=2</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Tiled twice in X, twice in Y</span></div>
+<div class="line"><span class="comment">// Slight horizontal blur, ready to be skewed along</span></div>
+<div class="line"><span class="comment">// the top vertices.</span></div>
+<div class="line">&lt;prim&gt;</div>
+<div class="line">  texture=textures/grass.png</div>
+<div class="line"></div>
+<div class="line">  vshader=shaders/Default.vs</div>
+<div class="line">  fshader=shaders/GaussianBlurH.fs</div>
+<div class="line">  params=radius:0.005</div>
+<div class="line"></div>
+<div class="line">  width=64</div>
+<div class="line">  height=64</div>
+<div class="line"></div>
+<div class="line">  repeat=<span class="keyword">true</span></div>
+<div class="line">  invert=<span class="keyword">true</span></div>
+<div class="line">&lt;/prim&gt;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Nothing special about this one</span></div>
+<div class="line">&lt;prim&gt;</div>
+<div class="line">  texture=textures/dirt.png</div>
+<div class="line">&lt;/prim&gt;</div>
+</div><!-- fragment --><h1><a class="anchor" id="zanim"></a>
 ZenImation</h1>
 <h2><a class="anchor" id="zanimspec"></a>
 Specification</h2>

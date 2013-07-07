@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('classzen_1_1asset_1_1_c_asset.html',''
 </div><!--header-->
 <div class="contents">
 
-<p>Used throughout <em>Zenderer</em> to act as an asset.  
+<p>Used throughout <em>Zenderer</em> to act as a managed asset.  
  <a href="classzen_1_1asset_1_1_c_asset.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>&quot;</code></p>
@@ -128,7 +128,7 @@ Inheritance diagram for zen::asset::CAsset:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset__inherit__graph.png" border="0" usemap="#zen_1_1asset_1_1_c_asset_inherit__map" alt="Inheritance graph"/></div>
 <map name="zen_1_1asset_1_1_c_asset_inherit__map" id="zen_1_1asset_1_1_c_asset_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="5,476,155,671"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_texture.html" title="{zen::gfxcore::CTexture\n||+ ~CTexture()\l+ LoadFromFile()\l+ LoadFromExisting()\l+ LoadFromRaw()\l+ GetData()\l+ Bind()\l+ Unbind()\l+ GetWidth()\l+ GetHeight()\l}" alt="" coords="179,476,332,671"/><area shape="rect" id="node4" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="357,454,491,693"/><area shape="rect" id="node5" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="273,749,409,899"/><area shape="rect" id="node6" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="433,741,580,907"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="5,483,155,677"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low&#45;level texture asset abstraction over OpenGL texture handles." alt="" coords="179,483,332,677"/><area shape="rect" id="node4" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="357,453,491,707"/><area shape="rect" id="node5" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="273,763,409,899"/><area shape="rect" id="node6" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="433,755,580,906"/></map>
 </div>
 <div class="dynheader">
 Collaboration diagram for zen::asset::CAsset:</div>
@@ -191,7 +191,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a545ccfdabbcd898fea39617350a54e77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a545ccfdabbcd898fea39617350a54e77"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a545ccfdabbcd898fea39617350a54e77">CAsset</a> (const void *const owner=nullptr)</td></tr>
-<tr class="memdesc:a545ccfdabbcd898fea39617350a54e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> can create <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">CAsset</a> instances. <br/></td></tr>
+<tr class="memdesc:a545ccfdabbcd898fea39617350a54e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a> can create <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a> instances. <br/></td></tr>
 <tr class="separator:a545ccfdabbcd898fea39617350a54e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe42ff44f3521e608b1637e86996a33a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe42ff44f3521e608b1637e86996a33a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#afe42ff44f3521e608b1637e86996a33a">CAsset</a> (const <a class="el" href="classzen_1_1asset_1_1_c_asset.html">CAsset</a> &amp;Disabled)</td></tr>
@@ -238,7 +238,7 @@ static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>s_seed</b>
 Friends</h2></td></tr>
 <tr class="memitem:a42da7c7a8ac369ebf96c519ab3398ce6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42da7c7a8ac369ebf96c519ab3398ce6"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a42da7c7a8ac369ebf96c519ab3398ce6">CAssetManager</a></td></tr>
-<tr class="memdesc:a42da7c7a8ac369ebf96c519ab3398ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> can create <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">CAsset</a> instances. <br/></td></tr>
+<tr class="memdesc:a42da7c7a8ac369ebf96c519ab3398ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a> can create <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a> instances. <br/></td></tr>
 <tr class="separator:a42da7c7a8ac369ebf96c519ab3398ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -251,7 +251,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <dd>
 <a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00076">76</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00045">45</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a3a5a49d12fc7f291f5de04a7f52757b0"></a>
 <div class="memitem">
@@ -316,7 +316,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if copied successfully, <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_8cpp_source.html#l00031">31</a> of file <a class="el" href="_asset_8cpp_source.html">Asset.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8cpp_source.html#l00020">20</a> of file <a class="el" href="_asset_8cpp_source.html">Asset.cpp</a>.</p>
 
 </div>
 </div>

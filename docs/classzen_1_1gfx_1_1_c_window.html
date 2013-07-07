@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -348,14 +348,14 @@ static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsy
         </tr>
       </table>
 </div><div class="memdoc">
-<p>When going into (or out of) fullscreen mode, the current OpenGL context is destroyed, thus invalidating any and all handles to textures, shaders, vertex buffers, and other critical properties used during rendering. By attaching a proper asset manager to the window, these can be reloaded on-the-fly when switching contexts. Since the asset base class (<a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">zen::asset::CAsset</a>) stores a filename, this can be used to reload the asset when necessary. Keep in mind that assets that were generated programmatically (such as various shapes) that do not depend on any files cannot be successfully reloaded and attached properly to the new rendering context.</p>
+<p>When going into (or out of) fullscreen mode, the current OpenGL context is destroyed, thus invalidating any and all handles to textures, shaders, vertex buffers, and other critical properties used during rendering. By attaching a proper asset manager to the window, these can be reloaded on-the-fly when switching contexts. Since the asset base class (<a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a>) stores a filename, this can be used to reload the asset when necessary. Keep in mind that assets that were generated programmatically (such as various shapes) that do not depend on any files cannot be successfully reloaded and attached properly to the new rendering context.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Mgr</td><td>Manager to attach to window</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">zen::asset::CAsset</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> </dd>
 <dd>
 <a class="el" href="classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee" title="Enables fullscreen mode.">EnableFullscreen()</a> </dd>
 <dd>
@@ -411,7 +411,7 @@ static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsy
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
 
 <p>Definition at line <a class="el" href="_window_8hpp_source.html#l00143">143</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 

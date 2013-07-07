@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -153,9 +153,9 @@ $(document).ready(function(){initNavTree('_renderer_8hpp_source.html','');});
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> DisableBlending();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> DisableTexture();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::material_t</a>&amp;          GetDefaultMaterial();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>&amp;           GetDefaultMaterial();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>&amp;             GetDefaultEffect();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a>&amp;  GetDefaultTexture();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp;  GetDefaultTexture();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>&amp;  GetProjectionMatrix();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>&amp;             GetFullscreenVBO();</div>
@@ -174,7 +174,7 @@ $(document).ready(function(){initNavTree('_renderer_8hpp_source.html','');});
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>         s_FullscreenQuad;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>       s_DefaultMaterial;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>         s_DefaultEffect;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a>*   s_DefaultTexture;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*   s_DefaultTexture;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>    s_ProjMatrix;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span>                 s_blend;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    };</div>

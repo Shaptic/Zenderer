@@ -8,6 +8,7 @@ var searchData=
   ['cdrawable',['CDrawable',['../classzen_1_1gfxcore_1_1_c_drawable.html',1,'zen::gfxcore']]],
   ['ceffect',['CEffect',['../classzen_1_1_c_effect.html',1,'zen']]],
   ['ceffect',['CEffect',['../classzen_1_1gfx_1_1_c_effect.html',1,'zen::gfx']]],
+  ['centity',['CEntity',['../classzen_1_1obj_1_1_c_entity.html',1,'zen::obj']]],
   ['cglsubsystem',['CGLSubsystem',['../classzen_1_1gfxcore_1_1_c_g_l_subsystem.html',1,'zen::gfxcore']]],
   ['ciniparser',['CINIParser',['../classzen_1_1util_1_1_c_i_n_i_parser.html',1,'zen::util']]],
   ['circle_5ft',['circle_t',['../structzen_1_1math_1_1circle__t.html',1,'zen::math']]],

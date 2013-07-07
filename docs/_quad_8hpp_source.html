@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -129,17 +129,31 @@ $(document).ready(function(){initNavTree('_quad_8hpp_source.html','');});
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">CQuad</a>();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> CDrawable&amp; Create();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> AttachMaterial(<a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::material_t</a>* pMaterial);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a> m_Size;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__QUAD_HPP</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> AttachMaterial(<a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>* pMaterial);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> Resize(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a>&amp; Size);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> Resize(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">void</span> SetInverted(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> SetRepeating(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span> LoadRegularVertices();     <span class="comment">// Standard quad</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">void</span> LoadInvertedVertices();    <span class="comment">// Inverted quad using -y instead of 0</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> LoadRegularTC();           <span class="comment">// Tex-coords to match standard quad</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> LoadInvertedTC();          <span class="comment">// Tex-coords to match inverted quad</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a> m_Size;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">bool</span> m_inv, m_rep;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    };</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__QUAD_HPP</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

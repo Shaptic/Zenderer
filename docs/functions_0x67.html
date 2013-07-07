@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -149,6 +149,9 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="structzen_1_1color4f__t.html#abca0c3ccf903bdd501f5b466b2b28288">zen::color4f_t</a>
 , <a class="el" href="structzen_1_1color3f__t.html#a390dca71cf1d12baa601fcd691cdb7a9">zen::color3f_t</a>
 </li>
+<li>Get()
+: <a class="el" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df">zen::CAllocator</a>
+</li>
 <li>GetAssetCount()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564">zen::asset::CAssetManager</a>
 </li>
@@ -162,10 +165,10 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#aebc219ee89c86e8ed3fbd0684e1ced9f">zen::sfx::CAudioManager</a>
 </li>
 <li>GetData()
-: <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb">zen::sfx::CAudio2D</a>
+: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231">zen::asset::CAsset</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb">zen::sfx::CAudio2D</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89">zen::gfxcore::CShader</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#af329f9af19fd59844812dd2779bba633">zen::gfxcore::CTexture</a>
-, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231">zen::asset::CAsset</a>
 </li>
 <li>GetEngineLog()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d">zen::util::CLog</a>
@@ -175,8 +178,8 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984">zen::gfxcore::CShaderSet</a>
 </li>
 <li>GetFilename()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">zen::asset::CAsset</a>
-, <a class="el" href="classzen_1_1util_1_1_c_log.html#a8ee810e8f130b41733c45c7e05686ce1">zen::util::CLog</a>
+: <a class="el" href="classzen_1_1util_1_1_c_log.html#a8ee810e8f130b41733c45c7e05686ce1">zen::util::CLog</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">zen::asset::CAsset</a>
 </li>
 <li>GetFilenameHash()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37">zen::asset::CAsset</a>
@@ -209,8 +212,8 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf">zen::gfxcore::CShader</a>
 </li>
 <li>GetShaderObject()
-: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b">zen::gfxcore::CShader</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">zen::gfxcore::CShaderSet</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b">zen::gfxcore::CShader</a>
 </li>
 <li>GetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d">zen::util::CLog</a>
@@ -222,16 +225,16 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ae1640821acc07a4ce9f772a894e2c4ae">zen::gfxcore::CShaderSet</a>
 </li>
 <li>GetValue()
-: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a8b7f91e53336cd8c0e6707eac1c74fe2">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56">zen::util::CINIParser</a>
 </li>
 <li>GetValueb()
 : <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aea41451a7d888f37f556828cb4dc5535">zen::util::CINIParser</a>
 </li>
-<li>GetValuef()
-: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a53fe17f3cfc5cebb01f7104d2b11fe5d">zen::util::CINIParser</a>
-</li>
 <li>GetValuei()
 : <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aef355b201c3c5efd3ada50f1f694ca9c">zen::util::CINIParser</a>
+</li>
+<li>GetValuer()
+: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ab8710e9bf49c30e6567434bc2f688c37">zen::util::CINIParser</a>
 </li>
 <li>GetValues()
 : <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac57686358966190d7c29a88ff1c87429">zen::util::CINIParser</a>

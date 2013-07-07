@@ -261,7 +261,7 @@ namespace zen
  *
  *  @subsubsection example     Example File
  *
- *  <pre>
+ *  @code{.ini}
  *  filename=sample.zlv
  *  title=Level 1 -- Tutorial
  *
@@ -306,11 +306,11 @@ namespace zen
  *    minangle=45.0
  *    maxangle=225.0
  *  </light>
- *
- *  </pre>
+ *  @endcode
  *
  *  The in-line entity multi-mesh creation featured in the example file
  *  would be equivalent to the following API code:
+ *
  *  @code
  *  CQuad Q1, Q2;
  *  CMaterial M1, M2;
@@ -354,10 +354,10 @@ namespace zen
  *  Expected key-value pairs:
  *  | Key       |        Description       | Required |
  *  | --------- | ------------------------ | :------: |
- *  | `vshader` | Vertex shader filename   | &#10004; |
- *  | `fshader` | Fragment shader filename | &#10004; |
- *  | `texture` | Texture filename         | &#10004; |
- *  | `params`  | Shader parameters        | &#10005; |
+ *  | `vshader` | Vertex shader filename   |    x     |
+ *  | `fshader` | Fragment shader filename |    x     |
+ *  | `texture` | Texture filename         |    x     |
+ *  | `params`  | Shader parameters        |          |
  *
  *  Shader parameters are options found in the shader files that
  *  customize how it looks. They are optional, but can be included
@@ -374,7 +374,7 @@ namespace zen
  *  This is an example ZenFX file using the default shaders and a fake
  *  sample texture.
  *
- *  @code
+ *  @code{.ini}
  *  // Example.zfx
  *  vshader=Zenderer/shaders/Default.vs
  *  fshader=Zenderer/shaders/Default.fs
@@ -399,8 +399,8 @@ namespace zen
  *
  *  |   Key      |     Description    | Required |           Notes           |
  *  | :--------: | ------------------ | :------: | :------------------------ |
- *  | `position` | Position on screen | &#10004; | In the form x,y,z         |
- *  | `primcount`| # of primitives    | &#10005; | Allows for pre-allocation | 
+ *  | `position` | Position on screen |    x     | In the form x,y,z         |
+ *  | `primcount`| # of primitives    |          | Allows for pre-allocation | 
  *
  *  The `z` on the `position` key is optional, but specifying depth is required 
  *  for proper shadow rendering. It will default to 0.
@@ -411,32 +411,33 @@ namespace zen
  *
  *  |   Key     |     Description    | Required |               Notes               |
  *  | :-------: | ------------------ | :------: | :-------------------------------- |
- *  | `invert`  | Invert vertices?   | &#10005; | Defaults to `false`               |
- *  | `repeat`  | Repeat texture?    | &#10005; | Defaults to `false`               | 
- *  | `width`   | Primitive width    | &#10005; | Defaults to texture width         |
- *  | `height`  | Primitive height   | &#10005; | Defaults to texture height        |
- *  | `vshader` | Vertex shader file | &#10005; |                                   |
- *  | `fshader` | Pixel shader file  | &#10005; | Pixel / Fragment                  |
- *  | `texture` | Texture file       | &#10004; | This or material file             |
- *  | `material`| Material file      | &#10004; | This or texture file              |
- *  | `params`  | Shader parameters  | &#10005; | Format: `name:val1,val2;name:val1`|
+ *  | `invert`  | Invert vertices?   |          | Defaults to `false`               |
+ *  | `repeat`  | Repeat texture?    |          | Defaults to `false`               | 
+ *  | `width`   | Primitive width    |          | Defaults to texture width         |
+ *  | `height`  | Primitive height   |          | Defaults to texture height        |
+ *  | `vshader` | Vertex shader file |          |                                   |
+ *  | `fshader` | Pixel shader file  |          | Pixel / Fragment                  |
+ *  | `texture` | Texture file       |    x     | This or material file             |
+ *  | `material`| Material file      |    x     | This or texture file              |
+ *  | `params`  | Shader parameters  |          | Format: `name:val1,val2;name:val1`|
  *
  *  If overlapping values are used for `material` and the texture file, 
  *  the file keys will be preferred over the material file. Thus if you specify
  *  `vshader`, `fshader`, `texture`, *and* `material`, the local files will be
  *  loaded, as opposed to the material file.
  *
- *  If the shader files are left off, the default will be used (like for primitives).
- *  If the size is specified (`width`/`height`), *both* must be specified. Otherwise,
- *  the default values are used for both of them. 
+ *  If the shader files are left off, the default will be used (like for
+ *  primitives). If the size is specified (`width`/`height`), *both* must be
+ *  specified. Otherwise, the default values are used for both of them. 
  *
- *  The `primcount` option will allow for a tiny speed up in loading, but will only
- *  make a real difference if the entity contains dozens of primitives.
+ *  The `primcount` option will allow for a tiny speed up in loading, but will
+ *  only make a real difference if the entity contains dozens of primitives.
  *
- *  @see    zen::gfx::CQuad
+ *  @see    zen::gfx::CQuad::SetInverted()
+ *  @see    zen::gfx::CQuad::SetRepeating()
  *
  *  @subsubsection  ZEntEx  Example File
- *  <pre>
+ *  @code{.ini}
  *  // This is an example ZenTity file with two
  *  // side-by-side quads; one has a texture and
  *  // the other is mapped with a texture and a
@@ -473,7 +474,7 @@ namespace zen
  *    texture=textures/dirt.png
  *  </prim>
  *
- *  </pre>
+ * @endcode
  *
  * @section zanim   ZenImation
  *  @subsection zanimspec   Specification

@@ -19,8 +19,14 @@ var NAVTREE =
           [ "Example File", "specs.html#example", null ]
         ] ]
       ] ],
-      [ "ZenTity", "specs.html#zent", [
-        [ "Specification", "specs.html#zentspec", null ]
+      [ "ZenFX", "specs.html#ZMat", [
+        [ "Specification", "specs.html#ZMatSpec", null ],
+        [ "Example File", "specs.html#ZMatEx", null ]
+      ] ],
+      [ "ZenTity", "specs.html#ZEnt", [
+        [ "Specification", "specs.html#ZEntSpec", [
+          [ "Example File", "specs.html#ZEntEx", null ]
+        ] ]
       ] ],
       [ "ZenImation", "specs.html#zanim", [
         [ "Specification", "specs.html#zanimspec", null ]
@@ -65,9 +71,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_allocation-example.html",
-"classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37",
-"classzen_1_1sfx_1_1_c_audio2_d.html#a68df63abf75665546540e375a59b594a",
-"structzen_1_1color4f__t.html"
+"classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f",
+"classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6",
+"namespacemembers_eval.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

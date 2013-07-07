@@ -14,6 +14,7 @@ var hierarchy =
       [ "zen::gfx::CQuad", "classzen_1_1gfx_1_1_c_quad.html", null ]
     ] ],
     [ "zen::CEffect", "classzen_1_1_c_effect.html", null ],
+    [ "zen::obj::CEntity", "classzen_1_1obj_1_1_c_entity.html", null ],
     [ "zen::gfxcore::CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html", [
       [ "zen::gfx::CEffect", "classzen_1_1gfx_1_1_c_effect.html", null ],
       [ "zen::gfx::CRenderTarget", "classzen_1_1gfx_1_1_c_render_target.html", null ],

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,6 +115,11 @@ $(document).ready(function(){initNavTree('classzen_1_1asset_1_1_c_asset_manager.
 <div class="title">zen::asset::CAssetManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Controls creation and proper mmeory management of assets.  
+ <a href="classzen_1_1asset_1_1_c_asset_manager.html#details">More...</a></p>
+
+<p><code>#include &quot;<a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>&quot;</code></p>
 <div class="dynheader">
 Inheritance diagram for zen::asset::CAssetManager:</div>
 <div class="dyncontent">
@@ -240,7 +245,8 @@ static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsy
 <tr class="separator:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>To be an asset instance supported by this manager, the object must inherit from <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> </p>
+
 <p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00038">38</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af33976ad2ec3d734e8ee3c66f535aeaa"></a>
@@ -268,7 +274,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Assets are set up on the <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as an asset.">zen::asset::CAsset</a> base class, which guarantees the ability to load from a file. That's what this method will do: load an asset from a file. Since assets may be identical but claimed by different parts of the engine, such as vertex buffer and mesh data for unique scenes, it is possible to specify an "owner" for the asset. This is entirely optional, and the asset will default to having no unique owner. Assets created in different instances of this class are also considered to be completely separate.</p>
+<p>Assets are set up on the <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> base class, which guarantees the ability to load from a file. That's what this method will do: load an asset from a file. Since assets may be identical but claimed by different parts of the engine, such as vertex buffer and mesh data for unique scenes, it is possible to specify an "owner" for the asset. This is entirely optional, and the asset will default to having no unique owner. Assets created in different instances of this class are also considered to be completely separate.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to load asset from </td></tr>
@@ -285,7 +291,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph" id="classzen_1_1asset_1_1_c_asset_manager_af33976ad2ec3d734e8ee3c66f535aeaa_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="255,5,425,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="246,70,434,111"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e" title="Loads a vertex shader from a file. " alt="" coords="237,135,443,177"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="255,5,425,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="246,70,434,111"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e" title="Loads a vertex shader from a file. " alt="" coords="237,135,443,177"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="275,201,405,242"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk." alt="" coords="264,266,416,307"/></map>
 </div>
 </p>
 
@@ -326,7 +332,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A dynamically created asset if it copies successfully, and <code>nullptr</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00054">54</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00057">57</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -358,7 +364,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph" id="classzen_1_1asset_1_1_c_asset_manager_ad50bc0185948b679ffcfdc2670aeee37_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="237,5,408,46"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855" title="Cleans up the subsystem completely." alt="" coords="253,70,392,111"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="675,5,845,46"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="456,34,627,75"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="237,5,408,46"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="257,70,388,111"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855" title="Cleans up the subsystem completely." alt="" coords="253,135,392,177"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="675,5,845,46"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="456,34,627,75"/></map>
 </div>
 </p>
 
@@ -379,7 +385,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00083">83</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00088">88</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +404,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00125">125</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00139">139</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>

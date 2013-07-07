@@ -10,6 +10,7 @@ var searchData=
   ['cdrawable',['CDrawable',['../classzen_1_1gfxcore_1_1_c_drawable.html',1,'zen::gfxcore']]],
   ['ceffect',['CEffect',['../classzen_1_1_c_effect.html',1,'zen']]],
   ['ceffect',['CEffect',['../classzen_1_1gfx_1_1_c_effect.html',1,'zen::gfx']]],
+  ['centity',['CEntity',['../classzen_1_1obj_1_1_c_entity.html',1,'zen::obj']]],
   ['cglsubsystem',['CGLSubsystem',['../classzen_1_1gfxcore_1_1_c_g_l_subsystem.html',1,'zen::gfxcore']]],
   ['children',['children',['../structzen_1_1util_1_1_x_m_l_node.html#a31fa35bfe9b153c6b190080134d166a1',1,'zen::util::XMLNode']]],
   ['ciniparser',['CINIParser',['../classzen_1_1util_1_1_c_i_n_i_parser.html',1,'zen::util']]],
@@ -51,8 +52,9 @@ var searchData=
   ['ctexture',['CTexture',['../classzen_1_1gfxcore_1_1_c_texture.html',1,'zen::gfxcore']]],
   ['ctimer',['CTimer',['../classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b',1,'zen::util::CTimer']]],
   ['ctimer',['CTimer',['../classzen_1_1util_1_1_c_timer.html',1,'zen::util']]],
+  ['custom_5feffect',['CUSTOM_EFFECT',['../namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa45a29fc990b42080e8ce325d1aa182fa',1,'zen::gfx']]],
   ['cvertexarray',['CVertexArray',['../classzen_1_1gfxcore_1_1_c_vertex_array.html',1,'zen::gfxcore']]],
   ['cwindow',['CWindow',['../classzen_1_1gfx_1_1_c_window.html',1,'zen::gfx']]],
-  ['cxmlparser',['CXMLParser',['../classzen_1_1util_1_1_c_x_m_l_parser.html#a57ef047bac46de34e6dc890b47559ec1',1,'zen::util::CXMLParser']]],
-  ['cxmlparser',['CXMLParser',['../classzen_1_1util_1_1_c_x_m_l_parser.html',1,'zen::util']]]
+  ['cxmlparser',['CXMLParser',['../classzen_1_1util_1_1_c_x_m_l_parser.html',1,'zen::util']]],
+  ['cxmlparser',['CXMLParser',['../classzen_1_1util_1_1_c_x_m_l_parser.html#a57ef047bac46de34e6dc890b47559ec1',1,'zen::util::CXMLParser']]]
 ];

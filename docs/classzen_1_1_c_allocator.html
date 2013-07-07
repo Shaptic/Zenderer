@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4514 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -184,13 +184,15 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad45fdc86063b4b46644f9871936be9df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad45fdc86063b4b46644f9871936be9df"></a>
-static <a class="el" href="classzen_1_1_c_allocator.html">CAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Get</b> ()</td></tr>
+static <a class="el" href="classzen_1_1_c_allocator.html">CAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df">Get</a> ()</td></tr>
+<tr class="memdesc:ad45fdc86063b4b46644f9871936be9df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton accessor. <br/></td></tr>
 <tr class="separator:ad45fdc86063b4b46644f9871936be9df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a888a10d2aa124af39686f29992298aba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a888a10d2aa124af39686f29992298aba"></a>
-static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>ALLOC_SIZE</b> = 4</td></tr>
+static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a888a10d2aa124af39686f29992298aba">ALLOC_SIZE</a> = 4</td></tr>
+<tr class="memdesc:a888a10d2aa124af39686f29992298aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default allocation size, in bytes. <br/></td></tr>
 <tr class="separator:a888a10d2aa124af39686f29992298aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -220,20 +222,37 @@ static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsy
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Let us assume a memory structure like so:</p>
-<p>0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000</p>
-<p>Thus we store an internal <code>std::list&lt;int&gt;</code> containing only a single value: 47. 47 because there are 48 free bytes, and we differentiate between free and used bytes by making the number odd if they are free.</p>
-<p>When we want to allocate 9 bytes (for example, a tightly unpacked <code>struct</code> with a <code>char</code> and a <code>double</code> member), the memory structure would change to look like this:</p>
-<p>_______________ Next block pointer | v 1111 1111 1111 0000 0000 0000 0000 0000 0000 0000 0000 0000 ^ |______ Head pointer</p>
-<p>We pad the 9 bytes to 12 for alignment purposes (assuming a <code>CAllocator::BLOCK_SIZE</code> of 4), and now our interal byte <code>list</code> contains <code>{ 12, 35 }</code> because we have an occupied block of 12 bytes (even) followed by a free block of 35 bytes (odd).</p>
-<p>Let's assume again that we allocate 32 bytes, and then free our first 12 byte block. Now the memory structure looks like this: </p>
-<pre class="fragment">       Next block pointer ___________________________
-                                                     |
-                                                     v
-</pre><p> 0000 0000 0000 1111 1111 1111 1111 1111 1111 1111 1111 0000 ^ |______ Head pointer</p>
-<p>and our internal byte <code>list</code> contains <code>{ 11, 32, 3 }</code> for 12 free bytes, 32 used bytes, and 4 free bytes, respectively.</p>
+<pre>
+0000 0000 0000 0000  0000 0000 0000 0000  0000 0000 0000 0000
+</pre><p>Thus we store an internal <code>std::list&lt;int&gt;</code> containing only a single value: <code>{ 47 }</code>. 47 because there are 48 free bytes, and we differentiate between free and used bytes by making the number odd if they are free.</p>
+<p>When we want to allocate 9 bytes (for example, a non-padded <code>struct</code> with a <code>char</code> and a <code>double</code> member), the memory structure would change to look like this:</p>
+<pre>
+_______________  Next block pointer
+               |
+               V
+1111 1111 1111 0000  0000 0000 0000 0000  0000 0000 0000 0000
+^
+|______ Head pointer
+</pre><p>We pad the 9 bytes to 12 for alignment purposes (assuming a <code>CAllocator::BLOCK_SIZE</code> of 4), and now our interal byte <code>list</code> contains <code>{ 12, 35 }</code> because we have an occupied block of 12 bytes (even) followed by a free block of 35 bytes (odd).</p>
+<p>Let's assume again that we allocate 32 bytes, and then free our first 12 byte block. Now the memory structure looks like this:</p>
+<pre>
+           Next block pointer ___________________________
+                                                         |
+                                                         V
+0000 0000 0000 1111  1111 1111 1111 1111  1111 1111 1111 0000
+^
+|______ Head pointer
+</pre><p>and our internal byte <code>list</code> contains <code>{ 11, 32, 3 }</code> for 12 free bytes, 32 used bytes, and 4 free bytes, respectively.</p>
 <p>Finally, let's assume the user requests an allocation of 8 bytes. From the next block pointer (shown above), there is no viable 8-byte chunk to allocate, so the search begins from the head.</p>
-<p>This is actually done by analyzing the internal memory <code>list</code>. With a request of 8 bytes and a final free block of 3 bytes (since the next block pointer always points to the last free block, so <code>list.end()</code>) we start the search from <code>list.begin()</code>, giving us 11 which we know as a free block of 12 bytes. Thus we can return the head pointer and make the list contain <code>{ 8, 3, 32, 3}</code>.</p>
-<p>As you can see, the memory becomes fairly fragmented, and a subsequent request to allocate 8 bytes would fail, despite there being 8 bytes available. This is impossible to remedy without a lot of slow memory movement, which would in turn cause all of the allocated pointers to be completely invalid on the user end. </p>
+<p>This is actually done by analyzing the internal memory <code>list</code>. With a request of 8 bytes and a final free block of 3 bytes (since the next block pointer always points to the last free block, so <code>list.end()</code>) we start the search from <code>list.begin()</code>, giving us 11 which we know as a free block of 12 bytes. Thus we can return the head pointer and make the list contain <code>{ 8, 3, 32, 3}</code> and a memory structure like this:</p>
+<pre>
+           ___ Next block pointer
+          |
+          V
+1111 1111 0000 1111  1111 1111 1111 1111  1111 1111 1111 0000
+^
+|______ Head pointer
+</pre><p>As you can see, the memory becomes fairly fragmented, and a subsequent request to allocate 8 bytes would fail, despite there being 8 bytes available. This is impossible to remedy without a lot of slow memory movement, which would in turn cause all of the allocated pointers to be completely invalid on the user end. </p>
 
 <p>Definition at line <a class="el" href="_allocator_8hpp_source.html#l00033">33</a> of file <a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -262,6 +281,15 @@ static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsy
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a5c72ec2b5c58ee70f346aec64eaf2dd8">zen::CSubsystem</a>.</p>
 
 <p>Definition at line <a class="el" href="_allocator_8cpp_source.html#l00018">18</a> of file <a class="el" href="_allocator_8cpp_source.html">Allocator.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1_c_allocator_a373cf7aa19d780609ee1b5314a32bac8_icgraph.png" border="0" usemap="#classzen_1_1_c_allocator_a373cf7aa19d780609ee1b5314a32bac8_icgraph" alt=""/></div>
+<map name="classzen_1_1_c_allocator_a373cf7aa19d780609ee1b5314a32bac8_icgraph" id="classzen_1_1_c_allocator_a373cf7aa19d780609ee1b5314a32bac8_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df" title="Singleton accessor." alt="" coords="190,5,330,32"/></map>
+</div>
+</p>
 
 </div>
 </div>

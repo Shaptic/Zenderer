@@ -94,7 +94,7 @@ namespace gfx
          *  it will be stretched by default. You can set it to repeat the 
          *  texture pattern across the drawable with this method. 
          *
-         * @bool    Flag    `true` makes it repeat, `false` stretches
+         * @bool    flag    `true` makes it repeat, `false` stretches
          *
          * @pre     Neither Draw() nor Create() have been called yet.
          **/

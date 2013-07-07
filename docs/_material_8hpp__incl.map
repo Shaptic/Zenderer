@@ -1,27 +1,27 @@
 <map id="Zenderer/include/Zenderer/Graphics/Material.hpp" name="Zenderer/include/Zenderer/Graphics/Material.hpp">
-<area shape="rect" id="node2" href="$_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files." alt="" coords="971,269,1201,296"/>
-<area shape="rect" id="node32" href="$_i_n_i_parser_8hpp.html" title="Zenderer/Utilities/INIParser.hpp &#45; A key=value pair file parser used throughout Zenderer to load vari..." alt="" coords="1848,353,1966,394"/>
-<area shape="rect" id="node35" href="$_texture_8hpp.html" title="Zenderer/CoreGraphics/Texture.hpp &#45; A low&#45;level texture asset wrapper around OpenGL textures..." alt="" coords="1238,262,1393,303"/>
-<area shape="rect" id="node37" href="$_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp &#45; A high&#45;level shader wrapper intended to be used by the user..." alt="" coords="844,96,924,123"/>
-<area shape="rect" id="node4" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="875,451,1073,477"/>
+<area shape="rect" id="node2" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="710,715,876,741"/>
+<area shape="rect" id="node5" href="$_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files." alt="" coords="948,269,1178,296"/>
+<area shape="rect" id="node32" href="$_i_n_i_parser_8hpp.html" title="Zenderer/Utilities/INIParser.hpp &#45; A key=value pair file parser used throughout Zenderer to load vari..." alt="" coords="1866,353,1984,394"/>
+<area shape="rect" id="node35" href="$_texture_8hpp.html" title="Zenderer/CoreGraphics/Texture.hpp &#45; A low&#45;level texture asset wrapper around OpenGL textures..." alt="" coords="601,262,756,303"/>
+<area shape="rect" id="node37" href="$_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp &#45; A high&#45;level shader wrapper intended to be used by the user..." alt="" coords="610,96,690,123"/>
+<area shape="rect" id="node7" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="882,451,1080,477"/>
 <area shape="rect" id="node17" href="$_allocator_8hpp.html" title="Zenderer/Core/Allocator.hpp &#45; A high&#45;speed allocator using a static memory stack." alt="" coords="843,360,1025,387"/>
-<area shape="rect" id="node18" href="$_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="613,353,768,394"/>
-<area shape="rect" id="node28" href="$_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="1248,360,1329,387"/>
-<area shape="rect" id="node31" href="$_asset_manager_8inl_source.html" title="AssetManager.inl" alt="" coords="1050,360,1173,387"/>
-<area shape="rect" id="node6" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="961,715,1044,741"/>
-<area shape="rect" id="node9" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="1451,625,1569,666"/>
-<area shape="rect" id="node14" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="1094,715,1305,741"/>
-<area shape="rect" id="node16" href="$_log_8inl_source.html" title="Log.inl" alt="" coords="1330,715,1389,741"/>
-<area shape="rect" id="node21" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="152,451,324,477"/>
-<area shape="rect" id="node27" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="1599,534,1717,575"/>
-<area shape="rect" id="node24" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="26,541,128,568"/>
-<area shape="rect" id="node26" href="$_vector_8inl_source.html" title="Vector.inl" alt="" coords="297,541,374,568"/>
-<area shape="rect" id="node25" href="$_math_core_8inl_source.html" title="MathCore.inl" alt="" coords="76,632,170,659"/>
-<area shape="rect" id="node29" href="$_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="1299,443,1417,485"/>
-<area shape="rect" id="node30" href="$_asset_8inl_source.html" title="Asset.inl" alt="" coords="1150,451,1222,477"/>
-<area shape="rect" id="node34" href="$_i_n_i_parser_8inl_source.html" title="INIParser.inl" alt="" coords="2071,451,2162,477"/>
-<area shape="rect" id="node38" href="$_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="178,179,349,205"/>
-<area shape="rect" id="node39" href="$_shader_set_8hpp.html" title="Zenderer/CoreGraphics/ShaderSet.hpp &#45; A wrapper class for OpenGL shaders containing a set of shader o..." alt="" coords="1124,171,1278,213"/>
-<area shape="rect" id="node41" href="$_effect_8inl_source.html" title="Effect.inl" alt="" coords="921,179,993,205"/>
-<area shape="rect" id="node40" href="$_shader_8hpp.html" title="Zenderer/CoreGraphics/Shader.hpp &#45; A wrapper around OpenGL shader objects." alt="" coords="1614,269,1702,296"/>
+<area shape="rect" id="node18" href="$_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="550,353,705,394"/>
+<area shape="rect" id="node28" href="$_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="1311,360,1392,387"/>
+<area shape="rect" id="node31" href="$_asset_manager_8inl_source.html" title="AssetManager.inl" alt="" coords="1152,360,1274,387"/>
+<area shape="rect" id="node9" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="1414,625,1532,666"/>
+<area shape="rect" id="node14" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="1538,715,1749,741"/>
+<area shape="rect" id="node16" href="$_log_8inl_source.html" title="Log.inl" alt="" coords="1274,715,1333,741"/>
+<area shape="rect" id="node21" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="170,451,341,477"/>
+<area shape="rect" id="node27" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="1511,534,1629,575"/>
+<area shape="rect" id="node24" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="46,541,148,568"/>
+<area shape="rect" id="node26" href="$_vector_8inl_source.html" title="Vector.inl" alt="" coords="266,541,344,568"/>
+<area shape="rect" id="node25" href="$_math_core_8inl_source.html" title="MathCore.inl" alt="" coords="50,632,144,659"/>
+<area shape="rect" id="node29" href="$_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="1316,443,1434,485"/>
+<area shape="rect" id="node30" href="$_asset_8inl_source.html" title="Asset.inl" alt="" coords="1219,451,1292,477"/>
+<area shape="rect" id="node34" href="$_i_n_i_parser_8inl_source.html" title="INIParser.inl" alt="" coords="2088,451,2180,477"/>
+<area shape="rect" id="node38" href="$_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="333,179,504,205"/>
+<area shape="rect" id="node39" href="$_shader_set_8hpp.html" title="Zenderer/CoreGraphics/ShaderSet.hpp &#45; A wrapper class for OpenGL shaders containing a set of shader o..." alt="" coords="1266,171,1421,213"/>
+<area shape="rect" id="node41" href="$_effect_8inl_source.html" title="Effect.inl" alt="" coords="614,179,686,205"/>
+<area shape="rect" id="node40" href="$_shader_8hpp.html" title="Zenderer/CoreGraphics/Shader.hpp &#45; A wrapper around OpenGL shader objects." alt="" coords="1530,269,1618,296"/>
 </map>
