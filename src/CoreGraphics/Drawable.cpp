@@ -4,7 +4,7 @@ using namespace zen;
 using gfxcore::CDrawable;
 
 CDrawable::CDrawable() : mp_VAO(nullptr), mp_Material(nullptr),
-    m_offset(0), m_internal(false)
+    mp_MVMatrix(nullptr), m_offset(0), m_internal(false)
 {
     m_DrawData.Vertices = nullptr;
     m_DrawData.Indices  = nullptr;

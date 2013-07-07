@@ -48,8 +48,9 @@ gfxcore::CDrawable& CQuad::Create()
     m_DrawData.Indices[3] = 3;
     m_DrawData.Indices[4] = 1;
     m_DrawData.Indices[5] = 2;
-    
-    this->AttachMaterial(&gfxcore::CRenderer::GetDefaultMaterial());
+
+    if(mp_Material == nullptr) 
+        this->AttachMaterial(&gfxcore::CRenderer::GetDefaultMaterial());
 
     return (*this);
 }
@@ -74,8 +75,6 @@ void CQuad::Resize(const uint16_t w, const uint16_t h)
 
     m_Size.w = w;
     m_Size.h = h;
-
-    this->Create();
 }
 
 void CQuad::SetInverted(const bool flag)
@@ -98,9 +97,10 @@ void CQuad::LoadRegularVertices()
 
 void CQuad::LoadInvertedVertices()
 {
+    // We cast to int since -h and -w is invalid for unsigned integers.
     m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-    m_DrawData.Vertices[1].position = math::vector_t(0, -m_Size.h);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.w, -m_Size.h);
+    m_DrawData.Vertices[1].position = math::vector_t(0, -(int)m_Size.h);
+    m_DrawData.Vertices[2].position = math::vector_t(m_Size.w, -(int)m_Size.h);
     m_DrawData.Vertices[3].position = math::vector_t(m_Size.w, 0);
 }
 
