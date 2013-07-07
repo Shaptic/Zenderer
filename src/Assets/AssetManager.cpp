@@ -54,6 +54,11 @@ bool CAssetManager::Delete(CAsset* const pAsset)
     {
         if(*b == pAsset && (*b)->GetOwner() == pAsset->GetOwner())
         {
+            m_Log   << m_Log.SetSystem("AssetMgr")
+                    << m_Log.SetMode(LogMode::ZEN_INFO)
+                    << "Deleting asset: " << (*b)->GetID()
+                    << '(' << (*b)->GetFilename() << ")." << CLog::endl;
+
             delete *b;
             mp_managerAssets.erase(b);
 
@@ -91,7 +96,16 @@ bool CAssetManager::Delete(const uint32_t index)
     std::list<CAsset*>::iterator it = mp_managerAssets.begin();
     for(size_t i = 0; i < index; ++i, ++it);
 
-    mp_managerAssets.erase(it);
+    if(it != mp_managerAssets.end())
+    {
+        m_Log   << m_Log.SetSystem("AssetMgr")
+            << m_Log.SetMode(LogMode::ZEN_INFO)
+            << "Deleting asset: " << (*it)->GetID()
+            << '(' << (*it)->GetFilename() << ")." << CLog::endl;
+
+        mp_managerAssets.erase(it);
+    }
+
     return true;
 }
 

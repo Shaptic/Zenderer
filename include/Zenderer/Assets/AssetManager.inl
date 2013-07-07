@@ -11,7 +11,7 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     {
         m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
                 << m_Log.SetSystem("AssetMgr") << "Loading '"
-                << filename << "' ... " << util::CLog::endl;
+                << filename << "' ... ";
 
         // Create a new original asset.
         T* pAsset = new T(owner);
@@ -26,6 +26,9 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
     // Return existing asset.
     else
     {
+        m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
+                << m_Log.SetSystem("AssetMgr") << "Using existing asset for '"
+                << filename << "' ... " << util::CLog::endl;
         return pResult;
     }
 }
@@ -37,7 +40,7 @@ T* CAssetManager::Create(const void* const owner)
 
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetMgr")
-            << "Loading raw asset ... " << util::CLog::endl;
+            << "Loading raw asset ... ";
 
     // Create a new original asset.
     T* pAsset = new T(owner);
@@ -54,7 +57,7 @@ T* CAssetManager::Recreate(const T* const Copier, const void* const owner)
 {
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetMgr") << "Copying '"
-            << filename << "' ... " << CLog::endl;
+            << filename << "' ... ";
 
     // Create a new asset.
     T* pAsset = new T(owner);
@@ -71,7 +74,7 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
 {
     if(success)
     {
-        m_Log << "Success. ID: (" << pAsset->GetID() << ")." << util::CLog::endl;
+        m_Log << "Success. ID: " << pAsset->GetID() << "." << util::CLog::endl;
 
         // Add to containers and return.
         CAssetManager::sp_allAssets.push_back(pAsset);
