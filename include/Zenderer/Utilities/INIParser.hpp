@@ -98,7 +98,7 @@ namespace util
          *
          * @return  Value if it exists, empty string otherwise.
          **/
-        std::string GetValue(const string_t& key) const;
+        const string_t& GetValue(const string_t& key) const;
 
         /// Attempts to return an integer representation of a value.
         /// @warning No error checking is performed on conversion.

@@ -45,7 +45,7 @@ static const char* SAMPLE_XML[] = {
     Window.Init();
 
     sfx::CSound2D* Sound =
-        Manager.Create<sfx::CSound2D*>(string_t("Crackle.wav"));
+        Manager.Create<sfx::CSound2D>(string_t("Crackle.wav"));
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
@@ -65,12 +65,12 @@ static const char* SAMPLE_XML[] = {
     Vao.Init(); FS.Init(); Gr.Init();
         
     // Quad to easily store vertex data
-    gfx::CQuad Default(T->GetWidth(), T->GetHeight());
+    gfx::CQuad Default(Sample.GetTexture()->GetWidth(), Sample.GetTexture()->GetHeight());
     Default.SetColor(color4f_t(1, 1, 1, 1));
     Default.Create();
     
     // Regular quad
-    Default.LoadIntoVAO(Default);
+    Default.LoadIntoVAO(Vao);
 
     // Full screen
     Default.Resize(800, 600);
@@ -80,8 +80,8 @@ static const char* SAMPLE_XML[] = {
     // Stretched grass quad
     Default.SetInverted(true);
     Default.SetRepeating(true);
-    Default.AttachMaterial(CMaterial(nullptr, Grass));
-    Default.Resize(15 * Grass->GetWidth(), Grass->GetHeight());
+    Default.AttachMaterial(&Grass);
+    Default.Resize(15 * Grass.GetTexture()->GetWidth(), Grass.GetTexture()->GetHeight());
     Default.Create();
     Default.LoadIntoVAO(Gr);
     
@@ -123,11 +123,11 @@ static const char* SAMPLE_XML[] = {
         glfwGetCursorPos(Window.GetWindow(), &x, &y);
 
         // Game logic
-        Sound.Update();
+        Sound->Update();
 
         {
             RT.Bind();
-            T->Bind();
+            Sample.EnableTexture();
             DEffect.Enable();
 
             DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
@@ -153,20 +153,16 @@ static const char* SAMPLE_XML[] = {
         }
 
         {
-            T->Bind();
-            DEffect.Enable();
-
+            Sample.Enable();
             Vao.Draw();
-
-            CRenderer::ResetMaterialState();
+            Sample.Disable();
         }
 
         Default.Move(x, y);
         Default.Draw();
 
         {
-            DEffect.Enable();
-            Grass->Bind();
+            Grass.Enable();
 
             math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
 
@@ -180,8 +176,7 @@ static const char* SAMPLE_XML[] = {
             DEffect.SetParameter("mv", MV);
 
             Gr.Draw();
-
-            CRenderer::ResetMaterialState();
+            Grass.Disable();
         }
 
         Window.Update();
@@ -195,7 +190,7 @@ static const char* SAMPLE_XML[] = {
     // This will be taken care of by Quit() automatically,
     // but it's still a good practice.
     Vao.Destroy();
-    GR.Destroy();
+    Gr.Destroy();
     FS.Destroy();
 
     Quit();

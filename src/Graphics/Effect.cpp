@@ -64,7 +64,7 @@ bool CEffect::Init()
     {
         // Custom effects are only loaded from files via `CMaterial` class.
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
-                << "Custom effects can only be loaded from .zfx files via the 
+                << "Custom effects can only be loaded from .zfx files via the "
                 <<  "zen::gfx::CMaterial object." << CLog::endl;
                 
         return(m_init = false);

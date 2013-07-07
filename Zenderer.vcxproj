@@ -125,6 +125,7 @@
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp" />
     <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
+    <ClInclude Include="include\Zenderer\Objects\Entity.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Assert.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
+    <ClCompile Include="src\Graphics\Material.cpp" />
     <ClCompile Include="src\Graphics\Quad.cpp" />
     <ClCompile Include="src\Graphics\RenderTarget.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />

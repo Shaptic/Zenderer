@@ -53,7 +53,7 @@ namespace gfx
         bool LoadTextureFromFile(const string_t& filename);
         
         /// Loads an effect from disk.
-        bool LoadEffect(EffectType& Type);
+        bool LoadEffect(const EffectType Type);
 
         /// Attaches the given effect/texture to the material.
         bool Attach(CEffect& E, gfxcore::CTexture& T);

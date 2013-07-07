@@ -107,7 +107,7 @@ namespace gfx
         void LoadInvertedTC();          // Tex-coords to match inverted quad
         
         math::rect_t m_Size;
-        bool m_inv;
+        bool m_inv, m_rep;
     };
 
 }   // namespace gfx

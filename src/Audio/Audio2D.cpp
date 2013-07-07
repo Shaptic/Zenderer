@@ -6,8 +6,8 @@ using sfx::CAudio2D;
 using util::CLog;
 using util::LogMode;
 
-CAudio2D::CAudio2D() :
-    m_error_code(AL_NO_ERROR), m_loop(false)
+CAudio2D::CAudio2D(const void* const owner) :
+    CAsset(owner), m_error_code(AL_NO_ERROR), m_loop(false)
 {
     m_AL.buffers = new ALuint[1];
     m_AL.buffer_count = 1;

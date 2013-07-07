@@ -7,7 +7,7 @@ using util::LogMode;
 
 using sfx::CSound2D;
 
-CSound2D::CSound2D() {}
+CSound2D::CSound2D(const void* const owner) : CAudio2D(owner) {}
 
 CSound2D::~CSound2D()
 {

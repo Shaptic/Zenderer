@@ -52,9 +52,12 @@ namespace sfx
 
         /// Always returns `true` if the file is loaded.
         inline bool Ready() const { return true; }
-        
+
+        friend class asset::CAssetManager;
+
     private:
-        CSound2D();
+        CSound2D(const void* const owner = nullptr);
+        CSound2D(const CSound2D&);
     };
 }   // namespace sfx
 }   // namespace zen

@@ -61,6 +61,9 @@
     <Filter Include="Source Files\Libs">
       <UniqueIdentifier>{508e9b9f-99e4-4c0f-ac38-ee732879d652}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{d1fa8354-c145-49ee-a03b-8d2e8f60ceab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -180,6 +183,9 @@
     <ClInclude Include="include\Zenderer\Graphics\Scene.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Objects\Entity.hpp">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -276,6 +282,9 @@
       <Filter>Source Files\CoreGraphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Quad.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Material.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
   </ItemGroup>

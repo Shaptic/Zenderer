@@ -3,10 +3,12 @@
 using namespace zen;
 using gfx::CQuad;
 
-CQuad::CQuad(const math::rect_t& Size) : m_Size(Size), m_inv(false)
+CQuad::CQuad(const math::rect_t& Size) :
+    m_Size(Size), m_inv(false), m_rep(false)
 {}
 
-CQuad::CQuad(const uint16_t w, const uint16_t h) : m_Size(0, 0, w, h)
+CQuad::CQuad(const uint16_t w, const uint16_t h) : 
+    m_Size(0, 0, w, h), m_inv(false), m_rep(false)
 {}
 
 CQuad::~CQuad()
@@ -47,36 +49,33 @@ gfxcore::CDrawable& CQuad::Create()
     m_DrawData.Indices[4] = 1;
     m_DrawData.Indices[5] = 2;
     
-    this->AttachMaterial(&CRenderer::GetDefaultMaterial());
+    this->AttachMaterial(&gfxcore::CRenderer::GetDefaultMaterial());
 
     return (*this);
 }
 
 void CQuad::AttachMaterial(gfx::CMaterial* pMaterial)
 {
-    ZEN_ASSERT(pMaterial);
     mp_Material = pMaterial;
 }
 
-bool CQuad::Resize(const math::vectoru16_t& Size)
+void CQuad::Resize(const math::vectoru16_t& Size)
 {
     this->Resize(Size.x, Size.y);
 }
 
-bool CQuad::Resize(const uint16_t w, const uint16_t h)
+void CQuad::Resize(const uint16_t w, const uint16_t h)
 {
     // Not Create()'d yet.
-    if(m_DrawData.Vertices == nullptr) return false;
-    
+    if(m_DrawData.Vertices == nullptr) return;
+
     // Offload()'ed already.
-    if(!this->IsModifiable()) return false;
-    
+    if(!this->IsModifiable()) return;
+
     m_Size.w = w;
     m_Size.h = h;
-    
+
     this->Create();
-    
-    return true;
 }
 
 void CQuad::SetInverted(const bool flag)

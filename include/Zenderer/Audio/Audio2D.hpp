@@ -30,6 +30,7 @@
 
 namespace zen
 {
+namespace asset { class CAssetManager; }
 namespace sfx
 {
     /// An abstract base class for audio objects.
@@ -56,8 +57,11 @@ namespace sfx
         ALenum              GetAudioState() const;
         const void* const   GetData()       const;
 
+        friend class asset::CAssetManager;
+
     protected:
-        CAudio2D();
+        CAudio2D(const void* const owner = nullptr);
+        CAudio2D(const CAudio2D&);
         
         bool Destroy() { this->UnloadSource(); return true; }
 

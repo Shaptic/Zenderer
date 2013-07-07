@@ -13,7 +13,7 @@ CMaterial::CMaterial(asset::CAssetManager* Assets) :
 {
 }
 
-CMateria:l::CMaterial(gfxcore::CTexture& Texture,
+CMaterial::CMaterial(gfxcore::CTexture& Texture,
                       gfx::CEffect& Effect,
                       asset::CAssetManager* Assets) :
     m_Assets(Assets == nullptr ? CEffect::s_DefaultManager : *Assets),
@@ -72,16 +72,16 @@ bool CMaterial::LoadTextureFromFile(const string_t& filename)
     return !m_tgiven;
 }
 
-bool CMaterial::LoadEffect(EffectType& Type)
+bool CMaterial::LoadEffect(const gfx::EffectType Type)
 {
     mp_Effect = new CEffect(Type);
-    if(!mp_Effect.Init()) { delete mp_Effect; mp_Effect = nullptr; }
-    else                    m_egiven = false;
+    if(!mp_Effect->Init())  { delete mp_Effect; mp_Effect = nullptr; }
+    else                    { m_egiven = false; }
     
     return mp_Effect != nullptr;
 }
 
-bool CMaterial::Attach(CEffect& E, gfxcore::CTexture& T)
+bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
 {
     mp_Texture = &T;
     mp_Effect  = &E;
@@ -125,7 +125,7 @@ bool CMaterial::DisableTexture() const
     return (mp_Texture != nullptr && mp_Texture->Unbind());
 }
 
-CEffect* CMaterial::GetEffect()
+gfx::CEffect* CMaterial::GetEffect()
 {
     return mp_Effect;
 }
@@ -138,7 +138,7 @@ gfxcore::CTexture* CMaterial::GetTexture() const
 void CMaterial::Destroy()
 {
     if(!m_egiven) delete mp_Effect;
-    if(!m_tgiven) m_Assets.Destroy(mp_Texture);
+    if(!m_tgiven) m_Assets.Delete(mp_Texture);
     
     mp_Effect   = nullptr;
     mp_Texture  = nullptr;

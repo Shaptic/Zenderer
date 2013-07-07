@@ -5,6 +5,8 @@ using namespace zen;
 using util::LogMode;
 using util::CINIParser;
 
+string_t CINIParser::s_empty("");
+
 CINIParser::CINIParser() : m_Log(util::CLog::GetEngineLog())
 {
     m_pairs.clear();
@@ -94,12 +96,12 @@ void CINIParser::Reset()
     m_pairs.clear();
 }
 
-bool CINIParser::Exists(const string_t& key)
+bool CINIParser::Exists(const string_t& key) const
 {
     return (m_pairs.find(key) == m_pairs.end());
 }
 
-const string_t& CINIParser::GetValue(const string_t& key)
+const string_t& CINIParser::GetValue(const string_t& key) const
 {
     auto find = m_pairs.find(key);
     
