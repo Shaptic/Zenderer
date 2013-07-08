@@ -76,10 +76,10 @@ namespace gfxcore
             if(pCopy == nullptr || !pCopy->IsLoaded()) return false;
 
             const unsigned char* raw =
-                reinterpret_cast<const unsigned char*>(pCopy->GetData());
+                static_cast<const unsigned char*>(pCopy->GetData());
 
             const CTexture* const pCopyTexture =
-                reinterpret_cast<const CTexture* const>(pCopy);
+                static_cast<const CTexture* const>(pCopy);
 
             bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA,
                 pCopyTexture->m_width, pCopyTexture->m_height, raw);

@@ -104,7 +104,7 @@ namespace math
         }
 
         inline const real_t* GetPointer() const
-        { return reinterpret_cast<const real_t*>(m_values); }
+        { return const_cast<const real_t*>(m_values); }
 
         /**
          * Creates a 2D projection matrix.
