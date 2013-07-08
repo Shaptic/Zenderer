@@ -424,7 +424,7 @@ namespace zen
  *  If overlapping values are used for `material` and the texture file, 
  *  the file keys will be preferred over the material file. Thus if you specify
  *  `vshader`, `fshader`, `texture`, *and* `material`, the local files will be
- *  loaded, as opposed to the material file.
+ *  loaded, as opposed to the material file. 
  *
  *  If the shader files are left off, the default will be used (like for
  *  primitives). If the size is specified (`width`/`height`), *both* must be

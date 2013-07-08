@@ -51,85 +51,18 @@ namespace obj
         {
             BAD_PAIR,
             BAD_POSITION,
+            BAD_MATERIAL,
             NO_TEXTURE
         };
         
     public:
-        CEntity();
+        CEntity(asset::CAssetManager& Assets) : m_Assets(Assets) {}
         virtual ~CEntity();
 
         /// @todo   Move semantics on `util::split()`
-        bool LoadFromFile(const string_t& filename)
-        {
-            ZEN_ASSERT(!filename.empty());
-            
-            util::CINIParser Parser;
-            std::ifstream file(filename);
-            std::string line;
-            uint32_t line_no = 0;
-            
-            if(!file) return false;
-            
-            gfx::CQuad* pPrim = nullptr;
-            
-            while(std::getline(file, line))
-            {
-                ++line_no;
-                if(line.empty() || line[0] == '/') continue;
-                
-                if(line.find("position") != std::string::npos)
-                {
-                    std::vector<string_t> pair = util::split(line, '=');
-                    if(pair.size() != 2) return this->FileError(filename, line, line_no);
-                    
-                    pair = util::split(line, ',');
-                    if(pair.size() < 2)
-                        return this->FileError(filename, line, line_no, ErrorType::BAD_POSITION);
-                    
-                    this->Move(std::stod(pairs[0]), std::stod(pairs[1]);
-                    
-                    // Depth is optional
-                    if(pair.size() == 3) m_Position.z = std::stod(pairs[2]);
-                }
-                
-                else if(line.find("<prim>") != std::string::npos)
-                {
-                    if(pPrim != nullptr) mp_allPrims.push_back(pPrim);
-                    
-                    pPrim = new gfx::CQuad(0, 0);
-                    std::streampos start = file.tellg();
-                    
-                    // Find end of primitive block.
-                    while(std::getline(file, line) &&
-                          line.find("</prim>") == std::string::npos);
-                    
-                    std::streampos end = file.tellg();
-                    
-                    Parser.LoadFromStream(file, start, end, filename.c_str());
-                    
-                    // We have loaded key=value pairs for a primitive instance.
-                    if(!Parser.Exists("texture"))
-                        return this->FileError(filename, line, line_no, ErrorType::NO_TEXTURE);
-                        
-                    gfx::CMaterial* pMat = new gfx::CMaterial(m_Assets);
-                    pMat->LoadFromStream(file, start, end);
-                    
-                    if(Parser.Exists("width") && Parser.Exists("height"))
-                        pPrim->Resize(Parser.GetValuei("width"), Parser.GetValuei("height"));
-                    else
-                        pPrim->Resize(pMat->GetTexture()->GetWidth(),
-                                      pMat->GetTexture()->GetHeight());
-
-                    if(Parser.Exists("invert")) pPrim->SetInvertible(Parser.GetValueb("invert"));
-                    if(Parser.Exists("repeat")) pPrim->SetRepeatable(Parser.GetValueb("repeat"));
-                }
-            }
-            
-            m_filename = filename;
-            return true;
-        }
-        
+        bool LoadFromFile(const string_t& filename);        
         bool LoadFromTexture(const string_t& filename);
+        
         bool AddPrimitive(const CQuad& Prim);
         bool Create();
         bool Draw(bool is_bound = false);
@@ -137,37 +70,13 @@ namespace obj
     protected:        
         bool FileError(const string_t& filename, 
                        const string_t& line, const uint32_t line_no,
-                       const ErrorType& Err = ErrorType::BAD_PAIR)
-        {
-            m_Log << m_Log.SetMode(LogMode::ZEN_ERROR) << m_Log.SetSystem("Entity")
-                  << "Error while parsing '" << filename << "' on line " << line_no
-                  << ": " << line << "(";
-
-            switch(Err)
-            {
-            case ErrorType::BAD_PAIR:
-                m_Log << "bad key=value pair";
-                break;
-                
-            case ErrorType::BAD_POSITION:
-                m_Log << "position must at least contain x,y coordinates";
-                break;
-                
-            case ErrorType::NO_TEXTURE:
-                m_Log << "no texture specified for primitive";
-                break;
-                
-            default:
-                m_Log << "parsing error";
-                break;
-            }
-            
-            m_Log << ")." << CLog::endl;
-            return false;
-        }
+                       const ErrorType& Err = ErrorType::BAD_PAIR);
+        
+        asset::CAssetManager& m_Assets;
         
         string_t m_filename;
-        std::vector<CQuad*> mp_allPrims;
+        std::vector<gfx::CQuad*>        mp_allPrims;
+        std::vector<gfx::CMaterial*>    mp_allMaterials; 
     };
 
 }   // namespace gfxcore
