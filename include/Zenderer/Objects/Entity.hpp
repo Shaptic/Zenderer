@@ -38,6 +38,7 @@
 namespace zen
 {
 namespace gfx { class ZEN_API CScene; }
+namespace gui { class ZEN_API CFont;  }
 
 /// A group of sprite-like objects that operate at a high level of abstraction.
 namespace obj
@@ -66,6 +67,9 @@ namespace obj
         bool AddPrimitive(const CQuad& Prim);
         bool Create();
         bool Draw(bool is_bound = false);
+        
+        friend class gui::CFont;
+        friend class gfx::CScene;
         
     protected:
         void Destroy();

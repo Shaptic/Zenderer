@@ -99,13 +99,13 @@ namespace zen
  *  subsystem can accept a custom log (zen::util::CLog), found in
  *  Utilities/Log.hpp, but should preferably just be the global engine log
  *  that is created on engine initialization. If a custom log stream is
- *  provided (via SetCustomLog()), any output will theoretically be logged
+ *  provided (via `SetLog()`), any output will theoretically be logged
  *  to both the global engine log and the given stream, but this is
  *  implementation-specific to the derived classes. Most likely won't,
  *  largely due to exclusively to laziness and no desire to check
- *  `if(mp_Log != NULL)` every single time something needs to be done.
+ *  `if(mp_Log != nullptr)` every single time something needs to be done.
  *
- *  As you can see in the examples below, a subsystem only returns TRUE on
+ *  As you can see in the examples below, a subsystem only returns `true` on
  *  a Destroy() call if it had been initialized successfully before. Also,
  *  you see that since a subsystem takes no parameters by default (a design
  *  limitation of C++ and inheritance in general), you can pass things to
