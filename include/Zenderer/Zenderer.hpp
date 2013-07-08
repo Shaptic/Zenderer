@@ -16,7 +16,6 @@
  *  limitations under the License.
  *
  * @addtogroup Engine
- *  A generic group for the misfits of other groups.
  * @{
  **/
 

@@ -15,7 +15,7 @@
  *  See the License for the specific language governing permissions and     \n
  *  limitations under the License.
  *
- * @addtogroup Core
+ * @addtogroup Engine
  * @{
  **/
 
@@ -41,7 +41,7 @@ namespace zen
      *      `[title] -- message.\n`
      *  Both will exit the program after output.
      *
-     *  This error handler should be used as a last-level fall-back for
+     *  This error handler should be used as a last-resort fall-back for
      *  when all others fail. The "prettier" error handlers should be used
      *  in most cases, and this one should be used when there is a failure
      *  to load a proper rendering context, a font fails to load, or some

@@ -71,7 +71,7 @@ namespace math
      * @note    There is support for creating translation matrices via
      *          vectors but not vice-versa.
      *
-     * @see     USE_DOUBLE_PRECISION
+     * @see     #USE_DOUBLE_PRECISION
      **/
     template<typename T>
     struct ZEN_API Vector

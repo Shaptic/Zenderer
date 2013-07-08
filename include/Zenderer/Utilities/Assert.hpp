@@ -59,7 +59,7 @@ namespace util
      *  using it to store the fatal error messages to output them directly
      *  to the screen.
      *  This function can, but likely should not be called directly,
-     *  since it relates to the preprocessor macro ZEN_ASSERT (defined
+     *  since it relates to the preprocessor macro `ZEN_ASSERT` (defined
      *  above) to evaluate the given expression as a string.
      *  The stored error is as follows:
      *

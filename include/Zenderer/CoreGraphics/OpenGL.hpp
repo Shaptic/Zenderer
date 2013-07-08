@@ -126,7 +126,7 @@ namespace gfxcore
         virtual inline const string_t& GetName() const
         { return m_name; }
 
-        friend void zen::Quit();
+        friend ZEN_API void zen::Quit();
 
     protected:
         bool m_init;

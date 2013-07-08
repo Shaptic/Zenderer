@@ -16,7 +16,7 @@
  *  See the License for the specific language governing permissions and     \n
  *  limitations under the License.
  *
- * @addtogroup Core
+ * @addtogroup Engine
  *  Contains core elements used throughout the entire engine, like vertex
  *  types and error handling operations.
  * @{
@@ -127,4 +127,3 @@ namespace zen
 #endif // ZENDERER__CORE__TYPES_HPP
 
 /** @} **/
-
