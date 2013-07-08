@@ -64,6 +64,34 @@ bool CMaterial::LoadFromFile(const string_t& filename)
     return (m_tgiven = m_egiven = true);
 }
 
+bool CMaterial::LoadFromStream(std::ifstream& f,
+                               std::streampos start,
+                               std::streampos end)
+{
+    ZEN_ASSERT(f);
+    
+    f.seekg(start);
+    util::CINIParser Parser;
+    Parser.LoadFromStream(f, start, end);
+    
+    bool valid = false;
+    if(Parser.Exists("texture"))
+    {
+        valid = this->LoadTextureFromFile(Parser.GetValue("texture"));
+    }
+    
+    if(Parser.Exists("vshader") && Parser.Exists("fshader"))
+    {
+        valid = this->LoadEffect(EffectType::CUSTOM_EFFECT) && 
+            mp_Effect->LoadCustomEffect(Parser.GetValue("vshader"),
+                                        Parser.GetValue("fshader"));
+        }
+    }
+
+    f.seekg(start);
+    return valid && f;
+}
+
 bool CMaterial::LoadTextureFromFile(const string_t& filename)
 {
     mp_Texture = m_Assets.Create<gfxcore::CTexture>(filename);
@@ -75,10 +103,19 @@ bool CMaterial::LoadTextureFromFile(const string_t& filename)
 bool CMaterial::LoadEffect(const gfx::EffectType Type)
 {
     mp_Effect = new CEffect(Type);
-    if(!mp_Effect->Init())  { delete mp_Effect; mp_Effect = nullptr; }
-    else                    { m_egiven = false; }
+    if(Type != EffectType::CUSTOM_EFFECT)
+    {
+        if(!mp_Effect->Init())
+        {
+            delete mp_Effect;
+            mp_Effect = nullptr;
+            return false;
+        }
+        
+        m_egiven = false;
+    }
     
-    return mp_Effect != nullptr;
+    return true;
 }
 
 bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)

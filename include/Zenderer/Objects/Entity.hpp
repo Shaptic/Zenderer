@@ -67,7 +67,8 @@ namespace obj
         bool Create();
         bool Draw(bool is_bound = false);
         
-    protected:        
+    protected:
+        void Destroy();
         bool FileError(const string_t& filename, 
                        const string_t& line, const uint32_t line_no,
                        const ErrorType& Err = ErrorType::BAD_PAIR);

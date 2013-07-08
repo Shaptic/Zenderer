@@ -45,9 +45,30 @@ namespace gfx
 
         /**
          * Loads a material from a `.zfx` file.
-         * @see /specs.html#zmat
+         * @see /specs.html#ZMat
          **/
         bool LoadFromFile(const string_t& filename);
+        
+        /** 
+         * Loads a material from an existing file stream.
+         *  It must follow the same specifications as LoadFromFile()
+         *  The default behavior is parsing from the current stream
+         *  location until EOF is reached. If `start` or `end` are specified,
+         *  the stream will seek to the `start`, parse till `end` (inclusive)
+         *  and then reset the stream to `start` (regardless of errors).
+         *
+         * @param   stream  File stream to load from
+         * @param   start   File position to start loading from (optional)
+         * @param   end     File position to end loading from   (optional)
+         *
+         * @return  `true` if a valid material was loaded, `false` otherwise.
+         *
+         * @see /specs.html#ZMat
+         * @see zen::util::CINIParser::LoadFromStream()
+         **/
+        bool LoadFromStream(std::ifstream& stream,
+                            const std::streampos& start = 0,
+                            const std::streampos& end   = -1);
         
         /// Loads a texture from disk.
         bool LoadTextureFromFile(const string_t& filename);

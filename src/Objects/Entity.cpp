@@ -17,9 +17,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
     gfx::CQuad*     pPrim = nullptr;
     gfx::CMaterial* pMat  = nullptr;
     
-    for(auto i : mp_allPrims)       { delete i; i = nullptr; }
-    for(auto i : mp_allMaterials)   { delete i; i = nullptr; }
-    mp_allPrims.clear(); mp_allMaterials.clear();
+    this->Destroy();
     
     while(std::getline(file, line))
     {
@@ -80,11 +78,14 @@ bool CEntity::LoadFromFile(const string_t& filename)
             if(Parser.Exists("material") && !pMat->LoadFromFile(Parser>GetValue("material")))
             {
                 delete pPrim; delete pMat;
+                this->Destroy();
                 return this->FileError(filename, line, line_no, ErrorType::BAD_MATERIAL);
             }
+            
             else if(!pMat->LoadFromStream(file, start, end))
             {
                 delete pPrim; delete pMat;
+                this->Destroy();
                 return this->FileError(filename, line, line_no, ErrorType::NO_TEXTURE);
             }
             
@@ -108,6 +109,8 @@ bool CEntity::LoadFromFile(const string_t& filename)
 
 bool CEntity::LoadFromTexture(const string_t& filename)
 {
+    this->Destroy();
+    
     gfx::CMaterial* pMat = new gfx::CMaterial(m_Assets);
     if(!pMat->LoadTextureFromFile(filename))
     {
@@ -124,6 +127,13 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     mp_allMaterials.push_back(pMat);
     
     return true;
+}
+
+void CEntity::Destroy()
+{
+    for(auto i : mp_allPrims)       { delete i; i = nullptr; }
+    for(auto i : mp_allMaterials)   { delete i; i = nullptr; }
+    mp_allPrims.clear(); mp_allMaterials.clear();
 }
 
 bool CEntity::FileError(const string_t& filename, 

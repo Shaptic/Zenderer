@@ -167,38 +167,6 @@ bool CEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
     s_DefaultManager.Init();
     if(m_init) this->Destroy();
 
-    // All effects currently use the default vertex shader.
-    m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs");
-
-    if(m_type == EffectType::NO_EFFECT)
-        m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"Default.fs");
-
-    else if(m_type == EffectType::GAUSSIAN_BLUR_H)
-        m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"GuassianBlurH.fs");
-
-    else if(m_type == EffectType::GAUSSIAN_BLUR_V)
-        m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"GuassianBlurV.fs");
-
-    else if(m_type == EffectType::GRAYSCALE)
-        m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"TTFRender.fs");
-
-    else if(m_type == EffectType::RIPPLE)
-        m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"Ripple.fs");
-
-    else
-    {
-        // Fatal error because this shouldn't be possible.
-        m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
-                << "Invalid effect type: " << static_cast<int16_t>(m_type)
-                << "." << CLog::endl;
-
-        return (m_init = false);
-    }
-
-    return (m_init = m_Shader.CreateShaderObject());
+    m_init = m_Shader.LoadFromFile(vs, fs) && m_Shader.CreateShaderObject();
+    return m_init;
 }
