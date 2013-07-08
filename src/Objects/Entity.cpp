@@ -51,6 +51,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
         
         else if(line.find("<prim>") != std::string::npos)
         {
+            // We've already loaded a primitive before.
             if(pPrim != nullptr)
             {
                 mp_allPrims.push_back(pPrim);
@@ -58,13 +59,13 @@ bool CEntity::LoadFromFile(const string_t& filename)
             }
             
             pPrim = new gfx::CQuad(0, 0);
-            std::streampos start = file.tellg();
+            const std::streampos start = file.tellg();
             
             // Find end of primitive block.
             while(std::getline(file, line) &&
                   line.find("</prim>") == std::string::npos);
             
-            std::streampos end = file.tellg();
+            const std::streampos end = file.tellg();
             
             Parser.LoadFromStream(file, start, end, filename.c_str());
             

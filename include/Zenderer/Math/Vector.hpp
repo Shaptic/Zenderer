@@ -66,6 +66,8 @@ namespace math
      *  vector representation that is used throughout the engine.
      *
      * @todo    Add support for translation via matrices.
+     * @todo    Move semantics
+     *
      * @note    There is support for creating translation matrices via
      *          vectors but not vice-versa.
      *
@@ -118,13 +120,14 @@ namespace math
          *  The dot product is useful in finding the angle between two
          *  vectors. The formula for that is as follows:
          *
-         *      cos(T) = (A . B) / (|| A || * || B ||)
+         *  cos(&Theta;) = (A &sdot; B) / (||A|| * ||B||)
          *
+         *  Where A and B are vectors and ||A|| is the magnitude of A.
          *  The actual operation is defined as such:
          *
-         *      A = (x1, y1, z1)
-         *      B = (x2, y2, z2)
-         *      A . B = x1*x2 + y1*y2 + z1*z2
+         *  A = (x1, y1, z1)
+         *  B = (x2, y2, z2)
+         *  A &sdot; B = x1 * x2 + y1 * y2 + z1 * z2
          *
          * @param   Other   The vector to dot with.
          *
@@ -178,24 +181,25 @@ namespace math
         inline void Normalize();
 
         /// Returns the current vectors magnitude, or 'norm'.
+        /// magnitude = &radic;(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)
         inline real_t Magnitude() const;
 
         /**
          * Rotates the current vector using the rotation matrix.
          *  The rotation matrix (in right-hand Cartesian plane)
          *  is defined as being
-         *  | x | | cos(d), -sin(d) |
-         *  | y | | sin(d),  cos(d) |
+         *  | x | | cos(&Theta;), -sin(&Theta;) |
+         *  | y | | sin(&Theta;),  cos(&Theta;) |
          *
          *  But in the OpenGL coordinate system, the origin is in
          *  the top-left, as opposed to bottom-left, as shown above.
          *  So rotations are actually inverted and the matrix is
-         *  | x | | cos(d),  sin(d) |
-         *  | y | | -sin(d), cos(d) |
+         *  | x | | cos(&Theta;),  sin(&Theta;) |
+         *  | y | | -sin(&Theta;), cos(&Theta;) |
          *
          *  So the final rotation in OpenGL would be:
-         *      x =  x * cos(d) + y * sin(d)
-         *      y = -x * sin(d) + y * cos(d)
+         *      x =  x * cos(&Theta;) + y * sin(&Theta;)
+         *      y = -x * sin(&Theta;) + y * cos(&Theta;)
          *
          * @param   radians The rotation angle in radians.
          *
@@ -232,7 +236,7 @@ namespace math
 
         /**
          * Returns a normalized version of the current vector.
-         * @see Vector::Normalize()
+         * @see     Vector::Normalize()
          **/
         inline Vector<T> GetNormalized() const;
 
