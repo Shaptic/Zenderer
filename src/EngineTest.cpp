@@ -41,7 +41,7 @@ static const char* SAMPLE_XML[] = {
     asset::CAssetManager Manager; Manager.Init();
     gfx::CWindow Window(800, 600, "Hello, Zenderer.");
 
-    Window.AttachAssetManager(Manager);
+    //Window.AttachAssetManager(Manager);
     Window.Init();
 
     sfx::CSound2D* Sound =
@@ -89,6 +89,7 @@ static const char* SAMPLE_XML[] = {
     FS.Offload();
     Gr.Offload();
 
+    Default.SetInverted(false);
     Default.Resize(32, 32);
     Default.AttachMaterial(nullptr);
     Default.Create();
@@ -143,6 +144,7 @@ static const char* SAMPLE_XML[] = {
         // Rendering
         Window.Clear(Teal);
 
+        /*
         {
             RT.BindTexture();
             DEffect.Enable();
@@ -157,10 +159,12 @@ static const char* SAMPLE_XML[] = {
             Vao.Draw();
             Sample.Disable();
         }
+        */
 
         Default.Move(x, y);
         Default.Draw();
 
+        /*
         {
             Grass.Enable();
 
@@ -178,6 +182,7 @@ static const char* SAMPLE_XML[] = {
             Gr.Draw();
             Grass.Disable();
         }
+        */
 
         Window.Update();
         
