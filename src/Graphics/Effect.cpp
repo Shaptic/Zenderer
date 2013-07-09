@@ -37,6 +37,7 @@ bool CEffect::Init()
         return (m_init = false);
     }
 
+#ifdef _DEBUG
     // All effects currently use the default vertex shader.
     m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs");
 
@@ -59,6 +60,26 @@ bool CEffect::Init()
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(
             ZENDERER_SHADER_PATH"Ripple.fs");
+#else
+    // All effects currently use the default vertex shader.
+    m_Shader.LoadVertexShaderFromStr(gfxcore::DEFAULT_VS);
+
+    if(m_type == EffectType::NO_EFFECT)
+        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::DEFAULT_FS);
+
+    else if(m_type == EffectType::GAUSSIAN_BLUR_H)
+        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::GAUSSIANBLURH_FS);
+
+    else if(m_type == EffectType::GAUSSIAN_BLUR_V)
+        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::GAUSSIANBLURV_FS);
+
+    else if(m_type == EffectType::GRAYSCALE)
+        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::TTFRENDER_FS);
+
+    else if(m_type == EffectType::RIPPLE)
+        m_init = m_Shader.LoadFragmentShaderFromFile(gfxcore::RIPPLE_FS);
+
+#endif // _DEBUG
 
     else if(m_type == EffectType::CUSTOM_EFFECT)
     {
