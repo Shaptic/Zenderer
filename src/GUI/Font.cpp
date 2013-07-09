@@ -80,11 +80,11 @@ const void* const CFont::GetData() const
     return static_cast<const void* const>(mp_glyphData.data());
 }
 
-void CFont::Render(obj::CEntity& Ent, const string_t& text)
+bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 {
-    ZEN_ASSERT(!text.empty());
+    const string_t& text = to_render.empty() ? m_str.str() : to_render;
     
-    if(!m_loaded) return;
+    if(text.empty() || !m_loaded) return false;
     
     // Fresh start.
     Ent.Destroy();
@@ -174,7 +174,13 @@ void CFont::Render(obj::CEntity& Ent, const string_t& text)
     D.Indices  = inds;
     D.icount   = ilen;
     
-    VAO.Init(); FBO.Init();
+    if(!(VAO.Init() && FBO.Init()))
+    {            
+        delete[] verts;
+        delete[] inds;
+        return false;
+    }
+    
     VAO.AddData(D);
     VAO.Offload();
     
@@ -200,14 +206,32 @@ void CFont::Render(obj::CEntity& Ent, const string_t& text)
     // so all we need to do is create a material and attach 
     // it to the quad.
     gfx::CMaterial* M = new gfx::CMaterial(m_Assets);
-    M->LoadEffect(gfx::EffectType::GRAYSCALE);
-    M->LoadTextureFromHandle(FBO.GetTexture());
+    if(!M->LoadEffect(gfx::EffectType::GRAYSCALE) || 
+       !M->LoadTextureFromHandle(FBO.GetTexture()))
+    {
+        delete[] verts;
+        delete[] inds;
+        delete M;
+        
+        return false;
+    }
     
     gfx::CQuad Q(max_w, max_h);
     Q.AttachMaterial(M);
     Q.Create();
     
     Ent.LoadFromPrimitive(Q);
+    
+    delete[] verts;
+    delete[] inds;
+    delete M;
+    
+    return FBO.Destroy() && VAO.Destroy();
+}
+
+void CFont::ClearString()
+{
+    m_str.str(std::string());
 }
 
 bool CFont::LoadGlyph(const char c, const uint32_t index)
