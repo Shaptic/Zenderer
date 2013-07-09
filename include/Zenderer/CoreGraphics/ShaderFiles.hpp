@@ -24,6 +24,8 @@
 #ifndef ZENDERER__CORE_GRAPHICS__SHADER_FILES_HPP
 #define ZENDERER__CORE_GRAPHICS__SHADER_FILES_HPP
 
+#include "Zenderer/Core/Types.hpp"
+
 namespace zen
 {
 namespace gfxcore

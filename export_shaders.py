@@ -27,7 +27,7 @@ def main():
         print "Creating shader constant for %s ... " % i,
         
         data.append('%s/// Created from %s.\n' % ((' ' * 4), SHADER_PATH + i))
-        data.append('%sconst char* const %s[] = {\n' % (' ' * 4, const))
+        data.append('%sstatic const string_t %s = string_t(\n' % (' ' * 4, const))
         
         lines, count = shader(SHADER_PATH + i)
         for x in xrange(len(lines)):
@@ -36,11 +36,10 @@ def main():
             
             if line.strip() != '':
                 string = '%s"%s"' % ((' ' * 8), line[:-1])
-                if ''.join(lines[x+1:]).strip() != '': string += ','
                 
             data.append(string + '\n')
             
-        data.append('%s};\n\n' % (' ' * 4))
+        data.append('%s);\n\n' % (' ' * 4))
         print "Done."
         
     print "Writing %d bytes to %s ... " % (sum([len(x) for x in data]), SHADER_FILE),
