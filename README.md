@@ -1,5 +1,5 @@
 # Zenderer #
-v0.1.174-dev
+v0.1.174-dev  
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
