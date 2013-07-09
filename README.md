@@ -1,5 +1,5 @@
 # Zenderer #
-<span style="font-style: italic; font-size: 12px; font-weight: lighter;">(rhymes with renderer)</span>
+*(rhymes with renderer)*  
 v0.1.174-dev  
 Copyright &copy; George Kudrayvtsev 2013
 
