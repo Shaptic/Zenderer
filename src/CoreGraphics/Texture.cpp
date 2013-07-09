@@ -33,7 +33,7 @@ bool CTexture::LoadFromFile(const string_t& filename)
 
         m_Log << m_Log.SetMode(util::LogMode::ZEN_ERROR)
               << m_Log.SetSystem("Texture") << m_error_str
-              << util::CLog::endl;
+              << CLog::endl;
 
         return (m_loaded = false);
     }
@@ -108,7 +108,7 @@ const void* const CTexture::GetData() const
         new unsigned char[m_width * m_height * 4];
 
     GL(glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, raw));
-    return raw;
+    return static_cast<const void* const>(raw);
 }
 
 bool CTexture::Bind() const

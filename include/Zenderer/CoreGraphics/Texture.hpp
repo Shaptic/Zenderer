@@ -23,6 +23,8 @@
 #ifndef ZENDERER__CORE_GRAPHICS__TEXTURE_HPP
 #define ZENDERER__CORE_GRAPHICS__TEXTURE_HPP
 
+#include <sstream>
+
 #include "stb_image.h"
 
 #include "Zenderer/Assets/Asset.hpp"
