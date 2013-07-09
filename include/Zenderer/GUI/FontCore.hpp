@@ -6,13 +6,8 @@
 #include "freetype/freetype.h"
 #include "freetype/ftglyph.h"
 
-#include "FontCore.hpp"
-
-// Include necessary Zenderer API files for rendering
-// bitmaps to entities.
-#include "Zenderer/CoreGraphics/VertexArray.hpp"
 #include "Zenderer/CoreGraphics/Texture.hpp"
-#include "Zenderer/Objects/Entity.hpp"
+#include "Zenderer/Math/Shapes.hpp"
 
 namespace zen
 {
@@ -61,6 +56,12 @@ namespace gui
         
     private:
         FT_Library m_Library;
+    };
+    
+    struct glyph_t
+    {
+        gfxcore::CTexture* texture;
+        math::rect_t dim;
     };
     
 }   // namespace gfx

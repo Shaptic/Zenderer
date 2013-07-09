@@ -6,6 +6,14 @@ using util::CLog;
 using util::LogMode;
 using gui::CFont;
 
+CFont::CFont(const void* const owner) :
+    CAsset(owner), m_size(18) {}
+    
+CFont::~CFont()
+{
+    this->Destroy();
+}
+
 bool CFont::LoadFromFile(const string_t& filename)
 {
     gui::CFontLibrary& Lib = gui::CFontLibrary.GetTTFLibrary();
