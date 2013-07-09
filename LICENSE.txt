@@ -96,3 +96,11 @@ ncorporated within the Work.
     harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
     
 END OF TERMS AND CONDITIONS
+
+=============================================================== DEPENDENCY LICENSES =====================================================================================
+
+GLEW (OpenGL Extension Wrangler Library) -- Modified BSD / MIT License [http://glew.sourceforge.net/credits.html]
+GLFW (OpenGL Frame Work) -- Unmodified ZLib License [http://www.glfw.org/license.html]
+OpenAL Soft (Open Audio Library Soft) -- Unmodified LGPL License [http://kcat.strangesoft.net/openal.html#overview]
+FreeType 2 (TrueType Font Library) -- BSD-Like FreeType License [http://git.savannah.gnu.org/cgit/freetype/freetype2.git/tree/docs/FTL.TXT]
+libvorbis (Ogg-Vorbis Library) -- Xiph.org License [https://svn.xiph.org/trunk/vorbis/COPYING]
