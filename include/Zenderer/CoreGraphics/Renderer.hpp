@@ -37,7 +37,6 @@ namespace gfx
     // Forward declarations.
     class ZEN_API CWindow;
     class ZEN_API CRenderTarget;
-    class ZEN_API CScene;
 }
 
 namespace gfxcore
@@ -54,8 +53,6 @@ namespace gfxcore
     class ZEN_API CRenderer
     {
     public:
-        virtual ~CRenderer();
-
         inline static bool BlendOperation(const BlendFunc& Func);
 
         inline static bool EnableTexture(const GLuint handle);
@@ -70,15 +67,13 @@ namespace gfxcore
         inline static const math::matrix4x4_t&  GetProjectionMatrix();
         inline static CVertexArray&             GetFullscreenVBO();
 
-        /// Only the scenes can modify graphical API state.
-        friend class gfx::CScene;
-
         // Can modify and store static data
         friend class gfx::CWindow;
         friend class gfx::CRenderTarget;
 
-    protected:
+    private:
         explicit CRenderer();
+        ~CRenderer();
 
         /// Only to be called by `gfx::CWindow` ONCE.
         static bool Init(const uint16_t w, const uint16_t h);
