@@ -284,8 +284,7 @@ namespace gui
         }
         
     private:
-        bool Destroy();
-        
+        bool Destroy();        
         bool LoadGlyph(const char c, const uint32_t index)
         {
             FT_Glyph g;
