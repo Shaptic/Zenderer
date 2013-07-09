@@ -1,5 +1,5 @@
 # Zenderer #
-v0.1.172-dev
+v0.1.174-dev
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
@@ -18,7 +18,7 @@ same mistakes again.
 
 #### Installation ####
 
-Installing @a Zenderer is quite trivial. All you need are the header
+Installing *Zenderer* is quite trivial. All you need are the header
 files found in `Zenderer/include`, and all of the dependency libraries
 you can find in the `lib` directory of the project root. There is
 currently only support for Windows (*gasp*), due to the fact that I use
