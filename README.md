@@ -1,5 +1,5 @@
 # Zenderer #
-v0.1.185-dev  
+v0.1.194-dev  
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
@@ -27,7 +27,7 @@ Thus, I can't guarantee any sort of cross-platform compatibility. But,
 this is obviously a potential TODO for when everything else has been taken
 care of.
 
-There are various dependencies for this engine. Luckily, they are all
+There are various binary dependencies for this engine. Luckily, they are all
 cross platform and are relatively easy to build from source. They are
 as follows:
  - GLEW         (OpenGL Extension Wrangler Library)
@@ -35,6 +35,7 @@ as follows:
  - Freetype 2   (TrueType Font Library)
  - OpenAL       (Open Audio Library)
  - libvorbis    (OGG/Vorbis Audio Compression Algorithm)
+ - Lua 5.2      (Lua Scripting Language)
 
 All engine assets are stored in the `data` folder of the repository. If you 
 are using Visual Studio in junction with *Zenderer* for your project, the 

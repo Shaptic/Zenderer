@@ -28,6 +28,10 @@
 
 #include "lua/lua.hpp"
 
+#ifdef _WIN32
+  #pragma comment(lib, "lua52.lib")
+#endif
+
 namespace zen
 {
 
@@ -156,10 +160,18 @@ namespace lua
 
 /**
  * @class zen::lua::CLuaAPI
+ *
  * @details
  *  This class provides a simple convenience wrapper around the `lua_State`
  *  variable required for the Lua intepreter. It automatically takes care
  *  of resource allocation and freeing of the interpreter instance.
+ *  Scripting is merely a feature of the engine, and is not actually used
+ *  in its core (yet). Thus, the file is not included by default in
+ *  @ref Zenderer.hpp. If you wish to include it, be sure to add the 
+ *  appropriate linker commands to your compilation routine.
+ *
+ * @note    By default, the Visual Studio 11 library is linked when `_WIN32`
+ *          is defined.
  *
  * @example Scripting
  * 

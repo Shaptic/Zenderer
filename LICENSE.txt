@@ -99,8 +99,9 @@ END OF TERMS AND CONDITIONS
 
 =============================================================== DEPENDENCY LICENSES =====================================================================================
 
-GLEW (OpenGL Extension Wrangler Library) -- Modified BSD / MIT License [http://glew.sourceforge.net/credits.html]
-GLFW (OpenGL Frame Work) -- Unmodified ZLib License [http://www.glfw.org/license.html]
-OpenAL Soft (Open Audio Library Soft) -- Unmodified LGPL License [http://kcat.strangesoft.net/openal.html#overview]
-FreeType 2 (TrueType Font Library) -- BSD-Like FreeType License [http://git.savannah.gnu.org/cgit/freetype/freetype2.git/tree/docs/FTL.TXT]
-libvorbis (Ogg-Vorbis Library) -- Xiph.org License [https://svn.xiph.org/trunk/vorbis/COPYING]
+GLEW (OpenGL Extension Wrangler Library)    -- Modified BSD / MIT License   [http://glew.sourceforge.net/credits.html]
+GLFW (OpenGL FrameWork)                     -- ZLib License                 [http://www.glfw.org/license.html]
+OpenAL Soft (Open Audio Library Soft)       -- LGPL License                 [http://kcat.strangesoft.net/openal.html#overview]
+FreeType 2 (TrueType Font Library)          -- BSD-Like FreeType License    [http://git.savannah.gnu.org/cgit/freetype/freetype2.git/tree/docs/FTL.TXT]
+libvorbis (Ogg-Vorbis Library)              -- Xiph.org License             [https://svn.xiph.org/trunk/vorbis/COPYING]
+Lua 5.2 (Lua Scripting Language)            -- MIT License                  [http://www.lua.org/license.html]
