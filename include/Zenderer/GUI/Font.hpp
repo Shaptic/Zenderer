@@ -147,7 +147,7 @@ namespace gui
 
 /**
  * @class zen::gfx::CFont
- * @description
+ * @details
  *  Fonts are unique assets that use the FreeType 2 to load TrueType (`.ttf`)
  *  fonts and render them in an OpenGL-compatible matter.
  *  They cannot be drawn directly to the screen, but instead will load

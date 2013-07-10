@@ -93,7 +93,7 @@ namespace obj
 
 /** 
  * @class zen::obj::CEntity
- * @description
+ * @details
  *  These differ from generic primitives in the sense that they have a lot more
  *  functionality abstracted away, as well as additional functions like
  *  animation and physics reactions (in inheriting classes). They do use the

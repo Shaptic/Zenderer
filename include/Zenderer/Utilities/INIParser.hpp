@@ -179,7 +179,7 @@ namespace util
 /**
  * @class zen::util::CINIParser
  *
- * @description
+ * @details
  *  This file parser defines a very generic type of parsing, since most
  *  files (meshes, levels) in @a Zenderer use a similar formatting.
  *  For example, in a ZenLevel (see specs/ZenLevel) , an entity can be
