@@ -26,11 +26,15 @@
 #ifndef ZENDERER__SCRIPTING__LUA_HPP
 #define ZENDERER__SCRIPTING__LUA_HPP
 
-#include "lua/lua.hpp"
+#include <map>
 
+#include "lua/lua.hpp"
 #ifdef _WIN32
   #pragma comment(lib, "lua52.lib")
 #endif
+
+#include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Core/Subsystem.hpp"
 
 namespace zen
 {
@@ -98,7 +102,7 @@ namespace lua
             
             lua_close(m_Lua);
             m_Lua = nullptr;
-            return true;
+            return !(m_init = false);
         }
         
         /**
@@ -169,6 +173,11 @@ namespace lua
  *  in its core (yet). Thus, the file is not included by default in
  *  @ref Zenderer.hpp. If you wish to include it, be sure to add the 
  *  appropriate linker commands to your compilation routine.
+ *
+ *  This API does not allow for complete abstraction away from Lua, but still
+ *  requires working knowledge of Lua and the process of embedding it in a C
+ *  program. It's a fairly simple and straightfoward API, and there is a
+ *  variety of resources available in the "See Also" section below.
  *
  * @note    By default, the Visual Studio 11 library is linked when `_WIN32`
  *          is defined.
