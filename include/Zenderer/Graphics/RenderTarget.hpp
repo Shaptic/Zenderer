@@ -32,13 +32,7 @@ namespace zen
 {
 namespace gfx
 {
-    /**
-     * Creates a target for all subsequent rendering operations.
-     *  Render targets are useful for rendering things off-screen,
-     *  multi-pass rendering, and other useful routines for rendering
-     *  things to a texture, and then using that texture for later
-     *  operations.
-     **/
+    /// Creates a target for all subsequent rendering operations.
     class ZEN_API CRenderTarget : gfxcore::CGLSubsystem
     {
     public:
@@ -78,5 +72,15 @@ namespace gfx
 }
 
 #endif // ZENDERER__GRAPHICS__RENDER_TARGET_HPP
+
+/**
+ * @class gfx::CRenderTarger
+ *
+ * @details
+ *  Render targets are useful for rendering things off-screen,
+ *  multi-pass rendering, and other useful routines for rendering
+ *  things to a texture, and then using that texture for later
+ *  operations.
+ **/
 
 /** @} **/

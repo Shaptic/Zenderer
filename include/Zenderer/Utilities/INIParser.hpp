@@ -174,8 +174,6 @@ namespace util
 
 #endif // ZENDERER__UTILITIES__INI_PARSER_HPP
 
-/** @} **/
-
 /**
  * @class zen::util::CINIParser
  *

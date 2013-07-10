@@ -138,12 +138,10 @@ namespace gfx
 
 #endif  // ZENDERER__GRAPHICS__EFFECT_HPP
 
-/** @} **/
-
 /**
- * @class zen::CEffect
+ * @class zen::gfx::CEffect
  *
- * @description
+ * @details
  *  This class is very similar to the gfxcore::CShaderSet class,
  *  but creates a more user-friendly interface
  *
@@ -256,3 +254,5 @@ namespace gfx
  * @endhtmlonly
  *
  **/
+
+/** @} **/

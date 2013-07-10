@@ -132,8 +132,6 @@ namespace asset
 
 #endif // ZENDERER__ASSETS__ASSET_MANAGER_HPP
 
-/** @} **/
-
 /**
  * @fn CAsset* zen::asset::CAssetManager::Find(const string_t& filename,const void* const owner) *
  * @description
@@ -180,3 +178,5 @@ namespace asset
  *  To be an asset instance supported by this manager, the
  *  object must inherit from zen::asset::CAsset
  **/
+
+/** @} **/

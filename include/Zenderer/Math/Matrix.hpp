@@ -29,13 +29,7 @@ namespace zen
 {
 namespace math
 {
-    /**
-     * 4x4 matrix representation.
-     *  This is in place to support various linear transformation
-     *  operations required for moving vertices around in OpenGL
-     *  terms. Currently, there is only support for creating projection
-     *  matrices for the rendering window / shaders to use.
-     **/
+    /// 4x4 matrix representation.
     class ZEN_API matrix4x4_t
     {
     public:
@@ -142,5 +136,15 @@ namespace math
 }   // namespace zen
 
 #endif // ZENDERER__MATH__MATRIX_HPP
+
+/**
+ * @class zen::math::matrix4x4_t
+ *
+ * @details
+ *  This is in place to support various linear transformation
+ *  operations required for moving vertices around in OpenGL
+ *  terms. Currently, there is only support for creating projection
+ *  matrices for the rendering window / shaders to use.
+ **/
 
 /** @} **/

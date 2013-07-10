@@ -168,7 +168,7 @@ namespace util
 /**
  * @class   zen::util::CXMLParser
  *
- * @description
+ * @details
  *  This parser is definitely not W3C compliant and will only accept
  *  a very strict subset of standard XML code.
  *

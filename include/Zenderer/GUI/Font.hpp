@@ -39,6 +39,7 @@ namespace zen
 {
 namespace gui
 {
+    /// A TrueType font wrapper class.
     class ZEN_API CFont : public asset::CAsset
     {
     public:
@@ -142,8 +143,6 @@ namespace gui
 }   // namespace zen
 
 #endif // ZENDERER__CORE_GRAPHICS__FONT_HPP
-
-/** @} **/
 
 /**
  * @class zen::gfx::CFont
@@ -280,3 +279,5 @@ namespace gui
  *  and the 2<sup>nd</sup> parameter of `Render()` takes precedence over any
  *  internal stream data, as well.
  **/
+
+/** @} **/

@@ -60,4 +60,3 @@ namespace zen
 #endif // ZENDERER__CORE__ERROR_HANDLING_HPP
 
 /** @} **/
-

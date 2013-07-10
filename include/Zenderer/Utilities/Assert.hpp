@@ -55,21 +55,6 @@ namespace util
 {
     /**
      * Executes a verification of an expression, crashing on error.
-     *  This function plays nicely with zen::util::CLog::GetEngineLog(),
-     *  using it to store the fatal error messages to output them directly
-     *  to the screen.
-     *  This function can, but likely should not be called directly,
-     *  since it relates to the preprocessor macro `ZEN_ASSERT` (defined
-     *  above) to evaluate the given expression as a string.
-     *  The stored error is as follows:
-     *
-     *       [FATAL] Assert -- `expression_str` failed at line `line_no` of `file_name`: `_msg_`
-     *
-     *  The variable names above are replaced with their respective values,
-     *  naturally.
-     *
-     *  If this is used with the `ZEN_ASSERT` macro, this will ONLY
-     *  actually do things in Debug builds, with `_DEBUG` specified.
      *
      * @param   expr        Boolean expression to assert on
      * @param   expr_str    The boolean expression as a string (for output)
@@ -86,5 +71,26 @@ namespace util
 }   // namespace ic
 
 #endif // ZENDERER__UTILITIES__ASSERT_HPP
+
+/**
+ * @fn zen::util::runtime_assert()
+ *
+ * @details
+ *  This function plays nicely with zen::util::CLog::GetEngineLog(),
+ *  using it to store the fatal error messages to output them directly
+ *  to the screen.
+ *  This function can, but likely should not be called directly,
+ *  since it relates to the preprocessor macro `ZEN_ASSERT` (defined
+ *  above) to evaluate the given expression as a string.
+ *  The stored error is as follows:
+ *
+ *       [FATAL] Assert -- `expression_str` failed at line `line_no` of `file_name`: `_msg_`
+ *
+ *  The variable names above are replaced with their respective values,
+ *  naturally.
+ *
+ *  If this is used with the `ZEN_ASSERT` macro, this will ONLY
+ *  actually do things in Debug builds, with `_DEBUG` specified.
+ **/
 
 /** @} **/

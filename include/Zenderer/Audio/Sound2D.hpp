@@ -64,11 +64,10 @@ namespace sfx
 
 #endif // ZENDERER__AUDIO__SOUND_2D_HPP
 
-/** @} **/
-
 /**
  * @class zen::sfx::CSound2D
- * @description
+ *
+ * @details
  *  This managed audio asset is designed primarily for short, 
  *  repetitive sound effects stored in an uncompressed `.wav`
  *  file format. 
@@ -78,3 +77,5 @@ namespace sfx
  *  is the OGG-Vorbis (`.ogg`) format, loadable through the 
  *  zen::sfx::CMusic2D class.
  **/
+
+/** @} **/

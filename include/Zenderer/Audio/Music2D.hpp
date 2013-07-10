@@ -75,14 +75,15 @@ namespace sfx
 
 #endif // ZENDERER__AUDIO__MUSIC_2D_HPP
 
-/** @} **/
-
 /**
  * @class zen::sfx::CMusic2D
- * @description
+ *
+ * @details
  *  A managed asset that will stream large files in the Ogg-Vorbis (`.ogg`)
  *  file format. This format is not recommended for files smaller than 96kB,
  *  due to the streaming nature that stores 96kB of data at a time. A better 
  *  alternative would be to use the zen::sfx::CSound2D class in combination
  *  with an uncompressed `.wav` file.
  **/
+
+/** @} **/

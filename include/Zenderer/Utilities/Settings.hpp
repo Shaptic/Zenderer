@@ -87,6 +87,7 @@ namespace util
         string_t m_value;
     };
 
+    /// An array-like wrapper for various settings.
     class ZEN_API CSettings : public CSubsystem
     {
         typedef std::map<

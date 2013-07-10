@@ -39,12 +39,7 @@ namespace gfx
         ZEN_POINT           ///< Omnidirectional point light
     };
 
-    /**
-     * Represents a light object acting on a graphical scene.
-     *  Each lighting type has its own special variables and parameters
-     *  that can be modified and accessed. See the raw shader files to learn
-     *  the specific parameter names.
-     **/
+    /// Represents a light object acting on a graphical scene.
     class ZEN_API CLight
     {
     public:
@@ -126,5 +121,14 @@ namespace gfx
 }   // namespace zen
 
 #endif // ZENDERER__GRAPHICS__LIGHT_HPP
+
+/**
+ * @class zen::gfx::CLight
+ *
+ * @details
+ *  Each lighting type has its own special variables and parameters
+ *  that can be modified and accessed. See the raw shader files to learn
+ *  the specific parameter names.
+ **/
 
 /** @} **/

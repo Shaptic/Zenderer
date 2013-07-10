@@ -85,14 +85,12 @@ namespace zen
 
 #endif // ZENDERER__CORE__SUBSYSTEM_HPP
 
-/** @} **/
-
 // Subsystem specification.
 
 /**
  * @class zen::CSubsystem
  *
- * @description
+ * @details
  *  A valid engine subsystem can be initialized and destroyed without
  *  relying on the con/destructor. This is intentional so that errors can
  *  be handled gracefully by the caller, or internally if need be. A
@@ -144,3 +142,5 @@ namespace zen
  *  }
  *  @endcode
  **/
+
+/** @} **/

@@ -160,8 +160,6 @@ namespace lua
 
 #endif // ZENDERER__SCRIPTING__LUA_HPP
 
-/** @} **/
-
 /**
  * @class zen::lua::CLuaAPI
  *
@@ -301,3 +299,5 @@ namespace lua
  *  0, 124
  *  @endcode
  **/
+
+/** @} **/

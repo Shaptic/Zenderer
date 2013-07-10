@@ -160,7 +160,7 @@ namespace util
 #endif // ZENDERER__UTILITIES__HELPERS_HPP
 
 /**
- * @fn zen::util::split
+ * @fn zen::util::split()
  *
  * @description
  *  Empty strings are never returned (unless given one), meaning if

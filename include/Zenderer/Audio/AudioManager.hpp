@@ -147,4 +147,5 @@ namespace sfx
 }   // namespace zen
 
 #endif // ZENDERER__AUDIO__AUDIO_MANAGER_HPP
+
 /** @} **/

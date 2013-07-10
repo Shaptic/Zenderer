@@ -89,8 +89,6 @@ namespace obj
 
 #endif // ZENDERER__OBJECTS__ENTITY_HPP
 
-/** @} **/
-
 /** 
  * @class zen::obj::CEntity
  * @details
@@ -110,3 +108,5 @@ namespace obj
  *
  * @see specs.html#ZEnt
  **/
+
+/** @} **/

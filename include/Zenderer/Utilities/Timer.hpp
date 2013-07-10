@@ -38,15 +38,7 @@ namespace util
 {
     typedef uint32_t time_t;
 
-    /**
-     * A high-precision timer class for controlling frame rates.
-     *  This class provides fairly generic timing functionality,
-     *  with the ability to start, stop, measure, and delay for
-     *  various periods of time.
-     *  Most methods are virtual, allowing for a user to inherit
-     *  and implement their own custom timer, but still be able to
-     *  pass it around to various parts of the engine when necessary.
-     **/
+    /// A high-precision timer class for controlling frame rates.
     class CTimer
     {
     public:
@@ -117,5 +109,17 @@ namespace util
 }
 
 #endif // ZENDERER__UTILITIES__TIMER_HPP
+
+/**
+ * @class zen::util::CTimer
+ *
+ * @details
+ *  This class provides fairly generic timing functionality,
+ *  with the ability to start, stop, measure, and delay for
+ *  various periods of time.
+ *  Most methods are virtual, allowing for a user to inherit
+ *  and implement their own custom timer, but still be able to
+ *  pass it around to various parts of the engine when necessary.
+ **/
 
 /** @} **/

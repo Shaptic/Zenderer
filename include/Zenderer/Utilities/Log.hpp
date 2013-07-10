@@ -49,11 +49,7 @@ namespace util
         ZEN_FATAL   ///< Critical error causing immediate exit
     };
 
-    /**
-     * Creates a special file stream to store logging information.
-     *  If desirable, it can be inherited to provide a dummy logger to
-     *  the engine for speed or whatever other reason.
-     **/
+    /// Creates a special file stream to store logging information.
     class ZEN_API CLog
     {
     public:
@@ -218,7 +214,10 @@ namespace util
 /**
  * @class zen::util::CLog
  *
- * @description
+ * @details
+ *  If desirable, it can be inherited to provide a dummy logger to
+ *  the engine for speed or whatever other reason.
+ *
  *  By default, one of these is created for the engine log, but more
  *  streams can be opened as needed.
  *

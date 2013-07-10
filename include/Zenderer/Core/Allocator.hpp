@@ -87,8 +87,6 @@ namespace zen
 
 #endif // ZENDERER__CORE__ALLOCATOR_HPP
 
-/** @} **/
-
 // Detailed doxygen docs.
 
 /**
@@ -192,3 +190,5 @@ namespace zen
  * @endcode
  *
  **/
+
+/** @} **/

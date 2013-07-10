@@ -83,11 +83,12 @@ namespace sfx
 
 #endif // ZENDERER__AUDIO__AUDIO_2D_HPP
 
-/** @} **/
-
 /**
  * @class zen::sfx::CAudio2D
- * @description
+ *
+ * @details
  *  A managed audio asset object that acts as a unified base class
  *  to support playing a variety of audio formats.
  **/
+
+/** @} **/

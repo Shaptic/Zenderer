@@ -40,39 +40,7 @@ namespace math
      **/
     class ZEN_API matrix4x4_t;
 
-    /**
-     * Represents a point in 3D rectangular-coordinate space.
-     *  Supports all vector operations such as cross products,
-     *  dot products, movement, scaling, and rotation.
-     *
-     *  The class is templated to store any sort of POD values that
-     *  you'd like, such as `float`, `int`, `uint32_t`, etc.
-     *  Beware that any operations between mixed vector types will
-     *  return the type of the vector on the left-hand side of the
-     *  operation. e.g.:
-     *
-     *  @code
-     *  Vector<int> A(1, 2, 3);
-     *  Vector<float> B(1.1, 2.2, 3.3);
-     *
-     *  Vector<float> C = A + B;    // INVALID!
-     *  Vector<int> C = A + B;      // VALID
-     *  @endcode
-     *
-     *  Thus if you need a higher level of precision, keep that vector
-     *  instance on the right-hand side.
-     *
-     *  There is a built-in shortcut to `vector_t` that is a floating-point
-     *  vector representation that is used throughout the engine.
-     *
-     * @todo    Add support for translation via matrices.
-     * @todo    Move semantics
-     *
-     * @note    There is support for creating translation matrices via
-     *          vectors but not vice-versa.
-     *
-     * @see     #USE_DOUBLE_PRECISION
-     **/
+    /// Represents a point in 3D rectangular-coordinate space.
     template<typename T>
     struct ZEN_API Vector
     {
@@ -264,5 +232,41 @@ namespace math
 }   // namespace ic
 
 #endif // IRON_CLAD__MATH__VECTOR_2_HPP
+
+/** 
+ * @class zen::math::vector_t
+ *
+ * @details
+ *  Supports all vector operations such as cross products,
+ *  dot products, movement, scaling, and rotation.
+ *
+ *  The class is templated to store any sort of POD values that
+ *  you'd like, such as `float`, `int`, `uint32_t`, etc.
+ *  Beware that any operations between mixed vector types will
+ *  return the type of the vector on the left-hand side of the
+ *  operation. e.g.:
+ *
+ *  @code
+ *  Vector<int> A(1, 2, 3);
+ *  Vector<float> B(1.1, 2.2, 3.3);
+ *
+ *  Vector<float> C = A + B;    // INVALID!
+ *  Vector<int> C = A + B;      // VALID
+ *  @endcode
+ *
+ *  Thus if you need a higher level of precision, keep that vector
+ *  instance on the right-hand side.
+ *
+ *  There is a built-in shortcut to `vector_t` that is a floating-point
+ *  vector representation that is used throughout the engine.
+ *
+ * @todo    Add support for translation via matrices.
+ * @todo    Move semantics
+ *
+ * @note    There is support for creating translation matrices via
+ *          vectors but not vice-versa.
+ *
+ * @see     #USE_DOUBLE_PRECISION
+ **/
 
 /** @} **/

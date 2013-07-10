@@ -126,11 +126,10 @@ namespace asset
 
 #endif // ZENDERER__ASSETS__ASSET_HPP
 
-/** @} **/
-
 /**
  * @class zen::asset::CAsset
- * @description
+ *
+ * @details
  *  Assets can include audio files, shaders, or any other data that can
  *  be loaded from disk with a filename.
  *
@@ -161,3 +160,5 @@ namespace asset
  * @see util::hash()
  * @see util::string_hash()
  **/
+
+/** @} **/
