@@ -173,6 +173,10 @@ namespace lua
  * @note    By default, the Visual Studio 11 library is linked when `_WIN32`
  *          is defined.
  *
+ * @see     http://www.lua.org/manual/5.2/manual.html
+ * @see     http://blog.acamara.es/2012/08/19/calling-c-functions-from-lua-5-2/
+ * @see     http://csl.name/lua/
+ *
  * @example Scripting
  * 
  * @section usage       Lua Usage Examples
