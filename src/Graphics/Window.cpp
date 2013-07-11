@@ -76,9 +76,12 @@ bool CWindow::Init()
     glfwMakeContextCurrent(mp_Window);
 
     if(m_fullscreen)
-    {
         glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-    }
+        
+    // Registers event callbacks with GLFW.
+    glfwSetKeyCallback(evt::CEventHandler::KeyboardCallback);
+    glfwSetMouseButtonCallback(evt::CEventHandler::MouseCallback);
+    glfwSetCursorPosCallback(evt::CEventHandler::MouseMotionCallback);
 
     m_Log << "Initializing GLEW: ";
     glewExperimental = true;
@@ -94,7 +97,7 @@ bool CWindow::Init()
     glGetError();
 
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
-
+    
     m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
         m_Dimensions.y, 256, -256);
 
