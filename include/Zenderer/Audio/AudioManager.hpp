@@ -63,37 +63,6 @@ namespace sfx
 
         /**
          * Finds an available audio source to use for a buffer.
-         *  OpenAL is limited to 256 buffers, and despite the fact that
-         *  they likely will never all be in use simultaneously, there is
-         *  still no sense in being greedy.
-         *  This function should be the one and only way that external
-         *  audio classes get an available OpenAL source.
-         *
-         *  The architecture for controlling sources is as follows:
-         *
-         *  There exists a static array of 256 potential sources, zeroed
-         *  out. As audio is played, the array fills up with source data,
-         *  starting from  `[0]`. So, the first call to
-         *  GetAvailableSource() would return `0` and after a call to
-         *  `alGenSources` it would be filled with some arbitrary data.
-         *  So thus
-         *
-         *      CAudioManager::s_sources[0] = 12345
-         *
-         *  Then, a subsequent call to GetAvailableSource() would return
-         *  `1` and the process repeats.
-         *  Now, let's say the first source is done playing an `.ogg` file
-         *  and CMusic2D::FreeSource() is called. Now the first available
-         *  source is `s_sources[0]`, but due to the nature of the
-         *  source-finding algorithm, GetAvailableSource() will return `2`,
-         *  because it first searches the index immediately following the
-         *  last-used source before starting from the beginning.
-         *  Hence (assuming `2` is then used):
-         *
-         *      CAudioManager::s_sources[0] = 0
-         *      CAudioManager::s_sources[1] = 223344
-         *      CAudioManager::s_sources[2] = 696969
-         *
          *  If all of the sources are completely used up, this function
          *  will return `-1`, and someone needs to call `FreeSource()` on
          *  an audio file to free up some sources to use.
@@ -147,5 +116,41 @@ namespace sfx
 }   // namespace zen
 
 #endif // ZENDERER__AUDIO__AUDIO_MANAGER_HPP
+
+/**
+ * @class zen::sfx::CAudioManager
+ * @details
+ *  This class provides a variety of `static` convenience functions for
+ *  the various audio asset instance classes to use in order to find
+ *  available OpenAL sources.
+ * 
+ *  OpenAL is limited to 256 buffers, and despite the fact that they likely
+ *  will never all be in use simultaneously, there is still no sense in being
+ *  greedy. This class should be the one and only way that external audio
+ *  classes get an available OpenAL source.
+ *
+ *  The architecture for controlling sources is as follows:
+ *
+ *  There exists a static array of 256 potential sources, zeroed out. As
+ *  audio is played, the array fills up with source data, starting from 
+ *  `[0]`. So, the first call to `GetAvailableSource()` would return `0`
+ *  and after a call to `alGenSources` it would be filled with some arbitrary
+ *  data. So thus
+ *
+ *      CAudioManager::s_sources[0] = 12345
+ *
+ *  Then, a subsequent call to `GetAvailableSource()` would return `1` and
+ *  the process repeats. Now, let's say the first source is done playing an
+ *  `.ogg` file and CMusic2D::FreeSource() is called. Now the first available
+ *  source is `s_sources[0]`, but due to the nature of the source-finding
+ *  algorithm, `GetAvailableSource()` will return `2`, because it first
+ *  searches the index immediately following the last-used source before
+ *  starting from the beginning. Hence (assuming `2` is then used):
+ *
+ *      CAudioManager::s_sources[0] = 0
+ *      CAudioManager::s_sources[1] = 223344
+ *      CAudioManager::s_sources[2] = 696969
+ *
+ **/
 
 /** @} **/

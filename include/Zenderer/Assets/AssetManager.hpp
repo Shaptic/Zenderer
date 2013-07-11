@@ -35,6 +35,7 @@ namespace zen
 {
 namespace asset
 {
+    /// Controls creation and proper mmeory management of assets.
     class ZEN_API CAssetManager : public CSubsystem
     {
     public:
@@ -133,8 +134,15 @@ namespace asset
 #endif // ZENDERER__ASSETS__ASSET_MANAGER_HPP
 
 /**
- * @fn CAsset* zen::asset::CAssetManager::Find(const string_t& filename,const void* const owner) *
- * @description
+ * @class zen::asset::CAssetManager
+ * @details
+ *  To be an asset instance supported by this manager, the
+ *  object must inherit from zen::asset::CAsset
+ **/
+
+/**
+ * @fn zen::asset::CAssetManager::Find()
+ * @details
  *  Technical details ahead:    \n
  *
  *  @section search     Search
@@ -169,14 +177,6 @@ namespace asset
  *  <pre>for(size_t i = 0; i < BIGNUM; ++i) ++A.at(i) </pre>                                                | `std::vector<T>::at()`    | 309ms
  *  <pre>for(auto i = B.begin(); i != B.end(); i++) ++(*i); </pre>                                          | `iterator++`              | 416ms
  *  <pre>char* end = &A[A.size() - 1];<br>for(char* i = &A[0]; i != end; i += sizeof(char)) ++(*c); </pre>  | Pointer arithmetic        | 108ms
- **/
- 
-/**
- * @class zen::asset::CAssetManager
- * @brief Controls creation and proper mmeory management of assets.
- * @description
- *  To be an asset instance supported by this manager, the
- *  object must inherit from zen::asset::CAsset
  **/
 
 /** @} **/

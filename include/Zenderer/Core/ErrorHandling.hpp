@@ -35,18 +35,6 @@ namespace zen
 {
     /**
      * A fall-back error handler with OS-specific implementation.
-     *  On Windows, this will pop up a dialog box with the given message
-     *  displayed. On *nix systems, this will output to stderr in the
-     *  format
-     *      `[title] -- message.\n`
-     *  Both will exit the program after output.
-     *
-     *  This error handler should be used as a last-resort fall-back for
-     *  when all others fail. The "prettier" error handlers should be used
-     *  in most cases, and this one should be used when there is a failure
-     *  to load a proper rendering context, a font fails to load, or some
-     *  other critical error that would prevent the error window from
-     *  creating or displaying properly.
      *
      * @param   message     Error message to output
      * @param   title       Caption on Windows, prefix otherwise.
@@ -58,5 +46,22 @@ namespace zen
 }   // namespace zen
 
 #endif // ZENDERER__CORE__ERROR_HANDLING_HPP
+
+/**
+ * @fn zen::error_fallback()
+ * @details
+ *  On Windows, this will pop up a dialog box with the given message
+ *  displayed. On *nix systems, this will output to stderr in the
+ *  format
+ *      `[title] -- message.\n`
+ *  Both will exit the program after output.
+ *
+ *  This error handler should be used as a last-resort fall-back for
+ *  when all others fail. The "prettier" error handlers should be used
+ *  in most cases, and this one should be used when there is a failure
+ *  to load a proper rendering context, a font fails to load, or some
+ *  other critical error that would prevent the error window from
+ *  creating or displaying properly.
+ **/
 
 /** @} **/

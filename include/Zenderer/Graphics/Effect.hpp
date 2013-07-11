@@ -141,7 +141,6 @@ namespace gfx
 
 /**
  * @class zen::gfx::CEffect
- *
  * @details
  *  This class is very similar to the gfxcore::CShaderSet class,
  *  but creates a more user-friendly interface

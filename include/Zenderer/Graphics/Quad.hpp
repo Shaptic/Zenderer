@@ -115,4 +115,13 @@ namespace gfx
 
 #endif // ZENDERER__GRAPHICS__QUAD_HPP
 
+/**
+ * @class zen::gfx::CQuad
+ * @details
+ *  Quads are the essential drawing primitive behind @a Zenderer. They are used
+ *  internally by zen::obj::CEntity instances, which just attach materials to 
+ *  one or more of them and draw them on-screen using the standard
+ *  implementation.
+ **/
+
 /** @} **/

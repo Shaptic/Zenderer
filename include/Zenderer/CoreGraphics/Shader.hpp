@@ -88,4 +88,19 @@ namespace gfxcore
 
 #endif // ZENDERER__CORE_GRAPHICS__SHADER_HPP
 
+/**
+ * @class zen::gfxcore::CShader
+ * @details
+ *  This is a managed `zen::asset::CAsset` child class that automatically
+ *  frees the OpenGL shader handle and prevents it from being loaded multiple
+ *  times from a file.
+ *  The reason this is an asset rather than a zen::gfxcore::CGLSubsystem
+ *  is because it requires being loaded from a file rather than typical
+ *  initialization (via `Init()`).
+ *
+ *  This class is primarily used internally, and users should not stray toward
+ *  it, preferring zen::gfx::CEffect or at least zen::gfxcore::CShaderSet if
+ *  they need something slightly lower-level.
+ **/
+
 /** @} **/

@@ -161,8 +161,7 @@ namespace util
 
 /**
  * @fn zen::util::split()
- *
- * @description
+ * @details
  *  Empty strings are never returned (unless given one), meaning if
  *  there is no valid delimiter, the string is returned in the list.
  *  Successive instances of a delimiter are ignored as well, meaning

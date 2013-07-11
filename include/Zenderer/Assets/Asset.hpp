@@ -76,7 +76,7 @@ namespace asset
         inline assetid_t GetID() const;
 
         /// Returns the filename used to load the asset.
-        virtual inline const string_t& GetFilename() const;
+        inline const string_t& GetFilename() const;
 
         /// Returns raw asset data (usually for reloading).
         virtual const void* const GetData() const = 0;
@@ -115,8 +115,11 @@ namespace asset
 
         string_t    m_filename;
         string_t    m_error_str;
-        uint32_t    m_filename_hash, m_id;
+        uint32_t    m_filename_hash;
         bool        m_loaded;
+        
+    private:
+        uint32_t m_id;
         const void* mp_owner;
     };
 
@@ -128,7 +131,6 @@ namespace asset
 
 /**
  * @class zen::asset::CAsset
- *
  * @details
  *  Assets can include audio files, shaders, or any other data that can
  *  be loaded from disk with a filename.
@@ -156,6 +158,15 @@ namespace asset
  *
  *  Any class inheriting this base class does not necessarily need to
  *  place itself within the zen::asset namespace.
+ *
+ *  Inheriting class requirements:
+ *      - Load from file / path
+ *      - Load from another instance
+ *      - Load from a filestream (optional but recommended)
+ *      - The ability to retrieve copyable data via `GetData()`
+ *      - Sets filename and filename hash
+ *      - Sets `m_error_str` when encountering errors.
+ *      - Sets `m_loaded` on a successful load.
  *
  * @see util::hash()
  * @see util::string_hash()

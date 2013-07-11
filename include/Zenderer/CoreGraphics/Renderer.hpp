@@ -41,23 +41,32 @@ namespace gfx
 
 namespace gfxcore
 {
+    /// A variety of blending operations.
     enum class BlendFunc : uint16_t
     {
-        DISABLE_BLEND,
-        ENABLE_BLEND,
-        STANDARD_BLEND,
-        ADDITIVE_BLEND
+        DISABLE_BLEND,      ///< Disables blending
+        ENABLE_BLEND,       ///< Just enables blending
+        STANDARD_BLEND,     ///< Enables the standard blending function
+        ADDITIVE_BLEND      ///< Enables additive blending operation
     };
 
     /// Abstracts away API-specific rendering operations.
     class ZEN_API CRenderer
     {
     public:
+        /// Sets the blending mode for subsequent draw calls.
         inline static bool BlendOperation(const BlendFunc& Func);
 
+        /// Binds a texture handle.
         inline static bool EnableTexture(const GLuint handle);
+        
+        /// Resets shader and texture state to nothing.
         inline static bool ResetMaterialState();
+        
+        /// Disables blending (can also be done via BlendOperation()).
         inline static bool DisableBlending();
+        
+        /// Disables any bound texture (also via `EnableTexture(0)`).
         inline static bool DisableTexture();
 
         inline static gfx::CMaterial&           GetDefaultMaterial();
@@ -67,9 +76,8 @@ namespace gfxcore
         inline static const math::matrix4x4_t&  GetProjectionMatrix();
         inline static CVertexArray&             GetFullscreenVBO();
 
-        // Can modify and store static data
-        friend class gfx::CWindow;
-        friend class gfx::CRenderTarget;
+        friend class gfx::CWindow;          ///< Accesses material
+        friend class gfx::CRenderTarget;    ///< Accesses matrices
 
     private:
         explicit CRenderer();

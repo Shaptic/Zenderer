@@ -66,7 +66,6 @@ namespace sfx
 
 /**
  * @class zen::sfx::CSound2D
- *
  * @details
  *  This managed audio asset is designed primarily for short, 
  *  repetitive sound effects stored in an uncompressed `.wav`

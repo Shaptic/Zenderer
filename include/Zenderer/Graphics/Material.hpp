@@ -112,4 +112,14 @@ namespace gfx
 
 #endif // ZENDERER__GRAPHICS__MATERIAL_HPP
 
+/**
+ * @class zen::gfx::CMaterial
+ * @details
+ *  A material is a combination of an effect (shaders) and a texture.
+ *  It's used to specify what picture should be drawn on the screen, and
+ *  how it should be drawn. There is a default instance of it in
+ *  zen::gfxcore::CRenderer, and it is used for standard rendering to the
+ *  screen, primarily for primitives.
+ **/
+
 /** @} **/

@@ -46,9 +46,7 @@ namespace gfx
         CScene();
         ~CScene();
 
-        /**
-         * Initializes internal graphical components.
-         **/
+        /// Initializes internal graphical components.
         bool Init();
 
         //CEntity& AddEntity();
@@ -321,7 +319,6 @@ namespace gfx
     };
 }
 }
-
 
 #endif // ZENDERER__GRAPHICS__SCENE_HPP
 

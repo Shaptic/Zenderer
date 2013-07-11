@@ -165,4 +165,19 @@ namespace gfx
 
 #endif // ZENDERER__GRAPHICS__WINDOW_HPP
 
+/**
+ * @class zen::gfx::CWindow
+ * @details
+ *  This is a wrapper for creating a core OpenGL context to draw to. There
+ *  is no testing of multiple windows (and thus multiple engine instances)
+ *  but this likely isn't supported, especially since there is no way to
+ *  specify which window is active. This is supported by GLFW, the underlying
+ *  context creation API, so it's a potential `todo`.
+ *  This absolutely must be the first thing you create, prior to interaction
+ *  with any part of the graphics API. If it isn't, your objects will likely
+ *  be invalid, or will simply fail to load (and destroy).
+ *
+ * @todo    Test / Implement multiple-context control.
+ **/
+
 /** @} **/

@@ -74,7 +74,6 @@ namespace util
 
 /**
  * @fn zen::util::runtime_assert()
- *
  * @details
  *  This function plays nicely with zen::util::CLog::GetEngineLog(),
  *  using it to store the fatal error messages to output them directly

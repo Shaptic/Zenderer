@@ -77,7 +77,6 @@ namespace sfx
 
 /**
  * @class zen::sfx::CMusic2D
- *
  * @details
  *  A managed asset that will stream large files in the Ogg-Vorbis (`.ogg`)
  *  file format. This format is not recommended for files smaller than 96kB,

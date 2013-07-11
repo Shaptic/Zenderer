@@ -213,7 +213,6 @@ namespace util
 
 /**
  * @class zen::util::CLog
- *
  * @details
  *  If desirable, it can be inherited to provide a dummy logger to
  *  the engine for speed or whatever other reason.

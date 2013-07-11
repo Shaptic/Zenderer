@@ -34,10 +34,7 @@ namespace zen
 {
 namespace math
 {
-    /**
-     * Forward declaration of a 4x4 matrix for use in
-     * 2D vector translation.
-     **/
+    /// Forward declaration of a 4x4 matrix for use in 2D vector translation.
     class ZEN_API matrix4x4_t;
 
     /// Represents a point in 3D rectangular-coordinate space.
@@ -235,7 +232,6 @@ namespace math
 
 /** 
  * @class zen::math::vector_t
- *
  * @details
  *  Supports all vector operations such as cross products,
  *  dot products, movement, scaling, and rotation.

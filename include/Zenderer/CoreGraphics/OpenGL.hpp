@@ -61,13 +61,6 @@ namespace gfxcore
 {
     /**
      * Checks the validity of an OpenGL call.
-     *  Mostly used internally for debugging, this will check valid
-     *  execution of an OpenGL call. It should be used in congruence with
-     *  the macro defined at the top of this file (GL(f)).
-     *  This function won't really work well without the macro, as too
-     *  many things have to be passed as parameters for accuracy; it'd be
-     *  unwieldy to pass the string of the OpenGL function call by hand
-     *  every time.
      *
      * @param   expr    OpenGL call expression
      * @param   line    Line number of function call
@@ -140,5 +133,26 @@ namespace gfxcore
 }   // namespace zen
 
 #endif // ZENDERER__CORE_GRAPHICS__OPENGL_HPP
+
+/**
+ * @fn zen::gfxcore::glCheck()
+ * @details
+ *  Mostly used internally for debugging, this will check valid
+ *  execution of an OpenGL call. It should be used in congruence with
+ *  the macro defined at the top of this file (GL(f)).
+ *  This function won't really work well without the macro, as too
+ *  many things have to be passed as parameters for accuracy; it'd be
+ *  unwieldy to pass the string of the OpenGL function call by hand
+ *  every time.
+ **/
+ 
+/**
+ * @class zen::gfxcore::CGLSubsystem
+ * @details
+ *  Similar to zen::CSubsystem, this acts as a managed wrapper around
+ *  various OpenGL object instances. Anything registered with this as
+ *  a base class will automatically be `Destroy()`-ed when the engine
+ *  is quit.
+ **/
 
 /** @} **/

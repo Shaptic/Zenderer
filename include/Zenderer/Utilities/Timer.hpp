@@ -112,7 +112,6 @@ namespace util
 
 /**
  * @class zen::util::CTimer
- *
  * @details
  *  This class provides fairly generic timing functionality,
  *  with the ability to start, stop, measure, and delay for
