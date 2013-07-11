@@ -1,0 +1,8 @@
+<map id="zen::util::CLog::GetEngineLog" name="zen::util::CLog::GetEngineLog">
+<area shape="rect" id="node2" href="$namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574" title="Executes a verification of an expression, crashing on error." alt="" coords="266,53,385,94"/>
+<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame&#45;rate." alt="" coords="263,118,388,159"/>
+<area shape="rect" id="node7" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f" title="Outputs an XML error." alt="" coords="251,183,399,225"/>
+<area shape="rect" id="node3" href="$namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524" title="Checks the validity of an OpenGL call." alt="" coords="458,5,606,32"/>
+<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d" title="Checks the validity of an OpenAL call." alt="" coords="448,57,616,98"/>
+<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="507,125,557,152"/>
+</map>

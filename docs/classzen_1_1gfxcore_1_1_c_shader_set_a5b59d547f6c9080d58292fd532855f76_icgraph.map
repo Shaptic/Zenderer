@@ -1,0 +1,13 @@
+<map id="zen::gfxcore::CShaderSet::Destroy" name="zen::gfxcore::CShaderSet::Destroy">
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="224,5,395,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="443,63,613,105"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="224,122,395,163"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="246,187,373,229"/>
+<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="249,253,370,294"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="457,129,599,156"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="459,180,597,207"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="661,71,848,97"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="691,122,818,163"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="664,188,845,215"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="465,231,591,273"/>
+</map>

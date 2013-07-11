@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -126,7 +125,7 @@ $(document).ready(function(){initNavTree('_shader_set_8hpp_source.html','');});
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">using</span> util::CLog;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html">   39</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program).">CShaderSet</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html">   39</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program).">CShaderSet</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program).">CShaderSet</a>(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets);</div>
@@ -150,7 +149,7 @@ $(document).ready(function(){initNavTree('_shader_set_8hpp_source.html','');});
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">bool</span> Unbind() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>();</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        uint16_t GetShaderObject() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>

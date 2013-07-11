@@ -9,6 +9,6 @@ var classzen_1_1gfxcore_1_1_c_g_l_subsystem =
     [ "GetObjectHandle", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a1c51e85829c109daddc6f4a5aba66ac8", null ],
     [ "IsInit", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a8f51d92f06d547070a5231f10f21fb7e", null ],
     [ "GetName", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#aa05627df3b5723c2221d58d5a8da4732", null ],
-    [ "zen::Quit", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a299b9079941c4aa17daa982ea5b6f99a", null ],
+    [ "zen::Quit", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a2f2251cf9cbb5af084e9f0f8f0561083", null ],
     [ "m_init", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382", null ]
 ];

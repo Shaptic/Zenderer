@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -129,14 +128,14 @@ $(document).ready(function(){initNavTree('_audio_manager_8hpp_source.html','');}
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifdef _DEBUG</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define AL(f) f; zen::sfx::CAudioManager::alCheck(#f, __LINE__, __FILE__);</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa">   49</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define AL(f) f;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define AL(f) f;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // _DEBUG</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">namespace </span>sfx</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html">   58</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API.">CAudioManager</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html">   58</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API.">CAudioManager</a></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>

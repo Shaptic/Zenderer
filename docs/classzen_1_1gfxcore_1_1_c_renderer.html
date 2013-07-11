@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,8 +109,6 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_renderer.htm
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">zen::gfxcore::CRenderer Class Reference</div>  </div>
@@ -126,91 +123,405 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_renderer.htm
 Collaboration diagram for zen::gfxcore::CRenderer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_renderer_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1gfxcore_1_1_c_renderer_coll__map" id="zen_1_1gfxcore_1_1_c_renderer_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,762,147,1001"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="107,405,300,600"/><area shape="rect" id="node8" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="171,769,349,993"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low&#45;level texture asset abstraction over OpenGL texture handles." alt="" coords="374,784,527,979"/><area shape="rect" id="node5" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="377,310,524,695"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="389,6,512,245"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="551,769,715,993"/><area shape="rect" id="node9" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="739,747,897,1015"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b356e4ef3d3b41a279fed90a7fa6804"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b356e4ef3d3b41a279fed90a7fa6804"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>BlendOperation</b> (const BlendFunc &amp;Func)</td></tr>
-<tr class="separator:a2b356e4ef3d3b41a279fed90a7fa6804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab14ae2f572f0d2a405d8ebbee3e5bd52"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>EnableTexture</b> (const GLuint handle)</td></tr>
+<tr class="memitem:ac9d5a5c2369f44b2bd9af2ec3504dbe3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#ac9d5a5c2369f44b2bd9af2ec3504dbe3">BlendOperation</a> (const <a class="el" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">BlendFunc</a> &amp;Func)</td></tr>
+<tr class="separator:ac9d5a5c2369f44b2bd9af2ec3504dbe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#ab14ae2f572f0d2a405d8ebbee3e5bd52">EnableTexture</a> (const GLuint handle)</td></tr>
 <tr class="separator:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9f6b37fdd6d81a96308f4433f5d33dc"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMaterialState</b> ()</td></tr>
+<tr class="memitem:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc">ResetMaterialState</a> ()</td></tr>
 <tr class="separator:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb3ee508010c41734d05713af4eeb461"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb3ee508010c41734d05713af4eeb461"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>DisableBlending</b> ()</td></tr>
+<tr class="memitem:abb3ee508010c41734d05713af4eeb461"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#abb3ee508010c41734d05713af4eeb461">DisableBlending</a> ()</td></tr>
 <tr class="separator:abb3ee508010c41734d05713af4eeb461"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae184526b45d264101cc8e65186f8437e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae184526b45d264101cc8e65186f8437e"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>DisableTexture</b> ()</td></tr>
+<tr class="memitem:ae184526b45d264101cc8e65186f8437e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#ae184526b45d264101cc8e65186f8437e">DisableTexture</a> ()</td></tr>
 <tr class="separator:ae184526b45d264101cc8e65186f8437e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b8cf1972ee128929caeb265e5a72ad1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b8cf1972ee128929caeb265e5a72ad1"></a>
-static <a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultMaterial</b> ()</td></tr>
+<tr class="memitem:a0b8cf1972ee128929caeb265e5a72ad1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a0b8cf1972ee128929caeb265e5a72ad1">GetDefaultMaterial</a> ()</td></tr>
 <tr class="separator:a0b8cf1972ee128929caeb265e5a72ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c30fb338b4e85403dbd749eb36f0843"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c30fb338b4e85403dbd749eb36f0843"></a>
-static <a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultEffect</b> ()</td></tr>
+<tr class="memitem:a9c30fb338b4e85403dbd749eb36f0843"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a9c30fb338b4e85403dbd749eb36f0843">GetDefaultEffect</a> ()</td></tr>
 <tr class="separator:a9c30fb338b4e85403dbd749eb36f0843"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132f203b3ea6a332abd9e5ae14c730ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a132f203b3ea6a332abd9e5ae14c730ab"></a>
-static const <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultTexture</b> ()</td></tr>
+<tr class="memitem:a132f203b3ea6a332abd9e5ae14c730ab"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a132f203b3ea6a332abd9e5ae14c730ab">GetDefaultTexture</a> ()</td></tr>
 <tr class="separator:a132f203b3ea6a332abd9e5ae14c730ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f2b14f4475f2773c75e63438b9f328b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f2b14f4475f2773c75e63438b9f328b"></a>
-static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetProjectionMatrix</b> ()</td></tr>
+<tr class="memitem:a8f2b14f4475f2773c75e63438b9f328b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">GetProjectionMatrix</a> ()</td></tr>
 <tr class="separator:a8f2b14f4475f2773c75e63438b9f328b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a581ae9a207692ce6d466cbd06321a6c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a581ae9a207692ce6d466cbd06321a6c2"></a>
-static <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetFullscreenVBO</b> ()</td></tr>
+<tr class="memitem:a581ae9a207692ce6d466cbd06321a6c2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a581ae9a207692ce6d466cbd06321a6c2">GetFullscreenVBO</a> ()</td></tr>
 <tr class="separator:a581ae9a207692ce6d466cbd06321a6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a28934d82180c0f22e5475c655422f218"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28934d82180c0f22e5475c655422f218"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a28934d82180c0f22e5475c655422f218">Init</a> (const uint16_t w, const uint16_t h)</td></tr>
-<tr class="memdesc:a28934d82180c0f22e5475c655422f218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only to be called by <code><a class="el" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context.">gfx::CWindow</a></code> ONCE. <br/></td></tr>
-<tr class="separator:a28934d82180c0f22e5475c655422f218"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a47cef31a4820a8e33a66801cf7905ad2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47cef31a4820a8e33a66801cf7905ad2"></a>
-static <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_FullscreenQuad</b></td></tr>
-<tr class="separator:a47cef31a4820a8e33a66801cf7905ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9d76926ab12a10060f466b9d04fc936"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9d76926ab12a10060f466b9d04fc936"></a>
-static <a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultMaterial</b></td></tr>
-<tr class="separator:ab9d76926ab12a10060f466b9d04fc936"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa724f5f88f720ae97a3a1c65be4794d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa724f5f88f720ae97a3a1c65be4794d4"></a>
-static <a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultEffect</b></td></tr>
-<tr class="separator:aa724f5f88f720ae97a3a1c65be4794d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a323db35936ddc3cf2e7e1d627576c9ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a323db35936ddc3cf2e7e1d627576c9ae"></a>
-static <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>s_DefaultTexture</b></td></tr>
-<tr class="separator:a323db35936ddc3cf2e7e1d627576c9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af99cbbd246356ae59ce471ac2ebedb51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af99cbbd246356ae59ce471ac2ebedb51"></a>
-static <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>s_ProjMatrix</b></td></tr>
-<tr class="separator:af99cbbd246356ae59ce471ac2ebedb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43b53c6e2efd792d528771eb9fcb4184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43b53c6e2efd792d528771eb9fcb4184"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>s_blend</b></td></tr>
-<tr class="separator:a43b53c6e2efd792d528771eb9fcb4184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0b7dc24cd8f723b800fc6a9d875b70f"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#ae0b7dc24cd8f723b800fc6a9d875b70f">gfx::CScene</a></td></tr>
-<tr class="memdesc:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only the scenes can modify graphical API state. <br/></td></tr>
-<tr class="separator:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfff065a33d46a78a93a509fa3d752b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfff065a33d46a78a93a509fa3d752b7"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>gfx::CWindow</b></td></tr>
+<tr class="memitem:abfff065a33d46a78a93a509fa3d752b7"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#abfff065a33d46a78a93a509fa3d752b7">gfx::CWindow</a></td></tr>
 <tr class="separator:abfff065a33d46a78a93a509fa3d752b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14380f792fa3dbf85331a316893a2786"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14380f792fa3dbf85331a316893a2786"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>gfx::CRenderTarget</b></td></tr>
+<tr class="memitem:a14380f792fa3dbf85331a316893a2786"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a14380f792fa3dbf85331a316893a2786">gfx::CRenderTarget</a></td></tr>
 <tr class="separator:a14380f792fa3dbf85331a316893a2786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00054">54</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00053">53</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac9d5a5c2369f44b2bd9af2ec3504dbe3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CRenderer::BlendOperation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">BlendFunc</a> &amp;&#160;</td>
+          <td class="paramname"><em>Func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00031">31</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_ac9d5a5c2369f44b2bd9af2ec3504dbe3_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_ac9d5a5c2369f44b2bd9af2ec3504dbe3_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_ac9d5a5c2369f44b2bd9af2ec3504dbe3_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_ac9d5a5c2369f44b2bd9af2ec3504dbe3_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="216,12,376,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab14ae2f572f0d2a405d8ebbee3e5bd52"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CRenderer::EnableTexture </td>
+          <td>(</td>
+          <td class="paramtype">const GLuint&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00061">61</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_ab14ae2f572f0d2a405d8ebbee3e5bd52_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_ab14ae2f572f0d2a405d8ebbee3e5bd52_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_ab14ae2f572f0d2a405d8ebbee3e5bd52_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_ab14ae2f572f0d2a405d8ebbee3e5bd52_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a1f45e13224dd42f52ccb8194a1f2c9eb" title="zen::gfx::CRenderTarget\l::BindTexture" alt="" coords="216,5,379,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af9f6b37fdd6d81a96308f4433f5d33dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CRenderer::ResetMaterialState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00024">24</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_af9f6b37fdd6d81a96308f4433f5d33dc_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_af9f6b37fdd6d81a96308f4433f5d33dc_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_af9f6b37fdd6d81a96308f4433f5d33dc_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_af9f6b37fdd6d81a96308f4433f5d33dc_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="216,5,379,46"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="217,71,377,97"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="427,12,477,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abb3ee508010c41734d05713af4eeb461"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool zen::gfxcore::CRenderer::DisableBlending </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae184526b45d264101cc8e65186f8437e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CRenderer::DisableTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00067">67</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b8cf1972ee128929caeb265e5a72ad1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> &amp; CRenderer::GetDefaultMaterial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00004">4</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_a0b8cf1972ee128929caeb265e5a72ad1_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_a0b8cf1972ee128929caeb265e5a72ad1_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_a0b8cf1972ee128929caeb265e5a72ad1_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_a0b8cf1972ee128929caeb265e5a72ad1_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="216,5,379,46"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure." alt="" coords="216,71,379,97"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="481,12,532,39"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="427,67,587,93"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="443,118,570,159"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c30fb338b4e85403dbd749eb36f0843"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1gfx_1_1_c_effect.html">gfx::CEffect</a> &amp; CRenderer::GetDefaultEffect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00009">9</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_a9c30fb338b4e85403dbd749eb36f0843_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_a9c30fb338b4e85403dbd749eb36f0843_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_a9c30fb338b4e85403dbd749eb36f0843_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_a9c30fb338b4e85403dbd749eb36f0843_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="216,5,379,46"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="427,12,477,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a132f203b3ea6a332abd9e5ae14c730ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> &amp; CRenderer::GetDefaultTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00014">14</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="216,5,379,46"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="427,12,477,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f2b14f4475f2773c75e63438b9f328b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp; CRenderer::GetProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00019">19</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_a8f2b14f4475f2773c75e63438b9f328b_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_a8f2b14f4475f2773c75e63438b9f328b_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_renderer_a8f2b14f4475f2773c75e63438b9f328b_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_a8f2b14f4475f2773c75e63438b9f328b_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="216,5,379,46"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="427,12,477,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a581ae9a207692ce6d466cbd06321a6c2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">CVertexArray</a> &amp; CRenderer::GetFullscreenVBO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8inl_source.html#l00072">72</a> of file <a class="el" href="_renderer_8inl_source.html">Renderer.inl</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="abfff065a33d46a78a93a509fa3d752b7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classzen_1_1gfx_1_1_c_window.html">gfx::CWindow</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00071">71</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a14380f792fa3dbf85331a316893a2786"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html">gfx::CRenderTarget</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00072">72</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a></li>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_renderer_8inl_source.html">Renderer.inl</a></li>
 <li>Zenderer/src/CoreGraphics/<a class="el" href="_renderer_8cpp_source.html">Renderer.cpp</a></li>
+<li>Zenderer/src/<a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -72,7 +71,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
       <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
@@ -110,6 +108,7 @@ $(document).ready(function(){initNavTree('namespacezen_1_1gfx.html','');});
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">zen::gfx Namespace Reference</div>  </div>
@@ -141,11 +140,12 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html">CWindow</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a renderable OpenGL context.  <a href="classzen_1_1gfx_1_1_c_window.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_font.html">CFont</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af87835be09a9d82f987510725c8b72d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af87835be09a9d82f987510725c8b72d2"></a>
-typedef std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_light.html">CLight</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>LightSet_t</b></td></tr>
+<tr class="memitem:af87835be09a9d82f987510725c8b72d2"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_light.html">CLight</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#af87835be09a9d82f987510725c8b72d2">LightSet_t</a></td></tr>
 <tr class="separator:af87835be09a9d82f987510725c8b72d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -172,22 +172,38 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:aa78535cbb9eb98cf3e87cb166a6ba826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lighting types.  <a href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826">More...</a><br/></td></tr>
 <tr class="separator:aa78535cbb9eb98cf3e87cb166a6ba826"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab9130ea3e18d1f2b786c19700fe32ed8"><td class="memItemLeft" align="right" valign="top">static ZEN_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8">error_window</a> (const char *msg, const char *title)</td></tr>
+<tr class="separator:ab9130ea3e18d1f2b786c19700fe32ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7fc1cbadadf44939bd470783cd2b33d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fc1cbadadf44939bd470783cd2b33d2"></a>
-class <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CWindow</b></td></tr>
+<tr class="memitem:a7fc1cbadadf44939bd470783cd2b33d2"><td class="memItemLeft" align="right" valign="top">class ZEN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#a7fc1cbadadf44939bd470783cd2b33d2">CWindow</a></td></tr>
 <tr class="separator:a7fc1cbadadf44939bd470783cd2b33d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a534e225943c8387ba41403e841bdf232"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a534e225943c8387ba41403e841bdf232"></a>
-class <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CRenderTarget</b></td></tr>
+<tr class="memitem:a534e225943c8387ba41403e841bdf232"><td class="memItemLeft" align="right" valign="top">class ZEN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">CRenderTarget</a></td></tr>
 <tr class="separator:a534e225943c8387ba41403e841bdf232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20e89ec3d59082e2825d92df80de1387"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20e89ec3d59082e2825d92df80de1387"></a>
-class <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CScene</b></td></tr>
-<tr class="separator:a20e89ec3d59082e2825d92df80de1387"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7063428bb7b670de6aa13b3ebc39b2b"></a>
-static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b">ZENDERER_GL_VERSION</a> = 3.3</td></tr>
-<tr class="memdesc:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum supported OpenGL API version. <br/></td></tr>
+<tr class="memitem:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b">ZENDERER_GL_VERSION</a> = 3.3</td></tr>
+<tr class="memdesc:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum supported OpenGL API version.  <a href="#ae7063428bb7b670de6aa13b3ebc39b2b">More...</a><br/></td></tr>
 <tr class="separator:ae7063428bb7b670de6aa13b3ebc39b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20e89ec3d59082e2825d92df80de1387"><td class="memItemLeft" align="right" valign="top">class ZEN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfx.html#a20e89ec3d59082e2825d92df80de1387">CScene</a></td></tr>
+<tr class="separator:a20e89ec3d59082e2825d92df80de1387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="af87835be09a9d82f987510725c8b72d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="classzen_1_1gfx_1_1_c_light.html">CLight</a>*&gt; <a class="el" href="namespacezen_1_1gfx.html#af87835be09a9d82f987510725c8b72d2">zen::gfx::LightSet_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_light_8hpp_source.html#l00118">118</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36f"></a>
 <div class="memitem">
@@ -200,6 +216,7 @@ static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b1586
 </div><div class="memdoc">
 <p>See the table in the <a class="el" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a> documentation for appropriate parameters for each of the effects.</p>
 <dl class="section note"><dt>Note</dt><dd><code>CUSTOM_EFFECT</code> is only used by the material wrapper. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Fix table border problem in detailed docs. </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105"></a>NO_EFFECT</em>&nbsp;</td><td class="fielddoc">
 <p>No effect, default shaders. </p>
@@ -227,7 +244,7 @@ static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b1586
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00043">43</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00044">44</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -256,6 +273,108 @@ static const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b1586
 </table>
 
 <p>Definition at line <a class="el" href="_light_8hpp_source.html#l00034">34</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ab9130ea3e18d1f2b786c19700fe32ed8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static ZEN_API void zen::gfx::error_window </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>title</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_error_handler_8hpp_source.html#l00016">16</a> of file <a class="el" href="_error_handler_8hpp_source.html">ErrorHandler.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a7fc1cbadadf44939bd470783cd2b33d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class ZEN_API <a class="el" href="classzen_1_1gfx_1_1_c_window.html">zen::gfx::CWindow</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00038">38</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a534e225943c8387ba41403e841bdf232"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class ZEN_API <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html">zen::gfx::CRenderTarget</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00039">39</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7063428bb7b670de6aa13b3ebc39b2b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> zen::gfx::ZENDERER_GL_VERSION = 3.3</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00050">50</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20e89ec3d59082e2825d92df80de1387"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class ZEN_API <a class="el" href="classzen_1_1gfx_1_1_c_scene.html">zen::gfx::CScene</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00040">40</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>

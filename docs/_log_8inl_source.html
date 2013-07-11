@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,7 +109,7 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
 <div class="title">Log.inl</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;CLog&amp; CLog::operator&lt;&lt; (CLog&amp; (CLog::*Fn)())</div>
+<a href="_log_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;CLog&amp; <a class="code" href="_vector_8inl.html#ad007ede02e119f9ee8d41349da7929db">CLog::operator&lt;&lt; </a>(CLog&amp; (CLog::*Fn)())</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="comment">// Make sure we don&#39;t do extra work in release builds.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef _DEBUG</span></div>
@@ -121,7 +120,7 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;CLog&amp; CLog::operator&lt;&lt;(<span class="keyword">const</span> T&amp; data)</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#ac55ffbfa047950ed902c1bf0fc2b3984">   12</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; <a class="code" href="_vector_8inl.html#ad007ede02e119f9ee8d41349da7929db">CLog::operator&lt;&lt;</a>(<span class="keyword">const</span> T&amp; data)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Make sure we don&#39;t do extra work in release builds.</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef _DEBUG</span></div>
@@ -132,13 +131,13 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;CLog&amp; CLog::SetMode(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>&amp; Mode)</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2">   23</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; CLog::SetMode(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>&amp; Mode)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    m_mode = Mode;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;CLog&amp; CLog::SetSystem(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; sys)</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7">   29</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; CLog::SetSystem(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; sys)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Make sure we don&#39;t do extra work in release builds.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#ifndef _DEBUG</span></div>
@@ -149,22 +148,22 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> CLog::SetFilename(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; fn)</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d">   40</a></span>&#160;<span class="keywordtype">void</span> CLog::SetFilename(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; fn)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    m_filename = fn;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; CLog::GetSystem()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d">   45</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; CLog::GetSystem()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> m_system;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> CLog::GetFilename()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a8ee810e8f130b41733c45c7e05686ce1">   50</a></span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> CLog::GetFilename()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> m_filename;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">bool</span> CLog::IsInit()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa">   55</a></span>&#160;<span class="keywordtype">bool</span> CLog::IsInit()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> m_init;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
@@ -173,7 +172,7 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83649a668cc514157bc5eeec4c9e3f09.html">Utilities</a></li><li class="navelem"><b>Log.inl</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83649a668cc514157bc5eeec4c9e3f09.html">Utilities</a></li><li class="navelem"><a class="el" href="_log_8inl.html">Log.inl</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

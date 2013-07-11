@@ -1,6 +1,5 @@
 var _effect_8hpp =
 [
-    [ "CEffect", "classzen_1_1gfx_1_1_c_effect.html", "classzen_1_1gfx_1_1_c_effect" ],
     [ "EffectType", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36f", [
       [ "NO_EFFECT", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105", null ],
       [ "CUSTOM_EFFECT", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa45a29fc990b42080e8ce325d1aa182fa", null ],

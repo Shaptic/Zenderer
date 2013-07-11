@@ -1,3 +1,4 @@
 <map id="zen::util::toupper" name="zen::util::toupper">
-<area shape="rect" id="node2" href="$namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place)." alt="" coords="174,5,293,32"/>
+<area shape="rect" id="node2" href="$group___utilities.html#gaea41451a7d888f37f556828cb4dc5535" title="Attempts to return a boolean representation of a value." alt="" coords="173,5,312,46"/>
+<area shape="rect" id="node3" href="$namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place)." alt="" coords="183,71,302,97"/>
 </map>

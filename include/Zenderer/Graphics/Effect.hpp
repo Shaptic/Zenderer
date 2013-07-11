@@ -39,6 +39,7 @@ namespace gfx
      *  parameters for each of the effects.
      *
      * @note    `CUSTOM_EFFECT` is only used by the material wrapper.
+     * @todo    Fix table border problem in detailed docs.
      **/
     enum class EffectType : int16_t
     {

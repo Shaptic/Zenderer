@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,7 +109,7 @@ $(document).ready(function(){initNavTree('_timer_8cpp_source.html','');});
 <div class="title">Timer.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_timer_8hpp.html" title="Zenderer/Utilities/Timer.hpp - A native timer class for controlling engine frame rates and other high...">Zenderer/Utilities/Timer.hpp</a>&quot;</span></div>
+<a href="_timer_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_timer_8hpp.html" title="Zenderer/Utilities/Timer.hpp - A native timer class for controlling engine frame rates and other high...">Zenderer/Utilities/Timer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> std::chrono::duration_cast;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -123,42 +122,42 @@ $(document).ready(function(){initNavTree('_timer_8cpp_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b">   11</a></span>&#160;CTimer::CTimer(<span class="keyword">const</span> uint16_t frames) :</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_fps(frames), m_delta(1000.0 / frames) {}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;CTimer::~CTimer(){}</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#afd3f6595928cd20f7faaece75f017733">   14</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_timer.html#afd3f6595928cd20f7faaece75f017733">CTimer::~CTimer</a>(){}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae">   16</a></span>&#160;util::time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae" title="Marks start time and returns it.">CTimer::Start</a>()</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae">   16</a></span>&#160;<a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">util::time_t</a> <a class="code" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae" title="Marks start time and returns it.">CTimer::Start</a>()</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_start = clock_t::now();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> duration_cast&lt;<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>&gt;(m_start.time_since_epoch()).count();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd">   22</a></span>&#160;util::time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd" title="Marks finish time and returns it.">CTimer::Finish</a>()</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd">   22</a></span>&#160;<a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">util::time_t</a> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd" title="Marks finish time and returns it.">CTimer::Finish</a>()</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_end = clock_t::now();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> duration_cast&lt;<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>&gt;(m_end.time_since_epoch()).count();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001">   28</a></span>&#160;util::time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001" title="Returns finish time - start time.">CTimer::Elapsed</a>()</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001">   28</a></span>&#160;<a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">util::time_t</a> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001" title="Returns finish time - start time.">CTimer::Elapsed</a>()</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> duration_cast&lt;<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>&gt;(m_end - m_start).count();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6" title="Sleeps the current thread (defaults to milliseconds).">CTimer::Sleep</a>(<span class="keyword">const</span> util::time_t ticks)</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6" title="Sleeps the current thread (defaults to milliseconds).">CTimer::Sleep</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">util::time_t</a> ticks)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::this_thread::sleep_for(<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>(ticks));</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455">   39</a></span>&#160;util::time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame-rate.">CTimer::Delay</a>()</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455">   39</a></span>&#160;<a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">util::time_t</a> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame-rate.">CTimer::Delay</a>()</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Convert the time difference to milliseconds.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    time_t ms = duration_cast&lt;<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>&gt;(clock_t::now() - m_start).count();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">time_t</a> ms = duration_cast&lt;<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>&gt;(clock_t::now() - m_start).count();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(ms &lt; m_delta)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        precision_t pause(time_t(m_delta - ms));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        precision_t pause(<a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">time_t</a>(m_delta - ms));</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        std::this_thread::sleep_for(pause);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if defined(ZEN_SHOW_DELAY) &amp;&amp; defined(_DEBUG)</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span>        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; L = <a class="code" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log.">CLog::GetEngineLog</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span>        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> = <a class="code" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log.">CLog::GetEngineLog</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        L &lt;&lt; L.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG) &lt;&lt; L.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Timer&quot;</span>)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;Delaying for &quot;</span> &lt;&lt; pause.count() &lt;&lt; <span class="stringliteral">&quot;ms.&quot;</span> &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">CLog::endl</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // ZEN_SHOW_DELAY</span></div>
@@ -167,7 +166,7 @@ $(document).ready(function(){initNavTree('_timer_8cpp_source.html','');});
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> ms;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c">   59</a></span>&#160;util::time_t <a class="code" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c" title="Returns the current clock time.">CTimer::GetTime</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c">   59</a></span>&#160;<a class="code" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">util::time_t</a> <a class="code" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c" title="Returns the current clock time.">CTimer::GetTime</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> duration_cast&lt;<a class="code" href="classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66" title="Shortcut for the precision we want (do not change if using delays).">precision_t</a>&gt;(</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        clock_t::now().time_since_epoch()).count();</div>
@@ -185,7 +184,7 @@ $(document).ready(function(){initNavTree('_timer_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_c41963e08dd1fdd0c8449c288287ef04.html">Utilities</a></li><li class="navelem"><b>Timer.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_c41963e08dd1fdd0c8449c288287ef04.html">Utilities</a></li><li class="navelem"><a class="el" href="_timer_8cpp.html">Timer.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

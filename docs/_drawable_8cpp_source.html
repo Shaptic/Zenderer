@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,121 +109,121 @@ $(document).ready(function(){initNavTree('_drawable_8cpp_source.html','');});
 <div class="title">Drawable.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp - An abstract base class for drawing primitives.">Zenderer/CoreGraphics/Drawable.hpp</a>&quot;</span></div>
+<a href="_drawable_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp - An abstract base class for drawing primitives.">Zenderer/CoreGraphics/Drawable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives.">gfxcore::CDrawable</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;CDrawable::CDrawable() : mp_VAO(nullptr), mp_Material(nullptr),</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a2c1f3e0daa107108491bb0f7d9d13839">    6</a></span>&#160;CDrawable::CDrawable() : mp_VAO(nullptr), mp_Material(nullptr),</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    mp_MVMatrix(nullptr), m_offset(0), m_internal(false)</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    m_DrawData.Vertices = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    m_DrawData.Indices  = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_DrawData.icount   =</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_DrawData.vcount   = 0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#a840c53d7d48601c3a0672cfcfc3e480f" title="Vertex array.">Vertices</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#a83c7cacda425edf9caffaf5b141b13fd" title="Index array.">Indices</a>  = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>   =</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>   = 0;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;CDrawable::~CDrawable()</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a58fd1036856d627b19976088e4143630">   15</a></span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a58fd1036856d627b19976088e4143630">CDrawable::~CDrawable</a>()</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(m_internal) <span class="keyword">delete</span> mp_VAO;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4a873380d505b6ec978a1c6c09034a16">m_internal</a>) <span class="keyword">delete</span> mp_VAO;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2">   20</a></span>&#160;<span class="keywordtype">void</span> CDrawable::Move(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">math::vector_t</a>&amp; Position)</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2">   20</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2" title="Moves the drawable to a certain location.">CDrawable::Move</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a>&amp; Position)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_Position = Position;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">m_Position</a> = Position;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> CDrawable::Move(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> z <span class="comment">/*= 0.0*/</span>)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2" title="Moves the drawable to a certain location.">CDrawable::Move</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="_engine_test_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>, <span class="keyword">const</span> <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="_engine_test_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a>, <span class="keyword">const</span> <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> z <span class="comment">/*= 0.0*/</span>)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    m_Position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(x, y, z);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">m_Position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(x, y, z);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7">   30</a></span>&#160;<span class="keywordtype">void</span> CDrawable::SetColor(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7" title="Sets all vertices to have a given color value.">CDrawable::SetColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>&amp; Color)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; m_DrawData.vcount; ++i)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>; ++i)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        m_DrawData.Vertices[i].color = Color;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#a840c53d7d48601c3a0672cfcfc3e480f" title="Vertex array.">Vertices</a>[i].<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html#a6924733c1ccf66bbc26e0e941f723162" title="Vertex color.">color</a> = Color;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e">   38</a></span>&#160;<span class="keywordtype">bool</span> CDrawable::Draw(<span class="keyword">const</span> <span class="keywordtype">bool</span> is_bound <span class="comment">/*= false*/</span>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on-screen.">CDrawable::Draw</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> is_bound <span class="comment">/*= false*/</span>)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(mp_VAO == <span class="keyword">nullptr</span> &amp;&amp; !is_bound)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// Create a vertex array and load our data.</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        mp_VAO = <span class="keyword">new</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>(GL_STATIC_DRAW);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        mp_VAO-&gt;Init();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        m_offset = mp_VAO-&gt;AddData(m_DrawData);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span>(!mp_VAO-&gt;Offload()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        mp_VAO-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        m_offset = mp_VAO-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">AddData</a>(<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span>(!mp_VAO-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// Create our model-view matrix.</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        mp_MVMatrix = <span class="keyword">new</span> <a class="code" href="namespacezen_1_1math.html#a49d1232c008227e29042716937fb25cf" title="Forward declaration of a 4x4 matrix for use in 2D vector translation.">math::matrix4x4_t</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       *mp_MVMatrix = math::matrix4x4_t::CreateIdentityMatrix();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       *mp_MVMatrix = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">math::matrix4x4_t::CreateIdentityMatrix</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// Our default set of material data, if needed.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span>(!mp_Material) mp_Material = &amp;CRenderer::GetDefaultMaterial();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a>) <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a> = &amp;<a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a0b8cf1972ee128929caeb265e5a72ad1">CRenderer::GetDefaultMaterial</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">// So we can differentiate between a VAO from a `CScene`</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">// and the one we made ourselves.</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        m_internal = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4a873380d505b6ec978a1c6c09034a16">m_internal</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// If something isn&#39;t previously bound, we bind the VAO</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// and the material. If no material, use global default.</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(!is_bound)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(!mp_VAO-&gt;Bind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(!mp_VAO-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Insert our coordinates to transform in the shader.</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// Ignore the Z coordinate because that&#39;s only used for depth</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="comment">// sorting internally anyway and has no effect on visuals.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        (*mp_MVMatrix)[0][3] = m_Position.x;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        (*mp_MVMatrix)[1][3] = m_Position.y;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        (*mp_MVMatrix)[0][3] = <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">m_Position</a>.x;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        (*mp_MVMatrix)[1][3] = <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">m_Position</a>.y;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">//(*mp_MVMatrix)[2][3] = m_Position.z;</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">// Use our effect, or the default?</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>* pEffect = (mp_Material-&gt;GetEffect() == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                ? &amp;CRenderer::GetDefaultEffect()</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                : mp_Material-&gt;GetEffect();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>* pEffect = (<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a>-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a4875fbd3445bad0b917dd7222e601eb0">GetEffect</a>() == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                ? &amp;<a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a9c30fb338b4e85403dbd749eb36f0843">CRenderer::GetDefaultEffect</a>()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                : <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a>-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a4875fbd3445bad0b917dd7222e601eb0">GetEffect</a>();</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// Use our texture, or the default?</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// We need a default texture because otherwise the color would</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// always be black due to the way the shader works.</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTexture =</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            (mp_Material-&gt;GetTexture() == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            ? const_cast&lt;gfxcore::CTexture*&gt;(&amp;CRenderer::GetDefaultTexture())</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            : mp_Material-&gt;GetTexture();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            (<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a>-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a536653a669f2ddfa6f517a2e1c6a229f">GetTexture</a>() == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            ? const_cast&lt;gfxcore::CTexture*&gt;(&amp;<a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a132f203b3ea6a332abd9e5ae14c730ab">CRenderer::GetDefaultTexture</a>())</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            : <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a>-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a536653a669f2ddfa6f517a2e1c6a229f">GetTexture</a>();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        pEffect-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a55724770ecc469bc576fbc2edd402432" title="A more user-friendly alias for binding.">Enable</a>();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        pTexture-&gt;Bind();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#a741d58d64ae800ff4851c27295801962">Bind</a>();</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment">// All effects have these parameters in the vertex shader.</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">if</span>(!pEffect-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;mv&quot;</span>, *mp_MVMatrix) ||</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;           !pEffect-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix()))</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;           !pEffect-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">CRenderer::GetProjectionMatrix</a>()))</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            CRenderer::ResetMaterialState();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc">CRenderer::ResetMaterialState</a>();</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    GL(glDrawElements(GL_TRIANGLES, m_DrawData.icount,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    GL(glDrawElements(GL_TRIANGLES, <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>,</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices.">INDEX_TYPE</a>, (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>) * m_offset)));</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> !is_bound ?</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        (CRenderer::ResetMaterialState() &amp;&amp; mp_VAO-&gt;Unbind()) :</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        (<a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc">CRenderer::ResetMaterialState</a>() &amp;&amp; mp_VAO-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a7363f6b19699a918e04de8a132aaa390">Unbind</a>()) :</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">  106</a></span>&#160;<span class="keywordtype">void</span> CDrawable::LoadIntoVAO(<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>&amp; VAO)</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">  106</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3" title="Shortcut to prevent loading simple objects manually.">CDrawable::LoadIntoVAO</a>(<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>&amp; VAO)</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">AddData</a>(m_DrawData);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">AddData</a>(<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a>);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_06e027613a13d1054daca9a92baf0960.html">CoreGraphics</a></li><li class="navelem"><b>Drawable.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_06e027613a13d1054daca9a92baf0960.html">CoreGraphics</a></li><li class="navelem"><a class="el" href="_drawable_8cpp.html">Drawable.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

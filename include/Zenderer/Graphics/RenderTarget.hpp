@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/Graphics/RenderTarger.hpp - An object wrapper for OpenGL
+ *  Zenderer/Graphics/RenderTarget.hpp - An object wrapper for OpenGL
  *  frame buffer objects.
  *
  * @author      George Kudrayvtsev (halcyon)
@@ -74,7 +74,7 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__RENDER_TARGET_HPP
 
 /**
- * @class gfx::CRenderTarger
+ * @class gfx::CRenderTarget
  *
  * @details
  *  Render targets are useful for rendering things off-screen,

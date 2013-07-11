@@ -4,6 +4,7 @@ var classzen_1_1gfx_1_1_c_material =
     [ "CMaterial", "classzen_1_1gfx_1_1_c_material.html#ad10f3ab2830100de311c754c5ef78e89", null ],
     [ "~CMaterial", "classzen_1_1gfx_1_1_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca", null ],
     [ "LoadFromFile", "classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1", null ],
+    [ "LoadFromStream", "classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43", null ],
     [ "LoadTextureFromFile", "classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06", null ],
     [ "LoadEffect", "classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6", null ],
     [ "Attach", "classzen_1_1gfx_1_1_c_material.html#a5ba1fdd8516cc54cb4c79f3a379337ef", null ],

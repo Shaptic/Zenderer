@@ -1,2 +1,13 @@
 <map id="zen::obj::CEntity" name="zen::obj::CEntity">
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="31,363,195,587"/>
+<area shape="rect" id="node12" href="$classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives." alt="" coords="155,651,317,919"/>
+<area shape="rect" id="node4" href="$classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets." alt="" coords="399,1305,583,1543"/>
+<area shape="rect" id="node5" href="$classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="549,1045,675,1240"/>
+<area shape="rect" id="node7" title="STL class." alt="" coords="443,747,523,824"/>
+<area shape="rect" id="node8" title="STL class." alt="" coords="419,429,545,521"/>
+<area shape="rect" id="node9" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="550,666,673,905"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1_c_quad.html" title="A four&#45;sided quadrilateral primitive." alt="" coords="173,1045,299,1240"/>
+<area shape="rect" id="node13" href="$structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="230,421,393,528"/>
+<area shape="rect" id="node14" href="$structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="239,206,385,298"/>
+<area shape="rect" id="node15" href="$structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="262,5,361,141"/>
 </map>

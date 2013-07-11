@@ -1,4 +1,6 @@
 <map id="zen::util::CSettings" name="zen::util::CSettings">
-<area shape="rect" id="node2" href="$classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="18,309,144,533"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="19,6,143,245"/>
+<area shape="rect" id="node2" href="$classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="131,453,257,648"/>
+<area shape="rect" id="node4" title="STL class." alt="" coords="92,231,172,308"/>
+<area shape="rect" id="node5" title="STL class." alt="" coords="69,6,195,98"/>
+<area shape="rect" id="node6" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="197,150,320,389"/>
 </map>

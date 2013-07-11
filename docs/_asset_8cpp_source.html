@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,7 +109,7 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="title">Asset.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp - An abstract base class used by all managed assets in Zenderer.">Zenderer/Assets/Asset.hpp</a>&quot;</span></div>
+<a href="_asset_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp - An abstract base class used by all managed assets in Zenderer.">Zenderer/Assets/Asset.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -131,11 +130,11 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">   20</a></span>&#160;<span class="keywordtype">bool</span> CAsset::LoadFromExisting(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>* <span class="keyword">const</span> pCopy)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_error_str     = pCopy-&gt;m_error_str;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_filename      = pCopy-&gt;m_filename;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_filename_hash = pCopy-&gt;m_filename_hash;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    mp_owner        = pCopy-&gt;mp_owner;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    m_loaded        = pCopy-&gt;m_loaded;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_error_str     = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">m_error_str</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_filename      = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">m_filename</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_filename_hash = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    mp_owner        = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f">mp_owner</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    m_loaded        = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
@@ -144,7 +143,7 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_3c38a32aee846584c33b3c7a24a46c52.html">Assets</a></li><li class="navelem"><b>Asset.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_3c38a32aee846584c33b3c7a24a46c52.html">Assets</a></li><li class="navelem"><a class="el" href="_asset_8cpp.html">Asset.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

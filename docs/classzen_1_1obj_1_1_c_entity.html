@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -112,9 +111,10 @@ $(document).ready(function(){initNavTree('classzen_1_1obj_1_1_c_entity.html','')
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">zen::obj::CEntity Class Reference</div>  </div>
+<div class="title">zen::obj::CEntity Class Reference<div class="ingroups"><a class="el" href="group___objects.html">Objects</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -126,59 +126,71 @@ $(document).ready(function(){initNavTree('classzen_1_1obj_1_1_c_entity.html','')
 Collaboration diagram for zen::obj::CEntity:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1obj_1_1_c_entity__coll__graph.png" border="0" usemap="#zen_1_1obj_1_1_c_entity_coll__map" alt="Collaboration graph"/></div>
+<map name="zen_1_1obj_1_1_c_entity_coll__map" id="zen_1_1obj_1_1_c_entity_coll__map">
+<area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="31,363,195,587"/><area shape="rect" id="node12" href="classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives." alt="" coords="155,651,317,919"/><area shape="rect" id="node4" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets." alt="" coords="399,1305,583,1543"/><area shape="rect" id="node5" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="549,1045,675,1240"/><area shape="rect" id="node7" title="STL class." alt="" coords="443,747,523,824"/><area shape="rect" id="node8" title="STL class." alt="" coords="419,429,545,521"/><area shape="rect" id="node9" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="550,666,673,905"/><area shape="rect" id="node11" href="classzen_1_1gfx_1_1_c_quad.html" title="A four&#45;sided quadrilateral primitive." alt="" coords="173,1045,299,1240"/><area shape="rect" id="node13" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="230,421,393,528"/><area shape="rect" id="node14" href="structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="239,206,385,298"/><area shape="rect" id="node15" href="structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="262,5,361,141"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2cd6499ff50dee1cf1fc7e53434ff2ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a2cd6499ff50dee1cf1fc7e53434ff2ac">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
-<tr class="separator:a2cd6499ff50dee1cf1fc7e53434ff2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9213b538b9eac1790b191229e19112a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9213b538b9eac1790b191229e19112a8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromTexture</b> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
-<tr class="separator:a9213b538b9eac1790b191229e19112a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affef1e8b0c79780bbbf92acd082de0a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affef1e8b0c79780bbbf92acd082de0a7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>AddPrimitive</b> (const CQuad &amp;Prim)</td></tr>
+<tr class="memitem:ad205f24da849a39624205314f14fdaa2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ad205f24da849a39624205314f14fdaa2">CEntity</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Assets)</td></tr>
+<tr class="separator:ad205f24da849a39624205314f14fdaa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcbe70066b0b6377706a6d340d432e9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#abfcbe70066b0b6377706a6d340d432e9">~CEntity</a> ()</td></tr>
+<tr class="separator:abfcbe70066b0b6377706a6d340d432e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a566cefb83ad8fd96e459e69e7881c821"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="separator:a566cefb83ad8fd96e459e69e7881c821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb1b9ade210dbb66e7e0c23042e7aa3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a">LoadFromTexture</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="separator:aeb1b9ade210dbb66e7e0c23042e7aa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affef1e8b0c79780bbbf92acd082de0a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#affef1e8b0c79780bbbf92acd082de0a7">AddPrimitive</a> (const CQuad &amp;Prim)</td></tr>
 <tr class="separator:affef1e8b0c79780bbbf92acd082de0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c3851ea01ff7798c21fac8c75206ada"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c3851ea01ff7798c21fac8c75206ada"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> ()</td></tr>
+<tr class="memitem:a3c3851ea01ff7798c21fac8c75206ada"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a3c3851ea01ff7798c21fac8c75206ada">Create</a> ()</td></tr>
 <tr class="separator:a3c3851ea01ff7798c21fac8c75206ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c506edf6eef2c9c1dc8e6e404aacf5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c506edf6eef2c9c1dc8e6e404aacf5a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>Draw</b> (bool is_bound=false)</td></tr>
+<tr class="memitem:a4c506edf6eef2c9c1dc8e6e404aacf5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a4c506edf6eef2c9c1dc8e6e404aacf5a">Draw</a> (bool is_bound=false)</td></tr>
 <tr class="separator:a4c506edf6eef2c9c1dc8e6e404aacf5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a5bf79c088e3164608707b83b98cf0ad8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>ErrorType</b> : uint16_t { <b>BAD_PAIR</b>, 
-<b>BAD_POSITION</b>, 
-<b>NO_TEXTURE</b>
+<tr class="memitem:a5bf79c088e3164608707b83b98cf0ad8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a> : uint16_t { <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a968c8f9ea3f822717ddbe293a438f8e4">BAD_PAIR</a>, 
+<a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a320279cad52cf07a71c42863c330941e">BAD_POSITION</a>, 
+<a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a8bb3d6081b8371f76680291b5cb3a196">BAD_MATERIAL</a>, 
+<a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a6dda1d13ca27a41db41cc5174dfbc155">NO_TEXTURE</a>
  }</td></tr>
 <tr class="separator:a5bf79c088e3164608707b83b98cf0ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a95229068ce9fb1a2b021331df2acba73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95229068ce9fb1a2b021331df2acba73"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>FileError</b> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;line, const uint32_t line_no, const ErrorType &amp;Err=ErrorType::BAD_PAIR)</td></tr>
-<tr class="separator:a95229068ce9fb1a2b021331df2acba73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6670334ed481cf27b779969711d45dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#af6670334ed481cf27b779969711d45dd">Destroy</a> ()</td></tr>
+<tr class="separator:af6670334ed481cf27b779969711d45dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe01427442323f71ab2e20174a71a12c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#afe01427442323f71ab2e20174a71a12c">FileError</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;line, const uint32_t line_no, const <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a> &amp;Err=ErrorType::BAD_PAIR)</td></tr>
+<tr class="separator:afe01427442323f71ab2e20174a71a12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a0ea5ae5d40e12e5d5c1d9bfd9ff1893a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ea5ae5d40e12e5d5c1d9bfd9ff1893a"></a>
-<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_filename</b></td></tr>
+<tr class="memitem:a1e0602295558bc4f3b9bf106c6994798"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">m_Assets</a></td></tr>
+<tr class="separator:a1e0602295558bc4f3b9bf106c6994798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea5ae5d40e12e5d5c1d9bfd9ff1893a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">m_filename</a></td></tr>
 <tr class="separator:a0ea5ae5d40e12e5d5c1d9bfd9ff1893a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ec0d29a37661991a6c1d5871d1179a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ec0d29a37661991a6c1d5871d1179a6"></a>
-std::vector&lt; CQuad * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mp_allPrims</b></td></tr>
-<tr class="separator:a1ec0d29a37661991a6c1d5871d1179a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9716e68cd74d264fc980294621fabbff"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_quad.html">gfx::CQuad</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">mp_allPrims</a></td></tr>
+<tr class="separator:a9716e68cd74d264fc980294621fabbff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98f46fbfae5bff311fedbe8b0a31b27"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ac98f46fbfae5bff311fedbe8b0a31b27">mp_allMaterials</a></td></tr>
+<tr class="separator:ac98f46fbfae5bff311fedbe8b0a31b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ab2cc0f1324446d3b6cebddcb6e18cf04"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ab2cc0f1324446d3b6cebddcb6e18cf04">gui::CFont</a></td></tr>
+<tr class="separator:ab2cc0f1324446d3b6cebddcb6e18cf04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ae0b7dc24cd8f723b800fc6a9d875b70f">gfx::CScene</a></td></tr>
+<tr class="separator:ae0b7dc24cd8f723b800fc6a9d875b70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>These differ from generic primitives in the sense that they have a lot more functionality abstracted away, as well as additional functions like animation and physics reactions (in inheriting classes).</p>
-<p>They do use the <a class="el" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">zen::gfx::CQuad</a> class at their core, but function at a much higher level.</p>
+<div class="textblock"><p>These differ from generic primitives in the sense that they have a lot more functionality abstracted away, as well as additional functions like animation and physics reactions (in inheriting classes). They do use the <a class="el" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">zen::gfx::CQuad</a> class at their core, but function at a much higher level.</p>
 <p>They can also be loaded from files (see the spec) and can contain multiple primitive instances.</p>
 <p>When creating an entity from multiple primitives, a copy of the vertex/index data will be stored internally in order to prevent a bad reference later.</p>
 <p>The call to <code>Optimize()</code> is not necessary, but is recommended to merge identical primitives together if they use the same material.</p>
 <dl class="section see"><dt>See Also</dt><dd>specs.html::ZEnt </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00046">46</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a2cd6499ff50dee1cf1fc7e53434ff2ac"></a>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00047">47</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="a5bf79c088e3164608707b83b98cf0ad8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -186,10 +198,43 @@ std::vector&lt; CQuad * &gt;&#160;</td><td class="memItemRight" valign="bottom">
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::obj::CEntity::LoadFromFile </td>
+          <td class="memname">enum <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">zen::obj::CEntity::ErrorType</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a5bf79c088e3164608707b83b98cf0ad8a968c8f9ea3f822717ddbe293a438f8e4"></a>BAD_PAIR</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a5bf79c088e3164608707b83b98cf0ad8a320279cad52cf07a71c42863c330941e"></a>BAD_POSITION</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a5bf79c088e3164608707b83b98cf0ad8a8bb3d6081b8371f76680291b5cb3a196"></a>BAD_MATERIAL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a5bf79c088e3164608707b83b98cf0ad8a6dda1d13ca27a41db41cc5174dfbc155"></a>NO_TEXTURE</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00051">51</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad205f24da849a39624205314f14fdaa2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zen::obj::CEntity::CEntity </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>Assets</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -199,14 +244,338 @@ std::vector&lt; CQuad * &gt;&#160;</td><td class="memItemRight" valign="bottom">
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Move semantics on <code><a class="el" href="namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a" title="Splits a string into a list of substrings based on a delimiter.">util::split()</a></code> </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00062">62</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00060">60</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="abfcbe70066b0b6377706a6d340d432e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual zen::obj::CEntity::~CEntity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a566cefb83ad8fd96e459e69e7881c821"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CEntity::LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Move semantics on <code><a class="el" href="namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a" title="Splits a string into a list of substrings based on a delimiter.">util::split()</a></code> </dd></dl>
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00006">6</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb1b9ade210dbb66e7e0c23042e7aa3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CEntity::LoadFromTexture </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00111">111</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="affef1e8b0c79780bbbf92acd082de0a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::obj::CEntity::AddPrimitive </td>
+          <td>(</td>
+          <td class="paramtype">const CQuad &amp;&#160;</td>
+          <td class="paramname"><em>Prim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3c3851ea01ff7798c21fac8c75206ada"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::obj::CEntity::Create </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4c506edf6eef2c9c1dc8e6e404aacf5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::obj::CEntity::Draw </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_bound</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af6670334ed481cf27b779969711d45dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CEntity::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00133">133</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph" alt=""/></div>
+<map name="classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph" id="classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="181,12,341,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afe01427442323f71ab2e20174a71a12c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CEntity::FileError </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>line_no</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a> &amp;&#160;</td>
+          <td class="paramname"><em>Err</em> = <code>ErrorType::BAD_PAIR</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00140">140</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="ab2cc0f1324446d3b6cebddcb6e18cf04"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classzen_1_1gui_1_1_c_font.html">gui::CFont</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00071">71</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0b7dc24cd8f723b800fc6a9d875b70f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classzen_1_1gfx_1_1_c_scene.html">gfx::CScene</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00072">72</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a1e0602295558bc4f3b9bf106c6994798"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a>&amp; zen::obj::CEntity::m_Assets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00080">80</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ea5ae5d40e12e5d5c1d9bfd9ff1893a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> zen::obj::CEntity::m_filename</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00082">82</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9716e68cd74d264fc980294621fabbff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classzen_1_1gfx_1_1_c_quad.html">gfx::CQuad</a>*&gt; zen::obj::CEntity::mp_allPrims</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00083">83</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac98f46fbfae5bff311fedbe8b0a31b27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a>*&gt; zen::obj::CEntity::mp_allMaterials</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00084">84</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/Objects/<a class="el" href="_entity_8hpp_source.html">Entity.hpp</a></li>
+<li>Zenderer/src/Objects/<a class="el" href="_entity_8cpp_source.html">Entity.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

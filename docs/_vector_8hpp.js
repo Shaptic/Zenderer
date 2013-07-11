@@ -5,6 +5,5 @@ var _vector_8hpp =
     [ "vectorf_t", "_vector_8hpp.html#a73db4a585e2e07333d41f039e5b89885", null ],
     [ "vectoru16_t", "_vector_8hpp.html#ad273fd47b6c01faa8b3baa9984b1783a", null ],
     [ "vectori_t", "_vector_8hpp.html#a8efa8e8f4ce783129c672facb9de060e", null ],
-    [ "operator<<", "_vector_8hpp.html#a08b014e1e562088106c6d22748ae681c", null ],
     [ "matrix4x4_t", "_vector_8hpp.html#a49d1232c008227e29042716937fb25cf", null ]
 ];

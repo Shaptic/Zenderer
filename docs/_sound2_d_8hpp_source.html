@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -120,13 +119,13 @@ $(document).ready(function(){initNavTree('_sound2_d_8hpp_source.html','');});
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>sfx</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">CSound2D</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects.">CAudio2D</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html">   33</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">CSound2D</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects.">CAudio2D</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">CSound2D</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopy){ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a404c0f20fa40144238d5059e4eeca858">   39</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a404c0f20fa40144238d5059e4eeca858">LoadFromExisting</a>(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopy){ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> Play();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
@@ -140,7 +139,7 @@ $(document).ready(function(){initNavTree('_sound2_d_8hpp_source.html','');});
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108">   54</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108" title="Always returns true if the file is loaded.">Ready</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a29506f8739fc077481fbd74a9d37b17f">   56</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">CSound2D</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner = <span class="keyword">nullptr</span>);</div>

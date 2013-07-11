@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -102,7 +101,7 @@ $(document).ready(function(){initNavTree('group___audio.html','');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
 <div class="title">Audio</div>  </div>
 </div><!--header-->
@@ -117,12 +116,17 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacezen"><td class="mdescLeft">&#160;</td><td class="mdescRight">An all-encompassing namespace for any and all components of <em>Zenderer</em>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1c4082c9be52c1ff9c9ea039b70e8caa"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa">AL</a>(f)&#160;&#160;&#160;f;</td></tr>
-<tr class="memdesc:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatic OpenAL call checking in debug builds. <br/></td></tr>
-<tr class="separator:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An abstract base class for audio objects.  <a href="classzen_1_1sfx_1_1_c_audio2_d.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html">zen::sfx::CMusic2D</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Music files (<code>.ogg</code> files)  <a href="classzen_1_1sfx_1_1_c_music2_d.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html">zen::sfx::CSound2D</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sound effects (<code>.wav</code> files)  <a href="classzen_1_1sfx_1_1_c_sound2_d.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Not used in the engine itself, this subsystem provides the ability to play sound effects, music, and other audio files both in WAV and OGG formats. It's recommended that you only use OGG for longer files (greater than 96kB), because they have the possibility to fail otherwise. This is because the OGG streaming facility cycles through 3 32kB buffers, so they should all at least be able to be filled once. </p>

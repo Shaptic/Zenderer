@@ -1,7 +1,8 @@
 <map id="Zenderer/include/Zenderer/Graphics/Window.hpp" name="Zenderer/include/Zenderer/Graphics/Window.hpp">
-<area shape="rect" id="node2" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="55,97,225,138"/>
-<area shape="rect" id="node3" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="116,187,287,229"/>
-<area shape="rect" id="node6" href="$_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="301,97,451,138"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="5,277,192,304"/>
-<area shape="rect" id="node5" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="217,277,391,304"/>
+<area shape="rect" id="node2" href="$_error_handler_8hpp_source.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="5,97,184,138"/>
+<area shape="rect" id="node3" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="208,97,379,138"/>
+<area shape="rect" id="node4" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="269,187,440,229"/>
+<area shape="rect" id="node7" href="$_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="454,97,604,138"/>
+<area shape="rect" id="node5" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="158,277,345,304"/>
+<area shape="rect" id="node6" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="371,277,544,304"/>
 </map>

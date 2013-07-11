@@ -1,0 +1,6 @@
+<map id="zen::gfxcore::CVertexArray::Offloaded" name="zen::gfxcore::CVertexArray::Offloaded">
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU." alt="" coords="232,34,411,75"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="459,5,621,46"/>
+<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="460,71,620,97"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="669,12,720,39"/>
+</map>

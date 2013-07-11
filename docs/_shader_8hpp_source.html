@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -122,13 +121,13 @@ $(document).ready(function(){initNavTree('_shader_8hpp_source.html','');});
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp - An abstract base class used by all managed assets in Zenderer.">Zenderer/Assets/Asset.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp - Includes necessary OpenGL-related headers and defines convenience ...">OpenGL.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c">   34</a></span>&#160;<span class="preprocessor">#define ZENDERER_SHADER_PATH &quot;Zenderer/shaders/&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define ZENDERER_SHADER_PATH &quot;Zenderer/shaders/&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>gfxcore</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">   41</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects.">CShader</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr);</div>
@@ -140,7 +139,7 @@ $(document).ready(function(){initNavTree('_shader_8hpp_source.html','');});
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> LoadFromRaw(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; <span class="keywordtype">string</span>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> GetData() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>

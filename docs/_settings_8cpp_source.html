@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,26 +109,26 @@ $(document).ready(function(){initNavTree('_settings_8cpp_source.html','');});
 <div class="title">Settings.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp - An abstraction dictionary layer allowing easy setting of options...">Zenderer/Utilities/Settings.hpp</a>&quot;</span></div>
+<a href="_settings_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp - An abstraction dictionary layer allowing easy setting of options...">Zenderer/Utilities/Settings.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_settings.html">util::CSettings</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_settings.html" title="An array-like wrapper for various settings.">util::CSettings</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">util::COption</a>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/****************************************************************</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *                     COption Definitions                      *</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> ***************************************************************/</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;COption::COption(){}</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_option.html#aca15b5270965b8d060804d4d0642f27d">   15</a></span>&#160;COption::COption(){}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;COption::COption(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; value) :</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_option.html#a86b9dd59413818a856e79529ab246861">   17</a></span>&#160;COption::COption(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; value) :</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_value(value) {}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;COption::COption(<span class="keyword">const</span> COption&amp; Opt) :</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_option.html#ab40282de4a85afcf27bd78bb261ecc7e">   20</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_option.html#aca15b5270965b8d060804d4d0642f27d">COption::COption</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">COption</a>&amp; Opt) :</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_value(Opt.m_value) {}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_option.html#a8be9806dcd1db45b228fb4ec71e90e4b">   23</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">COption</a>&amp; <a class="code" href="classzen_1_1util_1_1_c_option.html#a8be9806dcd1db45b228fb4ec71e90e4b" title="Create from option.">COption::operator=</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">COption</a>&amp; Opt)</div>
@@ -171,7 +170,7 @@ $(document).ready(function(){initNavTree('_settings_8cpp_source.html','');});
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> value ? m_value != <span class="stringliteral">&quot;0&quot;</span> : m_value == <span class="stringliteral">&quot;0&quot;</span>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;std::ostream&amp; util::operator&lt;&lt;(std::ostream&amp; o, <span class="keyword">const</span> COption&amp; Opt)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;std::ostream&amp; <a class="code" href="_vector_8inl.html#ad007ede02e119f9ee8d41349da7929db">util::operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> COption&amp; Opt)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> (o &lt;&lt; Opt.m_value);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
@@ -180,24 +179,24 @@ $(document).ready(function(){initNavTree('_settings_8cpp_source.html','');});
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> *                      CSettings Definitions                   *</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> ***************************************************************/</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;CSettings::CSettings(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> filename) :</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a>(<span class="stringliteral">&quot;Settings&quot;</span>), m_Log(CLog::GetEngineLog()),</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_settings.html#afc603312b4f5a4506dd0b342db01f0ca">   72</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_settings.html#afc603312b4f5a4506dd0b342db01f0ca">CSettings::CSettings</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> filename) :</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a>(<span class="stringliteral">&quot;Settings&quot;</span>), m_Log(<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>::GetEngineLog()),</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    m_filename(filename)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{}</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;CSettings::~CSettings() {}</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_settings.html#a2e529f0e906c1abb97f6aede2ae91292">   77</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_settings.html#a2e529f0e906c1abb97f6aede2ae91292">CSettings::~CSettings</a>() {}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550">   79</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem.">CSettings::Init</a>()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span>(m_filename.empty()) <span class="keywordflow">return</span> (m_init = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span>(m_filename.empty()) <span class="keywordflow">return</span> (<a class="code" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">m_init</a> = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">util::CINIParser</a> Parser;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(!Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile</a>(m_filename))</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> (m_init = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(!Parser.<a class="code" href="group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile</a>(m_filename))</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> (<a class="code" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">m_init</a> = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Copy the values from the key=value parser</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// into the internal options dictionary.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dict = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a76bcd06c50e0356a80b3ee034123aadc" title="Direct access to the dictionary.">GetPairs</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dict = Parser.<a class="code" href="group___utilities.html#ga76bcd06c50e0356a80b3ee034123aadc" title="Direct access to the dictionary.">GetPairs</a>();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : dict)</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        m_Options[</div>
@@ -209,13 +208,13 @@ $(document).ready(function(){initNavTree('_settings_8cpp_source.html','');});
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor"></span>        ] = i.second;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> (m_init = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">m_init</a> = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_settings.html#ae08be94f7ac820aa5e61abb1d48c9adf">  104</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1_c_settings.html#ae08be94f7ac820aa5e61abb1d48c9adf" title="Cleans up the subsystem completely.">CSettings::Destroy</a>()</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    m_Options.clear();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> !(<a class="code" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">m_init</a> = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4">  110</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">COption</a>&amp; <a class="code" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non-existing).">CSettings::operator[]</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; opt)</div>
@@ -247,7 +246,7 @@ $(document).ready(function(){initNavTree('_settings_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_c41963e08dd1fdd0c8449c288287ef04.html">Utilities</a></li><li class="navelem"><b>Settings.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_c41963e08dd1fdd0c8449c288287ef04.html">Utilities</a></li><li class="navelem"><a class="el" href="_settings_8cpp.html">Settings.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

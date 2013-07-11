@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -113,7 +112,7 @@ $(document).ready(function(){initNavTree('classzen_1_1_c_allocator.html','');});
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">zen::CAllocator Class Reference</div>  </div>
+<div class="title">zen::CAllocator Class Reference<div class="ingroups"><a class="el" href="group___engine.html">Engine</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -122,102 +121,80 @@ $(document).ready(function(){initNavTree('classzen_1_1_c_allocator.html','');});
 
 <p><code>#include &quot;<a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>&quot;</code></p>
 <div class="dynheader">
-Inheritance diagram for zen::CAllocator:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1_c_allocator__inherit__graph.png" border="0" usemap="#zen_1_1_c_allocator_inherit__map" alt="Inheritance graph"/></div>
-<map name="zen_1_1_c_allocator_inherit__map" id="zen_1_1_c_allocator_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="5,6,131,245"/></map>
-</div>
-<div class="dynheader">
 Collaboration diagram for zen::CAllocator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1_c_allocator__coll__graph.png" border="0" usemap="#zen_1_1_c_allocator_coll__map" alt="Collaboration graph"/></div>
 <map name="zen_1_1_c_allocator_coll__map" id="zen_1_1_c_allocator_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="5,309,131,533"/><area shape="rect" id="node3" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="6,6,129,245"/></map>
+<area shape="rect" id="node2" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="90,453,216,648"/><area shape="rect" id="node4" title="STL class." alt="" coords="51,231,131,308"/><area shape="rect" id="node5" title="STL class." alt="" coords="27,6,153,98"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="155,150,279,389"/></map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a52121f1aff8fcd9af2e52cf9b3f52baf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a52121f1aff8fcd9af2e52cf9b3f52baf">~CAllocator</a> ()</td></tr>
+<tr class="separator:a52121f1aff8fcd9af2e52cf9b3f52baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a373cf7aa19d780609ee1b5314a32bac8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a373cf7aa19d780609ee1b5314a32bac8">Init</a> ()</td></tr>
 <tr class="memdesc:a373cf7aa19d780609ee1b5314a32bac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the subsystem.  <a href="#a373cf7aa19d780609ee1b5314a32bac8">More...</a><br/></td></tr>
 <tr class="separator:a373cf7aa19d780609ee1b5314a32bac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a760166517ad454ecdedc086ebeb0ebed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed">Destroy</a> ()</td></tr>
 <tr class="memdesc:a760166517ad454ecdedc086ebeb0ebed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up the subsystem completely.  <a href="#a760166517ad454ecdedc086ebeb0ebed">More...</a><br/></td></tr>
 <tr class="separator:a760166517ad454ecdedc086ebeb0ebed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25016081dc81bddb2ca9cc3cc1a9ece7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25016081dc81bddb2ca9cc3cc1a9ece7"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a25016081dc81bddb2ca9cc3cc1a9ece7">operator()</a> (size_t bytes=4)</td></tr>
-<tr class="memdesc:a25016081dc81bddb2ca9cc3cc1a9ece7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates <code>bytes</code> of memory. <br/></td></tr>
+<tr class="memitem:a25016081dc81bddb2ca9cc3cc1a9ece7"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a25016081dc81bddb2ca9cc3cc1a9ece7">operator()</a> (size_t bytes=4)</td></tr>
+<tr class="memdesc:a25016081dc81bddb2ca9cc3cc1a9ece7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates <code>bytes</code> of memory.  <a href="#a25016081dc81bddb2ca9cc3cc1a9ece7">More...</a><br/></td></tr>
 <tr class="separator:a25016081dc81bddb2ca9cc3cc1a9ece7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb79917663751a059c93dd4d863abc31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb79917663751a059c93dd4d863abc31"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31">operator[]</a> (void *ptr)</td></tr>
-<tr class="memdesc:aeb79917663751a059c93dd4d863abc31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees <code>ptr</code> from memory. <br/></td></tr>
+<tr class="memitem:aeb79917663751a059c93dd4d863abc31"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31">operator[]</a> (void *ptr)</td></tr>
+<tr class="memdesc:aeb79917663751a059c93dd4d863abc31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees <code>ptr</code> from memory.  <a href="#aeb79917663751a059c93dd4d863abc31">More...</a><br/></td></tr>
 <tr class="separator:aeb79917663751a059c93dd4d863abc31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5d0e8e44055abcbd9beec44a968fb0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5d0e8e44055abcbd9beec44a968fb0d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Free</b> (void *ptr)</td></tr>
+<tr class="memitem:aa5d0e8e44055abcbd9beec44a968fb0d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#aa5d0e8e44055abcbd9beec44a968fb0d">Free</a> (void *ptr)</td></tr>
 <tr class="separator:aa5d0e8e44055abcbd9beec44a968fb0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31a541d2a8b7dbc9b47e26cfc72beb89"><td class="memTemplParams" colspan="2"><a class="anchor" id="a31a541d2a8b7dbc9b47e26cfc72beb89"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a31a541d2a8b7dbc9b47e26cfc72beb89"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (size_t count=1)</td></tr>
+<tr class="memitem:a31a541d2a8b7dbc9b47e26cfc72beb89"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a31a541d2a8b7dbc9b47e26cfc72beb89"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89">get</a> (size_t count=1)</td></tr>
 <tr class="separator:a31a541d2a8b7dbc9b47e26cfc72beb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classzen_1_1_c_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classzen_1_1_c_subsystem')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classzen_1_1_c_subsystem.html">zen::CSubsystem</a></td></tr>
-<tr class="memitem:a351f9cdcb901c389802776e50208e2fb inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a351f9cdcb901c389802776e50208e2fb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb">CSubsystem</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;Subsystem&quot;)</td></tr>
-<tr class="memdesc:a351f9cdcb901c389802776e50208e2fb inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets subsystem to an uninitialized state. <br/></td></tr>
+<tr class="memitem:a351f9cdcb901c389802776e50208e2fb inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb">CSubsystem</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;Subsystem&quot;)</td></tr>
+<tr class="memdesc:a351f9cdcb901c389802776e50208e2fb inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets subsystem to an uninitialized state.  <a href="#a351f9cdcb901c389802776e50208e2fb">More...</a><br/></td></tr>
 <tr class="separator:a351f9cdcb901c389802776e50208e2fb inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1639d7b9cec3785d77373de2098de72"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72">~CSubsystem</a> ()</td></tr>
-<tr class="memdesc:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor does absolutely nothing. <br/></td></tr>
+<tr class="memitem:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72">~CSubsystem</a> ()</td></tr>
+<tr class="memdesc:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor does absolutely nothing.  <a href="#ab1639d7b9cec3785d77373de2098de72">More...</a><br/></td></tr>
 <tr class="separator:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1dc7ef9c8bdd0cc33539e24d398b4644"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644">IsInit</a> () const final</td></tr>
-<tr class="memdesc:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status. <br/></td></tr>
+<tr class="memitem:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644">IsInit</a> () const final</td></tr>
+<tr class="memdesc:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#a1dc7ef9c8bdd0cc33539e24d398b4644">More...</a><br/></td></tr>
 <tr class="separator:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9dd185770f7445ffe6be561c560f900c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c">SetLog</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;Log)</td></tr>
-<tr class="memdesc:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a custom output log. <br/></td></tr>
+<tr class="memitem:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c">SetLog</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;Log)</td></tr>
+<tr class="memdesc:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a custom output log.  <a href="#a9dd185770f7445ffe6be561c560f900c">More...</a><br/></td></tr>
 <tr class="separator:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e6e45b22e0778efeb13cfbed6da7e79 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e6e45b22e0778efeb13cfbed6da7e79"></a>
-const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79">GetName</a> () const </td></tr>
-<tr class="memdesc:a5e6e45b22e0778efeb13cfbed6da7e79 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the subsystem name. <br/></td></tr>
+<tr class="memitem:a5e6e45b22e0778efeb13cfbed6da7e79 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79">GetName</a> () const </td></tr>
+<tr class="memdesc:a5e6e45b22e0778efeb13cfbed6da7e79 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the subsystem name.  <a href="#a5e6e45b22e0778efeb13cfbed6da7e79">More...</a><br/></td></tr>
 <tr class="separator:a5e6e45b22e0778efeb13cfbed6da7e79 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad45fdc86063b4b46644f9871936be9df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad45fdc86063b4b46644f9871936be9df"></a>
-static <a class="el" href="classzen_1_1_c_allocator.html">CAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df">Get</a> ()</td></tr>
-<tr class="memdesc:ad45fdc86063b4b46644f9871936be9df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton accessor. <br/></td></tr>
+<tr class="memitem:ad45fdc86063b4b46644f9871936be9df"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classzen_1_1_c_allocator.html">CAllocator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df">Get</a> ()</td></tr>
+<tr class="memdesc:ad45fdc86063b4b46644f9871936be9df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton accessor.  <a href="#ad45fdc86063b4b46644f9871936be9df">More...</a><br/></td></tr>
 <tr class="separator:ad45fdc86063b4b46644f9871936be9df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a888a10d2aa124af39686f29992298aba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a888a10d2aa124af39686f29992298aba"></a>
-static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a888a10d2aa124af39686f29992298aba">ALLOC_SIZE</a> = 4</td></tr>
-<tr class="memdesc:a888a10d2aa124af39686f29992298aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default allocation size, in bytes. <br/></td></tr>
+<tr class="memitem:a888a10d2aa124af39686f29992298aba"><td class="memItemLeft" align="right" valign="top">static const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_allocator.html#a888a10d2aa124af39686f29992298aba">ALLOC_SIZE</a> = 4</td></tr>
+<tr class="memdesc:a888a10d2aa124af39686f29992298aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default allocation size, in bytes.  <a href="#a888a10d2aa124af39686f29992298aba">More...</a><br/></td></tr>
 <tr class="separator:a888a10d2aa124af39686f29992298aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classzen_1_1_c_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classzen_1_1_c_subsystem')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classzen_1_1_c_subsystem.html">zen::CSubsystem</a></td></tr>
-<tr class="memitem:ab3e6f6c78ae1a64c4063433136edf8cd inherit pro_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3e6f6c78ae1a64c4063433136edf8cd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab3e6f6c78ae1a64c4063433136edf8cd">CSubsystem</a> (const <a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> &amp;)</td></tr>
-<tr class="memdesc:ab3e6f6c78ae1a64c4063433136edf8cd inherit pro_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copying subsystems. <br/></td></tr>
+<tr class="memitem:ab3e6f6c78ae1a64c4063433136edf8cd inherit pro_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab3e6f6c78ae1a64c4063433136edf8cd">CSubsystem</a> (const <a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> &amp;)</td></tr>
+<tr class="memdesc:ab3e6f6c78ae1a64c4063433136edf8cd inherit pro_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copying subsystems.  <a href="#ab3e6f6c78ae1a64c4063433136edf8cd">More...</a><br/></td></tr>
 <tr class="separator:ab3e6f6c78ae1a64c4063433136edf8cd inherit pro_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a459f0aa23a607d0bd83356b7a6006b28 inherit pro_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a459f0aa23a607d0bd83356b7a6006b28"></a>
-<a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> &amp;)</td></tr>
+<tr class="memitem:a459f0aa23a607d0bd83356b7a6006b28 inherit pro_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a459f0aa23a607d0bd83356b7a6006b28">operator=</a> (const <a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> &amp;)</td></tr>
 <tr class="separator:a459f0aa23a607d0bd83356b7a6006b28 inherit pro_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classzen_1_1_c_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classzen_1_1_c_subsystem')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classzen_1_1_c_subsystem.html">zen::CSubsystem</a></td></tr>
-<tr class="memitem:a312b4647484ae7ca45e80a47eaa8775e inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a312b4647484ae7ca45e80a47eaa8775e"></a>
-<a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>m_Log</b></td></tr>
+<tr class="memitem:a312b4647484ae7ca45e80a47eaa8775e inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a></td></tr>
 <tr class="separator:a312b4647484ae7ca45e80a47eaa8775e inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f9f748324c01276de3702ee7d8c860 inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02f9f748324c01276de3702ee7d8c860"></a>
-<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b></td></tr>
+<tr class="memitem:a02f9f748324c01276de3702ee7d8c860 inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a02f9f748324c01276de3702ee7d8c860">m_name</a></td></tr>
 <tr class="separator:a02f9f748324c01276de3702ee7d8c860 inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a174902d70500501ea4a2a6ace376731b inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a174902d70500501ea4a2a6ace376731b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
+<tr class="memitem:a174902d70500501ea4a2a6ace376731b inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">m_init</a></td></tr>
 <tr class="separator:a174902d70500501ea4a2a6ace376731b inherit pro_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_classzen_1_1_c_subsystem"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_classzen_1_1_c_subsystem')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="classzen_1_1_c_subsystem.html">zen::CSubsystem</a></td></tr>
-<tr class="memitem:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0242a2a5591cb035d3d1b2f1824422b8"></a>
-static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>sp_allSystems</b></td></tr>
+<tr class="memitem:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="classzen_1_1_c_subsystem.html">CSubsystem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a0242a2a5591cb035d3d1b2f1824422b8">sp_allSystems</a></td></tr>
 <tr class="separator:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -255,7 +232,33 @@ _______________  Next block pointer
 </pre><p>As you can see, the memory becomes fairly fragmented, and a subsequent request to allocate 8 bytes would fail, despite there being 8 bytes available. This is impossible to remedy without a lot of slow memory movement, which would in turn cause all of the allocated pointers to be completely invalid on the user end. </p>
 
 <p>Definition at line <a class="el" href="_allocator_8hpp_source.html#l00033">33</a> of file <a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a52121f1aff8fcd9af2e52cf9b3f52baf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zen::CAllocator::~CAllocator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8hpp_source.html#l00036">36</a> of file <a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a373cf7aa19d780609ee1b5314a32bac8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -318,6 +321,136 @@ Here is the caller graph for this function:</div>
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>.</p>
 
 <p>Definition at line <a class="el" href="_allocator_8cpp_source.html#l00032">32</a> of file <a class="el" href="_allocator_8cpp_source.html">Allocator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a25016081dc81bddb2ca9cc3cc1a9ece7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * CAllocator::operator() </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>bytes</em> = <code>4</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8cpp_source.html#l00055">55</a> of file <a class="el" href="_allocator_8cpp_source.html">Allocator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb79917663751a059c93dd4d863abc31"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t CAllocator::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8cpp_source.html#l00125">125</a> of file <a class="el" href="_allocator_8cpp_source.html">Allocator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5d0e8e44055abcbd9beec44a968fb0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t CAllocator::Free </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8cpp_source.html#l00130">130</a> of file <a class="el" href="_allocator_8cpp_source.html">Allocator.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31a541d2a8b7dbc9b47e26cfc72beb89"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* zen::CAllocator::get </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em> = <code>1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8hpp_source.html#l00050">50</a> of file <a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad45fdc86063b4b46644f9871936be9df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1_c_allocator.html">CAllocator</a> &amp; CAllocator::Get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8cpp_source.html#l00192">192</a> of file <a class="el" href="_allocator_8cpp_source.html">Allocator.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a888a10d2aa124af39686f29992298aba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t zen::CAllocator::ALLOC_SIZE = 4</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_allocator_8hpp_source.html#l00059">59</a> of file <a class="el" href="_allocator_8hpp_source.html">Allocator.hpp</a>.</p>
 
 </div>
 </div>

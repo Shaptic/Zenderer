@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -127,9 +126,10 @@ Collaboration diagram for zen::gfxcore::CShaderSet:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a84d5b9e9acadba1c2e6ca81efdba520a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84d5b9e9acadba1c2e6ca81efdba520a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CShaderSet</b> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Assets)</td></tr>
+<tr class="memitem:a84d5b9e9acadba1c2e6ca81efdba520a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a84d5b9e9acadba1c2e6ca81efdba520a">CShaderSet</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Assets)</td></tr>
 <tr class="separator:a84d5b9e9acadba1c2e6ca81efdba520a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a7a142cd8f8ecc04ccfee5447a75b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4">~CShaderSet</a> ()</td></tr>
+<tr class="separator:af5a7a142cd8f8ecc04ccfee5447a75b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc6db9e44605d90b710f6262c367dc9f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;vs, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;fs)</td></tr>
 <tr class="memdesc:acc6db9e44605d90b710f6262c367dc9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a set of shader assets from a file.  <a href="#acc6db9e44605d90b710f6262c367dc9f">More...</a><br/></td></tr>
 <tr class="separator:acc6db9e44605d90b710f6262c367dc9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,54 +142,80 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6879dbb14e43fe9041e9a3d03e3c9fc1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6879dbb14e43fe9041e9a3d03e3c9fc1">LoadFromStr</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;vs, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;fs)</td></tr>
 <tr class="memdesc:a6879dbb14e43fe9041e9a3d03e3c9fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a set of shader objects from a raw string.  <a href="#a6879dbb14e43fe9041e9a3d03e3c9fc1">More...</a><br/></td></tr>
 <tr class="separator:a6879dbb14e43fe9041e9a3d03e3c9fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf21477665b647aa7db5287a4a83c157"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf21477665b647aa7db5287a4a83c157"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acf21477665b647aa7db5287a4a83c157">LoadVertexShaderFromStr</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
-<tr class="memdesc:acf21477665b647aa7db5287a4a83c157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a vertex shader from a raw string (no linking). <br/></td></tr>
+<tr class="memitem:acf21477665b647aa7db5287a4a83c157"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acf21477665b647aa7db5287a4a83c157">LoadVertexShaderFromStr</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
+<tr class="memdesc:acf21477665b647aa7db5287a4a83c157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a vertex shader from a raw string (no linking).  <a href="#acf21477665b647aa7db5287a4a83c157">More...</a><br/></td></tr>
 <tr class="separator:acf21477665b647aa7db5287a4a83c157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ce501721c4e221581e4f5f750e274f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79ce501721c4e221581e4f5f750e274f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a79ce501721c4e221581e4f5f750e274f">LoadFragmentShaderFromStr</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
-<tr class="memdesc:a79ce501721c4e221581e4f5f750e274f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a fragment shader from a raw string (no linking). <br/></td></tr>
+<tr class="memitem:a79ce501721c4e221581e4f5f750e274f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a79ce501721c4e221581e4f5f750e274f">LoadFragmentShaderFromStr</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
+<tr class="memdesc:a79ce501721c4e221581e4f5f750e274f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a fragment shader from a raw string (no linking).  <a href="#a79ce501721c4e221581e4f5f750e274f">More...</a><br/></td></tr>
 <tr class="separator:a79ce501721c4e221581e4f5f750e274f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac18b1dc09d69ddcb700eba2f1c72f401"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401">CreateShaderObject</a> ()</td></tr>
 <tr class="memdesc:ac18b1dc09d69ddcb700eba2f1c72f401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links loaded shaders together into a useable program.  <a href="#ac18b1dc09d69ddcb700eba2f1c72f401">More...</a><br/></td></tr>
 <tr class="separator:ac18b1dc09d69ddcb700eba2f1c72f401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84db9a8a0b89ccc416936e8753b55238"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84db9a8a0b89ccc416936e8753b55238"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a84db9a8a0b89ccc416936e8753b55238">Bind</a> () const </td></tr>
-<tr class="memdesc:a84db9a8a0b89ccc416936e8753b55238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the shader program to the rendering context for use. <br/></td></tr>
+<tr class="memitem:a84db9a8a0b89ccc416936e8753b55238"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a84db9a8a0b89ccc416936e8753b55238">Bind</a> () const </td></tr>
+<tr class="memdesc:a84db9a8a0b89ccc416936e8753b55238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the shader program to the rendering context for use.  <a href="#a84db9a8a0b89ccc416936e8753b55238">More...</a><br/></td></tr>
 <tr class="separator:a84db9a8a0b89ccc416936e8753b55238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef344e3ef9141d8460cfc0cfe5075112"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef344e3ef9141d8460cfc0cfe5075112"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#aef344e3ef9141d8460cfc0cfe5075112">Unbind</a> () const </td></tr>
-<tr class="memdesc:aef344e3ef9141d8460cfc0cfe5075112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any shader program from the rendering context. <br/></td></tr>
+<tr class="memitem:aef344e3ef9141d8460cfc0cfe5075112"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#aef344e3ef9141d8460cfc0cfe5075112">Unbind</a> () const </td></tr>
+<tr class="memdesc:aef344e3ef9141d8460cfc0cfe5075112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes any shader program from the rendering context.  <a href="#aef344e3ef9141d8460cfc0cfe5075112">More...</a><br/></td></tr>
 <tr class="separator:aef344e3ef9141d8460cfc0cfe5075112"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b59d547f6c9080d58292fd532855f76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b59d547f6c9080d58292fd532855f76"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76">Destroy</a> ()</td></tr>
-<tr class="memdesc:a5b59d547f6c9080d58292fd532855f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the shader program. <br/></td></tr>
+<tr class="memitem:a5b59d547f6c9080d58292fd532855f76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76">Destroy</a> ()</td></tr>
+<tr class="memdesc:a5b59d547f6c9080d58292fd532855f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the shader program.  <a href="#a5b59d547f6c9080d58292fd532855f76">More...</a><br/></td></tr>
 <tr class="separator:a5b59d547f6c9080d58292fd532855f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6072d2d3a77269ea40eeaa7d157cf8e8"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">GetShaderObject</a> () const </td></tr>
-<tr class="memdesc:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shader program handle. <br/></td></tr>
+<tr class="memitem:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">GetShaderObject</a> () const </td></tr>
+<tr class="memdesc:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shader program handle.  <a href="#a6072d2d3a77269ea40eeaa7d157cf8e8">More...</a><br/></td></tr>
 <tr class="separator:a6072d2d3a77269ea40eeaa7d157cf8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1640821acc07a4ce9f772a894e2c4ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1640821acc07a4ce9f772a894e2c4ae"></a>
-GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ae1640821acc07a4ce9f772a894e2c4ae">GetUniformLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name) const </td></tr>
-<tr class="memdesc:ae1640821acc07a4ce9f772a894e2c4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader uniform location in VRAM. <br/></td></tr>
+<tr class="memitem:ae1640821acc07a4ce9f772a894e2c4ae"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ae1640821acc07a4ce9f772a894e2c4ae">GetUniformLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name) const </td></tr>
+<tr class="memdesc:ae1640821acc07a4ce9f772a894e2c4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader uniform location in VRAM.  <a href="#ae1640821acc07a4ce9f772a894e2c4ae">More...</a><br/></td></tr>
 <tr class="separator:ae1640821acc07a4ce9f772a894e2c4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e62b3fd221feb916314d134885add00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e62b3fd221feb916314d134885add00"></a>
-GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00">GetAttributeLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name) const </td></tr>
-<tr class="memdesc:a8e62b3fd221feb916314d134885add00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader attribute location in VRAM. <br/></td></tr>
+<tr class="memitem:a8e62b3fd221feb916314d134885add00"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00">GetAttributeLocation</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;name) const </td></tr>
+<tr class="memdesc:a8e62b3fd221feb916314d134885add00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of a shader attribute location in VRAM.  <a href="#a8e62b3fd221feb916314d134885add00">More...</a><br/></td></tr>
 <tr class="separator:a8e62b3fd221feb916314d134885add00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9dc6e638b6fbc08cb0c7d24ebdb2984"></a>
-const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984">GetError</a> () const </td></tr>
-<tr class="memdesc:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns error string. <br/></td></tr>
+<tr class="memitem:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984">GetError</a> () const </td></tr>
+<tr class="memdesc:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns error string.  <a href="#ad9dc6e638b6fbc08cb0c7d24ebdb2984">More...</a><br/></td></tr>
 <tr class="separator:ad9dc6e638b6fbc08cb0c7d24ebdb2984"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b0612901e5ec33beabae368347b4d6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b0612901e5ec33beabae368347b4d6e"></a>
-const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e">GetLinkerLog</a> () const </td></tr>
-<tr class="memdesc:a2b0612901e5ec33beabae368347b4d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shader program link result. <br/></td></tr>
+<tr class="memitem:a2b0612901e5ec33beabae368347b4d6e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e">GetLinkerLog</a> () const </td></tr>
+<tr class="memdesc:a2b0612901e5ec33beabae368347b4d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shader program link result.  <a href="#a2b0612901e5ec33beabae368347b4d6e">More...</a><br/></td></tr>
 <tr class="separator:a2b0612901e5ec33beabae368347b4d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="_shader_set_8hpp_source.html#l00039">39</a> of file <a class="el" href="_shader_set_8hpp_source.html">ShaderSet.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a84d5b9e9acadba1c2e6ca81efdba520a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CShaderSet::CShaderSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>Assets</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00009">9</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5a7a142cd8f8ecc04ccfee5447a75b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CShaderSet::~CShaderSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00015">15</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="acc6db9e44605d90b710f6262c367dc9f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -259,6 +285,15 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
 
 <p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00043">43</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_a885a9a17817d5df582fc129cedcc7d68_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_a885a9a17817d5df582fc129cedcc7d68_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_a885a9a17817d5df582fc129cedcc7d68_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_a885a9a17817d5df582fc129cedcc7d68_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="243,64,386,91"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="245,119,384,145"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="435,5,621,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="465,57,591,98"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="437,123,619,149"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a80240d2c752cb50fc99fa0805228919e"></a>
@@ -288,6 +323,15 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
 <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program.">CreateShaderObject()</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00057">57</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_a80240d2c752cb50fc99fa0805228919e_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_a80240d2c752cb50fc99fa0805228919e_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_a80240d2c752cb50fc99fa0805228919e_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_a80240d2c752cb50fc99fa0805228919e_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="259,64,402,91"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="261,119,400,145"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="451,5,637,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="481,57,607,98"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="453,123,635,149"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -330,6 +374,56 @@ const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">s
 
 </div>
 </div>
+<a class="anchor" id="acf21477665b647aa7db5287a4a83c157"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::gfxcore::CShaderSet::LoadVertexShaderFromStr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_acf21477665b647aa7db5287a4a83c157_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_acf21477665b647aa7db5287a4a83c157_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_acf21477665b647aa7db5287a4a83c157_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_acf21477665b647aa7db5287a4a83c157_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="238,35,381,61"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="429,5,616,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="459,57,586,98"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a79ce501721c4e221581e4f5f750e274f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::gfxcore::CShaderSet::LoadFragmentShaderFromStr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_a79ce501721c4e221581e4f5f750e274f_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_a79ce501721c4e221581e4f5f750e274f_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_a79ce501721c4e221581e4f5f750e274f_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_a79ce501721c4e221581e4f5f750e274f_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="257,35,399,61"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="448,5,635,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="478,57,605,98"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ac18b1dc09d69ddcb700eba2f1c72f401"></a>
 <div class="memitem">
 <div class="memproto">
@@ -357,9 +451,190 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_ac18b1dc09d69ddcb700eba2f1c72f401_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_ac18b1dc09d69ddcb700eba2f1c72f401_icgraph" alt=""/></div>
 <map name="classzen_1_1gfxcore_1_1_c_shader_set_ac18b1dc09d69ddcb700eba2f1c72f401_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_ac18b1dc09d69ddcb700eba2f1c72f401_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="224,5,395,46"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="224,5,395,46"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="238,71,381,97"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="240,125,379,152"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="443,12,629,39"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="473,63,599,105"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="445,129,627,156"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a84db9a8a0b89ccc416936e8753b55238"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CShaderSet::Bind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00136">136</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_a84db9a8a0b89ccc416936e8753b55238_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_a84db9a8a0b89ccc416936e8753b55238_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_a84db9a8a0b89ccc416936e8753b55238_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_a84db9a8a0b89ccc416936e8753b55238_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="236,5,375,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_light.html#a0d5c3ae85e8081a181f101c01eac0672" title="zen::gfx::CLight::Enable" alt="" coords="225,56,386,83"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="435,5,616,32"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="440,56,611,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aef344e3ef9141d8460cfc0cfe5075112"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CShaderSet::Unbind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00148">148</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_aef344e3ef9141d8460cfc0cfe5075112_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_aef344e3ef9141d8460cfc0cfe5075112_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_aef344e3ef9141d8460cfc0cfe5075112_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_aef344e3ef9141d8460cfc0cfe5075112_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="237,5,376,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd" title="zen::gfx::CLight::Disable" alt="" coords="225,56,389,83"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="437,5,619,32"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="443,56,613,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b59d547f6c9080d58292fd532855f76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CShaderSet::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00196">196</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_a5b59d547f6c9080d58292fd532855f76_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_a5b59d547f6c9080d58292fd532855f76_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_a5b59d547f6c9080d58292fd532855f76_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_a5b59d547f6c9080d58292fd532855f76_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="224,5,395,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="443,63,613,105"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="224,122,395,163"/><area shape="rect" id="node10" href="classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="246,187,373,229"/><area shape="rect" id="node12" href="classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="249,253,370,294"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="457,129,599,156"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="459,180,597,207"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="661,71,848,97"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="691,122,818,163"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="664,188,845,215"/><area shape="rect" id="node11" href="classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="465,231,591,273"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6072d2d3a77269ea40eeaa7d157cf8e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t CShaderSet::GetShaderObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00160">160</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_a6072d2d3a77269ea40eeaa7d157cf8e8_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_a6072d2d3a77269ea40eeaa7d157cf8e8_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_a6072d2d3a77269ea40eeaa7d157cf8e8_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_a6072d2d3a77269ea40eeaa7d157cf8e8_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="225,5,351,46"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="401,5,527,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1640821acc07a4ce9f772a894e2c4ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint CShaderSet::GetUniformLocation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00165">165</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_set_ae1640821acc07a4ce9f772a894e2c4ae_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_set_ae1640821acc07a4ce9f772a894e2c4ae_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_shader_set_ae1640821acc07a4ce9f772a894e2c4ae_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_set_ae1640821acc07a4ce9f772a894e2c4ae_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="230,5,357,46"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="224,71,363,97"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="411,71,592,97"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8e62b3fd221feb916314d134885add00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint CShaderSet::GetAttributeLocation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00178">178</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9dc6e638b6fbc08cb0c7d24ebdb2984"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp; CShaderSet::GetError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_shader_set_8cpp_source.html#l00191">191</a> of file <a class="el" href="_shader_set_8cpp_source.html">ShaderSet.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b0612901e5ec33beabae368347b4d6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&amp; zen::gfxcore::CShaderSet::GetLinkerLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,24 +1,3 @@
 <map id="zen::error_fallback" name="zen::error_fallback">
-<area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_log.html#a3e2284a6f0620e6d0c68a8547e27111e" title="Writes stream to the file and moves to the next line." alt="" coords="182,540,341,567"/>
-<area shape="rect" id="node3" href="$classzen_1_1asset_1_1_c_asset.html#a34d3bc4ca78a32392f46b15e6f272ccc" title="Logs some information." alt="" coords="427,5,562,46"/>
-<area shape="rect" id="node4" href="$group___assets.html#ga297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="403,70,587,111"/>
-<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72" title="Unloads the OpenAL source handle." alt="" coords="427,187,562,229"/>
-<area shape="rect" id="node7" href="$classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1" title="Logs and outputs a readable error from an OGG error code." alt="" coords="411,253,579,294"/>
-<area shape="rect" id="node6" href="$classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7" title="Loads an .ogg file from disk." alt="" coords="664,158,800,199"/>
-<area shape="rect" id="node8" href="$classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="427,318,563,359"/>
-<area shape="rect" id="node9" href="$classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503" title="zen::sfx::CSound2D\l::LoadFromFile" alt="" coords="425,383,564,425"/>
-<area shape="rect" id="node10" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="425,449,564,490"/>
-<area shape="rect" id="node11" href="$classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb" title="Sets subsystem to an uninitialized state." alt="" coords="390,515,599,541"/>
-<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem." alt="" coords="417,565,573,592"/>
-<area shape="rect" id="node13" href="$namespacezen_1_1util.html#a17b714c4af1aed81d3e5994058d39abd" title="Executes a verification of an expression, crashing on error." alt="" coords="435,617,554,658"/>
-<area shape="rect" id="node15" href="$group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file." alt="" coords="425,682,564,723"/>
-<area shape="rect" id="node17" href="$classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream." alt="" coords="415,799,574,825"/>
-<area shape="rect" id="node21" href="$classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="428,901,561,942"/>
-<area shape="rect" id="node22" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b" title="Loads and parses an XML file from disk." alt="" coords="421,966,569,1007"/>
-<area shape="rect" id="node23" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f" title="Outputs an XML error." alt="" coords="421,1031,569,1073"/>
-<area shape="rect" id="node19" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="698,748,766,775"/>
-<area shape="rect" id="node20" href="$namespacezen.html#ae23c80bfb0fd9054b300fc9c9d60ef84" title="Destroys all subsystems of Zenderer." alt="" coords="695,849,769,876"/>
-<area shape="rect" id="node14" href="$classzen_1_1sfx_1_1_c_audio_manager.html#a184a2a112a64143f0315a8cc9aa80bde" title="Checks the validity of an OpenAL call." alt="" coords="648,617,816,658"/>
-<area shape="rect" id="node16" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="665,682,799,723"/>
-<area shape="rect" id="node18" href="$classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy()." alt="" coords="656,799,808,825"/>
+<area shape="rect" id="node2" href="$namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="182,5,333,32"/>
 </map>

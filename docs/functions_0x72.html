@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -84,6 +83,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -96,6 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x65.html#index_e"><span>e</span></a></li>
       <li><a href="functions_0x66.html#index_f"><span>f</span></a></li>
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_0x68.html#index_h"><span>h</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
       <li><a href="functions_0x6c.html#index_l"><span>l</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
@@ -108,7 +110,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x74.html#index_t"><span>t</span></a></li>
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
+      <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
       <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
+      <li><a href="functions_0x7a.html#index_z"><span>z</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
@@ -142,26 +147,37 @@ $(document).ready(function(){initNavTree('functions_0x72.html','');});
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented struct and union fields with links to the struct/union documentation for each field:</div>
+<div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>r
 : <a class="el" href="structzen_1_1color4f__t.html#a44262def993ddcd13124c8a3b7b7f3d5">zen::color4f_t</a>
 , <a class="el" href="structzen_1_1color3f__t.html#a400206678092977c5557c0008b2955ea">zen::color3f_t</a>
+, <a class="el" href="structzen_1_1math_1_1circle__t.html#a695509e4743f150a1c69a251bd22548e">zen::math::circle_t</a>
 </li>
 <li>Ready()
-: <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#ad8453333272f08243b7fc9c0e49dd78b">zen::sfx::CMusic2D</a>
+: <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#aa0e76601525a3d5605e731b1a6fdad9e">zen::sfx::CAudio2D</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#ad8453333272f08243b7fc9c0e49dd78b">zen::sfx::CMusic2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108">zen::sfx::CSound2D</a>
-, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#aa0e76601525a3d5605e731b1a6fdad9e">zen::sfx::CAudio2D</a>
 </li>
 <li>Recreate()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c">zen::asset::CAssetManager</a>
+: <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a1e58c31383b98ca31da29478bc430060">zen::asset::CAssetManager</a>
+</li>
+<li>rect_t()
+: <a class="el" href="structzen_1_1math_1_1rect__t.html#a7a1526b88224e896ce2d75e9ea891c01">zen::math::rect_t</a>
 </li>
 <li>Render()
 : <a class="el" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e">zen::gfx::CScene</a>
+, <a class="el" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249">zen::gui::CFont</a>
 </li>
 <li>Reset()
-: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#af3b867e089ded53f3540e53a08236f5e">zen::util::CINIParser</a>
+: <a class="el" href="group___utilities.html#gaf3b867e089ded53f3540e53a08236f5e">zen::util::CINIParser</a>
+</li>
+<li>ResetMaterialState()
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc">zen::gfxcore::CRenderer</a>
+</li>
+<li>ResetStack()
+: <a class="el" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#ac05ea021f672968a32eba9946eed524e">zen::lua::CLuaAPI</a>
 </li>
 <li>Resize()
 : <a class="el" href="classzen_1_1gfx_1_1_c_quad.html#a3e86d46b495cd3adfd7d10b3cc0153c4">zen::gfx::CQuad</a>

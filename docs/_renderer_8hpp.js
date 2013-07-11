@@ -8,6 +8,5 @@ var _renderer_8hpp =
       [ "ADDITIVE_BLEND", "_renderer_8hpp.html#a3fbcb0fa4542268f117e187985a16f94a9b708e1173f66746ea5280e5da4d0634", null ]
     ] ],
     [ "CWindow", "_renderer_8hpp.html#a7fc1cbadadf44939bd470783cd2b33d2", null ],
-    [ "CRenderTarget", "_renderer_8hpp.html#a534e225943c8387ba41403e841bdf232", null ],
-    [ "CScene", "_renderer_8hpp.html#a20e89ec3d59082e2825d92df80de1387", null ]
+    [ "CRenderTarget", "_renderer_8hpp.html#a534e225943c8387ba41403e841bdf232", null ]
 ];

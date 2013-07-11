@@ -1,6 +1,14 @@
 <map id="zen::util::string_hash" name="zen::util::string_hash">
-<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="197,5,381,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="223,70,356,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="223,135,356,177"/>
-<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="215,201,363,242"/>
+<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37" title="Returns the hashed filename for quicker comparison." alt="" coords="222,67,357,108"/>
+<area shape="rect" id="node3" href="$classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename." alt="" coords="222,132,357,174"/>
+<area shape="rect" id="node10" href="$classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="197,198,381,239"/>
+<area shape="rect" id="node11" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="223,263,356,304"/>
+<area shape="rect" id="node12" href="$classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="223,328,356,370"/>
+<area shape="rect" id="node13" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="215,394,363,435"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="679,36,830,78"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="454,44,605,86"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="678,112,831,154"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="678,200,831,242"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13" title="zen::gfxcore::CTexture\l::LoadFromRaw" alt="" coords="453,162,606,203"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="430,278,629,305"/>
 </map>

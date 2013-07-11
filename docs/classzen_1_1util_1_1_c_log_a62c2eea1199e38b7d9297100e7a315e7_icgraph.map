@@ -1,0 +1,42 @@
+<map id="zen::util::CLog::SetSystem" name="zen::util::CLog::SetSystem">
+<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container." alt="" coords="249,370,433,411"/>
+<area shape="rect" id="node17" href="$classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="249,553,433,594"/>
+<area shape="rect" id="node18" href="$classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7" title="Loads an .ogg file from disk." alt="" coords="273,618,409,659"/>
+<area shape="rect" id="node19" href="$classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="273,683,409,725"/>
+<area shape="rect" id="node20" href="$classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503" title="zen::sfx::CSound2D\l::LoadFromFile" alt="" coords="272,749,411,790"/>
+<area shape="rect" id="node21" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="272,814,411,855"/>
+<area shape="rect" id="node22" href="$classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb" title="Sets subsystem to an uninitialized state." alt="" coords="237,880,446,907"/>
+<area shape="rect" id="node23" href="$classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72" title="Destructor does absolutely nothing." alt="" coords="233,931,450,957"/>
+<area shape="rect" id="node24" href="$classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="509,1003,659,1045"/>
+<area shape="rect" id="node25" href="$classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="266,1033,417,1074"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="717,253,888,294"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="499,194,669,235"/>
+<area shape="rect" id="node26" href="$classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="265,1098,418,1139"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="950,315,1093,341"/>
+<area shape="rect" id="node15" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="519,426,649,467"/>
+<area shape="rect" id="node27" href="$classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="zen::gfx::CRenderTarget\l::Init" alt="" coords="260,1163,423,1205"/>
+<area shape="rect" id="node28" href="$classzen_1_1gfx_1_1_c_render_target.html#a1158e22ca14496564a677294ff11cd79" title="zen::gfx::CRenderTarget\l::AttachDepthBuffer" alt="" coords="260,1229,423,1270"/>
+<area shape="rect" id="node29" href="$classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="242,1295,441,1321"/>
+<area shape="rect" id="node30" href="$namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574" title="Executes a verification of an expression, crashing on error." alt="" coords="282,1346,401,1387"/>
+<area shape="rect" id="node33" href="$group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file." alt="" coords="272,487,411,529"/>
+<area shape="rect" id="node35" href="$classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="275,1411,408,1453"/>
+<area shape="rect" id="node36" href="$classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame&#45;rate." alt="" coords="279,1477,404,1518"/>
+<area shape="rect" id="node38" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b" title="Loads and parses an XML file from disk." alt="" coords="267,1542,415,1583"/>
+<area shape="rect" id="node39" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f" title="Outputs an XML error." alt="" coords="267,1607,415,1649"/>
+<area shape="rect" id="node40" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="307,1673,375,1700"/>
+<area shape="rect" id="node41" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="304,1724,379,1751"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="717,70,888,111"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="936,194,1107,235"/>
+<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="739,5,866,46"/>
+<area shape="rect" id="node14" href="$classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="742,135,863,177"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="952,260,1091,287"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="1155,312,1341,339"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="1185,363,1311,405"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="1157,260,1339,287"/>
+<area shape="rect" id="node13" href="$classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="958,5,1085,46"/>
+<area shape="rect" id="node16" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="739,426,866,467"/>
+<area shape="rect" id="node31" href="$namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524" title="Checks the validity of an OpenGL call." alt="" coords="510,1383,658,1409"/>
+<area shape="rect" id="node32" href="$classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d" title="Checks the validity of an OpenAL call." alt="" coords="500,1317,668,1358"/>
+<area shape="rect" id="node34" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="517,491,651,533"/>
+<area shape="rect" id="node37" href="$_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="559,1484,609,1511"/>
+</map>

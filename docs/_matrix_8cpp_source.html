@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,43 +109,43 @@ $(document).ready(function(){initNavTree('_matrix_8cpp_source.html','');});
 <div class="title">Matrix.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp - A 4x4 matrix class wrapper for handling various graphical math operations...">Zenderer/Math/Matrix.hpp</a>&quot;</span></div>
+<a href="_matrix_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp - A 4x4 matrix class wrapper for handling various graphical math operations...">Zenderer/Math/Matrix.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using namespace </span>math;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;matrix4x4_t::matrix4x4_t()</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">    6</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t::matrix4x4_t</a>()</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    memset(m_values, 0, <span class="keyword">sizeof</span>(m_values));</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;matrix4x4_t::matrix4x4_t(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> values[4][4])</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a49dffe1c86a43ba7543352eaf050bb87">   11</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t::matrix4x4_t</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> values[4][4])</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; 4; ++j)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            m_values[i][j] = values[i][j];</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;matrix4x4_t::matrix4x4_t(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a>** ppvalues)</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a04011aa970ede9e04b3f95825fe02ff0">   18</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t::matrix4x4_t</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a>** ppvalues)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; 4; ++j)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            m_values[i][j] = ppvalues[i][j];</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;matrix4x4_t::matrix4x4_t(<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; Copy)</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a4027c831e496ddff65875a47b0ebc71f">   25</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t::matrix4x4_t</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; Copy)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    memcpy(m_values, Copy.GetPointer(), <span class="keyword">sizeof</span>(m_values));</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    memcpy(m_values, Copy.<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d">GetPointer</a>(), <span class="keyword">sizeof</span>(m_values));</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; matrix4x4_t::operator=(<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; Copy)</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8">   30</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8">matrix4x4_t::operator=</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; Copy)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    memcpy(m_values, Copy.GetPointer(), <span class="keyword">sizeof</span>(m_values));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    memcpy(m_values, Copy.<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d">GetPointer</a>(), <span class="keyword">sizeof</span>(m_values));</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6">   37</a></span>&#160;<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a>* <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6" title="Provides the matrix&#39;s elements at that row.">matrix4x4_t::operator[]</a>(uint8_t index)</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6">   37</a></span>&#160;<a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a>* <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6" title="Provides the matrix&#39;s elements at that row.">matrix4x4_t::operator[]</a>(uint8_t index)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    clamp&lt;uint8_t&gt;(index, 0, 3);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> m_values[index];</div>
@@ -164,16 +163,16 @@ $(document).ready(function(){initNavTree('_matrix_8cpp_source.html','');});
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> Res;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> matrix4x4_t::CreateIdentityMatrix()</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">   55</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>()</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> Result;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Result[0][0] = Result[1][1] = Result[2][2] = Result[3][3] = 1.0;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> Result;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; matrix4x4_t::GetIdentityMatrix()</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">   62</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">matrix4x4_t::GetIdentityMatrix</a>()</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> IDENTITY = matrix4x4_t::CreateIdentityMatrix();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> IDENTITY = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> IDENTITY;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
@@ -181,7 +180,7 @@ $(document).ready(function(){initNavTree('_matrix_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_2eec9d20f82ef914ce42f144ece54dcc.html">Math</a></li><li class="navelem"><b>Matrix.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_2eec9d20f82ef914ce42f144ece54dcc.html">Math</a></li><li class="navelem"><a class="el" href="_matrix_8cpp.html">Matrix.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

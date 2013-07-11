@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,41 +109,41 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="title">RenderTarget.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarger.hpp - An object wrapper for OpenGL frame buffer objects.">Zenderer/Graphics/RenderTarget.hpp</a>&quot;</span></div>
+<a href="_render_target_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp - An object wrapper for OpenGL frame buffer objects.">Zenderer/Graphics/RenderTarget.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">gfx::CRenderTarget</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CRenderTarget::CRenderTarget(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a>&amp; Dimensions) :</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a12a9eff1545ec868fb53186bdc127ef2">    9</a></span>&#160;<a class="code" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">CRenderTarget::CRenderTarget</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a>&amp; Dimensions) :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    CGLSubsystem(<span class="stringliteral">&quot;RenderTarget&quot;</span>), m_Log(CLog::GetEngineLog()),</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_Viewport(Dimensions.w, Dimensions.h), m_fbo(0), m_texture(0),</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_rbos(nullptr), m_rbo_count(0)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;CRenderTarget::CRenderTarget(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h) :</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a537c961ad191dff4f53761105c150fae">   16</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a12a9eff1545ec868fb53186bdc127ef2">CRenderTarget::CRenderTarget</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h) :</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    CGLSubsystem(<span class="stringliteral">&quot;RenderTarget&quot;</span>), m_Log(CLog::GetEngineLog()),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_Viewport(w, h), m_fbo(0), m_texture(0), m_rbos(nullptr), m_rbo_count(0)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;CRenderTarget::~CRenderTarget()</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a140f5687594cc589c8b22221c84e4fba">   22</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a140f5687594cc589c8b22221c84e4fba">CRenderTarget::~CRenderTarget</a>()</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">Destroy</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(m_rbos != <span class="keyword">nullptr</span>) <span class="keyword">delete</span>[] m_rbos;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::Init()</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0">   28</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0">CRenderTarget::Init</a>()</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span>(m_init) this-&gt;Destroy();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">Destroy</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Store current render target&#39;s viewport.</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    GLint view[4];</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    GL(glGetIntegerv(GL_VIEWPORT, view));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_OldViewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> = view[2];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_OldViewport.x = view[2];</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    m_OldViewport.y = view[3];</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Create frame buffer.</span></div>
@@ -156,7 +155,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    GL(glBindTexture(GL_TEXTURE_2D, m_texture));</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    GL(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Viewport.x,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            m_Viewport.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, <span class="keyword">nullptr</span>));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Attach texture to frame buffer.</span></div>
@@ -180,17 +179,17 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    m_Main = gfxcore::CRenderer::s_ProjMatrix;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    m_ProjMatrix = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a44adf36130e3df63e8c16ccf2b2b8316" title="Creates a 2D projection matrix.">math::matrix4x4_t::Projection2D</a>(</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, m_Viewport.y, 10, -10);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        m_Viewport.x, m_Viewport.y, 10, -10);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> m_init = (status == GL_FRAMEBUFFER_COMPLETE);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a> = (status == GL_FRAMEBUFFER_COMPLETE);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::Destroy()</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">   76</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">CRenderTarget::Destroy</a>()</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span>(!m_init) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    m_init = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    this-&gt;Unbind();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">Unbind</a>();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    GL(glDeleteFramebuffers(1, &amp;m_fbo));</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    GL(glDeleteTextures(1, &amp;m_texture));</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span>(m_rbo_count &gt; 0) GL(glDeleteRenderbuffers(m_rbo_count, m_rbos));</div>
@@ -200,49 +199,49 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::Bind()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">   91</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">CRenderTarget::Bind</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Bind the framebuffer and set our viewport.</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    GL(glViewport(0, 0, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, m_Viewport.y));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::Unbind()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">  101</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">CRenderTarget::Unbind</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// Unbind the framebuffer and reset the viewport.</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    gfxcore::CRenderer::s_ProjMatrix = m_Main;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    GL(glViewport(0, 0, m_OldViewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, m_OldViewport.y));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::BindTexture()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a1f45e13224dd42f52ccb8194a1f2c9eb">  110</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a1f45e13224dd42f52ccb8194a1f2c9eb">CRenderTarget::BindTexture</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">if</span>(m_texture == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> gfxcore::CRenderer::EnableTexture(m_texture);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#ab14ae2f572f0d2a405d8ebbee3e5bd52">gfxcore::CRenderer::EnableTexture</a>(m_texture);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::Clear()</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ad282b7a7076045660a12e7037d4861c3">  116</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ad282b7a7076045660a12e7037d4861c3">CRenderTarget::Clear</a>()</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    GL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    GL(glClearColor(0.f, 0.f, 0.f, 1.f));</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    GL(glClearColor(0.<a class="code" href="_material_8cpp.html#a155fc18545df6fa74d03a6774cb62f51">f</a>, 0.<a class="code" href="_material_8cpp.html#a155fc18545df6fa74d03a6774cb62f51">f</a>, 0.<a class="code" href="_material_8cpp.html#a155fc18545df6fa74d03a6774cb62f51">f</a>, 1.<a class="code" href="_material_8cpp.html#a155fc18545df6fa74d03a6774cb62f51">f</a>));</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">bool</span> CRenderTarget::AttachDepthBuffer()</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a1158e22ca14496564a677294ff11cd79">  124</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a1158e22ca14496564a677294ff11cd79">CRenderTarget::AttachDepthBuffer</a>()</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// Create the depth buffer.</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;Bind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    GLuint rb = 0;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    GL(glGenRenderbuffers(1, &amp;rb));</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    GL(glBindRenderbuffer(GL_RENDERBUFFER, rb));</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    GL(glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, m_Viewport.y));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            m_Viewport.x, m_Viewport.y));</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    GL(glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT,</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            GL_RENDERBUFFER, rb));</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
@@ -271,15 +270,15 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    GL(glBindRenderbuffer(GL_RENDERBUFFER, 0));</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> (this-&gt;Unbind() &amp;&amp; status == GL_FRAMEBUFFER_COMPLETE);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> (this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">Unbind</a>() &amp;&amp; status == GL_FRAMEBUFFER_COMPLETE);</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;GLuint CRenderTarget::GetObjectHandle()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ab27ab130d9778d04220ec7eea766f19c">  165</a></span>&#160;GLuint <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ab27ab130d9778d04220ec7eea766f19c">CRenderTarget::GetObjectHandle</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">return</span> m_fbo;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;GLuint CRenderTarget::GetTexture()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">  170</a></span>&#160;GLuint <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">CRenderTarget::GetTexture</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span> m_texture;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
@@ -288,7 +287,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_e18839c54a81f7f7540c9f21f37582f0.html">Graphics</a></li><li class="navelem"><b>RenderTarget.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_e18839c54a81f7f7540c9f21f37582f0.html">Graphics</a></li><li class="navelem"><a class="el" href="_render_target_8cpp.html">RenderTarget.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

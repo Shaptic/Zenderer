@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -72,7 +71,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
       <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
@@ -113,7 +111,7 @@ $(document).ready(function(){initNavTree('namespacezen_1_1util.html','');});
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">zen::util Namespace Reference</div>  </div>
+<div class="title">zen::util Namespace Reference<div class="ingroups"><a class="el" href="group___utilities.html">Utilities</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -129,9 +127,10 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a special file stream to store logging information.  <a href="classzen_1_1util_1_1_c_log.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_option.html">COption</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally by <a class="el" href="classzen_1_1util_1_1_c_settings.html">CSettings</a> to manage options of all types.  <a href="classzen_1_1util_1_1_c_option.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally by <a class="el" href="classzen_1_1util_1_1_c_settings.html" title="An array-like wrapper for various settings.">CSettings</a> to manage options of all types.  <a href="classzen_1_1util_1_1_c_option.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_settings.html">CSettings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An array-like wrapper for various settings.  <a href="classzen_1_1util_1_1_c_settings.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_timer.html">CTimer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A high-precision timer class for controlling frame rates.  <a href="classzen_1_1util_1_1_c_timer.html#details">More...</a><br/></td></tr>
@@ -145,17 +144,14 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a4c0c013616295ef7f08cce656f18fec0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c0c013616295ef7f08cce656f18fec0"></a>
-typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>time_t</b></td></tr>
+<tr class="memitem:a4c0c013616295ef7f08cce656f18fec0"><td class="memItemLeft" align="right" valign="top">typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">time_t</a></td></tr>
 <tr class="separator:a4c0c013616295ef7f08cce656f18fec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af5179e236a644056736aa6041e350f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2af5179e236a644056736aa6041e350f"></a>
-typedef std::vector&lt; <a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">XMLNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a2af5179e236a644056736aa6041e350f">XMLList_t</a></td></tr>
-<tr class="memdesc:a2af5179e236a644056736aa6041e350f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for a list of nodes. <br/></td></tr>
+<tr class="memitem:a2af5179e236a644056736aa6041e350f"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">XMLNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a2af5179e236a644056736aa6041e350f">XMLList_t</a></td></tr>
+<tr class="memdesc:a2af5179e236a644056736aa6041e350f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for a list of nodes.  <a href="#a2af5179e236a644056736aa6041e350f">More...</a><br/></td></tr>
 <tr class="separator:a2af5179e236a644056736aa6041e350f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc81bb1b24b5f77e257ed0df7e08403d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc81bb1b24b5f77e257ed0df7e08403d"></a>
-typedef std::map&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>, <br class="typebreak"/>
+<tr class="memitem:acc81bb1b24b5f77e257ed0df7e08403d"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>, <br class="typebreak"/>
 <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#acc81bb1b24b5f77e257ed0df7e08403d">XMLOptions_t</a></td></tr>
-<tr class="memdesc:acc81bb1b24b5f77e257ed0df7e08403d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for an option dictionary. <br/></td></tr>
+<tr class="memdesc:acc81bb1b24b5f77e257ed0df7e08403d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut for an option dictionary.  <a href="#acc81bb1b24b5f77e257ed0df7e08403d">More...</a><br/></td></tr>
 <tr class="separator:acc81bb1b24b5f77e257ed0df7e08403d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -170,46 +166,85 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2b1676b8d1927999654ed77688409574"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574">runtime_assert</a> (const bool expression, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> expression_str, const size_t line_no, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> file_name, const char *msg=nullptr)</td></tr>
+<tr class="memitem:a2b1676b8d1927999654ed77688409574"><td class="memItemLeft" align="right" valign="top">ZEN_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574">runtime_assert</a> (const bool expression, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> expression_str, const size_t line_no, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> file_name, const char *msg=nullptr)</td></tr>
 <tr class="memdesc:a2b1676b8d1927999654ed77688409574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a verification of an expression, crashing on error.  <a href="#a2b1676b8d1927999654ed77688409574">More...</a><br/></td></tr>
 <tr class="separator:a2b1676b8d1927999654ed77688409574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f970dca52b6ce6ba2f93af6a7acb4ea"></a>
-<a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea">stripl</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
-<tr class="memdesc:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips leading whitespace from a string (in-place). <br/></td></tr>
+<tr class="memitem:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="memItemLeft" align="right" valign="top">ZEN_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea">stripl</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
+<tr class="memdesc:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips leading whitespace from a string (in-place).  <a href="#a9f970dca52b6ce6ba2f93af6a7acb4ea">More...</a><br/></td></tr>
 <tr class="separator:a9f970dca52b6ce6ba2f93af6a7acb4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75be5691bdb9c06944dc063450e3ca90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a75be5691bdb9c06944dc063450e3ca90">stripl</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
+<tr class="memitem:a75be5691bdb9c06944dc063450e3ca90"><td class="memItemLeft" align="right" valign="top">ZEN_API <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a75be5691bdb9c06944dc063450e3ca90">stripl</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
 <tr class="memdesc:a75be5691bdb9c06944dc063450e3ca90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips leading whitespace from a string (original untouched).  <a href="#a75be5691bdb9c06944dc063450e3ca90">More...</a><br/></td></tr>
 <tr class="separator:a75be5691bdb9c06944dc063450e3ca90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a065432e1a575f5bcda1039580ebd794c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a065432e1a575f5bcda1039580ebd794c"></a>
-<a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c">stript</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
-<tr class="memdesc:a065432e1a575f5bcda1039580ebd794c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips trailing whitespace from a string (in-place). <br/></td></tr>
+<tr class="memitem:a065432e1a575f5bcda1039580ebd794c"><td class="memItemLeft" align="right" valign="top">ZEN_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c">stript</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
+<tr class="memdesc:a065432e1a575f5bcda1039580ebd794c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips trailing whitespace from a string (in-place).  <a href="#a065432e1a575f5bcda1039580ebd794c">More...</a><br/></td></tr>
 <tr class="separator:a065432e1a575f5bcda1039580ebd794c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3826b0db2e11c31105d7dee750c2de04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a3826b0db2e11c31105d7dee750c2de04">stript</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
+<tr class="memitem:a3826b0db2e11c31105d7dee750c2de04"><td class="memItemLeft" align="right" valign="top">ZEN_API <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a3826b0db2e11c31105d7dee750c2de04">stript</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text)</td></tr>
 <tr class="memdesc:a3826b0db2e11c31105d7dee750c2de04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strips trailing whitespace from a string (original untouched).  <a href="#a3826b0db2e11c31105d7dee750c2de04">More...</a><br/></td></tr>
 <tr class="separator:a3826b0db2e11c31105d7dee750c2de04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae654fd97afaaac2c3dd25dd18111385a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> std::vector&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a">split</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text, const char delim, const size_t approx=0)</td></tr>
+<tr class="memitem:ae654fd97afaaac2c3dd25dd18111385a"><td class="memItemLeft" align="right" valign="top">ZEN_API std::vector&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a">split</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text, const char delim, const size_t approx=0)</td></tr>
 <tr class="memdesc:ae654fd97afaaac2c3dd25dd18111385a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string into a list of substrings based on a delimiter.  <a href="#ae654fd97afaaac2c3dd25dd18111385a">More...</a><br/></td></tr>
 <tr class="separator:ae654fd97afaaac2c3dd25dd18111385a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff">toupper</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
+<tr class="memitem:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="memItemLeft" align="right" valign="top">ZEN_API <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff">toupper</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
 <tr class="memdesc:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an immutable string to its uppercase equivalent.  <a href="#abcd46d2b51e6e06f9d9c64e3d252c9ff">More...</a><br/></td></tr>
 <tr class="separator:abcd46d2b51e6e06f9d9c64e3d252c9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787ffd776fdb8470f900a21d71c85af4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a787ffd776fdb8470f900a21d71c85af4"></a>
-<a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4">toupper</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
-<tr class="memdesc:a787ffd776fdb8470f900a21d71c85af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to its uppercase equivalent (in-place). <br/></td></tr>
+<tr class="memitem:a787ffd776fdb8470f900a21d71c85af4"><td class="memItemLeft" align="right" valign="top">ZEN_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4">toupper</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str)</td></tr>
+<tr class="memdesc:a787ffd776fdb8470f900a21d71c85af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to its uppercase equivalent (in-place).  <a href="#a787ffd776fdb8470f900a21d71c85af4">More...</a><br/></td></tr>
 <tr class="separator:a787ffd776fdb8470f900a21d71c85af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6243a2677ad5feb0d748b19b9010b78"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78">hash</a> (const void *pdata, uint32_t size, const uint32_t seed=69)</td></tr>
+<tr class="memitem:af6243a2677ad5feb0d748b19b9010b78"><td class="memItemLeft" align="right" valign="top">static ZEN_API uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78">hash</a> (const void *pdata, uint32_t size, const uint32_t seed=69)</td></tr>
 <tr class="memdesc:af6243a2677ad5feb0d748b19b9010b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash for some value.  <a href="#af6243a2677ad5feb0d748b19b9010b78">More...</a><br/></td></tr>
 <tr class="separator:af6243a2677ad5feb0d748b19b9010b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8459a65ab5a138993298a034f347f9db"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db">string_hash</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str, const uint32_t seed=69)</td></tr>
+<tr class="memitem:a8459a65ab5a138993298a034f347f9db"><td class="memItemLeft" align="right" valign="top">static ZEN_API uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db">string_hash</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;str, const uint32_t seed=69)</td></tr>
 <tr class="memdesc:a8459a65ab5a138993298a034f347f9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hashes a string to a unique value.  <a href="#a8459a65ab5a138993298a034f347f9db">More...</a><br/></td></tr>
 <tr class="separator:a8459a65ab5a138993298a034f347f9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4677b5108726366018e20df6ac02844e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4677b5108726366018e20df6ac02844e"></a>
-struct <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><b>XMLNode</b></td></tr>
+<tr class="memitem:a4677b5108726366018e20df6ac02844e"><td class="memItemLeft" align="right" valign="top">struct ZEN_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#a4677b5108726366018e20df6ac02844e">XMLNode</a></td></tr>
 <tr class="separator:a4677b5108726366018e20df6ac02844e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a4c0c013616295ef7f08cce656f18fec0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef uint32_t <a class="el" href="namespacezen_1_1util.html#a4c0c013616295ef7f08cce656f18fec0">zen::util::time_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_timer_8hpp_source.html#l00039">39</a> of file <a class="el" href="_timer_8hpp_source.html">Timer.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2af5179e236a644056736aa6041e350f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">XMLNode</a>*&gt; <a class="el" href="namespacezen_1_1util.html#a2af5179e236a644056736aa6041e350f">zen::util::XMLList_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_x_m_l_parser_8hpp_source.html#l00043">43</a> of file <a class="el" href="_x_m_l_parser_8hpp_source.html">XMLParser.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc81bb1b24b5f77e257ed0df7e08403d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&gt; <a class="el" href="namespacezen_1_1util.html#acc81bb1b24b5f77e257ed0df7e08403d">zen::util::XMLOptions_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_x_m_l_parser_8hpp_source.html#l00046">46</a> of file <a class="el" href="_x_m_l_parser_8hpp_source.html">XMLParser.hpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="a71df7f5c65b514e05962ed33b3c03ba9"></a>
 <div class="memitem">
@@ -281,10 +316,6 @@ struct <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475"
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function plays nicely with <a class="el" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log.">zen::util::CLog::GetEngineLog()</a>, using it to store the fatal error messages to output them directly to the screen. This function can, but likely should not be called directly, since it relates to the preprocessor macro ZEN_ASSERT (defined above) to evaluate the given expression as a string. The stored error is as follows: </p>
-<pre class="fragment"> [FATAL] Assert -- `expression_str` failed at line `line_no` of `file_name`: `_msg_`
-</pre><p>The variable names above are replaced with their respective values, naturally.</p>
-<p>If this is used with the <code>ZEN_ASSERT</code> macro, this will ONLY actually do things in Debug builds, with <code>_DEBUG</code> specified.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">expr</td><td>Boolean expression to assert on </td></tr>
@@ -304,6 +335,33 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph.png" border="0" usemap="#namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph" alt=""/></div>
 <map name="namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph" id="namespacezen_1_1util_a2b1676b8d1927999654ed77688409574_icgraph">
 <area shape="rect" id="node2" href="namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524" title="Checks the validity of an OpenGL call." alt="" coords="183,5,331,32"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d" title="Checks the validity of an OpenAL call." alt="" coords="173,57,341,98"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f970dca52b6ce6ba2f93af6a7acb4ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::util::stripl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00005">5</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph.png" border="0" usemap="#namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph" alt=""/></div>
+<map name="namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph" id="namespacezen_1_1util_a9f970dca52b6ce6ba2f93af6a7acb4ea_icgraph">
+<area shape="rect" id="node2" href="group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file." alt="" coords="157,38,296,79"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="345,5,476,46"/><area shape="rect" id="node5" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="344,70,477,111"/><area shape="rect" id="node4" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="526,5,653,46"/></map>
 </div>
 </p>
 
@@ -331,6 +389,24 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>String with stripped leading whitespace. </dd></dl>
 
 <p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00012">12</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a065432e1a575f5bcda1039580ebd794c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::util::stript </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00019">19</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +482,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacezen_1_1util_ae654fd97afaaac2c3dd25dd18111385a_icgraph.png" border="0" usemap="#namespacezen_1_1util_ae654fd97afaaac2c3dd25dd18111385a_icgraph" alt=""/></div>
 <map name="namespacezen_1_1util_ae654fd97afaaac2c3dd25dd18111385a_icgraph" id="namespacezen_1_1util_ae654fd97afaaac2c3dd25dd18111385a_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1obj_1_1_c_entity.html#a2cd6499ff50dee1cf1fc7e53434ff2ac" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="155,5,282,46"/></map>
+<area shape="rect" id="node2" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="155,5,282,46"/></map>
 </div>
 </p>
 
@@ -440,9 +516,27 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacezen_1_1util_abcd46d2b51e6e06f9d9c64e3d252c9ff_icgraph.png" border="0" usemap="#namespacezen_1_1util_abcd46d2b51e6e06f9d9c64e3d252c9ff_icgraph" alt=""/></div>
 <map name="namespacezen_1_1util_abcd46d2b51e6e06f9d9c64e3d252c9ff_icgraph" id="namespacezen_1_1util_abcd46d2b51e6e06f9d9c64e3d252c9ff_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place)." alt="" coords="174,5,293,32"/></map>
+<area shape="rect" id="node2" href="group___utilities.html#gaea41451a7d888f37f556828cb4dc5535" title="Attempts to return a boolean representation of a value." alt="" coords="173,5,312,46"/><area shape="rect" id="node3" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place)." alt="" coords="183,71,302,97"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a787ffd776fdb8470f900a21d71c85af4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::util::toupper </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_helpers_8cpp_source.html#l00084">84</a> of file <a class="el" href="_helpers_8cpp_source.html">Helpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -454,7 +548,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> uint32_t zen::util::hash </td>
+          <td class="memname">static ZEN_API uint32_t zen::util::hash </td>
           <td>(</td>
           <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>pdata</em>, </td>
@@ -484,7 +578,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 <p>This algorithm is ripped from the MurmurHash2 algorithm.</p>
-<p>When called by CAsset::CAsset(), it uses the CAsset::s_seed value for the seed, which is automatically generated by the CAssetManager on initialization.</p>
+<p>When called by zen::CAsset::CAsset(), it uses the internal <code>s_seed</code> value for the seed, which is automatically generated by the <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">zen::asset::CAssetManager</a> on initialization.</p>
 <dl class="section author"><dt>Author</dt><dd>Austin Appleby </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>r144</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -505,7 +599,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacezen_1_1util_af6243a2677ad5feb0d748b19b9010b78_icgraph.png" border="0" usemap="#namespacezen_1_1util_af6243a2677ad5feb0d748b19b9010b78_icgraph" alt=""/></div>
 <map name="namespacezen_1_1util_af6243a2677ad5feb0d748b19b9010b78_icgraph" id="namespacezen_1_1util_af6243a2677ad5feb0d748b19b9010b78_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value." alt="" coords="158,123,301,149"/><area shape="rect" id="node3" href="classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="349,5,533,46"/><area shape="rect" id="node5" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="375,201,508,242"/><area shape="rect" id="node4" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="375,70,508,111"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="367,135,515,177"/></map>
+<area shape="rect" id="node2" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value." alt="" coords="158,177,301,204"/><area shape="rect" id="node11" href="classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="349,6,533,47"/><area shape="rect" id="node13" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="375,333,508,374"/><area shape="rect" id="node3" href="classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37" title="Returns the hashed filename for quicker comparison." alt="" coords="374,71,509,113"/><area shape="rect" id="node4" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename." alt="" coords="374,137,509,178"/><area shape="rect" id="node12" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="375,202,508,243"/><area shape="rect" id="node14" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="367,267,515,309"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="831,41,982,82"/><area shape="rect" id="node6" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="606,49,757,90"/><area shape="rect" id="node7" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="830,117,983,158"/><area shape="rect" id="node8" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="830,205,983,246"/><area shape="rect" id="node9" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13" title="zen::gfxcore::CTexture\l::LoadFromRaw" alt="" coords="605,166,758,207"/><area shape="rect" id="node10" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="582,283,781,309"/></map>
 </div>
 </p>
 
@@ -519,7 +613,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> uint32_t zen::util::string_hash </td>
+          <td class="memname">static ZEN_API uint32_t zen::util::string_hash </td>
           <td>(</td>
           <td class="paramtype">const string_t &amp;&#160;</td>
           <td class="paramname"><em>str</em>, </td>
@@ -559,9 +653,24 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacezen_1_1util_a8459a65ab5a138993298a034f347f9db_icgraph.png" border="0" usemap="#namespacezen_1_1util_a8459a65ab5a138993298a034f347f9db_icgraph" alt=""/></div>
 <map name="namespacezen_1_1util_a8459a65ab5a138993298a034f347f9db_icgraph" id="namespacezen_1_1util_a8459a65ab5a138993298a034f347f9db_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="197,5,381,46"/><area shape="rect" id="node3" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="223,70,356,111"/><area shape="rect" id="node4" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="223,135,356,177"/><area shape="rect" id="node5" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="215,201,363,242"/></map>
+<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37" title="Returns the hashed filename for quicker comparison." alt="" coords="222,67,357,108"/><area shape="rect" id="node3" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename." alt="" coords="222,132,357,174"/><area shape="rect" id="node10" href="classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="197,198,381,239"/><area shape="rect" id="node11" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="223,263,356,304"/><area shape="rect" id="node12" href="classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="223,328,356,370"/><area shape="rect" id="node13" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="215,394,363,435"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="679,36,830,78"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="454,44,605,86"/><area shape="rect" id="node6" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="678,112,831,154"/><area shape="rect" id="node7" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="678,200,831,242"/><area shape="rect" id="node8" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13" title="zen::gfxcore::CTexture\l::LoadFromRaw" alt="" coords="453,162,606,203"/><area shape="rect" id="node9" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="430,278,629,305"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a4677b5108726366018e20df6ac02844e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct ZEN_API <a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">zen::util::XMLNode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_x_m_l_parser_8hpp_source.html#l00040">40</a> of file <a class="el" href="_x_m_l_parser_8hpp_source.html">XMLParser.hpp</a>.</p>
 
 </div>
 </div>

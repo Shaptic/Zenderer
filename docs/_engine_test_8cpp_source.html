@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,15 +109,15 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp_source.html','');});
 <div class="title">EngineTest.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<a href="_engine_test_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp - Includes the user-exposed portions of the engine.">Zenderer/Zenderer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>zen;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">gfxcore::CRenderer</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">gfxcore::CRenderer</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// Here&#39;s some perfect sample XML.</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* SAMPLE_XML[] = {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#abeae8f2814ff12ed2c1c41e3ceb60b47">    9</a></span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="_engine_test_8cpp.html#abeae8f2814ff12ed2c1c41e3ceb60b47">SAMPLE_XML</a>[] = {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="stringliteral">&quot;&lt;entity type=\&quot;QUAD\&quot; name=\&quot;generic\&quot;&gt;&quot;</span>,</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="stringliteral">&quot;&lt;position x=\&quot;100\&quot; y=\&quot;200\&quot;&gt;&quot;</span>,</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span>,</div>
@@ -142,7 +141,7 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp_source.html','');});
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Windowed version for release builds.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#ifndef _DEBUG</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">int</span> WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPInst,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">int</span> WINAPI <a class="code" href="_engine_test_8cpp.html#a9b5c3fbac5cdb27a8eb475915874329d">WinMain</a>(HINSTANCE hInst, HINSTANCE hPInst,</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                     LPSTR lpCmdLine, <span class="keywordtype">int</span> nShowCmd)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
@@ -150,111 +149,111 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp_source.html','');});
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span>{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a> Manager; Manager.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#a6ceec789467c60c4402a774fa201b7e6" title="Does nothing.">Init</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context.">gfx::CWindow</a> Window(800, 600, <span class="stringliteral">&quot;Hello, Zenderer.&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a27e3922e8cf7597f39bad05d6090e729">   41</a></span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a> <a class="code" href="_engine_test_8cpp.html#a27e3922e8cf7597f39bad05d6090e729">Manager</a>; Manager.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#a6ceec789467c60c4402a774fa201b7e6" title="Does nothing.">Init</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="namespacezen_1_1gfx.html#a7fc1cbadadf44939bd470783cd2b33d2">gfx::CWindow</a> <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>(800, 600, <span class="stringliteral">&quot;Hello, Zenderer.&quot;</span>);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">//Window.AttachAssetManager(Manager);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    Window.Init();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init</a>();</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a>* Sound =</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        Manager.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa" title="Creates an asset from a filename.">Create</a>&lt;<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a>&gt;(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>(<span class="stringliteral">&quot;Crackle.wav&quot;</span>));</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a90716f8306c2bd2ddfae6337fed1f3ea">   47</a></span>&#160;    <a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a>* <a class="code" href="_engine_test_8cpp.html#a90716f8306c2bd2ddfae6337fed1f3ea">Sound</a> =</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        Manager.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#af2af52f25ecc3fac4a9ea2b9b5ee471a" title="Creates an asset from a filename.">Create</a>&lt;<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a>&gt;(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>(<span class="stringliteral">&quot;Crackle.wav&quot;</span>));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a> Teal(0.0, 1.0, 1.0, 1.0);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a> <a class="code" href="_engine_test_8cpp.html#a60320b4aa8bf2c1a0b44d733e72e0296">Teal</a>(0.0, 1.0, 1.0, 1.0);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a> Sample(&amp;Manager);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a> Grass(&amp;Manager);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    gfx::CMaterial Sample(&amp;Manager);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    gfx::CMaterial <a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>(&amp;Manager);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    Sample.LoadTextureFromFile(<span class="stringliteral">&quot;sample.png&quot;</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Sample.LoadEffect(gfx::EffectType::NO_EFFECT);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Grass.LoadTextureFromFile(<span class="stringliteral">&quot;grass.png&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    Grass.LoadEffect(gfx::EffectType::NO_EFFECT);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>.LoadTextureFromFile(<span class="stringliteral">&quot;grass.png&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>.LoadEffect(gfx::EffectType::NO_EFFECT);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Create the vertex buffers we will be using (inefficient).</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// Recommended practice would be to combine into one buffer</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// to minimize state change.</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a> Vao, FS, Gr;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Vao.Init(); FS.Init(); Gr.Init();</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">   64</a></span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a> <a class="code" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">Vao</a>, <a class="code" href="_engine_test_8cpp.html#a6cede53cf917df845338dee3d2f276cf">FS</a>, <a class="code" href="_engine_test_8cpp.html#aa8f5f421992c218a1692ac8f0207a666">Gr</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    Vao.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>(); FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>(); Gr.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Quad to easily store vertex data</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">gfx::CQuad</a> Default(Sample.GetTexture()-&gt;GetWidth(), Sample.GetTexture()-&gt;GetHeight());</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    Default.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7" title="Sets all vertices to have a given color value.">SetColor</a>(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>(1, 1, 1, 1));</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    Default.Create();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    gfx::CQuad <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>(Sample.GetTexture()-&gt;GetWidth(), Sample.GetTexture()-&gt;GetHeight());</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7" title="Sets all vertices to have a given color value.">SetColor</a>(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>(1, 1, 1, 1));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Regular quad</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    Default.LoadIntoVAO(Vao);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3" title="Shortcut to prevent loading simple objects manually.">LoadIntoVAO</a>(Vao);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Full screen</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    Default.Resize(800, 600);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Default.Create();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    Default.LoadIntoVAO(FS);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a3e86d46b495cd3adfd7d10b3cc0153c4" title="Resizes the quad to a new dimension.">Resize</a>(800, 600);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3" title="Shortcut to prevent loading simple objects manually.">LoadIntoVAO</a>(FS);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Stretched grass quad</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    Default.SetInverted(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    Default.SetRepeating(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    Default.AttachMaterial(&amp;Grass);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Default.Resize(15 * Grass.GetTexture()-&gt;GetWidth(), Grass.GetTexture()-&gt;GetHeight());</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    Default.Create();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Default.LoadIntoVAO(Gr);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values.">SetInverted</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333" title="Repeat texture or stretch to fit.">SetRepeating</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">   83</a></span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#ade8c3e433d4f0833990667997680a417" title="Attaches a material to render on top of the primitive.">AttachMaterial</a>(&amp;<a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a3e86d46b495cd3adfd7d10b3cc0153c4" title="Resizes the quad to a new dimension.">Resize</a>(15 * <a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>.GetTexture()-&gt;GetWidth(), <a class="code" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>.GetTexture()-&gt;GetHeight());</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3" title="Shortcut to prevent loading simple objects manually.">LoadIntoVAO</a>(Gr);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    Vao.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>();</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    Gr.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>();</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    Default.SetInverted(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    Default.Resize(32, 32);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    Default.AttachMaterial(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    Default.Create();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values.">SetInverted</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a3e86d46b495cd3adfd7d10b3cc0153c4" title="Resizes the quad to a new dimension.">Resize</a>(32, 32);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#ade8c3e433d4f0833990667997680a417" title="Attaches a material to render on top of the primitive.">AttachMaterial</a>(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    Window.ToggleVSYNC();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_timer.html" title="A high-precision timer class for controlling frame rates.">util::CTimer</a> Timer(60);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a63143db627c180d561c2162019c741d7">ToggleVSYNC</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_timer.html" title="A high-precision timer class for controlling frame rates.">util::CTimer</a> <a class="code" href="_engine_test_8cpp.html#a71b67c9d2105c3e283badbbc8f4cac46">Timer</a>(60);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">gfx::CLight</a> L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    L.Init();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    L.Enable();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    L.SetBrightness(0.5);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    L.SetColor(1.0, 1.0, 1.0);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    L.SetPosition(200, 100);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    L.Disable();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    gfx::CLight <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>(Manager, gfx::LightType::ZEN_POINT, <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#ae3b4451816d29a80829d70a87fad62b5">GetHeight</a>());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df">Init</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a0d5c3ae85e8081a181f101c01eac0672">Enable</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a24bfab8d3bcea9b7505907f35ba58164">SetBrightness</a>(0.5);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#acd7fedd4318f0181319fa0a554de9462">SetColor</a>(1.0, 1.0, 1.0);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">SetPosition</a>(200, 100);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd">Disable</a>();</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a> RT(800, 600);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    RT.Init();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="classgfx_1_1_c_render_target.html">gfx::CRenderTarget</a> <a class="code" href="_engine_test_8cpp.html#adfc3fa656bb93fe9b628816a3954898b">RT</a>(800, 600);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="_engine_test_8cpp.html#adfc3fa656bb93fe9b628816a3954898b">RT</a>.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0">Init</a>();</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>&amp; DEffect = CRenderer::GetDefaultEffect();</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a9eb7fdba8db39625038ff210f074f56f">  113</a></span>&#160;    gfx::CEffect&amp; <a class="code" href="_engine_test_8cpp.html#a9eb7fdba8db39625038ff210f074f56f">DEffect</a> = CRenderer::GetDefaultEffect();</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">double</span> x, y;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> angle = 45.0, d = -5.5;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#ab927965981178aa1fba979a37168db2a">  115</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="_engine_test_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>, <a class="code" href="_engine_test_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#ae787eec97ea7472295d24ca827fbe74e">  116</a></span>&#160;    <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="_engine_test_8cpp.html#a10d91eebcedf2ee25ba23db0b944ed51">angle</a> = 45.0, <a class="code" href="_engine_test_8cpp.html#ae787eec97ea7472295d24ca827fbe74e">d</a> = -5.5;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">while</span>(Window.IsOpen())</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f">  118</a></span>&#160;    <span class="keywordflow">while</span>(<a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091">IsOpen</a>())</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        Timer.Start();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="_engine_test_8cpp.html#a71b67c9d2105c3e283badbbc8f4cac46">Timer</a>.<a class="code" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae" title="Marks start time and returns it.">Start</a>();</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="comment">// Handle events</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        glfwPollEvents();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        glfwGetCursorPos(Window.GetWindow(), &amp;x, &amp;y);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        glfwGetCursorPos(<a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a7574da6790394665fb63d5be9058543b">GetWindow</a>(), &amp;<a class="code" href="_engine_test_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>, &amp;<a class="code" href="_engine_test_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a>);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="comment">// Game logic</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        Sound-&gt;<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b" title="This only checks for looping.">Update</a>();</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            RT.Bind();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <a class="code" href="_engine_test_8cpp.html#adfc3fa656bb93fe9b628816a3954898b">RT</a>.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            Sample.EnableTexture();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            DEffect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a55724770ecc469bc576fbc2edd402432" title="A more user-friendly alias for binding.">Enable</a>();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            DEffect.Enable();</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            DEffect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix());</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            DEffect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;mv&quot;</span>, math::matrix4x4_t::GetIdentityMatrix());</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            DEffect.SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix());</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            DEffect.SetParameter(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            RT.Clear();</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            Vao.Draw();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <a class="code" href="_engine_test_8cpp.html#adfc3fa656bb93fe9b628816a3954898b">RT</a>.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ad282b7a7076045660a12e7037d4861c3">Clear</a>();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            Vao.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            CRenderer::ResetMaterialState();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            RT.Unbind();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <a class="code" href="_engine_test_8cpp.html#adfc3fa656bb93fe9b628816a3954898b">RT</a>.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">Unbind</a>();</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        }</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="comment">// Rendering</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        Window.Clear(Teal);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a8c829e940b9d9fea7ac4f416e828df05" title="Clears the framebuffer to black.">Clear</a>(<a class="code" href="_engine_test_8cpp.html#a60320b4aa8bf2c1a0b44d733e72e0296">Teal</a>);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="comment">/*</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">        {</span></div>
@@ -273,8 +272,8 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp_source.html','');});
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">        }</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">        */</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        Default.Move(x, y);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        Default.Draw();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2" title="Moves the drawable to a certain location.">Move</a>(x, y);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on-screen.">Draw</a>();</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">/*</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">        {</span></div>
@@ -296,30 +295,30 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp_source.html','');});
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">        }</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">        */</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        Window.Update();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c" title="Performs a context update.">Update</a>();</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        </div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="comment">//Sound.Update();</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="comment">// Finalize</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        Timer.Delay();</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <a class="code" href="_engine_test_8cpp.html#a71b67c9d2105c3e283badbbc8f4cac46">Timer</a>.<a class="code" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame-rate.">Delay</a>();</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">// This will be taken care of by Quit() automatically,</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">// but it&#39;s still a good practice.</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    Vao.Destroy();</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    Gr.Destroy();</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    FS.Destroy();</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    Vao.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    Gr.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">Quit</a>();</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="code" href="_engine_test_8cpp.html#a9717e7bbecb906637e86cef6da3d83c2">  203</a></span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><b>EngineTest.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="_engine_test_8cpp.html">EngineTest.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

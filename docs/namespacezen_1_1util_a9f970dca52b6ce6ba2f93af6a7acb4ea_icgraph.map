@@ -1,4 +1,6 @@
 <map id="zen::util::stripl" name="zen::util::stripl">
-<area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file." alt="" coords="157,5,296,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="344,5,477,46"/>
+<area shape="rect" id="node2" href="$group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file." alt="" coords="157,38,296,79"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="345,5,476,46"/>
+<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="344,70,477,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="526,5,653,46"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="zen::util::CLog::IsInit" name="zen::util::CLog::IsInit">
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee" title="Opens a file stream with a custom filename given in the ctor." alt="" coords="209,5,340,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream." alt="" coords="195,56,354,83"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy()." alt="" coords="403,5,555,32"/>
+<area shape="rect" id="node5" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="445,56,513,83"/>
+<area shape="rect" id="node6" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="441,107,516,133"/>
+</map>

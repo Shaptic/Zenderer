@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -122,61 +121,315 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_g_l_subsyste
 
 <p><code>#include &quot;<a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>&quot;</code></p>
 <div class="dynheader">
-Inheritance diagram for zen::gfxcore::CGLSubsystem:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1gfxcore_1_1_c_g_l_subsystem__inherit__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map" alt="Inheritance graph"/></div>
-<map name="zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map" id="zen_1_1gfxcore_1_1_c_g_l_subsystem_inherit__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="5,255,147,494"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations." alt="" coords="171,248,333,501"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="357,263,536,487"/></map>
-</div>
-<div class="dynheader">
 Collaboration diagram for zen::gfxcore::CGLSubsystem:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_g_l_subsystem__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem_coll__map" alt="Collaboration graph"/></div>
+<map name="zen_1_1gfxcore_1_1_c_g_l_subsystem_coll__map" id="zen_1_1gfxcore_1_1_c_g_l_subsystem_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a47a6626c01ac7766f2dee9381e9b4807"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47a6626c01ac7766f2dee9381e9b4807"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CGLSubsystem</b> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;OpenGL&quot;)</td></tr>
+<tr class="memitem:a47a6626c01ac7766f2dee9381e9b4807"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a47a6626c01ac7766f2dee9381e9b4807">CGLSubsystem</a> (<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> name=&quot;OpenGL&quot;)</td></tr>
 <tr class="separator:a47a6626c01ac7766f2dee9381e9b4807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432fea1dd5947e6f254dcd3570a349e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a432fea1dd5947e6f254dcd3570a349e8"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()=0</td></tr>
+<tr class="memitem:ab822221cc0055cad2dc9abab7b34a023"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ab822221cc0055cad2dc9abab7b34a023">~CGLSubsystem</a> ()</td></tr>
+<tr class="separator:ab822221cc0055cad2dc9abab7b34a023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a432fea1dd5947e6f254dcd3570a349e8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a432fea1dd5947e6f254dcd3570a349e8">Init</a> ()=0</td></tr>
 <tr class="separator:a432fea1dd5947e6f254dcd3570a349e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f0ea66633645e772c8ca12ec6e8872"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77f0ea66633645e772c8ca12ec6e8872"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Destroy</b> ()=0</td></tr>
+<tr class="memitem:a77f0ea66633645e772c8ca12ec6e8872"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a77f0ea66633645e772c8ca12ec6e8872">Destroy</a> ()=0</td></tr>
 <tr class="separator:a77f0ea66633645e772c8ca12ec6e8872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa3147d5c699f63867f8158cd7108c6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa3147d5c699f63867f8158cd7108c6d"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Bind</b> () const =0</td></tr>
+<tr class="memitem:afa3147d5c699f63867f8158cd7108c6d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#afa3147d5c699f63867f8158cd7108c6d">Bind</a> () const =0</td></tr>
 <tr class="separator:afa3147d5c699f63867f8158cd7108c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f156a610268905fd5c1b10f5e48f354"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f156a610268905fd5c1b10f5e48f354"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>Unbind</b> () const =0</td></tr>
+<tr class="memitem:a2f156a610268905fd5c1b10f5e48f354"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a2f156a610268905fd5c1b10f5e48f354">Unbind</a> () const =0</td></tr>
 <tr class="separator:a2f156a610268905fd5c1b10f5e48f354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c51e85829c109daddc6f4a5aba66ac8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c51e85829c109daddc6f4a5aba66ac8"></a>
-virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetObjectHandle</b> () const =0</td></tr>
+<tr class="memitem:a1c51e85829c109daddc6f4a5aba66ac8"><td class="memItemLeft" align="right" valign="top">virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a1c51e85829c109daddc6f4a5aba66ac8">GetObjectHandle</a> () const =0</td></tr>
 <tr class="separator:a1c51e85829c109daddc6f4a5aba66ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f51d92f06d547070a5231f10f21fb7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f51d92f06d547070a5231f10f21fb7e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsInit</b> ()</td></tr>
+<tr class="memitem:a8f51d92f06d547070a5231f10f21fb7e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a8f51d92f06d547070a5231f10f21fb7e">IsInit</a> ()</td></tr>
 <tr class="separator:a8f51d92f06d547070a5231f10f21fb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa05627df3b5723c2221d58d5a8da4732"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa05627df3b5723c2221d58d5a8da4732"></a>
-virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> () const </td></tr>
+<tr class="memitem:aa05627df3b5723c2221d58d5a8da4732"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#aa05627df3b5723c2221d58d5a8da4732">GetName</a> () const </td></tr>
 <tr class="separator:aa05627df3b5723c2221d58d5a8da4732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ad4248e312e0b60e82ff78d6e7b53f382"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4248e312e0b60e82ff78d6e7b53f382"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_init</b></td></tr>
+<tr class="memitem:ad4248e312e0b60e82ff78d6e7b53f382"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a></td></tr>
 <tr class="separator:ad4248e312e0b60e82ff78d6e7b53f382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a299b9079941c4aa17daa982ea5b6f99a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a299b9079941c4aa17daa982ea5b6f99a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>zen::Quit</b> ()</td></tr>
-<tr class="separator:a299b9079941c4aa17daa982ea5b6f99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f2251cf9cbb5af084e9f0f8f0561083"><td class="memItemLeft" align="right" valign="top">ZEN_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a2f2251cf9cbb5af084e9f0f8f0561083">zen::Quit</a> ()</td></tr>
+<tr class="separator:a2f2251cf9cbb5af084e9f0f8f0561083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00110">110</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a47a6626c01ac7766f2dee9381e9b4807"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CGLSubsystem::CGLSubsystem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">zen::string_t</a>&#160;</td>
+          <td class="paramname"><em>name</em> = <code>&quot;OpenGL&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_open_g_l_8cpp_source.html#l00007">7</a> of file <a class="el" href="_open_g_l_8cpp_source.html">OpenGL.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab822221cc0055cad2dc9abab7b34a023"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual zen::gfxcore::CGLSubsystem::~CGLSubsystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00114">114</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a432fea1dd5947e6f254dcd3570a349e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool zen::gfxcore::CGLSubsystem::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">zen::gfxcore::CVertexArray</a>, <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">zen::gfx::CEffect</a>, and <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0">zen::gfx::CRenderTarget</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77f0ea66633645e772c8ca12ec6e8872"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool zen::gfxcore::CGLSubsystem::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">zen::gfxcore::CVertexArray</a>, <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0">zen::gfx::CEffect</a>, and <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">zen::gfx::CRenderTarget</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa3147d5c699f63867f8158cd7108c6d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool zen::gfxcore::CGLSubsystem::Bind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">zen::gfxcore::CVertexArray</a>, and <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">zen::gfx::CRenderTarget</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f156a610268905fd5c1b10f5e48f354"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool zen::gfxcore::CGLSubsystem::Unbind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a7363f6b19699a918e04de8a132aaa390">zen::gfxcore::CVertexArray</a>, and <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">zen::gfx::CRenderTarget</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c51e85829c109daddc6f4a5aba66ac8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual GLuint zen::gfxcore::CGLSubsystem::GetObjectHandle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a7b8c9a5bf841f2f8e81b6b4e3b3cb8c9">zen::gfx::CEffect</a>, <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">zen::gfxcore::CVertexArray</a>, and <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#ab27ab130d9778d04220ec7eea766f19c">zen::gfx::CRenderTarget</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f51d92f06d547070a5231f10f21fb7e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::gfxcore::CGLSubsystem::IsInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00124">124</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa05627df3b5723c2221d58d5a8da4732"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&amp; zen::gfxcore::CGLSubsystem::GetName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00126">126</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a class="anchor" id="a2f2251cf9cbb5af084e9f0f8f0561083"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ZEN_API void <a class="el" href="namespacezen.html#aca306dcb6040ec015324d8487c031048">zen::Quit</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="ad4248e312e0b60e82ff78d6e7b53f382"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::gfxcore::CGLSubsystem::m_init</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_open_g_l_8hpp_source.html#l00132">132</a> of file <a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/CoreGraphics/<a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a></li>
 <li>Zenderer/src/CoreGraphics/<a class="el" href="_open_g_l_8cpp_source.html">OpenGL.cpp</a></li>
 </ul>

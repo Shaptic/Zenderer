@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,24 +109,24 @@ $(document).ready(function(){initNavTree('_renderer_8cpp_source.html','');});
 <div class="title">Renderer.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp - A low-level class to take care of rendering state and other grap...">Zenderer/CoreGraphics/Renderer.hpp</a>&quot;</span></div>
+<a href="_renderer_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp - A low-level class to take care of rendering state and other grap...">Zenderer/CoreGraphics/Renderer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">gfxcore::CRenderer</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">gfxcore::CRenderer</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>          CRenderer::s_DefaultMaterial;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>            CRenderer::s_DefaultEffect(gfx::EffectType::NO_EFFECT);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;gfx::CMaterial          CRenderer::s_DefaultMaterial;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;gfx::CEffect            CRenderer::s_DefaultEffect(gfx::EffectType::NO_EFFECT);</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*      CRenderer::s_DefaultTexture;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>       CRenderer::s_ProjMatrix;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span>                    CRenderer::s_blend;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a28934d82180c0f22e5475c655422f218">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CRenderer::Init</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#ac7153f7bb4d7a06e8d227819ae770b61">CRenderer::Init</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h)</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// Load the default effect.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    s_DefaultEffect.Init();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    s_DefaultEffect.Enable();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    s_DefaultEffect.SetParameter(<span class="stringliteral">&quot;mv&quot;</span>, math::matrix4x4_t::GetIdentityMatrix());</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    s_DefaultEffect.SetParameter(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    s_DefaultEffect.SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, s_ProjMatrix);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    s_DefaultEffect.Disable();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
@@ -139,7 +138,7 @@ $(document).ready(function(){initNavTree('_renderer_8cpp_source.html','');});
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(pTmp != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        s_DefaultTexture = pTmp;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        s_DefaultTexture-&gt;LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        s_DefaultTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13">LoadFromRaw</a>(GL_RGBA8, GL_RGBA, 1, 1, white);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        s_DefaultTexture-&gt;SetFilename(<span class="stringliteral">&quot;Zenderer white texture&quot;</span>);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
@@ -151,7 +150,7 @@ $(document).ready(function(){initNavTree('_renderer_8cpp_source.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">gfxcore::vertex_t</a> v[6];</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#a840c53d7d48601c3a0672cfcfc3e480f" title="Vertex array.">Vertices</a>  = v;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    D.vcount    = 4;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>    = 4;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#a83c7cacda425edf9caffaf5b141b13fd" title="Index array.">Indices</a>   = i;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>    = 6;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
@@ -181,7 +180,7 @@ $(document).ready(function(){initNavTree('_renderer_8cpp_source.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_06e027613a13d1054daca9a92baf0960.html">CoreGraphics</a></li><li class="navelem"><b>Renderer.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_06e027613a13d1054daca9a92baf0960.html">CoreGraphics</a></li><li class="navelem"><a class="el" href="_renderer_8cpp.html">Renderer.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

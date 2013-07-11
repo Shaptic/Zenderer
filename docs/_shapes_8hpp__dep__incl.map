@@ -1,14 +1,18 @@
 <map id="Zenderer/include/Zenderer/Math/Shapes.hpp" name="Zenderer/include/Zenderer/Math/Shapes.hpp">
-<area shape="rect" id="node2" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="529,278,700,319"/>
-<area shape="rect" id="node9" href="$_math_8hpp.html" title="Zenderer/Math/Math.hpp &#45; Includes all of the various math definitions and defines useful functions..." alt="" coords="88,97,259,138"/>
-<area shape="rect" id="node3" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="287,369,457,410"/>
-<area shape="rect" id="node7" href="$_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="92,369,263,410"/>
-<area shape="rect" id="node4" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="287,459,457,501"/>
-<area shape="rect" id="node8" href="$_quad_8cpp_source.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="482,369,632,410"/>
-<area shape="rect" id="node5" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="175,549,363,576"/>
-<area shape="rect" id="node6" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="388,549,561,576"/>
-<area shape="rect" id="node10" href="$_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="305,187,492,229"/>
-<area shape="rect" id="node12" href="$_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarger.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="81,187,265,229"/>
-<area shape="rect" id="node11" href="$_drawable_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="327,278,504,319"/>
-<area shape="rect" id="node13" href="$_render_target_8cpp_source.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="50,278,200,319"/>
+<area shape="rect" id="node2" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="647,278,817,319"/>
+<area shape="rect" id="node12" href="$_font_core_8hpp_source.html" title="Zenderer/include/Zenderer\l/GUI/FontCore.hpp" alt="" coords="72,97,243,138"/>
+<area shape="rect" id="node13" href="$_math_8hpp.html" title="Zenderer/Math/Math.hpp &#45; Includes all of the various math definitions and defines useful functions..." alt="" coords="344,97,515,138"/>
+<area shape="rect" id="node3" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="420,369,591,410"/>
+<area shape="rect" id="node7" href="$_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="200,369,371,410"/>
+<area shape="rect" id="node4" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="543,459,713,501"/>
+<area shape="rect" id="node11" href="$_quad_8cpp_source.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="666,369,816,410"/>
+<area shape="rect" id="node5" href="$_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="637,549,824,576"/>
+<area shape="rect" id="node6" href="$_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="439,549,612,576"/>
+<area shape="rect" id="node8" href="$_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="7,459,177,501"/>
+<area shape="rect" id="node10" href="$_entity_8cpp_source.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="214,459,356,501"/>
+<area shape="rect" id="node9" href="$_font_8cpp_source.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="5,549,179,576"/>
+<area shape="rect" id="node14" href="$_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="440,187,627,229"/>
+<area shape="rect" id="node16" href="$_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarger.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="232,187,416,229"/>
+<area shape="rect" id="node15" href="$_drawable_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="445,278,621,319"/>
+<area shape="rect" id="node17" href="$_render_target_8cpp_source.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="167,278,317,319"/>
 </map>

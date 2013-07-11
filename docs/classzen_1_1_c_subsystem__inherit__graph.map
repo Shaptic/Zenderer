@@ -2,5 +2,7 @@
 <area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets." alt="" coords="5,294,189,533"/>
 <area shape="rect" id="node3" href="$classzen_1_1_c_allocator.html" title="An optional custom allocator for high&#45;speed memory requests." alt="" coords="214,323,324,503"/>
 <area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context." alt="" coords="349,294,493,533"/>
-<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_settings.html" title="{zen::util::CSettings\n||+ CSettings()\l+ ~CSettings()\l+ Init()\l+ Destroy()\l+ operator[]()\l+ begin()\l+ end()\l+ GetEngineInstance()\l}" alt="" coords="519,323,671,503"/>
+<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library." alt="" coords="518,345,668,481"/>
+<area shape="rect" id="node6" href="$classzen_1_1lua_1_1_c_lua_a_p_i.html" title="Wrapper for the core Lua interpreter." alt="" coords="693,323,851,503"/>
+<area shape="rect" id="node7" href="$classzen_1_1util_1_1_c_settings.html" title="An array&#45;like wrapper for various settings." alt="" coords="875,323,1027,503"/>
 </map>

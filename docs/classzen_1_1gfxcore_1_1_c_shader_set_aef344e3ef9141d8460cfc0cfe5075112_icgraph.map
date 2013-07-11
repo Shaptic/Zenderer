@@ -1,0 +1,6 @@
+<map id="zen::gfxcore::CShaderSet::Unbind" name="zen::gfxcore::CShaderSet::Unbind">
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="237,5,376,32"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd" title="zen::gfx::CLight::Disable" alt="" coords="225,56,389,83"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="437,5,619,32"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="443,56,613,83"/>
+</map>

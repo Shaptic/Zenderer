@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -84,6 +83,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -96,6 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x65.html#index_e"><span>e</span></a></li>
       <li><a href="functions_0x66.html#index_f"><span>f</span></a></li>
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_0x68.html#index_h"><span>h</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
       <li class="current"><a href="functions_0x6c.html#index_l"><span>l</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
@@ -108,7 +110,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x74.html#index_t"><span>t</span></a></li>
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
+      <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
       <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
+      <li><a href="functions_0x7a.html#index_z"><span>z</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
@@ -142,11 +147,14 @@ $(document).ready(function(){initNavTree('functions_0x6c.html','');});
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented struct and union fields with links to the struct/union documentation for each field:</div>
+<div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>LoadEffect()
 : <a class="el" href="classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6">zen::gfx::CMaterial</a>
+</li>
+<li>LoadFile()
+: <a class="el" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a41197a92912fca9306993b41cd6062d9">zen::lua::CLuaAPI</a>
 </li>
 <li>LoadFragmentShaderFromFile()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e">zen::gfxcore::CShaderSet</a>
@@ -155,33 +163,42 @@ $(document).ready(function(){initNavTree('functions_0x6c.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a79ce501721c4e221581e4f5f750e274f">zen::gfxcore::CShaderSet</a>
 </li>
 <li>LoadFromExisting()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">zen::asset::CAsset</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">zen::gfxcore::CTexture</a>
+, <a class="el" href="classzen_1_1gui_1_1_c_font.html#a4d8dce7fe307b7ecaafc651d3b3daaae">zen::gui::CFont</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">zen::asset::CAsset</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a404c0f20fa40144238d5059e4eeca858">zen::sfx::CSound2D</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a253256315aba27fb7ce909a3c025a22f">zen::gfxcore::CShader</a>
 </li>
 <li>LoadFromFile()
-: <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091">zen::gfxcore::CTexture</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1">zen::gfx::CMaterial</a>
+, <a class="el" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3">zen::gui::CFont</a>
+, <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821">zen::obj::CEntity</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0">zen::asset::CAsset</a>
+, <a class="el" href="group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8">zen::util::CINIParser</a>
 , <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b">zen::util::CXMLParser</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>
+, <a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f">zen::gfxcore::CShader</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f">zen::gfxcore::CShaderSet</a>
-, <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8">zen::util::CINIParser</a>
-, <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a2cd6499ff50dee1cf1fc7e53434ff2ac">zen::obj::CEntity</a>
-, <a class="el" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1">zen::gfx::CMaterial</a>
-, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0">zen::asset::CAsset</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#a4ec7980697b53144b39f21c8a43ccee9">zen::gfxcore::CTexture</a>
-, <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>
 </li>
 <li>LoadFromRaw()
-: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">zen::gfxcore::CShader</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13">zen::gfxcore::CTexture</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f">zen::gfxcore::CShader</a>
 </li>
 <li>LoadFromStr()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6879dbb14e43fe9041e9a3d03e3c9fc1">zen::gfxcore::CShaderSet</a>
 </li>
 <li>LoadFromStream()
-: <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae">zen::util::CINIParser</a>
+: <a class="el" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43">zen::gfx::CMaterial</a>
+, <a class="el" href="group___utilities.html#gae4e9f633811f25ba63eff847cd232cae">zen::util::CINIParser</a>
 </li>
 <li>LoadFromString()
 : <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b">zen::util::CXMLParser</a>
+</li>
+<li>LoadFromTexture()
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a">zen::obj::CEntity</a>
 </li>
 <li>LoadIntoVAO()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">zen::gfxcore::CDrawable</a>

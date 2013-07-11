@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,18 +109,18 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8inl_source.html','');})
 <div class="title">INIParser.inl</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> CINIParser::GetValuei(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
+<a href="_i_n_i_parser_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="group___utilities.html#gaef355b201c3c5efd3ada50f1f694ca9c">    1</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> CINIParser::GetValuei(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">return</span> std::stoi(this-&gt;GetValue(key));</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;}</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> CINIParser::GetValueb(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="group___utilities.html#gaea41451a7d888f37f556828cb4dc5535">    6</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> CINIParser::GetValueb(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent.">toupper</a>(key) == <span class="stringliteral">&quot;TRUE&quot;</span> ||</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;            this-&gt;GetValuei(key) != 0);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> CINIParser::GetValuer(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="group___utilities.html#gab8710e9bf49c30e6567434bc2f688c37">   12</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> CINIParser::GetValuer(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> std::stod(this-&gt;GetValue(key));</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
@@ -130,7 +129,7 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8inl_source.html','');})
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83649a668cc514157bc5eeec4c9e3f09.html">Utilities</a></li><li class="navelem"><b>INIParser.inl</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83649a668cc514157bc5eeec4c9e3f09.html">Utilities</a></li><li class="navelem"><a class="el" href="_i_n_i_parser_8inl.html">INIParser.inl</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

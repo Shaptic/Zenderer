@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -116,25 +115,7 @@ $(document).ready(function(){initNavTree('_texture_8hpp.html','');});
 
 <p><a class="el" href="_texture_8hpp.html" title="Zenderer/CoreGraphics/Texture.hpp - A low-level texture asset wrapper around OpenGL textures...">Zenderer/CoreGraphics/Texture.hpp</a> - A low-level texture asset wrapper around OpenGL textures.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;stb_image.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_asset_8hpp_source.html">Zenderer/Assets/Asset.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_log_8hpp_source.html">Zenderer/Utilities/Log.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Texture.hpp:</div>
-<div class="dyncontent">
-<div class="center"><img src="_texture_8hpp__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_core_graphics_2_texture_8hpp" alt=""/></div>
-<map name="_zenderer_2include_2_zenderer_2_core_graphics_2_texture_8hpp" id="_zenderer_2include_2_zenderer_2_core_graphics_2_texture_8hpp">
-<area shape="rect" id="node3" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="585,96,764,123"/><area shape="rect" id="node10" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="489,352,556,379"/><area shape="rect" id="node19" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="954,179,1048,205"/><area shape="rect" id="node4" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="811,427,977,453"/><area shape="rect" id="node7" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="629,262,747,303"/><area shape="rect" id="node16" href="_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="759,171,877,213"/><area shape="rect" id="node18" href="_asset_8inl_source.html" title="Asset.inl" alt="" coords="662,179,735,205"/><area shape="rect" id="node13" href="_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="5,427,216,453"/><area shape="rect" id="node15" href="_log_8inl_source.html" title="Log.inl" alt="" coords="291,427,351,453"/><area shape="rect" id="node22" href="_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="1215,269,1387,296"/><area shape="rect" id="node25" href="_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="1250,352,1352,379"/><area shape="rect" id="node27" href="_vector_8inl_source.html" title="Vector.inl" alt="" coords="1148,352,1225,379"/><area shape="rect" id="node26" href="_math_core_8inl_source.html" title="MathCore.inl" alt="" coords="1242,427,1336,453"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="_texture_8hpp__dep__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_core_graphics_2_texture_8hppdep" alt=""/></div>
-<map name="_zenderer_2include_2_zenderer_2_core_graphics_2_texture_8hppdep" id="_zenderer_2include_2_zenderer_2_core_graphics_2_texture_8hppdep">
-<area shape="rect" id="node2" href="_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="420,97,591,138"/><area shape="rect" id="node3" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="509,187,696,229"/><area shape="rect" id="node4" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="315,278,501,319"/><area shape="rect" id="node10" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="5,459,176,501"/><area shape="rect" id="node20" href="_material_8cpp_source.html" title="Zenderer/src/Graphics\l/Material.cpp" alt="" coords="721,187,871,229"/><area shape="rect" id="node13" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="803,369,973,410"/><area shape="rect" id="node15" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarger.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="576,278,760,319"/><area shape="rect" id="node6" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="567,459,737,501"/><area shape="rect" id="node17" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="997,369,1168,410"/><area shape="rect" id="node19" href="_renderer_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="785,278,961,319"/><area shape="rect" id="node5" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="331,369,501,410"/><area shape="rect" id="node12" href="_drawable_8cpp_source.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="129,369,305,410"/><area shape="rect" id="node7" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="628,550,799,591"/><area shape="rect" id="node11" href="_quad_8cpp_source.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="341,459,491,501"/><area shape="rect" id="node8" href="_engine_test_8cpp_source.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="517,640,704,667"/><area shape="rect" id="node9" href="_zenderer_8cpp_source.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="729,640,903,667"/><area shape="rect" id="node14" href="_light_8cpp_source.html" title="Zenderer/src/Graphics\l/Light.cpp" alt="" coords="813,459,963,501"/><area shape="rect" id="node16" href="_render_target_8cpp_source.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="627,369,777,410"/><area shape="rect" id="node18" href="_window_8cpp_source.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="987,459,1137,501"/></map>
-</div>
-</div>
+
 <p><a href="_texture_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>

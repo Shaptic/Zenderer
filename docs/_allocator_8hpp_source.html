@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -121,13 +120,13 @@ $(document).ready(function(){initNavTree('_allocator_8hpp_source.html','');});
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___core.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests.">CAllocator</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html">   33</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests.">CAllocator</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ~<a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests.">CAllocator</a>(){}</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#a52121f1aff8fcd9af2e52cf9b3f52baf">   36</a></span>&#160;        <a class="code" href="classzen_1_1_c_allocator.html#a52121f1aff8fcd9af2e52cf9b3f52baf">~CAllocator</a>(){}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span>* operator()(<span class="keywordtype">size_t</span> bytes = 4);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
@@ -136,7 +135,7 @@ $(document).ready(function(){initNavTree('_allocator_8hpp_source.html','');});
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">size_t</span> Free(<span class="keywordtype">void</span>* ptr);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        T* <span class="keyword">get</span>(<span class="keywordtype">size_t</span> count = 1)</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89">   50</a></span>&#160;        T* <span class="keyword">get</span>(<span class="keywordtype">size_t</span> count = 1)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> (T*)this-&gt;operator()(count * <span class="keyword">sizeof</span>(T));</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
@@ -173,8 +172,8 @@ $(document).ready(function(){initNavTree('_allocator_8hpp_source.html','');});
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE__ALLOCATOR_HPP</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">// Detailed doxygen docs.</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">// Detailed doxygen docs.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

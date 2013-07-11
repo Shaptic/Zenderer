@@ -1,0 +1,4 @@
+<map id="zen::asset::CAsset::IsLoaded" name="zen::asset::CAsset::IsLoaded">
+<area shape="rect" id="node2" href="$classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="191,5,327,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="189,70,328,111"/>
+</map>

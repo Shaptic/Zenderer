@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -110,7 +109,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="title">AudioManager.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio_manager_8hpp.html" title="Zenderer/Audio/AudioManager.hpp - Convenience functions for the audio library.">Zenderer/Audio/AudioManager.hpp</a>&quot;</span></div>
+<a href="_audio_manager_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio_manager_8hpp.html" title="Zenderer/Audio/AudioManager.hpp - Convenience functions for the audio library.">Zenderer/Audio/AudioManager.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -122,7 +121,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;uint32_t    CAudioManager::s_available[256];</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span>        CAudioManager::s_init = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a9ae7e2a83f5eba6f92adf07622eae4c8">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CAudioManager::Init</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a9ae7e2a83f5eba6f92adf07622eae4c8">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#ac7153f7bb4d7a06e8d227819ae770b61">CAudioManager::Init</a>()</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(!CAudioManager::IsInit())</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
@@ -190,7 +189,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alGenSources(1, &amp;s_available[index]));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    AL(alGenSources(1, &amp;s_available[index]));</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> s_available[index];</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
@@ -202,7 +201,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span>(s_available[i] == src)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alDeleteSources(1, &amp;src));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            AL(alDeleteSources(1, &amp;src));</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            s_available[i] = 0;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
@@ -281,7 +280,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_ee74c1ad1e693386ed3571c11b538ae5.html">Audio</a></li><li class="navelem"><b>AudioManager.cpp</b></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_8c7877d0c820b41d5685825b6f58f6c7.html">src</a></li><li class="navelem"><a class="el" href="dir_ee74c1ad1e693386ed3571c11b538ae5.html">Audio</a></li><li class="navelem"><a class="el" href="_audio_manager_8cpp.html">AudioManager.cpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
