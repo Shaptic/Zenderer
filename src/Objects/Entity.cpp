@@ -133,9 +133,18 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
+    gfx::CMaterial* pMat = new gfx::CMaterial(Quad.GetMaterial());
     pQuad->Create();
     mp_allPrims.push_back(pQuad);
     return true;
+}
+
+bool CEntity::Create()
+{
+    if(mp_allPrims.empty()) return false;
+    if(mp_allPrims.size() != mp_allMaterials.size()) return false;
+    
+    
 }
 
 void CEntity::Destroy()
