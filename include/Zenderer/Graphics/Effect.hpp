@@ -147,23 +147,25 @@ namespace gfx
  *
  * @htmlonly
  *  <style>
- *  table, td {
+ *  table.custom,
+ *  table.custom td {
  *    border: 1px solid;
  *    border-collapse: collapse;
  *    padding: 5px;
  *  }
  *
- *  table table, td td {
+ *  table.custom table,
+ *  table.custom td td {
  *    border: none;
  *    padding-right: 15px;
  *  }
  *
- *  span {
+ *  table.custom span {
  *    font-family: monospace;
  *  }
  *  </style>
  *
- *  <table>
+ *  <table class="custom">
  *  <tr>
  *    <th>Enumeration</th>
  *    <th>Shaders</th>
