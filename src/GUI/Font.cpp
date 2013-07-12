@@ -248,7 +248,7 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     
     // Shortcut to dimensions.
     uint32_t w = bitmap.width;
-    uint32_t h = bitmap.height;
+    uint32_t h = bitmap.rows;
     
     // Create the OpenGL texture and store the FreeType bitmap
     // in it as a monochrome texture.
@@ -258,7 +258,7 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1))
 
-    gfxcore::CTexture* pTexture = m_Assets.Create<gfxcore::CTexture>(mp_owner);
+    gfxcore::CTexture* pTexture = m_Assets.Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
@@ -273,6 +273,6 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
         slot->advance.x << 6,               // Pixels to adjust till next character
         slot->metrics.horiBearingY << 6);   // Line height offset (stuff like 'y' and 'h')
     
-    mp_glyphData.push_back(glyph);
+    mp_glyphData[c] = glyph;
     return true;
 }

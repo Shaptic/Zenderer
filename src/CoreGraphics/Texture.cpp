@@ -69,6 +69,14 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
     return (m_loaded = ret);
 }
 
+/// @todo Calculate texture w/h.
+bool zen::gfxcore::CTexture::LoadFromExisting(const GLuint handle)
+{
+    m_width = m_height = 0;
+    this->SetFilename("Texture handle");
+    return m_loaded = ((m_texture = handle) != 0);
+}
+
 bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
                  const uint16_t w, const uint16_t h,
                  const unsigned char* data)

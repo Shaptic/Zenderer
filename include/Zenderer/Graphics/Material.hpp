@@ -72,6 +72,9 @@ namespace gfx
         
         /// Loads a texture from disk.
         bool LoadTextureFromFile(const string_t& filename);
+
+        /// Loads a texture from an existing OpenGL handle.
+        bool LoadTextureFromHandle(const GLuint handle);
         
         /// Loads an effect from disk.
         bool LoadEffect(const EffectType Type);

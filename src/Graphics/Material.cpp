@@ -99,6 +99,17 @@ bool CMaterial::LoadTextureFromFile(const string_t& filename)
     return !m_tgiven;
 }
 
+bool CMaterial::LoadTextureFromHandle(const GLuint handle)
+{
+    mp_Texture = m_Assets.Create<gfxcore::CTexture>();
+    if(mp_Texture != nullptr)
+    {
+        m_tgiven = mp_Texture->LoadFromExisting(handle);
+    }
+
+    return !m_tgiven;
+}
+
 bool CMaterial::LoadEffect(const gfx::EffectType Type)
 {
     mp_Effect = new CEffect(Type);
