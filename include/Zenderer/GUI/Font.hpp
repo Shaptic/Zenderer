@@ -127,12 +127,16 @@ namespace gui
         /// Clears the internal string stream.
         void ClearString();
 
-        void AttachManager(asset::CAssetManager& Assets);
+        void AttachManager(asset::CAssetManager& Assets)
+        {
+            mp_Assets = &Assets;
+        }
         
     private:
         bool Destroy();
         bool LoadGlyph(const char c, const uint32_t index);
 
+        asset::CAssetManager* mp_Assets;
         color4f_t m_Color;
         FT_Face m_FontFace;
         
@@ -156,6 +160,11 @@ namespace gui
  *  themselves into `obj::CEntity` instances that can then be treated as
  *  such. 
  *
+ * @note    It is absolutely essential that you call `AttachManager()` prior
+ *          to loading any font instances, to ensure that the font textures
+ *          can be created. This is a limitation of the asset API and may or
+ *          may not change in the future. 
+ *
  * @example Fonts
  * @section Font Rendering Examples
  * @subsection Rendering With a Scene
@@ -171,6 +180,9 @@ namespace gui
  *      string_t("default.ttf"));
  *
  *  // Error checking omitted for brevity.
+ *
+ *  // REQUIRED!
+ *  Font->AttachManager(Assets);
  *
  *  // Render a string to an entity
  *  obj::CEntity& Score = Scene.AddEntity();

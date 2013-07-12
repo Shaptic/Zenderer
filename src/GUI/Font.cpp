@@ -236,6 +236,7 @@ void CFont::ClearString()
 
 bool CFont::LoadGlyph(const char c, const uint32_t index)
 {
+    ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     FT_Glyph g;
     
     // Render as a monochrome bitmap into glyph struct.
@@ -259,7 +260,7 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1))
 
-    gfxcore::CTexture* pTexture = m_Assets.Create<gfxcore::CTexture>(this->GetOwner());
+    gfxcore::CTexture* pTexture = mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
