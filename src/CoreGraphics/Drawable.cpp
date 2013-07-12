@@ -68,8 +68,8 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         if(!mp_VAO->Offload()) return false;
 
         // Create our model-view matrix.
-        mp_MVMatrix = new math::matrix4x4_t;
-       *mp_MVMatrix = math::matrix4x4_t::CreateIdentityMatrix();
+        mp_MVMatrix = new math::matrix4x4_t(math::
+                                matrix4x4_t::GetIdentityMatrix());
 
         // Our default set of material data, if needed.
         if(!mp_Material) mp_Material = &CRenderer::GetDefaultMaterial();
@@ -100,13 +100,9 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         // Use our texture, or the default?
         // We need a default texture because otherwise the color would
         // always be black due to the way the shader works.
-        gfxcore::CTexture* pTexture =
-            (mp_Material->GetTexture() == nullptr)
-            ? const_cast<gfxcore::CTexture*>(&CRenderer::GetDefaultTexture())
-            : mp_Material->GetTexture();
-
+        gfxcore::CTexture& pTexture = mp_Material->GetTexture();
         pEffect->Enable();
-        pTexture->Bind();
+        Texture.Bind();
 
         // All effects have these parameters in the vertex shader.
         if(!pEffect->SetParameter("mv", *mp_MVMatrix) ||

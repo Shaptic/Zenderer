@@ -13,11 +13,11 @@ bool                    CRenderer::s_blend;
 bool CRenderer::Init(const uint16_t w, const uint16_t h)
 {
     // Load the default effect.
-    s_DefaultEffect.Init();
-    s_DefaultEffect.Enable();
-    s_DefaultEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-    s_DefaultEffect.SetParameter("proj", s_ProjMatrix);
-    s_DefaultEffect.Disable();
+    gfx::CEffect& E = s_DefaultMaterial.GetEffect();
+    E.Enable();
+    E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+    E.SetParameter("proj", s_ProjMatrix);
+    E.Disable();
 
     // Load the default texture (1x1 white pixel).
     static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
@@ -31,7 +31,7 @@ bool CRenderer::Init(const uint16_t w, const uint16_t h)
         s_DefaultTexture->SetFilename("Zenderer white texture");
     }
 
-    s_DefaultMaterial.Attach(s_DefaultEffect, *s_DefaultTexture);
+    s_DefaultMaterial.Attach(E, *s_DefaultTexture);
 
     // Load a quad into the VAO.
     gfxcore::DrawBatch D;

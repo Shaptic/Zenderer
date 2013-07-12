@@ -40,6 +40,16 @@ namespace gfx
         ~CQuad();
 
         virtual CDrawable& Create();
+        
+        /**
+         * Attaches a material to the current quad. 
+         *  `nullptr` is an acceptable value, since it will remove
+         *  any material already attached to the quad.
+         *
+         * @param   pMaterial   The material to attach
+         *
+         * @pre     Create() or Draw() haven't been called yet.
+         **/
         virtual void AttachMaterial(gfx::CMaterial* pMaterial);
         
         /** 

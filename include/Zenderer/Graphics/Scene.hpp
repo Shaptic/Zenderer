@@ -154,7 +154,7 @@ namespace gfx
         {
             // We keep only one matrix instance and just
             // modify it for every object.
-            math::matrix4x4_t MV = math::matrix4x4_t::CreateIdentityMatrix();
+            math::matrix4x4_t MV(math::matrix4x4_t::GetIdentityMatrix());
 
             // Called every frame because there is no more appropriate
             // time to call it. Things won't be offloaded multiple times.
@@ -173,7 +173,7 @@ namespace gfx
 
             // Prepare for primitive rendering.
             CMaterial& M = CRenderer::GetDefaultMaterial();
-            CEffect& E = *M.GetEffect();
+            CEffect& E = M.GetEffect();
             M.Enable();
 
             // Commence individual primitive rendering.

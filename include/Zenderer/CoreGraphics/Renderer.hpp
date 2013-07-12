@@ -88,7 +88,6 @@ namespace gfxcore
 
         static CVertexArray         s_FullscreenQuad;
         static gfx::CMaterial       s_DefaultMaterial;
-        static gfx::CEffect         s_DefaultEffect;
         static gfxcore::CTexture*   s_DefaultTexture;
         static math::matrix4x4_t    s_ProjMatrix;
         static bool                 s_blend;

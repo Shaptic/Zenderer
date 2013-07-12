@@ -8,7 +8,7 @@ gfx::CMaterial& CRenderer::GetDefaultMaterial()
 
 gfx::CEffect& CRenderer::GetDefaultEffect()
 {
-    return s_DefaultEffect;
+    return s_DefaultMaterial.GetEffect();
 }
 
 const gfxcore::CTexture& CRenderer::GetDefaultTexture()

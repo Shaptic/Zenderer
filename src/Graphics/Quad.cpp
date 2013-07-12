@@ -112,10 +112,10 @@ void CQuad::LoadRegularTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
     
-    if(m_rep && mp_Material != nullptr && mp_Material->GetTexture() != nullptr)
+    if(m_rep && mp_Material != nullptr)
     {
-        uint16_t w = mp_Material->GetTexture()->GetWidth();
-        uint16_t h = mp_Material->GetTexture()->GetHeight();
+        uint16_t w = mp_Material->GetTexture().GetWidth();
+        uint16_t h = mp_Material->GetTexture().GetHeight();
         
         tc_w = m_Size.x / real_t(w);
         tc_h = m_Size.y / real_t(h);
@@ -131,10 +131,10 @@ void CQuad::LoadInvertedTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
     
-    if(m_rep && mp_Material != nullptr && mp_Material->GetTexture() != nullptr)
+    if(m_rep && mp_Material != nullptr)
     {
-        uint16_t w = mp_Material->GetTexture()->GetWidth();
-        uint16_t h = mp_Material->GetTexture()->GetHeight();
+        uint16_t w = mp_Material->GetTexture().GetWidth();
+        uint16_t h = mp_Material->GetTexture().GetHeight();
         
         tc_w = m_Size.x / real_t(w);
         tc_h = m_Size.y / real_t(h);
