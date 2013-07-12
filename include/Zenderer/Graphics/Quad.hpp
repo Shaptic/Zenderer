@@ -35,6 +35,8 @@ namespace gfx
     public:
         CQuad(const math::rect_t& Size);
         CQuad(const uint16_t w, const uint16_t h);
+        CQuad(const CQuad& Copy);
+        
         ~CQuad();
 
         virtual CDrawable& Create();
@@ -122,6 +124,8 @@ namespace gfx
  *  internally by zen::obj::CEntity instances, which just attach materials to 
  *  one or more of them and draw them on-screen using the standard
  *  implementation.
+ *
+ * @todo   Write copy constructor
  **/
 
 /** @} **/

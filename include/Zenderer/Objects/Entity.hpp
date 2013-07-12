@@ -66,6 +66,7 @@ namespace obj
         
         bool AddPrimitive(const gfx::CQuad& Prim);
         bool Create();
+        bool Optimize();
         bool Draw(bool is_bound = false);
         
         friend class gui::CFont;
@@ -100,11 +101,15 @@ namespace obj
  *  They can also be loaded from files (see the spec) and can 
  *  contain multiple primitive instances.
  *
- *  When creating an entity from multiple primitives, a copy of the vertex/index
- *  data will be stored internally in order to prevent a bad reference later.
+ *  When creating an entity from multiple primitives, a copy of the primitive
+ *  data will be stored internally in order to prevent a bad reference later. Thus
+ *  it's recommended that if you will be creating via `AddPrimitive()` that you 
+ *  either dynamically allocate the primitives and then `delete` later, or you
+ *  ensure that they go out of scope soon to prevent useless data duplication.
  *
  *  The call to `Optimize()` is not necessary, but is recommended to merge
- *  identical primitives together if they use the same material.
+ *  identical primitives together if they use the same material, especially
+ *  if you've got some CPU cycles to spare.
  *
  * @see specs.html#ZEnt
  **/

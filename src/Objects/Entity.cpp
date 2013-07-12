@@ -130,6 +130,14 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
+bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
+{
+    gfx::CQuad* pQuad = new gfx::CQuad(Quad);
+    pQuad->Create();
+    mp_allPrims.push_back(pQuad);
+    return true;
+}
+
 void CEntity::Destroy()
 {
     for(auto i : mp_allPrims)       { delete i; i = nullptr; }

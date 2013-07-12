@@ -219,7 +219,8 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     Q.AttachMaterial(M);
     Q.Create();
     
-    Ent.LoadFromPrimitive(Q);
+    Ent.AddPrimitive(Q);
+    Ent.Create();
     
     delete[] verts;
     delete[] inds;
