@@ -1,35 +1,14 @@
-#include <algorithm>
-
 #include "Zenderer/Zenderer.hpp"
 
 using namespace zen;
 using gfxcore::CRenderer;
-
-// Here's some perfect sample XML.
-static const char* SAMPLE_XML[] = {
-    "<entity type=\"QUAD\" name=\"generic\">",
-        "<position x=\"100\" y=\"200\">",
-        "</ >",
-        "<texture>",
-            "Tester.tga",
-        "</ >",
-        "<shader type=\"both\">",
-            "<vshader>",
-                "Tester.vs",
-            "</ >",
-            "<fshader>",
-                "Tester.fs",
-            "</ >",
-        "</ >",
-    "</ >"
-};
 
 #if defined(ZEN_API) && !defined(_DEBUG) && !defined(ZENDERER_EXPORTS)
   #pragma comment(lib, "Zenderer.lib")
 #endif // ZEN_API
 
 // Windowed version for release builds.
-#ifndef _DEBUG
+#if !defined(_DEBUG) && defined(_WIN32)
   int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPInst,
                      LPSTR lpCmdLine, int nShowCmd)
 #else
@@ -37,7 +16,6 @@ static const char* SAMPLE_XML[] = {
 #endif // _DEBUG
 {
     Init();
-
     asset::CAssetManager Manager; Manager.Init();
     gfx::CWindow Window(800, 600, "Hello, Zenderer.");
 

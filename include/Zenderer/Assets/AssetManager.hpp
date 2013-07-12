@@ -26,9 +26,6 @@
 #include <list>
 
 #include "Zenderer/Core/Subsystem.hpp"
-#include "Zenderer/Core/Allocator.hpp"
-#include "Zenderer/CoreGraphics/OpenGL.hpp"
-
 #include "Asset.hpp"
 
 namespace zen
