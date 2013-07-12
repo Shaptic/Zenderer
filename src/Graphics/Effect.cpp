@@ -10,11 +10,10 @@ using gfx::EffectType;
 
 asset::CAssetManager CEffect::s_DefaultManager;
 
-CEffect::CEffect(const EffectType Type, asset::CAssetManager* pAssets) :
+CEffect::CEffect(const EffectType Type, asset::CAssetManager& Assets) :
     CGLSubsystem("ShaderSet"),
     m_Log(CLog::GetEngineLog()),
-    m_Shader(pAssets ? *pAssets : s_DefaultManager),
-    m_type(Type)
+    m_Shader(pAssets), m_type(Type)
 {
 }
 

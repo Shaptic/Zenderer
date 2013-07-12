@@ -53,7 +53,8 @@ namespace gfx
          * @param   Type        The light type you want
          * @param   window_h    The height of the OpenGL context
          **/
-        CLight(asset::CAssetManager& m_Assets, const LightType& Type,
+        CLight(asset::CAssetManager& m_Assets,
+               const LightType& Type,
                const uint16_t window_h = 800);
 
         ~CLight();

@@ -26,12 +26,12 @@
 #include "Zenderer/CoreGraphics/VertexArray.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/CoreGraphics/Sorter.hpp"
-#include "RenderTarget.hpp"
 
 #include "Window.hpp"
-#include "Quad.hpp"
+#include "RenderTarget.hpp"
 #include "Effect.hpp"
 #include "Light.hpp"
+#include "Quad.hpp"
 
 namespace zen
 {
@@ -43,13 +43,13 @@ namespace gfx
     class ZEN_API CScene
     {
     public:
-        CScene();
+        CScene(asset::CAssetManager& Mgr);
         ~CScene();
 
         /// Initializes internal graphical components.
         bool Init();
 
-        //CEntity& AddEntity();
+        obj::CEntity& AddEntity();
 
         /**
          * Adds a managed primitive to the scene.
@@ -67,7 +67,7 @@ namespace gfx
         template<typename T>
         T& AddPrimitive()
         {
-            T* pNew = new T;
+            T* pNew = new T(m_Assets);
             m_allPrimitives.push_back(pNew);
             return m_allPrimitives.back()->Create();
         }
@@ -114,7 +114,7 @@ namespace gfx
          **/
         CEffect& AddEffect(const EffectType& Type)
         {
-            CEffect* pNew = new CEffect(Type);
+            CEffect* pNew = new CEffect(Type, m_Assets);
             pNew->Init();
             m_allPPFX.push_back(pNew);
             return *m_allPPFX.back();
@@ -143,7 +143,7 @@ namespace gfx
         template<typename T>
         T& InsertPrimitive(const uint32_t index)
         {
-            T* pNew = new T;
+            T* pNew = new T(m_Assets);
             T& Ret = pNew->Create();
             m_allPrimitives.insert(pNew, index);
             return Ret;
@@ -279,7 +279,6 @@ namespace gfx
             return true;
         }
 
-
         /// Returns the queue index of a certain primitive (or -1).
         int32_t GetPrimitiveIndex(const gfxcore::CDrawable& D)
         {
@@ -303,7 +302,7 @@ namespace gfx
 
     private:
         util::CLog&             m_Log;
-        asset::CAssetManager    m_Assets;
+        asset::CAssetManager&   m_Assets;
         gfxcore::CVertexArray   m_Geometry;
         gfx::CRenderTarget      m_FBO1, m_FBO2;
 

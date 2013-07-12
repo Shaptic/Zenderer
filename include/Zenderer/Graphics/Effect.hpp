@@ -57,7 +57,7 @@ namespace gfx
     class ZEN_API CEffect : public gfxcore::CGLSubsystem
     {
     public:
-        CEffect(const EffectType Type, asset::CAssetManager* pAssets = nullptr);
+        CEffect(const EffectType Type, asset::CAssetManager& Assets);
         ~CEffect();
 
         bool Init();
@@ -124,8 +124,6 @@ namespace gfx
         
         inline bool Bind() const;
         inline bool Unbind() const;
-
-        static asset::CAssetManager s_DefaultManager;
 
         util::CLog& m_Log;
 

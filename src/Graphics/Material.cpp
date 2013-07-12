@@ -7,18 +7,19 @@ using util::LogMode;
 using gfx::CMaterial;
 
 CMaterial::CMaterial(asset::CAssetManager& Assets) :
-    m_Assets(Assets), m_Effect(EffectType::NO_EFFECT),
-    mp_Texture(nullptr), 
-    m_Log(CLog::GetEngineLog())
+    m_Assets(Assets),
+    m_Log(CLog::GetEngineLog()),
+    m_Effect(EffectType::NO_EFFECT, Assets),
+    mp_Texture(nullptr)
 {
     mp_Texture = &CRenderer::GetDefaultTexture();
 }
 
 CMaterial::CMaterial(const CMaterial& Copy) : 
     m_Assets(Copy.m_Assets),
-    m_Effect(Copy.m_Effect.GetType()),
-    mp_Texture(nullptr),
-    m_Log(CLog::GetEngineLog())
+    m_Log(CLog::GetEngineLog()),
+    m_Effect(Copy.m_Effect.GetType(), m_Assets),
+    mp_Texture(nullptr)
 {
     m_Effect.Init();
     mp_Texture = m_Assets.Create<gfxcore::CTexture>();
