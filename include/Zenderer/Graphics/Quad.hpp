@@ -102,8 +102,8 @@ namespace gfx
          **/
         void SetRepeating(const bool flag);
         
-        inline uint16_t GetW() const { return m_Size.x;     }
-        inline uint16_t GetH() const { return m_Size.y;     }
+        inline uint16_t GetW() const { return m_Size.x; }
+        inline uint16_t GetH() const { return m_Size.y; }
 
     private:
         void LoadRegularVertices();     // Standard quad

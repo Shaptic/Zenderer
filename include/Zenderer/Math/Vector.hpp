@@ -262,7 +262,7 @@ namespace math
  * @note    There is support for creating translation matrices via
  *          vectors but not vice-versa.
  *
- * @see     #USE_DOUBLE_PRECISION
+ * @see     @ref USE_DOUBLE_PRECISION
  **/
 
 /** @} **/

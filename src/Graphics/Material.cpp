@@ -14,8 +14,8 @@ CMaterial::CMaterial(asset::CAssetManager* Assets) :
 }
 
 CMaterial::CMaterial(gfxcore::CTexture& Texture,
-                      gfx::CEffect& Effect,
-                      asset::CAssetManager* Assets) :
+                     gfx::CEffect& Effect,
+                     asset::CAssetManager* Assets) :
     m_Assets(Assets == nullptr ? CEffect::s_DefaultManager : *Assets),
     m_Log(CLog::GetEngineLog()), mp_Texture(&Texture),
     mp_Effect(&Effect), m_egiven(false), m_tgiven(false)

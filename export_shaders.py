@@ -54,7 +54,7 @@ def main():
 #endif // ZENDERER__CORE_GRAPHICS__SHADER_FILES_HPP
 
 /** @} **/
-    ''')
+''')
     header.close()
         
     print "Done."

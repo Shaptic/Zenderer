@@ -130,7 +130,7 @@ namespace gfx
          *
          * @param   bits    OpenGL bits to clear (`GL_*_BIT`)
          *
-         * @see     GL/gl.h
+         * @see     @ref GL/gl.h
          **/
         void SetClearBits(const uint32_t bits);
 
