@@ -82,8 +82,8 @@ namespace evt
             mouse.mods      = 0;
             mouse.down      = false;            
             key.mods        = 0;
-            key.keycode     = '\0';
-            key.key         = Key::UNKNOWN;
+            key.key         = '\0';
+            key.keycode     = Key::UNKNOWN;
             
             return (*this);
         }

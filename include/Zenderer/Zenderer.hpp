@@ -40,6 +40,9 @@
 #pragma comment(lib, "libvorbis.lib")
 #pragma comment(lib, "libogg.lib")
 
+// Link TTF library
+#pragma comment(lib, "freetype.lib")
+
 // For random-ness
 #include <cstdlib>
 
@@ -64,6 +67,8 @@
 #include "Audio/AudioManager.hpp"
 #include "Audio/Music2D.hpp"
 #include "Audio/Sound2D.hpp"
+
+#include "Events/EventHandler.hpp"
 
 namespace zen
 {

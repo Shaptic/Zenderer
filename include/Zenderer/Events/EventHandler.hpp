@@ -27,9 +27,10 @@
 
 #include "Keyboard.hpp"
 #include "Mouse.hpp"
+#include "Event.hpp"
 
 /// Forward declaration for callback functions.
-struct GLFWWindow;
+struct GLFWwindow;
 
 namespace zen
 {
@@ -39,7 +40,7 @@ namespace evt
     class ZEN_API CEventHandler
     {
     public:
-        ~CEventHandler() { s_evtList.clear(); }
+        ~CEventHandler() { while(!s_evtList.empty()) s_evtList.pop(); }
         
         /**
          * Removes the latest event from the stack and stores it in the parameter.
@@ -52,11 +53,12 @@ namespace evt
          * @return  `true`  if an event was loaded,
          *          `false` if there are none remaining.
          **/
-        bool PopEvent(const event_t& Evt)
+        bool PopEvent(event_t& Evt)
         {
             Evt.Reset();
-            if(s_evtList.empty()) return false;        
-            Evt = s_evtList.pop();
+            if(s_evtList.empty()) return false;
+            Evt = s_evtList.top();
+            s_evtList.pop();
             return true;
         };
         
@@ -68,7 +70,7 @@ namespace evt
         }
         
         static void KeyboardCallback(
-            GLFWWindow*, int key, int scancode,
+            GLFWwindow*, int key, int scancode,
             int action, int mods)
         {
             s_Active.key.keycode= static_cast<Key>(key);
@@ -78,26 +80,26 @@ namespace evt
             else if(action == GLFW_RELEASE) s_Active.type = EventType::KEY_UP;
             else if(action == GLFW_REPEAT)  s_Active.type = EventType::KEY_HOLD;
 
-            s_evtList.push_back(s_Active);
+            s_evtList.push(s_Active);
             s_Active.Reset();
         }
         
         static void MouseMotionCallback(
-            GLFWWindow*, double x, double y)
+            GLFWwindow*, double x, double y)
         {
             s_Active.mouse.position = math::vector_t(x, y);
             s_Active.mouse.button   = MouseButton::UNKNOWN;
             s_Active.mouse.down     = false;
             s_Active.type           = EventType::MOUSE_MOTION;
             
-            s_evtList.push_back(s_Active);
+            s_evtList.push(s_Active);
             s_Active.Reset();
         }
         
         static void MouseCallback(
-            GLFWWindow*, int button, int action, int mods)
+            GLFWwindow*, int button, int action, int mods)
         {
-            GetMousePosition(s_Active.mouse.position);
+            //GetMousePosition(s_Active.mouse.position);
             s_Active.mouse.button   = static_cast<MouseButton>(button);
             s_Active.mouse.down     = (action == GLFW_PRESS);
             s_Active.mouse.mods     = mods;
@@ -107,16 +109,17 @@ namespace evt
             else
                 s_Active.type = EventType::MOUSE_UP;
             
-            s_evtList.push_back(s_Active);
+            s_evtList.push(s_Active);
             s_Active.Reset();
         }
         
     private:
-        CEventHandler() { s_evtList.clear(); }
+        CEventHandler() {}
         CEventHandler(const CEventHandler&);
         CEventHandler& operator=(const CEventHandler&);
        
         static std::stack<event_t> s_evtList;
+        static event_t s_Active;
     };
 }
 }

@@ -64,6 +64,18 @@
     <Filter Include="Header Files\Objects">
       <UniqueIdentifier>{d1fa8354-c145-49ee-a03b-8d2e8f60ceab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Events">
+      <UniqueIdentifier>{eebd559c-007a-4e72-9152-695107a3f63e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{cc172f35-0c4f-4eeb-a7e5-e16e5f5da2e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripting">
+      <UniqueIdentifier>{157fe084-c097-4b4a-a83d-f9be1126e291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{42cd0e12-2503-4c52-84ad-d12a129171f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -186,6 +198,27 @@
     <ClInclude Include="include\Zenderer\Objects\Entity.hpp">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Events\Event.hpp">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Events\EventHandler.hpp">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Events\Keyboard.hpp">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Events\Mouse.hpp">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\GUI\Font.hpp">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\GUI\FontCore.hpp">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Scripting\Lua.hpp">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -286,6 +319,9 @@
     </ClCompile>
     <ClCompile Include="src\Graphics\Material.cpp">
       <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Font.cpp">
+      <Filter>Source Files\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

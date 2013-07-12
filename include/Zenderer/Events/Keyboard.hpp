@@ -27,6 +27,11 @@ namespace zen
 {
 namespace evt
 {
+
+#ifdef DELETE
+#undef DELETE
+#endif // DELETE
+
     /// Keyboard key enumerations.
     enum class Key
     {
@@ -52,7 +57,7 @@ namespace evt
         ESCAPE = 256,
         ENTER,      TAB,        BACKSPACE,
         INSERT,     DELETE,
-        RIGHT,      LEFT,       DOWN, UP,        
+        RIGHT,      LEFT,       DOWN, UP,
         PAGE_UP,    PAGE_DOWN,  HOME, END,
         
         CAPS_LOCK = 280,
@@ -60,7 +65,7 @@ namespace evt
         PRINT_SCR,  PAUSE,
         
         F1 = 290,
-        F2, F3, F4,  F5,  F6, F7
+        F2, F3, F4,  F5,  F6, F7,
         F8, F9, F10, F11, F12,
         
         LEFT_SHIFT = 340,

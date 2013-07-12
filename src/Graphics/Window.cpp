@@ -79,9 +79,9 @@ bool CWindow::Init()
         glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         
     // Registers event callbacks with GLFW.
-    glfwSetKeyCallback(evt::CEventHandler::KeyboardCallback);
-    glfwSetMouseButtonCallback(evt::CEventHandler::MouseCallback);
-    glfwSetCursorPosCallback(evt::CEventHandler::MouseMotionCallback);
+    glfwSetKeyCallback(mp_Window, evt::CEventHandler::KeyboardCallback);
+    glfwSetMouseButtonCallback(mp_Window, evt::CEventHandler::MouseCallback);
+    glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);
 
     m_Log << "Initializing GLEW: ";
     glewExperimental = true;

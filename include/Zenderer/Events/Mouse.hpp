@@ -42,7 +42,7 @@ namespace evt
         BUTTON6,
         BUTTON7,
         BUTTON8
-    }
+    };
 
     struct mouse_t
     {
@@ -52,7 +52,7 @@ namespace evt
             down(false) {}
 
         math::vector_t position;
-        uint16_t button;
+        MouseButton button;
         bool down;
         int mods;
     };

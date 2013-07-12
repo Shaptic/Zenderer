@@ -113,6 +113,10 @@
     <ClInclude Include="include\Zenderer\Core\ErrorHandling.hpp" />
     <ClInclude Include="include\Zenderer\Core\Subsystem.hpp" />
     <ClInclude Include="include\Zenderer\Core\Types.hpp" />
+    <ClInclude Include="include\Zenderer\Events\Event.hpp" />
+    <ClInclude Include="include\Zenderer\Events\EventHandler.hpp" />
+    <ClInclude Include="include\Zenderer\Events\Keyboard.hpp" />
+    <ClInclude Include="include\Zenderer\Events\Mouse.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
@@ -120,12 +124,15 @@
     <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Scene.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\Font.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\FontCore.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp" />
     <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
     <ClInclude Include="include\Zenderer\Objects\Entity.hpp" />
+    <ClInclude Include="include\Zenderer\Scripting\Lua.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Assert.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp" />
@@ -159,6 +166,7 @@
     <ClCompile Include="src\Graphics\Quad.cpp" />
     <ClCompile Include="src\Graphics\RenderTarget.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\GUI\Font.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
     <ClCompile Include="src\stb_image.c" />

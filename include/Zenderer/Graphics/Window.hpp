@@ -37,6 +37,7 @@
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/Assets/AssetManager.hpp"
+#include "Zenderer/Events/EventHandler.hpp"
 
 #include "Effect.hpp"
 
