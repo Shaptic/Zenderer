@@ -11,6 +11,13 @@ CQuad::CQuad(const uint16_t w, const uint16_t h) :
     m_Size(0, 0, w, h), m_inv(false), m_rep(false)
 {}
 
+CQuad::CQuad(const CQuad& Copy) : CDrawable(Copy)
+{
+    m_Size = math::rect_t(0, 0, Copy.m_Size.w, Copy.m_Size.h);
+    m_inv = Copy.m_inv;
+    m_rep = Copy.m_rep;
+}
+
 CQuad::~CQuad()
 {
     if(m_DrawData.Vertices != nullptr) delete m_DrawData.Vertices;

@@ -40,8 +40,28 @@ namespace gfxcore
     {
     public:
         CDrawable();
+        
+        /**
+         * Creates an instance from another instance.
+         *  This only copies internal vertex/index data, as well
+         *  as model-view matrix data (thus position). Material and
+         *  internal GPU buffer references are *NOT* copied. These
+         *  must be explicitly set later, be it with `Draw()` or
+         *  through a `friend` class or through `AttachMaterial`.
+         *
+         * @param   Primitive to copy draw data from
+         *
+         * @warning There can be no assignment of one primitive to another.
+         * @warning Material info is not transferred.
+         * 
+         * @see     gfxcore::DrawBatch
+         **/
+        CDrawable(const CDrawable& Copy);
 
         virtual ~CDrawable();
+        
+        // No assigning primitives to each other.
+        CDrawable& operator=(const CDrawable&);
 
         /// Creates initial vertex structure.
         /// @return Reference to itself for easy chaining.

@@ -12,6 +12,28 @@ CDrawable::CDrawable() : mp_VAO(nullptr), mp_Material(nullptr),
     m_DrawData.vcount   = 0;
 }
 
+CDrawable::CDrawable(const CDrawable& Copy) :
+    mp_VAO(nullptr), mp_Material(nullptr),
+    mp_MVMatrix(nullptr), m_offset(0),
+    m_internal(false)
+{
+    m_DrawData.vcount   = Copy.m_DrawData.vcount;
+    m_DrawData.icount   = Copy.m_DrawData.icount;
+    m_DrawData.Vertices = new gfxcore::vertex_t[m_DrawData.vcount];
+    m_DrawData.Indices  = new gfxcore::index_t[m_DrawData.icount];
+
+    std::copy(Copy.m_DrawData.Vertices, 
+              Copy.m_DrawData.Vertices + m_DrawData.vcount,
+              m_DrawData.Vertices);
+
+    std::copy(Copy.m_DrawData.Indices, 
+              Copy.m_DrawData.Indices + m_DrawData.icount,
+              m_DrawData.Indices);
+              
+    if(Copy.mp_MVMatrix != nullptr)
+        mp_MVMatrix = new math::matrix4x4_t(Copy.mp_MVMatrix);
+}
+
 CDrawable::~CDrawable()
 {
     if(m_internal) delete mp_VAO;
