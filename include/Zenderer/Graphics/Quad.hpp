@@ -101,6 +101,9 @@ namespace gfx
          * @pre     Neither Draw() nor Create() have been called yet.
          **/
         void SetRepeating(const bool flag);
+        
+        inline uint16_t GetW() const { return m_Size.x;     }
+        inline uint16_t GetH() const { return m_Size.y;     }
 
     private:
         void LoadRegularVertices();     // Standard quad
@@ -108,7 +111,7 @@ namespace gfx
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
         
-        math::rect_t m_Size;
+        math::Vector<uint16_t> m_Size;
         bool m_inv, m_rep;
     };
 

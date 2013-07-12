@@ -74,14 +74,11 @@ void CQuad::Resize(const math::vectoru16_t& Size)
 
 void CQuad::Resize(const uint16_t w, const uint16_t h)
 {
-    // Not Create()'d yet.
-    if(m_DrawData.Vertices == nullptr) return;
-
     // Offload()'ed already.
     if(!this->IsModifiable()) return;
 
-    m_Size.w = w;
-    m_Size.h = h;
+    m_Size.x = w;
+    m_Size.y = h;
 }
 
 void CQuad::SetInverted(const bool flag)
@@ -97,18 +94,18 @@ void CQuad::SetRepeating(const bool flag)
 void CQuad::LoadRegularVertices()
 {
     m_DrawData.Vertices[0].position = math::vector_t();
-    m_DrawData.Vertices[1].position = math::vector_t(m_Size.w, 0.0);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.w, m_Size.h);
-    m_DrawData.Vertices[3].position = math::vector_t(0.0, m_Size.h);
+    m_DrawData.Vertices[1].position = math::vector_t(m_Size.x, 0.0);
+    m_DrawData.Vertices[2].position = math::vector_t(m_Size.x, m_Size.y);
+    m_DrawData.Vertices[3].position = math::vector_t(0.0, m_Size.y);
 }
 
 void CQuad::LoadInvertedVertices()
 {
     // We cast to int since -h and -w is invalid for unsigned integers.
     m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-    m_DrawData.Vertices[1].position = math::vector_t(0, -(int)m_Size.h);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.w, -(int)m_Size.h);
-    m_DrawData.Vertices[3].position = math::vector_t(m_Size.w, 0);
+    m_DrawData.Vertices[1].position = math::vector_t(0, -(int)m_Size.y);
+    m_DrawData.Vertices[2].position = math::vector_t(m_Size.x, -(int)m_Size.y);
+    m_DrawData.Vertices[3].position = math::vector_t(m_Size.x, 0);
 }
 
 void CQuad::LoadRegularTC()
@@ -120,8 +117,8 @@ void CQuad::LoadRegularTC()
         uint16_t w = mp_Material->GetTexture()->GetWidth();
         uint16_t h = mp_Material->GetTexture()->GetHeight();
         
-        tc_w = m_Size.w / real_t(w);
-        tc_h = m_Size.h / real_t(h);
+        tc_w = m_Size.x / real_t(w);
+        tc_h = m_Size.y / real_t(h);
     }
     
     m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
@@ -139,8 +136,8 @@ void CQuad::LoadInvertedTC()
         uint16_t w = mp_Material->GetTexture()->GetWidth();
         uint16_t h = mp_Material->GetTexture()->GetHeight();
         
-        tc_w = m_Size.w / real_t(w);
-        tc_h = m_Size.h / real_t(h);
+        tc_w = m_Size.x / real_t(w);
+        tc_h = m_Size.y / real_t(h);
     }
     
     m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
