@@ -46,10 +46,23 @@
 // For random-ness
 #include <cstdlib>
 
+// Attempt to detect OS.
+#if !(                          \
+        defined(WIN32)      ||  \
+        defined(_WIN32)     ||  \
+        defined(__WIN32__)  ||  \
+        defined(__WINDOWS__)    \
+    )
+  #warning "Zenderer has only been tested on Windows using Visual Studio..."
+#endif // WIN32
+
 // Attempt to detect debug or release build.
 #ifndef ZEN_DEBUG_BUILD
-  #if defined(_DEBUG) || !defined(NDEBUG)
+  #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
+    #warning "Compiling in debug mode..."
     #define ZEN_DEBUG_BUILD
+  #else
+    #warning "Compiling in release mode..."
   #endif // defined(_DEBUG)
 #endif // ZEN_DEBUG_BUILD
 
