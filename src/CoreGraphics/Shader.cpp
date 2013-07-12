@@ -62,7 +62,7 @@ bool CShader::LoadFromExisting(const CAsset* const pCopyShader)
     ZEN_ASSERT(pCopyShader != nullptr);
     ZEN_ASSERT(pCopy != nullptr);
 
-    m_object = static_cast<decltype(m_object)>(pCopyShader->GetData());
+    m_object = reinterpret_cast<decltype(m_object)>(pCopyShader->GetData());
     m_type = pCopy->m_type;
 
     return CAsset::LoadFromExisting(pCopyShader);
@@ -145,7 +145,7 @@ bool CShader::Destroy()
 
 const void* const CShader::GetData() const
 {
-    return static_cast<const void* const>(m_object);
+    return reinterpret_cast<const void* const>(m_object);
 }
 
 GLuint CShader::GetShaderObject() const
