@@ -34,7 +34,7 @@
 #include "Log.hpp"
 
 // Assertions only run in debug builds.
-#ifdef _DEBUG
+#if defined(ZEN_DEBUG_BUILD) || defined(_DEBUG)
   /// Assertion macro for convenience
   #define ZEN_ASSERT(expression) \
     zen::util::runtime_assert(expression, #expression, __LINE__, __FILE__)

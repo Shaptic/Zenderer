@@ -68,11 +68,11 @@ namespace util
          * @see     CLog::ToggleStdout()
          **/
         CLog(const string_t& filename,  const bool show_stdout =
-#ifdef _DEBUG
+#ifdef ZEN_DEBUG_BUILD
                 true);
 #else
                 false);
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
         /// Copy constructor does not exist.
         CLog(const CLog& Copy);// = delete; // unimplemented C++11 feature

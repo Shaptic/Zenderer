@@ -91,11 +91,11 @@ namespace util
     class ZEN_API CSettings : public CSubsystem
     {
         typedef std::map<
-#ifdef _DEBUG
+#ifdef ZEN_DEBUG_BUILD
             string_t,
 #else
             uint32_t,
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
             COption> settings_t;
 
     public:

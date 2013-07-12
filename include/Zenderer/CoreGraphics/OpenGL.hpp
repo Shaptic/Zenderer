@@ -40,12 +40,12 @@
   #undef GL
 #endif // GL
 
-#ifdef _DEBUG
+#ifdef ZEN_DEBUG_BUILD
   /// Error-checking OpenGL function call (debug builds only).
   #define GL(f) f; zen::gfxcore::glCheck(#f, __LINE__, __FILE__);
 #else
   #define GL(f) f; if(glGetError() != GL_NO_ERROR) return false;
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
 namespace zen
 {

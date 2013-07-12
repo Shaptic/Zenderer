@@ -46,6 +46,13 @@
 // For random-ness
 #include <cstdlib>
 
+// Attempt to detect debug or release build.
+#ifndef ZEN_DEBUG_BUILD
+  #if defined(_DEBUG) || !defined(NDEBUG)
+    #define ZEN_DEBUG_BUILD
+  #endif // defined(_DEBUG)
+#endif // ZEN_DEBUG_BUILD
+
 // Core API
 #include "Core/Types.hpp"
 #include "Math/Math.hpp"
@@ -147,6 +154,41 @@ namespace zen
  *          1.0.0-alpha release.
  *
  * @todo    Test cross-platform compatibility.
+ *
+ * @section prep    Preprocessor `#define`s
+ *  There are several preprocessor directives that can be set to slightly 
+ *  modify the behavior of the engine at runtime. They are outlined below.
+ *
+ *  @htmlonly
+ *  <table>
+ *  <tr><th align="center"><pre>#define</pre></th><th>Action</th></tr>
+ *  <tr>
+ *      <td><code>ZEN_DEBUG_BUILD</code></td>
+ *      <td>Defines a debug build of the engine, allowing for more verbose
+ *          logging output, assertions (see the <code>ZEN_ASSERT</code> macro
+ *          in  Zenderer/Utilities/Assert.hpp), and other debugging features.
+ *          The build will initially attempt to detect this on its own,
+ *          based on the presence of the <code>_DEBUG</code> (MSVC compiler)
+ *          and <code>NDEBUG</code> (in <code>&lt;cassert&gt;</code>)
+ *          directives, but this may give bad results, thus explicitly
+ *          <code>#define</code>-ing it is recommended.</td>
+ *  </tr>
+ *  <tr>
+ *      <td><code>ZEN_DOUBLE_PRECISION</code></td>
+ *      <td>Allows for double-precision in CPU-side calculations. Anything 
+ *          sent to the GPU, such as vertex data, will be stored locally
+ *          with double precision, but will be sent as single-precision
+ *          floating point values due to the nature of GPU drivers.</td>
+ *  </tr>
+ *  <tr>
+ *      <td><code>ZEN_SHOW_DELAY</code></td>
+ *      <td>When combined with <code>ZEN_DEBUG_BUILD</code>, this will
+ *          output the amount of ms (milliseconds) delayed every frame to
+ *          standard output (or whatever <code>std::cout</code> is attached
+ *          to.</td>
+ *  </tr>
+ *  </table>
+ *  @endhtmlonly
  *
  * @section arch    Architecture
  *  The @a Zenderer engine is broken up into multiple components so that

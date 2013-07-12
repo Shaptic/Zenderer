@@ -32,7 +32,7 @@
 #ifdef ZENDERER_EXPORTS
   #define ZEN_API __declspec(dllexport)
 #else
-  #ifdef _DEBUG
+  #ifdef ZEN_DEBUG_BUILD
     #define ZEN_API
   #else
     #define ZEN_API __declspec(dllimport)

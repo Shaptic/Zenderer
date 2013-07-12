@@ -46,7 +46,7 @@ util::time_t CTimer::Delay()
         precision_t pause(time_t(m_delta - ms));
         std::this_thread::sleep_for(pause);
 
-#if defined(ZEN_SHOW_DELAY) && defined(_DEBUG)
+#if defined(ZEN_SHOW_DELAY) && defined(ZEN_DEBUG_BUILD)
         CLog& L = CLog::GetEngineLog();
         L << L.SetMode(LogMode::ZEN_DEBUG) << L.SetSystem("Timer")
           << "Delaying for " << pause.count() << "ms." << CLog::endl;

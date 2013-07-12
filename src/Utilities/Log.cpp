@@ -64,9 +64,9 @@ CLog& CLog::Newline()
 {
     if(m_str.str().empty() || !this->IsInit()) return (*this);
 
-#ifndef _DEBUG
+#ifndef ZEN_DEBUG_BUILD
     if(m_mode == util::LogMode::ZEN_DEBUG) return (*this);
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
     std::stringstream tmp;
 

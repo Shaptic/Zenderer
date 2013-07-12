@@ -36,7 +36,7 @@ bool CEffect::Init()
         return (m_init = false);
     }
 
-#ifdef _DEBUG
+#ifdef ZEN_DEBUG_BUILD
     // All effects currently use the default vertex shader.
     m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs");
 
@@ -78,7 +78,7 @@ bool CEffect::Init()
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(gfxcore::RIPPLE_FS);
 
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
     else if(m_type == EffectType::CUSTOM_EFFECT)
     {

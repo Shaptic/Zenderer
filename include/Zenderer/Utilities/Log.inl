@@ -1,9 +1,9 @@
 CLog& CLog::operator<< (CLog& (CLog::*Fn)())
 {
     // Make sure we don't do extra work in release builds.
-#ifndef _DEBUG
+#ifndef ZEN_DEBUG_BUILD
     if(m_mode == LogMode::ZEN_DEBUG) return (*this);
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
     return (this->*Fn)();
 }
@@ -12,9 +12,9 @@ template<typename T>
 CLog& CLog::operator<<(const T& data)
 {
     // Make sure we don't do extra work in release builds.
-#ifndef _DEBUG
+#ifndef ZEN_DEBUG_BUILD
     if(m_mode == LogMode::ZEN_DEBUG) return (*this);
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
     m_str << data;
     return (*this);
@@ -29,9 +29,9 @@ CLog& CLog::SetMode(const util::LogMode& Mode)
 CLog& CLog::SetSystem(const string_t& sys)
 {
 // Make sure we don't do extra work in release builds.
-#ifndef _DEBUG
+#ifndef ZEN_DEBUG_BUILD
     if(m_mode == LogMode::ZEN_DEBUG) return (*this);
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
     m_system = sys;
     return (*this);
