@@ -79,11 +79,19 @@ namespace asset
          *  Sometimes, though, it is desirable to have multiple copies of
          *  an asset, and this method will do so.
          *
+         * @tparam  T       A child class of asset::CAsset
          * @param   Copier  Assets to copy
          * @param   owner   Address of asset owner (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it copies successfully, and
          *          `nullptr` otherwise.
+         *
+         * @warning This relies on the `T` object to have implemented 
+         *          CAsset::LoadFromExisting(), which is not guaranteed.
+         *
+         * @todo    Add some sort of check to make sure `T` is an inheriting
+         *          class of CAsset.
+         *
          **/
         template<typename T>
         T* Recreate(const T* const Copier,
