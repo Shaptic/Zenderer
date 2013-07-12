@@ -49,7 +49,7 @@ namespace gfxcore
          *  must be explicitly set later, be it with `Draw()` or
          *  through a `friend` class or through `AttachMaterial`.
          *
-         * @param   Primitive to copy draw data from
+         * @param   Copy    Primitive to copy draw data from
          *
          * @warning There can be no assignment of one primitive to another.
          * @warning Material info is not transferred.

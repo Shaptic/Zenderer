@@ -157,6 +157,7 @@ namespace gui
  *  such. 
  *
  * @example Fonts
+ * @section Font Rendering Examples
  * @subsection Rendering With a Scene
  *  In this example we will demonstrate the standard procedure for
  *  loading a font and rendering some string to the screen.

@@ -109,7 +109,7 @@ namespace zen
  *      I also develop software professionally, currently interning at a
  *      medical education company doing back and front-end website
  *      development using PHP, XML/XSLT, PostgreSQL, Javacript/jQuery, and
- *      other web development tools.\n
+ *      other web development tools. \n
  *      My current pet project is @a Praecursor, an awesome concept game in
  *      the form of a 2D platformer. The main game mechanic revolves around
  *      time manipulation to get through levels and past enemies. For now,
@@ -236,8 +236,7 @@ namespace zen
  *
  * @section zlvl    ZenLevel
  *  @subsection zlvlspec    Specification
- *      Levels in @a Zenderer combine the @ref entity specification 
- *
+ *      Levels in @a Zenderer combine the [entity](@ref ZEntSpec) specification.
  *
  *  @subsubsection zlvl_light  Light Options
  *      All floating point values can have a maximum of three decimal

@@ -54,10 +54,7 @@ namespace gfx
         
         /** 
          * Resizes the quad to a new dimension.
-         *
-         * @param   w   New width
-         * @param   h   New height
-         *
+         * @param   Size    New quad size (in pixels)
          * @pre     Draw() has not been called yet.
          **/
         void Resize(const math::vectoru16_t& Size);
@@ -106,7 +103,7 @@ namespace gfx
          *  it will be stretched by default. You can set it to repeat the 
          *  texture pattern across the drawable with this method. 
          *
-         * @bool    flag    `true` makes it repeat, `false` stretches
+         * @param   flag    `true` makes it repeat, `false` stretches
          *
          * @pre     Neither Draw() nor Create() have been called yet.
          **/

@@ -91,7 +91,7 @@ namespace zen
 
 /**
  * @class zen::CAllocator
- * @description
+ * @details
  * Let us assume a memory structure like so:
  *
  * <pre>

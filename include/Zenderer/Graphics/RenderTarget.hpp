@@ -74,7 +74,7 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__RENDER_TARGET_HPP
 
 /**
- * @class gfx::CRenderTarget
+ * @class zen::gfx::CRenderTarget
  * @details
  *  Render targets are useful for rendering things off-screen,
  *  multi-pass rendering, and other useful routines for rendering

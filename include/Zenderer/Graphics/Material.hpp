@@ -42,7 +42,7 @@ namespace gfx
 
         /**
          * Loads a material from a `.zfx` file.
-         * @see @ref specs.html#ZMat
+         * @see @ref ZMatSpec
          **/
         bool LoadFromFile(const string_t& filename);
         
@@ -60,7 +60,7 @@ namespace gfx
          *
          * @return  `true` if a valid material was loaded, `false` otherwise.
          *
-         * @see @ref specs.html#ZMat
+         * @see @ref ZMatSpec
          * @see zen::util::CINIParser::LoadFromStream()
          **/
         bool LoadFromStream(std::ifstream& stream,

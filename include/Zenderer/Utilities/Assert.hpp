@@ -62,8 +62,8 @@ namespace util
      * @param   file_name   The file the assertion occurs in
      * @param   msg         A custom output message (optional=`nullptr`)
      **/
-    ZEN_API void runtime_assert(const bool      expression,
-                                string_t        expression_str,
+    ZEN_API void runtime_assert(const bool      expr,
+                                string_t        expr_str,
                                 const size_t    line_no,
                                 string_t        file_name,
                                 const char*     msg = nullptr);

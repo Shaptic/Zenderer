@@ -82,7 +82,7 @@ namespace math
      * @param   minimum Minimum range (inclusive)
      * @param   maximum Maximum range (inclusive)
      *
-     * @return  `true` if T in [minimum, maximum], and
+     * @return  `true`  if T in [minimum, maximum], and
      *          `false` if not.
      **/
     template<typename T>

@@ -70,9 +70,9 @@ namespace zen
      * @param   maximum Maximum
      **/
     template<typename T>
-    ZEN_API void clamp(T& val, const T& minumum, const T& maximum)
+    ZEN_API void clamp(T& val, const T& minimum, const T& maximum)
     {
-        if(val < minumum)       val = minumum;
+        if(val < minimum)       val = minimum;
         else if(val > maximum)  val = maximum;
     }
 

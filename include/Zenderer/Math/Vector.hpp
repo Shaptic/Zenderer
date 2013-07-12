@@ -168,7 +168,7 @@ namespace math
          *
          * @param   radians The rotation angle in radians.
          *
-         * @info    The coordinate system adjustment was removed.
+         * @note    The coordinate system adjustment was removed.
          **/
         inline void Rotate(const real_t radians);
 
