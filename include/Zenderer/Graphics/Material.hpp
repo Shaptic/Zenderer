@@ -37,10 +37,7 @@ namespace gfx
     class ZEN_API CMaterial
     {
     public:
-        explicit CMaterial(asset::CAssetManager* Assets = nullptr);
-        CMaterial(gfxcore::CTexture& Texture, gfx::CEffect& Effect,
-                  asset::CAssetManager* Assets = nullptr);
-
+        explicit CMaterial(asset::CAssetManager& Assets);
         ~CMaterial();
 
         /**
@@ -106,9 +103,7 @@ namespace gfx
         asset::CAssetManager&   m_Assets;
         util::CLog&             m_Log;
         gfxcore::CTexture*      mp_Texture;
-        gfx::CEffect*           mp_Effect;
-
-        bool m_egiven, m_tgiven;
+        gfx::CEffect            m_Effect;
     };
 }   // namespace gfx
 }   // namespace zen
@@ -123,6 +118,12 @@ namespace gfx
  *  how it should be drawn. There is a default instance of it in
  *  zen::gfxcore::CRenderer, and it is used for standard rendering to the
  *  screen, primarily for primitives.
+ *
+ *  The object will store a local copy of the default texture and effect,
+ *  allowing for less pointer interactions and potential errors. This doesn't
+ *  mean the default effect will be loaded multiple times, as the internal
+ *  shaders are registered assets and asset::CAssetManager will take care
+ *  of preventing copies.
  **/
 
 /** @} **/
