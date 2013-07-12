@@ -64,7 +64,7 @@ namespace obj
         bool LoadFromFile(const string_t& filename);        
         bool LoadFromTexture(const string_t& filename);
         
-        bool AddPrimitive(const CQuad& Prim);
+        bool AddPrimitive(const gfx::CQuad& Prim);
         bool Create();
         bool Draw(bool is_bound = false);
         

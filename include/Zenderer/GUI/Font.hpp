@@ -33,6 +33,7 @@
 // bitmaps to entities.
 #include "FontCore.hpp"
 #include "Zenderer/CoreGraphics/VertexArray.hpp"
+#include "Zenderer/Graphics/RenderTarget.hpp"
 #include "Zenderer/Objects/Entity.hpp"
 
 namespace zen
@@ -125,9 +126,11 @@ namespace gui
         
         /// Clears the internal string stream.
         void ClearString();
+
+        void AttachManager(asset::CAssetManager& Assets);
         
     private:
-        bool Destroy();        
+        bool Destroy();
         bool LoadGlyph(const char c, const uint32_t index);
 
         color4f_t m_Color;

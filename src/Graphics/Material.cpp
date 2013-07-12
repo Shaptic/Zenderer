@@ -65,8 +65,8 @@ bool CMaterial::LoadFromFile(const string_t& filename)
 }
 
 bool CMaterial::LoadFromStream(std::ifstream& f,
-                               std::streampos start,
-                               std::streampos end)
+                               const std::streampos& start,
+                               const std::streampos& end)
 {
     ZEN_ASSERT(f);
     
@@ -82,10 +82,9 @@ bool CMaterial::LoadFromStream(std::ifstream& f,
     
     if(Parser.Exists("vshader") && Parser.Exists("fshader"))
     {
-        valid = this->LoadEffect(EffectType::CUSTOM_EFFECT) && 
+        valid = this->LoadEffect(EffectType::CUSTOM_EFFECT) &&
             mp_Effect->LoadCustomEffect(Parser.GetValue("vshader"),
                                         Parser.GetValue("fshader"));
-        }
     }
 
     f.seekg(start);

@@ -27,6 +27,7 @@
 #include "freetype/freetype.h"
 #include "freetype/ftglyph.h"
 
+#include "Zenderer/Core/Subsystem.hpp"
 #include "Zenderer/CoreGraphics/Texture.hpp"
 #include "Zenderer/Math/Shapes.hpp"
 
@@ -37,7 +38,7 @@ namespace zen
 namespace gui
 {
     /// Initializes the core FreeType2 library.
-    class ZEN_API CFontLibrary : CSubsystem
+    class ZEN_API CFontLibrary : public CSubsystem
     {
     public:
         ~CFontLibrary();
@@ -57,7 +58,7 @@ namespace gui
          **/
         bool Init()
         {
-            if(m_init) return true;            
+            if(m_init) return true;
             return (m_init = FT_Init_FreeType(&m_Library));
         }
         
@@ -70,12 +71,12 @@ namespace gui
         
         static CFontLibrary& InitFreetype()
         {
-            static CFontLibrary s_TTF();
+            static CFontLibrary s_TTF;
             s_TTF.Init();
             return s_TTF;
         }
         
-        FT_Library& GetLibrary();
+        FT_Library& GetLibrary() const;
         
     private:
         FT_Library m_Library;

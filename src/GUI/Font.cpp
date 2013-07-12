@@ -16,8 +16,8 @@ CFont::~CFont()
 
 bool CFont::LoadFromFile(const string_t& filename)
 {
-    gui::CFontLibrary& Lib = gui::CFontLibrary.GetTTFLibrary();
-    
+    const gui::CFontLibrary& Lib = gui::CFontLibrary::InitFreetype();
+
     if(!Lib.IsInit())
     {
         m_Log   << m_Log.SetSystem("FreeType")
@@ -30,7 +30,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     if(m_loaded) this->Destroy();
     
     // Create a new font face.
-    if(FT_New_Face(Lib, filename.c_str(), 0, m_FontFace) != 0)
+    if(FT_New_Face(Lib.GetLibrary(), filename.c_str(), 0, &m_FontFace) != 0)
         return (m_loaded = false);
     
     // Logging.
@@ -40,7 +40,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     // Since the function expects a size in 1/64 pixels, we multiply
     // by 64 (same as left-shifting 6 bits) before passing.
     // The 96 represents a 96-dpi font bitmap.
-    if(FT_Set_Char_Size(m_FontFace, size << 6, size << 6, 96, 96) != 0)
+    if(FT_Set_Char_Size(m_FontFace, m_size << 6, m_size << 6, 96, 96) != 0)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Failed to set font size." << CLog::endl;
@@ -48,7 +48,6 @@ bool CFont::LoadFromFile(const string_t& filename)
     }
     
     // Loads all printable ASCII characters.
-    mp_glyphData.reserve('~' - ' ');
     uint32_t space = FT_Get_Char_Index(m_FontFace, ' ');
     
     for(size_t s = ' ', e = '~'; s <= e; ++s)
@@ -77,7 +76,7 @@ bool CFont::LoadFromFile(const string_t& filename)
 
 const void* const CFont::GetData() const
 {
-    return static_cast<const void* const>(mp_glyphData.data());
+    return reinterpret_cast<const void* const>(&mp_glyphData);
 }
 
 bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
@@ -122,7 +121,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         char letter = (c > '~' || c < ' ') ? ' ' : c;
         
         // Shortcut to glyph dimensions.
-        const rect_t& Dim = mp_glyphData[letter].dim;
+        const math::rect_t& Dim = mp_glyphData[letter].dim;
         
         real_t w = last_w;  // Store current x-coordinate.
         real_t h = Dim.y;   // Store current y-coordinate.
@@ -159,15 +158,15 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         inds[x+5] = i + 1;
         
         // Track total dimensions.
-        max_w += Dim.w;
-        max_h  = math::max<uint16_t>(max_h, Dim.h + h);
+        w += Dim.w;
+        h  = math::max<uint16_t>(h, Dim.h + h);
     }
     
     // Render all of the loaded data onto a texture,
     // then assign that texture to the entity.
     gfxcore::DrawBatch D;
     gfxcore::CVertexArray VAO(GL_STATIC_DRAW);
-    gfxcore::CFrameBuffer FBO(max_w, max_h);
+    gfx::CRenderTarget FBO(w, h);
     
     D.Vertices = verts;
     D.vcount   = vlen;
@@ -194,7 +193,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // Render each character (skip if unrenderable).
         if(text[i] > '~' || text[i] < ' ') continue;
         
-        mp_glyphTextures[text[i]].pTexture->Bind();
+        mp_glyphData[text[i]].texture->Bind();
         GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
             (void*)(sizeof(gfxcore::index_t) * i * 6)));
     }
@@ -216,7 +215,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         return false;
     }
     
-    gfx::CQuad Q(max_w, max_h);
+    gfx::CQuad Q(w, h);
     Q.AttachMaterial(M);
     Q.Create();
     
@@ -259,7 +258,7 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1))
 
-    gfx::CTexture* pTexture = m_Assets.Create<gfx::CTexture*>(mp_owner);
+    gfxcore::CTexture* pTexture = m_Assets.Create<gfxcore::CTexture>(mp_owner);
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));

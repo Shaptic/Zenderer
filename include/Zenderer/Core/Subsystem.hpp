@@ -56,7 +56,7 @@ namespace zen
         virtual bool Destroy() = 0;
 
         /// Returns the sub-system initialization status.
-        virtual inline bool IsInit() const final
+        inline bool IsInit() const
         { return m_init; }
 
         /// Sets a custom output log.
