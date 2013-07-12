@@ -59,5 +59,9 @@ def main():
         
     print "Done."
 
-if __name__ == "__main__": main()
- 
+if __name__ == "__main__":
+    try:
+        main()
+        raw_input("Done.")
+    except Exception, e:
+        print "An unhandled exception occured:", repr(e)
