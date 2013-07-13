@@ -4,7 +4,6 @@ using namespace zen;
 using gfxcore::CRenderer;
 
 gfx::CMaterial          CRenderer::s_DefaultMaterial;
-gfx::CEffect            CRenderer::s_DefaultEffect(gfx::EffectType::NO_EFFECT);
 gfxcore::CTexture*      CRenderer::s_DefaultTexture;
 gfxcore::CVertexArray   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
 math::matrix4x4_t       CRenderer::s_ProjMatrix;

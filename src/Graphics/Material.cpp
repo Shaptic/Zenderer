@@ -12,7 +12,7 @@ CMaterial::CMaterial(asset::CAssetManager& Assets) :
     m_Effect(EffectType::NO_EFFECT, Assets),
     mp_Texture(nullptr)
 {
-    mp_Texture = &CRenderer::GetDefaultTexture();
+    mp_Texture = &gfxcore::CRenderer::GetDefaultTexture();
 }
 
 CMaterial::CMaterial(const CMaterial& Copy) : 
@@ -26,7 +26,7 @@ CMaterial::CMaterial(const CMaterial& Copy) :
     
     // We don't want to reload the texture for no reason.
     if(Copy.mp_Texture != mp_Texture)
-        mp_Texture.LoadFromExisting(Copy.mp_Texture);
+        mp_Texture->LoadFromExisting(Copy.mp_Texture);
 }
 
 CMaterial::~CMaterial()
@@ -139,7 +139,7 @@ bool CMaterial::Disable() const
 
 bool CMaterial::DisableEffect() const
 {
-    return m_Effect->Disable();
+    return m_Effect.Disable();
 }
 
 bool CMaterial::DisableTexture() const
@@ -161,9 +161,7 @@ gfxcore::CTexture& CMaterial::GetTexture() const
 
 void CMaterial::Destroy()
 {
-    if(!m_egiven) delete mp_Effect;
-    if(!m_tgiven) m_Assets.Delete(mp_Texture);
-    
-    mp_Effect   = nullptr;
+    m_Effect.Destroy();
+    m_Assets.Delete(mp_Texture);
     mp_Texture  = nullptr;
 }

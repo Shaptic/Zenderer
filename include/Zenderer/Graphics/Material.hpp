@@ -92,8 +92,8 @@ namespace gfx
         bool DisableEffect() const;     ///< Disables only the effect.
         bool DisableTexture() const;    ///< Disables only the texture.
 
-        CEffect* GetEffect();
-        gfxcore::CTexture* GetTexture() const;
+        CEffect& GetEffect();
+        gfxcore::CTexture& GetTexture() const;
 
         friend class gfxcore::CRenderer;
 

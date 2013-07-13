@@ -31,7 +31,7 @@ CDrawable::CDrawable(const CDrawable& Copy) :
               m_DrawData.Indices);
               
     if(Copy.mp_MVMatrix != nullptr)
-        mp_MVMatrix = new math::matrix4x4_t(Copy.mp_MVMatrix);
+        mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
 }
 
 CDrawable::~CDrawable()
@@ -93,20 +93,18 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
       //(*mp_MVMatrix)[2][3] = m_Position.z;
         
         // Use our effect, or the default?
-        gfx::CEffect* pEffect = (mp_Material->GetEffect() == nullptr)
-                                ? &CRenderer::GetDefaultEffect()
-                                : mp_Material->GetEffect();
+        gfx::CEffect& Effect = mp_Material->GetEffect();
 
         // Use our texture, or the default?
         // We need a default texture because otherwise the color would
         // always be black due to the way the shader works.
-        gfxcore::CTexture& pTexture = mp_Material->GetTexture();
-        pEffect->Enable();
+        gfxcore::CTexture& Texture = mp_Material->GetTexture();
+        Effect.Enable();
         Texture.Bind();
 
         // All effects have these parameters in the vertex shader.
-        if(!pEffect->SetParameter("mv", *mp_MVMatrix) ||
-           !pEffect->SetParameter("proj", CRenderer::GetProjectionMatrix()))
+        if(!Effect.SetParameter("mv", *mp_MVMatrix) ||
+           !Effect.SetParameter("proj", CRenderer::GetProjectionMatrix()))
         {
             CRenderer::ResetMaterialState();
             return false;
