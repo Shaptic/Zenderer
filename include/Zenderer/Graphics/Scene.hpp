@@ -33,6 +33,9 @@
 #include "Light.hpp"
 #include "Quad.hpp"
 
+#include "Zenderer/Objects/Entity.hpp"
+
+
 namespace zen
 {
 namespace gfx
