@@ -135,14 +135,14 @@ bool CTexture::Unbind() const
     return true;
 }
 
-CTexture& CTexture::GetDefaultTexture() const
+CTexture& CTexture::GetDefaultTexture()
 {
     if(s_DefaultTexture.IsLoaded()) return s_DefaultTexture;
 
     // Load the default texture (1x1 white pixel).
     static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
-    s_DefaultTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
-    s_DefaultTexture->SetFilename("Zenderer white texture");
+    s_DefaultTexture.LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
+    s_DefaultTexture.SetFilename("Zenderer white texture");
     return s_DefaultTexture;
 }
 

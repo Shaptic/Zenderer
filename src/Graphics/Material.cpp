@@ -6,15 +6,12 @@ using util::CLog;
 using util::LogMode;
 using gfx::CMaterial;
 
-int CMaterial::s_arbitrary = 69;
-
 CMaterial::CMaterial(asset::CAssetManager& Assets) :
     m_Assets(Assets),
     m_Log(CLog::GetEngineLog()),
     m_Effect(EffectType::NO_EFFECT, Assets),
     m_Texture(gfxcore::CTexture::GetDefaultTexture())
 {
-    m_Texture.SetOwner(&s_arbitrary);
 }
 
 CMaterial::CMaterial(const CMaterial& Copy) :
@@ -97,7 +94,9 @@ bool CMaterial::LoadTextureFromFile(const string_t& filename)
 {
     gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
     if(tmp == nullptr) return false;
-    m_Texture = *tmp;
+    m_Texture.LoadFromExisting(tmp);
+    m_Assets.Delete(tmp);
+    return true;
 }
 
 bool CMaterial::LoadTextureFromHandle(const GLuint handle)
@@ -161,9 +160,4 @@ gfxcore::CTexture& CMaterial::GetTexture() const
 void CMaterial::Destroy()
 {
     m_Effect.Destroy();
-
-    // If the owner doesn't match this address, we dynamically allocated
-    // the texture. This is a dirty hack but I don't care enough to fix it.
-    if(m_Texture.GetOwner() != &s_arbitrary)
-        m_Assets.Delete(&m_Texture);
 }

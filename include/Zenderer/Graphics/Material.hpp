@@ -99,8 +99,6 @@ namespace gfx
 
     private:
         void Destroy();
-        
-        static int s_arbitrary;
 
         asset::CAssetManager&   m_Assets;
         util::CLog&             m_Log;
