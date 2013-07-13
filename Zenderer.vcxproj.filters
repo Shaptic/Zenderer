@@ -76,6 +76,12 @@
     <Filter Include="Source Files\GUI">
       <UniqueIdentifier>{42cd0e12-2503-4c52-84ad-d12a129171f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{418b90db-e383-40bd-a9e2-dcfdac72bc1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Events">
+      <UniqueIdentifier>{a2c6d35e-72ef-46fb-b7a0-e630c70df747}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -322,6 +328,15 @@
     </ClCompile>
     <ClCompile Include="src\GUI\Font.cpp">
       <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Objects\Entity.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CoreGraphics\Texture.cpp">
+      <Filter>Source Files\CoreGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Events\EventHandler.cpp">
+      <Filter>Source Files\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

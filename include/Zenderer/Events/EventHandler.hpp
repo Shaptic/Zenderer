@@ -25,6 +25,8 @@
 
 #include <stack>
 
+#include "Zenderer/CoreGraphics/OpenGL.hpp"
+
 #include "Keyboard.hpp"
 #include "Mouse.hpp"
 #include "Event.hpp"
@@ -40,7 +42,7 @@ namespace evt
     class ZEN_API CEventHandler
     {
     public:
-        ~CEventHandler() { while(!s_evtList.empty()) s_evtList.pop(); }
+        ~CEventHandler();
         
         /**
          * Removes the latest event from the stack and stores it in the parameter.
@@ -53,65 +55,15 @@ namespace evt
          * @return  `true`  if an event was loaded,
          *          `false` if there are none remaining.
          **/
-        bool PopEvent(event_t& Evt)
-        {
-            Evt.Reset();
-            if(s_evtList.empty()) return false;
-            Evt = s_evtList.top();
-            s_evtList.pop();
-            return true;
-        };
+        bool PopEvent(event_t& Evt);;
         
         /// Retrieves the singleton instance of the event handler.
-        static CEventHandler& GetInstance() 
-        {
-            static CEventHandler g_Events;
-            return g_Events;
-        }
+        static CEventHandler& GetInstance();
         
-        static void KeyboardCallback(
-            GLFWwindow*, int key, int scancode,
-            int action, int mods)
-        {
-            s_Active.key.keycode= static_cast<Key>(key);
-            s_Active.key.key    = static_cast<char>(scancode);
-            
-            if(action == GLFW_PRESS)        s_Active.type = EventType::KEY_DOWN;
-            else if(action == GLFW_RELEASE) s_Active.type = EventType::KEY_UP;
-            else if(action == GLFW_REPEAT)  s_Active.type = EventType::KEY_HOLD;
-
-            s_evtList.push(s_Active);
-            s_Active.Reset();
-        }
-        
-        static void MouseMotionCallback(
-            GLFWwindow*, double x, double y)
-        {
-            s_Active.mouse.position = math::vector_t(x, y);
-            s_Active.mouse.button   = MouseButton::UNKNOWN;
-            s_Active.mouse.down     = false;
-            s_Active.type           = EventType::MOUSE_MOTION;
-            
-            s_evtList.push(s_Active);
-            s_Active.Reset();
-        }
-        
-        static void MouseCallback(
-            GLFWwindow*, int button, int action, int mods)
-        {
-            //GetMousePosition(s_Active.mouse.position);
-            s_Active.mouse.button   = static_cast<MouseButton>(button);
-            s_Active.mouse.down     = (action == GLFW_PRESS);
-            s_Active.mouse.mods     = mods;
-            
-            if(action == GLFW_PRESS)
-                s_Active.type = EventType::MOUSE_DOWN;
-            else
-                s_Active.type = EventType::MOUSE_UP;
-            
-            s_evtList.push(s_Active);
-            s_Active.Reset();
-        }
+        static void KeyboardCallback(GLFWwindow*, int key, int scancode,
+                                     int action, int mods);
+        static void MouseMotionCallback(GLFWwindow*, double x, double y);
+        static void MouseCallback(GLFWwindow*, int button, int action, int mods);
         
     private:
         CEventHandler() {}

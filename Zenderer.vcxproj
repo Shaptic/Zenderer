@@ -155,11 +155,13 @@
     <ClCompile Include="src\CoreGraphics\Renderer.cpp" />
     <ClCompile Include="src\CoreGraphics\Shader.cpp" />
     <ClCompile Include="src\CoreGraphics\ShaderSet.cpp" />
+    <ClCompile Include="src\CoreGraphics\Texture.cpp" />
     <ClCompile Include="src\CoreGraphics\VertexArray.cpp" />
     <ClCompile Include="src\Core\Allocator.cpp" />
     <ClCompile Include="src\Core\ErrorHandling.cpp" />
     <ClCompile Include="src\Core\Subsystem.cpp" />
     <ClCompile Include="src\EngineTest.cpp" />
+    <ClCompile Include="src\Events\EventHandler.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
     <ClCompile Include="src\Graphics\Material.cpp" />
@@ -169,6 +171,7 @@
     <ClCompile Include="src\GUI\Font.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
+    <ClCompile Include="src\Objects\Entity.cpp" />
     <ClCompile Include="src\stb_image.c" />
     <ClCompile Include="src\Utilities\Assert.cpp" />
     <ClCompile Include="src\Utilities\Helpers.cpp" />
