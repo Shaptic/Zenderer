@@ -55,8 +55,9 @@ bool CAssetManager::Delete(CAsset* const pAsset)
             {
                 --(*b)->m_refcount;
                 m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
-                        << "References to asset (" << (*b)->GetFilename()
-                        << "): " << (*b)->m_refcount << '.' << util::CLog::endl;
+                        << "Decreasing reference count for asset ("
+                        << (*b)->GetFilename() << "): "
+                        << (*b)->m_refcount << '.' << util::CLog::endl;
                 return false;
             }
 

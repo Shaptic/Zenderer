@@ -379,9 +379,6 @@
     <None Include="data\shaders\Fade.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="data\shaders\FontRender.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="data\shaders\GaussianBlur.vs">
       <Filter>Shaders</Filter>
     </None>
@@ -405,6 +402,9 @@
     </None>
     <None Include="include\Zenderer\CoreGraphics\Renderer.inl">
       <Filter>Header Files\CoreGraphics</Filter>
+    </None>
+    <None Include="data\shaders\TTFRender.fs">
+      <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
 </Project>

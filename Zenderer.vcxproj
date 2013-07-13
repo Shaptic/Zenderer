@@ -190,13 +190,13 @@
     <None Include="data\shaders\Default.vs" />
     <None Include="data\shaders\SpotLight.fs" />
     <None Include="data\shaders\Fade.fs" />
-    <None Include="data\shaders\FontRender.fs" />
     <None Include="data\shaders\GaussianBlur.vs" />
     <None Include="data\shaders\GaussianBlurH.fs" />
     <None Include="data\shaders\GaussianBlurV.fs" />
     <None Include="data\shaders\PointLight.fs" />
     <None Include="data\shaders\Ripple.fs" />
     <None Include="data\shaders\ShadowCaster.fs" />
+    <None Include="data\shaders\TTFRender.fs" />
     <None Include="include\Zenderer\Assets\Asset.inl" />
     <None Include="include\Zenderer\Assets\AssetManager.inl" />
     <None Include="include\Zenderer\CoreGraphics\Renderer.inl" />

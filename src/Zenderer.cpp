@@ -41,6 +41,17 @@ bool zen::Init()
         Log << "SUCCESS." << util::CLog::endl;
     }
 
+    Log << "Initializing FreeType: ";
+    if(!gui::CFontLibrary::InitFreetype().IsInit())
+    {
+        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        return false;
+    }
+    else
+    {
+        Log << "SUCCESS." << util::CLog::endl;
+    }
+
     for(auto* i : CSubsystem::sp_allSystems)
     {
         Log << "Initializing global subsystem (" << i->GetName() << "): ";

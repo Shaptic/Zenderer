@@ -83,6 +83,7 @@
 #include "Audio/Music2D.hpp"
 #include "Audio/Sound2D.hpp"
 
+#include "GUI/Font.hpp"
 #include "Events/EventHandler.hpp"
 
 namespace zen

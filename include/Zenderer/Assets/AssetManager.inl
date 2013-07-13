@@ -30,9 +30,6 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
         m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
                 << m_Log.SetSystem("AssetMgr") << "Using existing asset for '"
                 << filename << "' ... " << util::CLog::endl;
-        m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
-                << "References to asset: " << pResult->m_refcount << '.'
-                << util::CLog::endl;
         return pResult;
     }
 }
@@ -84,11 +81,6 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
         ++pAsset->m_refcount;
         CAssetManager::sp_allAssets.push_back(pAsset);
         mp_managerAssets.push_back(pAsset);
-
-        m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
-                << "References to asset: " << pAsset->m_refcount << '.'
-                << util::CLog::endl;
-
         return pAsset;
     }
     else

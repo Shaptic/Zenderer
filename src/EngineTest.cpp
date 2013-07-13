@@ -95,9 +95,16 @@ using gfxcore::CRenderer;
     evt::CEventHandler& Evt = evt::CEventHandler::GetInstance();
     evt::event_t event;
 
+    gfx::CQuad EntPrim(Manager, 111, 64);
+    EntPrim.AttachMaterial(Sample);
+    EntPrim.SetInverted(true);
+    EntPrim.Create();
+
     obj::CEntity Ent(Manager);
-    Ent.LoadFromTexture("sample.png");
-    Ent.Move(300, 300);
+    gui::CFont* Font = Manager.Create<gui::CFont>();
+    Font->AttachManager(Manager);
+    Font->LoadFromFile(string_t("C:\\Windows\\Fonts\\Arial.ttf"));
+    Font->Render(Ent, "Wassup");
 
     while(Window.IsOpen())
     {
