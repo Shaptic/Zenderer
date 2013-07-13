@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -106,9 +106,9 @@ $(document).ready(function(){initNavTree('_subsystem-example.html','');});
 <h1><a class="anchor" id="bare_min"></a>
 A Bare Minimum Example</h1>
 <p>A valid subsystem could behave in a way similar to the example below. Let us assume that we have declared a derived class named <code>CRenderer</code> that takes a parameter for initialization and only implements the bare minimum methods implemented, as we will show here:</p>
-<div class="fragment"><div class="line"><a name="a0"></a><a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">CRenderer::CRenderer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> a) : CSubsystem(<span class="stringliteral">&quot;Renderer&quot;</span>), m_a(a) {}</div>
+<div class="fragment"><div class="line">CRenderer::CRenderer(<span class="keyword">const</span> <span class="keywordtype">int</span> a) : CSubsystem(<span class="stringliteral">&quot;Renderer&quot;</span>), m_a(a) {}</div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">bool</span> <a name="a1"></a><a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CRenderer::Init</a>()</div>
+<div class="line"><span class="keywordtype">bool</span> <a name="a0"></a><a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CRenderer::Init</a>()</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span>(m_a == 69)</div>
 <div class="line">        <span class="keywordflow">return</span> (m_init = <span class="keyword">true</span>);</div>

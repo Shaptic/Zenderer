@@ -1,11 +1,11 @@
 var classzen_1_1util_1_1_c_log =
 [
-    [ "CLog", "classzen_1_1util_1_1_c_log.html#a6b3483451762f06a500ed5faab4fb06f", null ],
+    [ "CLog", "classzen_1_1util_1_1_c_log.html#a188d8bf9beb5f1faa7560ca028a8bf72", null ],
     [ "CLog", "classzen_1_1util_1_1_c_log.html#a042b3f3980addc9561a3817c088e5922", null ],
     [ "~CLog", "classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9", null ],
     [ "operator=", "classzen_1_1util_1_1_c_log.html#a9707ea85c8bfc727f29c3d84952b4712", null ],
-    [ "operator<<", "classzen_1_1util_1_1_c_log.html#af2ea3e707cde29632707c0cafce4053e", null ],
-    [ "operator<<", "classzen_1_1util_1_1_c_log.html#ac55ffbfa047950ed902c1bf0fc2b3984", null ],
+    [ "operator<<", "classzen_1_1util_1_1_c_log.html#a4b47abac9f1cd45f5479be861290bfd6", null ],
+    [ "operator<<", "classzen_1_1util_1_1_c_log.html#a63ae1bf2dc31500af22930f7d5107622", null ],
     [ "Init", "classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee", null ],
     [ "Destroy", "classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f", null ],
     [ "ToggleStdout", "classzen_1_1util_1_1_c_log.html#a354fc06ab4cb37b616f5322cf2b333e1", null ],
@@ -18,6 +18,5 @@ var classzen_1_1util_1_1_c_log =
     [ "GetEngineLog", "classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d", null ],
     [ "operator<<", "classzen_1_1util_1_1_c_log.html#ac55ffbfa047950ed902c1bf0fc2b3984", null ],
     [ "operator<<", "classzen_1_1util_1_1_c_log.html#a2c3666878fd6cdc5a98088014438b3b5", null ],
-    [ "false", "classzen_1_1util_1_1_c_log.html#ab765b33c297c250fbef74194709c22cd", null ],
     [ "endl", "classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5", null ]
 ];

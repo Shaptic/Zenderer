@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,9 +112,9 @@ Usage</h1>
  package=zenderer</pre><pre> // here is the point:
  values1=stuff,morestuff,finalstuff
  values2=data:moredata:finaldata
- </pre><p>And we want to retrieve the values after <code>values1</code> and <code>values2</code> separately, since <a class="el" href="group___utilities.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">zen::util::CINIParser::GetValue()</a> with <code>"values1"</code> as an argument would return <code>"stuff,morestuff,finalstuff"</code>. We can thus use <a class="el" href="group___utilities.html#gac57686358966190d7c29a88ff1c87429" title="Returns an array of values from a key-value pair based on a char.">zen::util::CINIParser::GetValues()</a> to achieve the effect we want, like so:</p>
-<div class="fragment"><div class="line"><a name="_a0"></a><a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_i_n_i_parser" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">zen::util::CINIParser</a> Parser;</div>
-<div class="line">Parser.<a name="a1"></a><a class="code" href="group___utilities.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile</a>(<span class="stringliteral">&quot;example.txt&quot;</span>);</div>
+ </pre><p>And we want to retrieve the values after <code>values1</code> and <code>values2</code> separately, since <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">zen::util::CINIParser::GetValue()</a> with <code>"values1"</code> as an argument would return <code>"stuff,morestuff,finalstuff"</code>. We can thus use <a class="el" href="group___utilities.html#gac57686358966190d7c29a88ff1c87429" title="Returns an array of values from a key-value pair based on a char.">zen::util::CINIParser::GetValues()</a> to achieve the effect we want, like so:</p>
+<div class="fragment"><div class="line"><a name="_a0"></a><a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">zen::util::CINIParser</a> Parser;</div>
+<div class="line">Parser.<a name="a1"></a><a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile</a>(<span class="stringliteral">&quot;example.txt&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Delimited defaults to a comma (&#39;,&#39;) character</span></div>
 <div class="line">std::vector&lt;string_t&gt; keyValues = Parser.<a name="a2"></a><a class="code" href="group___utilities.html#gac57686358966190d7c29a88ff1c87429" title="Returns an array of values from a key-value pair based on a char.">GetValues</a>(<span class="stringliteral">&quot;values1&quot;</span>);</div>

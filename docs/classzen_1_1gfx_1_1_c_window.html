@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,26 +111,20 @@ $(document).ready(function(){initNavTree('classzen_1_1gfx_1_1_c_window.html','')
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">zen::gfx::CWindow Class Reference</div>  </div>
+<div class="title">zen::gfx::CWindow Class Reference<div class="ingroups"><a class="el" href="group___graphics.html">Graphics</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Creates a renderable OpenGL context.  
-</p>
+ <a href="classzen_1_1gfx_1_1_c_window.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_window_8hpp_source.html">Window.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::gfx::CWindow:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1gfx_1_1_c_window__coll__graph.png" border="0" usemap="#zen_1_1gfx_1_1_c_window_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1gfx_1_1_c_window_coll__map" id="zen_1_1gfx_1_1_c_window_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="125,453,251,648"/><area shape="rect" id="node4" title="STL class." alt="" coords="85,231,165,308"/><area shape="rect" id="node5" title="STL class." alt="" coords="62,6,188,98"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="190,150,313,389"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aad250fa2d6d10cbb34da1a3ba09cb1cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#aad250fa2d6d10cbb34da1a3ba09cb1cb">CWindow</a> (const uint16_t w, const uint16_t h, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;window_caption)</td></tr>
-<tr class="separator:aad250fa2d6d10cbb34da1a3ba09cb1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b46c3707eea0963bd55bbbe7b5767a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a71b46c3707eea0963bd55bbbe7b5767a">CWindow</a> (const uint16_t w, const uint16_t h, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;caption, <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Mgr)</td></tr>
+<tr class="memdesc:a71b46c3707eea0963bd55bbbe7b5767a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and sets up an OpenGL-enabled window for rendering.  <a href="#a71b46c3707eea0963bd55bbbe7b5767a">More...</a><br/></td></tr>
+<tr class="separator:a71b46c3707eea0963bd55bbbe7b5767a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a952e8bd3d29abbac67c252c192077c87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87">~CWindow</a> ()</td></tr>
 <tr class="separator:a952e8bd3d29abbac67c252c192077c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a43bdacc8a996a71bfa0255796145e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8">Init</a> ()</td></tr>
@@ -159,9 +153,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9bd71b5e856974c6ae65a8a0f3dbfc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633a8eee54aaee24cdab3bf8f5e2f091"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091">IsOpen</a> () const </td></tr>
 <tr class="separator:a633a8eee54aaee24cdab3bf8f5e2f091"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad13fadc423fea0583a1ef0b84b754ddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#ad13fadc423fea0583a1ef0b84b754ddf">AttachAssetManager</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Mgr)</td></tr>
-<tr class="memdesc:ad13fadc423fea0583a1ef0b84b754ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for assets to be properly reloaded when toggling fs mode.  <a href="#ad13fadc423fea0583a1ef0b84b754ddf">More...</a><br/></td></tr>
-<tr class="separator:ad13fadc423fea0583a1ef0b84b754ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac142af8c14b730f077e35445934ff0be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#ac142af8c14b730f077e35445934ff0be">SetClearBits</a> (const uint32_t bits)</td></tr>
 <tr class="memdesc:ac142af8c14b730f077e35445934ff0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets OpenGL clearing bits.  <a href="#ac142af8c14b730f077e35445934ff0be">More...</a><br/></td></tr>
 <tr class="separator:ac142af8c14b730f077e35445934ff0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,9 +171,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72">~CSubsystem</a> ()</td></tr>
 <tr class="memdesc:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor does absolutely nothing.  <a href="#ab1639d7b9cec3785d77373de2098de72">More...</a><br/></td></tr>
 <tr class="separator:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644">IsInit</a> () const final</td></tr>
-<tr class="memdesc:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#a1dc7ef9c8bdd0cc33539e24d398b4644">More...</a><br/></td></tr>
-<tr class="separator:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef">IsInit</a> () const </td></tr>
+<tr class="memdesc:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#afa992ecfe994d177d1bdb1f2b853f4ef">More...</a><br/></td></tr>
+<tr class="separator:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c">SetLog</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;Log)</td></tr>
 <tr class="memdesc:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a custom output log.  <a href="#a9dd185770f7445ffe6be561c560f900c">More...</a><br/></td></tr>
 <tr class="separator:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,10 +206,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00053">53</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<div class="textblock"><p>This is a wrapper for creating a core OpenGL context to draw to. There is no testing of multiple windows (and thus multiple engine instances) but this likely isn't supported, especially since there is no way to specify which window is active. This is supported by GLFW, the underlying context creation API, so it's a potential <code>todo</code>. This absolutely must be the first thing you create, prior to interaction with any part of the graphics API. If it isn't, your objects will likely be invalid, or will simply fail to load (and destroy).</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Test / Implement multiple-context control. </dd></dl>
+
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00054">54</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aad250fa2d6d10cbb34da1a3ba09cb1cb"></a>
+<a class="anchor" id="a71b46c3707eea0963bd55bbbe7b5767a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -238,7 +231,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>window_caption</em>&#160;</td>
+          <td class="paramname"><em>caption</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>Mgr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -247,6 +246,27 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The asset manager is there to allow for assets to be properly reloaded when toggling fullscreen mode. When going into (or out of) fullscreen mode, the current OpenGL context is destroyed, thus invalidating any and all handles to textures, shaders, vertex buffers, and other critical OpenGL objects used during rendering. By attaching a proper asset manager to the window, these can be reloaded on-the-fly when switching contexts.</p>
+<p>Since the asset base class (<a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a>) stores a filename, this can be used to reload the asset when necessary. Keep in mind that assets that were generated programmatically (such as various primitives) that do not depend on any files cannot normally be successfully reloaded and attached properly to the new rendering context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>Window width </td></tr>
+    <tr><td class="paramname">h</td><td>Window height </td></tr>
+    <tr><td class="paramname">caption</td><td>Caption to place in the title bar (windowed mode) </td></tr>
+    <tr><td class="paramname">Mgr</td><td>Manager to attach to window</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The window will automatically be created fullscreen in release mode (<a class="el" href="group___engine.html#gaa111057e6f65ac3648c06031d1cad3a4">ZEN_DEBUG_BUILD</a>).</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init()</a> </dd>
+<dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee" title="Enables fullscreen mode.">EnableFullscreen()</a> </dd>
+<dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08" title="Disables fullscreen mode.">DisableFullscreen()</a> </dd>
+<dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7cf6874db28b2077f67f7c6f3a418e12" title="Toggles the OpenGL context into/out of fullscreen mode.">ToggleFullscreen()</a> </dd>
+<dd>
+<a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> </dd></dl>
 
 </div>
 </div>
@@ -263,7 +283,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00026">26</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00027">27</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -293,14 +313,14 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a5c72ec2b5c58ee70f346aec64eaf2dd8">zen::CSubsystem</a>.</p>
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00031">31</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00032">32</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_window_a5a43bdacc8a996a71bfa0255796145e8_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_a5a43bdacc8a996a71bfa0255796145e8_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_window_a5a43bdacc8a996a71bfa0255796145e8_icgraph" id="classzen_1_1gfx_1_1_c_window_a5a43bdacc8a996a71bfa0255796145e8_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="211,5,362,32"/></map>
+<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="211,5,362,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="261,56,312,83"/></map>
 </div>
 </p>
 
@@ -330,7 +350,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>.</p>
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00105">105</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00110">110</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,14 +367,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00120">120</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00116">116</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_window_a8c829e940b9d9fea7ac4f416e828df05_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_a8c829e940b9d9fea7ac4f416e828df05_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_window_a8c829e940b9d9fea7ac4f416e828df05_icgraph" id="classzen_1_1gfx_1_1_c_window_a8c829e940b9d9fea7ac4f416e828df05_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,5,343,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="243,56,293,83"/></map>
+<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,5,343,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="243,56,293,83"/></map>
 </div>
 </p>
 
@@ -374,7 +394,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00127">127</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00123">123</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -391,14 +411,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00139">139</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00130">130</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_window_af21d93ba75e342c3c0010bbd86536e0c_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_af21d93ba75e342c3c0010bbd86536e0c_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_window_af21d93ba75e342c3c0010bbd86536e0c_icgraph" id="classzen_1_1gfx_1_1_c_window_af21d93ba75e342c3c0010bbd86536e0c_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,5,343,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="243,56,293,83"/></map>
+<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,5,343,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="243,56,293,83"/></map>
 </div>
 </p>
 
@@ -425,14 +445,15 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Switching in and out of fullscreen mode requires a complete destruction and re-creation of the OpenGL context, invalidating any and all handles to OpenGL objects like textures, vertex buffers, and shaders. Thus, it is necessary for the user to attempt to keep track reloading assets and OpenGL data as needed. If a manager was given via <a class="el" href="classzen_1_1gfx_1_1_c_window.html#ad13fadc423fea0583a1ef0b84b754ddf" title="Allows for assets to be properly reloaded when toggling fs mode.">AttachAssetManager()</a>, an attempt will be made to reload all of the assets it contains via the zen::asset::CAsset::Reload method. The optional <code>loaded</code> parameter will be set to the number of assets that were reloaded successfully, based on the return value of the method.</p>
+<p>Switching in and out of fullscreen mode requires a complete destruction and re-creation of the OpenGL context, invalidating any and all handles to OpenGL objects like textures, vertex buffers, and shaders. Thus, it is necessary for the user to attempt to keep track reloading assets and OpenGL data as needed. If a manager was given via AttachAssetManager(), an attempt will be made to reload all of the assets it contains via the zen::asset::CAsset::Reload method. The optional <code>loaded</code> parameter will be set to the number of assets that were reloaded successfully, based on the return value of the method.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">loaded</td><td>Track number of assets reloaded (optional=<code>nullptr</code>)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the window is now in fullscreen mode, and <code>false</code> if it was changed to windowed mode. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the window is now in fullscreen mode, and <code>false</code> if it was changed to windowed mode.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Implement this </dd></dl>
 
 </div>
 </div>
@@ -495,48 +516,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00144">144</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00135">135</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph" id="classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,12,343,39"/></map>
+<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,5,343,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="243,56,293,83"/></map>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="ad13fadc423fea0583a1ef0b84b754ddf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CWindow::AttachAssetManager </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>Mgr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>When going into (or out of) fullscreen mode, the current OpenGL context is destroyed, thus invalidating any and all handles to textures, shaders, vertex buffers, and other critical properties used during rendering. By attaching a proper asset manager to the window, these can be reloaded on-the-fly when switching contexts. Since the asset base class (<a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a>) stores a filename, this can be used to reload the asset when necessary. Keep in mind that assets that were generated programmatically (such as various shapes) that do not depend on any files cannot be successfully reloaded and attached properly to the new rendering context.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Mgr</td><td>Manager to attach to window</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> </dd>
-<dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee" title="Enables fullscreen mode.">EnableFullscreen()</a> </dd>
-<dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08" title="Disables fullscreen mode.">DisableFullscreen()</a> </dd>
-<dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7cf6874db28b2077f67f7c6f3a418e12" title="Toggles the OpenGL context into/out of fullscreen mode.">ToggleFullscreen()</a> </dd></dl>
-
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00134">134</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -585,7 +574,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00136">136</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00147">147</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -610,7 +599,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00139">139</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00150">150</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +624,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00140">140</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00151">151</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfx_1_1_c_window_ae3b4451816d29a80829d70a87fad62b5_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_ae3b4451816d29a80829d70a87fad62b5_icgraph" alt=""/></div>
+<map name="classzen_1_1gfx_1_1_c_window_ae3b4451816d29a80829d70a87fad62b5_icgraph" id="classzen_1_1gfx_1_1_c_window_ae3b4451816d29a80829d70a87fad62b5_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="192,12,243,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -659,16 +657,16 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00143">143</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00154">154</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_window_a7574da6790394665fb63d5be9058543b_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_a7574da6790394665fb63d5be9058543b_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_window_a7574da6790394665fb63d5be9058543b_icgraph" id="classzen_1_1gfx_1_1_c_window_a7574da6790394665fb63d5be9058543b_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="192,12,243,39"/></map>
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="192,12,243,39"/></map>
 </div>
 </p>
 
@@ -695,7 +693,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00149">149</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00140">140</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfx_1_1_c_window_a63143db627c180d561c2162019c741d7_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_a63143db627c180d561c2162019c741d7_icgraph" alt=""/></div>
+<map name="classzen_1_1gfx_1_1_c_window_a63143db627c180d561c2162019c741d7_icgraph" id="classzen_1_1gfx_1_1_c_window_a63143db627c180d561c2162019c741d7_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="192,12,243,39"/></map>
+</div>
+</p>
 
 </div>
 </div>

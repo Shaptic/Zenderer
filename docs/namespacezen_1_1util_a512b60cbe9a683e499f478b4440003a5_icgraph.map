@@ -1,4 +1,4 @@
 <map id="zen::util::runtime_assert" name="zen::util::runtime_assert">
 <area shape="rect" id="node2" href="$namespacezen_1_1gfxcore.html#abbcb0df445e918ecb7cc704fd72fe524" title="Checks the validity of an OpenGL call." alt="" coords="183,5,331,32"/>
-<area shape="rect" id="node3" href="$group___audio.html#a400e4194c5b8a08a72f8d00065f1eb2d" title="Checks the validity of an OpenAL call." alt="" coords="173,57,341,98"/>
+<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d" title="Checks the validity of an OpenAL call." alt="" coords="173,57,341,98"/>
 </map>

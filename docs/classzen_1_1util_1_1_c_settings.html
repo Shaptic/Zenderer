@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,21 +111,14 @@ $(document).ready(function(){initNavTree('classzen_1_1util_1_1_c_settings.html',
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">zen::util::CSettings Class Reference</div>  </div>
+<div class="title">zen::util::CSettings Class Reference<div class="ingroups"><a class="el" href="group___utilities.html">Utilities</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>An array-like wrapper for various settings.  
-</p>
+ <a href="classzen_1_1util_1_1_c_settings.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_settings_8hpp_source.html">Settings.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::util::CSettings:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1util_1_1_c_settings__coll__graph.png" border="0" usemap="#zen_1_1util_1_1_c_settings_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1util_1_1_c_settings_coll__map" id="zen_1_1util_1_1_c_settings_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="131,453,257,648"/><area shape="rect" id="node4" title="STL class." alt="" coords="92,231,172,308"/><area shape="rect" id="node5" title="STL class." alt="" coords="69,6,195,98"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="197,150,320,389"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -155,9 +148,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72">~CSubsystem</a> ()</td></tr>
 <tr class="memdesc:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor does absolutely nothing.  <a href="#ab1639d7b9cec3785d77373de2098de72">More...</a><br/></td></tr>
 <tr class="separator:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644">IsInit</a> () const final</td></tr>
-<tr class="memdesc:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#a1dc7ef9c8bdd0cc33539e24d398b4644">More...</a><br/></td></tr>
-<tr class="separator:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef">IsInit</a> () const </td></tr>
+<tr class="memdesc:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#afa992ecfe994d177d1bdb1f2b853f4ef">More...</a><br/></td></tr>
+<tr class="separator:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c">SetLog</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;Log)</td></tr>
 <tr class="memdesc:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a custom output log.  <a href="#a9dd185770f7445ffe6be561c560f900c">More...</a><br/></td></tr>
 <tr class="separator:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,7 +183,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a0242a2a5591cb035d3d1b2f1824422b8 inherit pro_static_attribs_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>This isn't used anywhere in the engine, but is present for user convenience in creating / passing around various in-game settings that may arise. The link to the development blog contains info about the specific implementation, as well as potential usage functions.</p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://zenpandainteractive.blogspot.com/2013/06/setting-settings-of-arbitrary-types-in-c.html">http://zenpandainteractive.blogspot.com/2013/06/setting-settings-of-arbitrary-types-in-c.html</a> </dd></dl>
+
 <p>Definition at line <a class="el" href="_settings_8hpp_source.html#l00091">91</a> of file <a class="el" href="_settings_8hpp_source.html">Settings.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="afc603312b4f5a4506dd0b342db01f0ca"></a>

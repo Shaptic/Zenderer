@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -121,57 +121,59 @@ $(document).ready(function(){initNavTree('_material_8hpp_source.html','');});
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">   33</a></span>&#160;<span class="keyword">namespace </span>gfxcore { <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> CRenderer; }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>gfx</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="group___graphics.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture.">CMaterial</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>(<a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        ~<a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>gfx</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>&amp; Copy);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a> operator=(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>&amp; Copy);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> LoadFromStream(std::ifstream&amp; stream,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                            <span class="keyword">const</span> std::streampos&amp; start = 0,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            <span class="keyword">const</span> std::streampos&amp; end   = -1);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">bool</span> LoadTextureFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">bool</span> LoadTextureFromHandle(<span class="keyword">const</span> GLuint handle);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">bool</span> LoadEffect(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> Type);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">bool</span> Attach(<a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>&amp; E, <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp; T);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">bool</span> Attach(<a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>&amp;&amp; E, <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp;&amp; T);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">bool</span> Enable() <span class="keyword">const</span>;        </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">bool</span> EnableEffect() <span class="keyword">const</span>;      </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">bool</span> EnableTexture() <span class="keyword">const</span>;     </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> Disable() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> DisableEffect() <span class="keyword">const</span>;     </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">bool</span> DisableTexture() <span class="keyword">const</span>;    </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>* GetEffect();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* GetTexture() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="group___graphics.html#acc9c1684114cc65312c2f16f6257889b">   98</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">gfxcore::CRenderer</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> LoadFromStream(std::ifstream&amp; stream,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                            <span class="keyword">const</span> std::streampos&amp; start = 0,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                            <span class="keyword">const</span> std::streampos&amp; end   = -1);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">bool</span> LoadTextureFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">bool</span> LoadTextureFromHandle(<span class="keyword">const</span> GLuint handle);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">bool</span> LoadEffect(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> Type);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">bool</span> Attach(<a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>&amp; E, <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp; T);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">bool</span> Attach(<a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>&amp;&amp; E, <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp;&amp; T);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">bool</span> Enable() <span class="keyword">const</span>;        </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">bool</span> EnableEffect() <span class="keyword">const</span>;      </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">bool</span> EnableTexture() <span class="keyword">const</span>;     </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">bool</span> Disable() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> DisableEffect() <span class="keyword">const</span>;     </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">bool</span> DisableTexture() <span class="keyword">const</span>;    </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>&amp; GetEffect();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp; GetTexture() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> Destroy();</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp;   m_Assets;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>&amp;             m_Log;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*      mp_Texture;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">gfx::CEffect</a>            m_Effect;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    };</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__MATERIAL_HPP</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> s_arbitrary;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp;   m_Assets;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp;             m_Log;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp;      m_Texture;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>            m_Effect;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    };</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__MATERIAL_HPP</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

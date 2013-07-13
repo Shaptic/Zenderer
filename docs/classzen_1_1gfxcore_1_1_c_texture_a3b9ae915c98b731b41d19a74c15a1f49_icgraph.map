@@ -1,0 +1,5 @@
+<map id="zen::gfxcore::CTexture::Unbind" name="zen::gfxcore::CTexture::Unbind">
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a5962ae2836315bf7d6175a43035855a1" title="Disables rendering with the effect/texture." alt="" coords="208,5,339,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d" title="Disables only the texture." alt="" coords="208,70,339,111"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="387,12,557,39"/>
+</map>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,19 +110,14 @@ $(document).ready(function(){initNavTree('classzen_1_1sfx_1_1_c_audio_manager.ht
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">zen::sfx::CAudioManager Class Reference</div>  </div>
+<div class="title">zen::sfx::CAudioManager Class Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>A collection of static helper functions for the audio API.  
-</p>
+ <a href="classzen_1_1sfx_1_1_c_audio_manager.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_audio_manager_8hpp_source.html">AudioManager.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::sfx::CAudioManager:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1sfx_1_1_c_audio_manager__coll__graph.png" border="0" usemap="#zen_1_1sfx_1_1_c_audio_manager_coll__map" alt="Collaboration graph"/></div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -152,7 +147,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a0e37c14ea1008f7a514cbfc5b67a0914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>This class provides a variety of <code>static</code> convenience functions for the various audio asset instance classes to use in order to find available OpenAL sources.</p>
+<p>OpenAL is limited to 256 buffers, and despite the fact that they likely will never all be in use simultaneously, there is still no sense in being greedy. This class should be the one and only way that external audio classes get an available OpenAL source.</p>
+<p>The architecture for controlling sources is as follows:</p>
+<p>There exists a static array of 256 potential sources, zeroed out. As audio is played, the array fills up with source data, starting from <code>[0]</code>. So, the first call to <code><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a></code> would return <code>0</code> and after a call to <code>alGenSources</code> it would be filled with some arbitrary data. So thus </p>
+<pre class="fragment">CAudioManager::s_sources[0] = 12345
+</pre><p>Then, a subsequent call to <code><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a></code> would return <code>1</code> and the process repeats. Now, let's say the first source is done playing an <code>.ogg</code> file and CMusic2D::FreeSource() is called. Now the first available source is <code>s_sources[0]</code>, but due to the nature of the source-finding algorithm, <code><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a></code> will return <code>2</code>, because it first searches the index immediately following the last-used source before starting from the beginning. Hence (assuming <code>2</code> is then used): </p>
+<pre class="fragment">CAudioManager::s_sources[0] = 0
+CAudioManager::s_sources[1] = 223344
+CAudioManager::s_sources[2] = 696969</pre> 
 <p>Definition at line <a class="el" href="_audio_manager_8hpp_source.html#l00058">58</a> of file <a class="el" href="_audio_manager_8hpp_source.html">AudioManager.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a9ae7e2a83f5eba6f92adf07622eae4c8"></a>
@@ -200,15 +203,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>OpenAL is limited to 256 buffers, and despite the fact that they likely will never all be in use simultaneously, there is still no sense in being greedy. This function should be the one and only way that external audio classes get an available OpenAL source.</p>
-<p>The architecture for controlling sources is as follows:</p>
-<p>There exists a static array of 256 potential sources, zeroed out. As audio is played, the array fills up with source data, starting from <code>[0]</code>. So, the first call to <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a> would return <code>0</code> and after a call to <code>alGenSources</code> it would be filled with some arbitrary data. So thus </p>
-<pre class="fragment">CAudioManager::s_sources[0] = 12345
-</pre><p>Then, a subsequent call to <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a> would return <code>1</code> and the process repeats. Now, let's say the first source is done playing an <code>.ogg</code> file and CMusic2D::FreeSource() is called. Now the first available source is <code>s_sources[0]</code>, but due to the nature of the source-finding algorithm, <a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a> will return <code>2</code>, because it first searches the index immediately following the last-used source before starting from the beginning. Hence (assuming <code>2</code> is then used): </p>
-<pre class="fragment">CAudioManager::s_sources[0] = 0
-CAudioManager::s_sources[1] = 223344
-CAudioManager::s_sources[2] = 696969
-</pre><p>If all of the sources are completely used up, this function will return <code>-1</code>, and someone needs to call <code><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01" title="Frees an OpenAL source.">FreeSource()</a></code> on an audio file to free up some sources to use.</p>
+<p>If all of the sources are completely used up, this function will return <code>-1</code>, and someone needs to call <code><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01" title="Frees an OpenAL source.">FreeSource()</a></code> on an audio file to free up some sources to use.</p>
 <dl class="section return"><dt>Returns</dt><dd>An index to the next available OpenAL source buffer. </dd></dl>
 
 <p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
@@ -338,7 +333,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Mostly used internally for debugging, this will check valid execution of an OpenAL call. It should be used in congruence with the macro defined at the top of this file (AL(f)). This function won't really work well without the macro, as too many things have to be passed as parameters for accuracy; it'd be unwieldy to pass the string of the OpenAL function call by hand every time.</p>
+<p>Mostly used internally for debugging, this will check valid execution of an OpenAL call. It should be used in congruence with the macro defined at the top of this file (<a class="el" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL(f)</a>). This function won't really work well without the macro, as too many things have to be passed as parameters for accuracy; it'd be unwieldy to pass the string of the OpenAL function call by hand every time.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">expr</td><td>OpenAL call expression </td></tr>

@@ -1,11 +1,11 @@
 var namespacezen_1_1gfx =
 [
-    [ "CEffect", "group___graphics.html#classzen_1_1gfx_1_1_c_effect", "group___graphics" ],
-    [ "CLight", "group___graphics.html#classzen_1_1gfx_1_1_c_light", "group___graphics" ],
-    [ "CMaterial", "group___graphics.html#classzen_1_1gfx_1_1_c_material", "group___graphics" ],
-    [ "CQuad", "group___graphics.html#classzen_1_1gfx_1_1_c_quad", "group___graphics" ],
-    [ "CRenderTarget", "group___graphics.html#classzen_1_1gfx_1_1_c_render_target", "group___graphics" ],
+    [ "CEffect", "classzen_1_1gfx_1_1_c_effect.html", "classzen_1_1gfx_1_1_c_effect" ],
+    [ "CLight", "classzen_1_1gfx_1_1_c_light.html", "classzen_1_1gfx_1_1_c_light" ],
+    [ "CMaterial", "classzen_1_1gfx_1_1_c_material.html", "classzen_1_1gfx_1_1_c_material" ],
+    [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html", "classzen_1_1gfx_1_1_c_quad" ],
+    [ "CRenderTarget", "classzen_1_1gfx_1_1_c_render_target.html", "classzen_1_1gfx_1_1_c_render_target" ],
     [ "CScene", "classzen_1_1gfx_1_1_c_scene.html", "classzen_1_1gfx_1_1_c_scene" ],
-    [ "CWindow", "group___graphics.html#classzen_1_1gfx_1_1_c_window", "group___graphics" ],
+    [ "CWindow", "classzen_1_1gfx_1_1_c_window.html", "classzen_1_1gfx_1_1_c_window" ],
     [ "CFont", "group___g_u_i.html#classzen_1_1gfx_1_1_c_font", null ]
 ];

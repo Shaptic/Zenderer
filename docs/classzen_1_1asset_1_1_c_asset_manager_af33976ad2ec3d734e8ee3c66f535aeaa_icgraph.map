@@ -1,7 +1,19 @@
 <map id="zen::asset::CAssetManager::Create" name="zen::asset::CAssetManager::Create">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="255,5,425,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="246,70,434,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e" title="Loads a vertex shader from a file. " alt="" coords="237,135,443,177"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="275,201,405,242"/>
-<area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="491,201,618,242"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="255,166,425,207"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68" title="Loads a vertex shader from a file." alt="" coords="246,297,434,338"/>
+<area shape="rect" id="node16" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e" title="Loads a vertex shader from a file. " alt="" coords="237,231,443,273"/>
+<area shape="rect" id="node11" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="972,400,1023,427"/>
+<area shape="rect" id="node17" href="$classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk." alt="" coords="700,355,852,397"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="491,195,634,221"/>
+<area shape="rect" id="node14" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="493,304,632,331"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="683,253,869,280"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="713,5,839,46"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="711,70,841,111"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="932,129,1063,170"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="711,187,841,229"/>
+<area shape="rect" id="node9" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="1126,187,1253,229"/>
+<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="932,246,1063,287"/>
+<area shape="rect" id="node13" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="917,195,1077,221"/>
+<area shape="rect" id="node15" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="685,304,867,331"/>
+<area shape="rect" id="node18" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="934,334,1061,375"/>
 </map>

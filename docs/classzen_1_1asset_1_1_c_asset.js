@@ -22,7 +22,5 @@ var classzen_1_1asset_1_1_c_asset =
     [ "m_filename", "classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02", null ],
     [ "m_error_str", "classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575", null ],
     [ "m_filename_hash", "classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857", null ],
-    [ "m_id", "classzen_1_1asset_1_1_c_asset.html#ae963e23ab04ffdcb3ba01b7ad39b3b8d", null ],
-    [ "m_loaded", "classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db", null ],
-    [ "mp_owner", "classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f", null ]
+    [ "m_loaded", "classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db", null ]
 ];

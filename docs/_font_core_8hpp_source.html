@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('_font_core_8hpp_source.html','');});
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>gui</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library.">CFontLibrary</a> : <span class="keyword">public</span> <a class="code" href="group___engine.html#classzen_1_1_c_subsystem" title="An abstract base class for all engine subsystems.">CSubsystem</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library.">CFontLibrary</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        ~<a class="code" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library.">CFontLibrary</a>();</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('_font_core_8hpp_source.html','');});
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#ad84c7b87450289c90f94a2fe99c0e2a7">   59</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>()</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span>(m_init) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> (m_init = FT_Init_FreeType(&amp;m_Library));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> (m_init = (FT_Init_FreeType(&amp;m_Library) == 0));</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a6a2ede7cf93ccfa9af2d29ea5d5fec18">   65</a></span>&#160;        <span class="keywordtype">bool</span> Destroy()</div>
@@ -158,10 +158,10 @@ $(document).ready(function(){initNavTree('_font_core_8hpp_source.html','');});
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        FT_Library m_Library;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    };</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="structzen_1_1gui_1_1glyph__t.html">   85</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structzen_1_1gui_1_1glyph__t.html">glyph_t</a></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html">   85</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="namespacezen_1_1gui.html#structzen_1_1gui_1_1glyph__t">glyph_t</a></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="structzen_1_1gui_1_1glyph__t.html#aafb45b8b302142ee16ef216caf695d2e">   87</a></span>&#160;        <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* <a class="code" href="structzen_1_1gui_1_1glyph__t.html#aafb45b8b302142ee16ef216caf695d2e">texture</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="structzen_1_1gui_1_1glyph__t.html#ad9ca0b43d914c33a5081a3dba45d4e31">   88</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a> <a class="code" href="structzen_1_1gui_1_1glyph__t.html#ad9ca0b43d914c33a5081a3dba45d4e31">dim</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e">   87</a></span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* <a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e">texture</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#ad9ca0b43d914c33a5081a3dba45d4e31">   88</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a> <a class="code" href="namespacezen_1_1gui.html#ad9ca0b43d914c33a5081a3dba45d4e31">dim</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    };</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}   <span class="comment">// namespace gfx</span></div>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,11 +124,11 @@ The `DrawBatch` structure</h2>
 <div class="fragment"><div class="line"><span class="keyword">using namespace </span>zen::gfxcore;</div>
 <div class="line"><span class="keyword">using namespace </span>zen::math;</div>
 <div class="line"></div>
-<div class="line"><a name="_a1"></a><a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>* vertices = <span class="keyword">new</span> <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>[4];</div>
+<div class="line"><a name="_a1"></a><a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t">vertex_t</a>* vertices = <span class="keyword">new</span> <a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t">vertex_t</a>[4];</div>
 <div class="line"><a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>* indices = <span class="keyword">new</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>[6];</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Create a 32x32 red quad.</span></div>
-<div class="line">vertices[1].<a name="a2"></a><a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a name="a3"></a><a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">vector_t</a>(32, 0);</div>
+<div class="line">vertices[1].<a name="a2"></a><a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a name="a3"></a><a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">vector_t</a>(32, 0);</div>
 <div class="line">vertices[2].position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">vector_t</a>(32, 32);</div>
 <div class="line">vertices[3].position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">vector_t</a>(0, 32);</div>
 <div class="line"></div>
@@ -147,7 +147,7 @@ The `DrawBatch` structure</h2>
 <div class="line"><span class="comment">// const index_t&amp; indices = zen::CQuad::GetIndexArray();</span></div>
 <div class="line"><span class="comment">// but then you must be careful not to delete[] them :)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a5"></a><a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray.">DrawBatch</a> <a class="code" href="namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487caf623e75af30e62bbd73d6df5b50bb7b5">D</a> = {vertices, 4, indices, 6};</div>
+<div class="line"><a name="_a5"></a><a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a CVertexArray.">DrawBatch</a> <a class="code" href="namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487caf623e75af30e62bbd73d6df5b50bb7b5">D</a> = {vertices, 4, indices, 6};</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// ... to be continued.</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="vao"></a>

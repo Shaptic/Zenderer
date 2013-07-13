@@ -1,5 +1,12 @@
 <map id="zen::gfxcore::CShaderSet::LoadVertexShaderFromStr" name="zen::gfxcore::CShaderSet::LoadVertexShaderFromStr">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="238,35,381,61"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="238,129,381,156"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="429,5,616,32"/>
 <area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="459,57,586,98"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="457,122,588,163"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="679,166,809,207"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="457,269,588,310"/>
+<area shape="rect" id="node7" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="873,225,999,266"/>
+<area shape="rect" id="node9" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="719,232,769,259"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="679,283,809,325"/>
+<area shape="rect" id="node11" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="664,349,824,376"/>
 </map>

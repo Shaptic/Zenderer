@@ -2,6 +2,8 @@ var classzen_1_1gfxcore_1_1_c_shader_set =
 [
     [ "CShaderSet", "classzen_1_1gfxcore_1_1_c_shader_set.html#a84d5b9e9acadba1c2e6ca81efdba520a", null ],
     [ "~CShaderSet", "classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4", null ],
+    [ "CShaderSet", "classzen_1_1gfxcore_1_1_c_shader_set.html#ab81db5c53810a13682fdf63dd24f07d4", null ],
+    [ "operator=", "classzen_1_1gfxcore_1_1_c_shader_set.html#aead0bfb30429dd2a4719bd2524104e73", null ],
     [ "LoadFromFile", "classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f", null ],
     [ "LoadVertexShaderFromFile", "classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68", null ],
     [ "LoadFragmentShaderFromFile", "classzen_1_1gfxcore_1_1_c_shader_set.html#a80240d2c752cb50fc99fa0805228919e", null ],

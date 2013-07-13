@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -122,13 +122,6 @@ $(document).ready(function(){initNavTree('classzen_1_1asset_1_1_c_asset.html',''
  <a href="classzen_1_1asset_1_1_c_asset.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::asset::CAsset:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1asset_1_1_c_asset__coll__graph.png" border="0" usemap="#zen_1_1asset_1_1_c_asset_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1asset_1_1_c_asset_coll__map" id="zen_1_1asset_1_1_c_asset_coll__map">
-<area shape="rect" id="node2" title="STL class." alt="" coords="28,231,108,308"/><area shape="rect" id="node3" title="STL class." alt="" coords="5,6,131,98"/><area shape="rect" id="node4" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="133,150,256,389"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -147,7 +140,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
 <tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID.  <a href="#acf4f65383e1dcbcb5e5e1f4ab0b9f292">More...</a><br/></td></tr>
 <tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
+<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
 <tr class="memdesc:a0f322ed60cd2e8f6ed87423904709174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename used to load the asset.  <a href="#a0f322ed60cd2e8f6ed87423904709174">More...</a><br/></td></tr>
 <tr class="separator:a0f322ed60cd2e8f6ed87423904709174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a723a8b0b7caf38bd28ead2c5add97231"><td class="memItemLeft" align="right" valign="top">virtual const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231">GetData</a> () const =0</td></tr>
@@ -192,12 +185,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a23f68362f7596efb51f47de140e78575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698c93c320d6e0a21050652c6f616857"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a></td></tr>
 <tr class="separator:a698c93c320d6e0a21050652c6f616857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae963e23ab04ffdcb3ba01b7ad39b3b8d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ae963e23ab04ffdcb3ba01b7ad39b3b8d">m_id</a></td></tr>
-<tr class="separator:ae963e23ab04ffdcb3ba01b7ad39b3b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aabe67928ebf0afdbf3262b048863db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a></td></tr>
 <tr class="separator:a2aabe67928ebf0afdbf3262b048863db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3c55576701e58af5a814b0ab99f664f"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f">mp_owner</a></td></tr>
-<tr class="separator:ac3c55576701e58af5a814b0ab99f664f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
@@ -216,6 +205,16 @@ Friends</h2></td></tr>
 <p>Another requirement for all inheriting classes is the ability to load a copy of an asset from an existing asset using only existing virtual methods found in the base class. These will likely include <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174" title="Returns the filename used to load the asset.">CAsset::GetFilename()</a> and <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231" title="Returns raw asset data (usually for reloading).">CAsset::GetData()</a>.</p>
 <p>All assets are assigned a (hopefully) unique ID at instantiation based on their address in memory. This ID can be used to find the asset using the asset manager, assuming the ID is known but the asset is not. The ID is also used in comparison.</p>
 <p>Any class inheriting this base class does not necessarily need to place itself within the <a class="el" href="namespacezen_1_1asset.html" title="A namespace encompassing asset-related objects and managers.">zen::asset</a> namespace.</p>
+<p>Inheriting class requirements:</p>
+<ul>
+<li>Load from file / path</li>
+<li>Load from another instance</li>
+<li>Load from a filestream (optional but recommended)</li>
+<li>The ability to retrieve copyable data via <code><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231" title="Returns raw asset data (usually for reloading).">GetData()</a></code></li>
+<li>Sets filename and filename hash</li>
+<li>Sets <code>m_error_str</code> when encountering errors.</li>
+<li>Sets <code>m_loaded</code> on a successful load.</li>
+</ul>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">util::hash()</a> </dd>
 <dd>
 <a class="el" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash()</a> </dd></dl>
@@ -386,7 +385,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00001">1</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00002">2</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +410,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00008">8</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00009">9</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 </div>
 </div>
@@ -431,19 +430,19 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00013">13</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00014">14</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_a0f322ed60cd2e8f6ed87423904709174_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_a0f322ed60cd2e8f6ed87423904709174_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_a0f322ed60cd2e8f6ed87423904709174_icgraph" id="classzen_1_1asset_1_1_c_asset_a0f322ed60cd2e8f6ed87423904709174_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="190,5,343,46"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="190,38,343,79"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="412,5,543,46"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="392,70,563,111"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="611,77,771,104"/></map>
 </div>
 </p>
 
@@ -495,14 +494,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00018">18</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00019">19</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_a533ca42ad6d3749252d61a284b0bc020_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_a533ca42ad6d3749252d61a284b0bc020_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_a533ca42ad6d3749252d61a284b0bc020_icgraph" id="classzen_1_1asset_1_1_c_asset_a533ca42ad6d3749252d61a284b0bc020_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container." alt="" coords="189,205,373,246"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="421,155,592,197"/><area shape="rect" id="node15" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="441,253,572,294"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="640,5,811,46"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="859,63,1029,105"/><area shape="rect" id="node6" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="640,122,811,163"/><area shape="rect" id="node12" href="classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="662,187,789,229"/><area shape="rect" id="node14" href="classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="665,253,786,294"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="873,129,1015,156"/><area shape="rect" id="node10" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="875,180,1013,207"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="1077,71,1264,97"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="1107,122,1234,163"/><area shape="rect" id="node11" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="1080,188,1261,215"/><area shape="rect" id="node13" href="classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="881,231,1007,273"/><area shape="rect" id="node16" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="662,318,789,359"/></map>
+<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container." alt="" coords="189,125,373,166"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="421,125,592,166"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="640,7,811,49"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="859,49,1029,90"/><area shape="rect" id="node6" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="640,125,811,166"/><area shape="rect" id="node19" href="classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="662,199,789,241"/><area shape="rect" id="node21" href="classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="665,265,786,306"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="873,165,1015,192"/><area shape="rect" id="node17" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="875,115,1013,141"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="1077,107,1264,133"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="1107,158,1234,199"/><area shape="rect" id="node10" href="classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="1105,223,1236,265"/><area shape="rect" id="node11" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="1327,99,1457,141"/><area shape="rect" id="node13" href="classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="1105,289,1236,330"/><area shape="rect" id="node12" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="1521,209,1647,250"/><area shape="rect" id="node14" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1367,267,1417,293"/><area shape="rect" id="node15" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="1327,318,1457,359"/><area shape="rect" id="node16" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="1312,216,1472,243"/><area shape="rect" id="node18" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="1080,5,1261,32"/><area shape="rect" id="node20" href="classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="881,267,1007,309"/></map>
 </div>
 </p>
 
@@ -529,7 +528,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00023">23</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00024">24</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 </div>
 </div>
@@ -554,14 +553,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00028">28</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00029">29</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_afc4ccb384bf6277fafeca9974ccdf017_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_afc4ccb384bf6277fafeca9974ccdf017_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_afc4ccb384bf6277fafeca9974ccdf017_icgraph" id="classzen_1_1asset_1_1_c_asset_afc4ccb384bf6277fafeca9974ccdf017_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="191,5,327,46"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="189,70,328,111"/></map>
+<area shape="rect" id="node2" href="classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="199,5,335,46"/><area shape="rect" id="node3" href="classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="197,70,336,111"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8" title="zen::gfxcore::CTexture\l::GetDefaultTexture" alt="" coords="190,135,343,177"/></map>
 </div>
 </p>
 
@@ -589,7 +588,16 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00033">33</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00034">34</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1asset_1_1_c_asset_ab43b0d72c2e2df204df3f582d10efeba_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_ab43b0d72c2e2df204df3f582d10efeba_icgraph" alt=""/></div>
+<map name="classzen_1_1asset_1_1_c_asset_ab43b0d72c2e2df204df3f582d10efeba_icgraph" id="classzen_1_1asset_1_1_c_asset_ab43b0d72c2e2df204df3f582d10efeba_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="189,5,320,46"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -615,14 +623,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_asset_8inl_source.html#l00038">38</a> of file <a class="el" href="_asset_8inl_source.html">Asset.inl</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00039">39</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1asset_1_1_c_asset_ace8121bde584098ce51920291346aa30_icgraph.png" border="0" usemap="#classzen_1_1asset_1_1_c_asset_ace8121bde584098ce51920291346aa30_icgraph" alt=""/></div>
 <map name="classzen_1_1asset_1_1_c_asset_ace8121bde584098ce51920291346aa30_icgraph" id="classzen_1_1asset_1_1_c_asset_ace8121bde584098ce51920291346aa30_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="439,29,590,71"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="214,37,365,79"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="438,105,591,147"/><area shape="rect" id="node5" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="438,193,591,235"/><area shape="rect" id="node6" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13" title="zen::gfxcore::CTexture\l::LoadFromRaw" alt="" coords="213,155,366,196"/><area shape="rect" id="node7" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="190,271,389,298"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="439,31,590,73"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="214,5,365,46"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="438,118,591,159"/><area shape="rect" id="node7" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="438,189,591,230"/><area shape="rect" id="node11" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13" title="zen::gfxcore::CTexture\l::LoadFromRaw" alt="" coords="213,223,366,265"/><area shape="rect" id="node12" href="classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8" title="zen::gfxcore::CTexture\l::GetDefaultTexture" alt="" coords="438,263,591,305"/><area shape="rect" id="node13" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="190,340,389,367"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="660,118,791,159"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="875,118,1002,159"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="660,251,791,293"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="640,186,811,227"/><area shape="rect" id="node10" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="859,193,1019,220"/></map>
 </div>
 </p>
 
@@ -811,28 +819,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ae963e23ab04ffdcb3ba01b7ad39b3b8d"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t zen::asset::CAsset::m_id</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00118">118</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a2aabe67928ebf0afdbf3262b048863db"></a>
 <div class="memitem">
 <div class="memproto">
@@ -852,28 +838,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00119">119</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac3c55576701e58af5a814b0ab99f664f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const void* zen::asset::CAsset::mp_owner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00120">120</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 </div>
 </div>

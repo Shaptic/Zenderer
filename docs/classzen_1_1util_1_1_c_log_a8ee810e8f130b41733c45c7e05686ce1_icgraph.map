@@ -1,17 +1,22 @@
 <map id="zen::util::CLog::GetFilename" name="zen::util::CLog::GetFilename">
-<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container." alt="" coords="243,205,427,246"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="475,155,645,197"/>
-<area shape="rect" id="node15" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="495,253,625,294"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="693,5,864,46"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="912,63,1083,105"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="693,122,864,163"/>
-<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="715,187,842,229"/>
-<area shape="rect" id="node14" href="$classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="718,253,839,294"/>
-<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="926,129,1069,156"/>
-<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="928,180,1067,207"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="1131,71,1317,97"/>
-<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="1161,122,1287,163"/>
-<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="1133,188,1315,215"/>
-<area shape="rect" id="node13" href="$classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="934,231,1061,273"/>
-<area shape="rect" id="node16" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="715,318,842,359"/>
+<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container." alt="" coords="243,125,427,166"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76" title="Destroys the shader program." alt="" coords="475,125,645,166"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4" title="zen::gfxcore::CShaderSet\l::~CShaderSet" alt="" coords="693,7,864,49"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="912,49,1083,90"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="693,125,864,166"/>
+<area shape="rect" id="node19" href="$classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0" title="zen::gfx::CEffect::\lDestroy" alt="" coords="715,199,842,241"/>
+<area shape="rect" id="node21" href="$classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2" title="zen::gfx::CLight::\l~CLight" alt="" coords="718,265,839,306"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="926,165,1069,192"/>
+<area shape="rect" id="node17" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="928,115,1067,141"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="1131,107,1317,133"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="1161,158,1287,199"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="1159,223,1289,265"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="1380,99,1511,141"/>
+<area shape="rect" id="node13" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="1159,289,1289,330"/>
+<area shape="rect" id="node12" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="1574,209,1701,250"/>
+<area shape="rect" id="node14" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1420,267,1471,293"/>
+<area shape="rect" id="node15" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="1380,318,1511,359"/>
+<area shape="rect" id="node16" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="1365,216,1525,243"/>
+<area shape="rect" id="node18" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="1133,5,1315,32"/>
+<area shape="rect" id="node20" href="$classzen_1_1gfx_1_1_c_effect.html#a82e0afb2d8f454d9490b1663b84053b2" title="zen::gfx::CEffect::\l~CEffect" alt="" coords="934,267,1061,309"/>
 </map>

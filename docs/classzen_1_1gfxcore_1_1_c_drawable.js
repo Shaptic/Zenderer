@@ -1,7 +1,9 @@
 var classzen_1_1gfxcore_1_1_c_drawable =
 [
     [ "CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html#a2c1f3e0daa107108491bb0f7d9d13839", null ],
+    [ "CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613", null ],
     [ "~CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html#a58fd1036856d627b19976088e4143630", null ],
+    [ "operator=", "classzen_1_1gfxcore_1_1_c_drawable.html#ac8284c5a762ea7aa5b3f444b13925a1c", null ],
     [ "Create", "classzen_1_1gfxcore_1_1_c_drawable.html#ac78681ab7e983757ef0a75eb676c45de", null ],
     [ "Move", "classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2", null ],
     [ "Move", "classzen_1_1gfxcore_1_1_c_drawable.html#a4932a9379f25d0b8e263a7f7b8ac0036", null ],

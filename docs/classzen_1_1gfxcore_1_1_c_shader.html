@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,21 +110,14 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_shader.html'
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">zen::gfxcore::CShader Class Reference</div>  </div>
+<div class="title">zen::gfxcore::CShader Class Reference<div class="ingroups"><a class="el" href="group___core_graphics.html">CoreGraphics</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>A wrapper for OpenGL shader objects.  
-</p>
+ <a href="classzen_1_1gfxcore_1_1_c_shader.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_shader_8hpp_source.html">Shader.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::gfxcore::CShader:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_shader_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1gfxcore_1_1_c_shader_coll__map" id="zen_1_1gfxcore_1_1_c_shader_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="57,467,204,823"/><area shape="rect" id="node3" title="STL class." alt="" coords="28,231,108,308"/><area shape="rect" id="node4" title="STL class." alt="" coords="5,6,131,98"/><area shape="rect" id="node5" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="133,150,256,389"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -164,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
 <tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID.  <a href="#acf4f65383e1dcbcb5e5e1f4ab0b9f292">More...</a><br/></td></tr>
 <tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
+<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
 <tr class="memdesc:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename used to load the asset.  <a href="#a0f322ed60cd2e8f6ed87423904709174">More...</a><br/></td></tr>
 <tr class="separator:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020">GetOwner</a> () const </td></tr>
@@ -203,18 +196,16 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a23f68362f7596efb51f47de140e78575 inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698c93c320d6e0a21050652c6f616857 inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a></td></tr>
 <tr class="separator:a698c93c320d6e0a21050652c6f616857 inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae963e23ab04ffdcb3ba01b7ad39b3b8d inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ae963e23ab04ffdcb3ba01b7ad39b3b8d">m_id</a></td></tr>
-<tr class="separator:ae963e23ab04ffdcb3ba01b7ad39b3b8d inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aabe67928ebf0afdbf3262b048863db inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a></td></tr>
 <tr class="separator:a2aabe67928ebf0afdbf3262b048863db inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3c55576701e58af5a814b0ab99f664f inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f">mp_owner</a></td></tr>
-<tr class="separator:ac3c55576701e58af5a814b0ab99f664f inherit pro_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_classzen_1_1asset_1_1_c_asset"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_classzen_1_1asset_1_1_c_asset')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="classzen_1_1asset_1_1_c_asset.html">zen::asset::CAsset</a></td></tr>
 <tr class="memitem:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a73d9bc5ded589b308c875d4ea152acf8">s_seed</a> = 0x6915BAD</td></tr>
 <tr class="separator:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>This is a managed <code><a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a></code> child class that automatically frees the OpenGL shader handle and prevents it from being loaded multiple times from a file. The reason this is an asset rather than a <a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup.">zen::gfxcore::CGLSubsystem</a> is because it requires being loaded from a file rather than typical initialization (via <code><a class="el" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init()</a></code>).</p>
+<p>This class is primarily used internally, and users should not stray toward it, preferring <a class="el" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">zen::gfx::CEffect</a> or at least <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program).">zen::gfxcore::CShaderSet</a> if they need something slightly lower-level. </p>
+
 <p>Definition at line <a class="el" href="_shader_8hpp_source.html#l00041">41</a> of file <a class="el" href="_shader_8hpp_source.html">Shader.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad34c8139905b3c9b20225c03acd627fa"></a>
@@ -419,7 +410,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_shader_a3dbb5b95d9819c8021f59f93fc14050b_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_shader_a3dbb5b95d9819c8021f59f93fc14050b_icgraph" alt=""/></div>
 <map name="classzen_1_1gfxcore_1_1_c_shader_a3dbb5b95d9819c8021f59f93fc14050b_icgraph" id="classzen_1_1gfxcore_1_1_c_shader_a3dbb5b95d9819c8021f59f93fc14050b_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="205,63,376,105"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="424,5,595,46"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="438,71,581,97"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="440,125,579,152"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="643,12,829,39"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="673,63,799,105"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="645,129,827,156"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401" title="Links loaded shaders together into a useable program." alt="" coords="205,151,376,193"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f" title="Loads a set of shader assets from a file." alt="" coords="424,93,595,134"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674" title="zen::gfx::CEffect::Init" alt="" coords="438,159,581,185"/><area shape="rect" id="node14" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="440,243,579,269"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="643,5,829,32"/><area shape="rect" id="node6" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="673,57,799,98"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="671,122,801,163"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="892,151,1023,193"/><area shape="rect" id="node10" href="classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="671,239,801,281"/><area shape="rect" id="node9" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="1086,210,1213,251"/><area shape="rect" id="node11" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="932,217,983,244"/><area shape="rect" id="node12" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="892,269,1023,310"/><area shape="rect" id="node13" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="877,335,1037,361"/><area shape="rect" id="node15" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="645,305,827,332"/></map>
 </div>
 </p>
 

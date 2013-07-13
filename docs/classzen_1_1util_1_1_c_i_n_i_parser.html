@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,65 +120,60 @@ $(document).ready(function(){initNavTree('classzen_1_1util_1_1_c_i_n_i_parser.ht
  <a href="classzen_1_1util_1_1_c_i_n_i_parser.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::util::CINIParser:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser__coll__graph.png" border="0" usemap="#zen_1_1util_1_1_c_i_n_i_parser_coll__map" alt="Collaboration graph"/></div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:gafeefbaa65dfdd868ba009c8a8531428c"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>, <br class="typebreak"/>
-<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gafeefbaa65dfdd868ba009c8a8531428c">pair_t</a></td></tr>
-<tr class="separator:gafeefbaa65dfdd868ba009c8a8531428c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeefbaa65dfdd868ba009c8a8531428c"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>, <br class="typebreak"/>
+<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c">pair_t</a></td></tr>
+<tr class="separator:afeefbaa65dfdd868ba009c8a8531428c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ga20c84eda45d2687f2ff9c1c9269a5083"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#ga20c84eda45d2687f2ff9c1c9269a5083">CINIParser</a> ()</td></tr>
-<tr class="separator:ga20c84eda45d2687f2ff9c1c9269a5083"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga47316c05513638fd204ed6abd9aa0c06"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#ga47316c05513638fd204ed6abd9aa0c06">~CINIParser</a> ()</td></tr>
-<tr class="separator:ga47316c05513638fd204ed6abd9aa0c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac145ac752bbd1b59ebfe0e861ca81ac8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
-<tr class="memdesc:gac145ac752bbd1b59ebfe0e861ca81ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the dictionary with key=value pairs for the entire file.  <a href="group___utilities.html#gac145ac752bbd1b59ebfe0e861ca81ac8">More...</a><br/></td></tr>
-<tr class="separator:gac145ac752bbd1b59ebfe0e861ca81ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4e9f633811f25ba63eff847cd232cae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gae4e9f633811f25ba63eff847cd232cae">LoadFromStream</a> (std::ifstream &amp;file, const std::streampos &amp;start=0, const std::streampos &amp;finish=-1, const char *fn=&quot;file&quot;)</td></tr>
-<tr class="memdesc:gae4e9f633811f25ba63eff847cd232cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the key-value dictionary by parsing a file stream.  <a href="group___utilities.html#gae4e9f633811f25ba63eff847cd232cae">More...</a><br/></td></tr>
-<tr class="separator:gae4e9f633811f25ba63eff847cd232cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa4bf277e6c50fd30e2ccd91e36a8b135"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gaa4bf277e6c50fd30e2ccd91e36a8b135">LoadFromStream</a> (const char **str, const uint32_t start, const uint32_t finish)</td></tr>
-<tr class="separator:gaa4bf277e6c50fd30e2ccd91e36a8b135"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3b867e089ded53f3540e53a08236f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gaf3b867e089ded53f3540e53a08236f5e">Reset</a> ()</td></tr>
-<tr class="memdesc:gaf3b867e089ded53f3540e53a08236f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the dictionary.  <a href="group___utilities.html#gaf3b867e089ded53f3540e53a08236f5e">More...</a><br/></td></tr>
-<tr class="separator:gaf3b867e089ded53f3540e53a08236f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d2eb50f3d14625e6a400a736e5374de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#ga3d2eb50f3d14625e6a400a736e5374de">Exists</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
-<tr class="memdesc:ga3d2eb50f3d14625e6a400a736e5374de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Was the key found in the file stream?  <a href="group___utilities.html#ga3d2eb50f3d14625e6a400a736e5374de">More...</a><br/></td></tr>
-<tr class="separator:ga3d2eb50f3d14625e6a400a736e5374de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77da4e38e36caf33478187327dcecd56"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#ga77da4e38e36caf33478187327dcecd56">GetValue</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
-<tr class="memdesc:ga77da4e38e36caf33478187327dcecd56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a value based on a key in the dictionary.  <a href="group___utilities.html#ga77da4e38e36caf33478187327dcecd56">More...</a><br/></td></tr>
-<tr class="separator:ga77da4e38e36caf33478187327dcecd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef355b201c3c5efd3ada50f1f694ca9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gaef355b201c3c5efd3ada50f1f694ca9c">GetValuei</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
-<tr class="memdesc:gaef355b201c3c5efd3ada50f1f694ca9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to return an integer representation of a value.  <a href="group___utilities.html#gaef355b201c3c5efd3ada50f1f694ca9c">More...</a><br/></td></tr>
-<tr class="separator:gaef355b201c3c5efd3ada50f1f694ca9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaea41451a7d888f37f556828cb4dc5535"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gaea41451a7d888f37f556828cb4dc5535">GetValueb</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
-<tr class="memdesc:gaea41451a7d888f37f556828cb4dc5535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to return a boolean representation of a value.  <a href="group___utilities.html#gaea41451a7d888f37f556828cb4dc5535">More...</a><br/></td></tr>
-<tr class="separator:gaea41451a7d888f37f556828cb4dc5535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab8710e9bf49c30e6567434bc2f688c37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gab8710e9bf49c30e6567434bc2f688c37">GetValuer</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
-<tr class="memdesc:gab8710e9bf49c30e6567434bc2f688c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to return a floating point representation of a value.  <a href="group___utilities.html#gab8710e9bf49c30e6567434bc2f688c37">More...</a><br/></td></tr>
-<tr class="separator:gab8710e9bf49c30e6567434bc2f688c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c84eda45d2687f2ff9c1c9269a5083"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a20c84eda45d2687f2ff9c1c9269a5083">CINIParser</a> ()</td></tr>
+<tr class="separator:a20c84eda45d2687f2ff9c1c9269a5083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47316c05513638fd204ed6abd9aa0c06"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a47316c05513638fd204ed6abd9aa0c06">~CINIParser</a> ()</td></tr>
+<tr class="separator:a47316c05513638fd204ed6abd9aa0c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac145ac752bbd1b59ebfe0e861ca81ac8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:ac145ac752bbd1b59ebfe0e861ca81ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the dictionary with key=value pairs for the entire file.  <a href="#ac145ac752bbd1b59ebfe0e861ca81ac8">More...</a><br/></td></tr>
+<tr class="separator:ac145ac752bbd1b59ebfe0e861ca81ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4e9f633811f25ba63eff847cd232cae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae">LoadFromStream</a> (std::ifstream &amp;file, const std::streampos &amp;start=0, const std::streampos &amp;finish=-1, const char *fn=&quot;file&quot;)</td></tr>
+<tr class="memdesc:ae4e9f633811f25ba63eff847cd232cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills the key-value dictionary by parsing a file stream.  <a href="#ae4e9f633811f25ba63eff847cd232cae">More...</a><br/></td></tr>
+<tr class="separator:ae4e9f633811f25ba63eff847cd232cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4bf277e6c50fd30e2ccd91e36a8b135"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aa4bf277e6c50fd30e2ccd91e36a8b135">LoadFromStream</a> (const char **str, const uint32_t start, const uint32_t finish)</td></tr>
+<tr class="separator:aa4bf277e6c50fd30e2ccd91e36a8b135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b867e089ded53f3540e53a08236f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#af3b867e089ded53f3540e53a08236f5e">Reset</a> ()</td></tr>
+<tr class="memdesc:af3b867e089ded53f3540e53a08236f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the dictionary.  <a href="#af3b867e089ded53f3540e53a08236f5e">More...</a><br/></td></tr>
+<tr class="separator:af3b867e089ded53f3540e53a08236f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2eb50f3d14625e6a400a736e5374de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de">Exists</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
+<tr class="memdesc:a3d2eb50f3d14625e6a400a736e5374de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Was the key found in the file stream?  <a href="#a3d2eb50f3d14625e6a400a736e5374de">More...</a><br/></td></tr>
+<tr class="separator:a3d2eb50f3d14625e6a400a736e5374de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77da4e38e36caf33478187327dcecd56"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56">GetValue</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
+<tr class="memdesc:a77da4e38e36caf33478187327dcecd56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a value based on a key in the dictionary.  <a href="#a77da4e38e36caf33478187327dcecd56">More...</a><br/></td></tr>
+<tr class="separator:a77da4e38e36caf33478187327dcecd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef355b201c3c5efd3ada50f1f694ca9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aef355b201c3c5efd3ada50f1f694ca9c">GetValuei</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
+<tr class="memdesc:aef355b201c3c5efd3ada50f1f694ca9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to return an integer representation of a value.  <a href="#aef355b201c3c5efd3ada50f1f694ca9c">More...</a><br/></td></tr>
+<tr class="separator:aef355b201c3c5efd3ada50f1f694ca9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea41451a7d888f37f556828cb4dc5535"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#aea41451a7d888f37f556828cb4dc5535">GetValueb</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
+<tr class="memdesc:aea41451a7d888f37f556828cb4dc5535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to return a boolean representation of a value.  <a href="#aea41451a7d888f37f556828cb4dc5535">More...</a><br/></td></tr>
+<tr class="separator:aea41451a7d888f37f556828cb4dc5535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8710e9bf49c30e6567434bc2f688c37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ab8710e9bf49c30e6567434bc2f688c37">GetValuer</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key) const </td></tr>
+<tr class="memdesc:ab8710e9bf49c30e6567434bc2f688c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to return a floating point representation of a value.  <a href="#ab8710e9bf49c30e6567434bc2f688c37">More...</a><br/></td></tr>
+<tr class="separator:ab8710e9bf49c30e6567434bc2f688c37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac57686358966190d7c29a88ff1c87429"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gac57686358966190d7c29a88ff1c87429">GetValues</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;key, const char delimiter= ',') const </td></tr>
 <tr class="memdesc:gac57686358966190d7c29a88ff1c87429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of values from a key-value pair based on a char.  <a href="group___utilities.html#gac57686358966190d7c29a88ff1c87429">More...</a><br/></td></tr>
 <tr class="separator:gac57686358966190d7c29a88ff1c87429"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga76bcd06c50e0356a80b3ee034123aadc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___utilities.html#gafeefbaa65dfdd868ba009c8a8531428c">pair_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#ga76bcd06c50e0356a80b3ee034123aadc">GetPairs</a> ()</td></tr>
-<tr class="memdesc:ga76bcd06c50e0356a80b3ee034123aadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to the dictionary.  <a href="group___utilities.html#ga76bcd06c50e0356a80b3ee034123aadc">More...</a><br/></td></tr>
-<tr class="separator:ga76bcd06c50e0356a80b3ee034123aadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab5ba9999369bf4454a64db8d45b5ee5e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group___utilities.html#gafeefbaa65dfdd868ba009c8a8531428c">pair_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#gab5ba9999369bf4454a64db8d45b5ee5e">GetPairs</a> () const </td></tr>
-<tr class="memdesc:gab5ba9999369bf4454a64db8d45b5ee5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct immutable access to the dictionary.  <a href="group___utilities.html#gab5ba9999369bf4454a64db8d45b5ee5e">More...</a><br/></td></tr>
-<tr class="separator:gab5ba9999369bf4454a64db8d45b5ee5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bcd06c50e0356a80b3ee034123aadc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c">pair_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a76bcd06c50e0356a80b3ee034123aadc">GetPairs</a> ()</td></tr>
+<tr class="memdesc:a76bcd06c50e0356a80b3ee034123aadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct access to the dictionary.  <a href="#a76bcd06c50e0356a80b3ee034123aadc">More...</a><br/></td></tr>
+<tr class="separator:a76bcd06c50e0356a80b3ee034123aadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5ba9999369bf4454a64db8d45b5ee5e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c">pair_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ab5ba9999369bf4454a64db8d45b5ee5e">GetPairs</a> () const </td></tr>
+<tr class="memdesc:ab5ba9999369bf4454a64db8d45b5ee5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Direct immutable access to the dictionary.  <a href="#ab5ba9999369bf4454a64db8d45b5ee5e">More...</a><br/></td></tr>
+<tr class="separator:ab5ba9999369bf4454a64db8d45b5ee5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ga6dcd1b91f04642dbee87b4d7b4d9909f"><td class="memItemLeft" align="right" valign="top">static std::streampos&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#ga6dcd1b91f04642dbee87b4d7b4d9909f">FindInFile</a> (std::ifstream &amp;stream, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;finder, const std::streampos &amp;max_pos=-1)</td></tr>
-<tr class="memdesc:ga6dcd1b91f04642dbee87b4d7b4d9909f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first instance of a string within a file stream.  <a href="group___utilities.html#ga6dcd1b91f04642dbee87b4d7b4d9909f">More...</a><br/></td></tr>
-<tr class="separator:ga6dcd1b91f04642dbee87b4d7b4d9909f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dcd1b91f04642dbee87b4d7b4d9909f"><td class="memItemLeft" align="right" valign="top">static std::streampos&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a6dcd1b91f04642dbee87b4d7b4d9909f">FindInFile</a> (std::ifstream &amp;stream, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;finder, const std::streampos &amp;max_pos=-1)</td></tr>
+<tr class="memdesc:a6dcd1b91f04642dbee87b4d7b4d9909f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first instance of a string within a file stream.  <a href="#a6dcd1b91f04642dbee87b4d7b4d9909f">More...</a><br/></td></tr>
+<tr class="separator:a6dcd1b91f04642dbee87b4d7b4d9909f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file parser defines a very generic type of parsing, since most files (meshes, levels) in <em>Zenderer</em> use a similar formatting. For example, in a ZenLevel (see specs/ZenLevel) , an entity can be placed like so: </p>
@@ -190,7 +185,455 @@ Static Public Member Functions</h2></td></tr>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_parsing-example.html#_a0">Parsing</a>.</dd>
 </dl>
 <p>Definition at line <a class="el" href="_i_n_i_parser_8hpp_source.html#l00041">41</a> of file <a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="afeefbaa65dfdd868ba009c8a8531428c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;<a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&gt; <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c">zen::util::CINIParser::pair_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8hpp_source.html#l00047">47</a> of file <a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a20c84eda45d2687f2ff9c1c9269a5083"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CINIParser::CINIParser </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00010">10</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a47316c05513638fd204ed6abd9aa0c06"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CINIParser::~CINIParser </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00015">15</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac145ac752bbd1b59ebfe0e861ca81ac8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CINIParser::LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Path to file to parse </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if file was parsed successfully <code>false</code> otherwise. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_parsing-example.html#a1">Parsing</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00020">20</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser_ac145ac752bbd1b59ebfe0e861ca81ac8_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_i_n_i_parser_ac145ac752bbd1b59ebfe0e861ca81ac8_icgraph" alt=""/></div>
+<map name="classzen_1_1util_1_1_c_i_n_i_parser_ac145ac752bbd1b59ebfe0e861ca81ac8_icgraph" id="classzen_1_1util_1_1_c_i_n_i_parser_ac145ac752bbd1b59ebfe0e861ca81ac8_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="193,5,324,46"/><area shape="rect" id="node4" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="192,70,325,111"/><area shape="rect" id="node3" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="374,5,501,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4e9f633811f25ba63eff847cd232cae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::util::CINIParser::LoadFromStream </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::streampos &amp;&#160;</td>
+          <td class="paramname"><em>start</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::streampos &amp;&#160;</td>
+          <td class="paramname"><em>finish</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fn</em> = <code>&quot;file&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is more versatile than the generic <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile()</a>, since you can specify where in the stream you would like to start and where you would like to end. By default, the whole file is read. This comes in handy if a file, for example, has several entity specifications, so there's more than one "texture" key. Thus you could read until "&lt;entity&gt;", mark that, read till "&lt;/entity&gt;", mark that, then pass the stream to this method and it would only give you the key-value pairs found in that section of the file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>File stream to read </td></tr>
+    <tr><td class="paramname">start</td><td>Starting point in the stream (opt=0) </td></tr>
+    <tr><td class="paramname">finish</td><td>Ending point in the stream (opt=END) </td></tr>
+    <tr><td class="paramname">fn</td><td>Filename the stream comes from (opt=<code>"file"</code>)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if at least one pair was parsed, <code>false</code> otherwise, or if the given filestream was not open. </dd></dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser_ae4e9f633811f25ba63eff847cd232cae_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_i_n_i_parser_ae4e9f633811f25ba63eff847cd232cae_icgraph" alt=""/></div>
+<map name="classzen_1_1util_1_1_c_i_n_i_parser_ae4e9f633811f25ba63eff847cd232cae_icgraph" id="classzen_1_1util_1_1_c_i_n_i_parser_ae4e9f633811f25ba63eff847cd232cae_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="192,5,323,46"/><area shape="rect" id="node3" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="371,5,498,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4bf277e6c50fd30e2ccd91e36a8b135"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::util::CINIParser::LoadFromStream </td>
+          <td>(</td>
+          <td class="paramtype">const char **&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>finish</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af3b867e089ded53f3540e53a08236f5e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CINIParser::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00094">94</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser_af3b867e089ded53f3540e53a08236f5e_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_i_n_i_parser_af3b867e089ded53f3540e53a08236f5e_icgraph" alt=""/></div>
+<map name="classzen_1_1util_1_1_c_i_n_i_parser_af3b867e089ded53f3540e53a08236f5e_icgraph" id="classzen_1_1util_1_1_c_i_n_i_parser_af3b867e089ded53f3540e53a08236f5e_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a47316c05513638fd204ed6abd9aa0c06" title="zen::util::CINIParser\l::~CINIParser" alt="" coords="192,5,331,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d2eb50f3d14625e6a400a736e5374de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CINIParser::Exists </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00099">99</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser_a3d2eb50f3d14625e6a400a736e5374de_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_i_n_i_parser_a3d2eb50f3d14625e6a400a736e5374de_icgraph" alt=""/></div>
+<map name="classzen_1_1util_1_1_c_i_n_i_parser_a3d2eb50f3d14625e6a400a736e5374de_icgraph" id="classzen_1_1util_1_1_c_i_n_i_parser_a3d2eb50f3d14625e6a400a736e5374de_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="192,5,323,46"/><area shape="rect" id="node3" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="371,5,498,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a77da4e38e36caf33478187327dcecd56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp; CINIParser::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If the file stream contained <code>texture=Data.tga</code>, and you called GetValue("texture"), the function gives back "Data.tga".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Key to access</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Value if it exists, empty string otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00104">104</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser_a77da4e38e36caf33478187327dcecd56_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_i_n_i_parser_a77da4e38e36caf33478187327dcecd56_icgraph" alt=""/></div>
+<map name="classzen_1_1util_1_1_c_i_n_i_parser_a77da4e38e36caf33478187327dcecd56_icgraph" id="classzen_1_1util_1_1_c_i_n_i_parser_a77da4e38e36caf33478187327dcecd56_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="192,5,323,46"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="192,70,323,111"/><area shape="rect" id="node3" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="371,38,498,79"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aef355b201c3c5efd3ada50f1f694ca9c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CINIParser::GetValuei </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>No error checking is performed on conversion. </dd></dl>
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8hpp_source.html#l00002">2</a> of file <a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aea41451a7d888f37f556828cb4dc5535"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CINIParser::GetValueb </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>No error checking is performed on conversion. </dd></dl>
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8hpp_source.html#l00007">7</a> of file <a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8710e9bf49c30e6567434bc2f688c37"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> CINIParser::GetValuer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>No error checking is performed on conversion. </dd></dl>
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8hpp_source.html#l00013">13</a> of file <a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76bcd06c50e0356a80b3ee034123aadc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c">CINIParser::pair_t</a> &amp; CINIParser::GetPairs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00113">113</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1util_1_1_c_i_n_i_parser_a76bcd06c50e0356a80b3ee034123aadc_icgraph.png" border="0" usemap="#classzen_1_1util_1_1_c_i_n_i_parser_a76bcd06c50e0356a80b3ee034123aadc_icgraph" alt=""/></div>
+<map name="classzen_1_1util_1_1_c_i_n_i_parser_a76bcd06c50e0356a80b3ee034123aadc_icgraph" id="classzen_1_1util_1_1_c_i_n_i_parser_a76bcd06c50e0356a80b3ee034123aadc_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="192,5,325,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5ba9999369bf4454a64db8d45b5ee5e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c">pair_t</a>&amp; zen::util::CINIParser::GetPairs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6dcd1b91f04642dbee87b4d7b4d9909f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::streampos CINIParser::FindInFile </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>finder</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::streampos &amp;&#160;</td>
+          <td class="paramname"><em>max_pos</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function basically reads a file until it finds an instance of <code>finder</code> in the current line OR up until it reaches the optional <code>max_pos</code> argument, which specifies a position in the stream to stop at, whichever comes first. If <code>max_pos</code> is left at the default, -1, the search is done till EOF (or some other reason causing <code>std::getline</code> to return <code>false</code>).</p>
+<p>The function will return the stream to its starting point as it was when the function was called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>Stream to search </td></tr>
+    <tr><td class="paramname">finder</td><td>String to find </td></tr>
+    <tr><td class="paramname">max_pos</td><td>Place to stop search (optional=<code>EOF</code>)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Position the requested string was found at, <code>std::streampos(-1)</code> if it was not found.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Stream is left at the same point it started at. </dd></dl>
+
+<p>Definition at line <a class="el" href="_i_n_i_parser_8cpp_source.html#l00118">118</a> of file <a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/Utilities/<a class="el" href="_i_n_i_parser_8hpp_source.html">INIParser.hpp</a></li>
 <li>Zenderer/include/Zenderer/Utilities/<a class="el" href="_i_n_i_parser_8inl_source.html">INIParser.inl</a></li>
 <li>Zenderer/src/Utilities/<a class="el" href="_i_n_i_parser_8cpp_source.html">INIParser.cpp</a></li>

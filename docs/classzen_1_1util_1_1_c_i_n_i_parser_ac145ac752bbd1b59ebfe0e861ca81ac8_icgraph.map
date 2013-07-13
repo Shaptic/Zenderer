@@ -1,4 +1,5 @@
 <map id="zen::util::CINIParser::LoadFromFile" name="zen::util::CINIParser::LoadFromFile">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="193,5,324,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="192,70,325,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="192,70,325,111"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="374,5,501,46"/>
 </map>

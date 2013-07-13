@@ -1,5 +1,9 @@
 <map id="Zenderer/include/Zenderer/Objects/Entity.hpp" name="Zenderer/include/Zenderer/Objects/Entity.hpp">
-<area shape="rect" id="node2" href="$_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="7,97,177,138"/>
-<area shape="rect" id="node4" href="$_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="202,97,344,138"/>
-<area shape="rect" id="node3" href="$_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="5,187,179,213"/>
+<area shape="rect" id="node2" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="116,97,287,138"/>
+<area shape="rect" id="node6" href="$_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="312,97,483,138"/>
+<area shape="rect" id="node8" href="$_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="507,97,649,138"/>
+<area shape="rect" id="node3" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="116,187,287,229"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="5,277,192,304"/>
+<area shape="rect" id="node5" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="217,277,391,304"/>
+<area shape="rect" id="node7" href="$_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="311,195,485,221"/>
 </map>

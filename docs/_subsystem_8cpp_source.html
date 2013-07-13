@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,29 +113,29 @@ $(document).ready(function(){initNavTree('_subsystem_8cpp_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;std::vector&lt;CSubsystem*&gt; <a class="code" href="group___engine.html#a0242a2a5591cb035d3d1b2f1824422b8">CSubsystem::sp_allSystems</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;std::vector&lt;CSubsystem*&gt; <a class="code" href="classzen_1_1_c_subsystem.html#a0242a2a5591cb035d3d1b2f1824422b8">CSubsystem::sp_allSystems</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="group___engine.html#a351f9cdcb901c389802776e50208e2fb">   10</a></span>&#160;<a class="code" href="group___engine.html#a351f9cdcb901c389802776e50208e2fb" title="Sets subsystem to an uninitialized state.">CSubsystem::CSubsystem</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> name) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb">   10</a></span>&#160;<a class="code" href="classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb" title="Sets subsystem to an uninitialized state.">CSubsystem::CSubsystem</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> name) :</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_name(name), m_init(false)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="group___engine.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>   &lt;&lt; <a class="code" href="group___engine.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; <a class="code" href="group___engine.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(name)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>   &lt;&lt; <a class="code" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; <a class="code" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(name)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Created component.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="group___engine.html#a0242a2a5591cb035d3d1b2f1824422b8">sp_allSystems</a>.push_back(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html#a0242a2a5591cb035d3d1b2f1824422b8">sp_allSystems</a>.push_back(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="group___engine.html#ab1639d7b9cec3785d77373de2098de72">   20</a></span>&#160;<a class="code" href="group___engine.html#ab1639d7b9cec3785d77373de2098de72" title="Destructor does absolutely nothing.">CSubsystem::~CSubsystem</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72">   20</a></span>&#160;<a class="code" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72" title="Destructor does absolutely nothing.">CSubsystem::~CSubsystem</a>()</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Use log since it&#39;s destroyed last.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="group___engine.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>   &lt;&lt; <a class="code" href="group___engine.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            &lt;&lt; <a class="code" href="group___engine.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(this-&gt;<a class="code" href="group___engine.html#a5e6e45b22e0778efeb13cfbed6da7e79" title="Retrieves the subsystem name.">GetName</a>())</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>   &lt;&lt; <a class="code" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            &lt;&lt; <a class="code" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">m_Log</a>.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(this-&gt;<a class="code" href="classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79" title="Retrieves the subsystem name.">GetName</a>())</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroyed component.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="group___engine.html#a174902d70500501ea4a2a6ace376731b">m_init</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">m_init</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

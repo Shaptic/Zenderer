@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,13 +119,6 @@ $(document).ready(function(){initNavTree('classzen_1_1sfx_1_1_c_sound2_d.html','
  <a href="classzen_1_1sfx_1_1_c_sound2_d.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_sound2_d_8hpp_source.html">Sound2D.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::sfx::CSound2D:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1sfx_1_1_c_sound2_d__coll__graph.png" border="0" usemap="#zen_1_1sfx_1_1_c_sound2_d_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1sfx_1_1_c_sound2_d_coll__map" id="zen_1_1sfx_1_1_c_sound2_d_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="182,889,316,1127"/><area shape="rect" id="node3" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="52,467,199,823"/><area shape="rect" id="node4" title="STL class." alt="" coords="28,231,108,308"/><area shape="rect" id="node5" title="STL class." alt="" coords="5,6,131,98"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="133,150,256,389"/><area shape="rect" id="node7" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html" title="{zen::sfx::CAudio2D\l::ALData\n|+ buffers\l+ buffer_count\l+ source\l+ volume\l|}" alt="" coords="223,577,357,713"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -171,7 +164,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
 <tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID.  <a href="#acf4f65383e1dcbcb5e5e1f4ab0b9f292">More...</a><br/></td></tr>
 <tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
+<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
 <tr class="memdesc:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename used to load the asset.  <a href="#a0f322ed60cd2e8f6ed87423904709174">More...</a><br/></td></tr>
 <tr class="separator:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_classzen_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020">GetOwner</a> () const </td></tr>
@@ -205,7 +198,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a68df63abf75665546540e375a59b594a inherit pro_methods_classzen_1_1sfx_1_1_c_audio2_d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a68df63abf75665546540e375a59b594a">Destroy</a> ()</td></tr>
 <tr class="separator:a68df63abf75665546540e375a59b594a inherit pro_methods_classzen_1_1sfx_1_1_c_audio2_d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classzen_1_1sfx_1_1_c_audio2_d"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classzen_1_1sfx_1_1_c_audio2_d')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html">zen::sfx::CAudio2D</a></td></tr>
-<tr class="memitem:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_classzen_1_1sfx_1_1_c_audio2_d"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html">zen::sfx::CAudio2D::ALData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a7e26bbc52b6555e6fe116ebaf50cc527">m_AL</a></td></tr>
+<tr class="memitem:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_classzen_1_1sfx_1_1_c_audio2_d"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data">zen::sfx::CAudio2D::ALData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a7e26bbc52b6555e6fe116ebaf50cc527">m_AL</a></td></tr>
 <tr class="separator:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_classzen_1_1sfx_1_1_c_audio2_d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93f482a8e975a9f6130f1366a70d702f inherit pro_attribs_classzen_1_1sfx_1_1_c_audio2_d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a93f482a8e975a9f6130f1366a70d702f">m_error_code</a></td></tr>
 <tr class="separator:a93f482a8e975a9f6130f1366a70d702f inherit pro_attribs_classzen_1_1sfx_1_1_c_audio2_d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -267,7 +260,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Use some standardized WAV loading library. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Use some standardized WAV loading library. </dd></dl>
 
 <p>Implements <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>.</p>
 
@@ -358,7 +351,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1sfx_1_1_c_sound2_d_a7feffeaf5e36a465db17e5e68c35148b_icgraph.png" border="0" usemap="#classzen_1_1sfx_1_1_c_sound2_d_a7feffeaf5e36a465db17e5e68c35148b_icgraph" alt=""/></div>
 <map name="classzen_1_1sfx_1_1_c_sound2_d_a7feffeaf5e36a465db17e5e68c35148b_icgraph" id="classzen_1_1sfx_1_1_c_sound2_d_a7feffeaf5e36a465db17e5e68c35148b_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="192,12,243,39"/></map>
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="192,12,243,39"/></map>
 </div>
 </p>
 

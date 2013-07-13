@@ -1,6 +1,6 @@
 var classzen_1_1gfx_1_1_c_window =
 [
-    [ "CWindow", "classzen_1_1gfx_1_1_c_window.html#aad250fa2d6d10cbb34da1a3ba09cb1cb", null ],
+    [ "CWindow", "classzen_1_1gfx_1_1_c_window.html#a71b46c3707eea0963bd55bbbe7b5767a", null ],
     [ "~CWindow", "classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87", null ],
     [ "Init", "classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8", null ],
     [ "Destroy", "classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855", null ],
@@ -11,7 +11,6 @@ var classzen_1_1gfx_1_1_c_window =
     [ "EnableFullscreen", "classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee", null ],
     [ "DisableFullscreen", "classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08", null ],
     [ "IsOpen", "classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091", null ],
-    [ "AttachAssetManager", "classzen_1_1gfx_1_1_c_window.html#ad13fadc423fea0583a1ef0b84b754ddf", null ],
     [ "SetClearBits", "classzen_1_1gfx_1_1_c_window.html#ac142af8c14b730f077e35445934ff0be", null ],
     [ "GetProjectionMatrix", "classzen_1_1gfx_1_1_c_window.html#aec125cfb8e67f9339fddff514a4b529b", null ],
     [ "GetWidth", "classzen_1_1gfx_1_1_c_window.html#a8852633544730f480dad49ad4b53dbf6", null ],

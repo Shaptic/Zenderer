@@ -1,6 +1,7 @@
 <map id="zen::gfx::CQuad::AttachMaterial" name="zen::gfx::CQuad::AttachMaterial">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure." alt="" coords="261,56,424,83"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="472,5,632,32"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="279,107,406,149"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="489,57,615,98"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure." alt="" coords="261,69,424,96"/>
+<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="648,101,808,128"/>
+<area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="279,211,406,253"/>
+<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="473,29,599,70"/>
+<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="473,94,599,135"/>
 </map>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_assert_8cpp_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a512b60cbe9a683e499f478b4440003a5">    8</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a512b60cbe9a683e499f478b4440003a5" title="Executes a verification of an expression, crashing on error.">zen::util::runtime_assert</a>(     <span class="keyword">const</span> <span class="keywordtype">bool</span> expression,</div>
@@ -122,25 +122,25 @@ $(document).ready(function(){initNavTree('_assert_8cpp_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">if</span>(expression) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>&amp; Log = <a class="code" href="group___utilities.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log.">util::CLog::GetEngineLog</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp; Log = <a class="code" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log.">util::CLog::GetEngineLog</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">// Flush old output (if any).</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Log &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Set up proper logging types.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Log.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Assert&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Assert&quot;</span>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Make sure we have valid input.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(expression_str.empty() || file_name.empty())</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        Log &lt;&lt; <span class="stringliteral">&quot;Invalid assertion arguments.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Output as such:</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// [FATAL] Assert -- expression_str failed at line line_no of file_name: _msg_</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Log &lt;&lt; expression_str &lt;&lt; <span class="stringliteral">&quot; failed at line &quot;</span> &lt;&lt; line_no</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        &lt;&lt; <span class="stringliteral">&quot; of &quot;</span> &lt;&lt; file_name;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span>(msg) Log &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; msg;</div>

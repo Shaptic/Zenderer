@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('_vector_8hpp_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>math</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#a49d1232c008227e29042716937fb25cf">   38</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___math.html#classzen_1_1math_1_1matrix4x4__t" title="4x4 matrix representation.">matrix4x4_t</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#a49d1232c008227e29042716937fb25cf">   38</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="structzen_1_1math_1_1_vector.html">   42</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector</a></div>
@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('_vector_8hpp_source.html','');});
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Rotate(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> radians);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordtype">void</span> Translate(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1matrix4x4__t" title="4x4 matrix representation.">matrix4x4_t</a>&amp; TransMat);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordtype">void</span> Translate(<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; TransMat);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt; <span class="keyword">inline</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="structzen_1_1math_1_1_vector.html#a59053b162fef58855aee66a1e70dcb2e" title="Returns a scalar cross product value between two 2D vectors.">Cross2D</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;U&gt;</a>&amp; Other) <span class="keyword">const</span>;</div>

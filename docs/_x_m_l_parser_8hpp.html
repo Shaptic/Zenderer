@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -144,12 +144,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1util_1_1_x_m_l_node.html">zen::util::XMLNode</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single XML node.  <a href="structzen_1_1util_1_1_x_m_l_node.html#details">More...</a><br/></td></tr>
+<tr class="memitem:structzen_1_1util_1_1_x_m_l_node"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1util.html#structzen_1_1util_1_1_x_m_l_node">zen::util::XMLNode</a></td></tr>
+<tr class="memdesc:structzen_1_1util_1_1_x_m_l_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single XML node.  <a href="namespacezen_1_1util.html#structzen_1_1util_1_1_x_m_l_node">More...</a><br/></td></tr>
+<tr class="separator:structzen_1_1util_1_1_x_m_l_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html">zen::util::CXMLParser</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A minimalistic XML parser that expects near-perfection from the user.  <a href="classzen_1_1util_1_1_c_x_m_l_parser.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:classzen_1_1util_1_1_c_x_m_l_parser"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___utilities.html#classzen_1_1util_1_1_c_x_m_l_parser">zen::util::CXMLParser</a></td></tr>
-<tr class="memdesc:classzen_1_1util_1_1_c_x_m_l_parser"><td class="mdescLeft">&#160;</td><td class="mdescRight">A minimalistic XML parser that expects near-perfection from the user.  <a href="group___utilities.html#classzen_1_1util_1_1_c_x_m_l_parser">More...</a><br/></td></tr>
-<tr class="separator:classzen_1_1util_1_1_c_x_m_l_parser"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -188,7 +188,77 @@ Variables</h2></td></tr>
  limitations under the License. </dd></dl>
 
 <p>Definition in file <a class="el" href="_x_m_l_parser_8hpp_source.html">XMLParser.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structzen_1_1util_1_1_x_m_l_node" id="structzen_1_1util_1_1_x_m_l_node"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct zen::util::XMLNode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Given:</p>
+<div class="fragment"><div class="line">&lt;!-- Sample XML file --&gt;</div>
+<div class="line">&lt;html&gt;</div>
+<div class="line">     &lt;body background=<span class="stringliteral">&quot;nothing&quot;</span>&gt;</div>
+<div class="line">         Some text</div>
+<div class="line">     &lt;/body&gt;</div>
+<div class="line">&lt;/html&gt;</div>
+</div><!-- fragment --><p>You will get:</p>
+<table class="doxtable">
+<tr>
+<th align="left">Member </th><th align="left">Data </th></tr>
+<tr>
+<td align="left">parent </td><td align="left">Pointer to the HTML node </td></tr>
+<tr>
+<td align="left">children </td><td align="left">An empty <code>std::vector</code> </td></tr>
+<tr>
+<td align="left">options </td><td align="left"><code>["background": "nothing"]</code> </td></tr>
+<tr>
+<td align="left">content </td><td align="left"><code>"Some text"</code> </td></tr>
+<tr>
+<td align="left">name </td><td align="left"><code>"body"</code> </td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="_x_m_l_parser_8hpp_source.html#l00072">72</a> of file <a class="el" href="_x_m_l_parser_8hpp_source.html">XMLParser.hpp</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a26448969e6306e4a91ffc71867590f55"></a><a class="el" href="namespacezen_1_1util.html#structzen_1_1util_1_1_x_m_l_node">XMLNode</a> *</td>
+<td class="fieldname">
+parent</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a31fa35bfe9b153c6b190080134d166a1"></a><a class="el" href="namespacezen_1_1util.html#a2af5179e236a644056736aa6041e350f">XMLList_t</a></td>
+<td class="fieldname">
+children</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a37be06342d2b8e2b9143908d5a3d141f"></a><a class="el" href="namespacezen_1_1util.html#acc81bb1b24b5f77e257ed0df7e08403d">XMLOptions_t</a></td>
+<td class="fieldname">
+options</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a0e12a71a7e2fa6a9183d046c462ab61d"></a><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a></td>
+<td class="fieldname">
+content</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="aeb882f9e3324df71293a3ad54e102df2"></a><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a></td>
+<td class="fieldname">
+name</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

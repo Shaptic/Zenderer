@@ -1,5 +1,8 @@
 <map id="zen::gfxcore::CTexture::Bind" name="zen::gfxcore::CTexture::Bind">
 <area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="208,5,371,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b" title="Returns raw asset data (usually for reloading)." alt="" coords="213,70,366,111"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="419,12,469,39"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b" title="Returns raw asset data (usually for reloading)." alt="" coords="213,70,366,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#a320cb498234e02231b9ce04cf78999e9" title="Enables the effect and texture for rendering." alt="" coords="224,135,355,177"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_material.html#a4866a925322a57f4cb0d70833db0da7a" title="Enables only the texture." alt="" coords="224,201,355,242"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="419,143,589,169"/>
+<area shape="rect" id="node7" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="479,208,529,235"/>
 </map>

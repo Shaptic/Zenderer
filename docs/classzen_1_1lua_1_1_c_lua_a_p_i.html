@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -118,13 +118,6 @@ $(document).ready(function(){initNavTree('classzen_1_1lua_1_1_c_lua_a_p_i.html',
  <a href="classzen_1_1lua_1_1_c_lua_a_p_i.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_zenderer_2_scripting_2lua_8hpp_source.html">Lua.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::lua::CLuaAPI:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1lua_1_1_c_lua_a_p_i__coll__graph.png" border="0" usemap="#zen_1_1lua_1_1_c_lua_a_p_i_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1lua_1_1_c_lua_a_p_i_coll__map" id="zen_1_1lua_1_1_c_lua_a_p_i_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="137,453,263,648"/><area shape="rect" id="node4" title="STL class." alt="" coords="97,231,177,308"/><area shape="rect" id="node5" title="STL class." alt="" coords="74,6,200,98"/><area shape="rect" id="node6" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="202,150,325,389"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -159,9 +152,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72">~CSubsystem</a> ()</td></tr>
 <tr class="memdesc:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor does absolutely nothing.  <a href="#ab1639d7b9cec3785d77373de2098de72">More...</a><br/></td></tr>
 <tr class="separator:ab1639d7b9cec3785d77373de2098de72 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644">IsInit</a> () const final</td></tr>
-<tr class="memdesc:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#a1dc7ef9c8bdd0cc33539e24d398b4644">More...</a><br/></td></tr>
-<tr class="separator:a1dc7ef9c8bdd0cc33539e24d398b4644 inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef">IsInit</a> () const </td></tr>
+<tr class="memdesc:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the sub-system initialization status.  <a href="#afa992ecfe994d177d1bdb1f2b853f4ef">More...</a><br/></td></tr>
+<tr class="separator:afa992ecfe994d177d1bdb1f2b853f4ef inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c">SetLog</a> (<a class="el" href="classzen_1_1util_1_1_c_log.html">util::CLog</a> &amp;Log)</td></tr>
 <tr class="memdesc:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a custom output log.  <a href="#a9dd185770f7445ffe6be561c560f900c">More...</a><br/></td></tr>
 <tr class="separator:a9dd185770f7445ffe6be561c560f900c inherit pub_methods_classzen_1_1_c_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,7 +190,7 @@ Additional Inherited Members</h2></td></tr>
 <a href="http://blog.acamara.es/2012/08/19/calling-c-functions-from-lua-5-2/">http://blog.acamara.es/2012/08/19/calling-c-functions-from-lua-5-2/</a> </dd>
 <dd>
 <a href="http://csl.name/lua/">http://csl.name/lua/</a> </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_scripting-example.html#_a2">Scripting</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_scripting-example.html#_a1">Scripting</a>.</dd>
 </dl>
 <p>Definition at line <a class="el" href="_zenderer_2_scripting_2lua_8hpp_source.html#l00049">49</a> of file <a class="el" href="_zenderer_2_scripting_2lua_8hpp_source.html">Lua.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -306,7 +299,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if loaded successfully, <code>false</code> if already initialized.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1_c_subsystem.html#a1dc7ef9c8bdd0cc33539e24d398b4644" title="Returns the sub-system initialization status.">IsInit()</a> </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef" title="Returns the sub-system initialization status.">IsInit()</a> </dd></dl>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a5c72ec2b5c58ee70f346aec64eaf2dd8">zen::CSubsystem</a>.</p>
 

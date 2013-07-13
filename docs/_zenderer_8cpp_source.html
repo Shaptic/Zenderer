@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,10 +111,10 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
 <div class="contents">
 <a href="_zenderer_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp - Includes the user-exposed portions of the engine.">Zenderer/Zenderer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">zen::util::CLog</a>;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">zen::util::CLog</a>;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">zen::util::LogMode</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager" title="A collection of static helper functions for the audio API.">zen::sfx::CAudioManager</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API.">zen::sfx::CAudioManager</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4">    8</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">zen::Init</a>()</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
@@ -124,16 +124,16 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">if</span>(!CLog::GetEngineLog().<a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>())</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">CLog</a>&amp; Log = CLog::GetEngineLog();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; Log = CLog::GetEngineLog();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Log &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; Log.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Initializing Zenderer.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Log &lt;&lt; <span class="stringliteral">&quot;Initializing GLFW: &quot;</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">if</span>(glfwInit() == GL_FALSE)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">else</span></div>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    Log &lt;&lt; <span class="stringliteral">&quot;Initializing OpenAL: &quot;</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CAudioManager::Init</a>())</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">else</span></div>
@@ -157,8 +157,8 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        Log &lt;&lt; <span class="stringliteral">&quot;Initializing global subsystem (&quot;</span> &lt;&lt; i-&gt;GetName() &lt;&lt; <span class="stringliteral">&quot;): &quot;</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span>(!i-&gt;Init())</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            i-&gt;<a class="code" href="group___utilities.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream.">Destroy</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            i-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream.">Destroy</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
@@ -173,49 +173,49 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">zen::Quit</a>()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">CLog</a>&amp; Log = CLog::GetEngineLog();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>&amp; Log = CLog::GetEngineLog();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    gfxcore::CRenderer::GetDefaultEffect().Destroy();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; Log.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Destroying OpenGL components.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = zen::gfxcore::CGLSubsystem::sp_allGLSystems.rbegin();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        it != zen::gfxcore::CGLSubsystem::sp_allGLSystems.rend(); ++it)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">auto</span>* sys = *it;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            &lt;&lt; Log.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(sys-&gt;GetName())</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(sys-&gt;GetName())</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroying component.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span>(!sys-&gt;Destroy())</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            Log &lt;&lt; <span class="stringliteral">&quot;Failed to destroy component.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; Log.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Destroying components.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = <a class="code" href="group___engine.html#a0242a2a5591cb035d3d1b2f1824422b8">zen::CSubsystem::sp_allSystems</a>.rbegin();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        it != <a class="code" href="group___engine.html#a0242a2a5591cb035d3d1b2f1824422b8">zen::CSubsystem::sp_allSystems</a>.rend(); ++it)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = <a class="code" href="classzen_1_1_c_subsystem.html#a0242a2a5591cb035d3d1b2f1824422b8">zen::CSubsystem::sp_allSystems</a>.rbegin();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        it != <a class="code" href="classzen_1_1_c_subsystem.html#a0242a2a5591cb035d3d1b2f1824422b8">zen::CSubsystem::sp_allSystems</a>.rend(); ++it)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">auto</span>* sys = *it;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        Log &lt;&lt; Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            &lt;&lt; Log.<a class="code" href="group___utilities.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(sys-&gt;GetName())</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_INFO)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(sys-&gt;GetName())</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroying component.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">if</span>(!sys-&gt;Destroy())</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            Log.<a class="code" href="group___utilities.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            Log &lt;&lt; <span class="stringliteral">&quot;Failed to destroy component.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    glfwTerminate();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    Log.<a class="code" href="group___utilities.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream.">Destroy</a>();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream.">Destroy</a>();</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->

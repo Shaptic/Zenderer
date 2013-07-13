@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,9 +112,9 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <a href="_audio2_d_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio2_d_8hpp.html" title="Zenderer/Audio/Audio2D.hpp - Generic base class for audio files.">Zenderer/Audio/Audio2D.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d" title="An abstract base class for audio objects.">sfx::CAudio2D</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects.">sfx::CAudio2D</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CAudio2D::CAudio2D(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) :</div>
@@ -126,12 +126,12 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_AL.source = 0;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="group___audio.html#a5dc7ca735e0d95c26f112cf483245540">   18</a></span>&#160;CAudio2D::~CAudio2D()</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#a5dc7ca735e0d95c26f112cf483245540">   18</a></span>&#160;CAudio2D::~CAudio2D()</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">delete</span>[] m_AL.buffers;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="group___audio.html#aa7e21ad93cb2814a9519eb5f7513aa0e">   23</a></span>&#160;<span class="keywordtype">int</span> CAudio2D::GetAudioState()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#aa7e21ad93cb2814a9519eb5f7513aa0e">   23</a></span>&#160;<span class="keywordtype">int</span> CAudio2D::GetAudioState()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(m_AL.source == 0) <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
@@ -140,12 +140,12 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> state;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="group___audio.html#a6373463cc239cae7d71cc40140f633bb">   32</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> CAudio2D::GetData()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb">   32</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> CAudio2D::GetData()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> &amp;m_AL;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="group___audio.html#ac8d099f6ee7acd8c9af20d050a515c72">   37</a></span>&#160;<span class="keywordtype">void</span> CAudio2D::UnloadSource()</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72">   37</a></span>&#160;<span class="keywordtype">void</span> CAudio2D::UnloadSource()</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>

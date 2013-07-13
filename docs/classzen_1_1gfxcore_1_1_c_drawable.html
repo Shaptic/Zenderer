@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,27 +120,25 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_drawable.htm
  <a href="classzen_1_1gfxcore_1_1_c_drawable.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::gfxcore::CDrawable:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable__coll__graph.png" border="0" usemap="#zen_1_1gfxcore_1_1_c_drawable_coll__map" alt="Collaboration graph"/></div>
-<map name="zen_1_1gfxcore_1_1_c_drawable_coll__map" id="zen_1_1gfxcore_1_1_c_drawable_coll__map">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,363,168,587"/><area shape="rect" id="node3" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="193,421,356,528"/><area shape="rect" id="node4" href="structzen_1_1gfxcore_1_1vertex__t.html" title="{zen::gfxcore::vertex_t\n|+ position\l+ tc\l|}" alt="" coords="201,206,348,298"/><area shape="rect" id="node5" href="structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="225,5,324,141"/></map>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2c1f3e0daa107108491bb0f7d9d13839"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a2c1f3e0daa107108491bb0f7d9d13839">CDrawable</a> ()</td></tr>
 <tr class="separator:a2c1f3e0daa107108491bb0f7d9d13839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4157209929cf41e327d896a5350a7613"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613">CDrawable</a> (const <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a> &amp;Copy)</td></tr>
+<tr class="memdesc:a4157209929cf41e327d896a5350a7613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance from another instance.  <a href="#a4157209929cf41e327d896a5350a7613">More...</a><br/></td></tr>
+<tr class="separator:a4157209929cf41e327d896a5350a7613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58fd1036856d627b19976088e4143630"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a58fd1036856d627b19976088e4143630">~CDrawable</a> ()</td></tr>
 <tr class="separator:a58fd1036856d627b19976088e4143630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8284c5a762ea7aa5b3f444b13925a1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac8284c5a762ea7aa5b3f444b13925a1c">operator=</a> (const <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a> &amp;)</td></tr>
+<tr class="separator:ac8284c5a762ea7aa5b3f444b13925a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac78681ab7e983757ef0a75eb676c45de"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac78681ab7e983757ef0a75eb676c45de">Create</a> ()=0</td></tr>
 <tr class="memdesc:ac78681ab7e983757ef0a75eb676c45de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates initial vertex structure.  <a href="#ac78681ab7e983757ef0a75eb676c45de">More...</a><br/></td></tr>
 <tr class="separator:ac78681ab7e983757ef0a75eb676c45de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65d35950a1094e90ac1e5aa9c4bb1bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2">Move</a> (const <a class="el" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a> &amp;Position)</td></tr>
+<tr class="memitem:a65d35950a1094e90ac1e5aa9c4bb1bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2">Move</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;Position)</td></tr>
 <tr class="memdesc:a65d35950a1094e90ac1e5aa9c4bb1bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the drawable to a certain location.  <a href="#a65d35950a1094e90ac1e5aa9c4bb1bc2">More...</a><br/></td></tr>
 <tr class="separator:a65d35950a1094e90ac1e5aa9c4bb1bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4932a9379f25d0b8e263a7f7b8ac0036">Move</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> <a class="el" href="_engine_test_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>, const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> <a class="el" href="_engine_test_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a>, const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> z=0.0)</td></tr>
+<tr class="memitem:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4932a9379f25d0b8e263a7f7b8ac0036">Move</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> x, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> y, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> z=0.0)</td></tr>
 <tr class="memdesc:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.  <a href="#a4932a9379f25d0b8e263a7f7b8ac0036">More...</a><br/></td></tr>
 <tr class="separator:a4932a9379f25d0b8e263a7f7b8ac0036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbc7530f919a8642173c940d6f1807b7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#abbc7530f919a8642173c940d6f1807b7">AttachMaterial</a> (<a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> *pMaterial)=0</td></tr>
@@ -155,11 +153,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeaf21d5edb63cff3e2e98cc287ed3289"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#aeaf21d5edb63cff3e2e98cc287ed3289">IsModifiable</a> () const </td></tr>
 <tr class="memdesc:aeaf21d5edb63cff3e2e98cc287ed3289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request to see if we can change the internal vertices or not.  <a href="#aeaf21d5edb63cff3e2e98cc287ed3289">More...</a><br/></td></tr>
 <tr class="separator:aeaf21d5edb63cff3e2e98cc287ed3289"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5996d9c20af4a349098a2f8af134142"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142">GetPosition</a> () const </td></tr>
+<tr class="memitem:ab5996d9c20af4a349098a2f8af134142"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142">GetPosition</a> () const </td></tr>
 <tr class="separator:ab5996d9c20af4a349098a2f8af134142"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac620df10ab31ecb12fca55e4202c194b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b">GetX</a> () const </td></tr>
+<tr class="memitem:ac620df10ab31ecb12fca55e4202c194b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b">GetX</a> () const </td></tr>
 <tr class="separator:ac620df10ab31ecb12fca55e4202c194b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf">GetY</a> () const </td></tr>
+<tr class="memitem:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf">GetY</a> () const </td></tr>
 <tr class="separator:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0be143258b456d9590d1462bf1d0ff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">LoadIntoVAO</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO)</td></tr>
 <tr class="memdesc:ae0be143258b456d9590d1462bf1d0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut to prevent loading simple objects manually.  <a href="#ae0be143258b456d9590d1462bf1d0ff3">More...</a><br/></td></tr>
@@ -169,9 +167,9 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a957b9cf33c28051e5edf72d790cf2059"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1gfx_1_1_c_material.html">gfx::CMaterial</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059">mp_Material</a></td></tr>
 <tr class="separator:a957b9cf33c28051e5edf72d790cf2059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f1c956bc36ed57958af7577a4c26d27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">m_Position</a></td></tr>
+<tr class="memitem:a0f1c956bc36ed57958af7577a4c26d27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">m_Position</a></td></tr>
 <tr class="separator:a0f1c956bc36ed57958af7577a4c26d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7a4507b960a2ad4079961b0e677d5c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1gfxcore_1_1_draw_batch.html">DrawBatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a></td></tr>
+<tr class="memitem:ac7a4507b960a2ad4079961b0e677d5c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch">DrawBatch</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">m_DrawData</a></td></tr>
 <tr class="separator:ac7a4507b960a2ad4079961b0e677d5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a873380d505b6ec978a1c6c09034a16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4a873380d505b6ec978a1c6c09034a16">m_internal</a></td></tr>
 <tr class="separator:a4a873380d505b6ec978a1c6c09034a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,6 +204,35 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a4157209929cf41e327d896a5350a7613"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CDrawable::CDrawable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a> &amp;&#160;</td>
+          <td class="paramname"><em>Copy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This only copies internal vertex/index data, as well as model-view matrix data (thus position). Material and internal GPU buffer references are <em>NOT</em> copied. These must be explicitly set later, be it with <code><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on-screen.">Draw()</a></code> or through a <code>friend</code> class or through <code>AttachMaterial</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Copy</td><td>Primitive to copy draw data from</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>There can be no assignment of one primitive to another. </dd>
+<dd>
+Material info is not transferred.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a CVertexArray.">gfxcore::DrawBatch</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00015">15</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a58fd1036856d627b19976088e4143630"></a>
 <div class="memitem">
 <div class="memproto">
@@ -227,11 +254,27 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00015">15</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00037">37</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac8284c5a762ea7aa5b3f444b13925a1c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a>&amp; zen::gfxcore::CDrawable::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html">CDrawable</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ac78681ab7e983757ef0a75eb676c45de"></a>
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +308,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void CDrawable::Move </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;&#160;</td>
           <td class="paramname"><em>Position</em></td><td>)</td>
           <td></td>
         </tr>
@@ -279,16 +322,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00020">20</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable_a65d35950a1094e90ac1e5aa9c4bb1bc2_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_drawable_a65d35950a1094e90ac1e5aa9c4bb1bc2_icgraph" alt=""/></div>
-<map name="classzen_1_1gfxcore_1_1_c_drawable_a65d35950a1094e90ac1e5aa9c4bb1bc2_icgraph" id="classzen_1_1gfxcore_1_1_c_drawable_a65d35950a1094e90ac1e5aa9c4bb1bc2_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="216,12,267,39"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00042">42</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
 
 </div>
 </div>
@@ -299,19 +333,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void zen::gfxcore::CDrawable::Move </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>z</em> = <code>0.0</code>&#160;</td>
         </tr>
         <tr>
@@ -321,7 +355,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Make it work properly when <code>CQuad</code> is inverted. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Make it work properly when <code>CQuad</code> is inverted. </dd></dl>
 
 </div>
 </div>
@@ -372,7 +406,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00030">30</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00052">52</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph" alt=""/></div>
+<map name="classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph" id="classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="216,12,267,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -398,16 +441,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if drawing was successful, <code>false</code> otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00038">38</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable_acaee6bd25adc67f4fbfcc0edf5fb8a7e_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_drawable_acaee6bd25adc67f4fbfcc0edf5fb8a7e_icgraph" alt=""/></div>
-<map name="classzen_1_1gfxcore_1_1_c_drawable_acaee6bd25adc67f4fbfcc0edf5fb8a7e_icgraph" id="classzen_1_1gfxcore_1_1_c_drawable_acaee6bd25adc67f4fbfcc0edf5fb8a7e_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="216,12,267,39"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00060">60</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +466,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00095">95</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00115">115</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -453,7 +487,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a>&amp; zen::gfxcore::CDrawable::GetPosition </td>
+          <td class="memname">const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; zen::gfxcore::CDrawable::GetPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -466,7 +500,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00097">97</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00117">117</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -478,7 +512,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> zen::gfxcore::CDrawable::GetX </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> zen::gfxcore::CDrawable::GetX </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -491,7 +525,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00100">100</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00120">120</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +537,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> zen::gfxcore::CDrawable::GetY </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> zen::gfxcore::CDrawable::GetY </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -516,7 +550,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00101">101</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00121">121</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -541,7 +575,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00106">106</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00122">122</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
 
 </div>
 </div>
@@ -564,7 +598,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00113">113</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00133">133</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -587,7 +621,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00116">116</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00136">136</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +633,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a> zen::gfxcore::CDrawable::m_Position</td>
+          <td class="memname"><a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> zen::gfxcore::CDrawable::m_Position</td>
         </tr>
       </table>
   </td>
@@ -609,7 +643,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00117">117</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00137">137</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -621,7 +655,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1gfxcore_1_1_draw_batch.html">DrawBatch</a> zen::gfxcore::CDrawable::m_DrawData</td>
+          <td class="memname"><a class="el" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch">DrawBatch</a> zen::gfxcore::CDrawable::m_DrawData</td>
         </tr>
       </table>
   </td>
@@ -631,7 +665,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00118">118</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00138">138</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +687,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00119">119</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00139">139</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
