@@ -79,7 +79,10 @@ namespace gui
             return s_TTF;
         }
         
-        FT_Library& GetLibrary() const;
+        const FT_Library GetLibrary() const
+        {
+            return m_Library;
+        }
         
     private:
         FT_Library m_Library;

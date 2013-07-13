@@ -12,6 +12,7 @@ CMaterial::CMaterial(asset::CAssetManager& Assets) :
     m_Effect(EffectType::NO_EFFECT, Assets),
     m_Texture(gfxcore::CTexture::GetDefaultTexture())
 {
+    m_Effect.Init();
 }
 
 CMaterial::CMaterial(const CMaterial& Copy) :
@@ -20,8 +21,8 @@ CMaterial::CMaterial(const CMaterial& Copy) :
     m_Effect(Copy.m_Effect.GetType(), m_Assets),
     m_Texture(gfxcore::CTexture::GetDefaultTexture())
 {
-    m_Effect.Init();;
-    
+    m_Effect.Init();
+
     // We don't want to reload the texture for no reason.
     if(&Copy.m_Texture != &m_Texture)
         m_Texture.LoadFromExisting(&Copy.m_Texture);
