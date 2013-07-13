@@ -91,17 +91,35 @@ bool CMaterial::LoadFromStream(std::ifstream& f,
     return valid && f;
 }
 
-bool CMaterial::LoadTextureFromFile(const string_t& filename)
+bool CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
 {
-    gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
+    gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(
+        Texture.GetFilename(), Texture.GetOwner());
+
     if(tmp == nullptr)
     {
+        // This is a special case where we want to be assigned to the 1x1
+        // white texture. We can safely store it internally since it will
+        // not be modified, because other methods make sure we are not the
+        // default before changing it.
+        if(&Texture == &Texture.GetDefaultTexture())
+        {
+            mp_Texture = const_cast<gfxcore::CTexture*>(&Texture);
+            return true;
+        }
+
         m_Assets.Delete(tmp);
         return false;
     }
 
     mp_Texture = tmp;
     return true;
+}
+
+bool CMaterial::LoadTextureFromFile(const string_t& filename)
+{
+    gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
+    return ((mp_Texture = tmp) != nullptr);
 }
 
 bool CMaterial::LoadTextureFromHandle(const GLuint handle)
@@ -172,29 +190,4 @@ void CMaterial::Destroy()
     m_Effect.Destroy();
     if(mp_Texture != &gfxcore::CTexture::GetDefaultTexture())
         m_Assets.Delete(mp_Texture);
-}
-
-bool zen::gfx::CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
-{
-    gfxcore::CTexture* tmp = 
-        m_Assets.Create<gfxcore::CTexture>(Texture.GetFilename());
-
-    if(tmp == nullptr)
-    {
-        // This is a special case where we want to be assigned to the 1x1
-        // white texture. We can safely store it internally since it will
-        // not be modified, because other methods make sure we are not the
-        // default before changing it.
-        if(&Texture == &Texture.GetDefaultTexture())
-        {
-            mp_Texture = const_cast<gfxcore::CTexture*>(&Texture);
-            return true;
-        }
-        
-        m_Assets.Delete(tmp);
-        return false;
-    }
-
-    mp_Texture = tmp;
-    return true;
 }

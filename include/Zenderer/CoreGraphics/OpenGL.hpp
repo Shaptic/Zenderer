@@ -103,8 +103,8 @@ namespace gfxcore
     class ZEN_API CGLSubsystem
     {
     public:
-        CGLSubsystem(string_t name = "OpenGL");
-        virtual ~CGLSubsystem(){}
+        CGLSubsystem(const string_t name = "OpenGL");
+        virtual ~CGLSubsystem();
 
         virtual bool Init()     = 0;
         virtual bool Destroy()  = 0;
