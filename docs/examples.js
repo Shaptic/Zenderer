@@ -6,5 +6,6 @@ var examples =
     [ "Parsing", "_parsing-example.html", null ],
     [ "Scripting", "_scripting-example.html", null ],
     [ "Subsystem", "_subsystem-example.html", null ],
-    [ "Utilities", "_utilities-example.html", null ]
+    [ "Utilities", "_utilities-example.html", null ],
+    [ "VertexArray", "_vertex_array-example.html", null ]
 ];

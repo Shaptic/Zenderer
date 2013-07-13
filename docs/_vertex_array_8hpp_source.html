@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,7 +120,7 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp_source.html','');})
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp - Includes necessary OpenGL-related headers and defines convenience ...">OpenGL.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define VBO_OFFSET(c, object, field)\</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53">   38</a></span>&#160;<span class="preprocessor">#define VBO_OFFSET(c, object, field)\</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">    (void*)((c * sizeof(object)) +  \</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">            (long int)&amp;(((object*)nullptr)-&gt;field))</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span></div>
@@ -139,25 +139,25 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp_source.html','');})
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">   57</a></span>&#160;        <span class="keywordtype">size_t</span>      <a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>, <a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">   61</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup.">CGLSubsystem</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="group___core_graphics.html">   61</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a> : <span class="keyword">public</span> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_g_l_subsystem" title="A wrapper for OpenGL objects with proper cleanup.">CGLSubsystem</a></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>(<span class="keyword">const</span> GLenum vao_type = GL_STATIC_DRAW);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>(<span class="keyword">const</span> GLenum vao_type = GL_STATIC_DRAW);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        ~<a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> Bind() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">bool</span> Unbind() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a> AddData(<span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray.">DrawBatch</a>&amp; D);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#ab33f04f165f1e8b75def32c3ac7c07a4">Offload</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">bool</span> Offload();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">  108</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">GetObjectHandle</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> m_vao; }</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea">  109</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea">GetVBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_vbo; }</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">  110</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">GetIBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_ibo; }</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ac32c693ba3e9b2aae670aba24de63653">  108</a></span>&#160;        GLuint <a class="code" href="group___core_graphics.html#ac32c693ba3e9b2aae670aba24de63653">GetObjectHandle</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> m_vao; }</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a70df5e1fc03235d797202dbb56beb4ea">  109</a></span>&#160;        GLuint <a class="code" href="group___core_graphics.html#a70df5e1fc03235d797202dbb56beb4ea">GetVBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_vbo; }</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ab631a297d3f4e16412c4ec5d33c2a714">  110</a></span>&#160;        GLuint <a class="code" href="group___core_graphics.html#ab631a297d3f4e16412c4ec5d33c2a714">GetIBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_ibo; }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">size_t</span> GetVertexCount() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">size_t</span> GetIndexCount()  <span class="keyword">const</span>;</div>
@@ -167,10 +167,10 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp_source.html','');})
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">bool</span> Offloaded() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">  120</a></span>&#160;        <span class="keywordtype">bool</span> Draw()</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ad386ce51c382b3588c1316bbddda5135">  120</a></span>&#160;        <span class="keywordtype">bool</span> Draw()</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">if</span>(!this-&gt;Bind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            GL(glDrawElements(GL_TRIANGLES, m_icount, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices.">INDEX_TYPE</a>, <span class="keyword">nullptr</span>));</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDrawElements(GL_TRIANGLES, m_icount, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices.">INDEX_TYPE</a>, <span class="keyword">nullptr</span>));</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">return</span> this-&gt;Unbind();</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>

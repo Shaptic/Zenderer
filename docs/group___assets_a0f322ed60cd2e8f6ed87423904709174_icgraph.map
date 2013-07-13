@@ -1,0 +1,5 @@
+<map id="zen::asset::CAsset::GetFilename" name="zen::asset::CAsset::GetFilename">
+<area shape="rect" id="node2" href="$group___core_graphics.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="190,5,343,46"/>
+<area shape="rect" id="node3" href="$group___graphics.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="392,5,563,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="611,12,771,39"/>
+</map>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -116,234 +116,232 @@ $(document).ready(function(){initNavTree('_scene_8hpp_source.html','');});
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_vertex_array_8hpp.html" title="Zenderer/CoreGraphics/VertexArray.hpp - A wrapper class for OpenGL Vertex Array Objects.">Zenderer/CoreGraphics/VertexArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp - A low-level class to take care of rendering state and other grap...">Zenderer/CoreGraphics/Renderer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sorter_8hpp.html" title="Zenderer/CoreGraphics/Sorter.hpp - Sorts entites in a variety of different ways, such as by material ...">Zenderer/CoreGraphics/Sorter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp - An object wrapper for OpenGL frame buffer objects.">RenderTarget.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp - An OpenGL context wrapper that the engine performs operations on...">Window.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp - A drawable primitive with 4 vertices.">Quad.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp - A high-level shader wrapper intended to be used by the user...">Effect.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp - An instance of lighting in the game scene.">Light.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp - An OpenGL context wrapper that the engine performs operations on...">Window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp - An object wrapper for OpenGL frame buffer objects.">RenderTarget.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp - A high-level shader wrapper intended to be used by the user...">Effect.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp - An instance of lighting in the game scene.">Light.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp - A drawable primitive with 4 vertices.">Quad.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">gfxcore::CRenderer</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">gfxcore::BlendFunc</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94" title="A variety of blending operations.">gfxcore::BlendFunc</a>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html">   43</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfx_1_1_c_scene.html">CScene</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html">   43</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html">CScene</a></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#a20e89ec3d59082e2825d92df80de1387">CScene</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#a20e89ec3d59082e2825d92df80de1387">CScene</a>(<a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Mgr);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_scene.html">CScene</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="group___objects.html#classzen_1_1obj_1_1_c_entity" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>&amp; AddEntity();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//CEntity&amp; AddEntity();</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a64cb3001ba0ea768afe9f5306dc5e76d">   70</a></span>&#160;        T&amp; AddPrimitive()</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            T* pNew = <span class="keyword">new</span> T;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            m_allPrimitives.push_back(pNew);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">return</span> m_allPrimitives.back()-&gt;Create();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1">   93</a></span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a>&amp; AddLight(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826" title="Lighting types.">LightType</a>&amp; Type)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a>* pNew = <span class="keyword">new</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a>(m_Assets, Type, 800);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            pNew-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df">Init</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            m_allLights.push_back(pNew);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> *m_allLights.back();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4">  117</a></span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>&amp; AddEffect(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a>&amp; Type)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>* pNew = <span class="keyword">new</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>(Type);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            pNew-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            m_allPPFX.push_back(pNew);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">return</span> *m_allPPFX.back();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ad81f23a612562f04b546a602a4ffba07">  146</a></span>&#160;        T&amp; InsertPrimitive(<span class="keyword">const</span> uint32_t index)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            T* pNew = <span class="keyword">new</span> T;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            T&amp; Ret = pNew-&gt;Create();</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            m_allPrimitives.insert(pNew, index);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">return</span> Ret;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e">  155</a></span>&#160;        <span class="keywordtype">bool</span> Render()</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="comment">// We keep only one matrix instance and just</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="comment">// modify it for every object.</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a> MV = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">math::matrix4x4_t::CreateIdentityMatrix</a>();</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="comment">// Called every frame because there is no more appropriate</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="comment">// time to call it. Things won&#39;t be offloaded multiple times.</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            m_Geometry.Offload();</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="comment">// Clear our frame buffers from the last drawing.</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <span class="comment">// We will be rendering to FBO1 at first.</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            m_FBO2.Bind(); m_FBO2.Clear();</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            m_FBO1.Bind(); m_FBO1.Clear();</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="comment">// Set the standard blending state.</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="comment">// All geometry is stored here.</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            m_Geometry.Bind();</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="comment">// Prepare for primitive rendering.</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>&amp; M = CRenderer::GetDefaultMaterial();</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">CEffect</a>&amp; E = *M.<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a4875fbd3445bad0b917dd7222e601eb0">GetEffect</a>();</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            M.<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a320cb498234e02231b9ce04cf78999e9" title="Enables the effect and texture for rendering.">Enable</a>();</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="comment">// Commence individual primitive rendering.</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keyword">auto</span> i = m_allPrimitives.begin(),</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                 j = m_allPrimitives.end();</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                MV.<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf" title="Translates the matrix by a vector.">Translate</a>((*i)-&gt;GetPosition());</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                MV.<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2" title="Adjusts the translation matrix by a vector.">TranslateAdj</a>(m_Camera);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                (*i)-&gt;Draw(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a64cb3001ba0ea768afe9f5306dc5e76d">   68</a></span>&#160;        T&amp; AddPrimitive()</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            T* pNew = <span class="keyword">new</span> T(m_Assets);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            m_allPrimitives.push_back(pNew);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> m_allPrimitives.back()-&gt;Create();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1">   91</a></span>&#160;        <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_light" title="Represents a light object acting on a graphical scene.">CLight</a>&amp; AddLight(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826" title="Lighting types.">LightType</a>&amp; Type)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_light" title="Represents a light object acting on a graphical scene.">CLight</a>* pNew = <span class="keyword">new</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_light" title="Represents a light object acting on a graphical scene.">CLight</a>(m_Assets, Type, 800);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            pNew-&gt;<a class="code" href="group___graphics.html#adcbc2641c459f93aebd72f3ff99fa0df">Init</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            m_allLights.push_back(pNew);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> *m_allLights.back();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4">  115</a></span>&#160;        <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>&amp; AddEffect(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a>&amp; Type)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>* pNew = <span class="keyword">new</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>(Type, m_Assets);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            pNew-&gt;<a class="code" href="group___graphics.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            m_allPPFX.push_back(pNew);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">return</span> *m_allPPFX.back();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ad81f23a612562f04b546a602a4ffba07">  144</a></span>&#160;        T&amp; InsertPrimitive(<span class="keyword">const</span> uint32_t index)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            T* pNew = <span class="keyword">new</span> T(m_Assets);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            T&amp; Ret = pNew-&gt;Create();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            m_allPrimitives.insert(pNew, index);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> Ret;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e">  153</a></span>&#160;        <span class="keywordtype">bool</span> Render()</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="comment">// We keep only one matrix instance and just</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="comment">// modify it for every object.</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <a class="code" href="group___math.html#classzen_1_1math_1_1matrix4x4__t" title="4x4 matrix representation.">math::matrix4x4_t</a> MV(<a class="code" href="group___math.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="comment">// Called every frame because there is no more appropriate</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="comment">// time to call it. Things won&#39;t be offloaded multiple times.</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            m_Geometry.Offload();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="comment">// Clear our frame buffers from the last drawing.</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="comment">// We will be rendering to FBO1 at first.</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            m_FBO2.Bind(); m_FBO2.Clear();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            m_FBO1.Bind(); m_FBO1.Clear();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="comment">// Set the standard blending state.</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="comment">// All geometry is stored here.</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            m_Geometry.Bind();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="comment">// Prepare for primitive rendering.</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>&amp; M = CRenderer::GetDefaultMaterial();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">CEffect</a>&amp; E = M.<a class="code" href="group___graphics.html#addd5eb8166b408c26abe605ff7d3e7de">GetEffect</a>();</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            M.<a class="code" href="group___graphics.html#a320cb498234e02231b9ce04cf78999e9" title="Enables the effect and texture for rendering.">Enable</a>();</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="comment">// Commence individual primitive rendering.</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keyword">auto</span> i = m_allPrimitives.begin(),</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                 j = m_allPrimitives.end();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i)</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                MV.<a class="code" href="group___math.html#a08a41a4a908e13a44872da95b3421fdf" title="Translates the matrix by a vector.">Translate</a>((*i)-&gt;GetPosition());</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                MV.<a class="code" href="group___math.html#a8490c81757977f33c6e4482e8b6a70e2" title="Adjusts the translation matrix by a vector.">TranslateAdj</a>(m_Camera);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                (*i)-&gt;Draw(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            M.<a class="code" href="group___graphics.html#a5962ae2836315bf7d6175a43035855a1" title="Disables rendering with the effect/texture.">Disable</a>();</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            M.<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a5962ae2836315bf7d6175a43035855a1" title="Disables rendering with the effect/texture.">Disable</a>();</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="comment">// Shortcut reference.</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>&amp; <a class="code" href="_engine_test_8cpp.html#a6cede53cf917df845338dee3d2f276cf">FS</a> = CRenderer::GetFullscreenVBO();</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="comment">// Primitive rendering is complete.</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="comment">// Now, render lights with additive blending.</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            GLuint final_texture = m_FBO1.GetTexture();</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordflow">if</span>(m_lighting)</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                <span class="comment">// We want to render to the entire scene.</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <span class="comment">// Lighting renders ON the geometry, so we</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <span class="comment">// bind the FBO1 texture to render onto. The</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                <span class="comment">// final result ends up on the FBO2 texture.</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                m_FBO2.Bind();</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                CRenderer::EnableTexture(final_texture);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                CRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                <span class="keyword">auto</span> i = m_allLights.begin(),</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                     j = m_allLights.end();</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="keywordflow">for</span>( ; i != j; ++i)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                    <a class="code" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene.">CLight</a>&amp; <a class="code" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> = *(*i);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    L.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a0d5c3ae85e8081a181f101c01eac0672">Enable</a>();</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                    <span class="comment">// Move with scene</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    L.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a060680a44f4f9387c04ec14680f396ca">Adjust</a>(m_Camera.x, m_Camera.y);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="comment">// Shortcut reference.</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>&amp; FS = CRenderer::GetFullscreenVBO();</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="comment">// Primitive rendering is complete.</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="comment">// Now, render lights with additive blending.</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            GLuint final_texture = m_FBO1.GetTexture();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">if</span>(m_lighting)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <span class="comment">// We want to render to the entire scene.</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                <span class="comment">// Lighting renders ON the geometry, so we</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                <span class="comment">// bind the FBO1 texture to render onto. The</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <span class="comment">// final result ends up on the FBO2 texture.</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                m_FBO2.Bind();</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                CRenderer::EnableTexture(final_texture);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                CRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                <span class="keyword">auto</span> i = m_allLights.begin(),</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                     j = m_allLights.end();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                <span class="keywordflow">for</span>( ; i != j; ++i)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                    <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_light" title="Represents a light object acting on a graphical scene.">CLight</a>&amp; L = *(*i);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    L.<a class="code" href="group___graphics.html#a0d5c3ae85e8081a181f101c01eac0672">Enable</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    <span class="comment">// Move with scene</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                    L.<a class="code" href="group___graphics.html#a060680a44f4f9387c04ec14680f396ca">Adjust</a>(m_Camera.x, m_Camera.y);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    FS.<a class="code" href="group___core_graphics.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                    FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="comment">// Restore state</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    L.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a060680a44f4f9387c04ec14680f396ca">Adjust</a>(-m_Camera.x, -m_Camera.y);</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    L.<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd">Disable</a>();</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                }</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                final_texture = m_FBO2.GetTexture();</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            }</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="comment">// Ping-pong post-processing effects.</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="comment">// This means one is drawn to FBO1, then FBO1&#39;s result</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="comment">// is used to draw on FBO2, etc.</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <span class="keywordflow">if</span>(m_ppfx)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            {</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="comment">// If there was lighting, the first texture is</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="comment">// the second FBO.</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">CRenderTarget</a>&amp; One = m_lighting ? m_FBO2 : m_FBO1;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">CRenderTarget</a>&amp; Two = m_lighting ? m_FBO1 : m_FBO2;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keyword">auto</span> i = m_allPPFX.begin(),</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                     j = m_allPPFX.end();</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> c = 0; i != j; ++i, ++c)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    <span class="keywordtype">bool</span> even = ((c &amp; 0x1) == 0);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                    <span class="keywordflow">if</span>(even)    Two.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                    <span class="keywordflow">else</span>        One.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                    (*i)-&gt;Enable();</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                    CRenderer::EnableTexture(final_texture);</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                    FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                    (*i)-&gt;Disable();</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    <span class="keywordflow">if</span>(even)    final_texture = Two.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">GetTexture</a>();</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    <span class="keywordflow">else</span>        final_texture = One.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">GetTexture</a>();</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                }</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            }</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                    <span class="comment">// Restore state</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                    L.<a class="code" href="group___graphics.html#a060680a44f4f9387c04ec14680f396ca">Adjust</a>(-m_Camera.x, -m_Camera.y);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    L.<a class="code" href="group___graphics.html#a50fa9064e9f4b80ecd0fed9a71675dcd">Disable</a>();</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                final_texture = m_FBO2.GetTexture();</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="comment">// Ping-pong post-processing effects.</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="comment">// This means one is drawn to FBO1, then FBO1&#39;s result</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="comment">// is used to draw on FBO2, etc.</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">if</span>(m_ppfx)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                <span class="comment">// If there was lighting, the first texture is</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                <span class="comment">// the second FBO.</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_render_target" title="Creates a target for all subsequent rendering operations.">CRenderTarget</a>&amp; One = m_lighting ? m_FBO2 : m_FBO1;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_render_target" title="Creates a target for all subsequent rendering operations.">CRenderTarget</a>&amp; Two = m_lighting ? m_FBO1 : m_FBO2;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                <span class="keyword">auto</span> i = m_allPPFX.begin(),</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                     j = m_allPPFX.end();</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> c = 0; i != j; ++i, ++c)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    <span class="keywordtype">bool</span> even = ((c &amp; 0x1) == 0);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                    <span class="keywordflow">if</span>(even)    Two.<a class="code" href="group___graphics.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                    <span class="keywordflow">else</span>        One.<a class="code" href="group___graphics.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                    (*i)-&gt;Enable();</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                    CRenderer::EnableTexture(final_texture);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                    FS.<a class="code" href="group___core_graphics.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                    (*i)-&gt;Disable();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                    <span class="keywordflow">if</span>(even)    final_texture = Two.<a class="code" href="group___graphics.html#ac9dc97a466fa55c77089b61a384b28c8">GetTexture</a>();</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                    <span class="keywordflow">else</span>        final_texture = One.<a class="code" href="group___graphics.html#ac9dc97a466fa55c77089b61a384b28c8">GetTexture</a>();</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="comment">// Now we have the final scene data in `final_texture`</span></div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="comment">// Now we have the final scene data in `final_texture`</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="comment">// Doesn&#39;t matter which we disable.</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            m_FBO1.Unbind();</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a55724770ecc469bc576fbc2edd402432" title="A more user-friendly alias for binding.">Enable</a>();</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            CRenderer::EnableTexture(final_texture);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="comment">// Make sure the right data is set.</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix());</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="comment">// Doesn&#39;t matter which we disable.</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            m_FBO1.Unbind();</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            E.<a class="code" href="group___graphics.html#a55724770ecc469bc576fbc2edd402432" title="A more user-friendly alias for binding.">Enable</a>();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            CRenderer::EnableTexture(final_texture);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="comment">// Make sure the right data is set.</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            E.<a class="code" href="group___graphics.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="group___math.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            E.<a class="code" href="group___graphics.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter.">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix());</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            FS.<a class="code" href="group___core_graphics.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            CRenderer::EnableTexture(0);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            CRenderer::ResetMaterialState();</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        }</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00286"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a234f167a57f2c5f8c823207cc02f71bc">  286</a></span>&#160;        int32_t GetPrimitiveIndex(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives.">gfxcore::CDrawable</a>&amp; D)</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keyword">auto</span> i = m_allPrimitives.begin(),</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                 j = m_allPrimitives.end();</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            int32_t index = -1;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i, ++index)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            {</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                <span class="keywordflow">if</span>((*i) == &amp;D) <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            CRenderer::EnableTexture(0);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            CRenderer::ResetMaterialState();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a234f167a57f2c5f8c823207cc02f71bc">  283</a></span>&#160;        int32_t GetPrimitiveIndex(<span class="keyword">const</span> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_drawable" title="An abstract base class for all drawable primitives.">gfxcore::CDrawable</a>&amp; D)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keyword">auto</span> i = m_allPrimitives.begin(),</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                 j = m_allPrimitives.end();</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            int32_t index = -1;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i, ++index)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <span class="keywordflow">if</span>((*i) == &amp;D) <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        }</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        }</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ae5eca1c5ef4a55a06fb40c55515c8fe3">  301</a></span>&#160;        <span class="keywordtype">bool</span> IsValidPrimitiveIndex(int32_t i)</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        {</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="keywordflow">return</span> (i &gt; 0 &amp;&amp; i &lt; m_allPrimitives.size());</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        }</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp;             m_Log;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>    m_Assets;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>   m_Geometry;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a>      m_FBO1, m_FBO2;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <a class="code" href="classzen_1_1math_1_1vector__t.html">math::vector_t</a>          m_Camera;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="comment">// Lists of things that will be rendered.</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        std::list&lt;CLight*&gt;              m_allLights;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        std::list&lt;CEffect*&gt;             m_allPPFX;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        std::list&lt;gfxcore::CDrawable*&gt;  m_allPrimitives;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="comment">//std::list&lt;CEntity*&gt; m_allEntities;</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordtype">bool</span> m_lighting, m_ppfx;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    };</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;}</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;}</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__SCENE_HPP</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ae5eca1c5ef4a55a06fb40c55515c8fe3">  298</a></span>&#160;        <span class="keywordtype">bool</span> IsValidPrimitiveIndex(int32_t i)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="keywordflow">return</span> (i &gt; 0 &amp;&amp; i &lt; m_allPrimitives.size());</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>&amp;             m_Log;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp;   m_Assets;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>   m_Geometry;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_render_target" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a>      m_FBO1, m_FBO2;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>          m_Camera;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="comment">// Lists of things that will be rendered.</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        std::list&lt;CLight*&gt;              m_allLights;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        std::list&lt;CEffect*&gt;             m_allPPFX;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        std::list&lt;gfxcore::CDrawable*&gt;  m_allPrimitives;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="comment">//std::list&lt;CEntity*&gt; m_allEntities;</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordtype">bool</span> m_lighting, m_ppfx;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    };</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;}</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__SCENE_HPP</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,36 +1,20 @@
 var group___core_graphics =
 [
-    [ "zen", "namespacezen.html", null ],
-    [ "CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html", [
-      [ "CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html#a2c1f3e0daa107108491bb0f7d9d13839", null ],
-      [ "~CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html#a58fd1036856d627b19976088e4143630", null ],
-      [ "Create", "classzen_1_1gfxcore_1_1_c_drawable.html#ac78681ab7e983757ef0a75eb676c45de", null ],
-      [ "Move", "classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2", null ],
-      [ "Move", "classzen_1_1gfxcore_1_1_c_drawable.html#a4932a9379f25d0b8e263a7f7b8ac0036", null ],
-      [ "AttachMaterial", "classzen_1_1gfxcore_1_1_c_drawable.html#abbc7530f919a8642173c940d6f1807b7", null ],
-      [ "SetColor", "classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7", null ],
-      [ "Draw", "classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e", null ],
-      [ "IsModifiable", "classzen_1_1gfxcore_1_1_c_drawable.html#aeaf21d5edb63cff3e2e98cc287ed3289", null ],
-      [ "GetPosition", "classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142", null ],
-      [ "GetX", "classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b", null ],
-      [ "GetY", "classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf", null ],
-      [ "LoadIntoVAO", "classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3", null ],
-      [ "CSceneManager", "classzen_1_1gfxcore_1_1_c_drawable.html#a78569d552042eb78f45828157054319f", null ],
-      [ "mp_Material", "classzen_1_1gfxcore_1_1_c_drawable.html#a957b9cf33c28051e5edf72d790cf2059", null ],
-      [ "m_Position", "classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27", null ],
-      [ "m_DrawData", "classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2", null ],
-      [ "m_internal", "classzen_1_1gfxcore_1_1_c_drawable.html#a4a873380d505b6ec978a1c6c09034a16", null ]
-    ] ],
-    [ "CTexture", "classzen_1_1gfxcore_1_1_c_texture.html", [
-      [ "~CTexture", "classzen_1_1gfxcore_1_1_c_texture.html#af240c8e09cc7cd641e2463e4e1c76e00", null ],
-      [ "LoadFromFile", "classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091", null ],
-      [ "LoadFromExisting", "classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2", null ],
-      [ "LoadFromRaw", "classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13", null ],
-      [ "GetData", "classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b", null ],
-      [ "Bind", "classzen_1_1gfxcore_1_1_c_texture.html#a741d58d64ae800ff4851c27295801962", null ],
-      [ "Unbind", "classzen_1_1gfxcore_1_1_c_texture.html#a3b9ae915c98b731b41d19a74c15a1f49", null ],
-      [ "GetWidth", "classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26", null ],
-      [ "GetHeight", "classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc", null ],
-      [ "asset::CAssetManager", "classzen_1_1gfxcore_1_1_c_texture.html#a29506f8739fc077481fbd74a9d37b17f", null ]
-    ] ]
+    [ "CVertexArray", "group___core_graphics.html#a72ea0442f66a8bb89d9fc07128400705", null ],
+    [ "~CVertexArray", "group___core_graphics.html#ad5c18d198b866efceae68f3e2d4b9eca", null ],
+    [ "Init", "group___core_graphics.html#a995dae2f3c1ef56ba717a5fa21f88438", null ],
+    [ "Destroy", "group___core_graphics.html#ae7564af792aa5dddaeee371141ce4e61", null ],
+    [ "Bind", "group___core_graphics.html#ad5fa502f379f8c2e3c10057ca3db3a59", null ],
+    [ "Unbind", "group___core_graphics.html#a7363f6b19699a918e04de8a132aaa390", null ],
+    [ "AddData", "group___core_graphics.html#ac4f0cb32e883a5d9780a8d3037aeac40", null ],
+    [ "Offload", "group___core_graphics.html#a47daca5c022f423c5892f8902a7cf9ae", null ],
+    [ "GetObjectHandle", "group___core_graphics.html#ac32c693ba3e9b2aae670aba24de63653", null ],
+    [ "GetVBOHandle", "group___core_graphics.html#a70df5e1fc03235d797202dbb56beb4ea", null ],
+    [ "GetIBOHandle", "group___core_graphics.html#ab631a297d3f4e16412c4ec5d33c2a714", null ],
+    [ "GetVertexCount", "group___core_graphics.html#a564bd6dab654b924300f087ede631a93", null ],
+    [ "GetIndexCount", "group___core_graphics.html#aeacbca6780c1d3f540759ff6fb4115f0", null ],
+    [ "GetVerticesFromGPU", "group___core_graphics.html#a2a32139330aa0f8bbbaa2bd60d15cca2", null ],
+    [ "GetIndicesFromGPU", "group___core_graphics.html#adc8a90162e7b53e381a4249f2253da9a", null ],
+    [ "Offloaded", "group___core_graphics.html#aac52e3c55abe635464334942e4f3b52d", null ],
+    [ "Draw", "group___core_graphics.html#ad386ce51c382b3588c1316bbddda5135", null ]
 ];

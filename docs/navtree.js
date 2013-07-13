@@ -6,6 +6,7 @@ var NAVTREE =
       [ "About Me", "index.html#about_me", null ]
     ] ],
     [ "Installation", "index.html#install", null ],
+    [ "Preprocessor `#define`s", "index.html#prep", null ],
     [ "Architecture", "index.html#arch", [
       [ "Utilities", "index.html#comp_util", null ],
       [ "Math", "index.html#comp_math", null ],
@@ -62,7 +63,8 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]
@@ -72,10 +74,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_allocation-example.html",
-"_shader_set_8hpp_source.html",
-"classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee",
-"classzen_1_1util_1_1_c_settings.html#a9cec9f73af011cb99e0c1df142ba4e02",
-"structzen_1_1math_1_1_vector.html#ae99a56950b4de8cfa7059f78de97fd4d"
+"_math_core_8inl_source.html",
+"functions.html",
+"group___engine.html#a5e6e45b22e0778efeb13cfbed6da7e79",
+"index.html#about_prj"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

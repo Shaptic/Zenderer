@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,8 +113,8 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen::gfxcore;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a72ea0442f66a8bb89d9fc07128400705">    5</a></span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a72ea0442f66a8bb89d9fc07128400705">CVertexArray::CVertexArray</a>(<span class="keyword">const</span> GLenum type) :</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup.">CGLSubsystem</a>(<span class="stringliteral">&quot;Vertex Array&quot;</span>),</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a72ea0442f66a8bb89d9fc07128400705">    5</a></span>&#160;<a class="code" href="group___core_graphics.html#a72ea0442f66a8bb89d9fc07128400705">CVertexArray::CVertexArray</a>(<span class="keyword">const</span> GLenum type) :</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_g_l_subsystem" title="A wrapper for OpenGL objects with proper cleanup.">CGLSubsystem</a>(<span class="stringliteral">&quot;Vertex Array&quot;</span>),</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    m_icount(0), m_vcount(0),</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    m_vao(0), m_vbo(0), m_ibo(0),</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    m_type(type)</div>
@@ -123,36 +123,36 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_vaoVertices.clear();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5c18d198b866efceae68f3e2d4b9eca">   15</a></span>&#160;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5c18d198b866efceae68f3e2d4b9eca">CVertexArray::~CVertexArray</a>()</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ad5c18d198b866efceae68f3e2d4b9eca">   15</a></span>&#160;<a class="code" href="group___core_graphics.html#ad5c18d198b866efceae68f3e2d4b9eca">CVertexArray::~CVertexArray</a>()</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;<a class="code" href="group___core_graphics.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">CVertexArray::Init</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a995dae2f3c1ef56ba717a5fa21f88438">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_graphics.html#a995dae2f3c1ef56ba717a5fa21f88438">CVertexArray::Init</a>()</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="group___core_graphics.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) this-&gt;<a class="code" href="group___core_graphics.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// Bad GL version.</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(!glGenVertexArrays) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    GL(glGenVertexArrays(1, &amp;m_vao));</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    GL(glGenBuffers(1, &amp;m_vbo));</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    GL(glGenBuffers(1, &amp;m_ibo));</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGenVertexArrays(1, &amp;m_vao));</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGenBuffers(1, &amp;m_vbo));</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGenBuffers(1, &amp;m_ibo));</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    ZEN_ASSERT(m_vao != 0);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ZEN_ASSERT(m_vbo != 0);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ZEN_ASSERT(m_ibo != 0);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_vao != 0);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_vbo != 0);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_ibo != 0);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a> = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="group___core_graphics.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a> = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">CVertexArray::Destroy</a>()</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ae7564af792aa5dddaeee371141ce4e61">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_graphics.html#ae7564af792aa5dddaeee371141ce4e61">CVertexArray::Destroy</a>()</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="group___core_graphics.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ZEN_ASSERT(m_vao != 0);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ZEN_ASSERT(m_vbo != 0);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    ZEN_ASSERT(m_ibo != 0);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_vao != 0);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_vbo != 0);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_ibo != 0);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    glDeleteVertexArrays(1, &amp;m_vao);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    glDeleteBuffers(1, &amp;m_vbo);</div>
@@ -161,24 +161,24 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">   53</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">CVertexArray::Bind</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ad5fa502f379f8c2e3c10057ca3db3a59">   53</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_graphics.html#ad5fa502f379f8c2e3c10057ca3db3a59">CVertexArray::Bind</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    GL(glBindVertexArray(m_vao));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="group___core_graphics.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindVertexArray(m_vao));</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a7363f6b19699a918e04de8a132aaa390">   60</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a7363f6b19699a918e04de8a132aaa390">CVertexArray::Unbind</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a7363f6b19699a918e04de8a132aaa390">   60</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_graphics.html#a7363f6b19699a918e04de8a132aaa390">CVertexArray::Unbind</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    GL(glBindVertexArray(0));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span>(!<a class="code" href="group___core_graphics.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindVertexArray(0));</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40">   67</a></span>&#160;<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">CVertexArray::AddData</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray.">DrawBatch</a>&amp; D)</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="group___core_graphics.html#ac4f0cb32e883a5d9780a8d3037aeac40">   67</a></span>&#160;<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a> <a class="code" href="group___core_graphics.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">CVertexArray::AddData</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray.">DrawBatch</a>&amp; D)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ZEN_ASSERTM(D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a> &gt; 0, <span class="stringliteral">&quot;no buffer vertices given&quot;</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    ZEN_ASSERTM(D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a> &gt; 0, <span class="stringliteral">&quot;no buffer indices given&quot;</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a> &gt; 0, <span class="stringliteral">&quot;no buffer vertices given&quot;</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a> &gt; 0, <span class="stringliteral">&quot;no buffer indices given&quot;</span>);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    m_vaoVertices.reserve(m_vaoVertices.size() + D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> v = 0; v &lt; D.<a class="code" href="structzen_1_1gfxcore_1_1_draw_batch.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>; ++v)</div>
@@ -193,36 +193,36 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> offset + m_icount;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae">   86</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">CVertexArray::Offload</a>()</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a47daca5c022f423c5892f8902a7cf9ae">   86</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_graphics.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">CVertexArray::Offload</a>()</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>())       <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d">Offloaded</a>())   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="group___core_graphics.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>())       <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="group___core_graphics.html#aac52e3c55abe635464334942e4f3b52d">Offloaded</a>())   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// Bind() only binds the VAO. We attach the VBO/IBO to it here.</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="comment">// Check if there&#39;s existing data on the buffers.</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    GLint bsize = 0;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    GL(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &amp;bsize));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &amp;bsize));</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// There is!</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(bsize &gt; 0)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// Copy existing buffer data from GPU to local buffer.</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>* <span class="keyword">const</span> data = this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a2a32139330aa0f8bbbaa2bd60d15cca2">GetVerticesFromGPU</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>* <span class="keyword">const</span> data = this-&gt;<a class="code" href="group___core_graphics.html#a2a32139330aa0f8bbbaa2bd60d15cca2">GetVerticesFromGPU</a>();</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>* tmp  = <span class="keyword">new</span> <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>[bsize / <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>)];</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        memcpy(tmp, data, bsize);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        GL(glUnmapBuffer(GL_ARRAY_BUFFER));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUnmapBuffer(GL_ARRAY_BUFFER));</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment">// Allocate enough GPU space for all vertex data, new and old.</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="comment">// Pass the old data directly to it.</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        GL(glBufferData(GL_ARRAY_BUFFER,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBufferData(GL_ARRAY_BUFFER,</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        bsize + (<span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>) * m_vaoVertices.size()),</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        tmp, m_type));</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="comment">// Pass the latest vertex data at the end of the existing data.</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        GL(glBufferSubData(GL_ARRAY_BUFFER, bsize,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBufferSubData(GL_ARRAY_BUFFER, bsize,</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                           <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>) * m_vaoVertices.size(),</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                           &amp;m_vaoVertices[0]));</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
@@ -230,39 +230,39 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="comment">// Allocate enough space for all vertices on GPU.</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        GL(glBufferData(GL_ARRAY_BUFFER,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBufferData(GL_ARRAY_BUFFER,</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>) * m_vaoVertices.size(),</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        &amp;m_vaoVertices[0], m_type));</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// Repeat process for index buffer.</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    bsize = 0;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    GL(glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &amp;bsize));</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &amp;bsize));</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">if</span>(bsize &gt; 0)</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">// Copy from GPU to local buffer.</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>* <span class="keyword">const</span> data = this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#adc8a90162e7b53e381a4249f2253da9a">GetIndicesFromGPU</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>* <span class="keyword">const</span> data = this-&gt;<a class="code" href="group___core_graphics.html#adc8a90162e7b53e381a4249f2253da9a">GetIndicesFromGPU</a>();</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>* tmp  = <span class="keyword">new</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>[bsize / <span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>)];</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        memcpy(tmp, data, bsize);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        GL(glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER));</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER));</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="comment">// Allocate enough GPU space for all vertex data, new and old.</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="comment">// Pass the old data directly to it.</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER,                        <span class="comment">// IBO</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBufferData(GL_ELEMENT_ARRAY_BUFFER,                        <span class="comment">// IBO</span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                        bsize + (<span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>) * m_vaoIndices.size()),<span class="comment">// Size</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                        tmp,       <span class="comment">// Initial data</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                        m_type));  <span class="comment">// Access type</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="comment">// Pass the latest vertex data at the end of the existing data.</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        GL(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, bsize,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, bsize,</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                           <span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>) * m_vaoIndices.size(),</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                           &amp;m_vaoIndices[0]));</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="comment">// No existing data, so we just write new stuff to the buffer.</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBufferData(GL_ELEMENT_ARRAY_BUFFER,</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        <span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>) * m_vaoIndices.size(),</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                        &amp;m_vaoIndices[0], m_type));</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
@@ -276,27 +276,27 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">// Specify vertex position arrangement.</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">// According to the diagram shown above, the vertex position</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">// would start at index 0.</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    GL(glVertexAttribPointer(0,                 <span class="comment">/* Attribute index  */</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glVertexAttribPointer(0,                 <span class="comment">/* Attribute index  */</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                             3,                 <span class="comment">/* Number of values */</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                             GL_FLOAT,          <span class="comment">/* Type of value    */</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                             GL_FALSE,          <span class="comment">/* Normalized?      */</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                             <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>),  <span class="comment">/* Size of field    */</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        VBO_OFFSET(0, <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>, position)));    <span class="comment">/* Size of offset   */</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <a class="code" href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53" title="Dirty macro to determine the offset of a field within a struct.">VBO_OFFSET</a>(0, <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>, position)));    <span class="comment">/* Size of offset   */</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">// Enable shader attribute 0 (position)</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    GL(glEnableVertexAttribArray(0));</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glEnableVertexAttribArray(0));</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">// Specify texture coordinate position arrangement.</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">// According to the diagram, texture coordinates</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">// start at index 3.</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    GL(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>),</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                             VBO_OFFSET(0, <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>, tc)));</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    GL(glEnableVertexAttribArray(1));</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>),</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                             <a class="code" href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53" title="Dirty macro to determine the offset of a field within a struct.">VBO_OFFSET</a>(0, <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>, tc)));</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glEnableVertexAttribArray(1));</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="comment">// Specify the color arrangement, starting at index 4.</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    GL(glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>),</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                             VBO_OFFSET(0, <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>, color)));</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    GL(glEnableVertexAttribArray(2));</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, <span class="keyword">sizeof</span>(<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>),</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                             <a class="code" href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53" title="Dirty macro to determine the offset of a field within a struct.">VBO_OFFSET</a>(0, <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>, color)));</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glEnableVertexAttribArray(2));</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">// We do not unbind our buffers as they stay attached to the VAO.</span></div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
@@ -307,30 +307,30 @@ $(document).ready(function(){initNavTree('_vertex_array_8cpp_source.html','');})
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    m_vaoVertices.clear();</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    m_vaoIndices.clear();</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a7363f6b19699a918e04de8a132aaa390">Unbind</a>();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="group___core_graphics.html#a7363f6b19699a918e04de8a132aaa390">Unbind</a>();</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a2a32139330aa0f8bbbaa2bd60d15cca2">  203</a></span>&#160;<span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>* <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a2a32139330aa0f8bbbaa2bd60d15cca2">CVertexArray::GetVerticesFromGPU</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a2a32139330aa0f8bbbaa2bd60d15cca2">  203</a></span>&#160;<span class="keyword">const</span> <a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>* <span class="keyword">const</span> <a class="code" href="group___core_graphics.html#a2a32139330aa0f8bbbaa2bd60d15cca2">CVertexArray::GetVerticesFromGPU</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>*)GL(glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY));</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="structzen_1_1gfxcore_1_1vertex__t.html">vertex_t</a>*)<a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY));</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#adc8a90162e7b53e381a4249f2253da9a">  208</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>* <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#adc8a90162e7b53e381a4249f2253da9a">CVertexArray::GetIndicesFromGPU</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="code" href="group___core_graphics.html#adc8a90162e7b53e381a4249f2253da9a">  208</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>* <span class="keyword">const</span> <a class="code" href="group___core_graphics.html#adc8a90162e7b53e381a4249f2253da9a">CVertexArray::GetIndicesFromGPU</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>*)GL(glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, GL_READ_ONLY));</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">index_t</a>*)<a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, GL_READ_ONLY));</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a564bd6dab654b924300f087ede631a93">  213</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a564bd6dab654b924300f087ede631a93">CVertexArray::GetVertexCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a564bd6dab654b924300f087ede631a93">  213</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="group___core_graphics.html#a564bd6dab654b924300f087ede631a93">CVertexArray::GetVertexCount</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">return</span> m_vcount;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#aeacbca6780c1d3f540759ff6fb4115f0">  218</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#aeacbca6780c1d3f540759ff6fb4115f0">CVertexArray::GetIndexCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="code" href="group___core_graphics.html#aeacbca6780c1d3f540759ff6fb4115f0">  218</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="group___core_graphics.html#aeacbca6780c1d3f540759ff6fb4115f0">CVertexArray::GetIndexCount</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">return</span> m_icount;</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d">  223</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d">CVertexArray::Offloaded</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="code" href="group___core_graphics.html#aac52e3c55abe635464334942e4f3b52d">  223</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group___core_graphics.html#aac52e3c55abe635464334942e4f3b52d">CVertexArray::Offloaded</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span> (m_vaoIndices.size() == 0 &amp;&amp; m_vaoVertices.size() == 0);</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>

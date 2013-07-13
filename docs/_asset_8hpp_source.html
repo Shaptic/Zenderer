@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,33 +113,33 @@ $(document).ready(function(){initNavTree('_asset_8hpp_source.html','');});
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef ZENDERER__ASSETS__ASSET_HPP</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__ASSETS__ASSET_HPP</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Zenderer/Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="group___assets.html#afc4ccb384bf6277fafeca9974ccdf017">   29</a></span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Zenderer/Core/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp - A debug utility for verifying program state at runtime.">Zenderer/Utilities/Assert.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file.">Zenderer/Utilities/Log.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp - A collection of helper functions primarily used for string manipulat...">Zenderer/Utilities/Helpers.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="group___assets.html#ab43b0d72c2e2df204df3f582d10efeba">   34</a></span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="namespacezen.html">   35</a></span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="namespacezen_1_1asset.html">   39</a></span>&#160;<span class="keyword">namespace </span>asset</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="group___assets.html#ace8121bde584098ce51920291346aa30">   39</a></span>&#160;<span class="keyword">namespace </span>asset</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">   42</a></span>&#160;    <span class="keyword">typedef</span> uint32_t <a class="code" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449" title="For unique asset ID.">assetid_t</a>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html">   45</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="group___assets.html">   45</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename) = 0;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>* <span class="keyword">const</span> pCopy);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>* <span class="keyword">const</span> pCopy);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">inline</span> uint32_t GetFilenameHash() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449" title="For unique asset ID.">assetid_t</a> GetID() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; GetFilename() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; GetFilename() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> GetData() <span class="keyword">const</span> = 0;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
@@ -153,33 +153,36 @@ $(document).ready(function(){initNavTree('_asset_8hpp_source.html','');});
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> SetFilename(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a42da7c7a8ac369ebf96c519ab3398ce6">  100</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">CAssetManager</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="group___assets.html#a42da7c7a8ac369ebf96c519ab3398ce6">  100</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">CAssetManager</a>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>&amp; Disabled);             <span class="comment">/* = delete; */</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>&amp; Disabled); <span class="comment">/* = delete; */</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>(<span class="keyword">const</span> <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>&amp; Disabled);             <span class="comment">/* = delete; */</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>&amp; Disabled); <span class="comment">/* = delete; */</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>() = 0;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Destroy() = 0;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a73d9bc5ded589b308c875d4ea152acf8">  112</a></span>&#160;        <span class="keyword">static</span> uint32_t <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a73d9bc5ded589b308c875d4ea152acf8">s_seed</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="group___assets.html#a73d9bc5ded589b308c875d4ea152acf8">  112</a></span>&#160;        <span class="keyword">static</span> uint32_t <a class="code" href="group___assets.html#a73d9bc5ded589b308c875d4ea152acf8">s_seed</a>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b">  114</a></span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp; <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b">m_Log</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="group___assets.html#a4902961e708ba1ef8f72ac26efabe05b">  114</a></span>&#160;        <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>&amp; <a class="code" href="group___assets.html#a4902961e708ba1ef8f72ac26efabe05b">m_Log</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">  116</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>    <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">m_filename</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">  117</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>    <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">m_error_str</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#ae963e23ab04ffdcb3ba01b7ad39b3b8d">  118</a></span>&#160;        uint32_t    m_filename_hash, <a class="code" href="classzen_1_1asset_1_1_c_asset.html#ae963e23ab04ffdcb3ba01b7ad39b3b8d">m_id</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">  119</a></span>&#160;        <span class="keywordtype">bool</span>        <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f">  120</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code" href="classzen_1_1asset_1_1_c_asset.html#ac3c55576701e58af5a814b0ab99f664f">mp_owner</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    };</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_asset_8inl.html">Asset.inl</a>&quot;</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}   <span class="comment">// namespace asset</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif // ZENDERER__ASSETS__ASSET_HPP</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="group___assets.html#a9c3eb60c3fdaa9d10748f56749e97c02">  116</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>    <a class="code" href="group___assets.html#a9c3eb60c3fdaa9d10748f56749e97c02">m_filename</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="group___assets.html#a23f68362f7596efb51f47de140e78575">  117</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>    <a class="code" href="group___assets.html#a23f68362f7596efb51f47de140e78575">m_error_str</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="group___assets.html#a698c93c320d6e0a21050652c6f616857">  118</a></span>&#160;        uint32_t    <a class="code" href="group___assets.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="group___assets.html#a2aabe67928ebf0afdbf3262b048863db">  119</a></span>&#160;        <span class="keywordtype">bool</span>        <a class="code" href="group___assets.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        uint32_t m_id;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span>* mp_owner;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    };</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_asset_8inl.html">Asset.inl</a>&quot;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}   <span class="comment">// namespace asset</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif // ZENDERER__ASSETS__ASSET_HPP</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

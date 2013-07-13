@@ -1,0 +1,12 @@
+<map id="zen::asset::CAsset::SetFilename" name="zen::asset::CAsset::SetFilename">
+<area shape="rect" id="node2" href="$group___core_graphics.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file." alt="" coords="439,24,590,65"/>
+<area shape="rect" id="node3" href="$group___core_graphics.html#a4d24242797f32704ece433ffbf06454f" title="zen::gfxcore::CShader\l::LoadFromRaw" alt="" coords="214,39,365,80"/>
+<area shape="rect" id="node4" href="$group___core_graphics.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="438,112,591,153"/>
+<area shape="rect" id="node7" href="$group___core_graphics.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="438,196,591,237"/>
+<area shape="rect" id="node10" href="$group___core_graphics.html#ac0a0a90599382782214dcd6ac22acc13" title="zen::gfxcore::CTexture\l::LoadFromRaw" alt="" coords="213,156,366,197"/>
+<area shape="rect" id="node11" href="$classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk." alt="" coords="190,273,389,299"/>
+<area shape="rect" id="node5" href="$group___graphics.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="660,112,791,153"/>
+<area shape="rect" id="node6" href="$group___objects.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="875,112,1002,153"/>
+<area shape="rect" id="node8" href="$group___graphics.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="640,196,811,237"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="859,203,1019,230"/>
+</map>

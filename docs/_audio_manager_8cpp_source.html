@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,15 +113,15 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API.">sfx::CAudioManager</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager" title="A collection of static helper functions for the audio API.">sfx::CAudioManager</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;uint32_t    CAudioManager::s_available[256];</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span>        CAudioManager::s_init = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a9ae7e2a83f5eba6f92adf07622eae4c8">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#ac7153f7bb4d7a06e8d227819ae770b61">CAudioManager::Init</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="group___audio.html#a9ae7e2a83f5eba6f92adf07622eae4c8">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CAudioManager::Init</a>()</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(!CAudioManager::IsInit())</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> s_init;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#aebc219ee89c86e8ed3fbd0684e1ced9f">   32</a></span>&#160;<span class="keywordtype">int</span> CAudioManager::GetAvailableSourceIndex()</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="group___audio.html#aebc219ee89c86e8ed3fbd0684e1ced9f">   32</a></span>&#160;<span class="keywordtype">int</span> CAudioManager::GetAvailableSourceIndex()</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> uint16_t last = 0;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
@@ -168,14 +168,14 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61">   60</a></span>&#160;<span class="keywordtype">int</span> CAudioManager::GetAvailableSource(<span class="keyword">const</span> uint16_t index)</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="group___audio.html#ab652bcb2955fb97b098f3790daa34f61">   60</a></span>&#160;<span class="keywordtype">int</span> CAudioManager::GetAvailableSource(<span class="keyword">const</span> uint16_t index)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    ZEN_ASSERT(index &gt;= 0 &amp;&amp; index &lt; AVAILABLE_BUFFERS);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(index &gt;= 0 &amp;&amp; index &lt; AVAILABLE_BUFFERS);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> s_available[index];</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a5c00dd3076e14440b4f6d5ee17cd5ea1">   67</a></span>&#160;ALuint CAudioManager::CreateSource()</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="group___audio.html#a5c00dd3076e14440b4f6d5ee17cd5ea1">   67</a></span>&#160;ALuint CAudioManager::CreateSource()</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    CLog&amp; g_EngineLog = CLog::GetEngineLog();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
@@ -189,11 +189,11 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    AL(alGenSources(1, &amp;s_available[index]));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alGenSources(1, &amp;s_available[index]));</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> s_available[index];</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01">   85</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::FreeSource(ALuint src)</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="group___audio.html#aa8af6f0acd2111500659b038fb256e01">   85</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::FreeSource(ALuint src)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span>(!src) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
@@ -201,7 +201,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span>(s_available[i] == src)</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            AL(alDeleteSources(1, &amp;src));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL</a>(alDeleteSources(1, &amp;src));</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            s_available[i] = 0;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d">  102</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::alCheck(<span class="keyword">const</span> <span class="keywordtype">char</span>*     expr,</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="group___audio.html#a400e4194c5b8a08a72f8d00065f1eb2d">  102</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::alCheck(<span class="keyword">const</span> <span class="keywordtype">char</span>*     expr,</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                            <span class="keyword">const</span> uint32_t  line,</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">char</span>*     file)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
@@ -228,12 +228,12 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    ss &lt;&lt; error_code &lt;&lt; <span class="stringliteral">&quot; (&quot;</span> &lt;&lt; alGetString(error_code) &lt;&lt; <span class="stringliteral">&quot;).&quot;</span>;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">// Express our discontent.</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574" title="Executes a verification of an expression, crashing on error.">util::runtime_assert</a>(<span class="keyword">false</span>, expr, line, file, ss.str().c_str());</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="namespacezen_1_1util.html#a512b60cbe9a683e499f478b4440003a5" title="Executes a verification of an expression, crashing on error.">util::runtime_assert</a>(<span class="keyword">false</span>, expr, line, file, ss.str().c_str());</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1">  125</a></span>&#160;<span class="keywordtype">void</span> CAudioManager::OGGError(<span class="keyword">const</span> <span class="keywordtype">int</span> error_code)</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="group___audio.html#a99b8e3ee406f5571bce717ee2c30ecb1">  125</a></span>&#160;<span class="keywordtype">void</span> CAudioManager::OGGError(<span class="keyword">const</span> <span class="keywordtype">int</span> error_code)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    CLog&amp; g_EngineLog = CLog::GetEngineLog();</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
@@ -271,7 +271,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    g_EngineLog &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a0e37c14ea1008f7a514cbfc5b67a0914">  163</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::IsInit()</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="group___audio.html#a0e37c14ea1008f7a514cbfc5b67a0914">  163</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::IsInit()</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> s_init;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -125,39 +125,40 @@ $(document).ready(function(){initNavTree('_texture_8hpp_source.html','');});
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>gfxcore</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html">   39</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="group___core_graphics.html">   39</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a> : <span class="keyword">public</span> <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ~<a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopy);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">bool</span> LoadFromRaw(<span class="keyword">const</span> GLenum iformat, <span class="keyword">const</span> GLenum format,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                         <span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> GetData() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> Bind() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> Unbind() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26">   55</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26">GetWidth</a>()<span class="keyword">     const </span>{ <span class="keywordflow">return</span> m_width; }</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc">   56</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc">GetHeight</a>()<span class="keyword">    const </span>{ <span class="keywordflow">return</span> m_height; }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#a29506f8739fc077481fbd74a9d37b17f">   58</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        GLuint m_texture;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GLuint m_width, m_height;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__TEXTURE_HPP</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> GLuint handle);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">bool</span> LoadFromRaw(<span class="keyword">const</span> GLenum iformat, <span class="keyword">const</span> GLenum format,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                         <span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> GetData() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> Bind() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">bool</span> Unbind() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="group___core_graphics.html#af3e8e6c3c1f6bd0298ec293b7ca56f26">   56</a></span>&#160;        uint16_t <a class="code" href="group___core_graphics.html#af3e8e6c3c1f6bd0298ec293b7ca56f26">GetWidth</a>()<span class="keyword">     const </span>{ <span class="keywordflow">return</span> m_width; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a799aec47cc79aa2fe767c9e87c7cc0dc">   57</a></span>&#160;        uint16_t <a class="code" href="group___core_graphics.html#a799aec47cc79aa2fe767c9e87c7cc0dc">GetHeight</a>()<span class="keyword">    const </span>{ <span class="keywordflow">return</span> m_height; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="group___core_graphics.html#a29506f8739fc077481fbd74a9d37b17f">   59</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> Destroy();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GLuint m_texture;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        GLuint m_width, m_height;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__TEXTURE_HPP</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

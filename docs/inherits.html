@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -114,131 +114,143 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <div class="textblock">
 <p><a href="hierarchy.html">Go to the textual class hierarchy</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
-<tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#gfx_1_1_c_render_target"/>
-<map name="gfx_1_1_c_render_target" id="gfx_1_1_c_render_target">
-<area shape="rect" id="node1" href="classgfx_1_1_c_render_target.html" title="gfx::CRenderTarget" alt="" coords="5,5,139,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#zen_1_1asset_1_1_c_asset"/>
+<tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#zen_1_1asset_1_1_c_asset"/>
 <map name="zen_1_1asset_1_1_c_asset" id="zen_1_1asset_1_1_c_asset">
-<area shape="rect" id="node1" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="6,81,141,108"/><area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="191,5,342,32"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low&#45;level texture asset abstraction over OpenGL texture handles." alt="" coords="190,56,343,83"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class." alt="" coords="211,107,322,133"/><area shape="rect" id="node5" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="199,157,334,184"/><area shape="rect" id="node6" href="classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="393,132,529,159"/><area shape="rect" id="node7" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="392,183,531,209"/></map>
+<area shape="rect" id="node1" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset." alt="" coords="6,81,141,108"/><area shape="rect" id="node2" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_shader" title="A wrapper for OpenGL shader objects." alt="" coords="191,5,342,32"/><area shape="rect" id="node3" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low&#45;level texture asset abstraction over OpenGL texture handles." alt="" coords="190,56,343,83"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class." alt="" coords="211,107,322,133"/><area shape="rect" id="node5" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d" title="An abstract base class for audio objects." alt="" coords="199,157,334,184"/><area shape="rect" id="node6" href="group___audio.html#classzen_1_1sfx_1_1_c_music2_d" title="Music files (.ogg files)" alt="" coords="393,132,529,159"/><area shape="rect" id="node7" href="group___audio.html#classzen_1_1sfx_1_1_c_sound2_d" title="Sound effects (.wav files)" alt="" coords="392,183,531,209"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#zen_1_1color3f__t"/>
+<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#zen_1_1color3f__t"/>
 <map name="zen_1_1color3f__t" id="zen_1_1color3f__t">
 <area shape="rect" id="node1" href="structzen_1_1color3f__t.html" title="A 24&#45;bit floating point color component (RGB)." alt="" coords="6,5,106,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#zen_1_1color4f__t"/>
+<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#zen_1_1color4f__t"/>
 <map name="zen_1_1color4f__t" id="zen_1_1color4f__t">
 <area shape="rect" id="node1" href="structzen_1_1color4f__t.html" title="A 32&#45;bit floating point color component (RGBA)." alt="" coords="6,5,106,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#zen_1_1_c_subsystem"/>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#zen_1_1_c_subsystem"/>
 <map name="zen_1_1_c_subsystem" id="zen_1_1_c_subsystem">
-<area shape="rect" id="node1" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="6,132,133,159"/><area shape="rect" id="node2" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets." alt="" coords="181,5,365,32"/><area shape="rect" id="node3" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high&#45;speed memory requests." alt="" coords="218,56,329,83"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context." alt="" coords="208,107,339,133"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library." alt="" coords="198,157,349,184"/><area shape="rect" id="node6" href="classzen_1_1lua_1_1_c_lua_a_p_i.html" title="Wrapper for the core Lua interpreter." alt="" coords="210,208,337,235"/><area shape="rect" id="node7" href="classzen_1_1util_1_1_c_settings.html" title="An array&#45;like wrapper for various settings." alt="" coords="207,259,340,285"/></map>
+<area shape="rect" id="node1" href="group___engine.html#classzen_1_1_c_subsystem" title="An abstract base class for all engine subsystems." alt="" coords="6,132,133,159"/><area shape="rect" id="node2" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets." alt="" coords="181,5,365,32"/><area shape="rect" id="node3" href="group___engine.html#classzen_1_1_c_allocator" title="An optional custom allocator for high&#45;speed memory requests." alt="" coords="218,56,329,83"/><area shape="rect" id="node4" href="group___graphics.html#classzen_1_1gfx_1_1_c_window" title="Creates a renderable OpenGL context." alt="" coords="208,107,339,133"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library." alt="" coords="198,157,349,184"/><area shape="rect" id="node6" href="group___scripting.html#classzen_1_1lua_1_1_c_lua_a_p_i" title="Wrapper for the core Lua interpreter." alt="" coords="210,208,337,235"/><area shape="rect" id="node7" href="group___utilities.html#classzen_1_1util_1_1_c_settings" title="An array&#45;like wrapper for various settings." alt="" coords="207,259,340,285"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_font"/>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#zen_1_1evt_1_1_c_event_handler"/>
+<map name="zen_1_1evt_1_1_c_event_handler" id="zen_1_1evt_1_1_c_event_handler">
+<area shape="rect" id="node1" href="classzen_1_1evt_1_1_c_event_handler.html" title="zen::evt::CEventHandler" alt="" coords="5,5,165,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#zen_1_1evt_1_1event__t"/>
+<map name="zen_1_1evt_1_1event__t" id="zen_1_1evt_1_1event__t">
+<area shape="rect" id="node1" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events." alt="" coords="6,5,122,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#zen_1_1evt_1_1key__t"/>
+<map name="zen_1_1evt_1_1key__t" id="zen_1_1evt_1_1key__t">
+<area shape="rect" id="node1" href="structzen_1_1evt_1_1key__t.html" title="Keyboard event structure." alt="" coords="5,5,112,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#zen_1_1evt_1_1mouse__t"/>
+<map name="zen_1_1evt_1_1mouse__t" id="zen_1_1evt_1_1mouse__t">
+<area shape="rect" id="node1" href="structzen_1_1evt_1_1mouse__t.html" title="zen::evt::mouse_t" alt="" coords="5,5,131,32"/></map>
+</td></tr>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_font"/>
 <map name="zen_1_1gfx_1_1_c_font" id="zen_1_1gfx_1_1_c_font">
-<area shape="rect" id="node1" href="classzen_1_1gfx_1_1_c_font.html" title="zen::gfx::CFont" alt="" coords="6,5,117,32"/></map>
+<area shape="rect" id="node1" href="group___g_u_i.html#classzen_1_1gfx_1_1_c_font" title="zen::gfx::CFont" alt="" coords="6,5,117,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_light"/>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_light"/>
 <map name="zen_1_1gfx_1_1_c_light" id="zen_1_1gfx_1_1_c_light">
-<area shape="rect" id="node1" href="classzen_1_1gfx_1_1_c_light.html" title="Represents a light object acting on a graphical scene." alt="" coords="6,5,119,32"/></map>
+<area shape="rect" id="node1" href="group___graphics.html#classzen_1_1gfx_1_1_c_light" title="Represents a light object acting on a graphical scene." alt="" coords="6,5,119,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_material"/>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_material"/>
 <map name="zen_1_1gfx_1_1_c_material" id="zen_1_1gfx_1_1_c_material">
-<area shape="rect" id="node1" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,5,136,32"/></map>
+<area shape="rect" id="node1" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture." alt="" coords="5,5,136,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_scene"/>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#zen_1_1gfx_1_1_c_scene"/>
 <map name="zen_1_1gfx_1_1_c_scene" id="zen_1_1gfx_1_1_c_scene">
 <area shape="rect" id="node1" href="classzen_1_1gfx_1_1_c_scene.html" title="zen::gfx::CScene" alt="" coords="5,5,128,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_drawable"/>
+<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_drawable"/>
 <map name="zen_1_1gfxcore_1_1_c_drawable" id="zen_1_1gfxcore_1_1_c_drawable">
-<area shape="rect" id="node1" href="classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives." alt="" coords="5,5,168,32"/><area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_quad.html" title="A four&#45;sided quadrilateral primitive." alt="" coords="217,5,333,32"/></map>
+<area shape="rect" id="node1" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_drawable" title="An abstract base class for all drawable primitives." alt="" coords="5,5,168,32"/><area shape="rect" id="node2" href="group___graphics.html#classzen_1_1gfx_1_1_c_quad" title="A four&#45;sided quadrilateral primitive." alt="" coords="217,5,333,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem"/>
+<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_g_l_subsystem"/>
 <map name="zen_1_1gfxcore_1_1_c_g_l_subsystem" id="zen_1_1gfxcore_1_1_c_g_l_subsystem">
-<area shape="rect" id="node1" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="6,56,199,83"/><area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html" title="A high&#45;level shader wrapper." alt="" coords="278,5,397,32"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations." alt="" coords="256,56,419,83"/><area shape="rect" id="node4" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="248,107,427,133"/></map>
+<area shape="rect" id="node1" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_g_l_subsystem" title="A wrapper for OpenGL objects with proper cleanup." alt="" coords="6,56,199,83"/><area shape="rect" id="node2" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high&#45;level shader wrapper." alt="" coords="278,5,397,32"/><area shape="rect" id="node3" href="group___graphics.html#classzen_1_1gfx_1_1_c_render_target" title="Creates a target for all subsequent rendering operations." alt="" coords="256,56,419,83"/><area shape="rect" id="node4" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects." alt="" coords="248,107,427,133"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_renderer"/>
+<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_renderer"/>
 <map name="zen_1_1gfxcore_1_1_c_renderer" id="zen_1_1gfxcore_1_1_c_renderer">
 <area shape="rect" id="node1" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API&#45;specific rendering operations." alt="" coords="5,5,168,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_shader_set"/>
+<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_shader_set"/>
 <map name="zen_1_1gfxcore_1_1_c_shader_set" id="zen_1_1gfxcore_1_1_c_shader_set">
-<area shape="rect" id="node1" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program)." alt="" coords="5,5,176,32"/></map>
+<area shape="rect" id="node1" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_shader_set" title="A wrapper for a useable set of shaders (an OpenGL program)." alt="" coords="5,5,176,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_sorter"/>
+<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_c_sorter"/>
 <map name="zen_1_1gfxcore_1_1_c_sorter" id="zen_1_1gfxcore_1_1_c_sorter">
-<area shape="rect" id="node1" href="classzen_1_1gfxcore_1_1_c_sorter.html" title="zen::gfxcore::CSorter" alt="" coords="6,5,151,32"/></map>
+<area shape="rect" id="node1" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_sorter" title="zen::gfxcore::CSorter" alt="" coords="6,5,151,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_draw_batch"/>
+<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1_draw_batch"/>
 <map name="zen_1_1gfxcore_1_1_draw_batch" id="zen_1_1gfxcore_1_1_draw_batch">
 <area shape="rect" id="node1" href="structzen_1_1gfxcore_1_1_draw_batch.html" title="A collection of drawing data to pass to a CVertexArray." alt="" coords="6,5,170,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1vertex__t"/>
+<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#zen_1_1gfxcore_1_1vertex__t"/>
 <map name="zen_1_1gfxcore_1_1vertex__t" id="zen_1_1gfxcore_1_1vertex__t">
 <area shape="rect" id="node1" href="structzen_1_1gfxcore_1_1vertex__t.html" title="zen::gfxcore::vertex_t" alt="" coords="5,5,152,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#zen_1_1gui_1_1glyph__t"/>
+<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#zen_1_1gui_1_1glyph__t"/>
 <map name="zen_1_1gui_1_1glyph__t" id="zen_1_1gui_1_1glyph__t">
 <area shape="rect" id="node1" href="structzen_1_1gui_1_1glyph__t.html" title="zen::gui::glyph_t" alt="" coords="6,5,125,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#zen_1_1math_1_1circle__t"/>
+<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#zen_1_1math_1_1circle__t"/>
 <map name="zen_1_1math_1_1circle__t" id="zen_1_1math_1_1circle__t">
 <area shape="rect" id="node1" href="structzen_1_1math_1_1circle__t.html" title="Represents a circle with position and radius." alt="" coords="5,5,136,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#zen_1_1math_1_1matrix4x4__t"/>
+<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#zen_1_1math_1_1matrix4x4__t"/>
 <map name="zen_1_1math_1_1matrix4x4__t" id="zen_1_1math_1_1matrix4x4__t">
-<area shape="rect" id="node1" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation." alt="" coords="6,5,162,32"/></map>
+<area shape="rect" id="node1" href="group___math.html#classzen_1_1math_1_1matrix4x4__t" title="4x4 matrix representation." alt="" coords="6,5,162,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#zen_1_1math_1_1rect__t"/>
+<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#zen_1_1math_1_1rect__t"/>
 <map name="zen_1_1math_1_1rect__t" id="zen_1_1math_1_1rect__t">
 <area shape="rect" id="node1" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions." alt="" coords="6,5,127,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#zen_1_1math_1_1_vector_3_01_t_01_4"/>
+<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#zen_1_1math_1_1_vector_3_01_t_01_4"/>
 <map name="zen_1_1math_1_1_vector_3_01_t_01_4" id="zen_1_1math_1_1_vector_3_01_t_01_4">
 <area shape="rect" id="node1" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular&#45;coordinate space." alt="" coords="5,5,163,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#zen_1_1math_1_1_vector_3_01uint16__t_01_4"/>
+<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#zen_1_1math_1_1_vector_3_01uint16__t_01_4"/>
 <map name="zen_1_1math_1_1_vector_3_01uint16__t_01_4" id="zen_1_1math_1_1_vector_3_01uint16__t_01_4">
 <area shape="rect" id="node1" href="structzen_1_1math_1_1_vector.html" title="zen::math::Vector\&lt;\l uint16_t \&gt;" alt="" coords="6,5,141,46"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#zen_1_1math_1_1vector__t"/>
+<tr><td><img src="inherit_graph_25.png" border="0" alt="" usemap="#zen_1_1math_1_1vector__t"/>
 <map name="zen_1_1math_1_1vector__t" id="zen_1_1math_1_1vector__t">
-<area shape="rect" id="node1" href="classzen_1_1math_1_1vector__t.html" title="zen::math::vector_t" alt="" coords="5,5,139,32"/></map>
+<area shape="rect" id="node1" href="group___math.html#classzen_1_1math_1_1vector__t" title="zen::math::vector_t" alt="" coords="5,5,139,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#zen_1_1obj_1_1_c_entity"/>
+<tr><td><img src="inherit_graph_26.png" border="0" alt="" usemap="#zen_1_1obj_1_1_c_entity"/>
 <map name="zen_1_1obj_1_1_c_entity" id="zen_1_1obj_1_1_c_entity">
-<area shape="rect" id="node1" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in&#45;game&quot; objects." alt="" coords="6,5,125,32"/></map>
+<area shape="rect" id="node1" href="group___objects.html#classzen_1_1obj_1_1_c_entity" title="A base class for all &quot;in&#45;game&quot; objects." alt="" coords="6,5,125,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#zen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data"/>
+<tr><td><img src="inherit_graph_27.png" border="0" alt="" usemap="#zen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data"/>
 <map name="zen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data" id="zen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data">
 <area shape="rect" id="node1" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html" title="zen::sfx::CAudio2D\l::ALData" alt="" coords="6,5,141,46"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_25.png" border="0" alt="" usemap="#zen_1_1sfx_1_1_c_audio_manager"/>
+<tr><td><img src="inherit_graph_28.png" border="0" alt="" usemap="#zen_1_1sfx_1_1_c_audio_manager"/>
 <map name="zen_1_1sfx_1_1_c_audio_manager" id="zen_1_1sfx_1_1_c_audio_manager">
-<area shape="rect" id="node1" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API." alt="" coords="5,5,173,32"/></map>
+<area shape="rect" id="node1" href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager" title="A collection of static helper functions for the audio API." alt="" coords="5,5,173,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_26.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_i_n_i_parser"/>
+<tr><td><img src="inherit_graph_29.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_i_n_i_parser"/>
 <map name="zen_1_1util_1_1_c_i_n_i_parser" id="zen_1_1util_1_1_c_i_n_i_parser">
-<area shape="rect" id="node1" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files." alt="" coords="5,5,144,32"/></map>
+<area shape="rect" id="node1" href="group___utilities.html#classzen_1_1util_1_1_c_i_n_i_parser" title="Parses files based on key=value1,...,valueN pairs, like in .ini files." alt="" coords="5,5,144,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_27.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_log"/>
+<tr><td><img src="inherit_graph_30.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_log"/>
 <map name="zen_1_1util_1_1_c_log" id="zen_1_1util_1_1_c_log">
-<area shape="rect" id="node1" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="5,5,112,32"/></map>
+<area shape="rect" id="node1" href="group___utilities.html#classzen_1_1util_1_1_c_log" title="Creates a special file stream to store logging information." alt="" coords="5,5,112,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_28.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_option"/>
+<tr><td><img src="inherit_graph_31.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_option"/>
 <map name="zen_1_1util_1_1_c_option" id="zen_1_1util_1_1_c_option">
 <area shape="rect" id="node1" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types." alt="" coords="5,5,128,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_29.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_timer"/>
+<tr><td><img src="inherit_graph_32.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_timer"/>
 <map name="zen_1_1util_1_1_c_timer" id="zen_1_1util_1_1_c_timer">
-<area shape="rect" id="node1" href="classzen_1_1util_1_1_c_timer.html" title="A high&#45;precision timer class for controlling frame rates." alt="" coords="5,5,123,32"/></map>
+<area shape="rect" id="node1" href="group___utilities.html#classzen_1_1util_1_1_c_timer" title="A high&#45;precision timer class for controlling frame rates." alt="" coords="5,5,123,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_30.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_x_m_l_parser"/>
+<tr><td><img src="inherit_graph_33.png" border="0" alt="" usemap="#zen_1_1util_1_1_c_x_m_l_parser"/>
 <map name="zen_1_1util_1_1_c_x_m_l_parser" id="zen_1_1util_1_1_c_x_m_l_parser">
-<area shape="rect" id="node1" href="classzen_1_1util_1_1_c_x_m_l_parser.html" title="A minimalistic XML parser that expects near&#45;perfection from the user." alt="" coords="6,5,154,32"/></map>
+<area shape="rect" id="node1" href="group___utilities.html#classzen_1_1util_1_1_c_x_m_l_parser" title="A minimalistic XML parser that expects near&#45;perfection from the user." alt="" coords="6,5,154,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_31.png" border="0" alt="" usemap="#zen_1_1util_1_1_x_m_l_node"/>
+<tr><td><img src="inherit_graph_34.png" border="0" alt="" usemap="#zen_1_1util_1_1_x_m_l_node"/>
 <map name="zen_1_1util_1_1_x_m_l_node" id="zen_1_1util_1_1_x_m_l_node">
 <area shape="rect" id="node1" href="structzen_1_1util_1_1_x_m_l_node.html" title="A single XML node." alt="" coords="5,5,136,32"/></map>
 </td></tr>

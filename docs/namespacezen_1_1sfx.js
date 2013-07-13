@@ -1,7 +1,7 @@
 var namespacezen_1_1sfx =
 [
-    [ "CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html", "classzen_1_1sfx_1_1_c_audio2_d" ],
-    [ "CAudioManager", "classzen_1_1sfx_1_1_c_audio_manager.html", "classzen_1_1sfx_1_1_c_audio_manager" ],
-    [ "CMusic2D", "classzen_1_1sfx_1_1_c_music2_d.html", "classzen_1_1sfx_1_1_c_music2_d" ],
-    [ "CSound2D", "classzen_1_1sfx_1_1_c_sound2_d.html", "classzen_1_1sfx_1_1_c_sound2_d" ]
+    [ "CAudio2D", "group___audio.html#classzen_1_1sfx_1_1_c_audio2_d", "group___audio" ],
+    [ "CAudioManager", "group___audio.html#classzen_1_1sfx_1_1_c_audio_manager", "group___audio" ],
+    [ "CMusic2D", "group___audio.html#classzen_1_1sfx_1_1_c_music2_d", "group___audio" ],
+    [ "CSound2D", "group___audio.html#classzen_1_1sfx_1_1_c_sound2_d", "group___audio" ]
 ];

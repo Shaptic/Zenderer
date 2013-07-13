@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,7 +108,7 @@ $(document).ready(function(){initNavTree('specs.html','');});
 ZenLevel</h1>
 <h2><a class="anchor" id="zlvlspec"></a>
 Specification</h2>
-<p>Levels in <em>Zenderer</em> combine the entity specification</p>
+<p>Levels in <em>Zenderer</em> combine the <a class="el" href="specs.html#ZEntSpec">entity</a> specification.</p>
 <h3><a class="anchor" id="zlvl_light"></a>
 Light Options</h3>
 <p>All floating point values can have a maximum of three decimal places of precision in them. fp &ndash; floating-point</p>
@@ -201,7 +201,7 @@ Example File</h3>
 <div class="line">M2.LoadTextureFromFile(<span class="stringliteral">&quot;textures/dirt.png&quot;</span>);</div>
 <div class="line">Q2.AttachMaterial(M2);</div>
 <div class="line"></div>
-<div class="line">CEntity E;</div>
+<div class="line">CEntity <a class="code" href="namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487ca3a3ea00cfc35332cedf6e5e9a32e94da">E</a>;</div>
 <div class="line">E.AddPrimitiveMesh(Q1);</div>
 <div class="line">E.AddPrimitiveMesh(Q2);</div>
 <div class="line">E.Create();</div>
@@ -233,8 +233,8 @@ Specification</h2>
 Example File</h2>
 <p>This is an example ZenFX file using the default shaders and a fake sample texture.</p>
 <div class="fragment"><div class="line"><span class="comment">// Example.zfx</span></div>
-<div class="line">vshader=Zenderer/shaders/<a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.vs</div>
-<div class="line">fshader=Zenderer/shaders/<a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.fs</div>
+<div class="line">vshader=Zenderer/shaders/Default.vs</div>
+<div class="line">fshader=Zenderer/shaders/Default.fs</div>
 <div class="line">texture=Assets/textures/Sample.png</div>
 </div><!-- fragment --><h1><a class="anchor" id="ZEnt"></a>
 ZenTity</h1>
@@ -279,9 +279,9 @@ Specification</h2>
 <p>If overlapping values are used for <code>material</code> and the texture file, the file keys will be preferred over the material file. Thus if you specify <code>vshader</code>, <code>fshader</code>, <code>texture</code>, <em>and</em> <code>material</code>, the local files will be loaded, as opposed to the material file.</p>
 <p>If the shader files are left off, the default will be used (like for primitives). If the size is specified (<code>width</code>/<code>height</code>), <em>both</em> must be specified. Otherwise, the default values are used for both of them.</p>
 <p>The <code>primcount</code> option will allow for a tiny speed up in loading, but will only make a real difference if the entity contains dozens of primitives.</p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values.">zen::gfx::CQuad::SetInverted()</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="group___graphics.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values.">zen::gfx::CQuad::SetInverted()</a> </dd>
 <dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333" title="Repeat texture or stretch to fit.">zen::gfx::CQuad::SetRepeating()</a></dd></dl>
+<a class="el" href="group___graphics.html#abb824d556d0a467d940a5734523b9333" title="Repeat texture or stretch to fit.">zen::gfx::CQuad::SetRepeating()</a></dd></dl>
 <h3><a class="anchor" id="ZEntEx"></a>
 Example File</h3>
 <div class="fragment"><div class="line"><span class="comment">// This is an example ZenTity file with two</span></div>
@@ -304,7 +304,7 @@ Example File</h3>
 <div class="line">&lt;prim&gt;</div>
 <div class="line">  texture=textures/grass.png</div>
 <div class="line"></div>
-<div class="line">  vshader=shaders/<a class="code" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>.vs</div>
+<div class="line">  vshader=shaders/Default.vs</div>
 <div class="line">  fshader=shaders/GaussianBlurH.fs</div>
 <div class="line">  params=radius:0.005</div>
 <div class="line"></div>

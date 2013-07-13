@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -107,7 +107,8 @@ $(document).ready(function(){initNavTree('_audio_manager_8hpp.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">AudioManager.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -115,14 +116,34 @@ $(document).ready(function(){initNavTree('_audio_manager_8hpp.html','');});
 
 <p><a class="el" href="_audio_manager_8hpp.html" title="Zenderer/Audio/AudioManager.hpp - Convenience functions for the audio library.">Zenderer/Audio/AudioManager.hpp</a> - Convenience functions for the audio library.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &quot;vorbis/vorbisfile.h&quot;</code><br/>
+<code>#include &quot;AL/al.h&quot;</code><br/>
+<code>#include &quot;AL/alut.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_types_8hpp_source.html">Zenderer/Core/Types.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_assert_8hpp_source.html">Zenderer/Utilities/Assert.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_log_8hpp_source.html">Zenderer/Utilities/Log.hpp</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for AudioManager.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_audio_manager_8hpp__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_audio_2_audio_manager_8hpp" alt=""/></div>
+<map name="_zenderer_2include_2_zenderer_2_audio_2_audio_manager_8hpp" id="_zenderer_2include_2_zenderer_2_audio_2_audio_manager_8hpp">
+<area shape="rect" id="node5" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="243,261,409,288"/><area shape="rect" id="node8" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="414,97,532,138"/><area shape="rect" id="node11" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="614,187,681,213"/><area shape="rect" id="node14" href="_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="984,261,1195,288"/><area shape="rect" id="node16" href="_log_8inl.html" title="Log.inl" alt="" coords="681,261,740,288"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_audio_manager_8hpp__dep__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_audio_2_audio_manager_8hppdep" alt=""/></div>
+<map name="_zenderer_2include_2_zenderer_2_audio_2_audio_manager_8hppdep" id="_zenderer_2include_2_zenderer_2_audio_2_audio_manager_8hppdep">
+<area shape="rect" id="node2" href="_audio2_d_8hpp.html" title="Zenderer/Audio/Audio2D.hpp &#45; Generic base class for audio files." alt="" coords="257,97,428,138"/><area shape="rect" id="node4" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="477,278,648,319"/><area shape="rect" id="node11" href="_audio_manager_8cpp.html" title="Zenderer/src/Audio\l/AudioManager.cpp" alt="" coords="601,97,735,138"/><area shape="rect" id="node3" href="_music2_d_8hpp.html" title="Zenderer/Audio/Music2D.hpp &#45; Long .ogg files used for music, dialogue, etc." alt="" coords="160,187,331,229"/><area shape="rect" id="node8" href="_sound2_d_8hpp.html" title="Zenderer/Audio/Sound2D.hpp &#45; Short .wav file sound effects used in&#45;game." alt="" coords="355,187,525,229"/><area shape="rect" id="node10" href="_audio2_d_8cpp.html" title="Zenderer/src/Audio\l/Audio2D.cpp" alt="" coords="5,187,136,229"/><area shape="rect" id="node7" href="_music2_d_8cpp.html" title="Zenderer/src/Audio\l/Music2D.cpp" alt="" coords="168,278,299,319"/><area shape="rect" id="node5" href="_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="366,368,553,395"/><area shape="rect" id="node6" href="_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="579,368,752,395"/><area shape="rect" id="node9" href="_sound2_d_8cpp.html" title="Zenderer/src/Audio\l/Sound2D.cpp" alt="" coords="323,278,453,319"/></map>
+</div>
+</div>
 <p><a href="_audio_manager_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio_manager.html">zen::sfx::CAudioManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of static helper functions for the audio API.  <a href="classzen_1_1sfx_1_1_c_audio_manager.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1sfx_1_1_c_audio_manager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager">zen::sfx::CAudioManager</a></td></tr>
+<tr class="memdesc:classzen_1_1sfx_1_1_c_audio_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of static helper functions for the audio API.  <a href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager">More...</a><br/></td></tr>
+<tr class="separator:classzen_1_1sfx_1_1_c_audio_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -132,6 +153,12 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacezen_1_1sfx"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1sfx.html">zen::sfx</a></td></tr>
 <tr class="memdesc:namespacezen_1_1sfx"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encompasses the audio API in <em>Zenderer</em>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa">AL</a>(f)&#160;&#160;&#160;f;</td></tr>
+<tr class="memdesc:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatic OpenAL call checking in debug builds.  <a href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa">More...</a><br/></td></tr>
+<tr class="separator:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>George Kudrayvtsev (halcyon) </dd></dl>

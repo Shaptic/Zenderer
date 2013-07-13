@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,11 +124,11 @@ $(document).ready(function(){initNavTree('_error_handler_8hpp_source.html','');}
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8">   16</a></span>&#160;    <span class="keyword">static</span> ZEN_API <span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8">error_window</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg, <span class="keyword">const</span> <span class="keywordtype">char</span>* title)</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8">   16</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8">error_window</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg, <span class="keyword">const</span> <span class="keywordtype">char</span>* title)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        ZEN_ASSERT(msg &amp;&amp; title);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(msg &amp;&amp; title);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_font.html">gfx::CFont</a> Font;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="group___g_u_i.html#classzen_1_1gfx_1_1_c_font">gfx::CFont</a> Font;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span>(!Font.LoadFromFile(ZENDERER_FONT_PATH<span class="stringliteral">&quot;default.ttf&quot;</span>))</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
@@ -144,18 +144,18 @@ $(document).ready(function(){initNavTree('_error_handler_8hpp_source.html','');}
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        uint32_t w = Font.GetTextWidth(err.str());</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        uint32_t h = Font.GetTextHeight(err.str());</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context.">gfx::CWindow</a> <a class="code" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>(w, h, title);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_window" title="Creates a renderable OpenGL context.">gfx::CWindow</a> Window(w, h, title);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span>(!Window.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init</a>()) <a class="code" href="namespacezen.html#a182fe11beb45ed649d1c3ba21fc5eef2" title="A fall-back error handler with OS-specific implementation.">error_fallback</a>(msg, title);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span>(!Window.<a class="code" href="group___graphics.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init</a>()) <a class="code" href="namespacezen.html#a182fe11beb45ed649d1c3ba21fc5eef2" title="A fall-back error handler with OS-specific implementation.">error_fallback</a>(msg, title);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Font.Cache(err.str());</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">while</span>(Window.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091">IsOpen</a>())</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">while</span>(Window.<a class="code" href="group___graphics.html#a633a8eee54aaee24cdab3bf8f5e2f091">IsOpen</a>())</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            glfwPollEvents();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            Window.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#a8c829e940b9d9fea7ac4f416e828df05" title="Clears the framebuffer to black.">Clear</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            Window.<a class="code" href="group___graphics.html#a8c829e940b9d9fea7ac4f416e828df05" title="Clears the framebuffer to black.">Clear</a>();</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            Font.DrawCached();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            Window.<a class="code" href="classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c" title="Performs a context update.">Update</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            Window.<a class="code" href="group___graphics.html#af21d93ba75e342c3c0010bbd86536e0c" title="Performs a context update.">Update</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        exit(1);</div>

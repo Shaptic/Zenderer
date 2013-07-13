@@ -2,4 +2,5 @@
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="216,5,387,32"/>
 <area shape="rect" id="node3" href="$_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="276,56,327,83"/>
 <area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_render_target.html#a1158e22ca14496564a677294ff11cd79" title="zen::gfx::CRenderTarget\l::AttachDepthBuffer" alt="" coords="220,107,383,149"/>
+<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="221,173,381,200"/>
 </map>

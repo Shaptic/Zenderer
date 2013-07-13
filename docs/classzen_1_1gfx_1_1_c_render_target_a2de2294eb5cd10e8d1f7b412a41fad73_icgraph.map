@@ -1,4 +1,5 @@
 <map id="zen::gfx::CRenderTarget::Destroy" name="zen::gfx::CRenderTarget::Destroy">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_render_target.html#a140f5687594cc589c8b22221c84e4fba" title="zen::gfx::CRenderTarget\l::~CRenderTarget" alt="" coords="216,5,379,46"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="zen::gfx::CRenderTarget\l::Init" alt="" coords="216,70,379,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="427,107,587,133"/>
 </map>

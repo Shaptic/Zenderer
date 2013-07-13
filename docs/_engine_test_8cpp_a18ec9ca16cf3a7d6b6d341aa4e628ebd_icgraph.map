@@ -1,6 +1,6 @@
 <map id="Destroy" name="Destroy">
-<area shape="rect" id="node2" href="$classzen_1_1lua_1_1_c_lua_a_p_i.html#a54359f6bc242737297f2ea0e0cdb5649" title="Cleans up the interpreter instance." alt="" coords="122,5,257,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87" title="zen::gfx::CWindow::\l~CWindow" alt="" coords="120,70,259,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="126,135,253,177"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="126,201,253,242"/>
+<area shape="rect" id="node2" href="$group___scripting.html#a54359f6bc242737297f2ea0e0cdb5649" title="Cleans up the interpreter instance." alt="" coords="122,5,257,46"/>
+<area shape="rect" id="node3" href="$group___graphics.html#a952e8bd3d29abbac67c252c192077c87" title="zen::gfx::CWindow::\l~CWindow" alt="" coords="120,70,259,111"/>
+<area shape="rect" id="node4" href="$group___objects.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="126,135,253,177"/>
+<area shape="rect" id="node5" href="$group___objects.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="126,201,253,242"/>
 </map>

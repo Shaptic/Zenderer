@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,10 +110,10 @@ $(document).ready(function(){initNavTree('_asset_manager_8inl_source.html','');}
 </div><!--header-->
 <div class="contents">
 <a href="_asset_manager_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00002"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#a2f74bcc038d6ba88b03d048c6e68f249">    2</a></span>&#160;T* <a class="code" href="_engine_test_8cpp.html#a7f83d24a54ac476bb8192ca01fc5ffbe">CAssetManager::Create</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename, <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner)</div>
+<div class="line"><a name="l00002"></a><span class="lineno"><a class="code" href="group___assets.html#a2f74bcc038d6ba88b03d048c6e68f249">    2</a></span>&#160;T* CAssetManager::Create(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename, <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner)</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;{</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    ZEN_ASSERT(this-&gt;IsInit());</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    ZEN_ASSERT(!filename.empty());</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(this-&gt;IsInit());</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(!filename.empty());</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    T* pResult = <span class="keyword">static_cast&lt;</span>T*<span class="keyword">&gt;</span>(this-&gt;Find(filename, owner));</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8inl_source.html','');}
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        T* pAsset = <span class="keyword">new</span> T(owner);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment">// Make sure we allocated successfully.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        ZEN_ASSERTM(pAsset != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;out of memory&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(pAsset != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;out of memory&quot;</span>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">// Load the asset from disk.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> this-&gt;FinalizeAsset(pAsset-&gt;LoadFromFile(filename), pAsset);</div>
@@ -145,9 +145,9 @@ $(document).ready(function(){initNavTree('_asset_manager_8inl_source.html','');}
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ab3e47fb3f25831f2b28e018d1dc79818">   37</a></span>&#160;T* <a class="code" href="_engine_test_8cpp.html#a7f83d24a54ac476bb8192ca01fc5ffbe">CAssetManager::Create</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner)</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="group___assets.html#ab3e47fb3f25831f2b28e018d1dc79818">   37</a></span>&#160;T* CAssetManager::Create(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    ZEN_ASSERT(this-&gt;IsInit());</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(this-&gt;IsInit());</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(util::LogMode::ZEN_INFO)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;AssetMgr&quot;</span>)</div>
@@ -157,14 +157,14 @@ $(document).ready(function(){initNavTree('_asset_manager_8inl_source.html','');}
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    T* pAsset = <span class="keyword">new</span> T(owner);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// Sanity check, because `new` should throw anyway.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ZEN_ASSERTM(pAsset != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;out of memory&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(pAsset != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;out of memory&quot;</span>);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Store internally.</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> this-&gt;FinalizeAsset(<span class="keyword">true</span>, pAsset);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#a1e58c31383b98ca31da29478bc430060">   56</a></span>&#160;T* CAssetManager::Recreate(<span class="keyword">const</span> T* <span class="keyword">const</span> Copier, <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner)</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="group___assets.html#a1e58c31383b98ca31da29478bc430060">   56</a></span>&#160;T* CAssetManager::Recreate(<span class="keyword">const</span> T* <span class="keyword">const</span> Copier, <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(util::LogMode::ZEN_INFO)</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;AssetMgr&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;Copying &#39;&quot;</span></div>
@@ -174,14 +174,14 @@ $(document).ready(function(){initNavTree('_asset_manager_8inl_source.html','');}
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    T* pAsset = <span class="keyword">new</span> T(owner);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Make sure we allocated successfully.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ZEN_ASSERTM(pAsset != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;out of memory&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(pAsset != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;out of memory&quot;</span>);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// Load the asset from an existing one.</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> this-&gt;FinalizeAsset(pAsset-&gt;LoadFromExisting(Copier), pAsset);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ab3148c8d909d6040dfc03d18be710db4">   73</a></span>&#160;T* CAssetManager::FinalizeAsset(<span class="keyword">const</span> <span class="keywordtype">bool</span> success, T* pAsset)</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="group___assets.html#ab3148c8d909d6040dfc03d18be710db4">   73</a></span>&#160;T* CAssetManager::FinalizeAsset(<span class="keyword">const</span> <span class="keywordtype">bool</span> success, T* pAsset)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(success)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8inl_source.html','');}
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564">   95</a></span>&#160;uint32_t CAssetManager::GetAssetCount()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;uint32_t CAssetManager::GetAssetCount()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> mp_managerAssets.size();</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>

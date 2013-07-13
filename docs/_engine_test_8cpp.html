@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -106,141 +106,43 @@ $(document).ready(function(){initNavTree('_engine_test_8cpp.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">EngineTest.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="_zenderer_8hpp_source.html">Zenderer/Zenderer.hpp</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for EngineTest.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_engine_test_8cpp__incl.png" border="0" usemap="#_zenderer_2src_2_engine_test_8cpp" alt=""/></div>
+<map name="_zenderer_2src_2_engine_test_8cpp" id="_zenderer_2src_2_engine_test_8cpp">
+<area shape="rect" id="node2" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="1561,80,1711,107"/><area shape="rect" id="node4" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="1525,891,1637,917"/><area shape="rect" id="node7" href="_math_8hpp.html" title="Zenderer/Math/Math.hpp &#45; Includes all of the various math definitions and defines useful functions..." alt="" coords="171,419,280,445"/><area shape="rect" id="node14" href="_utilities_8hpp.html" title="Utilities/Utilities.hpp &#45; Includes all relevant headers in a batch and defines the hashing function..." alt="" coords="2077,419,2213,445"/><area shape="rect" id="node23" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1296,237,1445,264"/><area shape="rect" id="node38" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="275,237,409,264"/><area shape="rect" id="node40" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="704,328,835,355"/><area shape="rect" id="node41" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="699,155,839,181"/><area shape="rect" id="node27" href="_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files." alt="" coords="1166,501,1396,528"/><area shape="rect" id="node44" href="_audio_manager_8hpp.html" title="Zenderer/Audio/AudioManager.hpp &#45; Convenience functions for the audio library." alt="" coords="2545,667,2711,693"/><area shape="rect" id="node48" href="_music2_d_8hpp.html" title="Zenderer/Audio/Music2D.hpp &#45; Long .ogg files used for music, dialogue, etc." alt="" coords="2203,155,2337,181"/><area shape="rect" id="node50" href="_sound2_d_8hpp.html" title="Zenderer/Audio/Sound2D.hpp &#45; Short .wav file sound effects used in&#45;game." alt="" coords="2373,155,2509,181"/><area shape="rect" id="node31" href="_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp &#45; Defines an event&#45;handling singleton object that stores and process..." alt="" coords="1674,328,1893,355"/><area shape="rect" id="node8" href="_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="379,741,481,768"/><area shape="rect" id="node11" href="_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="608,667,693,693"/><area shape="rect" id="node12" href="_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="708,501,791,528"/><area shape="rect" id="node13" href="_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures." alt="" coords="5,501,96,528"/><area shape="rect" id="node10" href="_math_core_8inl.html" title="MathCore.inl" alt="" coords="337,816,431,843"/><area shape="rect" id="node15" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="1882,816,1949,843"/><area shape="rect" id="node16" href="_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="2125,667,2216,693"/><area shape="rect" id="node18" href="_i_n_i_parser_8hpp.html" title="Zenderer/Utilities/INIParser.hpp &#45; A key=value pair file parser used throughout Zenderer to load vari..." alt="" coords="1979,584,2079,611"/><area shape="rect" id="node19" href="_x_m_l_parser_8hpp.html" title="Zenderer/Utilities/XMLParser.hpp &#45; A minimalistic XML parsing utility." alt="" coords="2206,584,2316,611"/><area shape="rect" id="node20" href="_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp &#45; An abstraction dictionary layer allowing easy setting of options..." alt="" coords="1523,501,1617,528"/><area shape="rect" id="node22" href="_timer_8hpp.html" title="Zenderer/Utilities/Timer.hpp &#45; A native timer class for controlling engine frame rates and other high..." alt="" coords="2339,741,2417,768"/><area shape="rect" id="node17" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="2027,741,2112,768"/><area shape="rect" id="node21" href="_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="1386,584,1584,611"/><area shape="rect" id="node24" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="557,577,712,618"/><area shape="rect" id="node25" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="557,411,712,453"/><area shape="rect" id="node36" href="_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp &#45; A high&#45;level shader wrapper intended to be used by the user..." alt="" coords="1040,328,1120,355"/><area shape="rect" id="node26" href="_vertex_array_8hpp.html" title="Zenderer/CoreGraphics/VertexArray.hpp &#45; A wrapper class for OpenGL Vertex Array Objects." alt="" coords="462,501,577,528"/><area shape="rect" id="node29" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="1874,584,1955,611"/><area shape="rect" id="node30" href="_asset_manager_8inl.html" title="AssetManager.inl" alt="" coords="1073,584,1196,611"/><area shape="rect" id="node33" href="_keyboard_8hpp.html" title="Zenderer/Events/Keyboard.hpp &#45; Defines keyboard&#45;related event data structures and convenience functio..." alt="" coords="1875,501,1977,528"/><area shape="rect" id="node34" href="_mouse_8hpp.html" title="Zenderer/Events/Mouse.hpp &#45; Defines mouse&#45;related event data structures and convenience functionality..." alt="" coords="1711,584,1797,611"/><area shape="rect" id="node35" href="_event_8hpp.html" title="Zenderer/Events/Event.hpp &#45; Defines keyboard&#45;related event data structures and convenience functional..." alt="" coords="1803,419,1881,445"/><area shape="rect" id="node37" href="_shader_set_8hpp.html" title="Zenderer/CoreGraphics/ShaderSet.hpp &#45; A wrapper class for OpenGL shaders containing a set of shader o..." alt="" coords="837,411,992,453"/><area shape="rect" id="node39" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="224,321,379,362"/><area shape="rect" id="node42" href="_sorter_8hpp.html" title="Zenderer/CoreGraphics/Sorter.hpp &#45; Sorts entites in a variety of different ways, such as by material ..." alt="" coords="1081,230,1236,271"/><area shape="rect" id="node43" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="403,328,527,355"/><area shape="rect" id="node49" href="_audio2_d_8hpp.html" title="Zenderer/Audio/Audio2D.hpp &#45; Generic base class for audio files." alt="" coords="2443,501,2539,528"/></map>
+</div>
+</div>
 <p><a href="_engine_test_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9b5c3fbac5cdb27a8eb475915874329d"><td class="memItemLeft" align="right" valign="top">int WINAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a9b5c3fbac5cdb27a8eb475915874329d">WinMain</a> (HINSTANCE hInst, HINSTANCE hPInst, LPSTR lpCmdLine, int nShowCmd) int main(int argc</td></tr>
-<tr class="separator:a9b5c3fbac5cdb27a8eb475915874329d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7153f7bb4d7a06e8d227819ae770b61"><td class="memItemLeft" align="right" valign="top">int WINAPI char *argv[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ac7153f7bb4d7a06e8d227819ae770b61">Init</a> ()</td></tr>
-<tr class="separator:ac7153f7bb4d7a06e8d227819ae770b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bc1bce609fd0e9ca33a8c6bef186a81"><td class="memItemLeft" align="right" valign="top">gfx::CWindow&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a> (800, 600,&quot;Hello, Zenderer.&quot;)</td></tr>
-<tr class="separator:a8bc1bce609fd0e9ca33a8c6bef186a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d3e938ba33611df4c2bfa68ac022072"><td class="memItemLeft" align="right" valign="top">Sample&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a5d3e938ba33611df4c2bfa68ac022072">LoadTextureFromFile</a> (&quot;sample.png&quot;)</td></tr>
-<tr class="separator:a5d3e938ba33611df4c2bfa68ac022072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae26be68e93cd6f33c54d06b9701002d"><td class="memItemLeft" align="right" valign="top">Sample&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#aae26be68e93cd6f33c54d06b9701002d">LoadEffect</a> (gfx::EffectType::NO_EFFECT)</td></tr>
-<tr class="separator:aae26be68e93cd6f33c54d06b9701002d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82636cdf23604142297c1c0e2fb17bdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a82636cdf23604142297c1c0e2fb17bdc">LoadTextureFromFile</a> (&quot;grass.png&quot;)</td></tr>
-<tr class="separator:a82636cdf23604142297c1c0e2fb17bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84694ce37dc41a504d05594e0de6914e"><td class="memItemLeft" align="right" valign="top">gfx::CQuad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> (Sample.GetTexture() -&gt;GetWidth(), Sample.GetTexture() -&gt;GetHeight())</td></tr>
-<tr class="separator:a84694ce37dc41a504d05594e0de6914e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a0c99cd80c575a3f1721bb90cdd3d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a7a0c99cd80c575a3f1721bb90cdd3d9c">SetColor</a> (<a class="el" href="structzen_1_1color4f__t.html">color4f_t</a>(1, 1, 1, 1))</td></tr>
-<tr class="separator:a7a0c99cd80c575a3f1721bb90cdd3d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f83d24a54ac476bb8192ca01fc5ffbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a7f83d24a54ac476bb8192ca01fc5ffbe">Create</a> ()</td></tr>
-<tr class="separator:a7f83d24a54ac476bb8192ca01fc5ffbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a025c1257a3f591b5c24253c7081b9319"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a025c1257a3f591b5c24253c7081b9319">LoadIntoVAO</a> (<a class="el" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">Vao</a>)</td></tr>
-<tr class="separator:a025c1257a3f591b5c24253c7081b9319"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f471888738d4238e8e8765cfcc2a348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a4f471888738d4238e8e8765cfcc2a348">Resize</a> (800, 600)</td></tr>
-<tr class="separator:a4f471888738d4238e8e8765cfcc2a348"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fe417378d0abb204515aa017b629d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a0fe417378d0abb204515aa017b629d9c">LoadIntoVAO</a> (<a class="el" href="_engine_test_8cpp.html#a6cede53cf917df845338dee3d2f276cf">FS</a>)</td></tr>
-<tr class="separator:a0fe417378d0abb204515aa017b629d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f5aabdbe4c77ab246f543c103a290ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a8f5aabdbe4c77ab246f543c103a290ef">SetInverted</a> (true)</td></tr>
-<tr class="separator:a8f5aabdbe4c77ab246f543c103a290ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1c26cb4f549d494ddc995b1bf65f342"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ad1c26cb4f549d494ddc995b1bf65f342">SetRepeating</a> (true)</td></tr>
-<tr class="separator:ad1c26cb4f549d494ddc995b1bf65f342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44352acd316a34316f23a756a4ea9749"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a44352acd316a34316f23a756a4ea9749">Resize</a> (15 *Grass.GetTexture() -&gt;GetWidth(), Grass.GetTexture() -&gt;GetHeight())</td></tr>
-<tr class="separator:a44352acd316a34316f23a756a4ea9749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f732aac7338b96e10296f139637433e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a7f732aac7338b96e10296f139637433e">LoadIntoVAO</a> (<a class="el" href="_engine_test_8cpp.html#aa8f5f421992c218a1692ac8f0207a666">Gr</a>)</td></tr>
-<tr class="separator:a7f732aac7338b96e10296f139637433e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab33f04f165f1e8b75def32c3ac7c07a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">Vao</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ab33f04f165f1e8b75def32c3ac7c07a4">Offload</a> ()</td></tr>
-<tr class="separator:ab33f04f165f1e8b75def32c3ac7c07a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511babe23077a1aa18bee497fa953ff6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a511babe23077a1aa18bee497fa953ff6">SetInverted</a> (false)</td></tr>
-<tr class="separator:a511babe23077a1aa18bee497fa953ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20fbaa73c87e2f18ec27a2de92c4228e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a20fbaa73c87e2f18ec27a2de92c4228e">Resize</a> (32, 32)</td></tr>
-<tr class="separator:a20fbaa73c87e2f18ec27a2de92c4228e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c7acad2de61be8f5ba469f0131cd8d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a3c7acad2de61be8f5ba469f0131cd8d9">AttachMaterial</a> (nullptr)</td></tr>
-<tr class="separator:a3c7acad2de61be8f5ba469f0131cd8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a3b581d83c93a5c78bce7f830b3a294"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a3a3b581d83c93a5c78bce7f830b3a294">ToggleVSYNC</a> ()</td></tr>
-<tr class="separator:a3a3b581d83c93a5c78bce7f830b3a294"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9eb93a28279db36ee0f330d5f8a07fd"><td class="memItemLeft" align="right" valign="top">gfx::CLight&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> (<a class="el" href="_engine_test_8cpp.html#a27e3922e8cf7597f39bad05d6090e729">Manager</a>, gfx::LightType::ZEN_POINT, Window.GetHeight())</td></tr>
-<tr class="separator:ab9eb93a28279db36ee0f330d5f8a07fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22b9cbc5100bf6f3cf15c3e3d37923a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a22b9cbc5100bf6f3cf15c3e3d37923a5">Enable</a> ()</td></tr>
-<tr class="separator:a22b9cbc5100bf6f3cf15c3e3d37923a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a937650b4e4c95c402cb8411213479ecc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a937650b4e4c95c402cb8411213479ecc">SetBrightness</a> (0.5)</td></tr>
-<tr class="separator:a937650b4e4c95c402cb8411213479ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1b5b46f70a07c1689bbaa8c2c265c51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#aa1b5b46f70a07c1689bbaa8c2c265c51">SetColor</a> (1.0, 1.0, 1.0)</td></tr>
-<tr class="separator:aa1b5b46f70a07c1689bbaa8c2c265c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6be0ee24d1b5d0e3294e0c9e8445fdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ad6be0ee24d1b5d0e3294e0c9e8445fdd">SetPosition</a> (200, 100)</td></tr>
-<tr class="separator:ad6be0ee24d1b5d0e3294e0c9e8445fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24dc0297ac875e56eb1f2a230f8fdabb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a24dc0297ac875e56eb1f2a230f8fdabb">Disable</a> ()</td></tr>
-<tr class="separator:a24dc0297ac875e56eb1f2a230f8fdabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19c61029c03c05d82c02fa67d4d1615f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f">while</a> (Window.IsOpen())</td></tr>
-<tr class="separator:a19c61029c03c05d82c02fa67d4d1615f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18ec9ca16cf3a7d6b6d341aa4e628ebd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">Vao</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a> ()</td></tr>
-<tr class="separator:a18ec9ca16cf3a7d6b6d341aa4e628ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad2f26b64eb4358da43937899008d1ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#aad2f26b64eb4358da43937899008d1ce">Quit</a> ()</td></tr>
-<tr class="separator:aad2f26b64eb4358da43937899008d1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:abeae8f2814ff12ed2c1c41e3ceb60b47"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#abeae8f2814ff12ed2c1c41e3ceb60b47">SAMPLE_XML</a> []</td></tr>
-<tr class="separator:abeae8f2814ff12ed2c1c41e3ceb60b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27e3922e8cf7597f39bad05d6090e729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a27e3922e8cf7597f39bad05d6090e729">Manager</a></td></tr>
-<tr class="separator:a27e3922e8cf7597f39bad05d6090e729"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90716f8306c2bd2ddfae6337fed1f3ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html">sfx::CSound2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a90716f8306c2bd2ddfae6337fed1f3ea">Sound</a></td></tr>
-<tr class="separator:a90716f8306c2bd2ddfae6337fed1f3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60320b4aa8bf2c1a0b44d733e72e0296"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1color4f__t.html">color4f_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a60320b4aa8bf2c1a0b44d733e72e0296">Teal</a> (0.0, 1.0, 1.0, 1.0)</td></tr>
-<tr class="separator:a60320b4aa8bf2c1a0b44d733e72e0296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e32ea25f78bdf8dea54e6fb32403677"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">Vao</a></td></tr>
-<tr class="separator:a0e32ea25f78bdf8dea54e6fb32403677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cede53cf917df845338dee3d2f276cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a6cede53cf917df845338dee3d2f276cf">FS</a></td></tr>
-<tr class="separator:a6cede53cf917df845338dee3d2f276cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8f5f421992c218a1692ac8f0207a666"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#aa8f5f421992c218a1692ac8f0207a666">Gr</a></td></tr>
-<tr class="separator:aa8f5f421992c218a1692ac8f0207a666"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ff9cc035cf65001dfbcdaa7241084ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> <a class="el" href="_engine_test_8cpp.html#a3c7acad2de61be8f5ba469f0131cd8d9">AttachMaterial</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a></td></tr>
-<tr class="separator:a7ff9cc035cf65001dfbcdaa7241084ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71b67c9d2105c3e283badbbc8f4cac46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1util_1_1_c_timer.html">util::CTimer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a71b67c9d2105c3e283badbbc8f4cac46">Timer</a> (60)</td></tr>
-<tr class="separator:a71b67c9d2105c3e283badbbc8f4cac46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfc3fa656bb93fe9b628816a3954898b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgfx_1_1_c_render_target.html">gfx::CRenderTarget</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#adfc3fa656bb93fe9b628816a3954898b">RT</a> (800, 600)</td></tr>
-<tr class="separator:adfc3fa656bb93fe9b628816a3954898b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb7fdba8db39625038ff210f074f56f"><td class="memItemLeft" align="right" valign="top">gfx::CEffect &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a9eb7fdba8db39625038ff210f074f56f">DEffect</a> = CRenderer::GetDefaultEffect()</td></tr>
-<tr class="separator:a9eb7fdba8db39625038ff210f074f56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af88b946fb90d5f08b5fb740c70e98c10"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#af88b946fb90d5f08b5fb740c70e98c10">x</a></td></tr>
-<tr class="separator:af88b946fb90d5f08b5fb740c70e98c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab927965981178aa1fba979a37168db2a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ab927965981178aa1fba979a37168db2a">y</a></td></tr>
-<tr class="separator:ab927965981178aa1fba979a37168db2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10d91eebcedf2ee25ba23db0b944ed51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a10d91eebcedf2ee25ba23db0b944ed51">angle</a> = 45.0</td></tr>
-<tr class="separator:a10d91eebcedf2ee25ba23db0b944ed51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae787eec97ea7472295d24ca827fbe74e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#ae787eec97ea7472295d24ca827fbe74e">d</a> = -5.5</td></tr>
-<tr class="separator:ae787eec97ea7472295d24ca827fbe74e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9717e7bbecb906637e86cef6da3d83c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a9717e7bbecb906637e86cef6da3d83c2">return</a></td></tr>
-<tr class="separator:a9717e7bbecb906637e86cef6da3d83c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a9b5c3fbac5cdb27a8eb475915874329d"></a>
+<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int WINAPI WinMain </td>
+          <td class="memname">int main </td>
           <td>(</td>
-          <td class="paramtype">HINSTANCE&#160;</td>
-          <td class="paramname"><em>hInst</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">HINSTANCE&#160;</td>
-          <td class="paramname"><em>hPInst</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LPSTR&#160;</td>
-          <td class="paramname"><em>lpCmdLine</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nShowCmd</em>&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -250,869 +152,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ac7153f7bb4d7a06e8d227819ae770b61"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int WINAPI char* argv [] Init </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_subsystem-example.html#a1">Subsystem</a>.</dd>
-</dl>
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_engine_test_8cpp_ac7153f7bb4d7a06e8d227819ae770b61_icgraph.png" border="0" usemap="#_engine_test_8cpp_ac7153f7bb4d7a06e8d227819ae770b61_icgraph" alt=""/></div>
-<map name="_engine_test_8cpp_ac7153f7bb4d7a06e8d227819ae770b61_icgraph" id="_engine_test_8cpp_ac7153f7bb4d7a06e8d227819ae770b61_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem." alt="" coords="94,5,250,32"/><area shape="rect" id="node4" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="138,56,206,83"/><area shape="rect" id="node3" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="299,5,450,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a8bc1bce609fd0e9ca33a8c6bef186a81"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gfx::CWindow Window </td>
-          <td>(</td>
-          <td class="paramtype">800&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">600&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&quot;&#160;</td>
-          <td class="paramname"><em>Hello</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Zenderer.&quot;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_engine_test_8cpp_a8bc1bce609fd0e9ca33a8c6bef186a81_icgraph.png" border="0" usemap="#_engine_test_8cpp_a8bc1bce609fd0e9ca33a8c6bef186a81_icgraph" alt=""/></div>
-<map name="_engine_test_8cpp_a8bc1bce609fd0e9ca33a8c6bef186a81_icgraph" id="_engine_test_8cpp_a8bc1bce609fd0e9ca33a8c6bef186a81_icgraph">
-<area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="123,5,274,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="173,56,224,83"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a5d3e938ba33611df4c2bfa68ac022072"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Sample LoadTextureFromFile </td>
-          <td>(</td>
-          <td class="paramtype">&quot;sample.png&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aae26be68e93cd6f33c54d06b9701002d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a> LoadEffect </td>
-          <td>(</td>
-          <td class="paramtype">gfx::EffectType::NO_EFFECT&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a82636cdf23604142297c1c0e2fb17bdc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a> LoadTextureFromFile </td>
-          <td>(</td>
-          <td class="paramtype">&quot;grass.png&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a84694ce37dc41a504d05594e0de6914e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gfx::CQuad Default </td>
-          <td>(</td>
-          <td class="paramtype">Sample.&#160;</td>
-          <td class="paramname"><em>GetTexture</em>) -&gt;GetWidth(, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Sample.&#160;</td>
-          <td class="paramname"><em>GetTexture</em>) -&gt;GetHeight(&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_engine_test_8cpp_a84694ce37dc41a504d05594e0de6914e_icgraph.png" border="0" usemap="#_engine_test_8cpp_a84694ce37dc41a504d05594e0de6914e_icgraph" alt=""/></div>
-<map name="_engine_test_8cpp_a84694ce37dc41a504d05594e0de6914e_icgraph" id="_engine_test_8cpp_a84694ce37dc41a504d05594e0de6914e_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="117,5,168,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a7a0c99cd80c575a3f1721bb90cdd3d9c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> SetColor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structzen_1_1color4f__t.html">color4f_t</a>(1, 1, 1, 1)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7f83d24a54ac476bb8192ca01fc5ffbe"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> Create </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a025c1257a3f591b5c24253c7081b9319"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> LoadIntoVAO </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_engine_test_8cpp.html#a0e32ea25f78bdf8dea54e6fb32403677">Vao</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4f471888738d4238e8e8765cfcc2a348"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> Resize </td>
-          <td>(</td>
-          <td class="paramtype">800&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">600&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0fe417378d0abb204515aa017b629d9c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> LoadIntoVAO </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_engine_test_8cpp.html#a6cede53cf917df845338dee3d2f276cf">FS</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8f5aabdbe4c77ab246f543c103a290ef"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> SetInverted </td>
-          <td>(</td>
-          <td class="paramtype">true&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad1c26cb4f549d494ddc995b1bf65f342"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> SetRepeating </td>
-          <td>(</td>
-          <td class="paramtype">true&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a44352acd316a34316f23a756a4ea9749"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> Resize </td>
-          <td>(</td>
-          <td class="paramtype">15 *Grass.&#160;</td>
-          <td class="paramname"><em>GetTexture</em>) -&gt;GetWidth(, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Grass.&#160;</td>
-          <td class="paramname"><em>GetTexture</em>) -&gt;GetHeight(&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7f732aac7338b96e10296f139637433e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> LoadIntoVAO </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_engine_test_8cpp.html#aa8f5f421992c218a1692ac8f0207a666">Gr</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab33f04f165f1e8b75def32c3ac7c07a4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#aa8f5f421992c218a1692ac8f0207a666">Gr</a> Offload </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a511babe23077a1aa18bee497fa953ff6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> SetInverted </td>
-          <td>(</td>
-          <td class="paramtype">false&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a20fbaa73c87e2f18ec27a2de92c4228e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> Resize </td>
-          <td>(</td>
-          <td class="paramtype">32&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">32&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3c7acad2de61be8f5ba469f0131cd8d9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> AttachMaterial </td>
-          <td>(</td>
-          <td class="paramtype">nullptr&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3a3b581d83c93a5c78bce7f830b3a294"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a8bc1bce609fd0e9ca33a8c6bef186a81">Window</a> ToggleVSYNC </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab9eb93a28279db36ee0f330d5f8a07fd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gfx::CLight L </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_engine_test_8cpp.html#a27e3922e8cf7597f39bad05d6090e729">Manager</a>&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">gfx::LightType::ZEN_POINT&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Window.&#160;</td>
-          <td class="paramname"><em>GetHeight</em>()&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_engine_test_8cpp_ab9eb93a28279db36ee0f330d5f8a07fd_icgraph.png" border="0" usemap="#_engine_test_8cpp_ab9eb93a28279db36ee0f330d5f8a07fd_icgraph" alt=""/></div>
-<map name="_engine_test_8cpp_ab9eb93a28279db36ee0f330d5f8a07fd_icgraph" id="_engine_test_8cpp_ab9eb93a28279db36ee0f330d5f8a07fd_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="93,5,264,32"/><area shape="rect" id="node3" href="classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame&#45;rate." alt="" coords="116,57,241,98"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a19c61029c03c05d82c02fa67d4d1615f" title="while" alt="" coords="312,64,363,91"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a22b9cbc5100bf6f3cf15c3e3d37923a5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> Enable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a937650b4e4c95c402cb8411213479ecc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> SetBrightness </td>
-          <td>(</td>
-          <td class="paramtype">0.&#160;</td>
-          <td class="paramname"><em>5</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa1b5b46f70a07c1689bbaa8c2c265c51"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> SetColor </td>
-          <td>(</td>
-          <td class="paramtype">1.&#160;</td>
-          <td class="paramname"><em>0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">1.&#160;</td>
-          <td class="paramname"><em>0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">1.&#160;</td>
-          <td class="paramname"><em>0</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad6be0ee24d1b5d0e3294e0c9e8445fdd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> SetPosition </td>
-          <td>(</td>
-          <td class="paramtype">200&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">100&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_engine_test_8cpp_ad6be0ee24d1b5d0e3294e0c9e8445fdd_icgraph.png" border="0" usemap="#_engine_test_8cpp_ad6be0ee24d1b5d0e3294e0c9e8445fdd_icgraph" alt=""/></div>
-<map name="_engine_test_8cpp_ad6be0ee24d1b5d0e3294e0c9e8445fdd_icgraph" id="_engine_test_8cpp_ad6be0ee24d1b5d0e3294e0c9e8445fdd_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_light.html#a060680a44f4f9387c04ec14680f396ca" title="zen::gfx::CLight::Adjust" alt="" coords="145,5,303,32"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="352,5,523,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a24dc0297ac875e56eb1f2a230f8fdabb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#ab9eb93a28279db36ee0f330d5f8a07fd">L</a> Disable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a19c61029c03c05d82c02fa67d4d1615f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">while </td>
-          <td>(</td>
-          <td class="paramtype">Window.&#160;</td>
-          <td class="paramname"><em>IsOpen</em>()</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00118">118</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a18ec9ca16cf3a7d6b6d341aa4e628ebd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a6cede53cf917df845338dee3d2f276cf">FS</a> Destroy </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_subsystem-example.html#a2">Subsystem</a>.</dd>
-</dl>
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_engine_test_8cpp_a18ec9ca16cf3a7d6b6d341aa4e628ebd_icgraph.png" border="0" usemap="#_engine_test_8cpp_a18ec9ca16cf3a7d6b6d341aa4e628ebd_icgraph" alt=""/></div>
-<map name="_engine_test_8cpp_a18ec9ca16cf3a7d6b6d341aa4e628ebd_icgraph" id="_engine_test_8cpp_a18ec9ca16cf3a7d6b6d341aa4e628ebd_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a54359f6bc242737297f2ea0e0cdb5649" title="Cleans up the interpreter instance." alt="" coords="122,5,257,46"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87" title="zen::gfx::CWindow::\l~CWindow" alt="" coords="120,70,259,111"/><area shape="rect" id="node4" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="126,135,253,177"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="126,201,253,242"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aad2f26b64eb4358da43937899008d1ce"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Quit </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="abeae8f2814ff12ed2c1c41e3ceb60b47"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* SAMPLE_XML[]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    <span class="stringliteral">&quot;&lt;entity type=\&quot;QUAD\&quot; name=\&quot;generic\&quot;&gt;&quot;</span>,</div>
-<div class="line">        <span class="stringliteral">&quot;&lt;position x=\&quot;100\&quot; y=\&quot;200\&quot;&gt;&quot;</span>,</div>
-<div class="line">        <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span>,</div>
-<div class="line">        <span class="stringliteral">&quot;&lt;texture&gt;&quot;</span>,</div>
-<div class="line">            <span class="stringliteral">&quot;Tester.tga&quot;</span>,</div>
-<div class="line">        <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span>,</div>
-<div class="line">        <span class="stringliteral">&quot;&lt;shader type=\&quot;both\&quot;&gt;&quot;</span>,</div>
-<div class="line">            <span class="stringliteral">&quot;&lt;vshader&gt;&quot;</span>,</div>
-<div class="line">                <span class="stringliteral">&quot;Tester.vs&quot;</span>,</div>
-<div class="line">            <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span>,</div>
-<div class="line">            <span class="stringliteral">&quot;&lt;fshader&gt;&quot;</span>,</div>
-<div class="line">                <span class="stringliteral">&quot;Tester.fs&quot;</span>,</div>
-<div class="line">            <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span>,</div>
-<div class="line">        <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span>,</div>
-<div class="line">    <span class="stringliteral">&quot;&lt;/ &gt;&quot;</span></div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00009">9</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a27e3922e8cf7597f39bad05d6090e729"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gfx::CMaterial <a class="el" href="_engine_test_8cpp.html#a7ff9cc035cf65001dfbcdaa7241084ab">Grass</a> &amp; Manager</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00041">41</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a90716f8306c2bd2ddfae6337fed1f3ea"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html">sfx::CSound2D</a>* Sound</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">        <a class="code" href="_engine_test_8cpp.html#a27e3922e8cf7597f39bad05d6090e729">Manager</a>.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#af2af52f25ecc3fac4a9ea2b9b5ee471a" title="Creates an asset from a filename.">Create</a>&lt;<a class="code" href="classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)">sfx::CSound2D</a>&gt;(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>(<span class="stringliteral">&quot;Crackle.wav&quot;</span>))</div>
-</div><!-- fragment -->
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00047">47</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a60320b4aa8bf2c1a0b44d733e72e0296"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structzen_1_1color4f__t.html">color4f_t</a> Teal(0.0, 1.0, 1.0, 1.0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0e32ea25f78bdf8dea54e6fb32403677"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> Vao</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00064">64</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6cede53cf917df845338dee3d2f276cf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> FS</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00064">64</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa8f5f421992c218a1692ac8f0207a666"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> Gr</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00064">64</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7ff9cc035cf65001dfbcdaa7241084ab"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="_engine_test_8cpp.html#a84694ce37dc41a504d05594e0de6914e">Default</a> <a class="el" href="_engine_test_8cpp.html#a3c7acad2de61be8f5ba469f0131cd8d9">AttachMaterial</a>&amp; Grass</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00083">83</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a71b67c9d2105c3e283badbbc8f4cac46"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classzen_1_1util_1_1_c_timer.html">util::CTimer</a> Timer(60)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="adfc3fa656bb93fe9b628816a3954898b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classgfx_1_1_c_render_target.html">gfx::CRenderTarget</a> RT(800, 600)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9eb7fdba8db39625038ff210f074f56f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gfx::CEffect&amp; DEffect = CRenderer::GetDefaultEffect()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00113">113</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af88b946fb90d5f08b5fb740c70e98c10"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double x</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00115">115</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab927965981178aa1fba979a37168db2a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double y</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00115">115</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a10d91eebcedf2ee25ba23db0b944ed51"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> angle = 45.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00116">116</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae787eec97ea7472295d24ca827fbe74e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> d = -5.5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00116">116</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9717e7bbecb906637e86cef6da3d83c2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">return</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00203">203</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_engine_test_8cpp_source.html#l00015">15</a> of file <a class="el" href="_engine_test_8cpp_source.html">EngineTest.cpp</a>.</p>
 
 </div>
 </div>

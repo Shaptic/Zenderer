@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -109,27 +109,27 @@ $(document).ready(function(){initNavTree('_effect_8inl_source.html','');});
 <div class="title">Effect.inl</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_effect_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a55724770ecc469bc576fbc2edd402432">    1</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a22b9cbc5100bf6f3cf15c3e3d37923a5">CEffect::Enable</a>()<span class="keyword"> const</span></div>
+<a href="_effect_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keywordtype">bool</span> CEffect::Enable()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">return</span> this-&gt;Bind();</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;}</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html#ac4d46b32f3c12853f2ff38f3e2f9c831">    6</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a24dc0297ac875e56eb1f2a230f8fdabb">CEffect::Disable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">bool</span> CEffect::Disable()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordflow">return</span> this-&gt;Unbind();</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a3238e4b5c27c7d88f5b1cd4a5387d448">   11</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; CEffect::GetError()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; CEffect::GetError()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> m_Shader.GetError();</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78">   16</a></span>&#160;<span class="keywordtype">void</span> CEffect::SetType(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> Type)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> CEffect::SetType(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a> Type)</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_type = Type;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a7b8c9a5bf841f2f8e81b6b4e3b3cb8c9">   21</a></span>&#160;GLuint CEffect::GetObjectHandle()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;GLuint CEffect::GetObjectHandle()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> m_Shader.GetShaderObject();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>

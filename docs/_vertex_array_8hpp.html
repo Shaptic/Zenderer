@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -117,17 +118,35 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp.html','');});
 
 <p><a class="el" href="_vertex_array_8hpp.html" title="Zenderer/CoreGraphics/VertexArray.hpp - A wrapper class for OpenGL Vertex Array Objects.">Zenderer/CoreGraphics/VertexArray.hpp</a> - A wrapper class for OpenGL Vertex Array Objects.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;vector&gt;</code><br/>
+<code>#include &quot;<a class="el" href="_types_8hpp_source.html">Zenderer/Core/Types.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_allocator_8hpp_source.html">Zenderer/Core/Allocator.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_open_g_l_8hpp_source.html">OpenGL.hpp</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for VertexArray.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_vertex_array_8hpp__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_core_graphics_2_vertex_array_8hpp" alt=""/></div>
+<map name="_zenderer_2include_2_zenderer_2_core_graphics_2_vertex_array_8hpp" id="_zenderer_2include_2_zenderer_2_core_graphics_2_vertex_array_8hpp">
+<area shape="rect" id="node3" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="790,352,956,379"/><area shape="rect" id="node6" href="_allocator_8hpp.html" title="Zenderer/Core/Allocator.hpp &#45; A high&#45;speed allocator using a static memory stack." alt="" coords="525,96,707,123"/><area shape="rect" id="node17" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="830,96,924,123"/><area shape="rect" id="node8" href="_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="419,179,617,205"/><area shape="rect" id="node9" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="443,262,561,303"/><area shape="rect" id="node14" href="_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="5,352,216,379"/><area shape="rect" id="node16" href="_log_8inl.html" title="Log.inl" alt="" coords="241,352,300,379"/><area shape="rect" id="node20" href="_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="1186,179,1357,205"/><area shape="rect" id="node26" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="642,171,760,213"/><area shape="rect" id="node23" href="_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="1147,269,1249,296"/><area shape="rect" id="node25" href="_vector_8inl.html" title="Vector.inl" alt="" coords="1368,269,1445,296"/><area shape="rect" id="node24" href="_math_core_8inl.html" title="MathCore.inl" alt="" coords="1151,352,1245,379"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_vertex_array_8hpp__dep__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_core_graphics_2_vertex_array_8hppdep" alt=""/></div>
+<map name="_zenderer_2include_2_zenderer_2_core_graphics_2_vertex_array_8hppdep" id="_zenderer_2include_2_zenderer_2_core_graphics_2_vertex_array_8hppdep">
+<area shape="rect" id="node2" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="1128,187,1315,229"/><area shape="rect" id="node14" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="615,97,801,138"/><area shape="rect" id="node4" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="660,369,831,410"/><area shape="rect" id="node9" href="_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="1217,459,1388,501"/><area shape="rect" id="node23" href="_vertex_array_8cpp.html" title="Zenderer/src/CoreGraphics\l/VertexArray.cpp" alt="" coords="1554,97,1731,138"/><area shape="rect" id="node3" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="1236,278,1407,319"/><area shape="rect" id="node8" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="1308,369,1479,410"/><area shape="rect" id="node13" href="_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="1034,278,1211,319"/><area shape="rect" id="node5" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="599,459,769,501"/><area shape="rect" id="node12" href="_quad_8cpp.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="1133,369,1283,410"/><area shape="rect" id="node6" href="_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="693,549,880,576"/><area shape="rect" id="node7" href="_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="495,549,668,576"/><area shape="rect" id="node11" href="_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="1413,459,1555,501"/><area shape="rect" id="node10" href="_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="1215,549,1389,576"/><area shape="rect" id="node15" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="521,278,692,319"/><area shape="rect" id="node17" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="825,278,1009,319"/><area shape="rect" id="node19" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="311,278,481,319"/><area shape="rect" id="node22" href="_renderer_8cpp.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="522,187,699,229"/><area shape="rect" id="node16" href="_light_8cpp.html" title="Zenderer/src/Graphics\l/Light.cpp" alt="" coords="434,369,584,410"/><area shape="rect" id="node18" href="_render_target_8cpp.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="855,369,1005,410"/><area shape="rect" id="node20" href="_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="180,369,359,410"/><area shape="rect" id="node21" href="_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="5,369,155,410"/></map>
+</div>
+</div>
 <p><a href="_vertex_array_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1gfxcore_1_1_draw_batch.html">zen::gfxcore::DrawBatch</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of drawing data to pass to a <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>.  <a href="structzen_1_1gfxcore_1_1_draw_batch.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of drawing data to pass to a <a class="el" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>.  <a href="structzen_1_1gfxcore_1_1_draw_batch.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">zen::gfxcore::CVertexArray</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for OpenGL Vertex Array Objects.  <a href="classzen_1_1gfxcore_1_1_c_vertex_array.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1gfxcore_1_1_c_vertex_array"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array">zen::gfxcore::CVertexArray</a></td></tr>
+<tr class="memdesc:classzen_1_1gfxcore_1_1_c_vertex_array"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for OpenGL Vertex Array Objects.  <a href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array">More...</a><br/></td></tr>
+<tr class="separator:classzen_1_1gfxcore_1_1_c_vertex_array"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -137,6 +156,12 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacezen_1_1gfxcore"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1gfxcore.html">zen::gfxcore</a></td></tr>
 <tr class="memdesc:namespacezen_1_1gfxcore"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low level graphics layer. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga7359d9b6b9dfd56a112725d085aa2f53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53">VBO_OFFSET</a>(c, object, field)</td></tr>
+<tr class="memdesc:ga7359d9b6b9dfd56a112725d085aa2f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirty macro to determine the offset of a field within a struct.  <a href="group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53">More...</a><br/></td></tr>
+<tr class="separator:ga7359d9b6b9dfd56a112725d085aa2f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>

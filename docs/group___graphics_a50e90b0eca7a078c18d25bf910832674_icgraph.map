@@ -1,0 +1,10 @@
+<map id="zen::gfx::CEffect::Init" name="zen::gfx::CEffect::Init">
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="197,5,384,32"/>
+<area shape="rect" id="node3" href="$group___graphics.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="227,57,354,98"/>
+<area shape="rect" id="node4" href="$group___graphics.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="447,101,577,142"/>
+<area shape="rect" id="node6" href="$group___graphics.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="225,203,356,245"/>
+<area shape="rect" id="node5" href="$group___objects.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="641,159,767,201"/>
+<area shape="rect" id="node7" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="487,167,537,193"/>
+<area shape="rect" id="node8" href="$group___graphics.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="447,218,577,259"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="432,284,592,311"/>
+</map>

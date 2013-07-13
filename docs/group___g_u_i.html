@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,10 +115,25 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_font.html">zen::gfx::CFont</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1gfx_1_1_c_font"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___g_u_i.html#classzen_1_1gfx_1_1_c_font">zen::gfx::CFont</a></td></tr>
+<tr class="separator:classzen_1_1gfx_1_1_c_font"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="classzen_1_1gfx_1_1_c_font" id="classzen_1_1gfx_1_1_c_font"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class zen::gfx::CFont</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>Fonts are unique assets that use the FreeType 2 to load TrueType (<code>.ttf</code>) fonts and render them in an OpenGL-compatible matter. They cannot be drawn directly to the screen, but instead will load themselves into <code><a class="el" href="group___objects.html#classzen_1_1obj_1_1_c_entity" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a></code> instances that can then be treated as such.</p>
+<dl class="section note"><dt>Note</dt><dd>It is absolutely essential that you call <code>AttachManager()</code> prior to loading any font instances, to ensure that the font textures can be created. This is a limitation of the asset API and may or may not change in the future. </dd></dl>
+</div>
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

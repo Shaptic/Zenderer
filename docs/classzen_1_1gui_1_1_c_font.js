@@ -7,5 +7,6 @@ var classzen_1_1gui_1_1_c_font =
     [ "LoadFromExisting", "classzen_1_1gui_1_1_c_font.html#a4d8dce7fe307b7ecaafc651d3b3daaae", null ],
     [ "GetData", "classzen_1_1gui_1_1_c_font.html#a47e5fcc173bf07896c9929ac6437d0e1", null ],
     [ "Render", "classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249", null ],
-    [ "ClearString", "classzen_1_1gui_1_1_c_font.html#aecd552d0ce1527f7ebc37f764029ab7f", null ]
+    [ "ClearString", "classzen_1_1gui_1_1_c_font.html#aecd552d0ce1527f7ebc37f764029ab7f", null ],
+    [ "AttachManager", "classzen_1_1gui_1_1_c_font.html#ad8311e95ccd16e69bdb790e31df78568", null ]
 ];

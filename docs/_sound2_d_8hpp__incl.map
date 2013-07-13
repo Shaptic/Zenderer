@@ -7,8 +7,8 @@
 <area shape="rect" id="node8" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="158,344,356,371"/>
 <area shape="rect" id="node10" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="635,427,753,469"/>
 <area shape="rect" id="node15" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="829,517,1040,544"/>
-<area shape="rect" id="node17" href="$_log_8inl_source.html" title="Log.inl" alt="" coords="526,517,585,544"/>
+<area shape="rect" id="node17" href="$_log_8inl.html" title="Log.inl" alt="" coords="526,517,585,544"/>
 <area shape="rect" id="node19" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="686,337,804,378"/>
 <area shape="rect" id="node20" href="$_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="282,246,400,287"/>
-<area shape="rect" id="node21" href="$_asset_8inl_source.html" title="Asset.inl" alt="" coords="425,253,497,280"/>
+<area shape="rect" id="node21" href="$_asset_8inl.html" title="Asset.inl" alt="" coords="425,253,497,280"/>
 </map>

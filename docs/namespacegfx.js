@@ -1,4 +1,4 @@
 var namespacegfx =
 [
-    [ "CRenderTarget", "classgfx_1_1_c_render_target.html", null ]
+    [ "CRenderTarget", "group___graphics.html#classgfx_1_1_c_render_target", null ]
 ];

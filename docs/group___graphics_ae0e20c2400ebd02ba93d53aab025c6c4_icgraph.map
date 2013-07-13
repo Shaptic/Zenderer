@@ -1,0 +1,5 @@
+<map id="zen::gfx::CLight::SetPosition" name="zen::gfx::CLight::SetPosition">
+<area shape="rect" id="node2" href="$group___graphics.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="268,5,407,32"/>
+<area shape="rect" id="node4" href="$group___graphics.html#a5128a50da4d0be3710a65a555316269f" title="zen::gfx::CLight::SetPosition" alt="" coords="243,56,431,83"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="480,5,661,32"/>
+</map>

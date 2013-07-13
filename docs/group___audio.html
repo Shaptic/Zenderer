@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -101,7 +101,8 @@ $(document).ready(function(){initNavTree('group___audio.html','');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Audio</div>  </div>
 </div><!--header-->
@@ -118,18 +119,1349 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html">zen::sfx::CAudio2D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An abstract base class for audio objects.  <a href="classzen_1_1sfx_1_1_c_audio2_d.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_music2_d.html">zen::sfx::CMusic2D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Music files (<code>.ogg</code> files)  <a href="classzen_1_1sfx_1_1_c_music2_d.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html">zen::sfx::CSound2D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sound effects (<code>.wav</code> files)  <a href="classzen_1_1sfx_1_1_c_sound2_d.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1sfx_1_1_c_audio2_d"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memdesc:classzen_1_1sfx_1_1_c_audio2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">An abstract base class for audio objects.  <a href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">More...</a><br/></td></tr>
+<tr class="separator:classzen_1_1sfx_1_1_c_audio2_d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1sfx_1_1_c_audio_manager"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager">zen::sfx::CAudioManager</a></td></tr>
+<tr class="memdesc:classzen_1_1sfx_1_1_c_audio_manager"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of static helper functions for the audio API.  <a href="group___audio.html#classzen_1_1sfx_1_1_c_audio_manager">More...</a><br/></td></tr>
+<tr class="separator:classzen_1_1sfx_1_1_c_audio_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1sfx_1_1_c_music2_d"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_music2_d">zen::sfx::CMusic2D</a></td></tr>
+<tr class="memdesc:classzen_1_1sfx_1_1_c_music2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Music files (<code>.ogg</code> files)  <a href="group___audio.html#classzen_1_1sfx_1_1_c_music2_d">More...</a><br/></td></tr>
+<tr class="separator:classzen_1_1sfx_1_1_c_music2_d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:classzen_1_1sfx_1_1_c_sound2_d"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_sound2_d">zen::sfx::CSound2D</a></td></tr>
+<tr class="memdesc:classzen_1_1sfx_1_1_c_sound2_d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sound effects (<code>.wav</code> files)  <a href="group___audio.html#classzen_1_1sfx_1_1_c_sound2_d">More...</a><br/></td></tr>
+<tr class="separator:classzen_1_1sfx_1_1_c_sound2_d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa">AL</a>(f)&#160;&#160;&#160;f;</td></tr>
+<tr class="memdesc:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatic OpenAL call checking in debug builds.  <a href="#ga1c4082c9be52c1ff9c9ea039b70e8caa">More...</a><br/></td></tr>
+<tr class="separator:ga1c4082c9be52c1ff9c9ea039b70e8caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Not used in the engine itself, this subsystem provides the ability to play sound effects, music, and other audio files both in WAV and OGG formats. It's recommended that you only use OGG for longer files (greater than 96kB), because they have the possibility to fail otherwise. This is because the OGG streaming facility cycles through 3 32kB buffers, so they should all at least be able to be filled once. </p>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="classzen_1_1sfx_1_1_c_audio2_d" id="classzen_1_1sfx_1_1_c_audio2_d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class zen::sfx::CAudio2D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>A managed audio asset object that acts as a unified base class to support playing a variety of audio formats. </p>
+
+<p>Definition at line <a class="el" href="_audio2_d_8hpp_source.html#l00037">37</a> of file <a class="el" href="_audio2_d_8hpp_source.html">Audio2D.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Public Member Functions</h3></td></tr>
+<tr class="memitem:a5dc7ca735e0d95c26f112cf483245540"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a5dc7ca735e0d95c26f112cf483245540">~CAudio2D</a> ()</td></tr>
+<tr class="separator:a5dc7ca735e0d95c26f112cf483245540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9469bc653fea67fca82bf2f4b2e73819"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a9469bc653fea67fca82bf2f4b2e73819">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)=0</td></tr>
+<tr class="memdesc:a9469bc653fea67fca82bf2f4b2e73819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an audio file from disk.  <a href="#a9469bc653fea67fca82bf2f4b2e73819">More...</a><br/></td></tr>
+<tr class="separator:a9469bc653fea67fca82bf2f4b2e73819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7e239fe6c2e676845fc385c4b7bab2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a3b7e239fe6c2e676845fc385c4b7bab2">Play</a> ()=0</td></tr>
+<tr class="memdesc:a3b7e239fe6c2e676845fc385c4b7bab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once.  <a href="#a3b7e239fe6c2e676845fc385c4b7bab2">More...</a><br/></td></tr>
+<tr class="separator:a3b7e239fe6c2e676845fc385c4b7bab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2f2dcf0135d07daf4ac735ee59daec5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ab2f2dcf0135d07daf4ac735ee59daec5">Update</a> ()=0</td></tr>
+<tr class="memdesc:ab2f2dcf0135d07daf4ac735ee59daec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every frame after <a class="el" href="group___audio.html#a3b7e239fe6c2e676845fc385c4b7bab2" title="Called once.">Play()</a>  <a href="#ab2f2dcf0135d07daf4ac735ee59daec5">More...</a><br/></td></tr>
+<tr class="separator:ab2f2dcf0135d07daf4ac735ee59daec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0e76601525a3d5605e731b1a6fdad9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa0e76601525a3d5605e731b1a6fdad9e">Ready</a> () const </td></tr>
+<tr class="memdesc:aa0e76601525a3d5605e731b1a6fdad9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the stream is ready to <a class="el" href="group___audio.html#ab2f2dcf0135d07daf4ac735ee59daec5" title="Called every frame after Play()">Update()</a>  <a href="#aa0e76601525a3d5605e731b1a6fdad9e">More...</a><br/></td></tr>
+<tr class="separator:aa0e76601525a3d5605e731b1a6fdad9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d099f6ee7acd8c9af20d050a515c72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ac8d099f6ee7acd8c9af20d050a515c72">UnloadSource</a> ()</td></tr>
+<tr class="memdesc:ac8d099f6ee7acd8c9af20d050a515c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads the OpenAL source handle.  <a href="#ac8d099f6ee7acd8c9af20d050a515c72">More...</a><br/></td></tr>
+<tr class="separator:ac8d099f6ee7acd8c9af20d050a515c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e21ad93cb2814a9519eb5f7513aa0e"><td class="memItemLeft" align="right" valign="top">ALenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa7e21ad93cb2814a9519eb5f7513aa0e">GetAudioState</a> () const </td></tr>
+<tr class="separator:aa7e21ad93cb2814a9519eb5f7513aa0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6373463cc239cae7d71cc40140f633bb"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a6373463cc239cae7d71cc40140f633bb">GetData</a> () const </td></tr>
+<tr class="memdesc:a6373463cc239cae7d71cc40140f633bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns raw asset data (usually for reloading).  <a href="#a6373463cc239cae7d71cc40140f633bb">More...</a><br/></td></tr>
+<tr class="separator:a6373463cc239cae7d71cc40140f633bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_group___assets')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a34d3bc4ca78a32392f46b15e6f272ccc">~CAsset</a> ()</td></tr>
+<tr class="memdesc:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs some information.  <a href="#a34d3bc4ca78a32392f46b15e6f272ccc">More...</a><br/></td></tr>
+<tr class="separator:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ad7628ec85ea3e8a6268acd18cb4ad40a">LoadFromExisting</a> (const <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">CAsset</a> *const pCopy)</td></tr>
+<tr class="memdesc:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an asset from another.  <a href="#ad7628ec85ea3e8a6268acd18cb4ad40a">More...</a><br/></td></tr>
+<tr class="separator:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ae9fa59ebe5c3a989d77b9095a624fd37">GetFilenameHash</a> () const </td></tr>
+<tr class="memdesc:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hashed filename for quicker comparison.  <a href="#ae9fa59ebe5c3a989d77b9095a624fd37">More...</a><br/></td></tr>
+<tr class="separator:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
+<tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID.  <a href="#acf4f65383e1dcbcb5e5e1f4ab0b9f292">More...</a><br/></td></tr>
+<tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
+<tr class="memdesc:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename used to load the asset.  <a href="#a0f322ed60cd2e8f6ed87423904709174">More...</a><br/></td></tr>
+<tr class="separator:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a533ca42ad6d3749252d61a284b0bc020">GetOwner</a> () const </td></tr>
+<tr class="memdesc:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns address of asset owner.  <a href="#a533ca42ad6d3749252d61a284b0bc020">More...</a><br/></td></tr>
+<tr class="separator:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a056356e8c670ec772528435ddb1cc3ed">GetError</a> () const </td></tr>
+<tr class="memdesc:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last error string.  <a href="#a056356e8c670ec772528435ddb1cc3ed">More...</a><br/></td></tr>
+<tr class="separator:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#afc4ccb384bf6277fafeca9974ccdf017">IsLoaded</a> () const </td></tr>
+<tr class="memdesc:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has <a class="el" href="group___assets.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">LoadFromFile()</a> been called successfully?  <a href="#afc4ccb384bf6277fafeca9974ccdf017">More...</a><br/></td></tr>
+<tr class="separator:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ab43b0d72c2e2df204df3f582d10efeba">SetOwner</a> (const void *const owner)</td></tr>
+<tr class="memdesc:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the asset owner.  <a href="#ab43b0d72c2e2df204df3f582d10efeba">More...</a><br/></td></tr>
+<tr class="separator:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ace8121bde584098ce51920291346aa30">SetFilename</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the asset filename.  <a href="#ace8121bde584098ce51920291346aa30">More...</a><br/></td></tr>
+<tr class="separator:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><h3>Protected Member Functions</h3></td></tr>
+<tr class="memitem:ab6329654013c50dc824d0806a9d2abe9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ab6329654013c50dc824d0806a9d2abe9">CAudio2D</a> (const void *const owner=nullptr)</td></tr>
+<tr class="separator:ab6329654013c50dc824d0806a9d2abe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a162cbd74091084e92a2ab87b38513f2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a162cbd74091084e92a2ab87b38513f2c">CAudio2D</a> (const <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">CAudio2D</a> &amp;)</td></tr>
+<tr class="separator:a162cbd74091084e92a2ab87b38513f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68df63abf75665546540e375a59b594a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a68df63abf75665546540e375a59b594a">Destroy</a> ()</td></tr>
+<tr class="separator:a68df63abf75665546540e375a59b594a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_group___assets')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_group___assets"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a545ccfdabbcd898fea39617350a54e77">CAsset</a> (const void *const owner=nullptr)</td></tr>
+<tr class="memdesc:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a> can create <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset" title="Used throughout Zenderer to act as a managed asset.">CAsset</a> instances.  <a href="#a545ccfdabbcd898fea39617350a54e77">More...</a><br/></td></tr>
+<tr class="separator:a545ccfdabbcd898fea39617350a54e77 inherit pro_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe42ff44f3521e608b1637e86996a33a inherit pro_methods_group___assets"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#afe42ff44f3521e608b1637e86996a33a">CAsset</a> (const <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">CAsset</a> &amp;Disabled)</td></tr>
+<tr class="memdesc:afe42ff44f3521e608b1637e86996a33a inherit pro_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">No copy or assignment of assets.  <a href="#afe42ff44f3521e608b1637e86996a33a">More...</a><br/></td></tr>
+<tr class="separator:afe42ff44f3521e608b1637e86996a33a inherit pro_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4fdd1baab8bd5a2c9a131b65138a099 inherit pro_methods_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">CAsset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ae4fdd1baab8bd5a2c9a131b65138a099">operator=</a> (const <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">CAsset</a> &amp;Disabled)</td></tr>
+<tr class="separator:ae4fdd1baab8bd5a2c9a131b65138a099 inherit pro_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><h3>Protected Attributes</h3></td></tr>
+<tr class="memitem:a7e26bbc52b6555e6fe116ebaf50cc527"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html">zen::sfx::CAudio2D::ALData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a7e26bbc52b6555e6fe116ebaf50cc527">m_AL</a></td></tr>
+<tr class="separator:a7e26bbc52b6555e6fe116ebaf50cc527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f482a8e975a9f6130f1366a70d702f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a93f482a8e975a9f6130f1366a70d702f">m_error_code</a></td></tr>
+<tr class="separator:a93f482a8e975a9f6130f1366a70d702f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a83aad12f3ce5ca4156398153cedb62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a4a83aad12f3ce5ca4156398153cedb62">m_loop</a></td></tr>
+<tr class="separator:a4a83aad12f3ce5ca4156398153cedb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_group___assets')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a4902961e708ba1ef8f72ac26efabe05b inherit pro_attribs_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___utilities.html#classzen_1_1util_1_1_c_log">util::CLog</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a4902961e708ba1ef8f72ac26efabe05b">m_Log</a></td></tr>
+<tr class="separator:a4902961e708ba1ef8f72ac26efabe05b inherit pro_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c3eb60c3fdaa9d10748f56749e97c02 inherit pro_attribs_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a9c3eb60c3fdaa9d10748f56749e97c02">m_filename</a></td></tr>
+<tr class="separator:a9c3eb60c3fdaa9d10748f56749e97c02 inherit pro_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f68362f7596efb51f47de140e78575 inherit pro_attribs_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a23f68362f7596efb51f47de140e78575">m_error_str</a></td></tr>
+<tr class="separator:a23f68362f7596efb51f47de140e78575 inherit pro_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698c93c320d6e0a21050652c6f616857 inherit pro_attribs_group___assets"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a></td></tr>
+<tr class="separator:a698c93c320d6e0a21050652c6f616857 inherit pro_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aabe67928ebf0afdbf3262b048863db inherit pro_attribs_group___assets"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a></td></tr>
+<tr class="separator:a2aabe67928ebf0afdbf3262b048863db inherit pro_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><h3>Friends</h3></td></tr>
+<tr class="memitem:a29506f8739fc077481fbd74a9d37b17f"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a29506f8739fc077481fbd74a9d37b17f">asset::CAssetManager</a></td></tr>
+<tr class="separator:a29506f8739fc077481fbd74a9d37b17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_static_attribs_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_group___assets')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_group___assets"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a73d9bc5ded589b308c875d4ea152acf8">s_seed</a> = 0x6915BAD</td></tr>
+<tr class="separator:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Constructor &amp; Destructor Documentation</h4>
+<a class="anchor" id="a5dc7ca735e0d95c26f112cf483245540"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CAudio2D::~CAudio2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio2_d_8cpp_source.html#l00018">18</a> of file <a class="el" href="_audio2_d_8cpp_source.html">Audio2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6329654013c50dc824d0806a9d2abe9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zen::sfx::CAudio2D::CAudio2D </td>
+          <td>(</td>
+          <td class="paramtype">const void *const&#160;</td>
+          <td class="paramname"><em>owner</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a162cbd74091084e92a2ab87b38513f2c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">zen::sfx::CAudio2D::CAudio2D </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">CAudio2D</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h4 class="groupheader">Member Function Documentation</h4>
+<a class="anchor" id="a9469bc653fea67fca82bf2f4b2e73819"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool zen::sfx::CAudio2D::LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___assets.html#a3a5a49d12fc7f291f5de04a7f52757b0">zen::asset::CAsset</a>.</p>
+
+<p>Implemented in <a class="el" href="group___audio.html#aea18978c4f032e54668487698bfe78d7">zen::sfx::CMusic2D</a>, and <a class="el" href="group___audio.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b7e239fe6c2e676845fc385c4b7bab2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void zen::sfx::CAudio2D::Play </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="group___audio.html#a58fcd70bb15d3203b71ccc458014cf36">zen::sfx::CMusic2D</a>, and <a class="el" href="group___audio.html#aa581f26e77c034a058ba3dfc4ebcbca7">zen::sfx::CSound2D</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2f2dcf0135d07daf4ac735ee59daec5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void zen::sfx::CAudio2D::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="group___audio.html#aa2d07ee000b0dfeabc800f46f580b649">zen::sfx::CMusic2D</a>, and <a class="el" href="group___audio.html#a7feffeaf5e36a465db17e5e68c35148b">zen::sfx::CSound2D</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa0e76601525a3d5605e731b1a6fdad9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::sfx::CAudio2D::Ready </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac8d099f6ee7acd8c9af20d050a515c72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudio2D::UnloadSource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio2_d_8cpp_source.html#l00037">37</a> of file <a class="el" href="_audio2_d_8cpp_source.html">Audio2D.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___audio_ac8d099f6ee7acd8c9af20d050a515c72_icgraph.png" border="0" usemap="#group___audio_ac8d099f6ee7acd8c9af20d050a515c72_icgraph" alt=""/></div>
+<map name="group___audio_ac8d099f6ee7acd8c9af20d050a515c72_icgraph" id="group___audio_ac8d099f6ee7acd8c9af20d050a515c72_icgraph">
+<area shape="rect" id="node2" href="group___audio.html#aa46b12dc8f5701b3e5bb8fa7667fbc5a" title="zen::sfx::CMusic2D\l::~CMusic2D" alt="" coords="191,5,327,46"/><area shape="rect" id="node3" href="group___audio.html#aea18978c4f032e54668487698bfe78d7" title="Loads an .ogg file from disk." alt="" coords="191,70,327,111"/><area shape="rect" id="node4" href="group___audio.html#af011d370d19170f5098097accc07b0b4" title="zen::sfx::CSound2D\l::~CSound2D" alt="" coords="189,135,328,177"/><area shape="rect" id="node5" href="group___audio.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="189,201,328,242"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa7e21ad93cb2814a9519eb5f7513aa0e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CAudio2D::GetAudioState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio2_d_8cpp_source.html#l00023">23</a> of file <a class="el" href="_audio2_d_8cpp_source.html">Audio2D.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___audio_aa7e21ad93cb2814a9519eb5f7513aa0e_icgraph.png" border="0" usemap="#group___audio_aa7e21ad93cb2814a9519eb5f7513aa0e_icgraph" alt=""/></div>
+<map name="group___audio_aa7e21ad93cb2814a9519eb5f7513aa0e_icgraph" id="group___audio_aa7e21ad93cb2814a9519eb5f7513aa0e_icgraph">
+<area shape="rect" id="node2" href="group___audio.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="191,5,327,46"/><area shape="rect" id="node3" href="group___audio.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="189,70,328,111"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6373463cc239cae7d71cc40140f633bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void *const CAudio2D::GetData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___assets.html#a723a8b0b7caf38bd28ead2c5add97231">zen::asset::CAsset</a>.</p>
+
+<p>Definition at line <a class="el" href="_audio2_d_8cpp_source.html#l00032">32</a> of file <a class="el" href="_audio2_d_8cpp_source.html">Audio2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a68df63abf75665546540e375a59b594a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::sfx::CAudio2D::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___assets.html#a6c99023b4713d13d9483905b98d69f4d">zen::asset::CAsset</a>.</p>
+
+<p>Definition at line <a class="el" href="_audio2_d_8hpp_source.html#l00066">66</a> of file <a class="el" href="_audio2_d_8hpp_source.html">Audio2D.hpp</a>.</p>
+
+</div>
+</div>
+<h4 class="groupheader">Friends And Related Function Documentation</h4>
+<a class="anchor" id="a29506f8739fc077481fbd74a9d37b17f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager">asset::CAssetManager</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio2_d_8hpp_source.html#l00060">60</a> of file <a class="el" href="_audio2_d_8hpp_source.html">Audio2D.hpp</a>.</p>
+
+</div>
+</div>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a7e26bbc52b6555e6fe116ebaf50cc527"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html">zen::sfx::CAudio2D::ALData</a>  zen::sfx::CAudio2D::m_AL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a93f482a8e975a9f6130f1366a70d702f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t zen::sfx::CAudio2D::m_error_code</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio2_d_8hpp_source.html#l00077">77</a> of file <a class="el" href="_audio2_d_8hpp_source.html">Audio2D.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4a83aad12f3ce5ca4156398153cedb62"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::sfx::CAudio2D::m_loop</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio2_d_8hpp_source.html#l00078">78</a> of file <a class="el" href="_audio2_d_8hpp_source.html">Audio2D.hpp</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="classzen_1_1sfx_1_1_c_audio_manager" id="classzen_1_1sfx_1_1_c_audio_manager"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class zen::sfx::CAudioManager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This class provides a variety of <code>static</code> convenience functions for the various audio asset instance classes to use in order to find available OpenAL sources.</p>
+<p>OpenAL is limited to 256 buffers, and despite the fact that they likely will never all be in use simultaneously, there is still no sense in being greedy. This class should be the one and only way that external audio classes get an available OpenAL source.</p>
+<p>The architecture for controlling sources is as follows:</p>
+<p>There exists a static array of 256 potential sources, zeroed out. As audio is played, the array fills up with source data, starting from <code>[0]</code>. So, the first call to <code><a class="el" href="group___audio.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a></code> would return <code>0</code> and after a call to <code>alGenSources</code> it would be filled with some arbitrary data. So thus </p>
+<pre class="fragment">CAudioManager::s_sources[0] = 12345
+</pre><p>Then, a subsequent call to <code><a class="el" href="group___audio.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a></code> would return <code>1</code> and the process repeats. Now, let's say the first source is done playing an <code>.ogg</code> file and CMusic2D::FreeSource() is called. Now the first available source is <code>s_sources[0]</code>, but due to the nature of the source-finding algorithm, <code><a class="el" href="group___audio.html#ab652bcb2955fb97b098f3790daa34f61" title="Actually returns the OpenAL source handle.">GetAvailableSource()</a></code> will return <code>2</code>, because it first searches the index immediately following the last-used source before starting from the beginning. Hence (assuming <code>2</code> is then used): </p>
+<pre class="fragment">CAudioManager::s_sources[0] = 0
+CAudioManager::s_sources[1] = 223344
+CAudioManager::s_sources[2] = 696969</pre> 
+<p>Definition at line <a class="el" href="_audio_manager_8hpp_source.html#l00058">58</a> of file <a class="el" href="_audio_manager_8hpp_source.html">AudioManager.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Static Public Member Functions</h3></td></tr>
+<tr class="memitem:a9ae7e2a83f5eba6f92adf07622eae4c8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a9ae7e2a83f5eba6f92adf07622eae4c8">Init</a> ()</td></tr>
+<tr class="memdesc:a9ae7e2a83f5eba6f92adf07622eae4c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes OpenAL.  <a href="#a9ae7e2a83f5eba6f92adf07622eae4c8">More...</a><br/></td></tr>
+<tr class="separator:a9ae7e2a83f5eba6f92adf07622eae4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc219ee89c86e8ed3fbd0684e1ced9f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aebc219ee89c86e8ed3fbd0684e1ced9f">GetAvailableSourceIndex</a> ()</td></tr>
+<tr class="memdesc:aebc219ee89c86e8ed3fbd0684e1ced9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an available audio source to use for a buffer.  <a href="#aebc219ee89c86e8ed3fbd0684e1ced9f">More...</a><br/></td></tr>
+<tr class="separator:aebc219ee89c86e8ed3fbd0684e1ced9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab652bcb2955fb97b098f3790daa34f61"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ab652bcb2955fb97b098f3790daa34f61">GetAvailableSource</a> (const uint16_t index)</td></tr>
+<tr class="memdesc:ab652bcb2955fb97b098f3790daa34f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actually returns the OpenAL source handle.  <a href="#ab652bcb2955fb97b098f3790daa34f61">More...</a><br/></td></tr>
+<tr class="separator:ab652bcb2955fb97b098f3790daa34f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c00dd3076e14440b4f6d5ee17cd5ea1"><td class="memItemLeft" align="right" valign="top">static ALuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a5c00dd3076e14440b4f6d5ee17cd5ea1">CreateSource</a> ()</td></tr>
+<tr class="memdesc:a5c00dd3076e14440b4f6d5ee17cd5ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an OpenAL source handle and returns its handle.  <a href="#a5c00dd3076e14440b4f6d5ee17cd5ea1">More...</a><br/></td></tr>
+<tr class="separator:a5c00dd3076e14440b4f6d5ee17cd5ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8af6f0acd2111500659b038fb256e01"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa8af6f0acd2111500659b038fb256e01">FreeSource</a> (ALuint index)</td></tr>
+<tr class="memdesc:aa8af6f0acd2111500659b038fb256e01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees an OpenAL source.  <a href="#aa8af6f0acd2111500659b038fb256e01">More...</a><br/></td></tr>
+<tr class="separator:aa8af6f0acd2111500659b038fb256e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a400e4194c5b8a08a72f8d00065f1eb2d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a400e4194c5b8a08a72f8d00065f1eb2d">alCheck</a> (const char *expr, const uint32_t line, const char *file)</td></tr>
+<tr class="memdesc:a400e4194c5b8a08a72f8d00065f1eb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the validity of an OpenAL call.  <a href="#a400e4194c5b8a08a72f8d00065f1eb2d">More...</a><br/></td></tr>
+<tr class="separator:a400e4194c5b8a08a72f8d00065f1eb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99b8e3ee406f5571bce717ee2c30ecb1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a99b8e3ee406f5571bce717ee2c30ecb1">OGGError</a> (const int error_code)</td></tr>
+<tr class="memdesc:a99b8e3ee406f5571bce717ee2c30ecb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs and outputs a readable error from an OGG error code.  <a href="#a99b8e3ee406f5571bce717ee2c30ecb1">More...</a><br/></td></tr>
+<tr class="separator:a99b8e3ee406f5571bce717ee2c30ecb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e37c14ea1008f7a514cbfc5b67a0914"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a0e37c14ea1008f7a514cbfc5b67a0914">IsInit</a> ()</td></tr>
+<tr class="memdesc:a0e37c14ea1008f7a514cbfc5b67a0914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is OpenAL initialized?  <a href="#a0e37c14ea1008f7a514cbfc5b67a0914">More...</a><br/></td></tr>
+<tr class="separator:a0e37c14ea1008f7a514cbfc5b67a0914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Member Function Documentation</h4>
+<a class="anchor" id="a9ae7e2a83f5eba6f92adf07622eae4c8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAudioManager::Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00013">13</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebc219ee89c86e8ed3fbd0684e1ced9f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CAudioManager::GetAvailableSourceIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If all of the sources are completely used up, this function will return <code>-1</code>, and someone needs to call <code><a class="el" href="group___audio.html#aa8af6f0acd2111500659b038fb256e01" title="Frees an OpenAL source.">FreeSource()</a></code> on an audio file to free up some sources to use.</p>
+<dl class="section return"><dt>Returns</dt><dd>An index to the next available OpenAL source buffer. </dd></dl>
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab652bcb2955fb97b098f3790daa34f61"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CAudioManager::GetAvailableSource </td>
+          <td>(</td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c00dd3076e14440b4f6d5ee17cd5ea1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ALuint CAudioManager::CreateSource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00067">67</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___audio_a5c00dd3076e14440b4f6d5ee17cd5ea1_icgraph.png" border="0" usemap="#group___audio_a5c00dd3076e14440b4f6d5ee17cd5ea1_icgraph" alt=""/></div>
+<map name="group___audio_a5c00dd3076e14440b4f6d5ee17cd5ea1_icgraph" id="group___audio_a5c00dd3076e14440b4f6d5ee17cd5ea1_icgraph">
+<area shape="rect" id="node2" href="group___audio.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="223,5,359,46"/><area shape="rect" id="node3" href="group___audio.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="221,70,360,111"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8af6f0acd2111500659b038fb256e01"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAudioManager::FreeSource </td>
+          <td>(</td>
+          <td class="paramtype">ALuint&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00085">85</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a400e4194c5b8a08a72f8d00065f1eb2d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAudioManager::alCheck </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>expr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Mostly used internally for debugging, this will check valid execution of an OpenAL call. It should be used in congruence with the macro defined at the top of this file (<a class="el" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa" title="Automatic OpenAL call checking in debug builds.">AL(f)</a>). This function won't really work well without the macro, as too many things have to be passed as parameters for accuracy; it'd be unwieldy to pass the string of the OpenAL function call by hand every time.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>OpenAL call expression </td></tr>
+    <tr><td class="paramname">line</td><td>Line number of function call </td></tr>
+    <tr><td class="paramname">file</td><td>File name of function call</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there was no error, and <code>false</code> otherwise, though the assertion will exit. </dd></dl>
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00102">102</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99b8e3ee406f5571bce717ee2c30ecb1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAudioManager::OGGError </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>error_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00125">125</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e37c14ea1008f7a514cbfc5b67a0914"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CAudioManager::IsInit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8cpp_source.html#l00163">163</a> of file <a class="el" href="_audio_manager_8cpp_source.html">AudioManager.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___audio_a0e37c14ea1008f7a514cbfc5b67a0914_icgraph.png" border="0" usemap="#group___audio_a0e37c14ea1008f7a514cbfc5b67a0914_icgraph" alt=""/></div>
+<map name="group___audio_a0e37c14ea1008f7a514cbfc5b67a0914_icgraph" id="group___audio_a0e37c14ea1008f7a514cbfc5b67a0914_icgraph">
+<area shape="rect" id="node2" href="group___audio.html#aea18978c4f032e54668487698bfe78d7" title="Loads an .ogg file from disk." alt="" coords="221,5,357,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="classzen_1_1sfx_1_1_c_music2_d" id="classzen_1_1sfx_1_1_c_music2_d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class zen::sfx::CMusic2D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>A managed asset that will stream large files in the Ogg-Vorbis (<code>.ogg</code>) file format. This format is not recommended for files smaller than 96kB, due to the streaming nature that stores 96kB of data at a time. A better alternative would be to use the <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_sound2_d" title="Sound effects (.wav files)">zen::sfx::CSound2D</a> class in combination with an uncompressed <code>.wav</code> file. </p>
+
+<p>Definition at line <a class="el" href="_music2_d_8hpp_source.html#l00033">33</a> of file <a class="el" href="_music2_d_8hpp_source.html">Music2D.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Public Member Functions</h3></td></tr>
+<tr class="memitem:aa46b12dc8f5701b3e5bb8fa7667fbc5a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa46b12dc8f5701b3e5bb8fa7667fbc5a">~CMusic2D</a> ()</td></tr>
+<tr class="separator:aa46b12dc8f5701b3e5bb8fa7667fbc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea18978c4f032e54668487698bfe78d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aea18978c4f032e54668487698bfe78d7">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:aea18978c4f032e54668487698bfe78d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an <code>.ogg</code> file from disk.  <a href="#aea18978c4f032e54668487698bfe78d7">More...</a><br/></td></tr>
+<tr class="separator:aea18978c4f032e54668487698bfe78d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58fcd70bb15d3203b71ccc458014cf36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a58fcd70bb15d3203b71ccc458014cf36">Play</a> ()</td></tr>
+<tr class="memdesc:a58fcd70bb15d3203b71ccc458014cf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the file (if loaded).  <a href="#a58fcd70bb15d3203b71ccc458014cf36">More...</a><br/></td></tr>
+<tr class="separator:a58fcd70bb15d3203b71ccc458014cf36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d07ee000b0dfeabc800f46f580b649"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa2d07ee000b0dfeabc800f46f580b649">Update</a> ()</td></tr>
+<tr class="memdesc:aa2d07ee000b0dfeabc800f46f580b649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the internal file stream for continuous play.  <a href="#aa2d07ee000b0dfeabc800f46f580b649">More...</a><br/></td></tr>
+<tr class="separator:aa2d07ee000b0dfeabc800f46f580b649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8453333272f08243b7fc9c0e49dd78b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ad8453333272f08243b7fc9c0e49dd78b">Ready</a> () const </td></tr>
+<tr class="memdesc:ad8453333272f08243b7fc9c0e49dd78b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the stream ready to call <a class="el" href="group___audio.html#aa2d07ee000b0dfeabc800f46f580b649" title="Updates the internal file stream for continuous play.">Update()</a>?  <a href="#ad8453333272f08243b7fc9c0e49dd78b">More...</a><br/></td></tr>
+<tr class="separator:ad8453333272f08243b7fc9c0e49dd78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_group___audio"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_group___audio')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memitem:a5dc7ca735e0d95c26f112cf483245540 inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a5dc7ca735e0d95c26f112cf483245540">~CAudio2D</a> ()</td></tr>
+<tr class="separator:a5dc7ca735e0d95c26f112cf483245540 inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0e76601525a3d5605e731b1a6fdad9e inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa0e76601525a3d5605e731b1a6fdad9e">Ready</a> () const </td></tr>
+<tr class="memdesc:aa0e76601525a3d5605e731b1a6fdad9e inherit pub_methods_group___audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the stream is ready to <a class="el" href="group___audio.html#ab2f2dcf0135d07daf4ac735ee59daec5" title="Called every frame after Play()">Update()</a>  <a href="#aa0e76601525a3d5605e731b1a6fdad9e">More...</a><br/></td></tr>
+<tr class="separator:aa0e76601525a3d5605e731b1a6fdad9e inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d099f6ee7acd8c9af20d050a515c72 inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ac8d099f6ee7acd8c9af20d050a515c72">UnloadSource</a> ()</td></tr>
+<tr class="memdesc:ac8d099f6ee7acd8c9af20d050a515c72 inherit pub_methods_group___audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads the OpenAL source handle.  <a href="#ac8d099f6ee7acd8c9af20d050a515c72">More...</a><br/></td></tr>
+<tr class="separator:ac8d099f6ee7acd8c9af20d050a515c72 inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e21ad93cb2814a9519eb5f7513aa0e inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">ALenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa7e21ad93cb2814a9519eb5f7513aa0e">GetAudioState</a> () const </td></tr>
+<tr class="separator:aa7e21ad93cb2814a9519eb5f7513aa0e inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6373463cc239cae7d71cc40140f633bb inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a6373463cc239cae7d71cc40140f633bb">GetData</a> () const </td></tr>
+<tr class="memdesc:a6373463cc239cae7d71cc40140f633bb inherit pub_methods_group___audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns raw asset data (usually for reloading).  <a href="#a6373463cc239cae7d71cc40140f633bb">More...</a><br/></td></tr>
+<tr class="separator:a6373463cc239cae7d71cc40140f633bb inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_group___assets')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a34d3bc4ca78a32392f46b15e6f272ccc">~CAsset</a> ()</td></tr>
+<tr class="memdesc:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs some information.  <a href="#a34d3bc4ca78a32392f46b15e6f272ccc">More...</a><br/></td></tr>
+<tr class="separator:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ad7628ec85ea3e8a6268acd18cb4ad40a">LoadFromExisting</a> (const <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">CAsset</a> *const pCopy)</td></tr>
+<tr class="memdesc:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an asset from another.  <a href="#ad7628ec85ea3e8a6268acd18cb4ad40a">More...</a><br/></td></tr>
+<tr class="separator:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ae9fa59ebe5c3a989d77b9095a624fd37">GetFilenameHash</a> () const </td></tr>
+<tr class="memdesc:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hashed filename for quicker comparison.  <a href="#ae9fa59ebe5c3a989d77b9095a624fd37">More...</a><br/></td></tr>
+<tr class="separator:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
+<tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID.  <a href="#acf4f65383e1dcbcb5e5e1f4ab0b9f292">More...</a><br/></td></tr>
+<tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
+<tr class="memdesc:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename used to load the asset.  <a href="#a0f322ed60cd2e8f6ed87423904709174">More...</a><br/></td></tr>
+<tr class="separator:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a533ca42ad6d3749252d61a284b0bc020">GetOwner</a> () const </td></tr>
+<tr class="memdesc:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns address of asset owner.  <a href="#a533ca42ad6d3749252d61a284b0bc020">More...</a><br/></td></tr>
+<tr class="separator:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a056356e8c670ec772528435ddb1cc3ed">GetError</a> () const </td></tr>
+<tr class="memdesc:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last error string.  <a href="#a056356e8c670ec772528435ddb1cc3ed">More...</a><br/></td></tr>
+<tr class="separator:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#afc4ccb384bf6277fafeca9974ccdf017">IsLoaded</a> () const </td></tr>
+<tr class="memdesc:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has <a class="el" href="group___assets.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">LoadFromFile()</a> been called successfully?  <a href="#afc4ccb384bf6277fafeca9974ccdf017">More...</a><br/></td></tr>
+<tr class="separator:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ab43b0d72c2e2df204df3f582d10efeba">SetOwner</a> (const void *const owner)</td></tr>
+<tr class="memdesc:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the asset owner.  <a href="#ab43b0d72c2e2df204df3f582d10efeba">More...</a><br/></td></tr>
+<tr class="separator:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ace8121bde584098ce51920291346aa30">SetFilename</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the asset filename.  <a href="#ace8121bde584098ce51920291346aa30">More...</a><br/></td></tr>
+<tr class="separator:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_group___audio"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_group___audio')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memitem:ab6329654013c50dc824d0806a9d2abe9 inherit pro_methods_group___audio"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ab6329654013c50dc824d0806a9d2abe9">CAudio2D</a> (const void *const owner=nullptr)</td></tr>
+<tr class="separator:ab6329654013c50dc824d0806a9d2abe9 inherit pro_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a162cbd74091084e92a2ab87b38513f2c inherit pro_methods_group___audio"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a162cbd74091084e92a2ab87b38513f2c">CAudio2D</a> (const <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">CAudio2D</a> &amp;)</td></tr>
+<tr class="separator:a162cbd74091084e92a2ab87b38513f2c inherit pro_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68df63abf75665546540e375a59b594a inherit pro_methods_group___audio"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a68df63abf75665546540e375a59b594a">Destroy</a> ()</td></tr>
+<tr class="separator:a68df63abf75665546540e375a59b594a inherit pro_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_group___audio"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_group___audio')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memitem:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_group___audio"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html">zen::sfx::CAudio2D::ALData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a7e26bbc52b6555e6fe116ebaf50cc527">m_AL</a></td></tr>
+<tr class="separator:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f482a8e975a9f6130f1366a70d702f inherit pro_attribs_group___audio"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a93f482a8e975a9f6130f1366a70d702f">m_error_code</a></td></tr>
+<tr class="separator:a93f482a8e975a9f6130f1366a70d702f inherit pro_attribs_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a83aad12f3ce5ca4156398153cedb62 inherit pro_attribs_group___audio"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a4a83aad12f3ce5ca4156398153cedb62">m_loop</a></td></tr>
+<tr class="separator:a4a83aad12f3ce5ca4156398153cedb62 inherit pro_attribs_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_static_attribs_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_group___assets')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_group___assets"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a73d9bc5ded589b308c875d4ea152acf8">s_seed</a> = 0x6915BAD</td></tr>
+<tr class="separator:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Constructor &amp; Destructor Documentation</h4>
+<a class="anchor" id="aa46b12dc8f5701b3e5bb8fa7667fbc5a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CMusic2D::~CMusic2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_music2_d_8cpp_source.html#l00021">21</a> of file <a class="el" href="_music2_d_8cpp_source.html">Music2D.cpp</a>.</p>
+
+</div>
+</div>
+<h4 class="groupheader">Member Function Documentation</h4>
+<a class="anchor" id="aea18978c4f032e54668487698bfe78d7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CMusic2D::LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___audio.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>.</p>
+
+<p>Definition at line <a class="el" href="_music2_d_8cpp_source.html#l00026">26</a> of file <a class="el" href="_music2_d_8cpp_source.html">Music2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a58fcd70bb15d3203b71ccc458014cf36"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMusic2D::Play </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This should only be called a single time, and then subsequent calls should be to <a class="el" href="group___audio.html#aa2d07ee000b0dfeabc800f46f580b649" title="Updates the internal file stream for continuous play.">Update()</a>. </p>
+
+<p>Implements <a class="el" href="group___audio.html#a3b7e239fe6c2e676845fc385c4b7bab2">zen::sfx::CAudio2D</a>.</p>
+
+<p>Definition at line <a class="el" href="_music2_d_8cpp_source.html#l00091">91</a> of file <a class="el" href="_music2_d_8cpp_source.html">Music2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2d07ee000b0dfeabc800f46f580b649"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CMusic2D::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___audio.html#ab2f2dcf0135d07daf4ac735ee59daec5">zen::sfx::CAudio2D</a>.</p>
+
+<p>Definition at line <a class="el" href="_music2_d_8cpp_source.html#l00126">126</a> of file <a class="el" href="_music2_d_8cpp_source.html">Music2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8453333272f08243b7fc9c0e49dd78b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CMusic2D::Ready </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_music2_d_8cpp_source.html#l00148">148</a> of file <a class="el" href="_music2_d_8cpp_source.html">Music2D.cpp</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="classzen_1_1sfx_1_1_c_sound2_d" id="classzen_1_1sfx_1_1_c_sound2_d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class zen::sfx::CSound2D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This managed audio asset is designed primarily for short, repetitive sound effects stored in an uncompressed <code>.wav</code> file format. It's not recommended to store or load large <code>.wav</code> files in your application, because of the uneccessary consumption of memory and disk space. A better alternative for long audio is the OGG-Vorbis (<code>.ogg</code>) format, loadable through the <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_music2_d" title="Music files (.ogg files)">zen::sfx::CMusic2D</a> class. </p>
+
+<p>Definition at line <a class="el" href="_sound2_d_8hpp_source.html#l00033">33</a> of file <a class="el" href="_sound2_d_8hpp_source.html">Sound2D.hpp</a>.</p>
+</div><table class="memberdecls">
+<tr><td colspan="2"><h3>Public Member Functions</h3></td></tr>
+<tr class="memitem:af011d370d19170f5098097accc07b0b4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#af011d370d19170f5098097accc07b0b4">~CSound2D</a> ()</td></tr>
+<tr class="separator:af011d370d19170f5098097accc07b0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ddd9fd90ee82b85d46a6d21bd09a503"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a1ddd9fd90ee82b85d46a6d21bd09a503">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="separator:a1ddd9fd90ee82b85d46a6d21bd09a503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a404c0f20fa40144238d5059e4eeca858"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a404c0f20fa40144238d5059e4eeca858">LoadFromExisting</a> (const <a class="el" href="group___assets.html#a545ccfdabbcd898fea39617350a54e77">CAsset</a> *const pCopy)</td></tr>
+<tr class="separator:a404c0f20fa40144238d5059e4eeca858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa581f26e77c034a058ba3dfc4ebcbca7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa581f26e77c034a058ba3dfc4ebcbca7">Play</a> ()</td></tr>
+<tr class="memdesc:aa581f26e77c034a058ba3dfc4ebcbca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the sound effect no matter what (if loaded).  <a href="#aa581f26e77c034a058ba3dfc4ebcbca7">More...</a><br/></td></tr>
+<tr class="separator:aa581f26e77c034a058ba3dfc4ebcbca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7feffeaf5e36a465db17e5e68c35148b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a7feffeaf5e36a465db17e5e68c35148b">Update</a> ()</td></tr>
+<tr class="memdesc:a7feffeaf5e36a465db17e5e68c35148b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This only checks for looping.  <a href="#a7feffeaf5e36a465db17e5e68c35148b">More...</a><br/></td></tr>
+<tr class="separator:a7feffeaf5e36a465db17e5e68c35148b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a473c6d5ae4d86c5ea06c7b1389786108"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a473c6d5ae4d86c5ea06c7b1389786108">Ready</a> () const </td></tr>
+<tr class="memdesc:a473c6d5ae4d86c5ea06c7b1389786108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Always returns <code>true</code> if the file is loaded.  <a href="#a473c6d5ae4d86c5ea06c7b1389786108">More...</a><br/></td></tr>
+<tr class="separator:a473c6d5ae4d86c5ea06c7b1389786108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_group___audio"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_group___audio')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memitem:a5dc7ca735e0d95c26f112cf483245540 inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a5dc7ca735e0d95c26f112cf483245540">~CAudio2D</a> ()</td></tr>
+<tr class="separator:a5dc7ca735e0d95c26f112cf483245540 inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0e76601525a3d5605e731b1a6fdad9e inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa0e76601525a3d5605e731b1a6fdad9e">Ready</a> () const </td></tr>
+<tr class="memdesc:aa0e76601525a3d5605e731b1a6fdad9e inherit pub_methods_group___audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the stream is ready to <a class="el" href="group___audio.html#ab2f2dcf0135d07daf4ac735ee59daec5" title="Called every frame after Play()">Update()</a>  <a href="#aa0e76601525a3d5605e731b1a6fdad9e">More...</a><br/></td></tr>
+<tr class="separator:aa0e76601525a3d5605e731b1a6fdad9e inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d099f6ee7acd8c9af20d050a515c72 inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ac8d099f6ee7acd8c9af20d050a515c72">UnloadSource</a> ()</td></tr>
+<tr class="memdesc:ac8d099f6ee7acd8c9af20d050a515c72 inherit pub_methods_group___audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unloads the OpenAL source handle.  <a href="#ac8d099f6ee7acd8c9af20d050a515c72">More...</a><br/></td></tr>
+<tr class="separator:ac8d099f6ee7acd8c9af20d050a515c72 inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e21ad93cb2814a9519eb5f7513aa0e inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">ALenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#aa7e21ad93cb2814a9519eb5f7513aa0e">GetAudioState</a> () const </td></tr>
+<tr class="separator:aa7e21ad93cb2814a9519eb5f7513aa0e inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6373463cc239cae7d71cc40140f633bb inherit pub_methods_group___audio"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a6373463cc239cae7d71cc40140f633bb">GetData</a> () const </td></tr>
+<tr class="memdesc:a6373463cc239cae7d71cc40140f633bb inherit pub_methods_group___audio"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns raw asset data (usually for reloading).  <a href="#a6373463cc239cae7d71cc40140f633bb">More...</a><br/></td></tr>
+<tr class="separator:a6373463cc239cae7d71cc40140f633bb inherit pub_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_group___assets')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a34d3bc4ca78a32392f46b15e6f272ccc">~CAsset</a> ()</td></tr>
+<tr class="memdesc:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs some information.  <a href="#a34d3bc4ca78a32392f46b15e6f272ccc">More...</a><br/></td></tr>
+<tr class="separator:a34d3bc4ca78a32392f46b15e6f272ccc inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ad7628ec85ea3e8a6268acd18cb4ad40a">LoadFromExisting</a> (const <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">CAsset</a> *const pCopy)</td></tr>
+<tr class="memdesc:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an asset from another.  <a href="#ad7628ec85ea3e8a6268acd18cb4ad40a">More...</a><br/></td></tr>
+<tr class="separator:ad7628ec85ea3e8a6268acd18cb4ad40a inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ae9fa59ebe5c3a989d77b9095a624fd37">GetFilenameHash</a> () const </td></tr>
+<tr class="memdesc:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hashed filename for quicker comparison.  <a href="#ae9fa59ebe5c3a989d77b9095a624fd37">More...</a><br/></td></tr>
+<tr class="separator:ae9fa59ebe5c3a989d77b9095a624fd37 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449">assetid_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">GetID</a> () const </td></tr>
+<tr class="memdesc:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique asset ID.  <a href="#acf4f65383e1dcbcb5e5e1f4ab0b9f292">More...</a><br/></td></tr>
+<tr class="separator:acf4f65383e1dcbcb5e5e1f4ab0b9f292 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a0f322ed60cd2e8f6ed87423904709174">GetFilename</a> () const </td></tr>
+<tr class="memdesc:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename used to load the asset.  <a href="#a0f322ed60cd2e8f6ed87423904709174">More...</a><br/></td></tr>
+<tr class="separator:a0f322ed60cd2e8f6ed87423904709174 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a533ca42ad6d3749252d61a284b0bc020">GetOwner</a> () const </td></tr>
+<tr class="memdesc:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns address of asset owner.  <a href="#a533ca42ad6d3749252d61a284b0bc020">More...</a><br/></td></tr>
+<tr class="separator:a533ca42ad6d3749252d61a284b0bc020 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a056356e8c670ec772528435ddb1cc3ed">GetError</a> () const </td></tr>
+<tr class="memdesc:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last error string.  <a href="#a056356e8c670ec772528435ddb1cc3ed">More...</a><br/></td></tr>
+<tr class="separator:a056356e8c670ec772528435ddb1cc3ed inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#afc4ccb384bf6277fafeca9974ccdf017">IsLoaded</a> () const </td></tr>
+<tr class="memdesc:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has <a class="el" href="group___assets.html#a3a5a49d12fc7f291f5de04a7f52757b0" title="Loads an asset from the disk.">LoadFromFile()</a> been called successfully?  <a href="#afc4ccb384bf6277fafeca9974ccdf017">More...</a><br/></td></tr>
+<tr class="separator:afc4ccb384bf6277fafeca9974ccdf017 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ab43b0d72c2e2df204df3f582d10efeba">SetOwner</a> (const void *const owner)</td></tr>
+<tr class="memdesc:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the asset owner.  <a href="#ab43b0d72c2e2df204df3f582d10efeba">More...</a><br/></td></tr>
+<tr class="separator:ab43b0d72c2e2df204df3f582d10efeba inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#ace8121bde584098ce51920291346aa30">SetFilename</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the asset filename.  <a href="#ace8121bde584098ce51920291346aa30">More...</a><br/></td></tr>
+<tr class="separator:ace8121bde584098ce51920291346aa30 inherit pub_methods_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><h3>Friends</h3></td></tr>
+<tr class="memitem:a29506f8739fc077481fbd74a9d37b17f"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a29506f8739fc077481fbd74a9d37b17f">asset::CAssetManager</a></td></tr>
+<tr class="separator:a29506f8739fc077481fbd74a9d37b17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_group___audio"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_group___audio')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memitem:ab6329654013c50dc824d0806a9d2abe9 inherit pro_methods_group___audio"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#ab6329654013c50dc824d0806a9d2abe9">CAudio2D</a> (const void *const owner=nullptr)</td></tr>
+<tr class="separator:ab6329654013c50dc824d0806a9d2abe9 inherit pro_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a162cbd74091084e92a2ab87b38513f2c inherit pro_methods_group___audio"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a162cbd74091084e92a2ab87b38513f2c">CAudio2D</a> (const <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">CAudio2D</a> &amp;)</td></tr>
+<tr class="separator:a162cbd74091084e92a2ab87b38513f2c inherit pro_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68df63abf75665546540e375a59b594a inherit pro_methods_group___audio"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a68df63abf75665546540e375a59b594a">Destroy</a> ()</td></tr>
+<tr class="separator:a68df63abf75665546540e375a59b594a inherit pro_methods_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_group___audio"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_group___audio')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="group___audio.html#classzen_1_1sfx_1_1_c_audio2_d">zen::sfx::CAudio2D</a></td></tr>
+<tr class="memitem:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_group___audio"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html">zen::sfx::CAudio2D::ALData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a7e26bbc52b6555e6fe116ebaf50cc527">m_AL</a></td></tr>
+<tr class="separator:a7e26bbc52b6555e6fe116ebaf50cc527 inherit pro_attribs_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f482a8e975a9f6130f1366a70d702f inherit pro_attribs_group___audio"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a93f482a8e975a9f6130f1366a70d702f">m_error_code</a></td></tr>
+<tr class="separator:a93f482a8e975a9f6130f1366a70d702f inherit pro_attribs_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a83aad12f3ce5ca4156398153cedb62 inherit pro_attribs_group___audio"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio.html#a4a83aad12f3ce5ca4156398153cedb62">m_loop</a></td></tr>
+<tr class="separator:a4a83aad12f3ce5ca4156398153cedb62 inherit pro_attribs_group___audio"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_static_attribs_group___assets"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_group___assets')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset">zen::asset::CAsset</a></td></tr>
+<tr class="memitem:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_group___assets"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___assets.html#a73d9bc5ded589b308c875d4ea152acf8">s_seed</a> = 0x6915BAD</td></tr>
+<tr class="separator:a73d9bc5ded589b308c875d4ea152acf8 inherit pro_static_attribs_group___assets"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Constructor &amp; Destructor Documentation</h4>
+<a class="anchor" id="af011d370d19170f5098097accc07b0b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSound2D::~CSound2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00012">12</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+
+</div>
+</div>
+<h4 class="groupheader">Member Function Documentation</h4>
+<a class="anchor" id="a1ddd9fd90ee82b85d46a6d21bd09a503"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CSound2D::LoadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>Use some standardized WAV loading library. </dd></dl>
+
+<p>Implements <a class="el" href="group___audio.html#a9469bc653fea67fca82bf2f4b2e73819">zen::sfx::CAudio2D</a>.</p>
+
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00018">18</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a404c0f20fa40144238d5059e4eeca858"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::sfx::CSound2D::LoadFromExisting </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___assets.html#a545ccfdabbcd898fea39617350a54e77">CAsset</a> *const&#160;</td>
+          <td class="paramname"><em>pCopy</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sound2_d_8hpp_source.html#l00039">39</a> of file <a class="el" href="_sound2_d_8hpp_source.html">Sound2D.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa581f26e77c034a058ba3dfc4ebcbca7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CSound2D::Play </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___audio.html#a3b7e239fe6c2e676845fc385c4b7bab2">zen::sfx::CAudio2D</a>.</p>
+
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00047">47</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7feffeaf5e36a465db17e5e68c35148b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::sfx::CSound2D::Update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="group___audio.html#ab2f2dcf0135d07daf4ac735ee59daec5">zen::sfx::CAudio2D</a>.</p>
+
+<p>Definition at line <a class="el" href="_sound2_d_8hpp_source.html#l00045">45</a> of file <a class="el" href="_sound2_d_8hpp_source.html">Sound2D.hpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group___audio_a7feffeaf5e36a465db17e5e68c35148b_icgraph.png" border="0" usemap="#group___audio_a7feffeaf5e36a465db17e5e68c35148b_icgraph" alt=""/></div>
+<map name="group___audio_a7feffeaf5e36a465db17e5e68c35148b_icgraph" id="group___audio_a7feffeaf5e36a465db17e5e68c35148b_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="192,12,243,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a473c6d5ae4d86c5ea06c7b1389786108"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::sfx::CSound2D::Ready </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sound2_d_8hpp_source.html#l00054">54</a> of file <a class="el" href="_sound2_d_8hpp_source.html">Sound2D.hpp</a>.</p>
+
+</div>
+</div>
+<h4 class="groupheader">Friends And Related Function Documentation</h4>
+<a class="anchor" id="a29506f8739fc077481fbd74a9d37b17f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager">asset::CAssetManager</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_sound2_d_8hpp_source.html#l00056">56</a> of file <a class="el" href="_sound2_d_8hpp_source.html">Sound2D.hpp</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga1c4082c9be52c1ff9c9ea039b70e8caa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">f</td><td>)</td>
+          <td>&#160;&#160;&#160;f;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audio_manager_8hpp_source.html#l00049">49</a> of file <a class="el" href="_audio_manager_8hpp_source.html">AudioManager.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

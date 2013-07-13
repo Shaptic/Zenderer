@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,11 +120,6 @@ $(document).ready(function(){initNavTree('structzen_1_1math_1_1_vector.html','')
 </p>
 
 <p><code>#include &quot;<a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>&quot;</code></p>
-<div class="dynheader">
-Collaboration diagram for zen::math::Vector&lt; T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="structzen_1_1math_1_1_vector__coll__graph.png" border="0" usemap="#zen_1_1math_1_1_vector_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
-</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -138,10 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b3f65bd14727cefb030a6a126dd4fc4"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a6b3f65bd14727cefb030a6a126dd4fc4">Vector</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;C)</td></tr>
 <tr class="memdesc:a6b3f65bd14727cefb030a6a126dd4fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies vector components from one to another.  <a href="#a6b3f65bd14727cefb030a6a126dd4fc4">More...</a><br/></td></tr>
 <tr class="separator:a6b3f65bd14727cefb030a6a126dd4fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae99a56950b4de8cfa7059f78de97fd4d"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:ae99a56950b4de8cfa7059f78de97fd4d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#ae99a56950b4de8cfa7059f78de97fd4d">operator=</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Copy)</td></tr>
-<tr class="memdesc:ae99a56950b4de8cfa7059f78de97fd4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns one vector to another.  <a href="#ae99a56950b4de8cfa7059f78de97fd4d">More...</a><br/></td></tr>
-<tr class="separator:ae99a56950b4de8cfa7059f78de97fd4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a937575ede3c52dda0c39c503f406f40c"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a937575ede3c52dda0c39c503f406f40c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a937575ede3c52dda0c39c503f406f40c">operator=</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Copy)</td></tr>
+<tr class="memdesc:a937575ede3c52dda0c39c503f406f40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns one vector to another.  <a href="#a937575ede3c52dda0c39c503f406f40c">More...</a><br/></td></tr>
+<tr class="separator:a937575ede3c52dda0c39c503f406f40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af606b191be1e741359753b5b251b7943"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:af606b191be1e741359753b5b251b7943"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#af606b191be1e741359753b5b251b7943">operator==</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="memdesc:af606b191be1e741359753b5b251b7943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two vectors for equivalence.  <a href="#af606b191be1e741359753b5b251b7943">More...</a><br/></td></tr>
@@ -150,45 +145,45 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73e7f437ccffd89073d35a17c790ac6d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a73e7f437ccffd89073d35a17c790ac6d">operator!=</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="memdesc:a73e7f437ccffd89073d35a17c790ac6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opposite of <a class="el" href="structzen_1_1math_1_1_vector.html#af606b191be1e741359753b5b251b7943" title="Compares two vectors for equivalence.">Vector::operator==()</a>  <a href="#a73e7f437ccffd89073d35a17c790ac6d">More...</a><br/></td></tr>
 <tr class="separator:a73e7f437ccffd89073d35a17c790ac6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce3f167575b8348199265d921e6e392"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:abce3f167575b8348199265d921e6e392"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#abce3f167575b8348199265d921e6e392">operator^</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
-<tr class="memdesc:abce3f167575b8348199265d921e6e392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the cross product of two vectors.  <a href="#abce3f167575b8348199265d921e6e392">More...</a><br/></td></tr>
-<tr class="separator:abce3f167575b8348199265d921e6e392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fcf0ac9428fda78ecca25cbd1aa77bd"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a8fcf0ac9428fda78ecca25cbd1aa77bd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a8fcf0ac9428fda78ecca25cbd1aa77bd">operator^</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memdesc:a8fcf0ac9428fda78ecca25cbd1aa77bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the cross product of two vectors.  <a href="#a8fcf0ac9428fda78ecca25cbd1aa77bd">More...</a><br/></td></tr>
+<tr class="separator:a8fcf0ac9428fda78ecca25cbd1aa77bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48d57e917c397f47372530182269ce7d"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a48d57e917c397f47372530182269ce7d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a48d57e917c397f47372530182269ce7d">operator*</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memitem:a48d57e917c397f47372530182269ce7d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a48d57e917c397f47372530182269ce7d">operator*</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="memdesc:a48d57e917c397f47372530182269ce7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the dot product of two vectors.  <a href="#a48d57e917c397f47372530182269ce7d">More...</a><br/></td></tr>
 <tr class="separator:a48d57e917c397f47372530182269ce7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45c7872a9bbecdca730b1510ff39a57d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a45c7872a9bbecdca730b1510ff39a57d">operator*</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> scalar) const </td></tr>
-<tr class="memdesc:a45c7872a9bbecdca730b1510ff39a57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies each component by a scalar factor.  <a href="#a45c7872a9bbecdca730b1510ff39a57d">More...</a><br/></td></tr>
-<tr class="separator:a45c7872a9bbecdca730b1510ff39a57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad3c1a67b7a6f2c46cf9b80358a572c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#aad3c1a67b7a6f2c46cf9b80358a572c7">operator/</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> scalar) const </td></tr>
+<tr class="memitem:a73f18312e63a7b35f9680074e9a0cbc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a73f18312e63a7b35f9680074e9a0cbc9">operator*</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> scalar) const </td></tr>
+<tr class="memdesc:a73f18312e63a7b35f9680074e9a0cbc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies each component by a scalar factor.  <a href="#a73f18312e63a7b35f9680074e9a0cbc9">More...</a><br/></td></tr>
+<tr class="separator:a73f18312e63a7b35f9680074e9a0cbc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad3c1a67b7a6f2c46cf9b80358a572c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#aad3c1a67b7a6f2c46cf9b80358a572c7">operator/</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> scalar) const </td></tr>
 <tr class="memdesc:aad3c1a67b7a6f2c46cf9b80358a572c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divides each component by a scalar factor.  <a href="#aad3c1a67b7a6f2c46cf9b80358a572c7">More...</a><br/></td></tr>
 <tr class="separator:aad3c1a67b7a6f2c46cf9b80358a572c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b6700a5f3396374f046a375594b56a9"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a2b6700a5f3396374f046a375594b56a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a2b6700a5f3396374f046a375594b56a9">operator+</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
-<tr class="memdesc:a2b6700a5f3396374f046a375594b56a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given vector to the current vector, returning the result.  <a href="#a2b6700a5f3396374f046a375594b56a9">More...</a><br/></td></tr>
-<tr class="separator:a2b6700a5f3396374f046a375594b56a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7de035292bcf07d4d5bde94d113cb275"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a7de035292bcf07d4d5bde94d113cb275">operator+</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> value) const </td></tr>
-<tr class="memdesc:a7de035292bcf07d4d5bde94d113cb275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a value to both components of the current vector.  <a href="#a7de035292bcf07d4d5bde94d113cb275">More...</a><br/></td></tr>
-<tr class="separator:a7de035292bcf07d4d5bde94d113cb275"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb3b75bddddd809551fc5b7ca3bbe750"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:adb3b75bddddd809551fc5b7ca3bbe750"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#adb3b75bddddd809551fc5b7ca3bbe750">operator-</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
-<tr class="memdesc:adb3b75bddddd809551fc5b7ca3bbe750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts a given vector from the current vector, returning the result.  <a href="#adb3b75bddddd809551fc5b7ca3bbe750">More...</a><br/></td></tr>
-<tr class="separator:adb3b75bddddd809551fc5b7ca3bbe750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ddbde98753dd410b3a34307d3282eb5"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a8ddbde98753dd410b3a34307d3282eb5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a8ddbde98753dd410b3a34307d3282eb5">operator+</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memdesc:a8ddbde98753dd410b3a34307d3282eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given vector to the current vector, returning the result.  <a href="#a8ddbde98753dd410b3a34307d3282eb5">More...</a><br/></td></tr>
+<tr class="separator:a8ddbde98753dd410b3a34307d3282eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad690c98a2c8a75df6b9b3ed07086a806"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#ad690c98a2c8a75df6b9b3ed07086a806">operator+</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> value) const </td></tr>
+<tr class="memdesc:ad690c98a2c8a75df6b9b3ed07086a806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a value to both components of the current vector.  <a href="#ad690c98a2c8a75df6b9b3ed07086a806">More...</a><br/></td></tr>
+<tr class="separator:ad690c98a2c8a75df6b9b3ed07086a806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d45acb1c59bf7031cf804df103cce8"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a37d45acb1c59bf7031cf804df103cce8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a37d45acb1c59bf7031cf804df103cce8">operator-</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memdesc:a37d45acb1c59bf7031cf804df103cce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts a given vector from the current vector, returning the result.  <a href="#a37d45acb1c59bf7031cf804df103cce8">More...</a><br/></td></tr>
+<tr class="separator:a37d45acb1c59bf7031cf804df103cce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37fafbf4bf8aa73238f45b785658132b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a37fafbf4bf8aa73238f45b785658132b">Normalize</a> ()</td></tr>
 <tr class="memdesc:a37fafbf4bf8aa73238f45b785658132b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes the current vector.  <a href="#a37fafbf4bf8aa73238f45b785658132b">More...</a><br/></td></tr>
 <tr class="separator:a37fafbf4bf8aa73238f45b785658132b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4c58eb0409ab7a67af84e3ac56c04b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#af4c58eb0409ab7a67af84e3ac56c04b7">Magnitude</a> () const </td></tr>
+<tr class="memitem:af4c58eb0409ab7a67af84e3ac56c04b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#af4c58eb0409ab7a67af84e3ac56c04b7">Magnitude</a> () const </td></tr>
 <tr class="memdesc:af4c58eb0409ab7a67af84e3ac56c04b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current vectors magnitude, or 'norm'.  <a href="#af4c58eb0409ab7a67af84e3ac56c04b7">More...</a><br/></td></tr>
 <tr class="separator:af4c58eb0409ab7a67af84e3ac56c04b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f06dcabc6a62c04a8b82f11f0690ae8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8">Rotate</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> radians)</td></tr>
+<tr class="memitem:a5f06dcabc6a62c04a8b82f11f0690ae8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8">Rotate</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> radians)</td></tr>
 <tr class="memdesc:a5f06dcabc6a62c04a8b82f11f0690ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates the current vector using the rotation matrix.  <a href="#a5f06dcabc6a62c04a8b82f11f0690ae8">More...</a><br/></td></tr>
 <tr class="separator:a5f06dcabc6a62c04a8b82f11f0690ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae864b62de03611caece3153162dc58b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#ae864b62de03611caece3153162dc58b1">Translate</a> (const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;TransMat)</td></tr>
+<tr class="memitem:ae864b62de03611caece3153162dc58b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#ae864b62de03611caece3153162dc58b1">Translate</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1matrix4x4__t">matrix4x4_t</a> &amp;TransMat)</td></tr>
 <tr class="memdesc:ae864b62de03611caece3153162dc58b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the current vector by a matrix.  <a href="#ae864b62de03611caece3153162dc58b1">More...</a><br/></td></tr>
 <tr class="separator:ae864b62de03611caece3153162dc58b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59053b162fef58855aee66a1e70dcb2e"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a59053b162fef58855aee66a1e70dcb2e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a59053b162fef58855aee66a1e70dcb2e">Cross2D</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memitem:a59053b162fef58855aee66a1e70dcb2e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a59053b162fef58855aee66a1e70dcb2e">Cross2D</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="memdesc:a59053b162fef58855aee66a1e70dcb2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a scalar cross product value between two 2D vectors.  <a href="#a59053b162fef58855aee66a1e70dcb2e">More...</a><br/></td></tr>
 <tr class="separator:a59053b162fef58855aee66a1e70dcb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adafedf5c311dd3cf17d8138d0c335d2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#adafedf5c311dd3cf17d8138d0c335d2e">GetNormalized</a> () const </td></tr>
@@ -207,22 +202,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abce3f167575b8348199265d921e6e392"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#abce3f167575b8348199265d921e6e392">operator^</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="separator:abce3f167575b8348199265d921e6e392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48d57e917c397f47372530182269ce7d"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a48d57e917c397f47372530182269ce7d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a48d57e917c397f47372530182269ce7d">operator*</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memitem:a48d57e917c397f47372530182269ce7d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a48d57e917c397f47372530182269ce7d">operator*</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="separator:a48d57e917c397f47372530182269ce7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c2fbb994cae0859a89fb2d71ac0db71"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6c2fbb994cae0859a89fb2d71ac0db71"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a6c2fbb994cae0859a89fb2d71ac0db71">operator*</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> scalar) const </td></tr>
+<tr class="memitem:a6c2fbb994cae0859a89fb2d71ac0db71"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a6c2fbb994cae0859a89fb2d71ac0db71">operator*</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> scalar) const </td></tr>
 <tr class="separator:a6c2fbb994cae0859a89fb2d71ac0db71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b6700a5f3396374f046a375594b56a9"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:a2b6700a5f3396374f046a375594b56a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a2b6700a5f3396374f046a375594b56a9">operator+</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="separator:a2b6700a5f3396374f046a375594b56a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef149e1bc3c3009b5d85e6c4506e9ebb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aef149e1bc3c3009b5d85e6c4506e9ebb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#aef149e1bc3c3009b5d85e6c4506e9ebb">operator+</a> (const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> value) const </td></tr>
+<tr class="memitem:aef149e1bc3c3009b5d85e6c4506e9ebb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#aef149e1bc3c3009b5d85e6c4506e9ebb">operator+</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> value) const </td></tr>
 <tr class="separator:aef149e1bc3c3009b5d85e6c4506e9ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb3b75bddddd809551fc5b7ca3bbe750"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:adb3b75bddddd809551fc5b7ca3bbe750"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#adb3b75bddddd809551fc5b7ca3bbe750">operator-</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="separator:adb3b75bddddd809551fc5b7ca3bbe750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59053b162fef58855aee66a1e70dcb2e"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr class="memitem:a59053b162fef58855aee66a1e70dcb2e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a59053b162fef58855aee66a1e70dcb2e">Cross2D</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
+<tr class="memitem:a59053b162fef58855aee66a1e70dcb2e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structzen_1_1math_1_1_vector.html#a59053b162fef58855aee66a1e70dcb2e">Cross2D</a> (const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;Other) const </td></tr>
 <tr class="separator:a59053b162fef58855aee66a1e70dcb2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -247,7 +242,7 @@ Friends</h2></td></tr>
 struct zen::math::Vector&lt; T &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00045">45</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00042">42</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a04d95dd464e4e297d6552741cdefe4fb"></a>
 <div class="memitem">
@@ -272,7 +267,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00051">51</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00048">48</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +311,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00054">54</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00051">51</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -346,16 +341,16 @@ template&lt;typename U &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00058">58</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00055">55</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae99a56950b4de8cfa7059f78de97fd4d"></a>
+<a class="anchor" id="a937575ede3c52dda0c39c503f406f40c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -363,7 +358,7 @@ template&lt;typename U &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt;&amp; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator= </td>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; &amp; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Copy</em></td><td>)</td>
@@ -377,13 +372,15 @@ template&lt;typename U &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00004">4</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af606b191be1e741359753b5b251b7943"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -405,13 +402,15 @@ template&lt;typename U &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00015">15</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a73e7f437ccffd89073d35a17c790ac6d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -433,13 +432,15 @@ template&lt;typename U &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00022">22</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="abce3f167575b8348199265d921e6e392"></a>
+<a class="anchor" id="a8fcf0ac9428fda78ecca25cbd1aa77bd"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -447,7 +448,7 @@ template&lt;typename U &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator^ </td>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator^ </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -469,13 +470,15 @@ template&lt;typename U &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 3D vector normal to both vectors. </dd></dl>
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00029">29</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a48d57e917c397f47372530182269ce7d"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -483,7 +486,7 @@ template&lt;typename U &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -508,21 +511,23 @@ template&lt;typename U &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The dot product as a scalar. </dd></dl>
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00038">38</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a45c7872a9bbecdca730b1510ff39a57d"></a>
+<a class="anchor" id="a73f18312e63a7b35f9680074e9a0cbc9"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -540,6 +545,8 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 2D resultant vector. </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00044">44</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -547,7 +554,7 @@ template&lt;typename T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -555,7 +562,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; Vector::operator/ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -574,15 +581,15 @@ template&lt;typename T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 2D resultant vector. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8inl_source.html#l00049">49</a> of file <a class="el" href="_vector_8inl_source.html">Vector.inl</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00050">50</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2b6700a5f3396374f046a375594b56a9"></a>
+<a class="anchor" id="a8ddbde98753dd410b3a34307d3282eb5"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -590,7 +597,7 @@ template&lt;typename U &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator+ </td>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator+ </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -611,21 +618,23 @@ template&lt;typename U &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 2D resultant vector. </dd></dl>
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00057">57</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a7de035292bcf07d4d5bde94d113cb275"></a>
+<a class="anchor" id="ad690c98a2c8a75df6b9b3ed07086a806"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator+ </td>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -644,13 +653,15 @@ template&lt;typename T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 2D resultant vector. </dd></dl>
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00063">63</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="adb3b75bddddd809551fc5b7ca3bbe750"></a>
+<a class="anchor" id="a37d45acb1c59bf7031cf804df103cce8"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -658,7 +669,7 @@ template&lt;typename U &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator- </td>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; T &gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator- </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -679,13 +690,15 @@ template&lt;typename U &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A 2D resultant vector. </dd></dl>
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00070">70</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a37fafbf4bf8aa73238f45b785658132b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -705,7 +718,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <p>This <em>DOES</em> modify the current vector, and makes it into a unit vector version of itself. </p>
 
-<p>Definition at line <a class="el" href="_vector_8inl_source.html#l00075">75</a> of file <a class="el" href="_vector_8inl_source.html">Vector.inl</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00076">76</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -713,13 +726,13 @@ template&lt;typename T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> Vector::Magnitude </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> Vector::Magnitude </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -733,7 +746,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <p>magnitude = &radic;(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>) </p>
 
-<p>Definition at line <a class="el" href="_vector_8inl_source.html#l00113">113</a> of file <a class="el" href="_vector_8inl_source.html">Vector.inl</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00114">114</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -750,7 +763,7 @@ Here is the caller graph for this function:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -758,7 +771,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">void Vector::Rotate </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>radians</em></td><td>)</td>
           <td></td>
         </tr>
@@ -778,9 +791,9 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
-<p>The coordinate system adjustment was removed. </p>
+<dl class="section note"><dt>Note</dt><dd>The coordinate system adjustment was removed. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8inl_source.html#l00088">88</a> of file <a class="el" href="_vector_8inl_source.html">Vector.inl</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00089">89</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -793,7 +806,7 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::Translate </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="group___math.html#classzen_1_1math_1_1matrix4x4__t">matrix4x4_t</a> &amp;&#160;</td>
           <td class="paramname"><em>TransMat</em></td><td>)</td>
           <td></td>
         </tr>
@@ -812,7 +825,7 @@ template&lt;typename T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <div class="memtemplate">
 template&lt;typename U &gt; </div>
 <table class="mlabels">
@@ -820,7 +833,7 @@ template&lt;typename U &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::Cross2D </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::Cross2D </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -844,13 +857,15 @@ template&lt;typename U &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>2D cross product (z-component of 3D cross).</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd>operator*(const Vector&amp;) </dd></dl>
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00101">101</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="adafedf5c311dd3cf17d8138d0c335d2e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -870,7 +885,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="structzen_1_1math_1_1_vector.html#a37fafbf4bf8aa73238f45b785658132b" title="Normalizes the current vector.">Vector::Normalize()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector_8inl_source.html#l00106">106</a> of file <a class="el" href="_vector_8inl_source.html">Vector.inl</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00107">107</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -971,7 +986,7 @@ template&lt;typename T&gt; </div>
 template&lt;typename U &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -995,7 +1010,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>scalar</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1039,7 +1054,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt;T&gt; <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1081,7 +1096,7 @@ template&lt;typename T&gt; </div>
 template&lt;typename U &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#af491eb6bb1689bdc9158691765b22769">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::Cross2D </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> <a class="el" href="structzen_1_1math_1_1_vector.html">zen::math::Vector</a>&lt; T &gt;::Cross2D </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structzen_1_1math_1_1_vector.html">Vector</a>&lt; U &gt; &amp;&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
@@ -1131,6 +1146,8 @@ template&lt;typename U &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00120">120</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -1146,7 +1163,7 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00048">48</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00045">45</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -1162,7 +1179,7 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00048">48</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00045">45</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>
@@ -1178,7 +1195,7 @@ template&lt;typename T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00048">48</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector_8hpp_source.html#l00045">45</a> of file <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a>.</p>
 
 </div>
 </div>

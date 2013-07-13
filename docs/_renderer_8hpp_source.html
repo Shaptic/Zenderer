@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,74 +112,75 @@ $(document).ready(function(){initNavTree('_renderer_8hpp_source.html','');});
 <a href="_renderer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef ZENDERER__CORE_GRAPHICS__RENDERER_HPP</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__CORE_GRAPHICS__RENDERER_HPP</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc">   25</a></span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp - An abstraction dictionary layer allowing easy setting of options...">Zenderer/Utilities/Settings.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp - A 4x4 matrix class wrapper for handling various graphical math operations...">Zenderer/Math/Matrix.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_material_8hpp.html" title="Zenderer/Graphics/Material.hpp - Defines a material structure for rendering different images and effe...">Zenderer/Graphics/Material.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp - Includes necessary OpenGL-related headers and defines convenience ...">OpenGL.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_vertex_array_8hpp.html" title="Zenderer/CoreGraphics/VertexArray.hpp - A wrapper class for OpenGL Vertex Array Objects.">VertexArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span>zen</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804">   32</a></span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html">   35</a></span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Forward declarations.</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#a7fc1cbadadf44939bd470783cd2b33d2">   38</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context.">CWindow</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">   39</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">CRenderTarget</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#a7fc1cbadadf44939bd470783cd2b33d2">   38</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_window" title="Creates a renderable OpenGL context.">CWindow</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">   39</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_render_target" title="Creates a target for all subsequent rendering operations.">CRenderTarget</a>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span>gfxcore</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">   44</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">BlendFunc</a> : uint16_t</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94af5f666a79188a325065364547214aa09">DISABLE_BLEND</a>,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94acf657ae8b1f2a6db62e98e32ffe601f9">ENABLE_BLEND</a>,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94afd0104adbb56b4bc790b08b9ea9e53b0">STANDARD_BLEND</a>,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94a9b708e1173f66746ea5280e5da4d0634">ADDITIVE_BLEND</a></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html">   53</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">CRenderer</a></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> BlendOperation(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">BlendFunc</a>&amp; Func);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> EnableTexture(<span class="keyword">const</span> GLuint handle);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> ResetMaterialState();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> DisableBlending();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> DisableTexture();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>&amp;           GetDefaultMaterial();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>&amp;             GetDefaultEffect();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp;  GetDefaultTexture();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>&amp;  GetProjectionMatrix();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>&amp;             GetFullscreenVBO();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// Can modify and store static data</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#abfff065a33d46a78a93a509fa3d752b7">   71</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context.">gfx::CWindow</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a14380f792fa3dbf85331a316893a2786">   72</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">CRenderer</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">CRenderer</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>         s_FullscreenQuad;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>       s_DefaultMaterial;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>         s_DefaultEffect;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*   s_DefaultTexture;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">math::matrix4x4_t</a>    s_ProjMatrix;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span>                 s_blend;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94">   45</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94" title="A variety of blending operations.">BlendFunc</a> : uint16_t</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94af5f666a79188a325065364547214aa09" title="Disables blending.">DISABLE_BLEND</a>,      </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94acf657ae8b1f2a6db62e98e32ffe601f9" title="Just enables blending.">ENABLE_BLEND</a>,       </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94afd0104adbb56b4bc790b08b9ea9e53b0" title="Enables the standard blending function.">STANDARD_BLEND</a>,     </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94a9b708e1173f66746ea5280e5da4d0634" title="Enables additive blending operation.">ADDITIVE_BLEND</a>      </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html">   54</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">CRenderer</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> BlendOperation(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3fbcb0fa4542268f117e187985a16f94" title="A variety of blending operations.">BlendFunc</a>&amp; Func);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> EnableTexture(<span class="keyword">const</span> GLuint handle);</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#ab14ae2f572f0d2a405d8ebbee3e5bd52">   62</a></span>&#160;        </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> ResetMaterialState();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> DisableBlending();</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#ae184526b45d264101cc8e65186f8437e">   68</a></span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#ae184526b45d264101cc8e65186f8437e" title="Disables any bound texture (also via EnableTexture(0)).">DisableTexture</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>&amp;           GetDefaultMaterial();</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a581ae9a207692ce6d466cbd06321a6c2">   73</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_effect" title="A high-level shader wrapper.">gfx::CEffect</a>&amp;             GetDefaultEffect();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&amp;  GetDefaultTexture();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1matrix4x4__t" title="4x4 matrix representation.">math::matrix4x4_t</a>&amp;  GetProjectionMatrix();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">inline</span> <span class="keyword">static</span> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>&amp;             <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a581ae9a207692ce6d466cbd06321a6c2">GetFullscreenVBO</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#abfff065a33d46a78a93a509fa3d752b7">   79</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_window" title="Creates a renderable OpenGL context.">gfx::CWindow</a>;          </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a14380f792fa3dbf85331a316893a2786">   80</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_render_target" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a>;    </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="namespacezen_1_1gfxcore.html#a86a46b3bbc6fac6008b0f3e0a083a622">CRenderer</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">CRenderer</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_renderer_8inl.html">Renderer.inl</a>&quot;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__RENDERER_HPP</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">static</span> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_vertex_array" title="A wrapper for OpenGL Vertex Array Objects.">CVertexArray</a>         s_FullscreenQuad;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">static</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_material" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>       s_DefaultMaterial;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">static</span> <a class="code" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_texture" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*   s_DefaultTexture;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">static</span> <a class="code" href="group___math.html#classzen_1_1math_1_1matrix4x4__t" title="4x4 matrix representation.">math::matrix4x4_t</a>    s_ProjMatrix;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span>                 s_blend;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    };</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_renderer_8inl.html">Renderer.inl</a>&quot;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__RENDERER_HPP</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -121,16 +121,16 @@ $(document).ready(function(){initNavTree('_entity_8hpp_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#a20e89ec3d59082e2825d92df80de1387">   40</a></span>&#160;<span class="keyword">namespace </span>gfx { <span class="keyword">class </span>ZEN_API CScene; }</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">   41</a></span>&#160;<span class="keyword">namespace </span>gui { <span class="keyword">class </span>ZEN_API CFont;  }</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="namespacezen_1_1gfx.html#a20e89ec3d59082e2825d92df80de1387">   40</a></span>&#160;<span class="keyword">namespace </span>gfx { <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> CScene; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">   41</a></span>&#160;<span class="keyword">namespace </span>gui { <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> CFont;  }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="namespacezen_1_1obj.html">   44</a></span>&#160;<span class="keyword">namespace </span>obj</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html">   47</a></span>&#160;    <span class="keyword">class </span>ZEN_API <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">CEntity</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="group___objects.html">   47</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="group___objects.html#classzen_1_1obj_1_1_c_entity" title="A base class for all &quot;in-game&quot; objects.">CEntity</a></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="comment">// Internal error types.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">   51</a></span>&#160;        <span class="keyword">enum class</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a> : uint16_t</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="group___objects.html#a5bf79c088e3164608707b83b98cf0ad8">   51</a></span>&#160;        <span class="keyword">enum class</span> <a class="code" href="group___objects.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a> : uint16_t</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            BAD_PAIR,</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            BAD_POSITION,</div>
@@ -139,37 +139,38 @@ $(document).ready(function(){initNavTree('_entity_8hpp_source.html','');});
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        };</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#ad205f24da849a39624205314f14fdaa2">   60</a></span>&#160;        <a class="code" href="classzen_1_1obj_1_1_c_entity.html#ad205f24da849a39624205314f14fdaa2">CEntity</a>(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets) : m_Assets(Assets) {}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">CEntity</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="group___objects.html#ad205f24da849a39624205314f14fdaa2">   60</a></span>&#160;        <a class="code" href="group___objects.html#ad205f24da849a39624205314f14fdaa2">CEntity</a>(<a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets) : m_Assets(Assets) {}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="group___objects.html#classzen_1_1obj_1_1_c_entity" title="A base class for all &quot;in-game&quot; objects.">CEntity</a>();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);        </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">bool</span> LoadFromTexture(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> AddPrimitive(<span class="keyword">const</span> CQuad&amp; Prim);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="_engine_test_8cpp.html#a7f83d24a54ac476bb8192ca01fc5ffbe">Create</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> Draw(<span class="keywordtype">bool</span> is_bound = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#ab2cc0f1324446d3b6cebddcb6e18cf04">   71</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class.">gui::CFont</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#ae0b7dc24cd8f723b800fc6a9d875b70f">   72</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gfx_1_1_c_scene.html">gfx::CScene</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="_engine_test_8cpp.html#a18ec9ca16cf3a7d6b6d341aa4e628ebd">Destroy</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">bool</span> FileError(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename, </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; line, <span class="keyword">const</span> uint32_t line_no,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                       <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a>&amp; Err = ErrorType::BAD_PAIR);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">   80</a></span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">m_Assets</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">   82</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">m_filename</a>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">   83</a></span>&#160;        std::vector&lt;gfx::CQuad*&gt;        <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">mp_allPrims</a>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#ac98f46fbfae5bff311fedbe8b0a31b27">   84</a></span>&#160;        std::vector&lt;gfx::CMaterial*&gt;    <a class="code" href="classzen_1_1obj_1_1_c_entity.html#ac98f46fbfae5bff311fedbe8b0a31b27">mp_allMaterials</a>; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    };</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // ZENDERER__OBJECTS__ENTITY_HPP</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> AddPrimitive(<span class="keyword">const</span> <a class="code" href="group___graphics.html#classzen_1_1gfx_1_1_c_quad" title="A four-sided quadrilateral primitive.">gfx::CQuad</a>&amp; Prim);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> Create();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> Optimize();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> Draw(<span class="keywordtype">bool</span> is_bound = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="group___objects.html#ab2cc0f1324446d3b6cebddcb6e18cf04">   72</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class.">gui::CFont</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="group___objects.html#ae0b7dc24cd8f723b800fc6a9d875b70f">   73</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classzen_1_1gfx_1_1_c_scene.html">gfx::CScene</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> Destroy();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">bool</span> FileError(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename, </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; line, <span class="keyword">const</span> uint32_t line_no,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                       <span class="keyword">const</span> <a class="code" href="group___objects.html#a5bf79c088e3164608707b83b98cf0ad8">ErrorType</a>&amp; Err = ErrorType::BAD_PAIR);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="group___objects.html#a1e0602295558bc4f3b9bf106c6994798">   81</a></span>&#160;        <a class="code" href="group___assets.html#classzen_1_1asset_1_1_c_asset_manager" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; <a class="code" href="group___objects.html#a1e0602295558bc4f3b9bf106c6994798">m_Assets</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="group___objects.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">   83</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> <a class="code" href="group___objects.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">m_filename</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="group___objects.html#a9716e68cd74d264fc980294621fabbff">   84</a></span>&#160;        std::vector&lt;gfx::CQuad*&gt;        <a class="code" href="group___objects.html#a9716e68cd74d264fc980294621fabbff">mp_allPrims</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="group___objects.html#ac98f46fbfae5bff311fedbe8b0a31b27">   85</a></span>&#160;        std::vector&lt;gfx::CMaterial*&gt;    <a class="code" href="group___objects.html#ac98f46fbfae5bff311fedbe8b0a31b27">mp_allMaterials</a>; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    };</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif // ZENDERER__OBJECTS__ENTITY_HPP</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

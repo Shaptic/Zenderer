@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,7 +115,27 @@ $(document).ready(function(){initNavTree('_font_core_8hpp.html','');});
 
 <p><a class="el" href="_font_core_8hpp.html" title="Zenderer/GUI/FontCore.hpp - Core library wrapper for FreeType 2.">Zenderer/GUI/FontCore.hpp</a> - Core library wrapper for FreeType 2.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &quot;ft2build.h&quot;</code><br/>
+<code>#include &quot;freetype/freetype.h&quot;</code><br/>
+<code>#include &quot;freetype/ftglyph.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_subsystem_8hpp_source.html">Zenderer/Core/Subsystem.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_texture_8hpp_source.html">Zenderer/CoreGraphics/Texture.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_shapes_8hpp_source.html">Zenderer/Math/Shapes.hpp</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for FontCore.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_font_core_8hpp__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_g_u_i_2_font_core_8hpp" alt=""/></div>
+<map name="_zenderer_2include_2_zenderer_2_g_u_i_2_font_core_8hpp" id="_zenderer_2include_2_zenderer_2_g_u_i_2_font_core_8hpp">
+<area shape="rect" id="node5" href="_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="941,269,1139,296"/><area shape="rect" id="node18" href="_texture_8hpp.html" title="Zenderer/CoreGraphics/Texture.hpp &#45; A low&#45;level texture asset wrapper around OpenGL textures..." alt="" coords="799,97,953,138"/><area shape="rect" id="node33" href="_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures." alt="" coords="1280,187,1459,213"/><area shape="rect" id="node7" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="887,533,969,560"/><area shape="rect" id="node10" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="442,443,560,485"/><area shape="rect" id="node15" href="_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="257,533,468,560"/><area shape="rect" id="node17" href="_log_8inl.html" title="Log.inl" alt="" coords="5,533,64,560"/><area shape="rect" id="node20" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="621,187,800,213"/><area shape="rect" id="node24" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="1163,269,1257,296"/><area shape="rect" id="node21" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="690,353,808,394"/><area shape="rect" id="node22" href="_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="746,262,864,303"/><area shape="rect" id="node23" href="_asset_8inl.html" title="Asset.inl" alt="" coords="597,269,669,296"/><area shape="rect" id="node27" href="_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="1333,360,1504,387"/><area shape="rect" id="node30" href="_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="1581,451,1683,477"/><area shape="rect" id="node32" href="_vector_8inl.html" title="Vector.inl" alt="" coords="1428,451,1505,477"/><area shape="rect" id="node31" href="_math_core_8inl.html" title="MathCore.inl" alt="" coords="1573,533,1667,560"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_font_core_8hpp__dep__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_g_u_i_2_font_core_8hppdep" alt=""/></div>
+<map name="_zenderer_2include_2_zenderer_2_g_u_i_2_font_core_8hppdep" id="_zenderer_2include_2_zenderer_2_g_u_i_2_font_core_8hppdep">
+<area shape="rect" id="node2" href="_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="7,97,177,138"/><area shape="rect" id="node3" href="_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="5,187,179,213"/></map>
+</div>
+</div>
 <p><a href="_font_core_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>

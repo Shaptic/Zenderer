@@ -1,19 +1,24 @@
 var searchData=
 [
   ['asset',['asset',['../namespacezen_1_1asset.html',1,'zen']]],
+  ['evt',['evt',['../namespacezen_1_1evt.html',1,'zen']]],
   ['gfx',['gfx',['../namespacezen_1_1gfx.html',1,'zen']]],
   ['gfxcore',['gfxcore',['../namespacezen_1_1gfxcore.html',1,'zen']]],
   ['gui',['gui',['../namespacezen_1_1gui.html',1,'zen']]],
   ['lua',['lua',['../namespacezen_1_1lua.html',1,'zen']]],
   ['math',['math',['../namespacezen_1_1math.html',1,'zen']]],
   ['obj',['obj',['../namespacezen_1_1obj.html',1,'zen']]],
-  ['quit',['Quit',['../classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a2f2251cf9cbb5af084e9f0f8f0561083',1,'zen::gfxcore::CGLSubsystem']]],
+  ['quit',['Quit',['../group___core_graphics.html#a2f2251cf9cbb5af084e9f0f8f0561083',1,'zen::gfxcore::CGLSubsystem']]],
   ['sfx',['sfx',['../namespacezen_1_1sfx.html',1,'zen']]],
   ['util',['util',['../namespacezen_1_1util.html',1,'zen']]],
-  ['z',['z',['../structzen_1_1math_1_1_vector.html#a978506f2f783c9757556648d25b81788',1,'zen::math::Vector']]],
+  ['z',['z',['../structzen_1_1math_1_1_vector.html#a978506f2f783c9757556648d25b81788',1,'zen::math::Vector::z()'],['../namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487ca21c2e59531c8710156d34a3c30ac81d5',1,'zen::evt::Z()']]],
   ['zen',['zen',['../namespacezen.html',1,'']]],
   ['zen_5fambient',['ZEN_AMBIENT',['../namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826ad6a9a8bbf7cfad94a930fb41415c5e45',1,'zen::gfx']]],
+  ['zen_5fapi',['ZEN_API',['../group___engine.html#gaffef067603b6232807ee3a9ecf32b475',1,'Types.hpp']]],
+  ['zen_5fassert',['ZEN_ASSERT',['../group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d',1,'Assert.hpp']]],
+  ['zen_5fassertm',['ZEN_ASSERTM',['../group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836',1,'Assert.hpp']]],
   ['zen_5fdebug',['ZEN_DEBUG',['../namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9af994084961b9c17cb0ca94cc470af3e1',1,'zen::util']]],
+  ['zen_5fdebug_5fbuild',['ZEN_DEBUG_BUILD',['../group___engine.html#gaa111057e6f65ac3648c06031d1cad3a4',1,'Zenderer.hpp']]],
   ['zen_5feffect_5fcount',['ZEN_EFFECT_COUNT',['../namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa5637e9a02efb8d80d36a36cb388f3546',1,'zen::gfx']]],
   ['zen_5ferror',['ZEN_ERROR',['../namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9a20e0e19bee7d2670fd677b1ffa9b3a75',1,'zen::util']]],
   ['zen_5ffatal',['ZEN_FATAL',['../namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9a8cfd5bb64dfc7fad178a220d921cb3f5',1,'zen::util']]],
@@ -23,5 +28,7 @@ var searchData=
   ['zen_5fspotlight',['ZEN_SPOTLIGHT',['../namespacezen_1_1gfx.html#aa78535cbb9eb98cf3e87cb166a6ba826aa02ccee980241cc8dbebea04bc40a144',1,'zen::gfx']]],
   ['zenderer_2ecpp',['Zenderer.cpp',['../_zenderer_8cpp.html',1,'']]],
   ['zenderer_2ehpp',['Zenderer.hpp',['../_zenderer_8hpp.html',1,'']]],
-  ['zenderer_5fgl_5fversion',['ZENDERER_GL_VERSION',['../namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b',1,'zen::gfx']]]
+  ['zenderer_5fgl_5fversion',['ZENDERER_GL_VERSION',['../namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b',1,'zen::gfx']]],
+  ['zenderer_5fshader_5fpath',['ZENDERER_SHADER_PATH',['../group___core_graphics.html#gad13a32464d536179e9bb243578075a0c',1,'Shader.hpp']]],
+  ['zero',['ZERO',['../namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487ca529e9e0beb5f85d1f132917c1a09860c',1,'zen::evt']]]
 ];

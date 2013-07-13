@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5876 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('_assert_8hpp_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file.">Log.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// Assertions only run in debug builds.</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifdef _DEBUG</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#if defined(ZEN_DEBUG_BUILD) || defined(_DEBUG)</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">  #define ZEN_ASSERT(expression) \</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">    zen::util::runtime_assert(expression, #expression, __LINE__, __FILE__)</span></div>
@@ -134,16 +134,16 @@ $(document).ready(function(){initNavTree('_assert_8hpp_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">        #expression, __LINE__, __FILE__, msg)</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define ZEN_ASSERT(expr)</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define ZEN_ASSERTM(expr, msg)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">   48</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define ZEN_ASSERT(expr)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">   49</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define ZEN_ASSERTM(expr, msg)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // _DEBUG</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html">   54</a></span>&#160;<span class="keyword">namespace </span>util</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ZEN_API <span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a2b1676b8d1927999654ed77688409574" title="Executes a verification of an expression, crashing on error.">runtime_assert</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span>      expression,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>        expression_str,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a512b60cbe9a683e499f478b4440003a5" title="Executes a verification of an expression, crashing on error.">runtime_assert</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span>      expr,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>        expr_str,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">size_t</span>    line_no,</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>        file_name,</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">char</span>*     msg = <span class="keyword">nullptr</span>);</div>
