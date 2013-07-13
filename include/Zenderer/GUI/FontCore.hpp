@@ -59,7 +59,7 @@ namespace gui
         bool Init()
         {
             if(m_init) return true;
-            return (m_init = FT_Init_FreeType(&m_Library));
+            return (m_init = (FT_Init_FreeType(&m_Library) == 0));
         }
         
         bool Destroy()

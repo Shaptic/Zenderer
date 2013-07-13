@@ -81,6 +81,7 @@ const void* const CFont::GetData() const
 
 bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 {
+    ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
     
     if(text.empty() || !m_loaded) return false;
@@ -204,7 +205,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     // Now the string has been rendered to the FBO texture,
     // so all we need to do is create a material and attach 
     // it to the quad.
-    gfx::CMaterial* M = new gfx::CMaterial(m_Assets);
+    gfx::CMaterial* M = new gfx::CMaterial(*mp_Assets);
     if(!M->LoadEffect(gfx::EffectType::GRAYSCALE) || 
        !M->LoadTextureFromHandle(FBO.GetTexture()))
     {
