@@ -101,7 +101,8 @@ bool CWindow::Init()
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
     
     m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
-        m_Dimensions.y, 256, -256);
+                                                   m_Dimensions.y,
+                                                   16, 1);
 
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
     return (m_init = 

@@ -45,10 +45,10 @@ namespace math
         T x, y, z;
 
         /// Default constructor that moves the vector to the origin.
-        Vector() : x(0), y(0), z(0) {}
+        Vector() : x(0), y(0), z(1) {}
 
         /// Constructor for any coordinate space (defaults to 2D).
-        Vector(T x, T y, T z = 0) : x(x), y(y), z(z) {}
+        Vector(T x, T y, T z = 1) : x(x), y(y), z(z) {}
 
         /// Copies vector components from one to another.
         template<typename U>

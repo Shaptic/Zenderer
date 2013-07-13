@@ -69,7 +69,7 @@ namespace obj
         bool Optimize() { ZEN_ASSERTM(false, "not implemented"); return false; }
         bool Draw(bool is_bound = false);
         
-        void Move(const real_t x, const real_t y, const real_t z = 0.0)
+        void Move(const real_t x, const real_t y, const real_t z = 1.0)
         {
             ZEN_ASSERTM(false, "not implemented");
         }

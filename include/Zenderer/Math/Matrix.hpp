@@ -105,14 +105,14 @@ namespace math
          *
          * @param   width   Projection width
          * @param   height  Projection height
-         * @param   max_z   Maximum projection depth
-         * @param   min_z   Minimum projection depth
+         * @param   max_z   Maximum projection depth (positive integer)
+         * @param   min_z   Minimum projection depth (positive integer)
          *
          * @return  The requested projection matrix.
          **/
         static inline matrix4x4_t Projection2D(
             const uint16_t width,   const uint16_t height,
-            const uint16_t max_z,   const int min_z)
+            const uint16_t max_z,   const uint16_t min_z)
         {
             matrix4x4_t result;
 

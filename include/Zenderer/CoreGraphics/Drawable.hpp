@@ -79,7 +79,7 @@ namespace gfxcore
 
         /// @overload
         /// @todo   Make it work properly when `CQuad` is inverted.
-        void Move(const real_t x, const real_t y, const real_t z = 0.0);
+        void Move(const real_t x, const real_t y, const real_t z = 1.0);
 
         /**
          * Attaches a material to render on top of the primitive.
