@@ -46,8 +46,6 @@ bool CAssetManager::Delete(CAsset* const pAsset)
 
     // Verify that this is our asset to delete.
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
-    auto s = CAssetManager::sp_allAssets.begin(),
-         t = CAssetManager::sp_allAssets.end();
 
     for( ; b != e; )
     {
@@ -56,8 +54,10 @@ bool CAssetManager::Delete(CAsset* const pAsset)
             if((*b)->m_refcount > 1)
             {
                 --(*b)->m_refcount;
-                ++b;
-                continue;
+                m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
+                        << "References to asset (" << (*b)->GetFilename()
+                        << "): " << (*b)->m_refcount << '.' << util::CLog::endl;
+                return false;
             }
 
             m_Log   << m_Log.SetSystem("AssetMgr")
@@ -67,6 +67,9 @@ bool CAssetManager::Delete(CAsset* const pAsset)
 
             delete *b;
             mp_managerAssets.erase(b);
+
+            auto s = CAssetManager::sp_allAssets.begin(),
+                 t = CAssetManager::sp_allAssets.end();
 
             // Remove from global storage
             for( ; s != t; )
