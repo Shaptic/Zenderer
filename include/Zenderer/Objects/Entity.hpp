@@ -57,30 +57,37 @@ namespace obj
         };
         
     public:
-        CEntity(asset::CAssetManager& Assets) : m_Assets(Assets) {}
+        CEntity(asset::CAssetManager& Assets) : 
+            m_Assets(Assets), m_Log(util::CLog::GetEngineLog()) {}
         virtual ~CEntity();
 
-        /// @todo   Move semantics on `util::split()`
-        bool LoadFromFile(const string_t& filename);        
+        bool LoadFromFile(const string_t& filename);
         bool LoadFromTexture(const string_t& filename);
         
         bool AddPrimitive(const gfx::CQuad& Prim);
         bool Create();
-        bool Optimize();
+        bool Optimize() { ZEN_ASSERTM(false, "not implemented"); return false; }
         bool Draw(bool is_bound = false);
         
+        void Move(const real_t x, const real_t y, const real_t z = 0.0)
+        {
+            ZEN_ASSERTM(false, "not implemented");
+        }
+
         friend class gui::CFont;
         friend class gfx::CScene;
         
     protected:
         void Destroy();
-        bool FileError(const string_t& filename, 
+        bool FileError(const string_t& filename,
                        const string_t& line, const uint32_t line_no,
                        const ErrorType& Err = ErrorType::BAD_PAIR);
         
-        asset::CAssetManager& m_Assets;
+        asset::CAssetManager&           m_Assets;
+        util::CLog&                     m_Log;
         
-        string_t m_filename;
+        math::vector_t                  m_Position;
+        string_t                        m_filename;
         std::vector<gfx::CQuad*>        mp_allPrims;
         std::vector<gfx::CMaterial*>    mp_allMaterials; 
     };

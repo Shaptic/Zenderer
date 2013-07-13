@@ -1,6 +1,9 @@
 #include "Zenderer/Objects/Entity.hpp"
 
 using namespace zen;
+
+using util::CLog;
+using util::LogMode;
 using obj::CEntity;
 
 bool CEntity::LoadFromFile(const string_t& filename)
@@ -33,7 +36,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
             if(pair.size() < 2)
                 return this->FileError(filename, line, line_no, ErrorType::BAD_POSITION);
             
-            this->Move(std::stod(pair[0]), std::stod(pair[1]);
+            this->Move(std::stod(pair[0]), std::stod(pair[1]));
             
             // Depth is optional
             if(pair.size() == 3) m_Position.z = std::stod(pair[2]);
@@ -76,7 +79,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
             // a texture=, vshader=, and fshader= (or just the texture) which
             // is a valid .zfx file format.
             pMat = new gfx::CMaterial(m_Assets);
-            if(Parser.Exists("material") && !pMat->LoadFromFile(Parser>GetValue("material")))
+            if(Parser.Exists("material") && !pMat->LoadFromFile(Parser.GetValue("material")))
             {
                 delete pPrim; delete pMat;
                 this->Destroy();
@@ -93,11 +96,11 @@ bool CEntity::LoadFromFile(const string_t& filename)
             if(Parser.Exists("width") && Parser.Exists("height"))
                 pPrim->Resize(Parser.GetValuei("width"), Parser.GetValuei("height"));
             else
-                pPrim->Resize(pMat->GetTexture()->GetWidth(),
-                              pMat->GetTexture()->GetHeight());
+                pPrim->Resize(pMat->GetTexture().GetWidth(),
+                              pMat->GetTexture().GetHeight());
 
-            if(Parser.Exists("invert")) pPrim->SetInvertible(Parser.GetValueb("invert"));
-            if(Parser.Exists("repeat")) pPrim->SetRepeatable(Parser.GetValueb("repeat"));
+            if(Parser.Exists("invert")) pPrim->SetInverted(Parser.GetValueb("invert"));
+            if(Parser.Exists("repeat")) pPrim->SetRepeating(Parser.GetValueb("repeat"));
         
             pPrim->AttachMaterial(pMat);
             mp_allMaterials.push_back(pMat);
@@ -120,9 +123,9 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     }
     
     gfx::CQuad* pPrimitive = new gfx::CQuad(
-        pMat->GetTexture()->GetWidth(),
-        pMat->GetTexture()->GetHeight());
-    pPrimitive.Create();
+        pMat->GetTexture().GetWidth(),
+        pMat->GetTexture().GetHeight());
+    pPrimitive->Create();
     
     mp_allPrims.push_back(pPrimitive);
     mp_allMaterials.push_back(pMat);
@@ -130,10 +133,11 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
+/// @todo Check for material `nullptr`
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
-    gfx::CMaterial* pMat = new gfx::CMaterial(Quad.GetMaterial());
+    gfx::CMaterial* pMat = new gfx::CMaterial(*Quad.GetMaterial());
     pQuad->Create();
     mp_allPrims.push_back(pQuad);
     return true;
@@ -143,8 +147,7 @@ bool CEntity::Create()
 {
     if(mp_allPrims.empty()) return false;
     if(mp_allPrims.size() != mp_allMaterials.size()) return false;
-    
-    
+    return false;
 }
 
 void CEntity::Destroy()
