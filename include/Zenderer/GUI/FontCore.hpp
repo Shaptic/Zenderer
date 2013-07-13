@@ -33,7 +33,7 @@
 
 namespace zen
 {
-    
+
 /// A collection of TrueType font rendering wrapper utilities.
 namespace gui
 {
@@ -41,7 +41,10 @@ namespace gui
     class ZEN_API CFontLibrary : public CSubsystem
     {
     public:
-        ~CFontLibrary();
+        ~CFontLibrary()
+        {
+            this->Destroy();
+        }
         
         /**
          * Initializes the FreeType library.
@@ -81,13 +84,13 @@ namespace gui
     private:
         FT_Library m_Library;
     };
-    
+
+    /// A glyph structure used internally by the font API.
     struct glyph_t
     {
         gfxcore::CTexture* texture;
         math::rect_t dim;
     };
-    
 }   // namespace gfx
 }   // namespace zen
 

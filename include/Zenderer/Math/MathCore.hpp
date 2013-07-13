@@ -88,11 +88,11 @@ namespace math
     template<typename T>
     ZEN_API bool in_range(const T& n, const T& minimum, const T& maximum);
 
-    /// Returns the maximum of two values (first value if same)
+    /// Returns the maximum of two values (first value if same).
     template<typename T>
     ZEN_API const T& max(const T& a, const T& b);
 
-    /// Returns the minimum of two values (first value if same)
+    /// Returns the minimum of two values (first value if same).
     template<typename T>
     ZEN_API const T& min(const T& a, const T& b);
 

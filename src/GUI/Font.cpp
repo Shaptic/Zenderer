@@ -235,6 +235,17 @@ void CFont::ClearString()
     m_str.str(std::string());
 }
 
+bool CFont::Destroy()
+{
+    return FT_Done_Face(m_FontFace) == 0;
+    m_size = 18;
+    for(auto i : mp_glyphData)
+        mp_Assets->Delete(i.second.texture);
+    mp_glyphData.clear();
+    this->ClearString();
+}
+
+
 bool CFont::LoadGlyph(const char c, const uint32_t index)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");

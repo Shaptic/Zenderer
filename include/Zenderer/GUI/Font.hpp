@@ -91,13 +91,17 @@ namespace gui
          * Loads a font from an existing instance.
          *  There is no way (without enabling RTTI) to check if the given
          *  parameter is indeed a valid CFont instance, therefore this is
-         *  dependant on the user of this API.
+         *  dependent on the user of this API.
          *  This creates a deep copy of internal glyph texture data and
-         *  all relevent asset metadata.
+         *  all relevant asset metadata.
          *
          * @param   pCopy   Font asset to copy from.
          **/
-        bool LoadFromExisting(const asset::CAsset* pCopy);
+        bool LoadFromExisting(const asset::CAsset* const pCopy)
+        {
+            ZEN_ASSERT(false);
+            return false;
+        }
          
         /// Returns raw font glyph bitmap data.
         const void* const GetData() const;
