@@ -28,47 +28,49 @@ using gfxcore::CRenderer;
 
     gfx::CMaterial Sample(Manager);
     gfx::CMaterial Grass(Manager);
-    
+
     Sample.LoadTextureFromFile("sample.png");
-    Sample.LoadEffect(gfx::EffectType::NO_EFFECT);
-    
     Grass.LoadTextureFromFile("grass.png");
-    Grass.LoadEffect(gfx::EffectType::NO_EFFECT);
 
     // Create the vertex buffers we will be using (inefficient).
     // Recommended practice would be to combine into one buffer
     // to minimize state change.
     gfxcore::CVertexArray Vao, FS, Gr;
     Vao.Init(); FS.Init(); Gr.Init();
-        
+
     // Quad to easily store vertex data
-    gfx::CQuad Default(Sample.GetTexture().GetWidth(), Sample.GetTexture().GetHeight());
+    gfx::CQuad Default(Manager,
+                       Sample.GetTexture().GetWidth(),
+                       Sample.GetTexture().GetHeight());
+
     Default.SetColor(color4f_t(1, 1, 1, 1));
-    Default.Create();
-    
+
     // Regular quad
+    Default.AttachMaterial(Sample);
+    Default.Create();
     Default.LoadIntoVAO(Vao);
 
     // Full screen
     Default.Resize(800, 600);
     Default.Create();
     Default.LoadIntoVAO(FS);
-    
+
     // Stretched grass quad
     Default.SetInverted(true);
     Default.SetRepeating(true);
-    Default.AttachMaterial(&Grass);
+    Default.AttachMaterial(Grass);
     Default.Resize(15 * Grass.GetTexture().GetWidth(), Grass.GetTexture().GetHeight());
     Default.Create();
     Default.LoadIntoVAO(Gr);
-    
+
     Vao.Offload();
     FS.Offload();
     Gr.Offload();
 
     Default.SetInverted(false);
     Default.Resize(32, 32);
-    Default.AttachMaterial(nullptr);
+    Default.RemoveMaterial();
+    Default.SetColor(color4f_t(1, 0, 0, 1));
     Default.Create();
 
     Window.ToggleVSYNC();
@@ -123,47 +125,40 @@ using gfxcore::CRenderer;
         // Game logic
         Sound->Update();
 
-        /*
-        {
-            RT.Bind();
-            Sample.EnableTexture();
-            DEffect.Enable();
-
-            DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
-            DEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-
-            RT.Clear();
-            Vao.Draw();
-
-            CRenderer::ResetMaterialState();
-            RT.Unbind();
-        }
-        */
-
         // Rendering
         Window.Clear(Teal);
 
         /*
-        {
-            RT.BindTexture();
-            DEffect.Enable();
+        RT.Bind();
+        Sample.EnableTexture();
+        DEffect.Enable();
 
-            FS.Draw();
+        DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
+        DEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
 
-            CRenderer::ResetMaterialState();
-        }
+        RT.Clear();
+        Vao.Draw();
 
-        {
-            Sample.Enable();
-            Vao.Draw();
-            Sample.Disable();
-        }
+        CRenderer::ResetMaterialState();
+        RT.Unbind();
+
+        RT.BindTexture();
+        DEffect.Enable();
+
+        FS.Draw();
+
+        CRenderer::ResetMaterialState();
+        */
+
+        /*
+        Sample.Enable();
+        Vao.Draw();
+        Sample.Disable();
         */
 
         Default.Move(x, y);
         Default.Draw();
 
-        /*
         {
             Grass.Enable();
 
@@ -181,13 +176,11 @@ using gfxcore::CRenderer;
             Gr.Draw();
             Grass.Disable();
         }
-        */
 
+        Sound->Update();
         Window.Update();
-        
-        //Sound.Update();
 
-        // Finalize
+        // Regulate frame rate.
         Timer.Delay();
     }
 

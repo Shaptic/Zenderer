@@ -93,6 +93,20 @@ namespace gfx
         ~CWindow();
 
         bool Init();
+
+        /**
+         * Destroys the current OpenGL-enabled window.
+         *  This should only be called if you are planning on calling Init()
+         *  again, otherwise this will ruin any OpenGL object cleanup and cause
+         *  fatal errors in debug builds. Leave the window management to 
+         *  zen::Quit().
+         *
+         * @return  `true`, always.
+         *
+         * @post    All assets from attached manager are destroyed.
+         *
+         * @warning Invalidates all OpenGL objects.
+         **/
         bool Destroy();
 
         /// Clears the framebuffer to black.
