@@ -28,6 +28,16 @@
 #include <cstdint>
 #include <string>
 
+// Attempt to detect debug or release build.
+#ifndef ZEN_DEBUG_BUILD
+  #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
+    #pragma message("Compiling in debug mode...")
+    #define ZEN_DEBUG_BUILD
+  #else
+    #pragma message("Compiling in release mode...")
+  #endif // defined(_DEBUG)
+#endif // ZEN_DEBUG_BUILD
+
 /// The engine can be built as a DLL, then linked with the generated .lib.
 #ifdef ZENDERER_EXPORTS
   #define ZEN_API __declspec(dllexport)
