@@ -30,7 +30,6 @@
 
 namespace zen
 {
-namespace gfxcore { class ZEN_API CRenderer; }
 namespace gfx
 {
     /// Rendering data composed of a shader effect and a texture.
@@ -38,6 +37,9 @@ namespace gfx
     {
     public:
         explicit CMaterial(asset::CAssetManager& Assets);
+        CMaterial(const CMaterial& Copy);
+        CMaterial operator=(const CMaterial& Copy);
+
         ~CMaterial();
 
         /**
@@ -95,14 +97,14 @@ namespace gfx
         CEffect& GetEffect();
         gfxcore::CTexture& GetTexture() const;
 
-        friend class gfxcore::CRenderer;
-
     private:
         void Destroy();
         
+        static int s_arbitrary;
+
         asset::CAssetManager&   m_Assets;
         util::CLog&             m_Log;
-        gfxcore::CTexture*      mp_Texture;
+        gfxcore::CTexture&      m_Texture;
         gfx::CEffect            m_Effect;
     };
 }   // namespace gfx

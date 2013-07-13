@@ -3,17 +3,17 @@
 
 gfx::CMaterial& CRenderer::GetDefaultMaterial()
 {
-    return s_DefaultMaterial;
+    return *s_DefaultMaterial;
 }
 
 gfx::CEffect& CRenderer::GetDefaultEffect()
 {
-    return s_DefaultMaterial.GetEffect();
+    return s_DefaultMaterial->GetEffect();
 }
 
 const gfxcore::CTexture& CRenderer::GetDefaultTexture()
 {
-    return *s_DefaultTexture;
+    return s_DefaultMaterial->GetTexture();
 }
 
 const math::matrix4x4_t& CRenderer::GetProjectionMatrix()

@@ -61,6 +61,8 @@ namespace gfxcore
             m_error_str = Copy.GetError();
             m_link_log  = Copy.GetLinkerLog();
             m_program   = Copy.m_program;
+
+            return (*this);
         }
 
         /**

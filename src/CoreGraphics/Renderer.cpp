@@ -3,34 +3,26 @@
 using namespace zen;
 using gfxcore::CRenderer;
 
-gfx::CMaterial          CRenderer::s_DefaultMaterial;
-gfxcore::CTexture*      CRenderer::s_DefaultTexture;
+// Despite the fact that it is guaranteed to exist, we define it as a pointer
+// because we do not know the asset manager instance that will be used in the
+// constructor, as that is determined by the user.
+gfx::CMaterial*         CRenderer::s_DefaultMaterial = nullptr;
+
 gfxcore::CVertexArray   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
 math::matrix4x4_t       CRenderer::s_ProjMatrix;
 bool                    CRenderer::s_blend;
 
-bool CRenderer::Init(const uint16_t w, const uint16_t h)
+bool CRenderer::Init(
+    asset::CAssetManager& Assets,
+    const uint16_t w, const uint16_t h)
 {
     // Load the default effect.
-    gfx::CEffect& E = s_DefaultMaterial.GetEffect();
+    s_DefaultMaterial = new gfx::CMaterial(Assets);
+    gfx::CEffect& E = s_DefaultMaterial->GetEffect();
     E.Enable();
     E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
     E.SetParameter("proj", s_ProjMatrix);
     E.Disable();
-
-    // Load the default texture (1x1 white pixel).
-    static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
-    gfxcore::CTexture* pTmp =
-        s_DefaultMaterial.m_Assets.Create<gfxcore::CTexture>();
-
-    if(pTmp != nullptr)
-    {
-        s_DefaultTexture = pTmp;
-        s_DefaultTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
-        s_DefaultTexture->SetFilename("Zenderer white texture");
-    }
-
-    s_DefaultMaterial.Attach(E, *s_DefaultTexture);
 
     // Load a quad into the VAO.
     gfxcore::DrawBatch D;

@@ -84,11 +84,11 @@ namespace gfxcore
         ~CRenderer();
 
         /// Only to be called by `gfx::CWindow` ONCE.
-        static bool Init(const uint16_t w, const uint16_t h);
+        static bool Init(asset::CAssetManager& Assets,
+                         const uint16_t w, const uint16_t h);
 
         static CVertexArray         s_FullscreenQuad;
-        static gfx::CMaterial       s_DefaultMaterial;
-        static gfxcore::CTexture*   s_DefaultTexture;
+        static gfx::CMaterial*      s_DefaultMaterial;
         static math::matrix4x4_t    s_ProjMatrix;
         static bool                 s_blend;
     };

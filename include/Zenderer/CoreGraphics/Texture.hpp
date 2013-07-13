@@ -56,11 +56,15 @@ namespace gfxcore
         uint16_t GetWidth()     const { return m_width; }
         uint16_t GetHeight()    const { return m_height; }
 
+        static CTexture& GetDefaultTexture();
+
         friend class asset::CAssetManager;
 
     private:
         CTexture(const void* const owner = nullptr);
         bool Destroy();
+
+        static CTexture s_DefaultTexture;
 
         GLuint m_texture;
         GLuint m_width, m_height;

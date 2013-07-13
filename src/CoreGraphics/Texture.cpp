@@ -6,6 +6,8 @@ using util::CLog;
 using util::LogMode;
 using gfxcore::CTexture;
 
+CTexture CTexture::s_DefaultTexture;
+
 CTexture::CTexture(const void* const owner) :
     CAsset(owner), m_width(0), m_height(0) {}
 
@@ -131,6 +133,17 @@ bool CTexture::Unbind() const
     if(!m_loaded) return false;
     GL(glBindTexture(GL_TEXTURE_2D, 0));
     return true;
+}
+
+CTexture& CTexture::GetDefaultTexture() const
+{
+    if(s_DefaultTexture.IsLoaded()) return s_DefaultTexture;
+
+    // Load the default texture (1x1 white pixel).
+    static const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
+    s_DefaultTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, 1, 1, white);
+    s_DefaultTexture->SetFilename("Zenderer white texture");
+    return s_DefaultTexture;
 }
 
 bool CTexture::Destroy()

@@ -6,27 +6,28 @@ using util::CLog;
 using util::LogMode;
 using gfx::CMaterial;
 
+int CMaterial::s_arbitrary = 69;
+
 CMaterial::CMaterial(asset::CAssetManager& Assets) :
     m_Assets(Assets),
     m_Log(CLog::GetEngineLog()),
     m_Effect(EffectType::NO_EFFECT, Assets),
-    mp_Texture(nullptr)
+    m_Texture(gfxcore::CTexture::GetDefaultTexture())
 {
-    mp_Texture = &gfxcore::CRenderer::GetDefaultTexture();
+    m_Texture.SetOwner(&s_arbitrary);
 }
 
-CMaterial::CMaterial(const CMaterial& Copy) : 
+CMaterial::CMaterial(const CMaterial& Copy) :
     m_Assets(Copy.m_Assets),
     m_Log(CLog::GetEngineLog()),
     m_Effect(Copy.m_Effect.GetType(), m_Assets),
-    mp_Texture(nullptr)
+    m_Texture(gfxcore::CTexture::GetDefaultTexture())
 {
-    m_Effect.Init();
-    mp_Texture = m_Assets.Create<gfxcore::CTexture>();
+    m_Effect.Init();;
     
     // We don't want to reload the texture for no reason.
-    if(Copy.mp_Texture != mp_Texture)
-        mp_Texture->LoadFromExisting(Copy.mp_Texture);
+    if(&Copy.m_Texture != &m_Texture)
+        m_Texture.LoadFromExisting(&Copy.m_Texture);
 }
 
 CMaterial::~CMaterial()
@@ -61,7 +62,7 @@ bool CMaterial::LoadFromFile(const string_t& filename)
     m_Effect.SetType(gfx::EffectType::CUSTOM_EFFECT);
     m_Effect.Init();
     bool ret = m_Effect.LoadCustomEffect(vs, fs);
-    ret = ret && mp_Texture->LoadFromFile(tx);
+    ret = ret && m_Texture.LoadFromFile(tx);
     return ret;
 }
 
@@ -94,13 +95,14 @@ bool CMaterial::LoadFromStream(std::ifstream& f,
 
 bool CMaterial::LoadTextureFromFile(const string_t& filename)
 {
-    mp_Texture = m_Assets.Create<gfxcore::CTexture>(filename);
-    return (mp_Texture != nullptr);
+    gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
+    if(tmp == nullptr) return false;
+    m_Texture = *tmp;
 }
 
 bool CMaterial::LoadTextureFromHandle(const GLuint handle)
 {
-    return mp_Texture->LoadFromExisting(handle);
+    return m_Texture.LoadFromExisting(handle);
 }
 
 bool CMaterial::LoadEffect(const gfx::EffectType Type)
@@ -112,13 +114,13 @@ bool CMaterial::LoadEffect(const gfx::EffectType Type)
 
 bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
 {
-    mp_Texture = &T;
-    m_Effect   = E;
+    m_Texture.LoadFromExisting(&T);
+    m_Effect = E;
 }
 
 bool CMaterial::Enable() const
 {
-    return m_Effect.Enable() && mp_Texture->Bind();
+    return m_Effect.Enable() && m_Texture.Bind();
 }
 
 bool CMaterial::EnableEffect() const
@@ -128,13 +130,12 @@ bool CMaterial::EnableEffect() const
 
 bool CMaterial::EnableTexture() const
 {
-    ZEN_ASSERT(mp_Texture != nullptr);
-    return mp_Texture->Bind();
+    return m_Texture.Bind();
 }
 
 bool CMaterial::Disable() const
 {
-    m_Effect.Disable() && mp_Texture->Unbind();
+    return m_Effect.Disable() && m_Texture.Unbind();
 }
 
 bool CMaterial::DisableEffect() const
@@ -144,8 +145,7 @@ bool CMaterial::DisableEffect() const
 
 bool CMaterial::DisableTexture() const
 {
-    ZEN_ASSERT(mp_Texture != nullptr);
-    return mp_Texture->Unbind();
+    return m_Texture.Unbind();
 }
 
 gfx::CEffect& CMaterial::GetEffect()
@@ -155,13 +155,15 @@ gfx::CEffect& CMaterial::GetEffect()
 
 gfxcore::CTexture& CMaterial::GetTexture() const
 {
-    ZEN_ASSERT(mp_Texture != nullptr);
-    return *mp_Texture;
+    return m_Texture;
 }
 
 void CMaterial::Destroy()
 {
     m_Effect.Destroy();
-    m_Assets.Delete(mp_Texture);
-    mp_Texture  = nullptr;
+
+    // If the owner doesn't match this address, we dynamically allocated
+    // the texture. This is a dirty hack but I don't care enough to fix it.
+    if(m_Texture.GetOwner() != &s_arbitrary)
+        m_Assets.Delete(&m_Texture);
 }
