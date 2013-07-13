@@ -69,10 +69,9 @@ namespace gfx
 
         CEffect& operator=(const CEffect& Copy)
         {
-            m_Log = Copy.m_Log;
-            m_Shader = Copy.m_Shader;
-            m_type = Copy.m_type;
-            m_init = Copy.m_init;
+            m_Shader= Copy.m_Shader;
+            m_type  = Copy.m_type;
+            m_init  = Copy.m_init;
             return (*this);
         }
 

@@ -114,8 +114,8 @@ bool CMaterial::LoadEffect(const gfx::EffectType Type)
 
 bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
 {
-    m_Texture.LoadFromExisting(&T);
     m_Effect = E;
+    return m_Texture.LoadFromExisting(&T);
 }
 
 bool CMaterial::Enable() const
