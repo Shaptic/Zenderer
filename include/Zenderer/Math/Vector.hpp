@@ -215,22 +215,22 @@ namespace math
 
     /// A shortcut for the default vector implementation in the engine.
     typedef Vector<real_t> vector_t;
-    
+
     /// Floating-point vector shortcut.
     typedef Vector<real_t> vectorf_t;
 
     /// 16-bit unsigned integral vector shortcut.
     typedef Vector<uint16_t> vectoru16_t;
-    
+
     /// Standard 32-bit integral vector shortcut.
     typedef Vector<int32_t> vectori_t;
-    
+
 }   // namespace math
 }   // namespace ic
 
 #endif // IRON_CLAD__MATH__VECTOR_2_HPP
 
-/** 
+/**
  * @class zen::math::vector_t
  * @details
  *  Supports all vector operations such as cross products,

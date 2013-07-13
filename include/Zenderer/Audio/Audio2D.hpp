@@ -38,7 +38,7 @@ namespace sfx
     {
     public:
         virtual ~CAudio2D();
-        
+
         /// Loads an audio file from disk.
         virtual bool LoadFromFile(const string_t& filename) = 0;
 
@@ -62,7 +62,7 @@ namespace sfx
     protected:
         CAudio2D(const void* const owner = nullptr);
         CAudio2D(const CAudio2D&);
-        
+
         bool Destroy() { this->UnloadSource(); return true; }
 
         struct ALData

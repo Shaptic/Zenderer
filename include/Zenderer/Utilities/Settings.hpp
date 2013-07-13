@@ -160,7 +160,7 @@ namespace util
 /**
  * @class zen::util::CSettings
  * @details
- *  This isn't used anywhere in the engine, but is present for user 
+ *  This isn't used anywhere in the engine, but is present for user
  *  convenience in creating / passing around various in-game settings
  *  that may arise. The link to the development blog contains info about the
  *  specific implementation, as well as potential usage functions.

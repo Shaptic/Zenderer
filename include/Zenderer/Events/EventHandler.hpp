@@ -60,21 +60,21 @@ namespace evt
          *          `false` if there are none remaining.
          **/
         bool PopEvent(event_t& Evt);;
-        
+
         /// Retrieves the singleton instance of the event handler.
         static CEventHandler& GetInstance();
-        
+
         static void CharacterCallback(GLFWwindow*, unsigned int c);
         static void KeyboardCallback(GLFWwindow*, int key, int scancode,
                                      int action, int mods);
         static void MouseMotionCallback(GLFWwindow*, double x, double y);
         static void MouseCallback(GLFWwindow*, int button, int action, int mods);
-        
+
     private:
         CEventHandler() {}
         CEventHandler(const CEventHandler&);
         CEventHandler& operator=(const CEventHandler&);
-       
+
         static std::stack<event_t> s_evtList;
         static event_t s_Active;
     };

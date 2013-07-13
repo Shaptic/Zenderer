@@ -208,8 +208,8 @@ namespace gfxcore
 /**
  * @class zen::gfxcore::CShaderSet
  * @details
- *  This essentially a pair of shaders (vertex and fragment), in 
- *  addition to some convenience methods allowing for access to 
+ *  This essentially a pair of shaders (vertex and fragment), in
+ *  addition to some convenience methods allowing for access to
  *  the shader program's internal variables and attributes.
  **/
 

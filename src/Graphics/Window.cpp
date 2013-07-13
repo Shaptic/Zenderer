@@ -78,7 +78,7 @@ bool CWindow::Init()
 
     if(m_fullscreen)
         glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-        
+
     // Registers event callbacks with GLFW.
     glfwSetCharCallback(mp_Window, evt::CEventHandler::CharacterCallback);
     glfwSetKeyCallback(mp_Window, evt::CEventHandler::KeyboardCallback);
@@ -99,19 +99,21 @@ bool CWindow::Init()
     glGetError();
 
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
-    
+
     m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
                                                    m_Dimensions.y,
                                                    16, 1);
 
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
-    return (m_init = 
-        gfxcore::CRenderer::Init(m_Assets, m_Dimensions.x, m_Dimensions.y));
+    return (m_init = gfxcore::CRenderer::Init(m_Assets,
+                                              m_Dimensions.x,
+                                              m_Dimensions.y));
 }
 
 bool CWindow::Destroy()
 {
     glfwDestroyWindow(mp_Window);
+    mp_Window = nullptr;
     return true;
 }
 

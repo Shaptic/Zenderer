@@ -36,27 +36,27 @@ CMaterial::~CMaterial()
 bool CMaterial::LoadFromFile(const string_t& filename)
 {
     this->Destroy();
-    
+
     util::CINIParser Parser;
     Parser.LoadFromFile(filename);
-    
+
     string_t
         vs = Parser.GetValue("vshader"),
         fs = Parser.GetValue("fshader"),
         tx = Parser.GetValue("texture");
-    
+
     if(vs.empty() || fs.empty() || tx.empty())
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Material")
                 << "Invalid .zfx file: Does not contain one of the following:"
-                << CLog::endl << "\tVertex shader filename" << CLog::endl 
+                << CLog::endl << "\tVertex shader filename" << CLog::endl
                 << "\tFragment shader filename" << CLog::endl
                 << "\tTexture filename" << CLog::endl;
 
         return false;
     }
-    
+
     m_Effect.SetType(gfx::EffectType::CUSTOM_EFFECT);
     m_Effect.Init();
     bool ret = m_Effect.LoadCustomEffect(vs, fs);
@@ -69,17 +69,17 @@ bool CMaterial::LoadFromStream(std::ifstream& f,
                                const std::streampos& end)
 {
     ZEN_ASSERT(f);
-    
+
     f.seekg(start);
     util::CINIParser Parser;
     Parser.LoadFromStream(f, start, end);
-    
+
     bool valid = false;
     if(Parser.Exists("texture"))
     {
         valid = this->LoadTextureFromFile(Parser.GetValue("texture"));
     }
-    
+
     if(Parser.Exists("vshader") && Parser.Exists("fshader"))
     {
         valid = this->LoadEffect(gfx::EffectType::CUSTOM_EFFECT) &&

@@ -45,7 +45,7 @@ namespace gui
         {
             this->Destroy();
         }
-        
+
         /**
          * Initializes the FreeType library.
          *  This should be called prior to ANY other font operations,
@@ -55,7 +55,7 @@ namespace gui
          *
          * @see     zen::Init()
          *
-         * @note    Initialization is guaranteed to only occur one 
+         * @note    Initialization is guaranteed to only occur one
          *          time despite multiple potential calls to this
          *          method.
          **/
@@ -64,26 +64,26 @@ namespace gui
             if(m_init) return true;
             return (m_init = (FT_Init_FreeType(&m_Library) == 0));
         }
-        
+
         bool Destroy()
         {
             if(!m_init) return true;
             FT_Done_FreeType(m_Library);
             return !(m_init = false);
         }
-        
+
         static CFontLibrary& InitFreetype()
         {
             static CFontLibrary s_TTF;
             s_TTF.Init();
             return s_TTF;
         }
-        
+
         const FT_Library GetLibrary() const
         {
             return m_Library;
         }
-        
+
     private:
         FT_Library m_Library;
     };

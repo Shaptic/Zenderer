@@ -40,7 +40,7 @@ namespace gfxcore
     {
     public:
         CDrawable();
-        
+
         /**
          * Creates an instance from another instance.
          *  This only copies internal vertex/index data, as well
@@ -53,13 +53,13 @@ namespace gfxcore
          *
          * @warning There can be no assignment of one primitive to another.
          * @warning Material info is not transferred.
-         * 
+         *
          * @see     gfxcore::DrawBatch
          **/
         CDrawable(const CDrawable& Copy);
 
         virtual ~CDrawable();
-        
+
         // No assigning primitives to each other.
         CDrawable& operator=(const CDrawable&);
 
@@ -113,7 +113,7 @@ namespace gfxcore
 
         /// Request to see if we can change the internal vertices or not.
         bool IsModifiable() const { return (mp_VAO == nullptr || !mp_VAO->Offloaded()); }
-        
+
         inline const math::vector_t& GetPosition() const
         { return m_Position; }
 
@@ -122,7 +122,7 @@ namespace gfxcore
 
         /**
          * Shortcut to prevent loading simple objects manually.
-         *  This DOES NOT delete any internal vertex data, and thus 
+         *  This DOES NOT delete any internal vertex data, and thus
          *  can be called multiple times with various vertex settings.
          *
          * @param   VAO     The vertex array to store data into

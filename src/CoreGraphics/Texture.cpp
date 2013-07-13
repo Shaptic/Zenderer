@@ -15,7 +15,7 @@ CTexture::~CTexture()
 {
     this->Destroy();
 }
-    
+
 bool CTexture::LoadFromFile(const string_t& filename)
 {
     if(m_loaded) this->Destroy();

@@ -36,13 +36,13 @@ namespace gfx
         CQuad(const math::rect_t& Size);
         CQuad(const uint16_t w, const uint16_t h);
         CQuad(const CQuad& Copy);
-        
+
         ~CQuad();
 
         virtual CDrawable& Create();
-        
+
         /**
-         * Attaches a material to the current quad. 
+         * Attaches a material to the current quad.
          *  `nullptr` is an acceptable value, since it will remove
          *  any material already attached to the quad.
          *
@@ -51,17 +51,17 @@ namespace gfx
          * @pre     Create() or Draw() haven't been called yet.
          **/
         virtual void AttachMaterial(gfx::CMaterial* pMaterial);
-        
-        /** 
+
+        /**
          * Resizes the quad to a new dimension.
          * @param   Size    New quad size (in pixels)
          * @pre     Draw() has not been called yet.
          **/
         void Resize(const math::vectoru16_t& Size);
-        
+
         /// @overload
         void Resize(const uint16_t w, const uint16_t h);
-        
+
         /**
          * Makes the vertices have non-zero y values.
          *  This is used (by me) to support skewing the upper vertices
@@ -76,7 +76,7 @@ namespace gfx
          *       (0,h)                   (w,h)
          *
          *  As such, when skew operations are performed in the x-direction,
-         *  they only modify the bottom vertices since they have non-zero 
+         *  they only modify the bottom vertices since they have non-zero
          *  y-values. Calling this method will arrange the vertices like so:
          *
          *       (0,-h) _________________ (w,-h)
@@ -95,20 +95,20 @@ namespace gfx
          * @pre     Neither Draw() nor Create() have been called yet.
          **/
         void SetInverted(const bool flag);
-        
+
         /**
          * Repeat texture or stretch to fit.
-         *  When a material is attached to the drawable instance, 
+         *  When a material is attached to the drawable instance,
          *  and the size of the drawable is larger than the texture size,
-         *  it will be stretched by default. You can set it to repeat the 
-         *  texture pattern across the drawable with this method. 
+         *  it will be stretched by default. You can set it to repeat the
+         *  texture pattern across the drawable with this method.
          *
          * @param   flag    `true` makes it repeat, `false` stretches
          *
          * @pre     Neither Draw() nor Create() have been called yet.
          **/
         void SetRepeating(const bool flag);
-        
+
         inline uint16_t GetW()          const { return m_Size.x;    }
         inline uint16_t GetH()          const { return m_Size.y;    }
         inline CMaterial* GetMaterial() const { return mp_Material; }
@@ -118,7 +118,7 @@ namespace gfx
         void LoadInvertedVertices();    // Inverted quad using -y instead of 0
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
-        
+
         math::Vector<uint16_t> m_Size;
         bool m_inv, m_rep;
     };
@@ -132,7 +132,7 @@ namespace gfx
  * @class zen::gfx::CQuad
  * @details
  *  Quads are the essential drawing primitive behind @a Zenderer. They are used
- *  internally by zen::obj::CEntity instances, which just attach materials to 
+ *  internally by zen::obj::CEntity instances, which just attach materials to
  *  one or more of them and draw them on-screen using the standard
  *  implementation.
  *

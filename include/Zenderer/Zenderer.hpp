@@ -159,7 +159,7 @@ namespace zen
  * @todo    Test cross-platform compatibility.
  *
  * @section prep    Preprocessor `#define`s
- *  There are several preprocessor directives that can be set to slightly 
+ *  There are several preprocessor directives that can be set to slightly
  *  modify the behavior of the engine at runtime. They are outlined below.
  *
  *  @htmlonly
@@ -178,7 +178,7 @@ namespace zen
  *  </tr>
  *  <tr>
  *      <td><code>ZEN_DOUBLE_PRECISION</code></td>
- *      <td>Allows for double-precision in CPU-side calculations. Anything 
+ *      <td>Allows for double-precision in CPU-side calculations. Anything
  *          sent to the GPU, such as vertex data, will be stored locally
  *          with double precision, but will be sent as single-precision
  *          floating point values due to the nature of GPU drivers.</td>
@@ -219,8 +219,8 @@ namespace zen
  *      `.ini` files. This `key=value` relationship is used extensively
  *      throughout @a Zenderer for level loading and other components. Also
  *      included are some file-loading functions, to load image files
- *      for sprite sheets or generic textures for use in the engine. It has 
- *      only been tested internally with 24-bit and 32-bit `.png` files in 
+ *      for sprite sheets or generic textures for use in the engine. It has
+ *      only been tested internally with 24-bit and 32-bit `.png` files in
  *      RGB and RGBA format, respectively.
  *
  *      You can find some basic usage examples of these utilities
@@ -326,7 +326,7 @@ namespace zen
  *  </entity>
  *
  *  // Place entity using in-line entity mesh creation.
- *  // This is a tiled grass entity (2x2 tiles) 
+ *  // This is a tiled grass entity (2x2 tiles)
  *  // with a slight blur and vertex inversion for skewing,
  *  // together with a dirt entity.
  *  <entity type="inline">
@@ -388,7 +388,7 @@ namespace zen
  *  // Later...
  *  E.Draw();
  *  @endcode
- * 
+ *
  * @section  ZMat           ZenFX
  *  @subsection ZMatSpec    Specification
  *  Extension: `.zfx`
@@ -435,22 +435,22 @@ namespace zen
  *
  *  In @a Zenderer, entities are essentially extremely versatile
  *  primitive instances. The most important distinction is
- *  multi-primitive rendering. So if you had, for example, a 
+ *  multi-primitive rendering. So if you had, for example, a
  *  table made of two leg textures and a top texture, you could
- *  create a single entity from it. 
+ *  create a single entity from it.
  *
- *  The file specification features a lot of optional values and 
+ *  The file specification features a lot of optional values and
  *  valid/invalid combinations, all of which are detailed below.
  *
  *  The following keys are part of the raw entity specification, not the
- *  individual primitive specification. 
+ *  individual primitive specification.
  *
  *  |   Key      |     Description    | Required |           Notes           |
  *  | :--------: | ------------------ | :------: | :------------------------ |
  *  | `position` | Position on screen |    x     | In the form x,y,z         |
- *  | `primcount`| # of primitives    |          | Allows for pre-allocation | 
+ *  | `primcount`| # of primitives    |          | Allows for pre-allocation |
  *
- *  The `z` on the `position` key is optional, but specifying depth is required 
+ *  The `z` on the `position` key is optional, but specifying depth is required
  *  for proper shadow rendering. It will default to 0.
  *
  *  The following are individual primitive options.
@@ -460,7 +460,7 @@ namespace zen
  *  |   Key     |     Description    | Required |               Notes               |
  *  | :-------: | ------------------ | :------: | :-------------------------------- |
  *  | `invert`  | Invert vertices?   |          | Defaults to `false`               |
- *  | `repeat`  | Repeat texture?    |          | Defaults to `false`               | 
+ *  | `repeat`  | Repeat texture?    |          | Defaults to `false`               |
  *  | `width`   | Primitive width    |          | Defaults to texture width         |
  *  | `height`  | Primitive height   |          | Defaults to texture height        |
  *  | `vshader` | Vertex shader file |          |                                   |
@@ -469,14 +469,14 @@ namespace zen
  *  | `material`| Material file      |    x     | This or texture file              |
  *  | `params`  | Shader parameters  |          | Format: `name:val1,val2;name:val1`|
  *
- *  If overlapping values are used for `material` and the texture file, 
+ *  If overlapping values are used for `material` and the texture file,
  *  the file keys will be preferred over the material file. Thus if you specify
  *  `vshader`, `fshader`, `texture`, *and* `material`, the local files will be
- *  loaded, as opposed to the material file. 
+ *  loaded, as opposed to the material file.
  *
  *  If the shader files are left off, the default will be used (like for
  *  primitives). If the size is specified (`width`/`height`), *both* must be
- *  specified. Otherwise, the default values are used for both of them. 
+ *  specified. Otherwise, the default values are used for both of them.
  *
  *  The `primcount` option will allow for a tiny speed up in loading, but will
  *  only make a real difference if the entity contains dozens of primitives.

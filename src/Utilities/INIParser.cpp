@@ -104,9 +104,9 @@ bool CINIParser::Exists(const string_t& key) const
 const string_t& CINIParser::GetValue(const string_t& key) const
 {
     auto find = m_pairs.find(key);
-    
+
     if(find == m_pairs.end()) return s_empty;
-    
+
     return find->second;
 }
 

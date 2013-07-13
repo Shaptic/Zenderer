@@ -78,7 +78,7 @@ namespace gfxcore
  * @class zen::gfxcore::CTexture
  *
  * @details
- *  @a Zenderer uses `stb_image.c`, a single-file light-weight C library, 
+ *  @a Zenderer uses `stb_image.c`, a single-file light-weight C library,
  *  to load a variety of image formats. It has only been tested internally
  *  with 24-bit and 32-bit `.png` files. It will internally attempt force
  *  a conversion to a 32-bit RGBA format. If this doesn't succeed, it will

@@ -67,13 +67,13 @@ namespace sfx
 /**
  * @class zen::sfx::CSound2D
  * @details
- *  This managed audio asset is designed primarily for short, 
+ *  This managed audio asset is designed primarily for short,
  *  repetitive sound effects stored in an uncompressed `.wav`
- *  file format. 
- *  It's not recommended to store or load large `.wav` files 
- *  in your application, because of the uneccessary consumption 
+ *  file format.
+ *  It's not recommended to store or load large `.wav` files
+ *  in your application, because of the uneccessary consumption
  *  of memory and disk space. A better alternative for long audio
- *  is the OGG-Vorbis (`.ogg`) format, loadable through the 
+ *  is the OGG-Vorbis (`.ogg`) format, loadable through the
  *  zen::sfx::CMusic2D class.
  **/
 

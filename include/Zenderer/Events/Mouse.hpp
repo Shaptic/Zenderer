@@ -31,7 +31,7 @@ namespace zen
 namespace evt
 {
     /// Mouse button identifiers.
-    enum class MouseButton 
+    enum class MouseButton
     {
         UNKNOWN = -1,
         LEFT    = GLFW_MOUSE_BUTTON_LEFT,

@@ -123,7 +123,7 @@ namespace sfx
  *  This class provides a variety of `static` convenience functions for
  *  the various audio asset instance classes to use in order to find
  *  available OpenAL sources.
- * 
+ *
  *  OpenAL is limited to 256 buffers, and despite the fact that they likely
  *  will never all be in use simultaneously, there is still no sense in being
  *  greedy. This class should be the one and only way that external audio
@@ -132,7 +132,7 @@ namespace sfx
  *  The architecture for controlling sources is as follows:
  *
  *  There exists a static array of 256 potential sources, zeroed out. As
- *  audio is played, the array fills up with source data, starting from 
+ *  audio is played, the array fills up with source data, starting from
  *  `[0]`. So, the first call to `GetAvailableSource()` would return `0`
  *  and after a call to `alGenSources` it would be filled with some arbitrary
  *  data. So thus

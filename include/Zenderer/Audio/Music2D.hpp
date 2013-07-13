@@ -34,10 +34,10 @@ namespace sfx
     {
     public:
         virtual ~CMusic2D();
-        
+
         /// Loads an `.ogg` file from disk.
         bool LoadFromFile(const string_t& filename);
-        
+
         /**
          * Plays the file (if loaded).
          *  This should only be called a single time, and
@@ -53,7 +53,7 @@ namespace sfx
 
     private:
         CMusic2D();
-        
+
         bool FillChunk(const uint32_t buffer);
 
         // Read in 32-byte chunks.
@@ -80,7 +80,7 @@ namespace sfx
  * @details
  *  A managed asset that will stream large files in the Ogg-Vorbis (`.ogg`)
  *  file format. This format is not recommended for files smaller than 96kB,
- *  due to the streaming nature that stores 96kB of data at a time. A better 
+ *  due to the streaming nature that stores 96kB of data at a time. A better
  *  alternative would be to use the zen::sfx::CSound2D class in combination
  *  with an uncompressed `.wav` file.
  **/

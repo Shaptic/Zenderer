@@ -55,7 +55,7 @@ namespace zen
         /// Singleton accessor.
         static CAllocator& Get();
 
-        /// Default allocation size, in bytes. 
+        /// Default allocation size, in bytes.
         static const uint16_t ALLOC_SIZE = 4;
 
     private:
@@ -106,7 +106,7 @@ namespace zen
  * When we want to allocate 9 bytes (for example, a non-padded
  * `struct` with a `char` and a `double` member), the memory structure
  * would change to look like this:
- * 
+ *
  * <pre>
  * _______________  Next block pointer
  *                |

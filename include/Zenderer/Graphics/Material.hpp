@@ -47,8 +47,8 @@ namespace gfx
          * @see @ref ZMatSpec
          **/
         bool LoadFromFile(const string_t& filename);
-        
-        /** 
+
+        /**
          * Loads a material from an existing file stream.
          *  It must follow the same specifications as LoadFromFile()
          *  The default behavior is parsing from the current stream
@@ -68,24 +68,24 @@ namespace gfx
         bool LoadFromStream(std::ifstream& stream,
                             const std::streampos& start = 0,
                             const std::streampos& end   = -1);
-        
+
         /// Loads a texture from disk.
         bool LoadTextureFromFile(const string_t& filename);
 
         /// Loads a texture from an existing OpenGL handle.
         bool LoadTextureFromHandle(const GLuint handle);
-        
+
         /// Loads an effect from disk.
         bool LoadEffect(const EffectType Type);
 
         /// Attaches the given effect/texture to the material.
         bool Attach(CEffect& E, gfxcore::CTexture& T);
-        
+
         /// Temporary `rvalue` references are not allowed.
         bool Attach(CEffect&& E, gfxcore::CTexture&& T);
 
         /// Enables the effect and texture for rendering.
-        bool Enable() const;        
+        bool Enable() const;
         bool EnableEffect() const;      ///< Enables only the effect.
         bool EnableTexture() const;     ///< Enables only the texture.
 

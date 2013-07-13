@@ -55,15 +55,15 @@ namespace evt
     struct event_t
     {
         event_t() : type(EventType::NONE) {}
-        event_t(const event_t& evt) : type(evt.type) 
+        event_t(const event_t& evt) : type(evt.type)
         {
             *this = evt;
         }
-        
+
         /// Copies data from an event to this one.
         event_t& operator=(const event_t& evt)
         {
-            type            = evt.type;            
+            type            = evt.type;
             mouse.position  = evt.mouse.position;
             mouse.button    = evt.mouse.button;
             mouse.mods      = evt.mouse.mods;
@@ -72,10 +72,10 @@ namespace evt
             key.symbol      = evt.key.symbol;
             key.scan        = evt.key.scan;
             key.key         = evt.key.key;
-            
+
             return (*this);
         }
-        
+
         event_t& Reset()
         {
             type            = EventType::NONE;
@@ -90,7 +90,7 @@ namespace evt
 
             return (*this);
         }
-        
+
         EventType   type;
         mouse_t     mouse;
         key_t       key;

@@ -86,7 +86,7 @@ namespace asset
          * @return  A dynamically created asset if it copies successfully, and
          *          `nullptr` otherwise.
          *
-         * @warning This relies on the `T` object to have implemented 
+         * @warning This relies on the `T` object to have implemented
          *          CAsset::LoadFromExisting(), which is not guaranteed.
          *
          * @todo    Add some sort of check to make sure `T` is an inheriting

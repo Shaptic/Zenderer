@@ -117,7 +117,7 @@ namespace asset
         string_t    m_error_str;
         uint32_t    m_filename_hash;
         bool        m_loaded;
-        
+
     private:
         uint32_t m_id;
         const void* mp_owner;

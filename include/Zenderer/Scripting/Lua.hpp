@@ -44,7 +44,7 @@ namespace lua
 {
     /// A shortcut for easily defining the `name -> loader` set.
     typedef std::map<string_t, lua_CFunction> luaLibs_t;
-    
+
     /// Wrapper for the core Lua interpreter.
     class ZEN_API CLuaAPI : public CSubsystem
     {
@@ -57,18 +57,18 @@ namespace lua
          *
          * @param   libraries   Libraries to use
          **/
-        CLuaAPI(const luaLibs_t& libraries) : 
+        CLuaAPI(const luaLibs_t& libraries) :
             m_Libs(libraries), m_Lua(nullptr) {}
-            
+
         /// Cleans up the interpreter instance.
         ~CLuaAPI()
         {
             this->Destroy();
         }
-        
+
         /// Implicitly covert to `lua_State*` for `lua_` API calls.
         inline operator lua_State*() { return m_Lua; }
-        
+
         /**
          * Loads the Lua interpreter with the given libraries.
          * @return  `true` if loaded successfully,
@@ -82,32 +82,32 @@ namespace lua
             {
                 m_Lua = luaL_newstate();
                 ZEN_ASSERT(m_Lua != nullptr);
-                
+
                 for(auto& i : m_Libs)
                 {
                     luaL_requiref(m_Lua, i.first, i.second, 1);
                     lua_settop(m_Lua, 0);
                 }
-                
+
                 return (m_init = true);
             }
-            
+
             return false;
         }
-        
+
         /// Cleans up the Lua interpreter instance.
         bool Destroy()
         {
             if(!m_init) return false;
-            
+
             lua_close(m_Lua);
             m_Lua = nullptr;
             return !(m_init = false);
         }
-        
+
         /**
          * Loads and executes a Lua script.
-         *  This will execute the Lua script just as if you ran it 
+         *  This will execute the Lua script just as if you ran it
          *  from the command line using `lua filename`. Any function
          *  calls and other interactions can only be done after this
          *  has been run, but the setting of any variables must be
@@ -122,17 +122,17 @@ namespace lua
          **/
         bool LoadFile(const string_t& filename)
         {
-            return lua_loadfile(m_Lua, filename.c_str()) == 0 && 
+            return lua_loadfile(m_Lua, filename.c_str()) == 0 &&
                    lua_pcall(m_Lua, 0, LUA_MULTRET, 0) == 0;
         }
-        
-        /// Empties the Lua virtual stack 
+
+        /// Empties the Lua virtual stack
         inline bool ResetStack()
         {
             if(m_init) lua_settop(m_Lua, 0);
             return m_init;
         }
-        
+
         /**
          * Retrieves the latest Lua error, if any.
          *
@@ -140,7 +140,7 @@ namespace lua
          *          if the interpreter has not been loaded, and
          *          a blank string if there is no error.
          *
-         * @warning This should only be called if you are absolutely 
+         * @warning This should only be called if you are absolutely
          *          positive that the interpreter has generated an
          *          error, otherwise this may mess up the stack or
          *          conversion may fail.
@@ -150,7 +150,7 @@ namespace lua
             if(!m_init) return string_t("Lua interpreter not loaded");
             return string_t(lua_tostring(m_Lua, -1));
         }
-        
+
     private:
         const luaLibs_t& m_Libraries;
         lua_State* m_Lua;
@@ -169,7 +169,7 @@ namespace lua
  *  of resource allocation and freeing of the interpreter instance.
  *  Scripting is merely a feature of the engine, and is not actually used
  *  in its core (yet). Thus, the file is not included by default in
- *  @ref Zenderer.hpp. If you wish to include it, be sure to add the 
+ *  @ref Zenderer.hpp. If you wish to include it, be sure to add the
  *  appropriate linker commands to your compilation routine.
  *
  *  This API does not allow for complete abstraction away from Lua, but still
@@ -185,7 +185,7 @@ namespace lua
  * @see     http://csl.name/lua/
  *
  * @example Scripting
- * 
+ *
  * @section usage       Lua Usage Examples
  * @subsection creation Instantiating a Lua wrapper
  *  This will create a Lua wrapper with some very barebones Lua libraries.
@@ -229,7 +229,7 @@ namespace lua
  *  @endcode
  *
  *  Here is our C function that will interact with the object. Let's assume
- *  that Lua gives us 2 numbers to add, and we return a value scaled with 
+ *  that Lua gives us 2 numbers to add, and we return a value scaled with
  *  the `m_f` variable in the given object, and the 2 numbers added together.
  *
  *  @code
@@ -237,7 +237,7 @@ namespace lua
  *  {
  *      // Verify the proper amount of args.
  *      int argc = lua_gettop(Lua);
- *      if (argc < 3) 
+ *      if (argc < 3)
  *      {
  *          lua_pushstring(Lua, "Invalid argument count.");
  *          lua_pushnumber(Lua, 0);
@@ -269,7 +269,7 @@ namespace lua
  *  print('Sum: ' .. b .. ', ' .. s)
  *  @endcode
  *
- *  And finally, here is the host-side C++ code that will bind the Lua 
+ *  And finally, here is the host-side C++ code that will bind the Lua
  *  data appropriately.
  *
  *  @code

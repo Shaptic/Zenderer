@@ -82,10 +82,10 @@ bool CEffect::Init()
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
                 << "Custom effects can only be loaded from .zfx files via the "
                 <<  "zen::gfx::CMaterial object." << CLog::endl;
-                
+
         return(m_init = false);
     }
-    
+
     else
     {
         // Fatal error because this shouldn't be possible.
@@ -179,7 +179,7 @@ bool CEffect::SetParameter(const string_t& name,
 bool CEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
 {
     ZEN_ASSERT(m_type == EffectType::CUSTOM_EFFECT);
-    
+
     if(m_init) this->Destroy();
     m_init = m_Shader.LoadFromFile(vs, fs) && m_Shader.CreateShaderObject();
     return m_init;

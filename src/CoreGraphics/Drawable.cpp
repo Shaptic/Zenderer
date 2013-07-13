@@ -22,14 +22,14 @@ CDrawable::CDrawable(const CDrawable& Copy) :
     m_DrawData.Vertices = new gfxcore::vertex_t[m_DrawData.vcount];
     m_DrawData.Indices  = new gfxcore::index_t[m_DrawData.icount];
 
-    std::copy(Copy.m_DrawData.Vertices, 
+    std::copy(Copy.m_DrawData.Vertices,
               Copy.m_DrawData.Vertices + m_DrawData.vcount,
               m_DrawData.Vertices);
 
-    std::copy(Copy.m_DrawData.Indices, 
+    std::copy(Copy.m_DrawData.Indices,
               Copy.m_DrawData.Indices + m_DrawData.icount,
               m_DrawData.Indices);
-              
+
     if(Copy.mp_MVMatrix != nullptr)
         mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
 }
@@ -91,7 +91,7 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         (*mp_MVMatrix)[0][3] = m_Position.x;
         (*mp_MVMatrix)[1][3] = m_Position.y;
       //(*mp_MVMatrix)[2][3] = m_Position.z;
-        
+
         // Use our effect, or the default?
         gfx::CEffect& Effect = mp_Material->GetEffect();
 

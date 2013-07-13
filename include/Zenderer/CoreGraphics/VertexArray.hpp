@@ -146,7 +146,7 @@ namespace gfxcore
  *  by the scene wrapper to store scene geometry.
  *
  * @example VertexArray
- * @section vao_draw    Raw Vertex Drawing 
+ * @section vao_draw    Raw Vertex Drawing
  *  Sometimes (for whatever insane reason), the need arises to write directly
  *  to the GPU in order to draw raw vertices to the screen. This example explains
  *  how that should be done.
@@ -174,7 +174,7 @@ namespace gfxcore
  *
  *  To draw vertex data, you need vertices and indices. You can, of course, just
  *  specify 6 vertices to get a quad (two triangles), *or* you can specify 4
- *  vertices and re-use two of them with indices (since they are shared). To get 
+ *  vertices and re-use two of them with indices (since they are shared). To get
  *  to the point, fill up the `DrawBatch` struct with your data, and then you can
  *  pass it on to the `CVertexArray` instance for offloading.
  *
@@ -231,12 +231,12 @@ namespace gfxcore
  *  CRenderer::GetDefaultMaterial().Enable();
  *  while(Window.IsOpen())
  *  {
- *      VAO.Draw(); 
+ *      VAO.Draw();
  *      Window.Update();
  *  }
  *  @endcode
  *
- *  And there you have it, a 32x32 quad drawn directly from the GPU on 
+ *  And there you have it, a 32x32 quad drawn directly from the GPU on
  *  the screen.
  **/
 

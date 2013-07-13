@@ -7,7 +7,7 @@ CQuad::CQuad(const math::rect_t& Size) :
     m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
 {}
 
-CQuad::CQuad(const uint16_t w, const uint16_t h) : 
+CQuad::CQuad(const uint16_t w, const uint16_t h) :
     m_Size(w, h), m_inv(false), m_rep(false)
 {}
 
@@ -31,7 +31,7 @@ gfxcore::CDrawable& CQuad::Create()
         m_DrawData.Vertices = new gfxcore::vertex_t[4];
         m_DrawData.vcount = 4;
     }
-    
+
     if(!m_inv)
     {
         this->LoadRegularVertices();
@@ -42,7 +42,7 @@ gfxcore::CDrawable& CQuad::Create()
         this->LoadInvertedVertices();
         this->LoadInvertedTC();
     }
-    
+
     if(m_DrawData.Indices == nullptr)
     {
         m_DrawData.Indices = new gfxcore::index_t[6];
@@ -56,7 +56,7 @@ gfxcore::CDrawable& CQuad::Create()
     m_DrawData.Indices[4] = 1;
     m_DrawData.Indices[5] = 2;
 
-    if(mp_Material == nullptr) 
+    if(mp_Material == nullptr)
         this->AttachMaterial(&gfxcore::CRenderer::GetDefaultMaterial());
 
     return (*this);
@@ -111,16 +111,16 @@ void CQuad::LoadInvertedVertices()
 void CQuad::LoadRegularTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
-    
+
     if(m_rep && mp_Material != nullptr)
     {
         uint16_t w = mp_Material->GetTexture().GetWidth();
         uint16_t h = mp_Material->GetTexture().GetHeight();
-        
+
         tc_w = m_Size.x / real_t(w);
         tc_h = m_Size.y / real_t(h);
     }
-    
+
     m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
     m_DrawData.Vertices[1].tc = math::vector_t(tc_w, 0.0);
     m_DrawData.Vertices[2].tc = math::vector_t(tc_w, tc_h);
@@ -130,16 +130,16 @@ void CQuad::LoadRegularTC()
 void CQuad::LoadInvertedTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
-    
+
     if(m_rep && mp_Material != nullptr)
     {
         uint16_t w = mp_Material->GetTexture().GetWidth();
         uint16_t h = mp_Material->GetTexture().GetHeight();
-        
+
         tc_w = m_Size.x / real_t(w);
         tc_h = m_Size.y / real_t(h);
     }
-    
+
     m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
     m_DrawData.Vertices[1].tc = math::vector_t(0.0, tc_h);
     m_DrawData.Vertices[2].tc = math::vector_t(tc_w, tc_h);

@@ -47,7 +47,7 @@ namespace gfx
         bool Bind() const;
         bool BindTexture() const;
         bool Unbind() const;
-        
+
         bool Clear();
 
         bool AttachDepthBuffer();

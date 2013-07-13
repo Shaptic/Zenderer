@@ -59,13 +59,13 @@ namespace gfxcore
 
         /// Binds a texture handle.
         inline static bool EnableTexture(const GLuint handle);
-        
+
         /// Resets shader and texture state to nothing.
         inline static bool ResetMaterialState();
-        
+
         /// Disables blending (can also be done via BlendOperation()).
         inline static bool DisableBlending();
-        
+
         /// Disables any bound texture (also via `EnableTexture(0)`).
         inline static bool DisableTexture();
 

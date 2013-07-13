@@ -78,13 +78,13 @@ namespace math
          * Stretches the matrix by degree-angles in different directions.
          *  For future reference, x-direction shearing angles are as
          *  follows (in degrees):
-         *  
+         *
          *          45.0 or 225.0    0       -45.0 or 135.0
          *           /               |              \
          *          /                |               \
-         * 
+         *
          * @param   Angles  Vector containing x, y, and z shear angles (in deg)
-         * 
+         *
          * @note    Only 2D shears are supported (X and Y directions).
          * @todo    Add 3D shearing.
          **/
@@ -142,7 +142,7 @@ namespace math
  * @details
  *  This is in place to support various linear transformation
  *  operations required for moving vertices around in OpenGL
- *  terms. 
+ *  terms.
  **/
 
 /** @} **/

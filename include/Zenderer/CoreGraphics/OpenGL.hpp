@@ -145,7 +145,7 @@ namespace gfxcore
  *  unwieldy to pass the string of the OpenGL function call by hand
  *  every time.
  **/
- 
+
 /**
  * @class zen::gfxcore::CGLSubsystem
  * @details

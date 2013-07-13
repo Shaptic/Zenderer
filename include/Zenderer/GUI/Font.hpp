@@ -46,12 +46,12 @@ namespace gui
     public:
         CFont(const void* const owner = nullptr);
         ~CFont();
-        
+
         /**
          * Streams data for rendering as a string later.
          *  This allows for direct rendering of a variety of data
          *  types (anything supporting `operator<<(std::ostream&)`)
-         * 
+         *
          * @tparam  T       Argument type is implicitly determined
          * @param   data    Data to write out to the stream
          *
@@ -62,18 +62,18 @@ namespace gui
         {
             m_str << data;
         }
-        
+
         /**
          * Loads a TrueType font from disk.
          *  Here, all of the printable characters in the ASCII table
          *  are loaded as bitmaps, then are turned into render-able
          *  textures in GPU memory. Their dimensions are stored for
          *  rendering later on.
-         *  Since this inherits from zen::asset::CAsset, it's 
+         *  Since this inherits from zen::asset::CAsset, it's
          *  impossible to specify font size when using an asset manager
          *  and `Create<>()`'ing from a filename. Thus the recommended
          *  approach for this is `Create<>()`'ing without a filename
-         *  (thus creating a raw asset), and then calling SetSize() 
+         *  (thus creating a raw asset), and then calling SetSize()
          *  prior to a LoadFromFile() call.
          *
          * @param   filename    Font filename
@@ -86,7 +86,7 @@ namespace gui
          * @see     _fonts-examples.html
          **/
         bool LoadFromFile(const string_t& filename);
-        
+
         /**
          * Loads a font from an existing instance.
          *  There is no way (without enabling RTTI) to check if the given
@@ -102,10 +102,10 @@ namespace gui
             ZEN_ASSERT(false);
             return false;
         }
-         
+
         /// Returns raw font glyph bitmap data.
         const void* const GetData() const;
-        
+
         /**
          * Stores render data in the provided for easy rendering.
          *  The text to render is optional; if it's not provided the
@@ -127,7 +127,7 @@ namespace gui
          * @todo    Store line height properly.
          **/
         bool Render(obj::CEntity& Ent, const string_t text = "");
-        
+
         /// Clears the internal string stream.
         void ClearString();
 
@@ -135,7 +135,7 @@ namespace gui
         {
             mp_Assets = &Assets;
         }
-        
+
     private:
         bool Destroy();
         bool LoadGlyph(const char c, const uint32_t index);
@@ -143,13 +143,13 @@ namespace gui
         asset::CAssetManager* mp_Assets;
         color4f_t m_Color;
         FT_Face m_FontFace;
-        
+
         std::map<char, glyph_t> mp_glyphData;
         std::stringstream m_str;
-        
+
         uint16_t m_size;
     };
-    
+
 }   // namespace gfx
 }   // namespace zen
 
@@ -162,12 +162,12 @@ namespace gui
  *  fonts and render them in an OpenGL-compatible matter.
  *  They cannot be drawn directly to the screen, but instead will load
  *  themselves into `obj::CEntity` instances that can then be treated as
- *  such. 
+ *  such.
  *
  * @note    It is absolutely essential that you call `AttachManager()` prior
  *          to loading any font instances, to ensure that the font textures
  *          can be created. This is a limitation of the asset API and may or
- *          may not change in the future. 
+ *          may not change in the future.
  *
  * @example Fonts
  * @section Font Rendering Examples
@@ -175,8 +175,8 @@ namespace gui
  *  In this example we will demonstrate the standard procedure for
  *  loading a font and rendering some string to the screen.
  *  First, we assume that a valid context has been created and that
- *  there is an existing asset manager we wish to use, referred to 
- *  as `Win` and `Assets` below, respectively. The default font size 
+ *  there is an existing asset manager we wish to use, referred to
+ *  as `Win` and `Assets` below, respectively. The default font size
  *  used when creating from an asset manager is 18.
  *
  *  @code
@@ -199,18 +199,18 @@ namespace gui
  *  // effects (like shadows) that occlude based on depth.
  *  Score.SetDepth(69);
  *
- *  // Now it will be rendered in the scene whenever 
+ *  // Now it will be rendered in the scene whenever
  *  // gfx::CScene::Draw() is called.
  *
  *  // Clean up, optional.
- *  Assets.Delete(Font);  
+ *  Assets.Delete(Font);
  *  @endcode
- * 
+ *
  * @subsection Rendering Without a Scene
  *  Since scenes are designed to manage entities independently, the
- *  `CFont::Render()` method cannot simply return a `obj::CEntity` 
- *  instance to the user, since then, when using a scene, it would 
- *  not know if it was `delete`-able or not. Thus, even when not 
+ *  `CFont::Render()` method cannot simply return a `obj::CEntity`
+ *  instance to the user, since then, when using a scene, it would
+ *  not know if it was `delete`-able or not. Thus, even when not
  *  using a scene, fonts must be given an existing `obj::CEntity`
  *  instance to work on. This is demonstrated in the following
  *  example.
@@ -249,13 +249,13 @@ namespace gui
  *  }
  *
  *  // Clean up, optional.
- *  Assets.Delete(Font);  
+ *  Assets.Delete(Font);
  *  @endcode
  *
  * @subsection Streaming Render Data
  *
- *  There is a feature allowing for streaming data directly "into" the font 
- *  instance and then calling `Render()` without a `string_t` parameter, 
+ *  There is a feature allowing for streaming data directly "into" the font
+ *  instance and then calling `Render()` without a `string_t` parameter,
  *  demonstrated below.
  *
  *  @code

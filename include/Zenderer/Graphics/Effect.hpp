@@ -138,7 +138,7 @@ namespace gfx
     private:
         // For the material to be able to load custom shaders.
         bool LoadCustomEffect(const string_t& vs, const string_t& fs);
-        
+
         inline bool Bind() const;
         inline bool Unbind() const;
 
