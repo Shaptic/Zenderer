@@ -92,17 +92,38 @@ using gfxcore::CRenderer;
     double x, y;
     real_t angle = 45.0, d = -5.5;
 
+    evt::CEventHandler& Evt = evt::CEventHandler::GetInstance();
+    evt::event_t event;
+
     while(Window.IsOpen())
     {
         Timer.Start();
 
-        // Handle events
-        glfwPollEvents();
+        // Handle events.
+        Evt.PollEvents();
+
+        while(Evt.PopEvent(event))
+        {
+            switch(event.type)
+            {
+            case evt::EventType::KEY_DOWN:
+            case evt::EventType::KEY_UP:
+            case evt::EventType::KEY_HOLD:
+                std::cout << "Key: " << (int16_t)event.key.key << "\n";
+                break;
+
+            case evt::EventType::PRINTABLE_KEY:
+                std::cout << "Printable: " << event.key.symbol << "\n";
+                break;
+            }
+        }
+
         glfwGetCursorPos(Window.GetWindow(), &x, &y);
 
         // Game logic
         Sound->Update();
 
+        /*
         {
             RT.Bind();
             Sample.EnableTexture();
@@ -117,6 +138,7 @@ using gfxcore::CRenderer;
             CRenderer::ResetMaterialState();
             RT.Unbind();
         }
+        */
 
         // Rendering
         Window.Clear(Teal);

@@ -81,12 +81,14 @@ namespace evt
     {
         key_t() : 
             mods(0),
-            keycode(Key::UNKNOWN),
-            key('\0') {}
+            key(Key::UNKNOWN),
+            symbol('\0'),
+            scan(-1) {}
 
         int     mods;
-        Key     keycode;
-        char    key;
+        Key     key;
+        char    symbol;
+        int     scan;
     };
 }
 }

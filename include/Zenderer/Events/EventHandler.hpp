@@ -39,11 +39,15 @@ namespace zen
 namespace evt
 {
     /// @todo   Window events / callback.
+    /// @todo   Document API.
     class ZEN_API CEventHandler
     {
     public:
         ~CEventHandler();
-        
+
+        /// Registers all pending events into the interal stack.
+        static bool PollEvents();
+
         /**
          * Removes the latest event from the stack and stores it in the parameter.
          *  This will pop an event from the internal event stack and store
@@ -60,6 +64,7 @@ namespace evt
         /// Retrieves the singleton instance of the event handler.
         static CEventHandler& GetInstance();
         
+        static void CharacterCallback(GLFWwindow*, unsigned int c);
         static void KeyboardCallback(GLFWwindow*, int key, int scancode,
                                      int action, int mods);
         static void MouseMotionCallback(GLFWwindow*, double x, double y);

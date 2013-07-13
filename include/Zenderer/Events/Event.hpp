@@ -42,6 +42,7 @@ namespace evt
         KEY_DOWN,
         KEY_UP,
         KEY_HOLD,
+        PRINTABLE_KEY,
         MOUSE_DOWN,
         MOUSE_UP,
         MOUSE_MOTION,
@@ -66,9 +67,10 @@ namespace evt
             mouse.position  = evt.mouse.position;
             mouse.button    = evt.mouse.button;
             mouse.mods      = evt.mouse.mods;
-            mouse.down      = evt.mouse.down;            
+            mouse.down      = evt.mouse.down;
             key.mods        = evt.key.mods;
-            key.keycode     = evt.key.keycode;
+            key.symbol      = evt.key.symbol;
+            key.scan        = evt.key.scan;
             key.key         = evt.key.key;
             
             return (*this);
@@ -76,15 +78,16 @@ namespace evt
         
         event_t& Reset()
         {
-            type            = EventType::NONE;            
+            type            = EventType::NONE;
             mouse.position  = math::vector_t();
             mouse.button    = MouseButton::UNKNOWN;
             mouse.mods      = 0;
-            mouse.down      = false;            
+            mouse.down      = false;
             key.mods        = 0;
-            key.key         = '\0';
-            key.keycode     = Key::UNKNOWN;
-            
+            key.key         = Key::UNKNOWN;
+            key.symbol      = '\0';
+            key.scan        = -1;
+
             return (*this);
         }
         

@@ -80,6 +80,7 @@ bool CWindow::Init()
         glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
         
     // Registers event callbacks with GLFW.
+    glfwSetCharCallback(mp_Window, evt::CEventHandler::CharacterCallback);
     glfwSetKeyCallback(mp_Window, evt::CEventHandler::KeyboardCallback);
     glfwSetMouseButtonCallback(mp_Window, evt::CEventHandler::MouseCallback);
     glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);
