@@ -138,16 +138,17 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 /// @todo Check for material `nullptr`
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
+    // All entity primitives must have viable textures attached.
+    if(&Quad.GetMaterial().GetTexture() == 
+       &gfxcore::CRenderer::GetDefaultTexture())
+        return false;
+
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
+    pQuad->AttachMaterial(const_cast<gfx::CMaterial&>(Quad.GetMaterial()));
     pQuad->Create();
+    pQuad->SetColor(color4f_t(1, 1, 1, 1));
     mp_allPrims.push_back(pQuad);
     return true;
-}
-
-bool CEntity::Create()
-{
-    if(mp_allPrims.empty()) return false;
-    return false;
 }
 
 void CEntity::Destroy()

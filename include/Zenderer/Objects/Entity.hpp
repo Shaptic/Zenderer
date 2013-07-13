@@ -69,7 +69,6 @@ namespace obj
         bool LoadFromTexture(const string_t& filename);
 
         bool AddPrimitive(const gfx::CQuad& Prim);
-        bool Create();
         bool Optimize() { ZEN_ASSERTM(false, "not implemented"); return false; }
 
         bool Draw(bool is_bound = false)

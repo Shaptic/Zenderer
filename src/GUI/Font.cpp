@@ -220,7 +220,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     Q.Create();
 
     Ent.AddPrimitive(Q);
-    Ent.Create();
 
     delete[] verts;
     delete[] inds;

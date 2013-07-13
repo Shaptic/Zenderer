@@ -139,17 +139,17 @@ namespace gfxcore
         /// For setting things implicitly.
         friend class ZEN_API CSceneManager;
 
-    protected:
-        gfx::CMaterial      m_Material;
-        math::vector_t      m_Position;
-        DrawBatch           m_DrawData;
-        bool                m_internal;
-
     private:
         asset::CAssetManager& m_Assets;
         math::matrix4x4_t*  mp_MVMatrix;
         CVertexArray*       mp_VAO;
         index_t             m_offset;
+
+    protected:
+        gfx::CMaterial      m_Material;
+        math::vector_t      m_Position;
+        DrawBatch           m_DrawData;
+        bool                m_internal;
     };
 
 }   // namespace gfxcore

@@ -30,13 +30,13 @@ CDrawable::CDrawable(const CDrawable& Copy) :
     m_DrawData.Vertices = new gfxcore::vertex_t[m_DrawData.vcount];
     m_DrawData.Indices  = new gfxcore::index_t[m_DrawData.icount];
 
-    std::copy(Copy.m_DrawData.Vertices,
-              Copy.m_DrawData.Vertices + m_DrawData.vcount,
-              m_DrawData.Vertices);
+    ZEN_ASSERT(m_DrawData.vcount > 0 && m_DrawData.icount > 0);
 
-    std::copy(Copy.m_DrawData.Indices,
-              Copy.m_DrawData.Indices + m_DrawData.icount,
-              m_DrawData.Indices);
+    for(size_t i = 0; i < m_DrawData.icount; ++i)
+        m_DrawData.Indices[i] = Copy.m_DrawData.Indices[i];
+
+    for(size_t v = 0; v < m_DrawData.vcount; ++v)
+        m_DrawData.Vertices[v] = Copy.m_DrawData.Vertices[v];
 
     if(Copy.mp_MVMatrix != nullptr)
         mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
