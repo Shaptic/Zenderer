@@ -4,16 +4,16 @@ using namespace zen;
 using gfx::CQuad;
 
 CQuad::CQuad(const math::rect_t& Size) :
-    m_Size(Size), m_inv(false), m_rep(false)
+    m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
 {}
 
 CQuad::CQuad(const uint16_t w, const uint16_t h) : 
-    m_Size(0, 0, w, h), m_inv(false), m_rep(false)
+    m_Size(w, h), m_inv(false), m_rep(false)
 {}
 
 CQuad::CQuad(const CQuad& Copy) : CDrawable(Copy)
 {
-    m_Size = math::rect_t(0, 0, Copy.m_Size.w, Copy.m_Size.h);
+    m_Size = Copy.m_Size;
     m_inv = Copy.m_inv;
     m_rep = Copy.m_rep;
 }
