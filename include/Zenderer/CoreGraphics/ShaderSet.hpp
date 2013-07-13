@@ -42,6 +42,27 @@ namespace gfxcore
         CShaderSet(asset::CAssetManager& Assets);
         ~CShaderSet();
 
+        /// Shallow-copy of internal shader objects.
+        CShaderSet(const CShaderSet& Copy) :
+            m_Log(Copy.m_Log),
+            m_AssetManager(Copy.m_AssetManager),
+            mp_FShader(Copy.mp_FShader),
+            mp_VShader(Copy.mp_VShader),
+            m_error_str(Copy.GetError()),
+            m_link_log(Copy.GetLinkerLog()),
+            m_program(Copy.m_program)
+        {
+        }
+
+        CShaderSet& operator=(const CShaderSet& Copy)
+        {
+            mp_FShader  = Copy.mp_FShader;
+            mp_VShader  = Copy.mp_VShader;
+            m_error_str = Copy.GetError();
+            m_link_log  = Copy.GetLinkerLog();
+            m_program   = Copy.m_program;
+        }
+
         /**
          * Loads a set of shader assets from a file.
          *  Unlike most of the other `Load*()` methods, this function

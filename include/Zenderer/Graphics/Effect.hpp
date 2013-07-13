@@ -60,6 +60,22 @@ namespace gfx
         CEffect(const EffectType Type, asset::CAssetManager& Assets);
         ~CEffect();
 
+        /// Shallow-copy the shader references and other metadata.
+        CEffect(const CEffect& Copy) : m_Log(Copy.m_Log),
+            m_Shader(Copy.m_Shader), m_type(Copy.m_type)
+        {
+            m_init = true;
+        }
+
+        CEffect& operator=(const CEffect& Copy)
+        {
+            m_Log = Copy.m_Log;
+            m_Shader = Copy.m_Shader;
+            m_type = Copy.m_type;
+            m_init = Copy.m_init;
+            return (*this);
+        }
+
         bool Init();
         bool Destroy();
 
@@ -115,6 +131,8 @@ namespace gfx
         inline GLuint GetObjectHandle() const;
         inline const string_t& GetError() const;
         inline void SetType(const EffectType Type);
+
+        inline EffectType GetType() const { return m_type; }
 
         friend class ZEN_API CMaterial;
 
