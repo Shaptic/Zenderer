@@ -107,9 +107,14 @@ bool CMaterial::LoadTextureFromHandle(const GLuint handle)
 
 bool CMaterial::LoadEffect(const gfx::EffectType Type)
 {
-    m_Effect.Destroy();
-    m_Effect.SetType(Type);
-    return m_Effect.Init();
+    if(m_Effect.GetType() != Type)
+    {
+        m_Effect.Destroy();
+        m_Effect.SetType(Type);
+        return m_Effect.Init();
+    }
+
+    return true;
 }
 
 bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)

@@ -45,7 +45,7 @@ namespace gfx
         bool Destroy();
 
         bool Bind() const;
-        bool BindTexture() const;        
+        bool BindTexture() const;
         bool Unbind() const;
         
         bool Clear();

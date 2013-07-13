@@ -112,7 +112,7 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
     }
 
     GL(glDrawElements(GL_TRIANGLES, m_DrawData.icount,
-            INDEX_TYPE, (void*)(sizeof(index_t) * m_offset)));
+                      INDEX_TYPE, (void*)(sizeof(index_t) * m_offset)));
 
     return !is_bound ?
         (CRenderer::ResetMaterialState() && mp_VAO->Unbind()) :
