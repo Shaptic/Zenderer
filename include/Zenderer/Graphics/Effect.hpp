@@ -41,7 +41,7 @@ namespace gfx
      * @note    `CUSTOM_EFFECT` is only used by the material wrapper.
      * @todo    Fix table border problem in detailed docs.
      **/
-    enum class EffectType : int16_t
+    enum class ZEN_API EffectType : int16_t
     {
         NO_EFFECT = -1,     ///< No effect, default shaders
         CUSTOM_EFFECT,      ///< A custom effect loaded from a file

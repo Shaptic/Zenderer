@@ -41,7 +41,7 @@ namespace zen
 namespace util
 {
     /// Log output types
-    enum class LogMode : uint16_t
+    enum class ZEN_API LogMode : uint16_t
     {
         ZEN_DEBUG,  ///< Only in builds with the _DEBUG flag
         ZEN_INFO,   ///< Standard message

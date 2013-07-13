@@ -36,7 +36,7 @@ namespace zen
 namespace evt
 {
     /// Enumeration of the various event types.
-    enum class EventType
+    enum class ZEN_API EventType
     {
         NONE = -1,
         KEY_DOWN,

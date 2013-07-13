@@ -112,6 +112,8 @@ bool CWindow::Init()
 
 bool CWindow::Destroy()
 {
+    delete gfxcore::CRenderer::s_DefaultMaterial;
+    m_Assets.Destroy();
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
     return true;

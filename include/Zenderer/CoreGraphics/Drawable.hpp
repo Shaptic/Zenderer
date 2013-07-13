@@ -130,7 +130,7 @@ namespace gfxcore
         void LoadIntoVAO(gfxcore::CVertexArray& VAO);
 
         /// For setting things implicitly.
-        friend class CSceneManager;
+        friend class ZEN_API CSceneManager;
 
     protected:
         gfx::CMaterial*     mp_Material;

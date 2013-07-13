@@ -58,7 +58,7 @@ namespace gfxcore
 
         static CTexture& GetDefaultTexture();
 
-        friend class asset::CAssetManager;
+        friend class ZEN_API asset::CAssetManager;
 
     private:
         CTexture(const void* const owner = nullptr);

@@ -105,6 +105,11 @@ bool CLight::Init()
     return state;
 }
 
+void CLight::Adjust(const real_t dx, const real_t dy)
+{
+    this->SetPosition(m_Position.x + dx, m_Position.y + dy);
+}
+
 bool CLight::Enable() const
 {
     return m_Shader.Bind();
@@ -174,4 +179,19 @@ bool CLight::SetMinimumAngle(const real_t degrees)
 
     GL(glUniform2f(m_loctmn, m_Min.x, m_Min.y));
     return true;
+}
+
+zen::real_t CLight::GetBrightness() const
+{
+    return m_brt;
+}
+
+const color3f_t& CLight::GetColor() const
+{
+    return m_Color;
+}
+
+const math::vector_t& CLight::GetPosition() const
+{
+    return m_Position;
 }

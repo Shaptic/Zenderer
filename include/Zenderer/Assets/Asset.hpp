@@ -97,7 +97,7 @@ namespace asset
         inline void SetFilename(const string_t& filename);
 
         /// Only asset::CAssetManager can create CAsset instances.
-        friend class CAssetManager;
+        friend class ZEN_API CAssetManager;
 
     protected:
         /// Only asset::CAssetManager can create CAsset instances.

@@ -31,7 +31,7 @@
 namespace zen
 {
     /// An abstract base class for all engine subsystems.
-    class CSubsystem
+    class ZEN_API CSubsystem
     {
     public:
         /// Sets subsystem to an uninitialized state.

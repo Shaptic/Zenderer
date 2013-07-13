@@ -42,7 +42,7 @@ namespace gfx
 namespace gfxcore
 {
     /// A variety of blending operations.
-    enum class BlendFunc : uint16_t
+    enum class ZEN_API BlendFunc : uint16_t
     {
         DISABLE_BLEND,      ///< Disables blending
         ENABLE_BLEND,       ///< Just enables blending
@@ -76,8 +76,8 @@ namespace gfxcore
         inline static const math::matrix4x4_t&  GetProjectionMatrix();
         inline static CVertexArray&             GetFullscreenVBO();
 
-        friend class gfx::CWindow;          ///< Accesses material
-        friend class gfx::CRenderTarget;    ///< Accesses matrices
+        friend class ZEN_API gfx::CWindow;          ///< Accesses material
+        friend class ZEN_API gfx::CRenderTarget;    ///< Accesses matrices
 
     private:
         explicit CRenderer();

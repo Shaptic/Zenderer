@@ -39,7 +39,7 @@ namespace util
     typedef uint32_t time_t;
 
     /// A high-precision timer class for controlling frame rates.
-    class CTimer
+    class ZEN_API CTimer
     {
     public:
         /// Shortcut for the type of clock we are using

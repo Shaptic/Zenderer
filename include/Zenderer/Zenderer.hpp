@@ -46,7 +46,7 @@
 // For random-ness
 #include <cstdlib>
 
-// Attempt to detect OS.
+/// Attempt to detect OS.
 #if !(                          \
         defined(WIN32)      ||  \
         defined(_WIN32)     ||  \
@@ -54,6 +54,11 @@
         defined(__WINDOWS__)    \
     )
   #warning "Zenderer has only been tested on Windows using Visual Studio..."
+#else
+  /// Use a uniform macro for Windows builds.
+  #ifndef _WIN32
+    #define _WIN32
+  #endif // _WIN32
 #endif // WIN32
 
 // Core API

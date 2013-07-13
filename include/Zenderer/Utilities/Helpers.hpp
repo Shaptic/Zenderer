@@ -95,8 +95,8 @@ namespace util
      *
      * @see     https://sites.google.com/site/murmurhash/
      **/
-    static inline ZEN_API uint32_t hash(const void* pdata, uint32_t size,
-                                        const uint32_t seed = 69)
+    inline ZEN_API uint32_t hash(const void* pdata, uint32_t size,
+                                 const uint32_t seed = 69)
     {
         const unsigned int m = 0x5bd1e995;
         const int r = 24;
@@ -148,8 +148,8 @@ namespace util
      *
      * @return  A hash value.
      **/
-    static inline ZEN_API uint32_t string_hash(const string_t& str,
-                                               const uint32_t seed = 69)
+    inline ZEN_API uint32_t string_hash(const string_t& str,
+                                        const uint32_t seed = 69)
     {
         return hash(str.c_str(), str.size(), seed);
     }

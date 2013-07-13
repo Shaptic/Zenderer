@@ -48,7 +48,7 @@ namespace obj
     {
     protected:
         // Internal error types.
-        enum class ErrorType : uint16_t
+        enum class ZEN_API ErrorType : uint16_t
         {
             BAD_PAIR,
             BAD_POSITION,
@@ -74,8 +74,8 @@ namespace obj
             ZEN_ASSERTM(false, "not implemented");
         }
 
-        friend class gui::CFont;
-        friend class gfx::CScene;
+        friend class ZEN_API gui::CFont;
+        friend class ZEN_API gfx::CScene;
 
     protected:
         void Destroy();

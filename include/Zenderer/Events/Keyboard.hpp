@@ -33,7 +33,7 @@ namespace evt
 #endif // DELETE
 
     /// Keyboard key enumerations.
-    enum class Key
+    enum class ZEN_API Key
     {
         UNKNOWN     = -1,
         SPACE       = 32,

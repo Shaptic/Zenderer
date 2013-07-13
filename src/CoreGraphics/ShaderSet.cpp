@@ -200,10 +200,6 @@ const string_t& CShaderSet::GetLinkerLog() const
 
 bool CShaderSet::Destroy()
 {
-    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-            << m_Log.SetSystem("ShaderSet")
-            << "Destroying shader set." << CLog::endl;
-
     if(mp_FShader != nullptr)
     {
         m_AssetManager.Delete(mp_FShader);

@@ -31,7 +31,7 @@ namespace zen
 namespace gfx
 {
     /// Lighting types.
-    ZEN_API enum class LightType : int16_t
+    enum class ZEN_API LightType : int16_t
     {
         ZEN_NO_LIGHT = -1,  ///< An invalid light type
         ZEN_AMBIENT,        ///< Uniform ambient light
@@ -66,8 +66,7 @@ namespace gfx
         bool Disable() const;
 
         // Sometimes you don't care about the original position.
-        inline void Adjust(const real_t dx, const real_t dy)
-        { this->SetPosition(m_Position.x + dx, m_Position.y + dy); }
+        void Adjust(const real_t dx, const real_t dy);
 
         bool SetBrightness(const real_t brightness);
         bool SetColor(const real_t r, const real_t g, const real_t b);
@@ -79,17 +78,18 @@ namespace gfx
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
 
-        real_t                  GetBrightness() const   { return m_brt;     }
-        const color3f_t&        GetColor() const        { return m_Color;   }
-        const math::vector_t&   GetPosition() const     { return m_Position;}
+        real_t                  GetBrightness() const;
+        const color3f_t&        GetColor()      const;
+        const math::vector_t&   GetPosition()   const;
 
     private:
         // Default values
-        static math::vector_t   s_DefaultAttenuation,
-                                s_DefaultPosition;
+        static math::vector_t   s_DefaultAttenuation;
+        static math::vector_t   s_DefaultPosition;
         static color3f_t        s_DefaultColor;
-        static real_t           s_DefaultBrightness, s_DefaultMaxAngle,
-                                s_DefaultMinAngle;
+        static real_t           s_DefaultBrightness;
+        static real_t           s_DefaultMaxAngle;
+        static real_t           s_DefaultMinAngle;
 
         // We don't use the high-level effect to get more control
         // and minimize uniform parameter lookups.

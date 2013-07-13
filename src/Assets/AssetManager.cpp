@@ -22,8 +22,8 @@ CAssetManager::~CAssetManager()
 
 bool CAssetManager::Init()
 {
+    if(m_init) return false;
     if(CAsset::s_seed != 0) CAsset::s_seed = rand() % RAND_MAX;
-
     return (m_init = true);
 }
 

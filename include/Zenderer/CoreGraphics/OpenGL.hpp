@@ -66,12 +66,12 @@ namespace gfxcore
      * @param   line    Line number of function call
      * @param   file    File name of function call
      *
-     * @return  `true`      if there was no error, and
-     *          `false`     otherwise, though the assertion will exit.
+     * @return  `true`  if there was no error, and
+     *          `false` otherwise, though the assertion will exit the program.
      **/
-    static inline ZEN_API bool glCheck(const char* expr,
-                                       const uint32_t line,
-                                       const char* file)
+    inline ZEN_API bool glCheck(const char* expr,
+                                const uint32_t line,
+                                const char* file)
     {
         GLenum error_code = glGetError();
 

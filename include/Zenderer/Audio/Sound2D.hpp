@@ -53,7 +53,7 @@ namespace sfx
         /// Always returns `true` if the file is loaded.
         inline bool Ready() const { return true; }
 
-        friend class asset::CAssetManager;
+        friend class ZEN_API asset::CAssetManager;
 
     private:
         CSound2D(const void* const owner = nullptr);
