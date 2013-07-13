@@ -8,12 +8,10 @@ using util::LogMode;
 using gfx::CEffect;
 using gfx::EffectType;
 
-asset::CAssetManager CEffect::s_DefaultManager;
-
 CEffect::CEffect(const EffectType Type, asset::CAssetManager& Assets) :
     CGLSubsystem("ShaderSet"),
     m_Log(CLog::GetEngineLog()),
-    m_Shader(pAssets), m_type(Type)
+    m_Shader(Assets), m_type(Type)
 {
 }
 
@@ -24,8 +22,6 @@ CEffect::~CEffect()
 
 bool CEffect::Init()
 {
-    s_DefaultManager.Init();
-
     if(m_init) return true;
 
     // m_type is guaranteed to be valid, except for counter.
@@ -184,9 +180,7 @@ bool CEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
 {
     ZEN_ASSERT(m_type == EffectType::CUSTOM_EFFECT);
     
-    s_DefaultManager.Init();
     if(m_init) this->Destroy();
-
     m_init = m_Shader.LoadFromFile(vs, fs) && m_Shader.CreateShaderObject();
     return m_init;
 }

@@ -27,8 +27,8 @@ using gfxcore::CRenderer;
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
-    gfx::CMaterial Sample(&Manager);
-    gfx::CMaterial Grass(&Manager);
+    gfx::CMaterial Sample(Manager);
+    gfx::CMaterial Grass(Manager);
     
     Sample.LoadTextureFromFile("sample.png");
     Sample.LoadEffect(gfx::EffectType::NO_EFFECT);
@@ -43,7 +43,7 @@ using gfxcore::CRenderer;
     Vao.Init(); FS.Init(); Gr.Init();
         
     // Quad to easily store vertex data
-    gfx::CQuad Default(Sample.GetTexture()->GetWidth(), Sample.GetTexture()->GetHeight());
+    gfx::CQuad Default(Sample.GetTexture().GetWidth(), Sample.GetTexture().GetHeight());
     Default.SetColor(color4f_t(1, 1, 1, 1));
     Default.Create();
     
@@ -59,7 +59,7 @@ using gfxcore::CRenderer;
     Default.SetInverted(true);
     Default.SetRepeating(true);
     Default.AttachMaterial(&Grass);
-    Default.Resize(15 * Grass.GetTexture()->GetWidth(), Grass.GetTexture()->GetHeight());
+    Default.Resize(15 * Grass.GetTexture().GetWidth(), Grass.GetTexture().GetHeight());
     Default.Create();
     Default.LoadIntoVAO(Gr);
     
