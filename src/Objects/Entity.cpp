@@ -34,7 +34,8 @@ bool CEntity::LoadFromFile(const string_t& filename)
 
             pair = util::split(line, ',');
             if(pair.size() < 2)
-                return this->FileError(filename, line, line_no, ErrorType::BAD_POSITION);
+                return this->FileError(filename, line, line_no,
+                                       ErrorType::BAD_POSITION);
 
             this->Move(std::stod(pair[0]), std::stod(pair[1]));
 
@@ -48,7 +49,6 @@ bool CEntity::LoadFromFile(const string_t& filename)
             if(count > 0)
             {
                 mp_allPrims.reserve(count);
-                mp_allMaterials.reserve(count);
             }
         }
 
@@ -58,7 +58,8 @@ bool CEntity::LoadFromFile(const string_t& filename)
             if(pPrim != nullptr)
             {
                 mp_allPrims.push_back(pPrim);
-                mp_allMaterials.push_back(pMat);
+                delete pMat;
+                pMat = nullptr;
             }
 
             pPrim = new gfx::CQuad(m_Assets, 0, 0);
@@ -94,16 +95,20 @@ bool CEntity::LoadFromFile(const string_t& filename)
             }
 
             if(Parser.Exists("width") && Parser.Exists("height"))
-                pPrim->Resize(Parser.GetValuei("width"), Parser.GetValuei("height"));
+                pPrim->Resize(Parser.GetValuei("width"),
+                              Parser.GetValuei("height"));
+
             else
                 pPrim->Resize(pMat->GetTexture().GetWidth(),
                               pMat->GetTexture().GetHeight());
 
-            if(Parser.Exists("invert")) pPrim->SetInverted(Parser.GetValueb("invert"));
-            if(Parser.Exists("repeat")) pPrim->SetRepeating(Parser.GetValueb("repeat"));
+            if(Parser.Exists("invert"))
+                pPrim->SetInverted(Parser.GetValueb("invert"));
+
+            if(Parser.Exists("repeat"))
+                pPrim->SetRepeating(Parser.GetValueb("repeat"));
 
             pPrim->AttachMaterial(*pMat);
-            mp_allMaterials.push_back(pMat);
         }
     }
 
@@ -115,21 +120,18 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 {
     this->Destroy();
 
-    gfx::CMaterial* pMat = new gfx::CMaterial(m_Assets);
-    if(!pMat->LoadTextureFromFile(filename))
-    {
-        delete pMat;
-        return false;
-    }
+    gfx::CMaterial Mat(m_Assets);
+    if(!Mat.LoadTextureFromFile(filename)) return false;
 
-    gfx::CQuad* pPrimitive = new gfx::CQuad(m_Assets, 
-        pMat->GetTexture().GetWidth(),
-        pMat->GetTexture().GetHeight());
+    gfx::CQuad* pPrimitive = new gfx::CQuad(m_Assets,
+        Mat.GetTexture().GetWidth(),
+        Mat.GetTexture().GetHeight());
+
+    pPrimitive->AttachMaterial(Mat);
     pPrimitive->Create();
+    pPrimitive->SetColor(color4f_t(1, 1, 1, 1));
 
     mp_allPrims.push_back(pPrimitive);
-    mp_allMaterials.push_back(pMat);
-
     return true;
 }
 
@@ -139,22 +141,19 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
     pQuad->Create();
     mp_allPrims.push_back(pQuad);
-    mp_allMaterials.push_back(new gfx::CMaterial(Quad.GetMaterial()));
     return true;
 }
 
 bool CEntity::Create()
 {
     if(mp_allPrims.empty()) return false;
-    if(mp_allPrims.size() != mp_allMaterials.size()) return false;
     return false;
 }
 
 void CEntity::Destroy()
 {
-    for(auto i : mp_allPrims)       { delete i; i = nullptr; }
-    for(auto i : mp_allMaterials)   { delete i; i = nullptr; }
-    mp_allPrims.clear(); mp_allMaterials.clear();
+    for(auto i : mp_allPrims) { delete i; i = nullptr; }
+    mp_allPrims.clear();
 }
 
 bool CEntity::FileError(const string_t& filename,

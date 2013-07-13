@@ -43,11 +43,9 @@ using gfxcore::CRenderer;
                        Sample.GetTexture().GetWidth(),
                        Sample.GetTexture().GetHeight());
 
-    Default.SetColor(color4f_t(1, 1, 1, 1));
-
     // Regular quad
-    Default.AttachMaterial(Sample);
     Default.Create();
+    Default.SetColor(color4f_t(1, 1, 1, 1));
     Default.LoadIntoVAO(Vao);
 
     // Full screen
@@ -97,6 +95,10 @@ using gfxcore::CRenderer;
     evt::CEventHandler& Evt = evt::CEventHandler::GetInstance();
     evt::event_t event;
 
+    obj::CEntity Ent(Manager);
+    Ent.LoadFromTexture("sample.png");
+    Ent.Move(300, 300);
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -128,7 +130,6 @@ using gfxcore::CRenderer;
         // Rendering
         Window.Clear(Teal);
 
-        /*
         RT.Bind();
         Sample.EnableTexture();
         DEffect.Enable();
@@ -138,26 +139,23 @@ using gfxcore::CRenderer;
 
         RT.Clear();
         Vao.Draw();
-
-        CRenderer::ResetMaterialState();
         RT.Unbind();
 
         RT.BindTexture();
         DEffect.Enable();
-
+        DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
         FS.Draw();
 
-        CRenderer::ResetMaterialState();
-        */
-
-        /*
         Sample.Enable();
+        Sample.GetEffect().SetParameter("proj", CRenderer::GetProjectionMatrix());
+        Sample.GetEffect().SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
         Vao.Draw();
         Sample.Disable();
-        */
 
         Default.Move(x, y);
         Default.Draw();
+
+        Ent.Draw();
 
         {
             Grass.Enable();

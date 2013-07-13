@@ -59,7 +59,11 @@ namespace obj
     public:
         CEntity(asset::CAssetManager& Assets) :
             m_Assets(Assets), m_Log(util::CLog::GetEngineLog()) {}
-        virtual ~CEntity();
+
+        virtual ~CEntity()
+        {
+            this->Destroy();
+        }
 
         bool LoadFromFile(const string_t& filename);
         bool LoadFromTexture(const string_t& filename);
@@ -67,11 +71,22 @@ namespace obj
         bool AddPrimitive(const gfx::CQuad& Prim);
         bool Create();
         bool Optimize() { ZEN_ASSERTM(false, "not implemented"); return false; }
-        bool Draw(bool is_bound = false);
 
+        bool Draw(bool is_bound = false)
+        {
+            for(size_t i = 0; i < mp_allPrims.size(); ++i)
+                mp_allPrims[i]->Draw(is_bound);
+
+            return true;
+        }
+
+        /// @todo   Support a variety of primitive depths.
         void Move(const real_t x, const real_t y, const real_t z = 1.0)
         {
-            ZEN_ASSERTM(false, "not implemented");
+            auto i = mp_allPrims.begin(),
+                 j = mp_allPrims.end();
+
+            for( ; i != j; ++i) (*i)->Move(x, y, z);
         }
 
         friend class ZEN_API gui::CFont;
@@ -89,7 +104,6 @@ namespace obj
         math::vector_t                  m_Position;
         string_t                        m_filename;
         std::vector<gfx::CQuad*>        mp_allPrims;
-        std::vector<gfx::CMaterial*>    mp_allMaterials;
     };
 
 }   // namespace gfxcore
