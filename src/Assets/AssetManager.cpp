@@ -31,9 +31,8 @@ bool CAssetManager::Destroy()
 {
     if(this->IsInit())
     {
-        mp_managerAssets.erase(mp_managerAssets.begin(),
-                               mp_managerAssets.end());
-
+        while(!mp_managerAssets.empty())
+            this->Delete(*mp_managerAssets.begin());
         mp_managerAssets.clear();
     }
 
@@ -57,7 +56,7 @@ bool CAssetManager::Delete(CAsset* const pAsset)
             m_Log   << m_Log.SetSystem("AssetMgr")
                     << m_Log.SetMode(LogMode::ZEN_INFO)
                     << "Deleting asset: " << (*b)->GetID()
-                    << '(' << (*b)->GetFilename() << ")." << CLog::endl;
+                    << " (" << (*b)->GetFilename() << ")." << CLog::endl;
 
             delete *b;
             mp_managerAssets.erase(b);
