@@ -131,10 +131,10 @@ namespace gui
         /// Clears the internal string stream.
         void ClearString();
 
-        void AttachManager(asset::CAssetManager& Assets)
-        {
-            mp_Assets = &Assets;
-        }
+        void AttachManager(asset::CAssetManager& Assets);
+
+        uint32_t GetTextWidth(const string_t&  text) const;
+        uint32_t GetTextHeight(const string_t& text) const;
 
     private:
         bool Destroy();

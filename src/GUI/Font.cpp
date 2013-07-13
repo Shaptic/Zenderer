@@ -7,7 +7,7 @@ using util::LogMode;
 using gui::CFont;
 
 CFont::CFont(const void* const owner) :
-    CAsset(owner), m_size(18) {}
+    CAsset(owner), m_size(18), mp_Assets(nullptr) {}
 
 CFont::~CFont()
 {
@@ -49,7 +49,6 @@ bool CFont::LoadFromFile(const string_t& filename)
 
     // Loads all printable ASCII characters.
     uint32_t space = FT_Get_Char_Index(m_FontFace, ' ');
-
     for(size_t s = ' ', e = '~'; s <= e; ++s)
     {
         // Check if the glyph exists for this font.
@@ -98,10 +97,10 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     gfxcore::vertex_t* verts = new gfxcore::vertex_t[vlen];
     gfxcore::index_t*  inds  = new gfxcore::index_t [ilen];
 
-    uint16_t w = 0, h = 0;
+    math::vectoru16_t totals;
 
     // Coordinates to start rendering at.
-    int32_t last_w = 0, last_h = 0;
+    int32_t last_w = 0, last_h = this->GetTextHeight(text);
 
     // Fill up the buffers.
     for(size_t i = 0; i < vlen; i += 4)
@@ -159,15 +158,15 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         inds[x+5] = i + 1;
 
         // Track total dimensions.
-        w += Dim.w;
-        h  = math::max<uint16_t>(h, Dim.h + h);
+        totals.x += Dim.w;
+        totals.y  = math::max<uint16_t>(totals.y, Dim.h + totals.y);
     }
 
     // Render all of the loaded data onto a texture,
     // then assign that texture to the entity.
     gfxcore::DrawBatch D;
     gfxcore::CVertexArray VAO(GL_STATIC_DRAW);
-    gfx::CRenderTarget FBO(w, h);
+    gfx::CRenderTarget FBO(totals.x, totals.y);
 
     D.Vertices = verts;
     D.vcount   = vlen;
@@ -188,6 +187,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     FBO.Clear();
 
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+    gfxcore::CRenderer::GetDefaultEffect().Enable();
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
@@ -215,7 +215,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         return false;
     }
 
-    gfx::CQuad Q(*mp_Assets, w, h);
+    gfx::CQuad Q(*mp_Assets, totals.x, totals.y);
     Q.AttachMaterial(M);
     Q.Create();
 
@@ -234,12 +234,12 @@ void CFont::ClearString()
 
 bool CFont::Destroy()
 {
-    return FT_Done_Face(m_FontFace) == 0;
     m_size = 18;
     for(auto i : mp_glyphData)
         mp_Assets->Delete(i.second.texture);
     mp_glyphData.clear();
     this->ClearString();
+    return true;
 }
 
 
@@ -261,6 +261,12 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     uint32_t w = bitmap.width;
     uint32_t h = bitmap.rows;
 
+    if(w == 0 || h == 0)
+    {
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) 
+                << "Empty character bitmap for '" << c << '\'' << CLog::endl;
+    }
+
     // Create the OpenGL texture and store the FreeType bitmap
     // in it as a monochrome texture.
 
@@ -271,6 +277,9 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
 
     gfxcore::CTexture* pTexture = mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
+    std::stringstream ss;
+    ss << "Size " << m_size << " texture bitmap for '" << c << '\'';
+    pTexture->SetFilename(ss.str());
 
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
 
@@ -281,9 +290,47 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     glyph_t glyph;
     glyph.texture   = pTexture;
     glyph.dim       = math::rect_t(w, h,    // Raw bitmap w/h
-        slot->advance.x << 6,               // Pixels to adjust till next character
-        slot->metrics.horiBearingY << 6);   // Line height offset (stuff like 'y' and 'h')
+        slot->advance.x >> 6,               // Pixels to adjust till next character
+        slot->metrics.horiBearingY >> 6);   // Line height offset (stuff like 'y' and 'h')
 
     mp_glyphData[c] = glyph;
     return true;
 }
+
+void CFont::AttachManager(asset::CAssetManager& Assets)
+{
+    mp_Assets = &Assets;
+}
+
+uint32_t CFont::GetTextWidth(const string_t& text) const
+{
+    if(text.empty()) return 0;
+
+    uint32_t w = 0;
+    uint32_t l = text.length();
+
+    for(size_t i = 0; i < l; ++i)
+    {
+        const auto it = mp_glyphData.find(text[i]);
+        w += it->second.dim.w;
+    }
+
+    return w;
+}
+
+uint32_t CFont::GetTextHeight(const string_t& text) const
+{
+    if(text.empty()) return 0;
+
+    uint32_t h = 0;
+    uint32_t l = text.length();
+
+    for(size_t i = 0; i < l; ++i)
+    {
+        const auto it = mp_glyphData.find(text[i]);
+        h = math::max<int>(it->second.dim.y, h);
+    }
+
+    return h;
+}
+
