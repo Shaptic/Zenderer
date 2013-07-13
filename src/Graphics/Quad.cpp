@@ -3,12 +3,12 @@
 using namespace zen;
 using gfx::CQuad;
 
-CQuad::CQuad(const math::rect_t& Size) :
-    m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
+CQuad::CQuad(asset::CAssetManager& Mgr, const math::rect_t& Size) :
+    CDrawable(Mgr), m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
 {}
 
-CQuad::CQuad(const uint16_t w, const uint16_t h) :
-    m_Size(w, h), m_inv(false), m_rep(false)
+CQuad::CQuad(asset::CAssetManager& Mgr, const uint16_t w, const uint16_t h) :
+    CDrawable(Mgr), m_Size(w, h), m_inv(false), m_rep(false)
 {}
 
 CQuad::CQuad(const CQuad& Copy) : CDrawable(Copy)
@@ -56,15 +56,7 @@ gfxcore::CDrawable& CQuad::Create()
     m_DrawData.Indices[4] = 1;
     m_DrawData.Indices[5] = 2;
 
-    if(mp_Material == nullptr)
-        this->AttachMaterial(&gfxcore::CRenderer::GetDefaultMaterial());
-
     return (*this);
-}
-
-void CQuad::AttachMaterial(gfx::CMaterial* pMaterial)
-{
-    mp_Material = pMaterial;
 }
 
 void CQuad::Resize(const math::vectoru16_t& Size)
@@ -112,10 +104,10 @@ void CQuad::LoadRegularTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
 
-    if(m_rep && mp_Material != nullptr)
+    if(m_rep)
     {
-        uint16_t w = mp_Material->GetTexture().GetWidth();
-        uint16_t h = mp_Material->GetTexture().GetHeight();
+        uint16_t w = m_Material.GetTexture().GetWidth();
+        uint16_t h = m_Material.GetTexture().GetHeight();
 
         tc_w = m_Size.x / real_t(w);
         tc_h = m_Size.y / real_t(h);
@@ -131,10 +123,10 @@ void CQuad::LoadInvertedTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
 
-    if(m_rep && mp_Material != nullptr)
+    if(m_rep)
     {
-        uint16_t w = mp_Material->GetTexture().GetWidth();
-        uint16_t h = mp_Material->GetTexture().GetHeight();
+        uint16_t w = m_Material.GetTexture().GetWidth();
+        uint16_t h = m_Material.GetTexture().GetHeight();
 
         tc_w = m_Size.x / real_t(w);
         tc_h = m_Size.y / real_t(h);

@@ -39,7 +39,7 @@ namespace gfxcore
     class ZEN_API CDrawable
     {
     public:
-        CDrawable();
+        CDrawable(asset::CAssetManager&);
 
         /**
          * Creates an instance from another instance.
@@ -89,9 +89,16 @@ namespace gfxcore
          *  Likely this will only work well on quadrilateral primitives due
          *  to difficulties setting texture coordinates on other shapes.
          *
-         * @param   pMaterial   The texture you want rendered
+         * @param   Material   The texture you want rendered
+         *
+         * @pre     Create() or Draw() haven't been called yet.
+         *
+         * @note    I promise the given material won't be modified.
          **/
-        virtual void AttachMaterial(gfx::CMaterial* pMaterial) = 0;
+        void AttachMaterial(gfx::CMaterial& Material);
+
+        /// Reverts to using the default material.
+        void RemoveMaterial();
 
         /// Sets all vertices to have a given color value.
         void SetColor(const color4f_t& Color);
@@ -112,7 +119,7 @@ namespace gfxcore
         bool Draw(const bool is_bound = false);
 
         /// Request to see if we can change the internal vertices or not.
-        bool IsModifiable() const { return (mp_VAO == nullptr || !mp_VAO->Offloaded()); }
+        bool IsModifiable() const;
 
         inline const math::vector_t& GetPosition() const
         { return m_Position; }
@@ -133,12 +140,13 @@ namespace gfxcore
         friend class ZEN_API CSceneManager;
 
     protected:
-        gfx::CMaterial*     mp_Material;
+        gfx::CMaterial      m_Material;
         math::vector_t      m_Position;
         DrawBatch           m_DrawData;
         bool                m_internal;
 
     private:
+        asset::CAssetManager& m_Assets;
         math::matrix4x4_t*  mp_MVMatrix;
         CVertexArray*       mp_VAO;
         index_t             m_offset;

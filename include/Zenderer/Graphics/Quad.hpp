@@ -33,24 +33,13 @@ namespace gfx
     class ZEN_API CQuad : public gfxcore::CDrawable
     {
     public:
-        CQuad(const math::rect_t& Size);
-        CQuad(const uint16_t w, const uint16_t h);
+        CQuad(asset::CAssetManager&, const math::rect_t& Size);
+        CQuad(asset::CAssetManager&, const uint16_t w, const uint16_t h);
         CQuad(const CQuad& Copy);
 
         ~CQuad();
 
         virtual CDrawable& Create();
-
-        /**
-         * Attaches a material to the current quad.
-         *  `nullptr` is an acceptable value, since it will remove
-         *  any material already attached to the quad.
-         *
-         * @param   pMaterial   The material to attach
-         *
-         * @pre     Create() or Draw() haven't been called yet.
-         **/
-        virtual void AttachMaterial(gfx::CMaterial* pMaterial);
 
         /**
          * Resizes the quad to a new dimension.
@@ -109,9 +98,9 @@ namespace gfx
          **/
         void SetRepeating(const bool flag);
 
-        inline uint16_t GetW()          const { return m_Size.x;    }
-        inline uint16_t GetH()          const { return m_Size.y;    }
-        inline CMaterial* GetMaterial() const { return mp_Material; }
+        inline uint16_t GetW()                  const { return m_Size.x;    }
+        inline uint16_t GetH()                  const { return m_Size.y;    }
+        inline const CMaterial& GetMaterial()   const { return m_Material;  }
 
     private:
         void LoadRegularVertices();     // Standard quad

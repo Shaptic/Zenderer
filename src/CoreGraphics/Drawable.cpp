@@ -3,20 +3,28 @@
 using namespace zen;
 using gfxcore::CDrawable;
 
-CDrawable::CDrawable() : mp_VAO(nullptr), mp_Material(nullptr),
+CDrawable::CDrawable(asset::CAssetManager& Assets) : 
+    m_Assets(Assets), mp_VAO(nullptr), m_Material(Assets),
     mp_MVMatrix(nullptr), m_offset(0), m_internal(false)
 {
     m_DrawData.Vertices = nullptr;
     m_DrawData.Indices  = nullptr;
     m_DrawData.icount   =
     m_DrawData.vcount   = 0;
+
+    m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
+    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
 }
 
 CDrawable::CDrawable(const CDrawable& Copy) :
-    mp_VAO(nullptr), mp_Material(nullptr),
+    m_Assets(Copy.m_Assets),
+    mp_VAO(nullptr), m_Material(m_Assets),
     mp_MVMatrix(nullptr), m_offset(0),
     m_internal(false)
 {
+    m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
+    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+
     m_DrawData.vcount   = Copy.m_DrawData.vcount;
     m_DrawData.icount   = Copy.m_DrawData.icount;
     m_DrawData.Vertices = new gfxcore::vertex_t[m_DrawData.vcount];
@@ -49,6 +57,18 @@ void CDrawable::Move(const real_t x, const real_t y, const real_t z /*= 0.0*/)
     m_Position = math::vector_t(x, y, z);
 }
 
+void CDrawable::AttachMaterial(gfx::CMaterial& Material)
+{
+    m_Material.LoadEffect(Material.GetEffect().GetType());
+    m_Material.LoadTexture(Material.GetTexture());
+}
+
+void CDrawable::RemoveMaterial()
+{
+    m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
+    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+}
+
 void CDrawable::SetColor(const color4f_t& Color)
 {
     for(size_t i = 0; i < m_DrawData.vcount; ++i)
@@ -71,9 +91,6 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         mp_MVMatrix = new math::matrix4x4_t(math::
                                 matrix4x4_t::GetIdentityMatrix());
 
-        // Our default set of material data, if needed.
-        if(!mp_Material) mp_Material = &CRenderer::GetDefaultMaterial();
-
         // So we can differentiate between a VAO from a `CScene`
         // and the one we made ourselves.
         m_internal = true;
@@ -92,15 +109,11 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         (*mp_MVMatrix)[1][3] = m_Position.y;
       //(*mp_MVMatrix)[2][3] = m_Position.z;
 
-        // Use our effect, or the default?
-        gfx::CEffect& Effect = mp_Material->GetEffect();
-
-        // Use our texture, or the default?
+        // Bind our material. If we haven't set one, the default will be used.
         // We need a default texture because otherwise the color would
         // always be black due to the way the shader works.
-        gfxcore::CTexture& Texture = mp_Material->GetTexture();
-        Effect.Enable();
-        Texture.Bind();
+        gfx::CEffect& Effect = m_Material.GetEffect();
+        m_Material.Enable();
 
         // All effects have these parameters in the vertex shader.
         if(!Effect.SetParameter("mv", *mp_MVMatrix) ||
@@ -122,4 +135,9 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
 void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO)
 {
     VAO.AddData(m_DrawData);
+}
+
+bool CDrawable::IsModifiable() const
+{
+    return (mp_VAO == nullptr || !mp_VAO->Offloaded());
 }
