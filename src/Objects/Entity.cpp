@@ -61,7 +61,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
                 mp_allMaterials.push_back(pMat);
             }
 
-            pPrim = new gfx::CQuad(0, 0);
+            pPrim = new gfx::CQuad(m_Assets, 0, 0);
             const std::streampos start = file.tellg();
 
             // Find end of primitive block.
@@ -102,7 +102,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
             if(Parser.Exists("invert")) pPrim->SetInverted(Parser.GetValueb("invert"));
             if(Parser.Exists("repeat")) pPrim->SetRepeating(Parser.GetValueb("repeat"));
 
-            pPrim->AttachMaterial(pMat);
+            pPrim->AttachMaterial(*pMat);
             mp_allMaterials.push_back(pMat);
         }
     }
@@ -122,7 +122,7 @@ bool CEntity::LoadFromTexture(const string_t& filename)
         return false;
     }
 
-    gfx::CQuad* pPrimitive = new gfx::CQuad(
+    gfx::CQuad* pPrimitive = new gfx::CQuad(m_Assets, 
         pMat->GetTexture().GetWidth(),
         pMat->GetTexture().GetHeight());
     pPrimitive->Create();
@@ -137,9 +137,9 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
-    gfx::CMaterial* pMat = new gfx::CMaterial(*Quad.GetMaterial());
     pQuad->Create();
     mp_allPrims.push_back(pQuad);
+    mp_allMaterials.push_back(new gfx::CMaterial(Quad.GetMaterial()));
     return true;
 }
 

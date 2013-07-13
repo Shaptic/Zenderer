@@ -175,8 +175,8 @@ namespace gfx
             m_Geometry.Bind();
 
             // Prepare for primitive rendering.
-            CMaterial& M = CRenderer::GetDefaultMaterial();
-            CEffect& E = M.GetEffect();
+            const CMaterial& M = CRenderer::GetDefaultMaterial();
+            CEffect& E = const_cast<CMaterial&>(M).GetEffect();
             M.Enable();
 
             // Commence individual primitive rendering.

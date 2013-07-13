@@ -69,6 +69,9 @@ namespace gfx
                             const std::streampos& start = 0,
                             const std::streampos& end   = -1);
 
+        /// Loads a texture from an existing one.
+        bool LoadTexture(const gfxcore::CTexture& Texture);
+
         /// Loads a texture from disk.
         bool LoadTextureFromFile(const string_t& filename);
 
@@ -95,14 +98,14 @@ namespace gfx
         bool DisableTexture() const;    ///< Disables only the texture.
 
         CEffect& GetEffect();
-        gfxcore::CTexture& GetTexture() const;
+        const gfxcore::CTexture& GetTexture() const;
 
     private:
         void Destroy();
 
         asset::CAssetManager&   m_Assets;
         util::CLog&             m_Log;
-        gfxcore::CTexture&      m_Texture;
+        gfxcore::CTexture*      mp_Texture;
         gfx::CEffect            m_Effect;
     };
 }   // namespace gfx

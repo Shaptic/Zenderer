@@ -1,7 +1,7 @@
 // We inline all of the short functions so the compiler can optimize
 // them if need be, since they are called quite often.
 
-gfx::CMaterial& CRenderer::GetDefaultMaterial()
+const gfx::CMaterial& CRenderer::GetDefaultMaterial()
 {
     return *s_DefaultMaterial;
 }

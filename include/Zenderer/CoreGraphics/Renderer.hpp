@@ -69,7 +69,7 @@ namespace gfxcore
         /// Disables any bound texture (also via `EnableTexture(0)`).
         inline static bool DisableTexture();
 
-        inline static gfx::CMaterial&           GetDefaultMaterial();
+        inline static const gfx::CMaterial&     GetDefaultMaterial();
         inline static gfx::CEffect&             GetDefaultEffect();
         inline static const gfxcore::CTexture&  GetDefaultTexture();
 

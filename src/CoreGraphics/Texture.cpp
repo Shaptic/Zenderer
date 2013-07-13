@@ -49,8 +49,8 @@ bool CTexture::LoadFromFile(const string_t& filename)
 
 bool CTexture::LoadFromExisting(const CAsset* const pCopy)
 {
+    if(pCopy == nullptr || !pCopy->IsLoaded() || this == pCopy) return false;
     if(m_loaded) this->Destroy();
-    if(pCopy == nullptr || !pCopy->IsLoaded()) return false;
 
     const unsigned char* raw =
         static_cast<const unsigned char*>(pCopy->GetData());

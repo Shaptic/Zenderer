@@ -205,18 +205,17 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     // Now the string has been rendered to the FBO texture,
     // so all we need to do is create a material and attach
     // it to the quad.
-    gfx::CMaterial* M = new gfx::CMaterial(*mp_Assets);
-    if(!M->LoadEffect(gfx::EffectType::GRAYSCALE) ||
-       !M->LoadTextureFromHandle(FBO.GetTexture()))
+    gfx::CMaterial M(*mp_Assets);
+    if(!M.LoadEffect(gfx::EffectType::GRAYSCALE) ||
+       !M.LoadTextureFromHandle(FBO.GetTexture()))
     {
         delete[] verts;
         delete[] inds;
-        delete M;
 
         return false;
     }
 
-    gfx::CQuad Q(w, h);
+    gfx::CQuad Q(*mp_Assets, w, h);
     Q.AttachMaterial(M);
     Q.Create();
 
@@ -225,7 +224,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
     delete[] verts;
     delete[] inds;
-    delete M;
 
     return FBO.Destroy() && VAO.Destroy();
 }

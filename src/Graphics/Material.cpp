@@ -8,9 +8,9 @@ using gfx::CMaterial;
 
 CMaterial::CMaterial(asset::CAssetManager& Assets) :
     m_Assets(Assets),
+    mp_Texture(&gfxcore::CTexture::GetDefaultTexture()),
     m_Log(CLog::GetEngineLog()),
-    m_Effect(EffectType::NO_EFFECT, Assets),
-    m_Texture(gfxcore::CTexture::GetDefaultTexture())
+    m_Effect(EffectType::NO_EFFECT, Assets)
 {
     m_Effect.Init();
 }
@@ -19,13 +19,13 @@ CMaterial::CMaterial(const CMaterial& Copy) :
     m_Assets(Copy.m_Assets),
     m_Log(CLog::GetEngineLog()),
     m_Effect(Copy.m_Effect.GetType(), m_Assets),
-    m_Texture(gfxcore::CTexture::GetDefaultTexture())
+    mp_Texture(&gfxcore::CTexture::GetDefaultTexture())
 {
     m_Effect.Init();
 
     // We don't want to reload the texture for no reason.
-    if(&Copy.m_Texture != &m_Texture)
-        m_Texture.LoadFromExisting(&Copy.m_Texture);
+    if(Copy.mp_Texture != mp_Texture)
+        mp_Texture->LoadFromExisting(Copy.mp_Texture);
 }
 
 CMaterial::~CMaterial()
@@ -60,7 +60,7 @@ bool CMaterial::LoadFromFile(const string_t& filename)
     m_Effect.SetType(gfx::EffectType::CUSTOM_EFFECT);
     m_Effect.Init();
     bool ret = m_Effect.LoadCustomEffect(vs, fs);
-    ret = ret && m_Texture.LoadFromFile(tx);
+    ret = ret && mp_Texture->LoadFromFile(tx);
     return ret;
 }
 
@@ -94,15 +94,19 @@ bool CMaterial::LoadFromStream(std::ifstream& f,
 bool CMaterial::LoadTextureFromFile(const string_t& filename)
 {
     gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
-    if(tmp == nullptr) return false;
-    m_Texture.LoadFromExisting(tmp);
-    m_Assets.Delete(tmp);
+    if(tmp == nullptr)
+    {
+        m_Assets.Delete(tmp);
+        return false;
+    }
+
+    mp_Texture = tmp;
     return true;
 }
 
 bool CMaterial::LoadTextureFromHandle(const GLuint handle)
 {
-    return m_Texture.LoadFromExisting(handle);
+    return mp_Texture->LoadFromExisting(handle);
 }
 
 bool CMaterial::LoadEffect(const gfx::EffectType Type)
@@ -120,12 +124,12 @@ bool CMaterial::LoadEffect(const gfx::EffectType Type)
 bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
 {
     m_Effect = E;
-    return m_Texture.LoadFromExisting(&T);
+    return mp_Texture->LoadFromExisting(&T);
 }
 
 bool CMaterial::Enable() const
 {
-    return m_Effect.Enable() && m_Texture.Bind();
+    return m_Effect.Enable() && mp_Texture->Bind();
 }
 
 bool CMaterial::EnableEffect() const
@@ -135,12 +139,12 @@ bool CMaterial::EnableEffect() const
 
 bool CMaterial::EnableTexture() const
 {
-    return m_Texture.Bind();
+    return mp_Texture->Bind();
 }
 
 bool CMaterial::Disable() const
 {
-    return m_Effect.Disable() && m_Texture.Unbind();
+    return m_Effect.Disable() && mp_Texture->Unbind();
 }
 
 bool CMaterial::DisableEffect() const
@@ -150,7 +154,7 @@ bool CMaterial::DisableEffect() const
 
 bool CMaterial::DisableTexture() const
 {
-    return m_Texture.Unbind();
+    return mp_Texture->Unbind();
 }
 
 gfx::CEffect& CMaterial::GetEffect()
@@ -158,12 +162,39 @@ gfx::CEffect& CMaterial::GetEffect()
     return m_Effect;
 }
 
-gfxcore::CTexture& CMaterial::GetTexture() const
+const gfxcore::CTexture& CMaterial::GetTexture() const
 {
-    return m_Texture;
+    return *mp_Texture;
 }
 
 void CMaterial::Destroy()
 {
     m_Effect.Destroy();
+    if(mp_Texture != &gfxcore::CTexture::GetDefaultTexture())
+        m_Assets.Delete(mp_Texture);
+}
+
+bool zen::gfx::CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
+{
+    gfxcore::CTexture* tmp = 
+        m_Assets.Create<gfxcore::CTexture>(Texture.GetFilename());
+
+    if(tmp == nullptr)
+    {
+        // This is a special case where we want to be assigned to the 1x1
+        // white texture. We can safely store it internally since it will
+        // not be modified, because other methods make sure we are not the
+        // default before changing it.
+        if(&Texture == &Texture.GetDefaultTexture())
+        {
+            mp_Texture = const_cast<gfxcore::CTexture*>(&Texture);
+            return true;
+        }
+        
+        m_Assets.Delete(tmp);
+        return false;
+    }
+
+    mp_Texture = tmp;
+    return true;
 }
