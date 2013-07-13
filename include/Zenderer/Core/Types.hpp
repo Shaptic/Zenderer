@@ -92,6 +92,11 @@ namespace zen
      **/
     struct ZEN_API color4f_t
     {
+        real_t  r,   ///< Red
+                g,   ///< Green
+                b,   ///< Blue
+                a;   ///< Alpha
+
         color4f_t(const real_t r = 0.f,
                   const real_t g = 0.f,
                   const real_t b = 0.f,
@@ -104,11 +109,6 @@ namespace zen
             clamp<real_t>(b, 0, 1);
             clamp<real_t>(a, 0, 1);
         }
-
-        real_t r,   ///< Red
-               g,   ///< Green
-               b,   ///< Blue
-               a;   ///< Alpha
     };
 
     /**

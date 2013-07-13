@@ -19,6 +19,8 @@
  * @{
  **/
 
+#ifdef ZENDERER_EXPORTS
+
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
@@ -49,5 +51,7 @@ bool APIENTRY DllMain(HMODULE hModule, DWORD reason, void* preserved)
 
     return true;
 }
+
+#endif // ZENDERER_EXPORTS
 
 /** @} **/

@@ -188,6 +188,8 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
     gfxcore::CRenderer::GetDefaultEffect().Enable();
+    gfxcore::CRenderer::GetDefaultEffect().SetParameter("proj",
+        gfxcore::CRenderer::GetProjectionMatrix());
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
@@ -199,6 +201,9 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
             (void*)(sizeof(gfxcore::index_t) * i * 6)));
     }
 
+    FBO.Unbind();
+    gfxcore::CRenderer::GetDefaultEffect().SetParameter("proj",
+        gfxcore::CRenderer::GetProjectionMatrix());
     gfxcore::CRenderer::ResetMaterialState();
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::DISABLE_BLEND);
 

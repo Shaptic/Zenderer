@@ -68,7 +68,7 @@ bool CRenderTarget::Init()
 
     m_Main = gfxcore::CRenderer::s_ProjMatrix;
     m_ProjMatrix = math::matrix4x4_t::Projection2D(
-        m_Viewport.x, m_Viewport.y, 10, -10);
+        m_Viewport.x, m_Viewport.y, 16, 1);
 
     return m_init = (status == GL_FRAMEBUFFER_COMPLETE);
 }

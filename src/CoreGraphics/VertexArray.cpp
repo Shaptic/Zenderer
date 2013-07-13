@@ -177,8 +177,7 @@ bool CVertexArray::Offload()
     GL(glEnableVertexAttribArray(0));
 
     // Specify texture coordinate position arrangement.
-    // According to the diagram, texture coordinates
-    // start at index 3.
+    // According to the diagram, texture coordinates start at index 3.
     GL(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
                              VBO_OFFSET(0, vertex_t, tc)));
     GL(glEnableVertexAttribArray(1));
