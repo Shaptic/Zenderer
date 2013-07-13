@@ -53,6 +53,13 @@ bool CAssetManager::Delete(CAsset* const pAsset)
     {
         if(*b == pAsset && (*b)->GetOwner() == pAsset->GetOwner())
         {
+            if((*b)->m_refcount > 1)
+            {
+                --(*b)->m_refcount;
+                ++b;
+                continue;
+            }
+
             m_Log   << m_Log.SetSystem("AssetMgr")
                     << m_Log.SetMode(LogMode::ZEN_INFO)
                     << "Deleting asset: " << (*b)->GetID()

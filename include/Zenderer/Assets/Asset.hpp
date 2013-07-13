@@ -119,7 +119,8 @@ namespace asset
         bool        m_loaded;
 
     private:
-        uint32_t m_id;
+        uint32_t    m_refcount;
+        uint32_t    m_id;
         const void* mp_owner;
     };
 

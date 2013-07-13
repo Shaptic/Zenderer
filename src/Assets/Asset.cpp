@@ -12,7 +12,7 @@ size_t CAsset::s_seed = 0x6915BAD;
 CAsset::CAsset(const void* const owner) :
     m_Log(CLog::GetEngineLog()),
     mp_owner(owner), m_filename_hash(0), m_loaded(false),
-    m_id(util::hash(this, sizeof(CAsset), CAsset::s_seed))
+    m_refcount(0), m_id(util::hash(this, sizeof(CAsset), CAsset::s_seed))
 {}
 
 CAsset::~CAsset() {}
