@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;CAsset::CAsset(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) :</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    mp_owner(owner), m_filename_hash(0), m_loaded(false),</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_id(util::<a class="code" href="namespacezen_1_1util.html#af6243a2677ad5feb0d748b19b9010b78" title="Calculates a hash for some value.">hash</a>(this, sizeof(CAsset), CAsset::s_seed))</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_id(util::<a class="code" href="namespacezen_1_1util.html#a3b73b2608dcb520f9cfc549406b602f1" title="Calculates a hash for some value.">hash</a>(this, sizeof(CAsset), CAsset::s_seed))</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a34d3bc4ca78a32392f46b15e6f272ccc">   18</a></span>&#160;CAsset::~CAsset() {}</div>

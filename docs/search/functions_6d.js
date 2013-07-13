@@ -8,5 +8,5 @@ var searchData=
   ['mouse_5ft',['mouse_t',['../structzen_1_1evt_1_1mouse__t.html#a91dffe98c5b279c338a7e400c61ccafe',1,'zen::evt::mouse_t']]],
   ['mousecallback',['MouseCallback',['../classzen_1_1evt_1_1_c_event_handler.html#a39bd2b465b55b1aa00a268285e5d4d24',1,'zen::evt::CEventHandler']]],
   ['mousemotioncallback',['MouseMotionCallback',['../classzen_1_1evt_1_1_c_event_handler.html#a4557e6aab25904ba47f68c6ff0d5e52c',1,'zen::evt::CEventHandler']]],
-  ['move',['Move',['../classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2',1,'zen::gfxcore::CDrawable::Move(const math::vector_t &amp;Position)'],['../classzen_1_1gfxcore_1_1_c_drawable.html#a4932a9379f25d0b8e263a7f7b8ac0036',1,'zen::gfxcore::CDrawable::Move(const real_t x, const real_t y, const real_t z=0.0)'],['../classzen_1_1obj_1_1_c_entity.html#a81958afe4e79d1cf8349f5310f1eb632',1,'zen::obj::CEntity::Move()']]]
+  ['move',['Move',['../classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2',1,'zen::gfxcore::CDrawable::Move(const math::vector_t &amp;Position)'],['../classzen_1_1gfxcore_1_1_c_drawable.html#a03d22a2a626bdeb8209ea231a06b235f',1,'zen::gfxcore::CDrawable::Move(const real_t x, const real_t y, const real_t z=1.0)'],['../classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9',1,'zen::obj::CEntity::Move()']]]
 ];

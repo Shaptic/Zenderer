@@ -16,7 +16,7 @@ var classzen_1_1asset_1_1_c_asset =
     [ "SetFilename", "classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30", null ],
     [ "operator=", "classzen_1_1asset_1_1_c_asset.html#ae4fdd1baab8bd5a2c9a131b65138a099", null ],
     [ "Destroy", "classzen_1_1asset_1_1_c_asset.html#a6c99023b4713d13d9483905b98d69f4d", null ],
-    [ "CAssetManager", "classzen_1_1asset_1_1_c_asset.html#a42da7c7a8ac369ebf96c519ab3398ce6", null ],
+    [ "CAssetManager", "classzen_1_1asset_1_1_c_asset.html#aa20cb7dae82bb824a64cb5b5bd8899f9", null ],
     [ "s_seed", "classzen_1_1asset_1_1_c_asset.html#a73d9bc5ded589b308c875d4ea152acf8", null ],
     [ "m_Log", "classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b", null ],
     [ "m_filename", "classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02", null ],

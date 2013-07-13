@@ -1,8 +1,10 @@
 <map id="zen::gfx::CEffect::SetType" name="zen::gfx::CEffect::SetType">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="181,5,312,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="181,91,312,133"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="569,47,695,89"/>
-<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="415,51,465,77"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="375,102,505,143"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="360,168,520,195"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="181,233,312,275"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="181,139,312,180"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="587,236,714,277"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="360,105,523,147"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="360,40,523,81"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material." alt="" coords="360,171,523,212"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="376,236,507,277"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="571,18,731,45"/>
 </map>

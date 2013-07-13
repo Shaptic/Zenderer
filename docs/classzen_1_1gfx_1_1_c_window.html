@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('classzen_1_1gfx_1_1_c_window.html','')
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -131,7 +131,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5a43bdacc8a996a71bfa0255796145e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the subsystem.  <a href="#a5a43bdacc8a996a71bfa0255796145e8">More...</a><br/></td></tr>
 <tr class="separator:a5a43bdacc8a996a71bfa0255796145e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0174d1cf2c60a5b6f775751785616855"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">Destroy</a> ()</td></tr>
-<tr class="memdesc:a0174d1cf2c60a5b6f775751785616855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up the subsystem completely.  <a href="#a0174d1cf2c60a5b6f775751785616855">More...</a><br/></td></tr>
+<tr class="memdesc:a0174d1cf2c60a5b6f775751785616855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the current OpenGL-enabled window.  <a href="#a0174d1cf2c60a5b6f775751785616855">More...</a><br/></td></tr>
 <tr class="separator:a0174d1cf2c60a5b6f775751785616855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c829e940b9d9fea7ac4f416e828df05"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a8c829e940b9d9fea7ac4f416e828df05">Clear</a> ()</td></tr>
 <tr class="memdesc:a8c829e940b9d9fea7ac4f416e828df05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the framebuffer to black.  <a href="#a8c829e940b9d9fea7ac4f416e828df05">More...</a><br/></td></tr>
@@ -346,11 +346,14 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Typically, a subsystem can be re-initialized by setting new parameters via various Set* methods and calling <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init()</a> again, but this is specific to the inheriting class. </p>
+<p>This should only be called if you are planning on calling <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init()</a> again, otherwise this will ruin any OpenGL object cleanup and cause fatal errors in debug builds. Leave the window management to <a class="el" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">zen::Quit()</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code>, always.</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>All assets from attached manager are destroyed.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Invalidates all OpenGL objects. </dd></dl>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>.</p>
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00110">110</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00113">113</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -367,7 +370,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00116">116</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00122">122</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -394,7 +397,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00123">123</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00129">129</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -411,7 +414,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00130">130</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00136">136</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -516,7 +519,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00135">135</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00141">141</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -574,7 +577,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00147">147</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00161">161</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +602,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00150">150</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00164">164</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -624,7 +627,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00151">151</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00165">165</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -659,7 +662,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00154">154</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00168">168</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -693,7 +696,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00140">140</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00146">146</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>

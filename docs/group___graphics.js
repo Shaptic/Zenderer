@@ -26,7 +26,7 @@ var group___graphics =
       [ "IsInit", "classzen_1_1gfx_1_1_c_light.html#ad9a41b61cf148dc434c47efb07b57339", null ],
       [ "Enable", "classzen_1_1gfx_1_1_c_light.html#a0d5c3ae85e8081a181f101c01eac0672", null ],
       [ "Disable", "classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd", null ],
-      [ "Adjust", "classzen_1_1gfx_1_1_c_light.html#a060680a44f4f9387c04ec14680f396ca", null ],
+      [ "Adjust", "classzen_1_1gfx_1_1_c_light.html#aa7e18f52464a03d93f33a860c0acea7c", null ],
       [ "SetBrightness", "classzen_1_1gfx_1_1_c_light.html#a24bfab8d3bcea9b7505907f35ba58164", null ],
       [ "SetColor", "classzen_1_1gfx_1_1_c_light.html#acd7fedd4318f0181319fa0a554de9462", null ],
       [ "SetColor", "classzen_1_1gfx_1_1_c_light.html#a9829f650d6b5e7c498ad386587d7c2de", null ],
@@ -36,9 +36,9 @@ var group___graphics =
       [ "SetPosition", "classzen_1_1gfx_1_1_c_light.html#a5128a50da4d0be3710a65a555316269f", null ],
       [ "SetMaximumAngle", "classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132", null ],
       [ "SetMinimumAngle", "classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719", null ],
-      [ "GetBrightness", "classzen_1_1gfx_1_1_c_light.html#ab83a37120240e441474a175cfeb788bb", null ],
-      [ "GetColor", "classzen_1_1gfx_1_1_c_light.html#ab096df619edfd3323821a0e59ac5fc1c", null ],
-      [ "GetPosition", "classzen_1_1gfx_1_1_c_light.html#a4c24198faed09aab356916bbf38d6dbd", null ]
+      [ "GetBrightness", "classzen_1_1gfx_1_1_c_light.html#afa076f90dc70323274703772f20313fa", null ],
+      [ "GetColor", "classzen_1_1gfx_1_1_c_light.html#a5307cfb44e32bed716045c1f7669ad37", null ],
+      [ "GetPosition", "classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c", null ]
     ] ],
     [ "CMaterial", "classzen_1_1gfx_1_1_c_material.html", [
       [ "CMaterial", "classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f", null ],
@@ -47,6 +47,7 @@ var group___graphics =
       [ "operator=", "classzen_1_1gfx_1_1_c_material.html#a7574545f4df74b06d8a2edd21034295d", null ],
       [ "LoadFromFile", "classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1", null ],
       [ "LoadFromStream", "classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43", null ],
+      [ "LoadTexture", "classzen_1_1gfx_1_1_c_material.html#a7f30f5a87389e53f536b3e8ffd0a2e59", null ],
       [ "LoadTextureFromFile", "classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06", null ],
       [ "LoadTextureFromHandle", "classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a", null ],
       [ "LoadEffect", "classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6", null ],
@@ -59,22 +60,21 @@ var group___graphics =
       [ "DisableEffect", "classzen_1_1gfx_1_1_c_material.html#a1b01d4800f23dee94cff5d4e7d69d74f", null ],
       [ "DisableTexture", "classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d", null ],
       [ "GetEffect", "classzen_1_1gfx_1_1_c_material.html#addd5eb8166b408c26abe605ff7d3e7de", null ],
-      [ "GetTexture", "classzen_1_1gfx_1_1_c_material.html#ac8ed4a65113ff1af51e910027add9a1a", null ]
+      [ "GetTexture", "classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2", null ]
     ] ],
     [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html", [
-      [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html#a3b179548c7b621aa2ccdf67f9eac346f", null ],
-      [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html#a3ba7d04083ee0c1f127ff97cddf1ca95", null ],
+      [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html#a76122affb224683f76cea7b65fb2c2b7", null ],
+      [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html#ac83f61fe622d003a1f8360ff11b50291", null ],
       [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html#a6a23cc950f23f678b7ad9bc43da025c7", null ],
       [ "~CQuad", "classzen_1_1gfx_1_1_c_quad.html#a60bf556640212f48877f7b406862e48e", null ],
       [ "Create", "classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279", null ],
-      [ "AttachMaterial", "classzen_1_1gfx_1_1_c_quad.html#ade8c3e433d4f0833990667997680a417", null ],
       [ "Resize", "classzen_1_1gfx_1_1_c_quad.html#a3e86d46b495cd3adfd7d10b3cc0153c4", null ],
       [ "Resize", "classzen_1_1gfx_1_1_c_quad.html#ac92fe178ffe4f5ac729b550d8e6a5061", null ],
       [ "SetInverted", "classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408", null ],
       [ "SetRepeating", "classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333", null ],
       [ "GetW", "classzen_1_1gfx_1_1_c_quad.html#aebb4c16f626050111237d714ac872c01", null ],
       [ "GetH", "classzen_1_1gfx_1_1_c_quad.html#adcb3228cc38c642baaa63029ca135ea7", null ],
-      [ "GetMaterial", "classzen_1_1gfx_1_1_c_quad.html#a9af5624039b89888bee6613b4c5ddecb", null ]
+      [ "GetMaterial", "classzen_1_1gfx_1_1_c_quad.html#abe89f3e09d71e4c2084567d1142f629a", null ]
     ] ],
     [ "CRenderTarget", "classzen_1_1gfx_1_1_c_render_target.html", [
       [ "CRenderTarget", "classzen_1_1gfx_1_1_c_render_target.html#a12a9eff1545ec868fb53186bdc127ef2", null ],

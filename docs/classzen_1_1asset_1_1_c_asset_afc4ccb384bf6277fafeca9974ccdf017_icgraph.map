@@ -2,4 +2,10 @@
 <area shape="rect" id="node2" href="$classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36" title="Plays the file (if loaded)." alt="" coords="199,5,335,46"/>
 <area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded)." alt="" coords="197,70,336,111"/>
 <area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8" title="zen::gfxcore::CTexture\l::GetDefaultTexture" alt="" coords="190,135,343,177"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#a7f30f5a87389e53f536b3e8ffd0a2e59" title="Loads a texture from an existing one." alt="" coords="392,135,523,177"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="571,70,733,111"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="571,135,733,177"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material." alt="" coords="571,201,733,242"/>
+<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="781,113,941,140"/>
+<area shape="rect" id="node9" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="798,165,925,206"/>
 </map>

@@ -1,13 +1,10 @@
 var _effect_8hpp =
 [
-    [ "EffectType", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36f", [
-      [ "NO_EFFECT", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105", null ],
-      [ "CUSTOM_EFFECT", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa45a29fc990b42080e8ce325d1aa182fa", null ],
-      [ "GAUSSIAN_BLUR_H", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa7518076b27aab061abff00b64bfb0713", null ],
-      [ "GAUSSIAN_BLUR_V", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fad3f0662c50be08466f7511628d75827c", null ],
-      [ "GRAYSCALE", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fabfc52a030be6cc5e47fe83a81e3175a0", null ],
-      [ "FADE", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa2445ee3d2e9877a973fe794a6b76c346", null ],
-      [ "RIPPLE", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa3b68550e169b363f0d4937bba677d76d", null ],
-      [ "ZEN_EFFECT_COUNT", "_effect_8hpp.html#ae89a05f218ca7f9551bc5dd95e1ca36fa5637e9a02efb8d80d36a36cb388f3546", null ]
-    ] ]
+    [ "NO_EFFECT", "_effect_8hpp.html#a3b793e2413dfb01ad00980cec0fd235e", null ],
+    [ "CUSTOM_EFFECT", "_effect_8hpp.html#ad39b342cc4b00e94a977fbf38956d17b", null ],
+    [ "GAUSSIAN_BLUR_H", "_effect_8hpp.html#ae054d19009fdb647784ba822b6c6bd33", null ],
+    [ "GAUSSIAN_BLUR_V", "_effect_8hpp.html#a91f3c395fd8700af42fbcf7020f7e159", null ],
+    [ "GRAYSCALE", "_effect_8hpp.html#acfc17ee54296caaf8b57003b3a7f8642", null ],
+    [ "FADE", "_effect_8hpp.html#a178ea3baffde6f1f9d27c8b309042aa0", null ],
+    [ "RIPPLE", "_effect_8hpp.html#a27fd418db9771d2ff024e978ef158a3e", null ]
 ];

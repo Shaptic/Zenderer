@@ -39,9 +39,7 @@ var NAVTREE =
       [ "All", "namespacemembers.html", null ],
       [ "Functions", "namespacemembers_func.html", null ],
       [ "Variables", "namespacemembers_vars.html", null ],
-      [ "Typedefs", "namespacemembers_type.html", null ],
-      [ "Enumerations", "namespacemembers_enum.html", null ],
-      [ "Enumerator", "namespacemembers_eval.html", null ]
+      [ "Typedefs", "namespacemembers_type.html", null ]
     ] ],
     [ "Data Structures", null, [
       [ "Data Structures", "annotated.html", "annotated" ],
@@ -52,8 +50,6 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -74,10 +70,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_allocation-example.html",
-"_math_core_8inl.html#aa24d4e26293df47f8336b1b8b5773462",
-"classzen_1_1gfx_1_1_c_light.html#a060680a44f4f9387c04ec14680f396ca",
-"classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8",
-"group___events.html"
+"_matrix_8cpp.html",
+"classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd",
+"classzen_1_1obj_1_1_c_entity.html#ac98f46fbfae5bff311fedbe8b0a31b27",
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

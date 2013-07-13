@@ -13,6 +13,7 @@ var searchData=
   ['loadfromstring',['LoadFromString',['../classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b',1,'zen::util::CXMLParser']]],
   ['loadfromtexture',['LoadFromTexture',['../classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a',1,'zen::obj::CEntity']]],
   ['loadintovao',['LoadIntoVAO',['../classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3',1,'zen::gfxcore::CDrawable']]],
+  ['loadtexture',['LoadTexture',['../classzen_1_1gfx_1_1_c_material.html#a7f30f5a87389e53f536b3e8ffd0a2e59',1,'zen::gfx::CMaterial']]],
   ['loadtexturefromfile',['LoadTextureFromFile',['../classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06',1,'zen::gfx::CMaterial']]],
   ['loadtexturefromhandle',['LoadTextureFromHandle',['../classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a',1,'zen::gfx::CMaterial']]],
   ['loadvertexshaderfromfile',['LoadVertexShaderFromFile',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68',1,'zen::gfxcore::CShaderSet']]],

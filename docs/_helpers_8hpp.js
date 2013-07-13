@@ -7,6 +7,6 @@ var _helpers_8hpp =
     [ "split", "_helpers_8hpp.html#ae654fd97afaaac2c3dd25dd18111385a", null ],
     [ "toupper", "_helpers_8hpp.html#abcd46d2b51e6e06f9d9c64e3d252c9ff", null ],
     [ "toupper", "_helpers_8hpp.html#a787ffd776fdb8470f900a21d71c85af4", null ],
-    [ "hash", "_helpers_8hpp.html#af6243a2677ad5feb0d748b19b9010b78", null ],
-    [ "string_hash", "_helpers_8hpp.html#a8459a65ab5a138993298a034f347f9db", null ]
+    [ "hash", "_helpers_8hpp.html#a3b73b2608dcb520f9cfc549406b602f1", null ],
+    [ "string_hash", "_helpers_8hpp.html#a613ef6d857cad323640de5c03bc87e4e", null ]
 ];

@@ -47,8 +47,7 @@ var group___audio =
       [ "LoadFromExisting", "classzen_1_1sfx_1_1_c_sound2_d.html#a404c0f20fa40144238d5059e4eeca858", null ],
       [ "Play", "classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7", null ],
       [ "Update", "classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b", null ],
-      [ "Ready", "classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108", null ],
-      [ "asset::CAssetManager", "classzen_1_1sfx_1_1_c_sound2_d.html#a29506f8739fc077481fbd74a9d37b17f", null ]
+      [ "Ready", "classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108", null ]
     ] ],
     [ "AL", "group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa", null ]
 ];

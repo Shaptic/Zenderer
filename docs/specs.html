@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('specs.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -152,7 +152,7 @@ Example File</h3>
 <div class="line">&lt;/entity&gt;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Place entity using in-line entity mesh creation.</span></div>
-<div class="line"><span class="comment">// This is a tiled grass entity (2x2 tiles) </span></div>
+<div class="line"><span class="comment">// This is a tiled grass entity (2x2 tiles)</span></div>
 <div class="line"><span class="comment">// with a slight blur and vertex inversion for skewing,</span></div>
 <div class="line"><span class="comment">// together with a dirt entity.</span></div>
 <div class="line">&lt;entity type=<span class="stringliteral">&quot;inline&quot;</span>&gt;</div>
@@ -185,7 +185,7 @@ Example File</h3>
 <div class="line">CMaterial M1, M2;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Set up the first primitive.</span></div>
-<div class="line">M1.LoadEffect(EffectType::GAUSSIAN_BLUR_H);</div>
+<div class="line">M1.LoadEffect(<a class="code" href="_effect_8hpp.html#ae054d19009fdb647784ba822b6c6bd33" title="A horizontal Gaussian blur effect.">EffectType::GAUSSIAN_BLUR_H</a>);</div>
 <div class="line">M1.GetEffect()-&gt;Enable();</div>
 <div class="line">M1.GetEffect()-&gt;SetParameter(<span class="stringliteral">&quot;radius&quot;</span>, 0.005);</div>
 <div class="line">M1.GetEffect()-&gt;Disable();</div>
@@ -201,7 +201,7 @@ Example File</h3>
 <div class="line">M2.LoadTextureFromFile(<span class="stringliteral">&quot;textures/dirt.png&quot;</span>);</div>
 <div class="line">Q2.AttachMaterial(M2);</div>
 <div class="line"></div>
-<div class="line">CEntity <a class="code" href="namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487ca3a3ea00cfc35332cedf6e5e9a32e94da">E</a>;</div>
+<div class="line">CEntity <a class="code" href="_keyboard_8hpp.html#aa57b8491d1d8fc1014dd54bcf83b130a">E</a>;</div>
 <div class="line">E.AddPrimitiveMesh(Q1);</div>
 <div class="line">E.AddPrimitiveMesh(Q2);</div>
 <div class="line">E.Create();</div>

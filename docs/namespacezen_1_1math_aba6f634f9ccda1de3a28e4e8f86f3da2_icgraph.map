@@ -1,7 +1,8 @@
 <map id="zen::math::rad" name="zen::math::rad">
 <area shape="rect" id="node2" href="$classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115" title="Stretches the matrix by degree&#45;angles in different directions." alt="" coords="187,5,333,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132" title="zen::gfx::CLight::SetMaximum\lAngle" alt="" coords="161,70,359,111"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719" title="zen::gfx::CLight::SetMinimum\lAngle" alt="" coords="163,135,357,177"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="408,111,547,137"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="595,111,776,137"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132" title="zen::gfx::CLight::SetMaximum\lAngle" alt="" coords="161,70,359,111"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719" title="zen::gfx::CLight::SetMinimum\lAngle" alt="" coords="163,135,357,177"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="452,12,503,39"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="408,109,547,136"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="595,109,776,136"/>
 </map>

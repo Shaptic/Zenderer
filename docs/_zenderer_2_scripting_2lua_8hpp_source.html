@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_zenderer_2_scripting_2lua_8hpp_source
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,66 +129,66 @@ $(document).ready(function(){initNavTree('_zenderer_2_scripting_2lua_8hpp_source
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="namespacezen_1_1lua.html">   43</a></span>&#160;<span class="keyword">namespace </span>lua</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="namespacezen_1_1lua.html#a57ac6f8212288a7e3d198eee356a93b6">   46</a></span>&#160;    <span class="keyword">typedef</span> std::map&lt;string_t, lua_CFunction&gt; <a class="code" href="namespacezen_1_1lua.html#a57ac6f8212288a7e3d198eee356a93b6" title="A shortcut for easily defining the name -&gt; loader set.">luaLibs_t</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html">   49</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html" title="Wrapper for the core Lua interpreter.">CLuaAPI</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a292d76f3773e954b006c6b5d9a4ce88e">   60</a></span>&#160;        <a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html" title="Wrapper for the core Lua interpreter.">CLuaAPI</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1lua.html#a57ac6f8212288a7e3d198eee356a93b6" title="A shortcut for easily defining the name -&gt; loader set.">luaLibs_t</a>&amp; libraries) : </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a292d76f3773e954b006c6b5d9a4ce88e">   60</a></span>&#160;        <a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html" title="Wrapper for the core Lua interpreter.">CLuaAPI</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1lua.html#a57ac6f8212288a7e3d198eee356a93b6" title="A shortcut for easily defining the name -&gt; loader set.">luaLibs_t</a>&amp; libraries) :</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            m_Libs(libraries), m_Lua(nullptr) {}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a54359f6bc242737297f2ea0e0cdb5649">   64</a></span>&#160;        ~<a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html" title="Wrapper for the core Lua interpreter.">CLuaAPI</a>()</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            this-&gt;Destroy();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a9d2bd72573e43919192cff63747f8921">   70</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">operator</span> lua_State*() { <span class="keywordflow">return</span> m_Lua; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a4884a5a3cff7ad87b984a90d051461d9">   79</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">if</span>(!m_init)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                m_Lua = luaL_newstate();</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(m_Lua != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_Libs)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    luaL_requiref(m_Lua, i.first, i.second, 1);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    lua_settop(m_Lua, 0);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keywordflow">return</span> (m_init = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a0466b91b55b6542d4ff5c766f3333b27">   99</a></span>&#160;        <span class="keywordtype">bool</span> Destroy()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        {</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span>(!m_init) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            lua_close(m_Lua);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            m_Lua = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a41197a92912fca9306993b41cd6062d9">  123</a></span>&#160;        <span class="keywordtype">bool</span> LoadFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> lua_loadfile(m_Lua, filename.c_str()) == 0 &amp;&amp; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> lua_loadfile(m_Lua, filename.c_str()) == 0 &amp;&amp;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                   lua_pcall(m_Lua, 0, LUA_MULTRET, 0) == 0;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#ac05ea021f672968a32eba9946eed524e">  130</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> ResetStack()</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">if</span>(m_init) lua_settop(m_Lua, 0);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">return</span> m_init;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="classzen_1_1lua_1_1_c_lua_a_p_i.html#a5c6980d793d7831788c7880e1c4e896d">  148</a></span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> GetError()</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        {</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordflow">if</span>(!m_init) <span class="keywordflow">return</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>(<span class="stringliteral">&quot;Lua interpreter not loaded&quot;</span>);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>(lua_tostring(m_Lua, -1));</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1lua.html#a57ac6f8212288a7e3d198eee356a93b6" title="A shortcut for easily defining the name -&gt; loader set.">luaLibs_t</a>&amp; m_Libraries;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        lua_State* m_Lua;</div>

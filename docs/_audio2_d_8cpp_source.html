@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects.">sfx::CAudio2D</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CAudio2D::CAudio2D(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    CAsset(owner), m_error_code(AL_NO_ERROR), m_loop(false)</div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('_audio2_d_8cpp_source.html','');});
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72">   37</a></span>&#160;<span class="keywordtype">void</span> CAudio2D::UnloadSource()</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_DEBUG)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Unloading source (&quot;</span> &lt;&lt; m_AL.source &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>

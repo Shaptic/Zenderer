@@ -11,7 +11,7 @@ var classzen_1_1math_1_1matrix4x4__t =
     [ "TranslateAdj", "classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2", null ],
     [ "Shear", "classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115", null ],
     [ "GetPointer", "classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d", null ],
-    [ "Projection2D", "classzen_1_1math_1_1matrix4x4__t.html#a44adf36130e3df63e8c16ccf2b2b8316", null ],
+    [ "Projection2D", "classzen_1_1math_1_1matrix4x4__t.html#aaeaa55d84be7cf41d7eb81fed0b36e38", null ],
     [ "CreateIdentityMatrix", "classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a", null ],
     [ "GetIdentityMatrix", "classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd", null ]
 ];

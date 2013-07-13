@@ -1,7 +1,7 @@
 var structzen_1_1math_1_1_vector =
 [
     [ "Vector", "structzen_1_1math_1_1_vector.html#a04d95dd464e4e297d6552741cdefe4fb", null ],
-    [ "Vector", "structzen_1_1math_1_1_vector.html#aa14c105c7e514d6e3e860ba151911d9e", null ],
+    [ "Vector", "structzen_1_1math_1_1_vector.html#abb29720ec72d1344e0218c2a9512f4ac", null ],
     [ "Vector", "structzen_1_1math_1_1_vector.html#a6b3f65bd14727cefb030a6a126dd4fc4", null ],
     [ "operator=", "structzen_1_1math_1_1_vector.html#a937575ede3c52dda0c39c503f406f40c", null ],
     [ "operator==", "structzen_1_1math_1_1_vector.html#af606b191be1e741359753b5b251b7943", null ],

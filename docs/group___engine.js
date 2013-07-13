@@ -30,5 +30,7 @@ var group___engine =
       [ "m_init", "classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b", null ]
     ] ],
     [ "ZEN_DEBUG_BUILD", "group___engine.html#gaa111057e6f65ac3648c06031d1cad3a4", null ],
-    [ "ZEN_API", "group___engine.html#gaffef067603b6232807ee3a9ecf32b475", null ]
+    [ "ZEN_API", "group___engine.html#gaffef067603b6232807ee3a9ecf32b475", null ],
+    [ "WIN32_LEAN_AND_MEAN", "group___engine.html#gac7bef5d85e3dcd73eef56ad39ffc84a9", null ],
+    [ "DllMain", "group___engine.html#ga35c1c685cde019a1a2de3d80c5638713", null ]
 ];

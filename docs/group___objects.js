@@ -2,12 +2,6 @@ var group___objects =
 [
     [ "zen", "namespacezen.html", null ],
     [ "CEntity", "classzen_1_1obj_1_1_c_entity.html", [
-      [ "ErrorType", "classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8", [
-        [ "BAD_PAIR", "classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a968c8f9ea3f822717ddbe293a438f8e4", null ],
-        [ "BAD_POSITION", "classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a320279cad52cf07a71c42863c330941e", null ],
-        [ "BAD_MATERIAL", "classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a8bb3d6081b8371f76680291b5cb3a196", null ],
-        [ "NO_TEXTURE", "classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a6dda1d13ca27a41db41cc5174dfbc155", null ]
-      ] ],
       [ "CEntity", "classzen_1_1obj_1_1_c_entity.html#ad205f24da849a39624205314f14fdaa2", null ],
       [ "~CEntity", "classzen_1_1obj_1_1_c_entity.html#abfcbe70066b0b6377706a6d340d432e9", null ],
       [ "LoadFromFile", "classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821", null ],
@@ -16,11 +10,9 @@ var group___objects =
       [ "Create", "classzen_1_1obj_1_1_c_entity.html#a1f8d57926097c852e459d644aac29924", null ],
       [ "Optimize", "classzen_1_1obj_1_1_c_entity.html#a8505a7f8d061b68a7e064edd56f9bced", null ],
       [ "Draw", "classzen_1_1obj_1_1_c_entity.html#a4c506edf6eef2c9c1dc8e6e404aacf5a", null ],
-      [ "Move", "classzen_1_1obj_1_1_c_entity.html#a81958afe4e79d1cf8349f5310f1eb632", null ],
+      [ "Move", "classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9", null ],
       [ "Destroy", "classzen_1_1obj_1_1_c_entity.html#af6670334ed481cf27b779969711d45dd", null ],
       [ "FileError", "classzen_1_1obj_1_1_c_entity.html#afe01427442323f71ab2e20174a71a12c", null ],
-      [ "gui::CFont", "classzen_1_1obj_1_1_c_entity.html#ab2cc0f1324446d3b6cebddcb6e18cf04", null ],
-      [ "gfx::CScene", "classzen_1_1obj_1_1_c_entity.html#ae0b7dc24cd8f723b800fc6a9d875b70f", null ],
       [ "m_Assets", "classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798", null ],
       [ "m_Log", "classzen_1_1obj_1_1_c_entity.html#af795614f802cfaf2418678b75ad2d074", null ],
       [ "m_Position", "classzen_1_1obj_1_1_c_entity.html#a631dc80219f62c772438c7745750ec7f", null ],

@@ -9,5 +9,6 @@ var searchData=
   ['disableeffect',['DisableEffect',['../classzen_1_1gfx_1_1_c_material.html#a1b01d4800f23dee94cff5d4e7d69d74f',1,'zen::gfx::CMaterial']]],
   ['disablefullscreen',['DisableFullscreen',['../classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08',1,'zen::gfx::CWindow']]],
   ['disabletexture',['DisableTexture',['../classzen_1_1gfxcore_1_1_c_renderer.html#ae184526b45d264101cc8e65186f8437e',1,'zen::gfxcore::CRenderer::DisableTexture()'],['../classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d',1,'zen::gfx::CMaterial::DisableTexture()']]],
+  ['dllmain',['DllMain',['../group___engine.html#ga35c1c685cde019a1a2de3d80c5638713',1,'DLLMain.cpp']]],
   ['draw',['Draw',['../classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e',1,'zen::gfxcore::CDrawable::Draw()'],['../classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135',1,'zen::gfxcore::CVertexArray::Draw()'],['../classzen_1_1obj_1_1_c_entity.html#a4c506edf6eef2c9c1dc8e6e404aacf5a',1,'zen::obj::CEntity::Draw()']]]
 ];

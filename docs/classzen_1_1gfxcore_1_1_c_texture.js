@@ -10,6 +10,5 @@ var classzen_1_1gfxcore_1_1_c_texture =
     [ "Unbind", "classzen_1_1gfxcore_1_1_c_texture.html#a3b9ae915c98b731b41d19a74c15a1f49", null ],
     [ "GetWidth", "classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26", null ],
     [ "GetHeight", "classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc", null ],
-    [ "GetDefaultTexture", "classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8", null ],
-    [ "asset::CAssetManager", "classzen_1_1gfxcore_1_1_c_texture.html#a29506f8739fc077481fbd74a9d37b17f", null ]
+    [ "GetDefaultTexture", "classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8", null ]
 ];

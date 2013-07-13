@@ -1,7 +1,7 @@
 <map id="zen::gfx::CEffect::Enable" name="zen::gfx::CEffect::Enable">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="392,69,563,96"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="181,32,344,74"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="237,98,288,125"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#a320cb498234e02231b9ce04cf78999e9" title="Enables the effect and texture for rendering." alt="" coords="197,150,328,191"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_material.html#aabde12c0fa098dcc8febe03b5d5c320f" title="Enables only the effect." alt="" coords="197,215,328,256"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="360,5,531,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_material.html#a320cb498234e02231b9ce04cf78999e9" title="Enables the effect and texture for rendering." alt="" coords="181,57,312,98"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_material.html#aabde12c0fa098dcc8febe03b5d5c320f" title="Enables only the effect." alt="" coords="181,122,312,163"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="364,57,527,98"/>
+<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="420,123,471,149"/>
 </map>

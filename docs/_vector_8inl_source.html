@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_vector_8inl_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -227,11 +227,11 @@ $(document).ready(function(){initNavTree('_vector_8inl_source.html','');});
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="_vector_8inl.html#ad007ede02e119f9ee8d41349da7929db">  119</a></span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; out, const Vector&lt;U&gt;&amp; V)</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="_vector_8inl.html#ad007ede02e119f9ee8d41349da7929db">  119</a></span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; out, const Vector&lt;U&gt;&amp; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    out.setf(std::ios::fixed, std::ios::floatfield);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    out.precision(2);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    out &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; V.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; V.y &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; V.z &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    out &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>.y &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>.z &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->

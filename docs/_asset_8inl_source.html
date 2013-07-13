@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_asset_8inl_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('_asset_8inl_source.html','');});
 <a href="_asset_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;uint32_t CAsset::GetFilenameHash()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    <span class="keywordflow">return</span> ((m_filename_hash == 0)                          ?</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;            <a class="code" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash</a>(m_filename, CAsset::s_seed)   :</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;            <a class="code" href="namespacezen_1_1util.html#a613ef6d857cad323640de5c03bc87e4e" title="Hashes a string to a unique value.">util::string_hash</a>(m_filename, CAsset::s_seed)   :</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;            m_filename_hash);</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
@@ -151,7 +151,7 @@ $(document).ready(function(){initNavTree('_asset_8inl_source.html','');});
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(!filename.empty());</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    m_filename = filename;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    m_filename_hash = <a class="code" href="namespacezen_1_1util.html#a8459a65ab5a138993298a034f347f9db" title="Hashes a string to a unique value.">util::string_hash</a>(filename);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    m_filename_hash = <a class="code" href="namespacezen_1_1util.html#a613ef6d857cad323640de5c03bc87e4e" title="Hashes a string to a unique value.">util::string_hash</a>(filename);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

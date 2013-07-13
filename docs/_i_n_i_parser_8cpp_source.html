@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8cpp_source.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8cpp_source.html','');})
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">util::CINIParser</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> CINIParser::s_empty(<span class="stringliteral">&quot;&quot;</span>);</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8cpp_source.html','');})
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::ifstream in(filename);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(!in)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Failed to open &#39;&quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39;.&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">CLog::endl</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
@@ -155,7 +155,7 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8cpp_source.html','');})
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span>(!this-&gt;ParseLine(line))</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;Malformed line on line &quot;</span> &lt;&lt; line_no</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot; of &#39;&quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39;.&quot;</span> &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">CLog::endl</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
@@ -186,13 +186,13 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8cpp_source.html','');})
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span>(line.empty() || line[0] == <span class="charliteral">&#39;/&#39;</span> || line[0] == <span class="charliteral">&#39;&lt;&#39;</span>)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_DEBUG)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Parsing line &quot;</span> &lt;&lt; line_no &lt;&lt; <span class="stringliteral">&quot; of &#39;&quot;</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39;: &quot;</span> &lt;&lt; line &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">CLog::endl</a>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span>(!this-&gt;ParseLine(line))</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;Malformed line in file stream (&quot;</span> &lt;&lt; filename</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">CLog::endl</a>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
@@ -215,9 +215,9 @@ $(document).ready(function(){initNavTree('_i_n_i_parser_8cpp_source.html','');})
 <div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56">  104</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">CINIParser::GetValue</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; key)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">auto</span> find = m_pairs.find(key);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span>(find == m_pairs.end()) <span class="keywordflow">return</span> s_empty;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> find-&gt;second;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>

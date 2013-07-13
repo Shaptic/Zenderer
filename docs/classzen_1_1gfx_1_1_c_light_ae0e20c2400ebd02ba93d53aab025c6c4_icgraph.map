@@ -1,5 +1,7 @@
 <map id="zen::gfx::CLight::SetPosition" name="zen::gfx::CLight::SetPosition">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="268,5,407,32"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_light.html#a5128a50da4d0be3710a65a555316269f" title="zen::gfx::CLight::SetPosition" alt="" coords="243,56,431,83"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_light.html#aa7e18f52464a03d93f33a860c0acea7c" title="zen::gfx::CLight::Adjust" alt="" coords="258,56,417,83"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_light.html#a5128a50da4d0be3710a65a555316269f" title="zen::gfx::CLight::SetPosition" alt="" coords="243,107,431,133"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="480,5,661,32"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="485,56,656,83"/>
 </map>
