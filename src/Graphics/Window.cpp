@@ -5,15 +5,16 @@ using namespace util;
 
 using gfx::CWindow;
 
-// Sortcut for Windows VSYNC toggling.
+// Shortcut for Windows VSYNC toggling.
 typedef bool (APIENTRY* PFNWGLSWAPINTERVALFARPROC)(int);
 static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
 
 CWindow::CWindow(const uint16_t     width,
                  const uint16_t     height,
-                 const string_t&    caption) :
+                 const string_t&    caption,
+                 asset::CAssetManager& Mgr) :
     CSubsystem("Window"), m_Log(CLog::GetEngineLog()),
-    mp_Assets(nullptr), m_Dimensions(width, height),
+    m_Assets(Mgr), m_Dimensions(width, height),
     m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),
     m_fullscreen(
 #ifdef _DEBUG
@@ -102,22 +103,14 @@ bool CWindow::Init()
         m_Dimensions.y, 256, -256);
 
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
-    return (m_init = gfxcore::CRenderer::Init(m_Dimensions.x, m_Dimensions.y));
+    return (m_init = 
+        gfxcore::CRenderer::Init(m_Assets, m_Dimensions.x, m_Dimensions.y));
 }
 
 bool CWindow::Destroy()
 {
-    bool passed = true;
-    if(mp_Assets != nullptr)
-    {
-        for(size_t i = 0; i < mp_Assets->GetAssetCount(); ++i)
-        {
-            if(!mp_Assets->Delete(i)) passed = false;
-        }
-    }
-
     glfwDestroyWindow(mp_Window);
-    return passed;
+    return true;
 }
 
 bool CWindow::Clear()
@@ -132,11 +125,6 @@ bool CWindow::Clear(const color4f_t& Color)
     GL(glClear(m_clearbits));
     GL(glClearColor(Color.r, Color.g, Color.b, Color.a));
     return true;
-}
-
-void CWindow::AttachAssetManager(asset::CAssetManager& Mgr)
-{
-    mp_Assets = &Mgr;
 }
 
 void CWindow::Update() const

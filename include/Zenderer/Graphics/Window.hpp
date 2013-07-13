@@ -54,9 +54,41 @@ namespace gfx
     class ZEN_API CWindow : public CSubsystem
     {
     public:
+        /**
+         * Constructs and sets up an OpenGL-enabled window for rendering.
+         *  The asset manager is there to allow for assets to be properly
+         *  reloaded when toggling fullscreen mode. When going into (or out of)
+         *  fullscreen mode, the current OpenGL context is destroyed, thus
+         *  invalidating any and all handles to textures, shaders, vertex
+         *  buffers, and other critical OpenGL objects used during rendering.
+         *  By attaching a proper asset manager to the window, these can be
+         *  reloaded on-the-fly when switching contexts.
+         *
+         *  Since the asset base class (zen::asset::CAsset) stores a
+         *  filename, this can be used to reload the asset when necessary.
+         *  Keep in mind that assets that were generated programmatically
+         *  (such as various primitives) that do not depend on any files cannot
+         *  normally be successfully reloaded and attached properly to the new
+         *  rendering context.
+         *
+         * @param   w       Window width
+         * @param   h       Window height
+         * @param   caption Caption to place in the title bar (windowed mode)
+         * @param   Mgr     Manager to attach to window
+         *
+         * @note    The window will automatically be created fullscreen in
+         *          release mode (@ref ZEN_DEBUG_BUILD).
+         *
+         * @see     Init()
+         * @see     EnableFullscreen()
+         * @see     DisableFullscreen()
+         * @see     ToggleFullscreen()
+         * @see     zen::asset::CAsset
+         **/
         CWindow(const uint16_t w,
                 const uint16_t h,
-                const string_t& window_caption);
+                const string_t& caption,
+                asset::CAssetManager& Mgr);
 
         ~CWindow();
 
@@ -90,6 +122,8 @@ namespace gfx
          *
          * @return  `true`  if the window is now in fullscreen mode, and
          *          `false` if it was changed to windowed mode.
+         *
+         * @todo    Implement this
          **/
         inline bool ToggleFullscreen(int* const loaded = nullptr);
 
@@ -97,30 +131,6 @@ namespace gfx
         inline bool DisableFullscreen();    ///< Disables fullscreen mode.
 
         bool IsOpen() const;
-
-        /**
-         * Allows for assets to be properly reloaded when toggling fs mode.
-         *  When going into (or out of) fullscreen mode, the current OpenGL
-         *  context is destroyed, thus invalidating any and all handles to
-         *  textures, shaders, vertex buffers, and other critical
-         *  properties used during rendering. By attaching a proper asset
-         *  manager to the window, these can be reloaded on-the-fly when
-         *  switching contexts.
-         *  Since the asset base class (zen::asset::CAsset) stores a
-         *  filename, this can be used to reload the asset when necessary.
-         *  Keep in mind that assets that were generated programmatically
-         *  (such as various shapes) that do not depend on any files cannot
-         *  be successfully reloaded and attached properly to the new
-         *  rendering context.
-         *
-         * @param   Mgr     Manager to attach to window
-         *
-         * @see     zen::asset::CAsset
-         * @see     EnableFullscreen()
-         * @see     DisableFullscreen()
-         * @see     ToggleFullscreen()
-         **/
-        void AttachAssetManager(asset::CAssetManager& Mgr);
 
         /**
          * Sets OpenGL clearing bits.
@@ -152,7 +162,7 @@ namespace gfx
 
         GLFWwindow*             mp_Window;
         util::CLog&             m_Log;
-        asset::CAssetManager*   mp_Assets;
+        asset::CAssetManager&   m_Assets;
 
         math::Vector<uint16_t>  m_Dimensions;
         math::matrix4x4_t       m_ProjMatrix;

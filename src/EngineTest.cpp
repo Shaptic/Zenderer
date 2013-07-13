@@ -17,9 +17,8 @@ using gfxcore::CRenderer;
 {
     Init();
     asset::CAssetManager Manager; Manager.Init();
-    gfx::CWindow Window(800, 600, "Hello, Zenderer.");
+    gfx::CWindow Window(800, 600, "Hello, Zenderer.", Manager);
 
-    //Window.AttachAssetManager(Manager);
     Window.Init();
 
     sfx::CSound2D* Sound =
