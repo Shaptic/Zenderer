@@ -90,11 +90,11 @@ bool CSettings::Init()
     for(const auto& i : dict)
     {
         m_Options[
-#ifdef _DEBUG
+#ifdef ZEN_DEBUG_BUILD
             i.first
 #else
             util::string_hash(i.first)
-#endif  // _DEBUG
+#endif  // ZEN_DEBUG_BUILD
         ] = i.second;
     }
 
@@ -110,7 +110,7 @@ bool CSettings::Destroy()
 COption& CSettings::operator[](const string_t& opt)
 {
     // Search via hash with release builds.
-#ifndef _DEBUG
+#ifndef ZEN_DEBUG_BUILD
     uint32_t hash = util::string_hash(opt);
 #else
     const string_t& hash = opt;
@@ -118,7 +118,7 @@ COption& CSettings::operator[](const string_t& opt)
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Settings") << "Accessing option '"
             << opt << "'." << CLog::endl;
-#endif // _DEBUG
+#endif // ZEN_DEBUG_BUILD
 
     auto iter = m_Options.find(hash);
 
