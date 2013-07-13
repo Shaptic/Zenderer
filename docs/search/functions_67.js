@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get',['Get',['../classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df',1,'zen::CAllocator::Get()'],['../classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89',1,'zen::CAllocator::get(size_t count=1)']]],
+  ['get',['get',['../classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89',1,'zen::CAllocator::get(size_t count=1)'],['../classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df',1,'zen::CAllocator::Get()']]],
   ['getassetcount',['GetAssetCount',['../classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564',1,'zen::asset::CAssetManager']]],
   ['getattributelocation',['GetAttributeLocation',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00',1,'zen::gfxcore::CShaderSet']]],
   ['getaudiostate',['GetAudioState',['../classzen_1_1sfx_1_1_c_audio2_d.html#aa7e21ad93cb2814a9519eb5f7513aa0e',1,'zen::sfx::CAudio2D']]],
@@ -27,9 +27,9 @@ var searchData=
   ['getidentitymatrix',['GetIdentityMatrix',['../classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd',1,'zen::math::matrix4x4_t']]],
   ['getindexcount',['GetIndexCount',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#aeacbca6780c1d3f540759ff6fb4115f0',1,'zen::gfxcore::CVertexArray']]],
   ['getindicesfromgpu',['GetIndicesFromGPU',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#adc8a90162e7b53e381a4249f2253da9a',1,'zen::gfxcore::CVertexArray']]],
-  ['getinstance',['GetInstance',['../classzen_1_1evt_1_1_c_event_handler.html#a1cc8cb9429d034a9c6cd0c5ae8f3b6cb',1,'zen::evt::CEventHandler']]],
-  ['getlibrary',['GetLibrary',['../classzen_1_1gui_1_1_c_font_library.html#ac290582a9b72aa289800eaf01b2b5264',1,'zen::gui::CFontLibrary']]],
-  ['getlinkerlog',['GetLinkerLog',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e',1,'zen::gfxcore::CShaderSet']]],
+  ['getinstance',['GetInstance',['../classzen_1_1evt_1_1_c_event_handler.html#a604fccd27dc61f6071d4099547fbe680',1,'zen::evt::CEventHandler']]],
+  ['getlibrary',['GetLibrary',['../classzen_1_1gui_1_1_c_font_library.html#adec1abdc4f7e6a1b483d76e44b5514fd',1,'zen::gui::CFontLibrary']]],
+  ['getlinkerlog',['GetLinkerLog',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a9a2a779cd8db53bdad4f4dce5b9496cc',1,'zen::gfxcore::CShaderSet']]],
   ['getmaterial',['GetMaterial',['../classzen_1_1gfx_1_1_c_quad.html#a9af5624039b89888bee6613b4c5ddecb',1,'zen::gfx::CQuad']]],
   ['getname',['GetName',['../classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79',1,'zen::CSubsystem::GetName()'],['../classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#aa05627df3b5723c2221d58d5a8da4732',1,'zen::gfxcore::CGLSubsystem::GetName()']]],
   ['getnormalized',['GetNormalized',['../structzen_1_1math_1_1_vector.html#adafedf5c311dd3cf17d8138d0c335d2e',1,'zen::math::Vector']]],

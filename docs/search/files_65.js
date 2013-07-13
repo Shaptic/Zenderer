@@ -10,5 +10,6 @@ var searchData=
   ['errorhandling_2ecpp',['ErrorHandling.cpp',['../_error_handling_8cpp.html',1,'']]],
   ['errorhandling_2ehpp',['ErrorHandling.hpp',['../_error_handling_8hpp.html',1,'']]],
   ['event_2ehpp',['Event.hpp',['../_event_8hpp.html',1,'']]],
+  ['eventhandler_2ecpp',['EventHandler.cpp',['../_event_handler_8cpp.html',1,'']]],
   ['eventhandler_2ehpp',['EventHandler.hpp',['../_event_handler_8hpp.html',1,'']]]
 ];

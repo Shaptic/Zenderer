@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classzen_1_1gfx_1_1_c_light.html#a060680a44f4f9387c04ec14680f396ca":[6,6,2,6],
+"classzen_1_1gfx_1_1_c_light.html#a0d5c3ae85e8081a181f101c01eac0672":[6,6,2,4],
 "classzen_1_1gfx_1_1_c_light.html#a1fb0fca148f12193b681fbeca3e8ea27":[6,6,2,10],
 "classzen_1_1gfx_1_1_c_light.html#a24bfab8d3bcea9b7505907f35ba58164":[6,6,2,7],
 "classzen_1_1gfx_1_1_c_light.html#a4c24198faed09aab356916bbf38d6dbd":[6,6,2,18],
@@ -152,7 +154,6 @@ var NAVTREEINDEX2 =
 "classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2":[6,2,3,5],
 "classzen_1_1gfxcore_1_1_c_shader.html#ad34c8139905b3c9b20225c03acd627fa":[6,2,3,0],
 "classzen_1_1gfxcore_1_1_c_shader_set.html":[6,2,4],
-"classzen_1_1gfxcore_1_1_c_shader_set.html#a2b0612901e5ec33beabae368347b4d6e":[6,2,4,18],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#a5b59d547f6c9080d58292fd532855f76":[6,2,4,13],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8":[6,2,4,14],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#a6879dbb14e43fe9041e9a3d03e3c9fc1":[6,2,4,7],
@@ -162,6 +163,7 @@ var NAVTREEINDEX2 =
 "classzen_1_1gfxcore_1_1_c_shader_set.html#a84db9a8a0b89ccc416936e8753b55238":[6,2,4,11],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#a885a9a17817d5df582fc129cedcc7d68":[6,2,4,5],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00":[6,2,4,16],
+"classzen_1_1gfxcore_1_1_c_shader_set.html#a9a2a779cd8db53bdad4f4dce5b9496cc":[6,2,4,18],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#ab81db5c53810a13682fdf63dd24f07d4":[6,2,4,2],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#ac18b1dc09d69ddcb700eba2f1c72f401":[6,2,4,10],
 "classzen_1_1gfxcore_1_1_c_shader_set.html#acc6db9e44605d90b710f6262c367dc9f":[6,2,4,4],
@@ -206,7 +208,7 @@ var NAVTREEINDEX2 =
 "classzen_1_1gui_1_1_c_font.html#a1e1d2d4b4d14c7004289291785d75728":[8,0,0,5,0,1],
 "classzen_1_1gui_1_1_c_font.html#a27f1789e67e2ee331b2f588f91e38db2":[8,0,0,5,0,2],
 "classzen_1_1gui_1_1_c_font.html#a47e5fcc173bf07896c9929ac6437d0e1":[8,0,0,5,0,5],
-"classzen_1_1gui_1_1_c_font.html#a4d8dce7fe307b7ecaafc651d3b3daaae":[8,0,0,5,0,4],
+"classzen_1_1gui_1_1_c_font.html#a5204f75c45eb8078b881f049ab0752ee":[8,0,0,5,0,4],
 "classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3":[8,0,0,5,0,3],
 "classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249":[8,0,0,5,0,6],
 "classzen_1_1gui_1_1_c_font.html#ad8311e95ccd16e69bdb790e31df78568":[8,0,0,5,0,8],
@@ -216,8 +218,8 @@ var NAVTREEINDEX2 =
 "classzen_1_1gui_1_1_c_font_library.html#a53d1af8cabd84b8909269e2e40dad9bc":[8,0,0,5,1,0],
 "classzen_1_1gui_1_1_c_font_library.html#a6a2ede7cf93ccfa9af2d29ea5d5fec18":[8,0,0,5,1,2],
 "classzen_1_1gui_1_1_c_font_library.html#a6c34466bb119c5b24ce5ec28d329c059":[8,0,0,5,1,3],
-"classzen_1_1gui_1_1_c_font_library.html#ac290582a9b72aa289800eaf01b2b5264":[8,0,0,5,1,4],
 "classzen_1_1gui_1_1_c_font_library.html#ad84c7b87450289c90f94a2fe99c0e2a7":[8,0,0,5,1,1],
+"classzen_1_1gui_1_1_c_font_library.html#adec1abdc4f7e6a1b483d76e44b5514fd":[8,0,0,5,1,4],
 "classzen_1_1lua_1_1_c_lua_a_p_i.html":[6,9,1],
 "classzen_1_1lua_1_1_c_lua_a_p_i.html#a0466b91b55b6542d4ff5c766f3333b27":[6,9,1,4],
 "classzen_1_1lua_1_1_c_lua_a_p_i.html#a292d76f3773e954b006c6b5d9a4ce88e":[6,9,1,0],
@@ -243,11 +245,9 @@ var NAVTREEINDEX2 =
 "classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a":[6,7,1,6],
 "classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a":[6,7,1,12],
 "classzen_1_1obj_1_1_c_entity.html":[6,8,1],
-"classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a":[6,8,1,14],
-"classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798":[6,8,1,13],
+"classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a":[6,8,1,17],
+"classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798":[6,8,1,14],
 "classzen_1_1obj_1_1_c_entity.html#a1f8d57926097c852e459d644aac29924":[6,8,1,6],
 "classzen_1_1obj_1_1_c_entity.html#a4c506edf6eef2c9c1dc8e6e404aacf5a":[6,8,1,8],
-"classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821":[6,8,1,3],
-"classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8":[6,8,1,0],
-"classzen_1_1obj_1_1_c_entity.html#a5bf79c088e3164608707b83b98cf0ad8a320279cad52cf07a71c42863c330941e":[6,8,1,0,1]
+"classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821":[6,8,1,3]
 };

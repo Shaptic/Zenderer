@@ -1,7 +1,7 @@
 <map id="zen::gfx::CEffect::Init" name="zen::gfx::CEffect::Init">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#ae45b7f0698a6ed7543f629aff349e5a4" title="Adds an effect to be rendered on the whole scene." alt="" coords="197,5,384,32"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect." alt="" coords="227,57,354,98"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="225,122,356,163"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="225,122,356,163"/>
 <area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="447,166,577,207"/>
 <area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="225,269,356,310"/>
 <area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="641,225,767,266"/>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -117,98 +117,98 @@ $(document).ready(function(){initNavTree('_material_8cpp_source.html','');});
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> <a class="code" href="namespacezen_1_1util.html#a71df7f5c65b514e05962ed33b3c03ba9" title="Log output types.">util::LogMode</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a>;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">int</span> CMaterial::s_arbitrary = 69;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f">   11</a></span>&#160;CMaterial::CMaterial(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets) :</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_Assets(Assets),</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    m_Effect(<a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a>::<a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105" title="No effect, default shaders.">NO_EFFECT</a>, Assets),</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_Texture(gfxcore::CTexture::GetDefaultTexture())</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    m_Texture.<a class="code" href="classzen_1_1asset_1_1_c_asset.html#ab43b0d72c2e2df204df3f582d10efeba" title="Sets the asset owner.">SetOwner</a>(&amp;s_arbitrary);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a">   20</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f">CMaterial::CMaterial</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>&amp; Copy) :</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_Assets(Copy.m_Assets),</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_Effect(Copy.m_Effect.GetType(), m_Assets),</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_Texture(gfxcore::CTexture::GetDefaultTexture())</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// We don&#39;t want to reload the texture for no reason.</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(&amp;Copy.m_Texture != &amp;m_Texture)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        m_Texture.<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(&amp;Copy.m_Texture);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca">   33</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca">CMaterial::~CMaterial</a>()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    this-&gt;Destroy();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1">   38</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file.">CMaterial::LoadFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    this-&gt;Destroy();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">util::CINIParser</a> Parser;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile</a>(filename);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        vs = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;vshader&quot;</span>),</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        fs = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;fshader&quot;</span>),</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        tx = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;texture&quot;</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span>(vs.empty() || fs.empty() || tx.empty())</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Material&quot;</span>)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Invalid .zfx file: Does not contain one of the following:&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                &lt;&lt; CLog::endl &lt;&lt; <span class="stringliteral">&quot;\tVertex shader filename&quot;</span> &lt;&lt; CLog::endl </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;\tFragment shader filename&quot;</span> &lt;&lt; CLog::endl</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;\tTexture filename&quot;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78">SetType</a>(gfx::EffectType::CUSTOM_EFFECT);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> ret = m_Effect.LoadCustomEffect(vs, fs);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ret = ret &amp;&amp; m_Texture.<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk.">LoadFromFile</a>(tx);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43">   69</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream.">CMaterial::LoadFromStream</a>(std::ifstream&amp; f,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                               <span class="keyword">const</span> std::streampos&amp; start,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                               <span class="keyword">const</span> std::streampos&amp; end)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(f);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    f.seekg(start);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">util::CINIParser</a> Parser;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae" title="Fills the key-value dictionary by parsing a file stream.">LoadFromStream</a>(f, start, end);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">bool</span> valid = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span>(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de" title="Was the key found in the file stream?">Exists</a>(<span class="stringliteral">&quot;texture&quot;</span>))</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        valid = this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk.">LoadTextureFromFile</a>(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;texture&quot;</span>));</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">if</span>(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de" title="Was the key found in the file stream?">Exists</a>(<span class="stringliteral">&quot;vshader&quot;</span>) &amp;&amp; Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de" title="Was the key found in the file stream?">Exists</a>(<span class="stringliteral">&quot;fshader&quot;</span>))</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        valid = this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk.">LoadEffect</a>(gfx::EffectType::CUSTOM_EFFECT) &amp;&amp;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            m_Effect.LoadCustomEffect(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;vshader&quot;</span>),</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                                      Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;fshader&quot;</span>));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    f.seekg(start);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> valid &amp;&amp; f;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06">   96</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk.">CMaterial::LoadTextureFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* tmp = m_Assets.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa" title="Creates an asset from a filename.">Create</a>&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(filename);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">if</span>(tmp == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    m_Texture = *tmp;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f">    9</a></span>&#160;CMaterial::CMaterial(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    m_Assets(Assets),</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_Effect(<a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36f" title="Names a distribution of effect types.">EffectType</a>::<a class="code" href="namespacezen_1_1gfx.html#ae89a05f218ca7f9551bc5dd95e1ca36fa63e12cee9da8e9f1017494fc44545105" title="No effect, default shaders.">NO_EFFECT</a>, Assets),</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Texture(gfxcore::CTexture::GetDefaultTexture())</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a">   18</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#abd23ec17632f3e5dc1920eef2cf72c0f">CMaterial::CMaterial</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">CMaterial</a>&amp; Copy) :</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    m_Assets(Copy.m_Assets),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_Effect(Copy.m_Effect.GetType(), m_Assets),</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_Texture(gfxcore::CTexture::GetDefaultTexture())</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// We don&#39;t want to reload the texture for no reason.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(&amp;Copy.m_Texture != &amp;m_Texture)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        m_Texture.<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(&amp;Copy.m_Texture);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca">   31</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca">CMaterial::~CMaterial</a>()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1">   36</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file.">CMaterial::LoadFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">util::CINIParser</a> Parser;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8" title="Fills the dictionary with key=value pairs for the entire file.">LoadFromFile</a>(filename);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        vs = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;vshader&quot;</span>),</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        fs = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;fshader&quot;</span>),</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        tx = Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;texture&quot;</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span>(vs.empty() || fs.empty() || tx.empty())</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(LogMode::ZEN_ERROR)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;Material&quot;</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Invalid .zfx file: Does not contain one of the following:&quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                &lt;&lt; CLog::endl &lt;&lt; <span class="stringliteral">&quot;\tVertex shader filename&quot;</span> &lt;&lt; CLog::endl </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;\tFragment shader filename&quot;</span> &lt;&lt; CLog::endl</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;\tTexture filename&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78">SetType</a>(gfx::EffectType::CUSTOM_EFFECT);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">Init</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> ret = m_Effect.LoadCustomEffect(vs, fs);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    ret = ret &amp;&amp; m_Texture.<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk.">LoadFromFile</a>(tx);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43">   67</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream.">CMaterial::LoadFromStream</a>(std::ifstream&amp; f,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                               <span class="keyword">const</span> std::streampos&amp; start,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                               <span class="keyword">const</span> std::streampos&amp; end)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(f);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    f.seekg(start);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html" title="Parses files based on key=value1,...,valueN pairs, like in .ini files.">util::CINIParser</a> Parser;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae" title="Fills the key-value dictionary by parsing a file stream.">LoadFromStream</a>(f, start, end);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> valid = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">if</span>(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de" title="Was the key found in the file stream?">Exists</a>(<span class="stringliteral">&quot;texture&quot;</span>))</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        valid = this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk.">LoadTextureFromFile</a>(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;texture&quot;</span>));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de" title="Was the key found in the file stream?">Exists</a>(<span class="stringliteral">&quot;vshader&quot;</span>) &amp;&amp; Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de" title="Was the key found in the file stream?">Exists</a>(<span class="stringliteral">&quot;fshader&quot;</span>))</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        valid = this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk.">LoadEffect</a>(gfx::EffectType::CUSTOM_EFFECT) &amp;&amp;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            m_Effect.LoadCustomEffect(Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;vshader&quot;</span>),</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                      Parser.<a class="code" href="classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56" title="Retrieves a value based on a key in the dictionary.">GetValue</a>(<span class="stringliteral">&quot;fshader&quot;</span>));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    f.seekg(start);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> valid &amp;&amp; f;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06">   94</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk.">CMaterial::LoadTextureFromFile</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* tmp = m_Assets.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#af33976ad2ec3d734e8ee3c66f535aeaa" title="Creates an asset from a filename.">Create</a>&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(filename);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">if</span>(tmp == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    m_Texture.<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(tmp);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    m_Assets.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container.">Delete</a>(tmp);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a">  103</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle.">CMaterial::LoadTextureFromHandle</a>(<span class="keyword">const</span> GLuint handle)</div>
@@ -272,12 +272,7 @@ $(document).ready(function(){initNavTree('_material_8cpp_source.html','');});
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordtype">void</span> CMaterial::Destroy()</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;{</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    m_Effect.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aa78b99ce0be0433057d464fad264eaa0">Destroy</a>();</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">// If the owner doesn&#39;t match this address, we dynamically allocated</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="comment">// the texture. This is a dirty hack but I don&#39;t care enough to fix it.</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span>(m_Texture.<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020" title="Returns address of asset owner.">GetOwner</a>() != &amp;s_arbitrary)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        m_Assets.<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ad50bc0185948b679ffcfdc2670aeee37" title="Permanently removes an asset from the internal container.">Delete</a>(&amp;m_Texture);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

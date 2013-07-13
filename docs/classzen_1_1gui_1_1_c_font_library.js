@@ -4,5 +4,5 @@ var classzen_1_1gui_1_1_c_font_library =
     [ "Init", "classzen_1_1gui_1_1_c_font_library.html#ad84c7b87450289c90f94a2fe99c0e2a7", null ],
     [ "Destroy", "classzen_1_1gui_1_1_c_font_library.html#a6a2ede7cf93ccfa9af2d29ea5d5fec18", null ],
     [ "InitFreetype", "classzen_1_1gui_1_1_c_font_library.html#a6c34466bb119c5b24ce5ec28d329c059", null ],
-    [ "GetLibrary", "classzen_1_1gui_1_1_c_font_library.html#ac290582a9b72aa289800eaf01b2b5264", null ]
+    [ "GetLibrary", "classzen_1_1gui_1_1_c_font_library.html#adec1abdc4f7e6a1b483d76e44b5514fd", null ]
 ];

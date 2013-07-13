@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5895 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5938 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,93 +115,45 @@ $(document).ready(function(){initNavTree('_event_handler_8hpp_source.html','');}
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;stack&gt;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keyboard_8hpp.html" title="Zenderer/Events/Keyboard.hpp - Defines keyboard-related event data structures and convenience functio...">Keyboard.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_mouse_8hpp.html" title="Zenderer/Events/Mouse.hpp - Defines mouse-related event data structures and convenience functionality...">Mouse.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_event_8hpp.html" title="Zenderer/Events/Event.hpp - Defines keyboard-related event data structures and convenience functional...">Event.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">struct </span>GLFWwindow;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>zen</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>evt</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp - Includes necessary OpenGL-related headers and defines convenience ...">Zenderer/CoreGraphics/OpenGL.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keyboard_8hpp.html" title="Zenderer/Events/Keyboard.hpp - Defines keyboard-related event data structures and convenience functio...">Keyboard.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_mouse_8hpp.html" title="Zenderer/Events/Mouse.hpp - Defines mouse-related event data structures and convenience functionality...">Mouse.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_event_8hpp.html" title="Zenderer/Events/Event.hpp - Defines keyboard-related event data structures and convenience functional...">Event.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span>GLFWwindow;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">   40</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#af6ea2e69d738ca67d23ec000806a268e">   43</a></span>&#160;        <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#af6ea2e69d738ca67d23ec000806a268e">~CEventHandler</a>() { <span class="keywordflow">while</span>(!s_evtList.empty()) s_evtList.pop(); }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#a84ab4aec8ced1725fbdea88356e36d81">   56</a></span>&#160;        <span class="keywordtype">bool</span> PopEvent(<a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events.">event_t</a>&amp; Evt)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#a90a985780dfda311b0d7ce5c05439c8b">Reset</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span>(s_evtList.empty()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            Evt = s_evtList.top();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            s_evtList.pop();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        };</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#a1cc8cb9429d034a9c6cd0c5ae8f3b6cb">   66</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>&amp; GetInstance() </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keyword">static</span> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a> g_Events;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> g_Events;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#aef434fcee13b20f64914784fdb008e3d">   72</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> KeyboardCallback(</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            GLFWwindow*, <span class="keywordtype">int</span> key, <span class="keywordtype">int</span> scancode,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            s_Active.key.keycode= <span class="keyword">static_cast&lt;</span><a class="code" href="namespacezen_1_1evt.html#a9a413f8b2e36091ef44888060722487c" title="Keyboard key enumerations.">Key</a><span class="keyword">&gt;</span>(key);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            s_Active.key.key    = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(scancode);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span>(action == GLFW_PRESS)        s_Active.type = EventType::KEY_DOWN;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(action == GLFW_RELEASE) s_Active.type = EventType::KEY_UP;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(action == GLFW_REPEAT)  s_Active.type = EventType::KEY_HOLD;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            s_evtList.push(s_Active);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            s_Active.Reset();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#af150dfa722b54f100114c6b63e33607d">   87</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> MouseMotionCallback(</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            GLFWwindow*, <span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            s_Active.mouse.position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(x, y);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            s_Active.mouse.button   = MouseButton::UNKNOWN;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            s_Active.mouse.down     = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            s_Active.type           = EventType::MOUSE_MOTION;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            s_evtList.push(s_Active);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            s_Active.Reset();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#a943ea247dfe20ef6beeb82dcdd9aedc8">   99</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> MouseCallback(</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            GLFWwindow*, <span class="keywordtype">int</span> button, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="comment">//GetMousePosition(s_Active.mouse.position);</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            s_Active.mouse.button   = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacezen_1_1evt.html#a7ce9cc9d723b9225e8ec276ca626536d" title="Mouse button identifiers.">MouseButton</a><span class="keyword">&gt;</span>(button);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            s_Active.mouse.down     = (action == GLFW_PRESS);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            s_Active.mouse.mods     = mods;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">if</span>(action == GLFW_PRESS)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                s_Active.type = EventType::MOUSE_DOWN;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                s_Active.type = EventType::MOUSE_UP;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            s_evtList.push(s_Active);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            s_Active.Reset();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>() {}</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        CEventHandler(<span class="keyword">const</span> CEventHandler&amp;);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        CEventHandler&amp; operator=(<span class="keyword">const</span> CEventHandler&amp;);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;       </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">static</span> std::stack&lt;event_t&gt; s_evtList;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">static</span> event_t s_Active;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    };</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif // ZENDERER__EVENTS__EVENT_HANDLER_HPP</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span>evt</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        ~<a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> PopEvent(<a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events.">event_t</a>&amp; Evt);;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>&amp; GetInstance();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> KeyboardCallback(GLFWwindow*, <span class="keywordtype">int</span> key, <span class="keywordtype">int</span> scancode,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                     <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> MouseMotionCallback(GLFWwindow*, <span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> MouseCallback(GLFWwindow*, <span class="keywordtype">int</span> button, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>() {}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>&amp;);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">CEventHandler</a>&amp;);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;       </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">static</span> std::stack&lt;event_t&gt; s_evtList;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">static</span> <a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events.">event_t</a> s_Active;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif // ZENDERER__EVENTS__EVENT_HANDLER_HPP</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
