@@ -74,14 +74,23 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
 /// @todo Calculate texture w/h.
 bool zen::gfxcore::CTexture::LoadFromExisting(const GLuint handle)
 {
-    m_width = m_height = 0;
-    this->SetFilename("Texture handle");
+    GLint w, h;
+    GL(glBindTexture(GL_TEXTURE_2D, handle));
+    GL(glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &w));
+    GL(glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &h));
+    GL(glBindTexture(GL_TEXTURE_2D, 0));
+
+    if(w <= 0 || h <= 0) return false;
+    m_width = w; m_height = h;
+    std::stringstream ss;
+    ss << "Texture handle " << handle;
+    this->SetFilename(ss.str());
     return m_loaded = ((m_texture = handle) != 0);
 }
 
 bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
-                 const uint16_t w, const uint16_t h,
-                 const unsigned char* data)
+                           const uint16_t w, const uint16_t h,
+                           const unsigned char* data)
 {
     if(m_loaded) this->Destroy();
 
@@ -89,7 +98,7 @@ bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
     GL(glBindTexture(GL_TEXTURE_2D, m_texture));
 
     GL(glTexImage2D(GL_TEXTURE_2D, 0, iformat, w, h, 0, format,
-            GL_UNSIGNED_BYTE, data));
+                    GL_UNSIGNED_BYTE, data));
 
     GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
     GL(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
@@ -102,7 +111,7 @@ bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
     m_height = h;
 
     std::stringstream ss;
-    ss << "Raw texture data " << ((void*)data) << '.';
+    ss << "Raw texture data " << ((void*)data);
     this->SetFilename(ss.str());
 
     return (m_loaded = true);
@@ -114,8 +123,7 @@ const void* const CTexture::GetData() const
 
     // Size is width * height * bits per component
     // Since we force RBGA format, use 4.
-    unsigned char* raw =
-        new unsigned char[m_width * m_height * 4];
+    unsigned char* raw = new unsigned char[m_width * m_height * 4];
 
     GL(glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, raw));
     return static_cast<const void* const>(raw);
