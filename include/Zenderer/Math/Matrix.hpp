@@ -96,6 +96,22 @@ namespace math
             if(!compf(Angles.y, 0.0f))
                 m_values[1][0] = -std::tan(rad(Angles.y));
         }
+        
+        /**
+         * Scales the matrix by some scalar values.
+         *  If a matrix with a scaling factor of (1, 2, 0) is applied
+         *  to a (2, 3, 5) vector, for example, the resulting 
+         *  vector would be (2, 6, 0).
+         *  Scaling is a 1 to 1 ratio by default.
+         *
+         * @param   Factors     Scaling values in x, y, z direction.
+         **/
+        inline void Scale(const math::vector_t& Factors)
+        {
+            m_values[0][0] *= Factors.x;
+            m_values[1][1] *= Factors.y;
+            m_values[2][2] *= Factors.z;
+        }
 
         inline const real_t* GetPointer() const
         { return reinterpret_cast<const real_t*>(m_values); }
