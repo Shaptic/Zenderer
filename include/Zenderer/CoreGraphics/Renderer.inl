@@ -30,31 +30,43 @@ bool CRenderer::ResetMaterialState()
 
 bool CRenderer::BlendOperation(const BlendFunc& Func)
 {
+    if(s_LastBlend == Func) return true;
+    
     switch(Func)
     {
     case BlendFunc::DISABLE_BLEND:
+        if(!s_blend) break;
         GL(glDisable(GL_BLEND));
         GL(glEnable(GL_DEPTH_TEST));
         s_blend = false;
         break;
 
     case BlendFunc::ENABLE_BLEND:
+        if(s_blend) break;
         GL(glEnable(GL_BLEND));
         GL(glDisable(GL_DEPTH_TEST));
         s_blend = true;
         break;
 
     case BlendFunc::STANDARD_BLEND:
-        if(!s_blend) BlendOperation(BlendFunc::ENABLE_BLEND);
+        BlendOperation(BlendFunc::ENABLE_BLEND);
         GL(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
         break;
 
     case BlendFunc::ADDITIVE_BLEND:
-        if(!s_blend) BlendOperation(BlendFunc::ENABLE_BLEND);
+        BlendOperation(BlendFunc::ENABLE_BLEND);
         GL(glBlendFunc(GL_ONE, GL_ONE));
         break;
+        
+    case BlendFunc::IS_ENABLED:
+    {
+        GLboolean status = GL_FALSE;
+        GL(status = glIsEnabled(GL_BLEND));
+        return (s_blend = (status == GL_TRUE));
     }
-
+    }
+    
+    s_LastBlend = Func;
     return true;
 }
 
