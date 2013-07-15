@@ -112,6 +112,33 @@ namespace math
             m_values[1][1] *= Factors.y;
             m_values[2][2] *= Factors.z;
         }
+        
+        /**
+         * Performs a 2D rotation about a set of angles.
+         *  There is no support for rotation in all directions in 3D
+         *  space, but since @a Zenderer is (so far) exclusively a 2D
+         *  engine, this isn't necessary. Rotation in 2D can be considered
+         *  as rotation about the z-axis in 3D space, since the z-axis pops
+         *  out toward/away from the screen, taking this axis and turning it
+         *  would simply be turning the screen.
+         *
+         * @note    Only rotations on the 2D xy-plane are supported;
+         *          this is rotation about the Z axis.
+         *
+         * @see     zen::math::Vector::Rotate
+         * @see     http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf
+         **/
+        inline void Rotation(const real_t degrees)
+        {
+            real_t r = rad(degrees);
+            real_t c = std::cos(r);
+            real_t s = std::sin(r);
+            
+            m_values[0][0] =  c;
+            m_values[0][1] = -s;
+            m_values[1][0] =  s;
+            m_values[1][1] =  c;
+        }
 
         inline const real_t* GetPointer() const
         { return reinterpret_cast<const real_t*>(m_values); }
