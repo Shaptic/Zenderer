@@ -133,12 +133,14 @@ namespace gui
 
         void AttachManager(asset::CAssetManager& Assets);
 
-        uint32_t GetTextWidth(const string_t&  text) const;
-        uint32_t GetTextHeight(const string_t& text) const;
+        void SetColor(const color4f_t& Color);
+
+        uint16_t GetTextWidth(const string_t&  text) const;
+        uint16_t GetTextHeight(const string_t& text) const;
 
     private:
         bool Destroy();
-        bool LoadGlyph(const char c, const uint32_t index);
+        bool LoadGlyph(const char c, const uint16_t index);
 
         asset::CAssetManager* mp_Assets;
         color4f_t m_Color;
@@ -148,6 +150,7 @@ namespace gui
         std::stringstream m_str;
 
         uint16_t m_size;
+        uint16_t m_height;
     };
 
 }   // namespace gfx
@@ -168,6 +171,10 @@ namespace gui
  *          to loading any font instances, to ensure that the font textures
  *          can be created. This is a limitation of the asset API and may or
  *          may not change in the future.
+ *
+ * @todo    Utilize a texture atlas instead of individual quads
+ * @todo    Implement SDFF technique
+ *          (https://forum.libcinder.org/topic/signed-distance-field-font-rendering)
  *
  * @example Fonts
  * @section Font Rendering Examples

@@ -91,8 +91,10 @@ namespace gui
     /// A glyph structure used internally by the font API.
     struct glyph_t
     {
-        gfxcore::CTexture* texture;
-        math::rect_t dim;
+        gfxcore::CTexture* texture; ///< Raw bitmap
+        math::vector_t size;        ///< Raw bitmap size
+        math::vector_t position;    ///< Position on baseline to render
+        uint16_t advance;           ///< Pixels until next character
     };
 }   // namespace gfx
 }   // namespace zen
