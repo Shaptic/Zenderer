@@ -168,6 +168,9 @@ namespace gfxcore
         const string_t& GetLinkerLog() const;
 
     private:
+        bool DestroyFS();
+        bool DestroyVS();
+        
         inline void ShowLoadError(
             const string_t& filename, const string_t& shader) const
         {
