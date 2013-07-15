@@ -103,7 +103,7 @@ bool CEffect::Destroy()
 {
     // We keep the type to Init() again.
     m_Shader.Destroy();
-    return m_Shader.GetShaderObject() == 0;
+    return !(m_init = m_Shader.GetShaderObject() != 0);
 }
 
 bool CEffect::SetParameter(const string_t& name,

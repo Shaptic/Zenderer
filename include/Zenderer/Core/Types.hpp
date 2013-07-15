@@ -75,9 +75,9 @@ namespace zen
     /**
      * Clamps a value in the provided range [min, max].
      *
-     * @param   val     Value to clamp
-     * @param   minimum Minimum
-     * @param   maximum Maximum
+     * @param   val         Value to clamp
+     * @param   minimum     Minimum (inclusive)
+     * @param   maximum     Maximum (inclusive)
      **/
     template<typename T>
     ZEN_API void clamp(T& val, const T& minimum, const T& maximum)
@@ -92,23 +92,15 @@ namespace zen
      **/
     struct ZEN_API color4f_t
     {
-        real_t  r,   ///< Red
-                g,   ///< Green
-                b,   ///< Blue
-                a;   ///< Alpha
+        real_t  r,  ///< Red
+                g,  ///< Green
+                b,  ///< Blue
+                a;  ///< Alpha
 
-        color4f_t(const real_t r = 0.f,
-                  const real_t g = 0.f,
-                  const real_t b = 0.f,
+        color4f_t(const real_t r = 1.f,
+                  const real_t g = 1.f,
+                  const real_t b = 1.f,
                   const real_t a = 1.f) : r(r), g(g), b(b), a(a) {}
-
-        void Clamp()
-        {
-            clamp<real_t>(r, 0, 1);
-            clamp<real_t>(g, 0, 1);
-            clamp<real_t>(b, 0, 1);
-            clamp<real_t>(a, 0, 1);
-        }
     };
 
     /**
@@ -117,20 +109,13 @@ namespace zen
      **/
     struct ZEN_API color3f_t
     {
-        color3f_t(const real_t r = 0.0,
-                  const real_t g = 0.0,
-                  const real_t b = 0.0) : r(r), g(g), b(b) {}
+        real_t  r,  ///< Red
+                g,  ///< Green
+                b;  ///< Blue
 
-        void Clamp()
-        {
-            clamp<real_t>(r, 0, 1);
-            clamp<real_t>(g, 0, 1);
-            clamp<real_t>(b, 0, 1);
-        }
-
-        real_t r,   ///< Red
-               g,   ///< Green
-               b;   ///< Blue
+        color3f_t(const real_t r = 1.0,
+                  const real_t g = 1.0,
+                  const real_t b = 1.0) : r(r), g(g), b(b) {}
     };
 }
 
