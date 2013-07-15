@@ -223,6 +223,25 @@ namespace gfxcore
         ""
     );
 
+    /// Created from data/shaders/Grayscale.fs.
+    static const string_t GRAYSCALE_FS = string_t(
+        "#version 330 core"
+
+        "uniform sampler2D   texture;"
+
+        "smooth  in  vec2    fs_texc;"
+        "smooth  in  vec4    fs_color;"
+        "        out vec4    out_color;"
+
+        "void main()"
+        "{"
+        "    vec4 color = texture2D(texture, fs_texc);"
+        "    float gray = dot(color, vec3(0.299, 0.587, 0.114));"
+        "    out_color  = vec4(color.rgb * gray, color.a);"
+        "}"
+
+    );
+
     /// Created from data/shaders/PointLight.fs.
     static const string_t POINTLIGHT_FS = string_t(
         "#version 330 core"
@@ -333,21 +352,21 @@ namespace gfxcore
         "}"
     );
 
-    /// Created from data/shaders/TTFRender.fs.
-    static const string_t TTFRENDER_FS = string_t(
+    /// Created from data/shaders/SpriteSheet.fs.
+    static const string_t SPRITESHEET_FS = string_t(
         "#version 330 core"
 
         "uniform sampler2D   texture;"
 
-        "smooth  in  vec2 fs_texc;"
-        "smooth  in  vec4 fs_color;"
-        "        out vec4 out_color;"
+        "smooth  in  vec2    fs_texc;"
+        "smooth  in  vec4    fs_color;"
+        "        out vec4    out_color;"
+
+        "uniform vec2    offset;"
 
         "void main()"
         "{"
-        "// float gray = dot(gl_Color.rgb, vec3(0.299, 0.587, 0.114));"
-        "    vec4 color = texture2D(texture, fs_texc);"
-        "    out_color  = color.rrrr * fs_color;"
+        "    out_color = texture2D(texture, fs_texc + normalize(offset));"
         "}"
 
     );
@@ -358,4 +377,3 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__SHADER_FILES_HPP
 
 /** @} **/
-    
