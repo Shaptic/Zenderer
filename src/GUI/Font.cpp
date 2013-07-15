@@ -102,8 +102,12 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
     // Rendering position. By default, we use the line height, because the any 
     // line of the given text will at the very most be as tall as a line. But,
-    // it may be true that a 
-    math::vector_t Pos(0.0, math::min<uint16_t>(m_height, this->GetTextHeight(text)));
+    // it may be true that there are no full line-height characters, so if there
+    // are none then we just start at the lowest one.
+    math::vector_t Pos(
+        0.0, 
+        math::min<uint16_t>(m_height, this->GetTextHeight(text))
+    );
 
     // Fill up the buffers.
     for(size_t i = 0; i < vlen; i += 4)
