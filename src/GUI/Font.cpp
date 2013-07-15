@@ -79,7 +79,7 @@ bool CFont::LoadFromFile(const string_t& filename)
 
 const void* const CFont::GetData() const
 {
-    return reinterpret_cast<const void* const>(&mp_glyphData);
+    return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
 bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
@@ -127,7 +127,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         char letter = (c > '~' || c < ' ') ? ' ' : c;
 
         // Shortcut to glyph data.
-        const glyph_t& gl = mp_glyphData[letter];
+        const glyph_t& gl = m_glyphData[letter];
 
         real_t x = gl.position.x;   // Store current x-coordinate.
         real_t h = gl.position.y;   // Store current y-coordinate.
@@ -209,7 +209,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // Render each character (skip if unrenderable).
         if(text[i] > '~' || text[i] < ' ') continue;
 
-        mp_glyphData[text[i]].texture->Bind();
+        m_glyphData[text[i]].texture->Bind();
         GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
             (void*)(sizeof(gfxcore::index_t) * i * 6)));
     }
@@ -278,9 +278,9 @@ void CFont::ClearString()
 bool CFont::Destroy()
 {
     m_size = 18;
-    for(auto i : mp_glyphData)
+    for(auto i : m_glyphData)
         mp_Assets->Delete(i.second.texture);
-    mp_glyphData.clear();
+    m_glyphData.clear();
     this->ClearString();
     return true;
 }
@@ -335,7 +335,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     glyph.position  = math::vector_t(slot->metrics.horiBearingY >> 6,
                                      slot->metrics.horiBearingX >> 6);
     glyph.advance   = slot->advance.x >> 6;
-    mp_glyphData[c] = glyph;
+    m_glyphData[c] = glyph;
     return true;
 }
 
@@ -365,8 +365,8 @@ uint16_t CFont::GetTextWidth(const string_t& text) const
         }
         else
         {
-            const auto it = mp_glyphData.find(text[i]);
-            if(it != mp_glyphData.end())
+            const auto it = m_glyphData.find(text[i]);
+            if(it != m_glyphData.end())
             {
                 tmp_w += math::max<uint16_t>(it->second.size.w,
                                              it->second.advance);

@@ -122,8 +122,6 @@ namespace gui
          * @post    `Ent` contains a renderable string using this font.
          *
          * @warning Any existing data in the entity is deleted.
-         *
-         * @todo    Store line height properly.
          **/
         bool Render(obj::CEntity& Ent, const string_t text = "");
 
@@ -142,9 +140,9 @@ namespace gui
          *  Please reference the font loading example to see proper 
          *  techniques for using the font API.
          *
-         * @pre     The given manager must be initialized.
-         *
          * @param   Assets  The asset manager to attach.
+         *
+         * @pre     The given manager must be initialized.
          **/
         void AttachManager(asset::CAssetManager& Assets);
 
@@ -165,7 +163,7 @@ namespace gui
         color4f_t m_Color;
         FT_Face m_FontFace;
 
-        std::map<char, glyph_t> mp_glyphData;
+        std::map<char, glyph_t> m_glyphData;
         std::stringstream m_str;
 
         uint16_t m_size;
