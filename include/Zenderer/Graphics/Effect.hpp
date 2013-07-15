@@ -48,6 +48,7 @@ namespace gfx
         GAUSSIAN_BLUR_H,    ///< A horizontal Gaussian blur effect
         GAUSSIAN_BLUR_V,    ///< A vertical Gaussian blur effect
         GRAYSCALE,          ///< Makes the target grayscale
+        SPRITESHEET,        ///< Render texture atlases using offsets
         FADE,               ///< Fades the target in/out
         RIPPLE,             ///< Creates a centered ripple effect
         ZEN_EFFECT_COUNT    ///< Total amount of effects
@@ -75,6 +76,7 @@ namespace gfx
             return (*this);
         }
 
+        /// @todo   Use Gaussian Blur vertex shaders.
         bool Init();
         bool Destroy();
 
@@ -197,8 +199,8 @@ namespace gfx
  *    <td><pre>GAUSSIAN_BLUR_H</pre></td>
  *    <td><pre>GaussianBlur.vs<br/>GaussianBlurH.fs</pre></td>
  *    <td>
- *      Vertical Gaussian blur effect<br/>This should be used in combination with<br/>
- *      <span>GAUSSIAN_BLUR_V</span> for optimal output
+ *      Vertical Gaussian blur effect<br/>This should be used in a multi-pass
+ *      combination with<br/><span>GAUSSIAN_BLUR_V</span> for optimal output
  *    </td>
  *    <td>
  *      <table>
@@ -213,8 +215,8 @@ namespace gfx
  *    <td><pre>GAUSSIAN_BLUR_H</pre></td>
  *    <td><pre>GaussianBlur.vs<br/>GaussianBlurV.fs</pre></td>
  *    <td>
- *      Horizontal Gaussian blur effect<br/>This should be used in combination with<br/>
- *      <span>GAUSSIAN_BLUR_H</span> for optimal output
+ *      Horizontal Gaussian blur effect<br/>This should be used in a
+ *      multi-pass with<br/><span>GAUSSIAN_BLUR_H</span> for optimal output
  *    </td>
  *    <td>
  *      <table>
@@ -232,7 +234,25 @@ namespace gfx
  *      Converts all colors to grayscale using NTSC weights<br/>
  *      They are (0.299, 0.587, 0.114)
  *    </td>
- *    <td></td>
+ *    <td>n/a</td>
+ *  </tr>
+ *  <tr>
+ *    <td><pre>SPRITESHEET</pre></td>
+ *    <td><pre>Default.vs<br/>SpriteSheet.fs</pre></td>
+ *    <td>
+ *      Renders a texture using an offset, thus only rendering a 
+ *      portion of it. Useful for sprite sheets and other texture atlases.
+ *      The size of the texture rendered will match the size of your sprite,
+ *      and tiling / stretching is impossible.
+ *    </td>
+ *    <td>
+ *      <table>
+ *      <tr>
+ *        <td><span>offset</span></td>
+ *        <td>The offset, in pixels, with which to render the texture.</td>
+ *      </tr>
+ *      </table>
+ *    </td>
  *  </tr>
  *  <tr>
  *    <td><pre>FADE</pre></td>
