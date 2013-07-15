@@ -44,7 +44,6 @@ namespace gui
     class ZEN_API CFont : public asset::CAsset
     {
     public:
-        CFont(const void* const owner = nullptr);
         ~CFont();
 
         /**
@@ -99,7 +98,7 @@ namespace gui
          **/
         bool LoadFromExisting(const asset::CAsset* const pCopy)
         {
-            ZEN_ASSERT(false);
+            ZEN_ASSERTM(false, "not implemented");
             return false;
         }
 
@@ -131,14 +130,34 @@ namespace gui
         /// Clears the internal string stream.
         void ClearString();
 
+        /**
+         * Attaches an asset manager to the font for loading textures.
+         *  It's absolutely essential to perform a call to this method
+         *  after constructing a font instance, because it is impossible
+         *  for the font to load and create texture assets without a 
+         *  manager. This cannot be done through the constructor, either
+         *  because the manager is in itself an asset, so it must be 
+         *  created with a manager :)
+         *
+         *  Please reference the font loading example to see proper 
+         *  techniques for using the font API.
+         *
+         * @pre     The given manager must be initialized.
+         *
+         * @param   Assets  The asset manager to attach.
+         **/
         void AttachManager(asset::CAssetManager& Assets);
 
+        /// Sets the font color.
         void SetColor(const color4f_t& Color);
 
         uint16_t GetTextWidth(const string_t&  text) const;
         uint16_t GetTextHeight(const string_t& text) const;
 
+        friend class ZEN_API asset::CAssetManager;
+        
     private:
+        CFont(const void* const owner = nullptr);
         bool Destroy();
         bool LoadGlyph(const char c, const uint16_t index);
 
@@ -187,13 +206,13 @@ namespace gui
  *  used when creating from an asset manager is 18.
  *
  *  @code
- *  gfxcore::CFont* Font = Assets.Create<gfxcore::CFont>(
- *      string_t("default.ttf"));
+ *  gfxcore::CFont* Font = Assets.Create<gfxcore::CFont>();
+ *
+ *  // REQUIRED PRIOR TO LOADING!
+ *  Font->AttachManager(Assets);
  *
  *  // Error checking omitted for brevity.
- *
- *  // REQUIRED!
- *  Font->AttachManager(Assets);
+ *  Font->LoadFromFile("sample.ttf"); 
  *
  *  // Render a string to an entity
  *  obj::CEntity& Score = Scene.AddEntity();
@@ -221,20 +240,23 @@ namespace gui
  *  using a scene, fonts must be given an existing `obj::CEntity`
  *  instance to work on. This is demonstrated in the following
  *  example.
+ *
  *  This example also demonstrates the technique for loading a font
  *  and specifying the size, since this cannot be done without a call
  *  to `CFont::Resize()` when using the manager.
  *
  *  @code
  *  gfxcore::CFont* Font = Assets.Create<gfxcore::CFont>();
- *  Font->LoadFromFile("default.ttf", 8);
+ *  Font->AttachManager(Assets);
+ *  Font->SetSize(8);
+ *  Font->LoadFromFile("default.ttf");
  *
  *  // Render a string to an entity without using a scene.
  *  obj::CEntity Score;
  *  Font->Render(Score, "Score: 0");
  *
  *  // Move it to the top of the screen
- *  Score.Move(0.0, Score.GetH());
+ *  Score.Move(0.0, Font->GetTextHeight("Score: 0"));
  *
  *  // Set a high depth so it's always visible, in case of various
  *  // effects (like shadows) that occlude based on depth.
