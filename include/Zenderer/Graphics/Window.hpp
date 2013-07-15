@@ -166,6 +166,9 @@ namespace gfx
 
         /// @todo Remove when uneccessary.
         inline GLFWwindow* GetWindow() const { return mp_Window; }
+        
+        math::vector_t GetMousePosition() const;
+        bool GetMouseState(const evt::MouseButton& Btn) const;
 
         static bool ToggleVSYNC();
 
