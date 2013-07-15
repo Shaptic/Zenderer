@@ -66,6 +66,9 @@ namespace asset
         template<typename T>
         T* Create(const string_t& filename, const void* const owner = nullptr);
 
+        /// @overload
+        T* Create(const char* const filename, const void* const owner = nullptr);
+        
         /// Creates a raw managed asset instance (unloaded).
         template<typename T>
         T* Create(const void* const owner = nullptr);
