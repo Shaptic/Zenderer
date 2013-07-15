@@ -23,8 +23,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     {
         m_Log   << m_Log.SetSystem("FreeType")
                 << m_Log.SetMode(LogMode::ZEN_FATAL)
-                << "FreeType2 API is not initialized."
-                << CLog::endl;
+                << "FreeType2 API is not initialized." << CLog::endl;
         return (m_loaded = false);
     }
 
@@ -62,15 +61,13 @@ bool CFont::LoadFromFile(const string_t& filename)
         // otherwise.
         if(index == 0)
         {
-            m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-                    << "Character '" << s
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) << "Character '" << s
                     << "' does not exist for this font." << CLog::endl;
         }
 
         this->LoadGlyph(s, (!index) ? space : index);
     }
 
-    m_loaded = true;
     this->SetFilename(filename);
 
     // Cleanup
@@ -315,7 +312,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     // Store for restoring later.
     GLint pack;
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
-    GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1))
+    GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 
     gfxcore::CTexture* pTexture = mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
@@ -325,9 +322,6 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
 
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
 
-    // Clean up TTF data.
-    FT_Done_Glyph(g);
-
     // Store the glyph internally.
     glyph_t glyph;
     glyph.texture   = pTexture;
@@ -335,7 +329,11 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     glyph.position  = math::vector_t(slot->metrics.horiBearingY >> 6,
                                      slot->metrics.horiBearingX >> 6);
     glyph.advance   = slot->advance.x >> 6;
-    m_glyphData[c] = glyph;
+    m_glyphData[c]  = glyph;
+    
+    // Clean up TTF data.
+    FT_Done_Glyph(g);
+    
     return true;
 }
 
