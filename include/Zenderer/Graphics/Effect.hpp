@@ -132,10 +132,9 @@ namespace gfx
 
         inline GLuint GetObjectHandle() const;
         inline const string_t& GetError() const;
-        inline void SetType(const EffectType Type);
-
         inline EffectType GetType() const { return m_type; }
-
+        inline uint16_t GetID() const { return m_Shader->GetID(); }
+        inline void SetType(const EffectType Type);
         friend class ZEN_API CMaterial;
 
     private:

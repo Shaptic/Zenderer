@@ -7,11 +7,12 @@ using util::LogMode;
 using gfxcore::CShaderSet;
 
 std::map<CShaderSet*, GLuint> CShaderSet::s_shaderPrograms;
+uint16_t CShaderSet::s_ID = 1;
 
 CShaderSet::CShaderSet(asset::CAssetManager& Assets) :
     m_AssetManager(Assets), m_Log(CLog::GetEngineLog()),
     mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
-    m_error_str(""), m_refcount(0)
+    m_error_str(""), m_refcount(0), m_ID(0)
 {}
 
 CShaderSet::~CShaderSet()
@@ -98,6 +99,7 @@ bool CShaderSet::CreateShaderObject()
             m_program   = SS.m_program;
             m_error_str = SS.m_error_str;
             m_link_log  = SS.m_link_log;
+            m_ID        = SS.m_ID;
             SS.m_refcount++;
             return m_error_str.empty();
         }
@@ -154,6 +156,10 @@ bool CShaderSet::CreateShaderObject()
     
     // Add ourselves to the internal program storage.
     ++m_refcount;
+    m_ID = s_ID++;
+    
+    ZEN_ASSERTM(s_ID < (1 << 6)), "too many shader programs; material ID will not be unique");
+    
     s_shaderPrograms[this] = m_program;
     return true;
 }
@@ -235,6 +241,7 @@ bool CShaderSet::Destroy()
     }
 
     m_error_str = "";
+    m_ID = 0;
     return true;
 }
 

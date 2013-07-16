@@ -7,9 +7,12 @@ using util::LogMode;
 using gfxcore::CTexture;
 
 CTexture CTexture::s_DefaultTexture;
+uint16_t CTexture::s_ID = 1;
 
 CTexture::CTexture(const void* const owner) :
-    CAsset(owner), m_width(0), m_height(0) {}
+    CAsset(owner), m_width(0), m_height(0), m_ID(0)
+{
+}
 
 CTexture::~CTexture()
 {
@@ -42,6 +45,10 @@ bool CTexture::LoadFromFile(const string_t& filename)
 
     bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA, w, h, raw);
 
+    m_ID = s_ID++;
+    
+    ZEN_ASSERTM(s_ID < (1 << 10), "too many textures, material ID can't be unique");
+    
     stbi_image_free(raw);
     this->SetFilename(filename);
     return (m_loaded = true);
@@ -66,6 +73,7 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
 
     m_width = pCopyTexture->m_width;
     m_height= pCopyTexture->m_height;
+    m_ID    = pCopyTexture->m_ID;
     this->SetFilename(pCopyTexture->GetFilename());
 
     return (m_loaded = ret);

@@ -10,9 +10,10 @@ CMaterial::CMaterial(asset::CAssetManager& Assets) :
     m_Assets(Assets),
     mp_Texture(&gfxcore::CTexture::GetDefaultTexture()),
     m_Log(CLog::GetEngineLog()),
-    m_Effect(EffectType::NO_EFFECT, Assets)
+    m_Effect(EffectType::NO_EFFECT, Assets), m_ID(0)
 {
     m_Effect.Init();
+    this->SetID();
 }
 
 CMaterial::CMaterial(const CMaterial& Copy) :
@@ -26,6 +27,8 @@ CMaterial::CMaterial(const CMaterial& Copy) :
     // We don't want to reload the texture for no reason.
     if(Copy.mp_Texture != mp_Texture)
         mp_Texture->LoadFromExisting(Copy.mp_Texture);
+
+    this->SetID();
 }
 
 CMaterial::~CMaterial()
@@ -61,6 +64,7 @@ bool CMaterial::LoadFromFile(const string_t& filename)
     m_Effect.Init();
     bool ret = m_Effect.LoadCustomEffect(vs, fs);
     ret = ret && mp_Texture->LoadFromFile(tx);
+    this->SetID();
     return ret;
 }
 
@@ -113,36 +117,51 @@ bool CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
     }
 
     mp_Texture = tmp;
+    this->SetID();
     return true;
 }
 
 bool CMaterial::LoadTextureFromFile(const string_t& filename)
 {
     gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
-    return ((mp_Texture = tmp) != nullptr);
+    mp_Texture = tmp;
+    if(mp_Texture == nullptr)
+    {
+        mp_Texture = &gfxcore::CTexture::GetDefaultTexture();
+        this->SetID();
+        return false;
+    }
+    
+    return true;
 }
 
 bool CMaterial::LoadTextureFromHandle(const GLuint handle)
 {
-    return mp_Texture->LoadFromExisting(handle);
+    bool ret = mp_Texture->LoadFromExisting(handle);
+    this->SetID();
+    return ret;
 }
 
 bool CMaterial::LoadEffect(const gfx::EffectType Type)
 {
+    bool ret = true;
     if(m_Effect.GetType() != Type)
     {
         m_Effect.Destroy();
         m_Effect.SetType(Type);
-        return m_Effect.Init();
+        ret = m_Effect.Init();
+        this->SetID();
     }
 
-    return true;
+    return ret;
 }
 
 bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
 {
     m_Effect = E;
-    return mp_Texture->LoadFromExisting(&T);
+    bool ret = mp_Texture->LoadFromExisting(&T);
+    this->SetID();
+    return ret;
 }
 
 bool CMaterial::Enable() const
@@ -190,4 +209,11 @@ void CMaterial::Destroy()
     m_Effect.Destroy();
     if(mp_Texture != &gfxcore::CTexture::GetDefaultTexture())
         m_Assets.Delete(mp_Texture);
+    this->SetID();
+}
+
+void CMaterial::SetID()
+{
+    m_ID = (mp_Texture->GetID() << 10) & m_Effect->GetID();
+    ZEN_ASSERT(m_ID == 0);
 }

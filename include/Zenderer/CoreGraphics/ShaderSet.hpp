@@ -166,6 +166,9 @@ namespace gfxcore
 
         /// Returns shader program link result.
         const string_t& GetLinkerLog() const;
+        
+        /// Returns program ID (unique for different shader sets).
+        uint16_t GetID() const { return m_ID; }
 
     private:
         bool DestroyFS();
@@ -173,6 +176,7 @@ namespace gfxcore
         
         /// Manages duplication of shader programs.
         static std::map<CShaderSet*, GLuint> s_shaderPrograms;
+        static uint16_t s_ID;
         
         inline void ShowLoadError(
             const string_t& filename, const string_t& shader) const
@@ -205,7 +209,7 @@ namespace gfxcore
         string_t m_link_log;
 
         GLuint m_program;
-        uint16_t m_refcount;
+        uint16_t m_refcount, m_ID;
     };
 }   // namespace gfxcore
 }   // namespace zen

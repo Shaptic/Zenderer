@@ -24,22 +24,14 @@
 #define ZENDERER__CORE_GRAPHICS__SORTER_CPP
 
 #include "Zenderer/Core/Types.hpp"
-//#include "Zenderer/Objects/Entity.hpp"
+#include "Zenderer/Objects/Entity.hpp"
 
 namespace zen
 {
 namespace gfxcore
 {
-    /**
-     * A collection of sort methods to optimize rendering.
-     *  This is a static class with no member functions, and contains
-     *  tools to sort an entity by material, depth, and alpha value.
-     *  It utilizes a high-speed, low-level bit comparison technique
-     *  to make comparisons as fast as possible.
-     *
-     *  You can read more about the sorting architecture in the documentation
-     *  for the ic::gfx::CSceneManager class.
-     **
+    /// A collection of sort methods to optimize rendering.
+    /*
     class ZEN_API CSorter
     {
     public:
@@ -62,8 +54,8 @@ namespace gfxcore
         }
 
         static inline uint32_t
-        CreateSortFlag(const uint32_t material_id,  const uint32_t depth_value,
-                       const uint32_t alpha_bit,    const uint32_t unused = 0)
+        CreateSortFlag(const uint16_t material_id,  const uint16_t depth_value,
+                       const uint8_t  alpha_bit,    const uint16_t unused = 0)
         {
             return  (material_id << MATERIAL_OFFSET)|
                     (depth_value << DEPTH_OFFSET)   |
@@ -72,13 +64,13 @@ namespace gfxcore
         }
 
         static const uint32_t MATERIAL_FLAG     = 0xFFF00000;
-        static const uint32_t MATERIAL_OFFSET   = 20; // 20 bits into the flag
+        static const uint32_t MATERIAL_OFFSET   = 24; // 24 bits into the flag
 
         static const uint32_t DEPTH_FLAG        = 0x000FF000;
-        static const uint32_t DEPTH_OFFSET      = 12;
+        static const uint32_t DEPTH_OFFSET      = 8;
 
         static const uint32_t ALPHA_FLAG        = 0x00000800;
-        static const uint32_t ALPHA_OFFSET      = 11;
+        static const uint32_t ALPHA_OFFSET      = 7;
 
         static const uint32_t UNUSED_FLAG       = 0x000007FF;
         static const uint32_t UNUSED_OFFSET     = 0;
@@ -102,6 +94,11 @@ namespace gfxcore
 /**
  * @class       zen::gfxcore::CSorter
  * @details
+ *  This is a static class with no member functions, and contains
+ *  tools to sort an entity by material, depth, and alpha value.
+ *  It utilizes a high-speed, low-level bit comparison technique
+ *  to make comparisons as fast as possible.
+ *
  * @section     sort    Optimized Sorting Algorithm
  * @subsection  expl    Explanation
  *  In order to maximize rendering efficiency, it is important to
@@ -128,20 +125,20 @@ namespace gfxcore
  *  a standard 2D game. For this, we allocate 12 bits in the flag for
  *  storing a unique material ID (2<sup>12</sup> = 4096).
  *
- *  Thus: 32 - 12 = 20 bits remaining.
+ *  Thus: 32 - 16 = 16 bits remaining.
  *
  *  For depth information, we allocate 8 bits, giving us 256 different
  *  levels of depth for any entity in the game. Again this is perfectly
  *  acceptable for a 2D game.
  *
- *  Thus: 20 - 8 = 12 bits remaining.
+ *  Thus: 16 - 8 = 8 bits remaining.
  *
  *  For transparency, we only need a single bit. to compare if a
  *
- *  Thus: 12 - 1 = 11 bits remaining.
+ *  Thus: 8 - 1 = 7 bits remaining.
  *
  *  The remaining bits are reserved for any future sorting requirements.
- *  11 bits gives 2048 different values, surely large enough to accommodate
+ *  7 bits gives 128 different values, surely large enough to accommodate
  *  any future requirements.
  *
  * @subsection  algo    Sorting
