@@ -205,6 +205,7 @@ namespace gfxcore
         string_t m_link_log;
 
         GLuint m_program;
+        uint16_t m_refcount;
     };
 }   // namespace gfxcore
 }   // namespace zen

@@ -11,7 +11,7 @@ std::map<CShaderSet*, GLuint> CShaderSet::s_shaderPrograms;
 CShaderSet::CShaderSet(asset::CAssetManager& Assets) :
     m_AssetManager(Assets), m_Log(CLog::GetEngineLog()),
     mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
-    m_error_str("")
+    m_error_str(""), m_refcount(0)
 {}
 
 CShaderSet::~CShaderSet()
@@ -98,6 +98,7 @@ bool CShaderSet::CreateShaderObject()
             m_program   = SS.m_program;
             m_error_str = SS.m_error_str;
             m_link_log  = SS.m_link_log;
+            SS.m_refcount++;
             return m_error_str.empty();
         }
     }
@@ -151,7 +152,8 @@ bool CShaderSet::CreateShaderObject()
         return false;
     }
     
-    // Add ourselves to the internal program storege.
+    // Add ourselves to the internal program storage.
+    ++m_refcount;
     s_shaderPrograms[this] = m_program;
     return true;
 }
@@ -226,7 +228,7 @@ bool CShaderSet::Destroy()
     this->DestroyFS();
     this->DestroyVS();
 
-    if(m_program > 0)
+    if(m_program > 0 && m_refcount-- <= 1)
     {
         GL(glDeleteProgram(m_program));
         m_program = 0;
