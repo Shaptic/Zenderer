@@ -88,8 +88,13 @@ bool CShaderSet::CreateShaderObject()
     for( ; i != j; ++i)
     {
         const CShaderSet& SS = *(*i);
-        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
+        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader &&
+           SS.mp_VShader->GetOwner() == nullptr &&
+           SS.mp_FShader->GetOwner() == nullptr)
         {
+            // We have a match, so copy the shader program handle
+            // instead of creating a new one. It may have errors, so we
+            // give feedback to the user accordingly.
             m_program   = SS.m_program;
             m_error_str = SS.m_error_str;
             m_link_log  = SS.m_link_log;
@@ -146,6 +151,7 @@ bool CShaderSet::CreateShaderObject()
         return false;
     }
     
+    // Add ourselves to the internal program storege.
     s_shaderPrograms[this] = m_program;
     return true;
 }

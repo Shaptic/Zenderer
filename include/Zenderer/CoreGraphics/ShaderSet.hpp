@@ -171,6 +171,7 @@ namespace gfxcore
         bool DestroyFS();
         bool DestroyVS();
         
+        /// Manages duplication of shader programs.
         static std::map<CShaderSet*, GLuint> s_shaderPrograms;
         
         inline void ShowLoadError(
