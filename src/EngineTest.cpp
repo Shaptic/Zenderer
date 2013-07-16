@@ -110,6 +110,10 @@ using gfxcore::CRenderer;
     Font->Render(Ent, "Zenderer!");
     Ent.Move(100, 69);
 
+    gfx::CScene Scene(Window.GetWidth(), Window.GetHeight(), Manager);
+    obj::CEntity& Text = Scene.AddEntity();
+    Font->Render(Text, "Hello!");
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -141,6 +145,7 @@ using gfxcore::CRenderer;
         // Rendering
         Window.Clear(Teal);
 
+        /*
         RT.Bind();
         Sample.EnableTexture();
         DEffect.Enable();
@@ -185,6 +190,9 @@ using gfxcore::CRenderer;
             Gr.Draw();
             Grass.Disable();
         }
+        */
+
+        Scene.Render();
 
         Sound->Update();
         Window.Update();

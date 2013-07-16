@@ -88,6 +88,8 @@ namespace obj
             for( ; i != j; ++i) (*i)->Move(x, y, z);
         }
 
+        const math::vector_t& GetPosition() const { return m_Position; }
+
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
 

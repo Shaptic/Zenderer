@@ -43,36 +43,48 @@ namespace gfx
     using gfxcore::CRenderer;
     using gfxcore::BlendFunc;
 
-    class ZEN_API CScene
+    /// @todo   Set up entity internals
+    class ZEN_API CScene : public CSubsystem
     {
     public:
-        CScene(asset::CAssetManager& Mgr);
-        ~CScene();
+        CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) : 
+            m_Assets(Mgr), m_Log(util::CLog::GetEngineLog()),
+            m_FBO1(w, h), m_FBO2(w, h) {}
+        ~CScene() {}
 
         /// Initializes internal graphical components.
-        bool Init();
+        bool Init()
+        {
+            return  m_Assets.IsInit()   && m_Geometry.Init() &&
+                    m_FBO1.Init()       && m_FBO2.Init();
+        }
 
-        obj::CEntity& AddEntity();
+        bool Destroy(){ return false; }
+
+        obj::CEntity& AddEntity()
+        {
+            obj::CEntity* pNew = new obj::CEntity(m_Assets);
+            m_allEntities.push_back(pNew);
+            return *m_allEntities.back();
+        }
 
         /**
-         * Adds a managed primitive to the scene.
-         *  No initialization or setting of parameters is done on the
-         *  returned instance, it's merely added to the internal list of
-         *  primitives in order to clean them up appropriately and draw
-         *  them together in the rendering sequence, and `Create()` is
-         *  called, since it takes no parameters and is a default.
+         * Adds a managed primitive to the scene as an entity.
+         *  The default primitive initialization options are specified for
+         *  this primitive. If you want to specify them on your own, the
+         *  suggested approach is adding a raw managed entity via AddEntity(),
+         *  and then loading it with primitives yourself. 
          *
-         *  We return the value of `Create()` to avoid having the user work
-         *  with pointers.
-         *
-         * @return  A `CDrawable&` instance of whatever type `T` you specified.
+         * @return  A `CEntity&` instance loaded with the given primitive.
          **/
         template<typename T>
-        T& AddPrimitive()
+        obj::CEntity& AddPrimitive()
         {
+            obj::CEntity& Ref = this->AddEntity();
             T* pNew = new T(m_Assets);
-            m_allPrimitives.push_back(pNew);
-            return m_allPrimitives.back()->Create();
+            Ref.AddPrimitive(pNew->Create());
+            delete pNew;
+            return Ref;
         }
 
         /**
@@ -124,32 +136,34 @@ namespace gfx
         }
 
         /**
-         * Inserts a primitive at a point in the draw queue.
+         * Inserts an entity at a point in the draw queue.
          *  Sometimes, you need to have something drawn in a different order
          *  than you had originally planned. Thus this method allows you to
-         *  insert primitives at any point in the draw queue. This operation
-         *  is `O(1)` thanks to `std::list`, so performance worries are
-         *  non-existant.
+         *  insert entities at any point in the draw queue. This operation
+         *  is `O(n)`.
          *
-         * @param   index   The index to insert a primitive at
+         * @param   index   The index to insert an entity at
          *
-         * @return  A `CDrawable&` instance of whatever type `T` you specified.
+         * @return  A `CEntity&` instance with no data.
          *
-         * @warning The index MUST be in the range of the current list, or
-         *          an exception will (likely) be thrown. The range cannot be
-         *          checked because this method only returns a valid reference.
-         *          Use `IsValidPrimitiveIndex()` to check for a good index.
+         * @warning The index must be in the range of the current list, or
+         *          an entity will just be inserted at the end of the internal 
+         *          list. The range cannot be checked because this method only
+         *          returns a valid reference. Use `IsValidEntityIndex()` to
+         *          check for a good index.
          *
-         * @see     GetPrimitiveIndex()
-         * @see     IsValidPrimitiveIndex()
+         * @see     GetEntityIndex()
+         * @see     IsValidEntityIndex()
          **/
-        template<typename T>
-        T& InsertPrimitive(const uint32_t index)
+        obj::CEntity& InsertEntity(const uint32_t index)
         {
-            T* pNew = new T(m_Assets);
-            T& Ret = pNew->Create();
-            m_allPrimitives.insert(pNew, index);
-            return Ret;
+            obj::CEntity* pNew = new obj::CEntity(m_Assets);
+            auto i = m_allEntities.begin();
+            size_t j = 0, s = m_allEntities.size();
+            for(size_t j = 0, s = m_allEntities.size();
+                j < s && j != index; ++j, ++i);
+            m_allEntities.insert(i, pNew);
+            return *pNew;
         }
 
         /// Renders the scene to the current render target.
@@ -180,8 +194,8 @@ namespace gfx
             M.Enable();
 
             // Commence individual primitive rendering.
-            auto i = m_allPrimitives.begin(),
-                 j = m_allPrimitives.end();
+            auto i = m_allEntities.begin(),
+                 j = m_allEntities.end();
 
             for( ; i != j; ++i)
             {
@@ -282,11 +296,11 @@ namespace gfx
             return true;
         }
 
-        /// Returns the queue index of a certain primitive (or -1).
-        int32_t GetPrimitiveIndex(const gfxcore::CDrawable& D)
+        /// Returns the queue index of a certain entity (or -1).
+        int32_t GetEntityIndex(const obj::CEntity& D)
         {
-            auto i = m_allPrimitives.begin(),
-                 j = m_allPrimitives.end();
+            auto i = m_allEntities.begin(),
+                 j = m_allEntities.end();
 
             int32_t index = -1;
             for( ; i != j; ++i, ++index)
@@ -298,9 +312,9 @@ namespace gfx
         }
 
         /// Verifies the given index is within the valid range.
-        bool IsValidPrimitiveIndex(int32_t i)
+        bool IsValidEntityIndex(int32_t i)
         {
-            return (i > 0 && i < m_allPrimitives.size());
+            return (i > 0 && i < m_allEntities.size());
         }
 
     private:
@@ -312,10 +326,9 @@ namespace gfx
         math::vector_t          m_Camera;
 
         // Lists of things that will be rendered.
-        std::list<CLight*>              m_allLights;
-        std::list<CEffect*>             m_allPPFX;
-        std::list<gfxcore::CDrawable*>  m_allPrimitives;
-        //std::list<CEntity*> m_allEntities;
+        std::list<CLight*>          m_allLights;
+        std::list<CEffect*>         m_allPPFX;
+        std::list<obj::CEntity*>    m_allEntities;
 
         bool m_lighting, m_ppfx;
     };
