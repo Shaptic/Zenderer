@@ -236,10 +236,9 @@ namespace gfxcore
         "void main()"
         "{"
         "    vec4 color = texture2D(texture, fs_texc);"
-        "    float gray = dot(color, vec3(0.299, 0.587, 0.114));"
+        "    float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));"
         "    out_color  = vec4(color.rgb * gray, color.a);"
         "}"
-
     );
 
     /// Created from data/shaders/PointLight.fs.
@@ -366,7 +365,8 @@ namespace gfxcore
 
         "void main()"
         "{"
-        "    out_color = texture2D(texture, fs_texc + normalize(offset));"
+        "    out_color = texture2D(texture, fs_texc).rrrr * fs_color;"
+        "    //+ normalize(offset));"
         "}"
 
     );

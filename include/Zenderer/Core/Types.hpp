@@ -30,7 +30,7 @@
 
 // Attempt to detect debug or release build.
 #ifndef ZEN_DEBUG_BUILD
-  #if defined(_DEBUG) || defined(DEBUG) || !defined(NDEBUG)
+  #if defined _DEBUG || defined DEBUG
     #pragma message("Compiling in debug mode...")
     #define ZEN_DEBUG_BUILD
   #else

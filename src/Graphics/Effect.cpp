@@ -73,7 +73,10 @@ bool CEffect::Init()
         m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::GAUSSIANBLURV_FS);
 
     else if(m_type == EffectType::GRAYSCALE)
-        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::TTFRENDER_FS);
+        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::GRAYSCALE_FS);
+
+    else if(m_type == EffectType::SPRITESHEET)
+        m_init = m_Shader.LoadFragmentShaderFromStr(gfxcore::SPRITESHEET_FS);
 
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(gfxcore::RIPPLE_FS);

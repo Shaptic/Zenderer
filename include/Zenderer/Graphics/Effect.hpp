@@ -28,6 +28,7 @@
 #include "Zenderer/Math/Matrix.hpp"
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/CoreGraphics/ShaderSet.hpp"
+#include "Zenderer/CoreGraphics/ShaderFiles.hpp"
 
 namespace zen
 {
