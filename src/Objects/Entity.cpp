@@ -148,7 +148,17 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
     pQuad->Create();
     pQuad->SetColor(color4f_t(1, 1, 1, 1));
     mp_allPrims.push_back(pQuad);
+    
+    // Reset then set the material flag.
+    m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
+    m_sort |= (pQuad->GetMaterial().GetID() << gfxcore::CSorter::MATERIAL_OFFSET);
     return true;
+}
+
+bool CEntity::Optimize()
+{
+    ZEN_ASSERTM(false, "not implemented");
+    return false;
 }
 
 void CEntity::Destroy()

@@ -31,24 +31,23 @@ namespace zen
 namespace gfxcore
 {
     /// A collection of sort methods to optimize rendering.
-    /*
     class ZEN_API CSorter
     {
     public:
-        static inline const CEntity*
-        SortByMaterial(const CEntity* pEnt1, const CEntity* pEnt2)
+        static inline const obj::CEntity*
+        SortByMaterial(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2)
         {
             return CSorter::SortBy(pEnt1, pEnt2, MATERIAL_FLAG);
         }
 
-        static inline const CEntity*
-        SortByDepth(const CEntity* pEnt1, const CEntity* pEnt2)
+        static inline const obj::CEntity*
+        SortByDepth(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2)
         {
             return CSorter::SortBy(pEnt1, pEnt2, DEPTH_FLAG);
         }
 
-        static inline const CEntity*
-        SortByAlpha(const CEntity* pEnt1, const CEntity* pEnt2)
+        static inline const obj::CEntity*
+        SortByAlpha(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2)
         {
             return CSorter::SortBy(pEnt1, pEnt2, ALPHA_FLAG);
         }
@@ -63,29 +62,29 @@ namespace gfxcore
                     (unused      << UNUSED_OFFSET);
         }
 
-        static const uint32_t MATERIAL_FLAG     = 0xFFF00000;
-        static const uint32_t MATERIAL_OFFSET   = 24; // 24 bits into the flag
+        static const uint32_t MATERIAL_FLAG     = 0xFFFF0000;
+        static const uint32_t MATERIAL_OFFSET   = 16; // 24 bits into the flag
 
-        static const uint32_t DEPTH_FLAG        = 0x000FF000;
+        static const uint32_t DEPTH_FLAG        = 0x0000FF00;
         static const uint32_t DEPTH_OFFSET      = 8;
 
-        static const uint32_t ALPHA_FLAG        = 0x00000800;
+        static const uint32_t ALPHA_FLAG        = 0x00000080;
         static const uint32_t ALPHA_OFFSET      = 7;
 
-        static const uint32_t UNUSED_FLAG       = 0x000007FF;
+        static const uint32_t UNUSED_FLAG       = 0x0000007F;
         static const uint32_t UNUSED_OFFSET     = 0;
 
     private:
         // Not implemented; purely static class.
         CSorter(); ~CSorter();
 
-        static inline const CEntity*
-        SortBy(const CEntity* pEnt1, const CEntity* pEnt2, const uint32_t flag)
+        static inline const obj::CEntity*
+        SortBy(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2, const uint32_t flag)
         {
             return (pEnt1->GetSortFlag() & flag) < (pEnt2->GetSortFlag() & flag)
                 ?   pEnt1 : pEnt2;
         }
-    };*/
+    };
 }   // namespace gfxcore
 }   // namespace zen
 

@@ -58,7 +58,8 @@ namespace obj
 
     public:
         CEntity(asset::CAssetManager& Assets) :
-            m_Assets(Assets), m_Log(util::CLog::GetEngineLog()) {}
+            m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
+            m_sort(0) {}
 
         virtual ~CEntity()
         {
@@ -69,7 +70,7 @@ namespace obj
         bool LoadFromTexture(const string_t& filename);
 
         bool AddPrimitive(const gfx::CQuad& Prim);
-        bool Optimize() { ZEN_ASSERTM(false, "not implemented"); return false; }
+        bool Optimize();
 
         bool Draw(bool is_bound = false)
         {
@@ -87,8 +88,22 @@ namespace obj
 
             for( ; i != j; ++i) (*i)->Move(x, y, z);
         }
+        
+        void SetDepth(const uint16_t depth)
+        {
+            // Limit depth to 8-bit values (256).
+            math::clamp<uint16_t>(depth, 0, 1 << 8);
+            m_depth = depth;
+            m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
+            m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
+        }
 
         const math::vector_t& GetPosition() const { return m_Position; }
+        
+        inline uint32_t GetSortFlag() const
+        {
+            return m_sort;
+        }
 
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
@@ -99,12 +114,13 @@ namespace obj
                        const string_t& line, const uint32_t line_no,
                        const ErrorType& Err = ErrorType::BAD_PAIR);
 
-        asset::CAssetManager&           m_Assets;
-        util::CLog&                     m_Log;
+        asset::CAssetManager&       m_Assets;
+        util::CLog&                 m_Log;
 
-        math::vector_t                  m_Position;
-        string_t                        m_filename;
-        std::vector<gfx::CQuad*>        mp_allPrims;
+        math::vector_t              m_Position;
+        std::vector<gfx::CQuad*>    mp_allPrims;
+        string_t                    m_filename;
+        uint32_t                    m_sort;
     };
 
 }   // namespace gfxcore
