@@ -12,7 +12,7 @@ zen::math::vector_t evt::GetMousePosition()
     return zen::math::vector_t(x, y);
 }
 
-bool CWindow::GetMouseState(const evt::MouseButton& Btn) const 
+bool zen::evt::GetMouseState(const evt::MouseButton& Btn) const 
 {
     return glfwGetMouseButton(glfwGetCurrentContext(),
                               static_cast<int>(Btn)) == GLFW_PRESS;

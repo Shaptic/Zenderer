@@ -57,18 +57,8 @@ namespace evt
         int mods;
     };
     
-    math::vector_t GetMousePosition()
-    {
-        double x, y;
-        glfwGetMousePos(glfwGetCurrentContext(), &x, &y);
-        return math::vector_t(x, y);
-    }
-    
-    bool CWindow::GetMouseState(const evt::MouseButton& Btn) const 
-    {
-        return glfwGetMouseButton(glfwGetCurrentContext(),
-                                  static_cast<int>(Btn)) == GLFW_PRESS;
-    }
+    math::vector_t GetMousePosition();
+    bool GetMouseState(const evt::MouseButton& Btn);
 }
 }
 

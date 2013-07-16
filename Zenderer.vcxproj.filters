@@ -364,6 +364,9 @@
     <None Include="include\Zenderer\Graphics\Effect.inl">
       <Filter>Header Files\Graphics</Filter>
     </None>
+    <None Include="include\Zenderer\CoreGraphics\Renderer.inl">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </None>
     <None Include="data\shaders\AmbientLight.fs">
       <Filter>Shaders</Filter>
     </None>
@@ -388,22 +391,19 @@
     <None Include="data\shaders\GaussianBlurV.fs">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="data\shaders\Grayscale.fs">
+      <Filter>Shaders</Filter>
+    </None>
     <None Include="data\shaders\PointLight.fs">
       <Filter>Shaders</Filter>
     </None>
     <None Include="data\shaders\Ripple.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="data\shaders\ShadowCaster.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="data\shaders\SpotLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="include\Zenderer\CoreGraphics\Renderer.inl">
-      <Filter>Header Files\CoreGraphics</Filter>
-    </None>
-    <None Include="data\shaders\TTFRender.fs">
+    <None Include="data\shaders\SpriteSheet.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

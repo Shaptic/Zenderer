@@ -130,10 +130,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // Shortcut to glyph data.
         const glyph_t& gl = m_glyphData[letter];
 
-        real_t x = gl.position.x;   // Store current x-coordinate.
-        real_t h = gl.position.y;   // Store current y-coordinate.
-        Pos.x   += gl.advance;      // Increment position for the next glyph.
-
         /*
          * [i]      : top left
          * [i + 1]  : top right
@@ -169,8 +165,11 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         inds[x+5] = i + 1;
 
         // Track total dimensions.
-        totals.x += math::max<uint16_t>(gl.size.w, gl.advance);
-        totals.y  = math::max<uint16_t>(totals.y, gl.size.h);
+        totals.x += math::max<uint16_t>(gl.size.x, gl.advance);
+        totals.y  = math::max<uint16_t>(totals.y, gl.size.y);
+
+        // Increment position for the next glyph.
+        Pos.x += gl.advance;
     }
 
     // Render all of the loaded data onto a texture,
@@ -262,7 +261,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     Ent.AddPrimitive(Q);
 
     mp_Assets->Delete(pTexture);
-    mp_Assets->Delete(pFinal);
 
     delete[] data;
     delete[] verts;
@@ -330,8 +328,8 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     glyph_t glyph;
     glyph.texture   = pTexture;
     glyph.size      = math::vector_t(w, h);
-    glyph.position  = math::vector_t(slot->metrics.horiBearingY >> 6,
-                                     slot->metrics.horiBearingX >> 6);
+    glyph.position  = math::Vector<int32_t>(slot->metrics.horiBearingY >> 6,
+                                            slot->metrics.horiBearingX >> 6);
     glyph.advance   = slot->advance.x >> 6;
     m_glyphData[c]  = glyph;
     
@@ -370,7 +368,7 @@ uint16_t CFont::GetTextWidth(const string_t& text) const
             const auto it = m_glyphData.find(text[i]);
             if(it != m_glyphData.end())
             {
-                tmp_w += math::max<uint16_t>(it->second.size.w,
+                tmp_w += math::max<uint16_t>(it->second.size.x,
                                              it->second.advance);
             }
         }
@@ -385,7 +383,7 @@ uint16_t CFont::GetTextHeight(const string_t& text) const
 
     uint16_t lines = 1;
     
-    auto i = text.begin();
+    auto i = text.begin(),
          j = text.end();
          
     for( ; i != j; ++i)

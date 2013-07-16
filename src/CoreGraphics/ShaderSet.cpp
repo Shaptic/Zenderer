@@ -219,7 +219,10 @@ bool CShaderSet::DestroyFS()
     {
         m_AssetManager.Delete(mp_FShader);
         mp_FShader = nullptr;
+        return true;
     }
+
+    return false;
 }
 
 bool CShaderSet::DestroyVS()
@@ -228,5 +231,8 @@ bool CShaderSet::DestroyVS()
     {
         m_AssetManager.Delete(mp_VShader);
         mp_VShader = nullptr;
+        return true;
     }
+
+    return false;
 }
