@@ -60,6 +60,7 @@ namespace gui
         CFont& operator<<(const T& data)
         {
             m_str << data;
+            return (*this);
         }
 
         /**
@@ -307,26 +308,27 @@ namespace gui
  *  @code
  *  obj::CEntity& Ent = m_Scene.AddEntity();
  *  gui::CFont* pFont = m_Assets.Create<gui::CFont>();
- *  pFont->Resize(22);
- *  pFont->LoadFromFile("data/fonts/default.ttf");
+ *  gui::CFont& Font  = *pFont;
+ *  Font.Resize(22);
+ *  Font.LoadFromFile("data/fonts/default.ttf");
  *
  *  uint16_t score = 100;
  *  real_t health = 45.8;
  *
- *  pFont << "Score: " << score << "\nHealth: " << health;
- *  pFont->Render(Ent);
+ *  Font << "Score: " << score << "\nHealth: " << health;
+ *  Font.Render(Ent);
  *
  *  // `Ent` now contains the following:
  *  // Score: 100
  *  // Health: 45.8
  *
- *  pFont->Render(Ent, "Random Data\nLines");
+ *  Font.Render(Ent, "Random Data\nLines");
  *
  *  // `Ent` now contains the following:
  *  // Random Data
  *  // Lines
  *
- *  pFont << "\nName: Zenderer";
+ *  (*pFont) << "\nName: Zenderer"; // Also done like this with the pointer
  *  pFont->Render(Ent);
  *
  *  // `Ent` now contains the following:

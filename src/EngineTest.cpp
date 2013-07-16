@@ -104,15 +104,12 @@ using gfxcore::CRenderer;
     obj::CEntity Ent(Manager);
     gui::CFont* Font = Manager.Create<gui::CFont>();
     Font->AttachManager(Manager);
-    Font->SetSize(18);
+    Font->SetSize(36);
     Font->SetColor(color4f_t(1.0, 1.0, 0.0));
-    Font->LoadFromFile("C:\\Windows\\Fonts\\segoeuib.ttf");
-    Font->Render(Ent, "Zenderer!");
+    Font->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
+    (*Font) << "Zenderer!" << 6606 << " lines!";
+    Font->Render(Ent);
     Ent.Move(100, 69);
-
-    gfx::CScene Scene(Window.GetWidth(), Window.GetHeight(), Manager);
-    obj::CEntity& Text = Scene.AddEntity();
-    Font->Render(Text, "Hello!");
 
     while(Window.IsOpen())
     {
@@ -145,7 +142,6 @@ using gfxcore::CRenderer;
         // Rendering
         Window.Clear(Teal);
 
-        /*
         RT.Bind();
         Sample.EnableTexture();
         DEffect.Enable();
@@ -190,9 +186,6 @@ using gfxcore::CRenderer;
             Gr.Draw();
             Grass.Disable();
         }
-        */
-
-        Scene.Render();
 
         Sound->Update();
         Window.Update();

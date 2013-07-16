@@ -71,6 +71,7 @@ namespace asset
         T* Create(const char* const filename, const void* const owner = nullptr);
 
         /// Creates a raw managed asset instance (unloaded).
+        /// @todo   Make this return a reference.
         template<typename T>
         T* Create(const void* const owner = nullptr);
 
@@ -78,7 +79,11 @@ namespace asset
          * Creates a copy of an existing asset.
          *  Since assets are set up such that there is only one existing
          *  copy at a time, calling
-         *      `Create<CMesh*>("test.txt")`
+         *
+         *  @code
+         *      Create<CMesh*>("test.txt")
+         *  @endcode
+         *
          *  three times will give the same return value every time.
          *  Sometimes, though, it is desirable to have multiple copies of
          *  an asset, and this method will do so.
@@ -92,10 +97,6 @@ namespace asset
          *
          * @warning This relies on the `T` object to have implemented
          *          CAsset::LoadFromExisting(), which is not guaranteed.
-         *
-         * @todo    Add some sort of check to make sure `T` is an inheriting
-         *          class of CAsset.
-         *
          **/
         template<typename T>
         T* Recreate(const T* const Copier,
