@@ -8,8 +8,9 @@ var _shader_files_8hpp =
     [ "GAUSSIANBLUR_VS", "_shader_files_8hpp.html#a2e6b759c28ed489da220aa1b33bb24cf", null ],
     [ "GAUSSIANBLURH_FS", "_shader_files_8hpp.html#a47ae4c39ff5d22809e163387c6a7de5c", null ],
     [ "GAUSSIANBLURV_FS", "_shader_files_8hpp.html#a63f82515bfddfb01b830bdc80a6eddba", null ],
+    [ "GRAYSCALE_FS", "_shader_files_8hpp.html#a6ed0ba359a7aa57cb8d3cb87ab66d509", null ],
     [ "POINTLIGHT_FS", "_shader_files_8hpp.html#a4b4908de8dd4b422ecc0f2fb77f80713", null ],
     [ "RIPPLE_FS", "_shader_files_8hpp.html#a5fd8707d17407208eaae7f8ad981316d", null ],
     [ "SPOTLIGHT_FS", "_shader_files_8hpp.html#af8ce3e1316dac320f1343725fdf5ff3a", null ],
-    [ "TTFRENDER_FS", "_shader_files_8hpp.html#ac38e544e368ddda3e3c594b1a1c22c64", null ]
+    [ "SPRITESHEET_FS", "_shader_files_8hpp.html#af50f9933a4d218ec9060099e6793bd7c", null ]
 ];

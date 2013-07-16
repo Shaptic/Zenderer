@@ -7,5 +7,6 @@ var searchData=
   ['gaussianblurh_5ffs',['GAUSSIANBLURH_FS',['../namespacezen_1_1gfxcore.html#a47ae4c39ff5d22809e163387c6a7de5c',1,'zen::gfxcore']]],
   ['gaussianblurv_5ffs',['GAUSSIANBLURV_FS',['../namespacezen_1_1gfxcore.html#a63f82515bfddfb01b830bdc80a6eddba',1,'zen::gfxcore']]],
   ['grave',['GRAVE',['../_keyboard_8hpp.html#ad6624cec5fef7fc3b98133caf7752578',1,'Keyboard.hpp']]],
-  ['grayscale',['GRAYSCALE',['../_effect_8hpp.html#acfc17ee54296caaf8b57003b3a7f8642',1,'Effect.hpp']]]
+  ['grayscale',['GRAYSCALE',['../_effect_8hpp.html#acfc17ee54296caaf8b57003b3a7f8642',1,'Effect.hpp']]],
+  ['grayscale_5ffs',['GRAYSCALE_FS',['../namespacezen_1_1gfxcore.html#a6ed0ba359a7aa57cb8d3cb87ab66d509',1,'zen::gfxcore']]]
 ];

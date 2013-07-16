@@ -13,5 +13,6 @@ var namespacezen =
     [ "CAllocator", "classzen_1_1_c_allocator.html", "classzen_1_1_c_allocator" ],
     [ "CSubsystem", "classzen_1_1_c_subsystem.html", "classzen_1_1_c_subsystem" ],
     [ "color4f_t", "structzen_1_1color4f__t.html", "structzen_1_1color4f__t" ],
-    [ "color3f_t", "structzen_1_1color3f__t.html", "structzen_1_1color3f__t" ]
+    [ "color3f_t", "structzen_1_1color3f__t.html", "structzen_1_1color3f__t" ],
+    [ "glyph_t", "namespacezen.html#structzen_1_1glyph__t", "namespacezen_dup" ]
 ];

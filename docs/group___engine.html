@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -102,8 +102,7 @@ $(document).ready(function(){initNavTree('group___engine.html','');});
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
 <div class="title">Engine</div>  </div>
 </div><!--header-->
@@ -129,105 +128,23 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gaa111057e6f65ac3648c06031d1cad3a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___engine.html#gaa111057e6f65ac3648c06031d1cad3a4">ZEN_DEBUG_BUILD</a></td></tr>
-<tr class="separator:gaa111057e6f65ac3648c06031d1cad3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaffef067603b6232807ee3a9ecf32b475"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a></td></tr>
+<tr class="memitem:gaffef067603b6232807ee3a9ecf32b475"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;&#160;&#160;__declspec(dllimport)</td></tr>
 <tr class="memdesc:gaffef067603b6232807ee3a9ecf32b475"><td class="mdescLeft">&#160;</td><td class="mdescRight">The engine can be built as a DLL, then linked with the generated .lib.  <a href="#gaffef067603b6232807ee3a9ecf32b475">More...</a><br/></td></tr>
 <tr class="separator:gaffef067603b6232807ee3a9ecf32b475"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac7bef5d85e3dcd73eef56ad39ffc84a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___engine.html#gac7bef5d85e3dcd73eef56ad39ffc84a9">WIN32_LEAN_AND_MEAN</a></td></tr>
-<tr class="separator:gac7bef5d85e3dcd73eef56ad39ffc84a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga35c1c685cde019a1a2de3d80c5638713"><td class="memItemLeft" align="right" valign="top">bool APIENTRY&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___engine.html#ga35c1c685cde019a1a2de3d80c5638713">DllMain</a> (HMODULE hModule, DWORD reason, void *preserved)</td></tr>
-<tr class="memdesc:ga35c1c685cde019a1a2de3d80c5638713"><td class="mdescLeft">&#160;</td><td class="mdescRight">The entry point for the Zenderer engine DLL.  <a href="#ga35c1c685cde019a1a2de3d80c5638713">More...</a><br/></td></tr>
-<tr class="separator:ga35c1c685cde019a1a2de3d80c5638713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="gaa111057e6f65ac3648c06031d1cad3a4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ZEN_DEBUG_BUILD</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_types_8hpp_source.html#l00035">35</a> of file <a class="el" href="_types_8hpp_source.html">Types.hpp</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="gaffef067603b6232807ee3a9ecf32b475"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ZEN_API</td>
+          <td class="memname">#define ZEN_API&#160;&#160;&#160;__declspec(dllimport)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_types_8hpp_source.html#l00046">46</a> of file <a class="el" href="_types_8hpp_source.html">Types.hpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="gac7bef5d85e3dcd73eef56ad39ffc84a9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WIN32_LEAN_AND_MEAN</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="_d_l_l_main_8cpp_source.html#l00022">22</a> of file <a class="el" href="_d_l_l_main_8cpp_source.html">DLLMain.cpp</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga35c1c685cde019a1a2de3d80c5638713"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool APIENTRY DllMain </td>
-          <td>(</td>
-          <td class="paramtype">HMODULE&#160;</td>
-          <td class="paramname"><em>hModule</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">DWORD&#160;</td>
-          <td class="paramname"><em>reason</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>preserved</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">HMODULE</td><td>Module </td></tr>
-    <tr><td class="paramname">DWORD</td><td>Reason for calling function </td></tr>
-    <tr><td class="paramname">void*</td><td>Reserved data that has no use in this case</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code>, always. </dd></dl>
-
-<p>Definition at line <a class="el" href="_d_l_l_main_8cpp_source.html#l00039">39</a> of file <a class="el" href="_d_l_l_main_8cpp_source.html">DLLMain.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_types_8hpp_source.html#l00048">48</a> of file <a class="el" href="_types_8hpp_source.html">Types.hpp</a>.</p>
 
 </div>
 </div>

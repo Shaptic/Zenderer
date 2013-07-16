@@ -18,7 +18,6 @@ var searchData=
   ['zen_5fassert',['ZEN_ASSERT',['../group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d',1,'Assert.hpp']]],
   ['zen_5fassertm',['ZEN_ASSERTM',['../group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836',1,'Assert.hpp']]],
   ['zen_5fdebug',['ZEN_DEBUG',['../_log_8hpp.html#a1440131482f75f732766e96479be4b98',1,'Log.hpp']]],
-  ['zen_5fdebug_5fbuild',['ZEN_DEBUG_BUILD',['../group___engine.html#gaa111057e6f65ac3648c06031d1cad3a4',1,'Types.hpp']]],
   ['zen_5ferror',['ZEN_ERROR',['../_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26',1,'Log.hpp']]],
   ['zen_5finfo',['ZEN_INFO',['../_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2',1,'Log.hpp']]],
   ['zen_5fno_5flight',['ZEN_NO_LIGHT',['../_light_8hpp.html#a1f492ee4fab321b85987be8b02a5997d',1,'Light.hpp']]],

@@ -18,7 +18,6 @@ var searchData=
   ['toupper',['toupper',['../namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff',1,'zen::util::toupper(const string_t &amp;str)'],['../namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4',1,'zen::util::toupper(string_t &amp;str)']]],
   ['translate',['Translate',['../classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf',1,'zen::math::matrix4x4_t::Translate()'],['../structzen_1_1math_1_1_vector.html#ae864b62de03611caece3153162dc58b1',1,'zen::math::Vector::Translate()']]],
   ['translateadj',['TranslateAdj',['../classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2',1,'zen::math::matrix4x4_t']]],
-  ['ttfrender_5ffs',['TTFRENDER_FS',['../namespacezen_1_1gfxcore.html#ac38e544e368ddda3e3c594b1a1c22c64',1,'zen::gfxcore']]],
   ['two',['TWO',['../_keyboard_8hpp.html#a0673b633b0851b14ed38bd96f5781290',1,'Keyboard.hpp']]],
   ['type',['type',['../structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e',1,'zen::evt::event_t']]],
   ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]]

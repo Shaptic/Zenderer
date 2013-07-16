@@ -8,7 +8,7 @@ var searchData=
   ['rect_5ft',['rect_t',['../structzen_1_1math_1_1rect__t.html#a7a1526b88224e896ce2d75e9ea891c01',1,'zen::math::rect_t::rect_t()'],['../structzen_1_1math_1_1rect__t.html#a642d6535748f7979a8b17c94f1092062',1,'zen::math::rect_t::rect_t(real_t x, real_t y, uint32_t w, uint32_t h)']]],
   ['rect_5ft',['rect_t',['../structzen_1_1math_1_1rect__t.html',1,'zen::math']]],
   ['removematerial',['RemoveMaterial',['../classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2',1,'zen::gfxcore::CDrawable']]],
-  ['render',['Render',['../classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e',1,'zen::gfx::CScene::Render()'],['../classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249',1,'zen::gui::CFont::Render()']]],
+  ['render',['Render',['../classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e',1,'zen::gfx::CScene::Render()'],['../classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249',1,'zen::gui::CFont::Render()'],['../classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5',1,'zen::gui::CFontAtlas::Render()']]],
   ['renderer_2ecpp',['Renderer.cpp',['../_renderer_8cpp.html',1,'']]],
   ['renderer_2ehpp',['Renderer.hpp',['../_renderer_8hpp.html',1,'']]],
   ['renderer_2einl',['Renderer.inl',['../_renderer_8inl.html',1,'']]],
@@ -27,5 +27,8 @@ var searchData=
   ['ripple',['RIPPLE',['../_effect_8hpp.html#a27fd418db9771d2ff024e978ef158a3e',1,'Effect.hpp']]],
   ['ripple_5ffs',['RIPPLE_FS',['../namespacezen_1_1gfxcore.html#a5fd8707d17407208eaae7f8ad981316d',1,'zen::gfxcore']]],
   ['rotate',['Rotate',['../structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8',1,'zen::math::Vector']]],
+  ['rotationx',['RotationX',['../classzen_1_1math_1_1matrix4x4__t.html#ad1dd9cf831ffbce5ed2047172b88fca8',1,'zen::math::matrix4x4_t']]],
+  ['rotationy',['RotationY',['../classzen_1_1math_1_1matrix4x4__t.html#ab3e3e5742506498e6fccd736341f9296',1,'zen::math::matrix4x4_t']]],
+  ['rotationz',['RotationZ',['../classzen_1_1math_1_1matrix4x4__t.html#a5e9db10ba5caefb1aad654cdad7c7118',1,'zen::math::matrix4x4_t']]],
   ['runtime_5fassert',['runtime_assert',['../namespacezen_1_1util.html#a512b60cbe9a683e499f478b4440003a5',1,'zen::util']]]
 ];

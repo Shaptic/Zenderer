@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,6 +108,7 @@ $(document).ready(function(){initNavTree('_mouse_8hpp.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Mouse.hpp File Reference</div>  </div>
@@ -130,7 +131,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_mouse_8hpp__dep__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_events_2_mouse_8hppdep" alt=""/></div>
 <map name="_zenderer_2include_2_zenderer_2_events_2_mouse_8hppdep" id="_zenderer_2include_2_zenderer_2_events_2_mouse_8hppdep">
-<area shape="rect" id="node2" href="_event_8hpp.html" title="Zenderer/Events/Event.hpp &#45; Defines keyboard&#45;related event data structures and convenience functional..." alt="" coords="496,97,667,138"/><area shape="rect" id="node3" href="_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp &#45; Defines an event&#45;handling singleton object that stores and process..." alt="" coords="557,187,728,229"/><area shape="rect" id="node4" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="331,278,501,319"/><area shape="rect" id="node7" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="331,459,501,501"/><area shape="rect" id="node12" href="_event_handler_8cpp.html" title="Zenderer/src/Events\l/EventHandler.cpp" alt="" coords="681,278,817,319"/><area shape="rect" id="node5" href="_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="5,369,184,410"/><area shape="rect" id="node6" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="208,369,379,410"/><area shape="rect" id="node11" href="_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="454,369,604,410"/><area shape="rect" id="node8" href="_d_l_l_main_8cpp.html" title="DLLMain.cpp &#45; Contains the DLL entry point for the Zenderer engine." alt="" coords="123,549,297,576"/><area shape="rect" id="node9" href="_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="322,549,509,576"/><area shape="rect" id="node10" href="_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="535,549,708,576"/></map>
+<area shape="rect" id="node2" href="_event_8hpp.html" title="Zenderer/Events/Event.hpp &#45; Defines keyboard&#45;related event data structures and convenience functional..." alt="" coords="496,97,667,138"/><area shape="rect" id="node3" href="_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp &#45; Defines an event&#45;handling singleton object that stores and process..." alt="" coords="557,187,728,229"/><area shape="rect" id="node12" href="_mouse_8cpp.html" title="Zenderer/src/Events\l/Mouse.cpp" alt="" coords="742,97,879,138"/><area shape="rect" id="node4" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="331,278,501,319"/><area shape="rect" id="node7" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="331,459,501,501"/><area shape="rect" id="node11" href="_event_handler_8cpp.html" title="Zenderer/src/Events\l/EventHandler.cpp" alt="" coords="681,278,817,319"/><area shape="rect" id="node5" href="_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="5,369,184,410"/><area shape="rect" id="node6" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="208,369,379,410"/><area shape="rect" id="node10" href="_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="454,369,604,410"/><area shape="rect" id="node8" href="_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="219,549,407,576"/><area shape="rect" id="node9" href="_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="432,549,605,576"/></map>
 </div>
 </div>
 <p><a href="_mouse_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -147,6 +148,13 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacezen_1_1evt"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1evt.html">zen::evt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a004475d3ef807db50bc2b6859002ff6d"><td class="memItemLeft" align="right" valign="top">math::vector_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1evt.html#a004475d3ef807db50bc2b6859002ff6d">zen::evt::GetMousePosition</a> ()</td></tr>
+<tr class="separator:a004475d3ef807db50bc2b6859002ff6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99695098183c4a3750d66515c95c6103"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">zen::evt::GetMouseState</a> (const evt::MouseButton &amp;Btn)</td></tr>
+<tr class="separator:a99695098183c4a3750d66515c95c6103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

@@ -47,7 +47,7 @@ var group___graphics =
       [ "operator=", "classzen_1_1gfx_1_1_c_material.html#a7574545f4df74b06d8a2edd21034295d", null ],
       [ "LoadFromFile", "classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1", null ],
       [ "LoadFromStream", "classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43", null ],
-      [ "LoadTexture", "classzen_1_1gfx_1_1_c_material.html#a7f30f5a87389e53f536b3e8ffd0a2e59", null ],
+      [ "LoadTexture", "classzen_1_1gfx_1_1_c_material.html#a73e57ac33fcd48a19a270ef1283ed458", null ],
       [ "LoadTextureFromFile", "classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06", null ],
       [ "LoadTextureFromHandle", "classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a", null ],
       [ "LoadEffect", "classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6", null ],
@@ -108,6 +108,8 @@ var group___graphics =
       [ "GetWidth", "classzen_1_1gfx_1_1_c_window.html#a8852633544730f480dad49ad4b53dbf6", null ],
       [ "GetHeight", "classzen_1_1gfx_1_1_c_window.html#ae3b4451816d29a80829d70a87fad62b5", null ],
       [ "GetWindow", "classzen_1_1gfx_1_1_c_window.html#a7574da6790394665fb63d5be9058543b", null ],
+      [ "GetMousePosition", "classzen_1_1gfx_1_1_c_window.html#ad1976ef7e312c2df8694759f9a421fb3", null ],
+      [ "GetMouseState", "classzen_1_1gfx_1_1_c_window.html#ab9ed5973af4d2224a482eae56ebad084", null ],
       [ "ToggleVSYNC", "classzen_1_1gfx_1_1_c_window.html#a63143db627c180d561c2162019c741d7", null ]
     ] ]
 ];

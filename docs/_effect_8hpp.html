@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -121,20 +121,21 @@ $(document).ready(function(){initNavTree('_effect_8hpp.html','');});
 <code>#include &quot;<a class="el" href="_matrix_8hpp_source.html">Zenderer/Math/Matrix.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_open_g_l_8hpp_source.html">Zenderer/CoreGraphics/OpenGL.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_shader_set_8hpp_source.html">Zenderer/CoreGraphics/ShaderSet.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_shader_files_8hpp_source.html">Zenderer/CoreGraphics/ShaderFiles.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_effect_8inl_source.html">Effect.inl</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Effect.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_effect_8hpp__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_graphics_2_effect_8hpp" alt=""/></div>
 <map name="_zenderer_2include_2_zenderer_2_graphics_2_effect_8hpp" id="_zenderer_2include_2_zenderer_2_graphics_2_effect_8hpp">
-<area shape="rect" id="node2" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="297,608,463,635"/><area shape="rect" id="node5" href="_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files." alt="" coords="613,187,843,213"/><area shape="rect" id="node22" href="_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="332,187,503,213"/><area shape="rect" id="node29" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="917,337,1072,378"/><area shape="rect" id="node32" href="_shader_set_8hpp.html" title="Zenderer/CoreGraphics/ShaderSet.hpp &#45; A wrapper class for OpenGL shaders containing a set of shader o..." alt="" coords="923,97,1077,138"/><area shape="rect" id="node34" href="_effect_8inl.html" title="Effect.inl" alt="" coords="1101,104,1173,131"/><area shape="rect" id="node7" href="_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="353,344,551,371"/><area shape="rect" id="node17" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="766,261,847,288"/><area shape="rect" id="node21" href="_asset_manager_8inl.html" title="AssetManager.inl" alt="" coords="556,261,679,288"/><area shape="rect" id="node9" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="850,518,968,559"/><area shape="rect" id="node14" href="_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="488,608,699,635"/><area shape="rect" id="node16" href="_log_8inl.html" title="Log.inl" alt="" coords="723,608,783,635"/><area shape="rect" id="node18" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="867,427,985,469"/><area shape="rect" id="node19" href="_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="673,337,791,378"/><area shape="rect" id="node20" href="_asset_8inl.html" title="Asset.inl" alt="" coords="575,344,648,371"/><area shape="rect" id="node23" href="_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="352,435,437,461"/><area shape="rect" id="node26" href="_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="73,525,175,552"/><area shape="rect" id="node28" href="_vector_8inl.html" title="Vector.inl" alt="" coords="352,525,429,552"/><area shape="rect" id="node27" href="_math_core_8inl.html" title="MathCore.inl" alt="" coords="89,608,183,635"/><area shape="rect" id="node33" href="_shader_8hpp.html" title="Zenderer/CoreGraphics/Shader.hpp &#45; A wrapper around OpenGL shader objects." alt="" coords="1065,187,1153,213"/></map>
+<area shape="rect" id="node2" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="595,608,761,635"/><area shape="rect" id="node5" href="_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files." alt="" coords="657,187,887,213"/><area shape="rect" id="node22" href="_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="1168,187,1339,213"/><area shape="rect" id="node29" href="_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="977,337,1132,378"/><area shape="rect" id="node32" href="_shader_set_8hpp.html" title="Zenderer/CoreGraphics/ShaderSet.hpp &#45; A wrapper class for OpenGL shaders containing a set of shader o..." alt="" coords="1028,97,1183,138"/><area shape="rect" id="node34" href="_shader_files_8hpp.html" title="Zenderer/CoreGraphics/ShaderFiles.hpp &#45; Constants for raw shader data, generated from a script to pre..." alt="" coords="420,97,575,138"/><area shape="rect" id="node35" href="_effect_8inl.html" title="Effect.inl" alt="" coords="1257,104,1329,131"/><area shape="rect" id="node7" href="_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="361,344,559,371"/><area shape="rect" id="node17" href="_asset_8hpp.html" title="Zenderer/Assets/Asset.hpp &#45; An abstract base class used by all managed assets in Zenderer." alt="" coords="774,261,855,288"/><area shape="rect" id="node21" href="_asset_manager_8inl.html" title="AssetManager.inl" alt="" coords="564,261,687,288"/><area shape="rect" id="node9" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="263,518,381,559"/><area shape="rect" id="node14" href="_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="84,608,295,635"/><area shape="rect" id="node16" href="_log_8inl.html" title="Log.inl" alt="" coords="370,608,429,635"/><area shape="rect" id="node18" href="_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="747,427,865,469"/><area shape="rect" id="node19" href="_helpers_8hpp.html" title="Zenderer/Utilities/Helpers.hpp &#45; A collection of helper functions primarily used for string manipulat..." alt="" coords="635,337,753,378"/><area shape="rect" id="node20" href="_asset_8inl.html" title="Asset.inl" alt="" coords="778,344,851,371"/><area shape="rect" id="node23" href="_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="1203,435,1288,461"/><area shape="rect" id="node26" href="_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="1414,525,1516,552"/><area shape="rect" id="node28" href="_vector_8inl.html" title="Vector.inl" alt="" coords="1211,525,1288,552"/><area shape="rect" id="node27" href="_math_core_8inl.html" title="MathCore.inl" alt="" coords="1390,608,1484,635"/><area shape="rect" id="node33" href="_shader_8hpp.html" title="Zenderer/CoreGraphics/Shader.hpp &#45; A wrapper around OpenGL shader objects." alt="" coords="1056,187,1144,213"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_effect_8hpp__dep__incl.png" border="0" usemap="#_zenderer_2include_2_zenderer_2_graphics_2_effect_8hppdep" alt=""/></div>
 <map name="_zenderer_2include_2_zenderer_2_graphics_2_effect_8hppdep" id="_zenderer_2include_2_zenderer_2_graphics_2_effect_8hppdep">
-<area shape="rect" id="node2" href="_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="485,97,656,138"/><area shape="rect" id="node21" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1031,278,1201,319"/><area shape="rect" id="node6" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="783,550,953,591"/><area shape="rect" id="node26" href="_effect_8cpp.html" title="Zenderer/src/Graphics\l/Effect.cpp" alt="" coords="1055,97,1205,138"/><area shape="rect" id="node3" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="671,187,857,229"/><area shape="rect" id="node4" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="364,278,551,319"/><area shape="rect" id="node11" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="172,459,343,501"/><area shape="rect" id="node25" href="_material_8cpp.html" title="Zenderer/src/Graphics\l/Material.cpp" alt="" coords="495,187,645,229"/><area shape="rect" id="node17" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="1055,459,1225,501"/><area shape="rect" id="node19" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="593,459,777,501"/><area shape="rect" id="node24" href="_renderer_8cpp.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="650,278,827,319"/><area shape="rect" id="node5" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="404,369,575,410"/><area shape="rect" id="node16" href="_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="151,369,328,410"/><area shape="rect" id="node7" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="932,641,1103,682"/><area shape="rect" id="node15" href="_quad_8cpp.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="418,459,568,501"/><area shape="rect" id="node8" href="_d_l_l_main_8cpp.html" title="DLLMain.cpp &#45; Contains the DLL entry point for the Zenderer engine." alt="" coords="725,731,899,757"/><area shape="rect" id="node9" href="_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="923,731,1111,757"/><area shape="rect" id="node10" href="_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="1136,731,1309,757"/><area shape="rect" id="node12" href="_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="172,550,343,591"/><area shape="rect" id="node14" href="_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="5,550,147,591"/><area shape="rect" id="node13" href="_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="170,648,344,675"/><area shape="rect" id="node18" href="_light_8cpp.html" title="Zenderer/src/Graphics\l/Light.cpp" alt="" coords="978,550,1128,591"/><area shape="rect" id="node20" href="_render_target_8cpp.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="607,550,757,591"/><area shape="rect" id="node22" href="_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="1055,369,1233,410"/><area shape="rect" id="node23" href="_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="1258,369,1408,410"/></map>
+<area shape="rect" id="node2" href="_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="721,97,892,138"/><area shape="rect" id="node21" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1137,278,1308,319"/><area shape="rect" id="node6" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="839,550,1009,591"/><area shape="rect" id="node26" href="_effect_8cpp.html" title="Zenderer/src/Graphics\l/Effect.cpp" alt="" coords="1487,97,1637,138"/><area shape="rect" id="node3" href="_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="713,187,900,229"/><area shape="rect" id="node4" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="532,278,719,319"/><area shape="rect" id="node10" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="223,459,393,501"/><area shape="rect" id="node25" href="_material_8cpp.html" title="Zenderer/src/Graphics\l/Material.cpp" alt="" coords="925,187,1075,229"/><area shape="rect" id="node17" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="1161,459,1332,501"/><area shape="rect" id="node19" href="_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="647,459,831,501"/><area shape="rect" id="node24" href="_renderer_8cpp.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="845,278,1021,319"/><area shape="rect" id="node5" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="548,369,719,410"/><area shape="rect" id="node16" href="_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="346,369,523,410"/><area shape="rect" id="node7" href="_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="689,641,860,682"/><area shape="rect" id="node15" href="_quad_8cpp.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="471,459,621,501"/><area shape="rect" id="node8" href="_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="578,731,765,757"/><area shape="rect" id="node9" href="_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="791,731,964,757"/><area shape="rect" id="node11" href="_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="223,550,393,591"/><area shape="rect" id="node13" href="_font_atlas_8hpp.html" title="Zenderer/include/Zenderer\l/GUI/FontAtlas.hpp" alt="" coords="417,550,588,591"/><area shape="rect" id="node14" href="_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="5,550,147,591"/><area shape="rect" id="node12" href="_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="221,648,395,675"/><area shape="rect" id="node18" href="_light_8cpp.html" title="Zenderer/src/Graphics\l/Light.cpp" alt="" coords="1171,550,1321,591"/><area shape="rect" id="node20" href="_render_target_8cpp.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="663,550,813,591"/><area shape="rect" id="node22" href="_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="1007,369,1185,410"/><area shape="rect" id="node23" href="_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="1210,369,1360,410"/></map>
 </div>
 </div>
 <p><a href="_effect_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -171,6 +172,9 @@ Variables</h2></td></tr>
 <tr class="memitem:acfc17ee54296caaf8b57003b3a7f8642"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_effect_8hpp.html#acfc17ee54296caaf8b57003b3a7f8642">GRAYSCALE</a></td></tr>
 <tr class="memdesc:acfc17ee54296caaf8b57003b3a7f8642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the target grayscale.  <a href="#acfc17ee54296caaf8b57003b3a7f8642">More...</a><br/></td></tr>
 <tr class="separator:acfc17ee54296caaf8b57003b3a7f8642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a631dd1ea3fafc5d8921a10b3df5c619f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_effect_8hpp.html#a631dd1ea3fafc5d8921a10b3df5c619f">SPRITESHEET</a></td></tr>
+<tr class="memdesc:a631dd1ea3fafc5d8921a10b3df5c619f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render texture atlases using offsets.  <a href="#a631dd1ea3fafc5d8921a10b3df5c619f">More...</a><br/></td></tr>
+<tr class="separator:a631dd1ea3fafc5d8921a10b3df5c619f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a178ea3baffde6f1f9d27c8b309042aa0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_effect_8hpp.html#a178ea3baffde6f1f9d27c8b309042aa0">FADE</a></td></tr>
 <tr class="memdesc:a178ea3baffde6f1f9d27c8b309042aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades the target in/out.  <a href="#a178ea3baffde6f1f9d27c8b309042aa0">More...</a><br/></td></tr>
 <tr class="separator:a178ea3baffde6f1f9d27c8b309042aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,7 +206,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +220,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -230,7 +234,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -244,7 +248,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +262,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a631dd1ea3fafc5d8921a10b3df5c619f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPRITESHEET</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -272,7 +290,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +304,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00046">46</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00047">47</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
 
 </div>
 </div>

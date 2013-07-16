@@ -25,8 +25,8 @@ var group___core_graphics =
       [ "m_internal", "classzen_1_1gfxcore_1_1_c_drawable.html#a4a873380d505b6ec978a1c6c09034a16", null ]
     ] ],
     [ "CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html", [
-      [ "CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a47a6626c01ac7766f2dee9381e9b4807", null ],
-      [ "~CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ab822221cc0055cad2dc9abab7b34a023", null ],
+      [ "CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a37093221910736e45e122a040844993a", null ],
+      [ "~CGLSubsystem", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a11c81e5aaeb17eab79db78dcbeeee611", null ],
       [ "Init", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a432fea1dd5947e6f254dcd3570a349e8", null ],
       [ "Destroy", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a77f0ea66633645e772c8ca12ec6e8872", null ],
       [ "Bind", "classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#afa3147d5c699f63867f8158cd7108c6d", null ],

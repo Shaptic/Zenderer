@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -166,14 +166,16 @@ $(document).ready(function(){initNavTree('_font_core_8hpp_source.html','');});
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html">   92</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="namespacezen_1_1gui.html#structzen_1_1gui_1_1glyph__t" title="A glyph structure used internally by the font API.">glyph_t</a></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e">   94</a></span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* <a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e">texture</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#ad9ca0b43d914c33a5081a3dba45d4e31">   95</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions.">math::rect_t</a> <a class="code" href="namespacezen_1_1gui.html#ad9ca0b43d914c33a5081a3dba45d4e31">dim</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // ZENDERER__GUI__FONT_CORE_HPP</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e">   94</a></span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>*  <a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e" title="Raw bitmap.">texture</a>;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9">   95</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a>   <a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>;       </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">   96</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a>   <a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30" title="Position on baseline to render.">position</a>;   </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c">   97</a></span>&#160;        uint16_t            <a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;    </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    };</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif // ZENDERER__GUI__FONT_CORE_HPP</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -16,5 +16,7 @@ var classzen_1_1gfx_1_1_c_window =
     [ "GetWidth", "classzen_1_1gfx_1_1_c_window.html#a8852633544730f480dad49ad4b53dbf6", null ],
     [ "GetHeight", "classzen_1_1gfx_1_1_c_window.html#ae3b4451816d29a80829d70a87fad62b5", null ],
     [ "GetWindow", "classzen_1_1gfx_1_1_c_window.html#a7574da6790394665fb63d5be9058543b", null ],
+    [ "GetMousePosition", "classzen_1_1gfx_1_1_c_window.html#ad1976ef7e312c2df8694759f9a421fb3", null ],
+    [ "GetMouseState", "classzen_1_1gfx_1_1_c_window.html#ab9ed5973af4d2224a482eae56ebad084", null ],
     [ "ToggleVSYNC", "classzen_1_1gfx_1_1_c_window.html#a63143db627c180d561c2162019c741d7", null ]
 ];

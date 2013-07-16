@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6060 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3bce830d3b63cc3f759960f1495e1dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the matrix's elements at that row.  <a href="#a3bce830d3b63cc3f759960f1495e1dc6">More...</a><br/></td></tr>
 <tr class="separator:a3bce830d3b63cc3f759960f1495e1dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb99ea477f2389ad5244bcf826a7443a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a">operator*</a> (<a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;Other) const </td></tr>
-<tr class="memdesc:adb99ea477f2389ad5244bcf826a7443a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiple two matrices together.  <a href="#adb99ea477f2389ad5244bcf826a7443a">More...</a><br/></td></tr>
+<tr class="memdesc:adb99ea477f2389ad5244bcf826a7443a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply two matrices together.  <a href="#adb99ea477f2389ad5244bcf826a7443a">More...</a><br/></td></tr>
 <tr class="separator:adb99ea477f2389ad5244bcf826a7443a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08a41a4a908e13a44872da95b3421fdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf">Translate</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;<a class="el" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>)</td></tr>
 <tr class="memdesc:a08a41a4a908e13a44872da95b3421fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the matrix by a vector.  <a href="#a08a41a4a908e13a44872da95b3421fdf">More...</a><br/></td></tr>
@@ -147,6 +147,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4ea7a579fa5b9f8ef1481c11f8c1d115"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">Shear</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;Angles)</td></tr>
 <tr class="memdesc:a4ea7a579fa5b9f8ef1481c11f8c1d115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stretches the matrix by degree-angles in different directions.  <a href="#a4ea7a579fa5b9f8ef1481c11f8c1d115">More...</a><br/></td></tr>
 <tr class="separator:a4ea7a579fa5b9f8ef1481c11f8c1d115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e0b0fba8259a7cb5e54335156934fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a09e0b0fba8259a7cb5e54335156934fa">Scale</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;Factors)</td></tr>
+<tr class="memdesc:a09e0b0fba8259a7cb5e54335156934fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales the matrix by some scalar values.  <a href="#a09e0b0fba8259a7cb5e54335156934fa">More...</a><br/></td></tr>
+<tr class="separator:a09e0b0fba8259a7cb5e54335156934fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e9db10ba5caefb1aad654cdad7c7118"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a5e9db10ba5caefb1aad654cdad7c7118">RotationZ</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> degrees)</td></tr>
+<tr class="memdesc:a5e9db10ba5caefb1aad654cdad7c7118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a 2D rotation about an angle.  <a href="#a5e9db10ba5caefb1aad654cdad7c7118">More...</a><br/></td></tr>
+<tr class="separator:a5e9db10ba5caefb1aad654cdad7c7118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1dd9cf831ffbce5ed2047172b88fca8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#ad1dd9cf831ffbce5ed2047172b88fca8">RotationX</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> degrees)</td></tr>
+<tr class="memdesc:ad1dd9cf831ffbce5ed2047172b88fca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like RotationZ, but about the X-axis.  <a href="#ad1dd9cf831ffbce5ed2047172b88fca8">More...</a><br/></td></tr>
+<tr class="separator:ad1dd9cf831ffbce5ed2047172b88fca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e3e5742506498e6fccd736341f9296"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#ab3e3e5742506498e6fccd736341f9296">RotationY</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> degrees)</td></tr>
+<tr class="memdesc:ab3e3e5742506498e6fccd736341f9296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like RotationZ, but about the Y-axis.  <a href="#ab3e3e5742506498e6fccd736341f9296">More...</a><br/></td></tr>
+<tr class="separator:ab3e3e5742506498e6fccd736341f9296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082d67aac74477832c4c9165c2a62b3d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d">GetPointer</a> () const </td></tr>
 <tr class="separator:a082d67aac74477832c4c9165c2a62b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -330,7 +342,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_a08a41a4a908e13a44872da95b3421fdf_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_a08a41a4a908e13a44872da95b3421fdf_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_a08a41a4a908e13a44872da95b3421fdf_icgraph" id="classzen_1_1math_1_1matrix4x4__t_a08a41a4a908e13a44872da95b3421fdf_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="200,5,371,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="260,56,311,83"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="200,12,371,39"/></map>
 </div>
 </p>
 
@@ -403,18 +415,136 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Only 2D shears are supported (X and Y directions). </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Add 3D shearing. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>Add 3D shearing. </dd></dl>
 
 <p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00091">91</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_a4ea7a579fa5b9f8ef1481c11f8c1d115_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_a4ea7a579fa5b9f8ef1481c11f8c1d115_icgraph" alt=""/></div>
-<map name="classzen_1_1math_1_1matrix4x4__t_a4ea7a579fa5b9f8ef1481c11f8c1d115_icgraph" id="classzen_1_1math_1_1matrix4x4__t_a4ea7a579fa5b9f8ef1481c11f8c1d115_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="200,12,251,39"/></map>
 </div>
-</p>
+</div>
+<a class="anchor" id="a09e0b0fba8259a7cb5e54335156934fa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::math::matrix4x4_t::Scale </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>Factors</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If a matrix with a scaling factor of (1, 2, 0) is applied to a (2, 3, 5) vector, for example, the resulting vector would be (2, 6, 0). Scaling is a 1 to 1 ratio by default.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Factors</td><td>Scaling values in x, y, z direction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00109">109</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e9db10ba5caefb1aad654cdad7c7118"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::math::matrix4x4_t::RotationZ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
+          <td class="paramname"><em>degrees</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>There is no support for rotation in all directions in 3D space, but since <em>Zenderer</em> is (so far) exclusively a 2D engine, this isn't necessary. Rotation in 2D can be considered as rotation about the z-axis in 3D space, since the z-axis pops out toward/away from the screen, taking this axis and turning it would simply be turning the screen.</p>
+<p>To combine rotations together, simply multiply their matrices together. Like so: </p>
+<div class="fragment"><div class="line"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t</a> <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a> = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>();</div>
+<div class="line"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t</a> <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a> = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>();</div>
+<div class="line"></div>
+<div class="line">A.RotationZ(45.0);</div>
+<div class="line">B.RotationX(60.0);</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">matrix4x4_t</a> <a class="code" href="_keyboard_8hpp.html#aaa53ca0b650dfd85c4f59fa156f7a2cc">C</a> = A * <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>;</div>
+</div><!-- fragment --><p>Now matrix <code>C</code> contains the necessary transformation to go 60 degrees about the x-axis, and then 45 degrees about the z-axis.</p>
+<dl class="section note"><dt>Note</dt><dd>Only rotations on the 2D xy-plane are supported; this is rotation about the Z axis.</dd>
+<dd>
+Multiplying matrix transformations performs the operations in the reverse order in which they are multiplied.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8" title="Rotates the current vector using the rotation matrix.">zen::math::Vector::Rotate</a> </dd>
+<dd>
+<a href="http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf">http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00149">149</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1dd9cf831ffbce5ed2047172b88fca8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::math::matrix4x4_t::RotationX </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
+          <td class="paramname"><em>degrees</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00162">162</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3e3e5742506498e6fccd736341f9296"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::math::matrix4x4_t::RotationY </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
+          <td class="paramname"><em>degrees</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00175">175</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -439,7 +569,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00100">100</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00187">187</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -506,14 +636,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The requested projection matrix. </dd></dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00113">113</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00200">200</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph" id="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="zen::gfx::CRenderTarget\l::Init" alt="" coords="200,23,363,65"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="465,5,516,32"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="411,56,571,83"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="zen::gfx::CRenderTarget\l::Init" alt="" coords="200,63,363,105"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="420,5,561,46"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="619,96,669,123"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="411,121,571,148"/></map>
 </div>
 </p>
 
@@ -547,7 +677,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph" id="classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd" title="zen::math::matrix4x4\l_t::GetIdentityMatrix" alt="" coords="211,23,357,65"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="405,5,576,32"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="465,56,516,83"/></map>
+<area shape="rect" id="node2" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd" title="zen::math::matrix4x4\l_t::GetIdentityMatrix" alt="" coords="211,23,357,65"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="424,5,595,32"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures." alt="" coords="406,56,613,83"/><area shape="rect" id="node5" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="661,56,712,83"/></map>
 </div>
 </p>
 
@@ -581,7 +711,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph" id="classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="200,5,371,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="260,56,311,83"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="219,5,389,32"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures." alt="" coords="201,56,407,83"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="456,56,507,83"/></map>
 </div>
 </p>
 

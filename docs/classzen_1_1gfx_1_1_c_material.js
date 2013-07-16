@@ -6,7 +6,7 @@ var classzen_1_1gfx_1_1_c_material =
     [ "operator=", "classzen_1_1gfx_1_1_c_material.html#a7574545f4df74b06d8a2edd21034295d", null ],
     [ "LoadFromFile", "classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1", null ],
     [ "LoadFromStream", "classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43", null ],
-    [ "LoadTexture", "classzen_1_1gfx_1_1_c_material.html#a7f30f5a87389e53f536b3e8ffd0a2e59", null ],
+    [ "LoadTexture", "classzen_1_1gfx_1_1_c_material.html#a73e57ac33fcd48a19a270ef1283ed458", null ],
     [ "LoadTextureFromFile", "classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06", null ],
     [ "LoadTextureFromHandle", "classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a", null ],
     [ "LoadEffect", "classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6", null ],

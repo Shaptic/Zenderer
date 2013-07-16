@@ -1,9 +1,10 @@
 var searchData=
 [
+  ['scale',['Scale',['../classzen_1_1math_1_1matrix4x4__t.html#a09e0b0fba8259a7cb5e54335156934fa',1,'zen::math::matrix4x4_t']]],
   ['setattenuation',['SetAttenuation',['../classzen_1_1gfx_1_1_c_light.html#a1fb0fca148f12193b681fbeca3e8ea27',1,'zen::gfx::CLight::SetAttenuation(const real_t c, const real_t l, const real_t q)'],['../classzen_1_1gfx_1_1_c_light.html#a94ac3bba22924c6b0417466007b3ff3d',1,'zen::gfx::CLight::SetAttenuation(const math::vector_t &amp;Att)']]],
   ['setbrightness',['SetBrightness',['../classzen_1_1gfx_1_1_c_light.html#a24bfab8d3bcea9b7505907f35ba58164',1,'zen::gfx::CLight']]],
   ['setclearbits',['SetClearBits',['../classzen_1_1gfx_1_1_c_window.html#ac142af8c14b730f077e35445934ff0be',1,'zen::gfx::CWindow']]],
-  ['setcolor',['SetColor',['../classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7',1,'zen::gfxcore::CDrawable::SetColor()'],['../classzen_1_1gfx_1_1_c_light.html#acd7fedd4318f0181319fa0a554de9462',1,'zen::gfx::CLight::SetColor(const real_t r, const real_t g, const real_t b)'],['../classzen_1_1gfx_1_1_c_light.html#a9829f650d6b5e7c498ad386587d7c2de',1,'zen::gfx::CLight::SetColor(const color3f_t &amp;Color)']]],
+  ['setcolor',['SetColor',['../classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7',1,'zen::gfxcore::CDrawable::SetColor()'],['../classzen_1_1gfx_1_1_c_light.html#acd7fedd4318f0181319fa0a554de9462',1,'zen::gfx::CLight::SetColor(const real_t r, const real_t g, const real_t b)'],['../classzen_1_1gfx_1_1_c_light.html#a9829f650d6b5e7c498ad386587d7c2de',1,'zen::gfx::CLight::SetColor(const color3f_t &amp;Color)'],['../classzen_1_1gui_1_1_c_font.html#a3bf76a0c4cff9f878a422f9336b65d04',1,'zen::gui::CFont::SetColor()'],['../classzen_1_1gui_1_1_c_font_atlas.html#a2002aee613a3edc0014ebbe7fdc5bc42',1,'zen::gui::CFontAtlas::SetColor()']]],
   ['setfilename',['SetFilename',['../classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30',1,'zen::asset::CAsset::SetFilename()'],['../classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d',1,'zen::util::CLog::SetFilename()']]],
   ['setframerate',['SetFrameRate',['../classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b',1,'zen::util::CTimer']]],
   ['setinverted',['SetInverted',['../classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408',1,'zen::gfx::CQuad']]],
@@ -15,6 +16,7 @@ var searchData=
   ['setparameter',['SetParameter',['../classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const real_t *pValues, const size_t count=1)'],['../classzen_1_1gfx_1_1_c_effect.html#a5e6477b503b4d9b67e4786120fa453e4',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const int *pValues, const size_t count=1)'],['../classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452',1,'zen::gfx::CEffect::SetParameter(const string_t &amp;name, const math::matrix4x4_t &amp;Matrix)']]],
   ['setposition',['SetPosition',['../classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4',1,'zen::gfx::CLight::SetPosition(const real_t x, const real_t y)'],['../classzen_1_1gfx_1_1_c_light.html#a5128a50da4d0be3710a65a555316269f',1,'zen::gfx::CLight::SetPosition(const math::vector_t &amp;Pos)']]],
   ['setrepeating',['SetRepeating',['../classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333',1,'zen::gfx::CQuad']]],
+  ['setsize',['SetSize',['../classzen_1_1gui_1_1_c_font.html#a28a9a49d3ab9feb6595cd6e4a8468f26',1,'zen::gui::CFont']]],
   ['setsystem',['SetSystem',['../classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7',1,'zen::util::CLog']]],
   ['settype',['SetType',['../classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78',1,'zen::gfx::CEffect']]],
   ['shear',['Shear',['../classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115',1,'zen::math::matrix4x4_t']]],
