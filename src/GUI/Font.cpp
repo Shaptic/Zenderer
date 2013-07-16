@@ -7,7 +7,8 @@ using util::LogMode;
 using gui::CFont;
 
 CFont::CFont(const void* const owner) :
-    CAsset(owner), mp_Assets(nullptr), m_Color(0.0, 0.0, 0.0, 1.0),
+    CAsset(owner), mp_Assets(nullptr), m_FontFx(nullptr),
+    m_Color(0.0, 0.0, 0.0, 1.0),
     m_size(18), m_height(0) {}
 
 CFont::~CFont()
@@ -17,12 +18,24 @@ CFont::~CFont()
 
 bool CFont::LoadFromFile(const string_t& filename)
 {
+    ZEN_ASSERTM(mp_Assets != nullptr, "Asset manager MUST be attached!");
+    if(m_FontFx == nullptr)
+    {
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << "Internal font rendering effect not loaded. "
+                << "Check the log for error details." << CLog::endl;
+
+        return (m_loaded = false);
+    }
+
+    // Logging.
+    m_Log.SetSystem("FreeType");
+
     const gui::CFontLibrary& Lib = gui::CFontLibrary::InitFreetype();
 
     if(!Lib.IsInit())
     {
-        m_Log   << m_Log.SetSystem("FreeType")
-                << m_Log.SetMode(LogMode::ZEN_FATAL)
+        m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
                 << "FreeType2 API is not initialized." << CLog::endl;
         return (m_loaded = false);
     }
@@ -31,10 +44,12 @@ bool CFont::LoadFromFile(const string_t& filename)
 
     // Create a new font face.
     if(FT_New_Face(Lib.GetLibrary(), filename.c_str(), 0, &m_FontFace) != 0)
-        return (m_loaded = false);
+    {
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << "Failed to load '" << filename << "'." << CLog::endl;
 
-    // Logging.
-    m_Log.SetSystem("FreeType");
+        return (m_loaded = false);
+    }
 
     // Set the font face size.
     // Since the function expects a size in 1/64 pixels, we multiply
@@ -48,7 +63,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     }
     
     // Set universal line height.
-    m_height = m_FontFace->height;
+    m_height = (m_FontFace->ascender + m_FontFace->descender) >> 6;
 
     // Loads all printable ASCII characters.
     uint32_t space = FT_Get_Char_Index(m_FontFace, ' ');
@@ -84,7 +99,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
 
-    if(text.empty() || !m_loaded) return false;
+    if(text.empty() || !m_loaded || m_FontFx == nullptr) return false;
 
     // Fresh start.
     Ent.Destroy();
@@ -99,15 +114,25 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     gfxcore::index_t*  inds  = new gfxcore::index_t [ilen];
 
     math::vectoru16_t totals;
+    uint16_t tmp_tx = 0;
 
-    // Rendering position. By default, we use the line height, because the any 
+    // Rendering position. By default, we use the text height, because the any 
     // line of the given text will at the very most be as tall as a line. But,
-    // it may be true that there are no full line-height characters, so if there
-    // are none then we just start at the lowest one.
-    math::vector_t Pos(
-        0.0, 
-        math::min<uint16_t>(m_height, this->GetTextHeight(text))
-    );
+    // there is the possibility of characters dropping off the bottom of the 
+    // base-line.
+    math::vectoru16_t Pos;
+
+    uint16_t line = 0;
+    auto a = text.begin(),
+         b = text.end();
+    for( ; a != b; ++a)
+    {
+        if(*a == '\n') ++line;
+        const auto it = m_glyphData.find(*a);
+        if(it == m_glyphData.end()) continue;
+        Pos.y = math::max<uint16_t>(Pos.y,
+            it->second.size.y - it->second.position.y);
+    }
 
     // Fill up the buffers.
     for(size_t i = 0; i < vlen; i += 4)
@@ -119,8 +144,10 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // property (universal on all glyphs).
         if(c == '\n')
         {
-            Pos.x  = 0.0;
-            Pos.y += m_height;
+            Pos.x  = 0; Pos.y += m_height;
+            totals.x = math::max(tmp_tx, totals.x);
+            tmp_tx = 0;
+            --line;
             continue;
         }
 
@@ -130,19 +157,28 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // Shortcut to glyph data.
         const glyph_t& gl = m_glyphData[letter];
 
+        if(letter == ' ')
+        {
+            // Increment position for the next glyph.
+            tmp_tx  += gl.advance;
+            Pos.x   += gl.advance;
+            continue;
+        }
+
         /*
          * [i]      : top left
          * [i + 1]  : top right
          * [i + 2]  : bottom right
          * [i + 3]  : bottom left
          */
-        verts[i].position   = math::vector_t(Pos.x,             m_height - gl.position.x);
-        verts[i+1].position = math::vector_t(Pos.x + gl.size.x, m_height - gl.position.x);
-        verts[i+2].position = math::vector_t(Pos.x + gl.size.x, m_height);
-        verts[i+3].position = math::vector_t(Pos.x,             m_height);
+        uint16_t start_y    = Pos.y + gl.position.y;
+        verts[i].position   = math::vector_t(Pos.x,             start_y - gl.size.y);
+        verts[i+1].position = math::vector_t(Pos.x + gl.size.x, start_y - gl.size.y);
+        verts[i+2].position = math::vector_t(Pos.x + gl.size.x, start_y);
+        verts[i+3].position = math::vector_t(Pos.x,             start_y);
 
         // Load up the bitmap texture coordinates moving
-        // counter-clockwise from the origin.
+        // counter-clockwise from the top-left.
         verts[i].tc     = math::vector_t(0, 1);
         verts[i+1].tc   = math::vector_t(1, 1);
         verts[i+2].tc   = math::vector_t(1, 0);
@@ -165,12 +201,14 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         inds[x+5] = i + 1;
 
         // Track total dimensions.
-        totals.x += math::max<uint16_t>(gl.size.x, gl.advance);
-        totals.y  = math::max<uint16_t>(totals.y, gl.size.y);
+        tmp_tx   += math::max(gl.size.x, gl.advance);
+        totals.y  = math::max<uint16_t>(totals.y, m_height * line + gl.size.y);
 
         // Increment position for the next glyph.
         Pos.x += gl.advance;
     }
+
+    totals.x = math::max(tmp_tx, totals.x);
 
     // Render all of the loaded data onto a texture,
     // then assign that texture to the entity.
@@ -200,14 +238,13 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
                             gfxcore::BlendFunc::IS_ENABLED);
     
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
-    gfxcore::CRenderer::GetDefaultEffect().Enable();
-    gfxcore::CRenderer::GetDefaultEffect().SetParameter("proj",
-               gfxcore::CRenderer::GetProjectionMatrix());
+    m_FontFx->Enable();
+    m_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
         // Render each character (skip if unrenderable).
-        if(text[i] > '~' || text[i] < ' ') continue;
+        if(text[i] > '~' || text[i] <= ' ') continue;
 
         m_glyphData[text[i]].texture->Bind();
         GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
@@ -215,8 +252,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     }
 
     FBO.Unbind();
-    gfxcore::CRenderer::GetDefaultEffect().SetParameter("proj",
-               gfxcore::CRenderer::GetProjectionMatrix());
     gfxcore::CRenderer::ResetMaterialState();
     
     // Only disable blending if it wasn't enabled prior to calling
@@ -232,6 +267,9 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromExisting(FBO.GetTexture());
 
+    gfxcore::CTexture* pFinal =
+        mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
+
     // Retrieve the raw data.
     const unsigned char* data =
         reinterpret_cast<const unsigned char*>(pTexture->GetData());
@@ -239,11 +277,10 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     // Load the texture wrapper with raw data, because the FBO will go out
     // of scope soon, thus destroying the texture handle, but the data needs
     // to be preserved.
-    pTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
+    pFinal->LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
 
     gfx::CMaterial M(*mp_Assets);
-    if(!M.LoadEffect(gfx::EffectType::GRAYSCALE) ||
-       !M.LoadTexture(*pTexture))
+    if(!M.LoadTexture(*pFinal))
     {
         delete[] data;
         delete[] verts;
@@ -261,6 +298,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     Ent.AddPrimitive(Q);
 
     mp_Assets->Delete(pTexture);
+    mp_Assets->Delete(pFinal);
 
     delete[] data;
     delete[] verts;
@@ -327,21 +365,35 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     // Store the glyph internally.
     glyph_t glyph;
     glyph.texture   = pTexture;
-    glyph.size      = math::vector_t(w, h);
-    glyph.position  = math::Vector<int32_t>(slot->metrics.horiBearingY >> 6,
-                                            slot->metrics.horiBearingX >> 6);
+    glyph.size      = math::Vector<uint32_t>(w, h);
+    glyph.position  = math::Vector<int32_t>(slot->metrics.horiBearingX >> 6,
+                                            slot->metrics.horiBearingY >> 6);
     glyph.advance   = slot->advance.x >> 6;
     m_glyphData[c]  = glyph;
-    
+
     // Clean up TTF data.
     FT_Done_Glyph(g);
     
     return true;
 }
 
-void CFont::AttachManager(asset::CAssetManager& Assets)
+bool CFont::AttachManager(asset::CAssetManager& Assets)
 {
     mp_Assets = &Assets;
+    delete m_FontFx;
+    m_FontFx = new gfx::CEffect(gfx::EffectType::SPRITESHEET, Assets);
+    if(!m_FontFx->Init())
+    {
+        delete m_FontFx;
+        m_FontFx = nullptr;
+        return false;
+    }
+
+    m_FontFx->Enable();
+    m_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
+    m_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+    m_FontFx->Disable();
+    return true;
 }
 
 void CFont::SetColor(const color4f_t& Color)
@@ -382,12 +434,25 @@ uint16_t CFont::GetTextHeight(const string_t& text) const
     if(text.empty()) return 0;
 
     uint16_t lines = 1;
-    
+    uint16_t h = 0, tmp_h = 0;
+
     auto i = text.begin(),
          j = text.end();
-         
+
     for( ; i != j; ++i)
-        if((*i) == '\n') ++lines;
-        
-    return lines * m_height;
+    {
+        if((*i) == '\n')
+        {
+            h = math::max(h, tmp_h);
+            tmp_h = 0;
+        }
+        else
+        {
+            const auto g = m_glyphData.find(*i);
+            tmp_h = math::max<uint16_t>(
+                g->second.size.y + g->second.position.y, tmp_h);
+        }
+    }
+
+    return math::max(h, tmp_h);
 }

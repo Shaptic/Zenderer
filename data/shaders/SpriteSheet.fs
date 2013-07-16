@@ -10,6 +10,7 @@ uniform vec2    offset;
 
 void main()
 {
-    out_color = texture2D(texture, fs_texc + normalize(offset));
+    out_color = texture2D(texture, fs_texc).rrrr * fs_color;
+    //+ normalize(offset));
 }
 

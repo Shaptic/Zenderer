@@ -104,10 +104,11 @@ using gfxcore::CRenderer;
     obj::CEntity Ent(Manager);
     gui::CFont* Font = Manager.Create<gui::CFont>();
     Font->AttachManager(Manager);
-    Font->SetSize(36);
-    Font->SetColor(color4f_t());
-    Font->LoadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
-    Font->Render(Ent, "Wassup");
+    Font->SetSize(18);
+    Font->SetColor(color4f_t(1.0, 1.0, 0.0));
+    Font->LoadFromFile("C:\\Windows\\Fonts\\segoeuib.ttf");
+    Font->Render(Ent, "Zenderer!");
+    Ent.Move(100, 69);
 
     while(Window.IsOpen())
     {

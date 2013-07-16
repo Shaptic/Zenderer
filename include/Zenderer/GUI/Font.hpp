@@ -112,6 +112,11 @@ namespace gui
          *  it will be rendered. The parameter takes precedence over
          *  the stream, so if they both exist, the parameter is used.
          *
+         *  As of this writing, there is a bug in multi-line text rendering
+         *  which causes the lines to be rendered in reverse order. Meaning if
+         *  given, say, "Hello,\nZenderer", the line "Zenderer" will appear
+         *  above "Hello," instead of vice-versa.
+         *
          * @param   Ent     The entity to store render data in
          * @param   text    The string to render (optional)
          *
@@ -122,6 +127,7 @@ namespace gui
          * @post    `Ent` contains a renderable string using this font.
          *
          * @warning Any existing data in the entity is deleted.
+         * @bug     Multi-line text is rendered in reverse order.
          **/
         bool Render(obj::CEntity& Ent, const string_t text = "");
 
@@ -142,12 +148,18 @@ namespace gui
          *
          * @param   Assets  The asset manager to attach.
          *
+         * @return  `true`  if the internal font rendering effect loaded 
+         *          successfully, `false` otherwise.
+         *
          * @pre     The given manager must be initialized.
          **/
-        void AttachManager(asset::CAssetManager& Assets);
+        bool AttachManager(asset::CAssetManager& Assets);
 
         /// Sets the font color.
         void SetColor(const color4f_t& Color);
+
+        /// Sets the font size.
+        void SetSize(const uint16_t size) { m_size = size; }
 
         uint16_t GetTextWidth(const string_t&  text) const;
         uint16_t GetTextHeight(const string_t& text) const;
@@ -159,7 +171,14 @@ namespace gui
         bool Destroy();
         bool LoadGlyph(const char c, const uint16_t index);
 
+        /// @todo Write this.
+        void RenderLine(const string_t& line,
+                        const math::vectoru16_t& start,
+                        gfxcore::vertex_t* verts,
+                        gfxcore::index_t* inds);
+
         asset::CAssetManager* mp_Assets;
+        gfx::CEffect* m_FontFx;
         color4f_t m_Color;
         FT_Face m_FontFace;
 
