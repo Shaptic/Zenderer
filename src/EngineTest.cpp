@@ -22,7 +22,7 @@ using gfxcore::CRenderer;
     Window.Init();
 
     sfx::CSound2D* Sound =
-        Manager.Create<sfx::CSound2D>(string_t("Crackle.wav"));
+        Manager.Create<sfx::CSound2D>("Crackle.wav");
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
@@ -57,7 +57,8 @@ using gfxcore::CRenderer;
     Default.SetInverted(true);
     Default.SetRepeating(true);
     Default.AttachMaterial(Grass);
-    Default.Resize(15 * Grass.GetTexture().GetWidth(), Grass.GetTexture().GetHeight());
+    Default.Resize(15 * Grass.GetTexture().GetWidth(),
+                   Grass.GetTexture().GetHeight());
     Default.Create();
     Default.LoadIntoVAO(Gr);
 
@@ -103,7 +104,9 @@ using gfxcore::CRenderer;
     obj::CEntity Ent(Manager);
     gui::CFont* Font = Manager.Create<gui::CFont>();
     Font->AttachManager(Manager);
-    Font->LoadFromFile(string_t("C:\\Windows\\Fonts\\Arial.ttf"));
+    Font->SetSize(36);
+    Font->SetColor(color4f_t());
+    Font->LoadFromFile("C:\\Windows\\Fonts\\Arial.ttf");
     Font->Render(Ent, "Wassup");
 
     while(Window.IsOpen())

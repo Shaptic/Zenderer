@@ -159,7 +159,7 @@ bool CTexture::Destroy()
     if(m_loaded)
     {
         glDeleteTextures(1, &m_texture);
-        m_width = m_height = 0;
+        m_width = m_height = m_texture = 0;
     }
 
     return !(m_loaded = false);

@@ -37,7 +37,7 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
 template<typename T>
 T* CAssetManager::Create(const char* const filename, const void* const owner)
 {
-    return this->Create<T>(string_t(filename, owner));
+    return this->Create<T>(string_t(filename), owner);
 }
 
 template<typename T>
