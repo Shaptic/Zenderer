@@ -171,6 +171,8 @@ namespace gfxcore
         bool DestroyFS();
         bool DestroyVS();
         
+        static std::map<CShaderSet*, GLuint> s_shaderPrograms;
+        
         inline void ShowLoadError(
             const string_t& filename, const string_t& shader) const
         {

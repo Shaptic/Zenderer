@@ -6,6 +6,8 @@ using util::CLog;
 using util::LogMode;
 using gfxcore::CShaderSet;
 
+std::map<CShaderSet*, GLuint> CShaderSet::s_shaderPrograms;
+
 CShaderSet::CShaderSet(asset::CAssetManager& Assets) :
     m_AssetManager(Assets), m_Log(CLog::GetEngineLog()),
     mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
@@ -80,6 +82,20 @@ bool CShaderSet::CreateShaderObject()
 
         return false;
     }
+    
+    // Test for existing shader program.
+    auto i = s_shaderPrograms.begin(), j = s_shaderPrograms.end();
+    for( ; i != j; ++i)
+    {
+        const CShaderSet& SS = *(*i);
+        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
+        {
+            m_program   = SS.m_program;
+            m_error_str = SS.m_error_str;
+            m_link_log  = SS.m_link_log;
+            return m_error_str.empty();
+        }
+    }
 
     // Create shader program and attach shaders.
     m_program = GL(glCreateProgram());
@@ -129,7 +145,8 @@ bool CShaderSet::CreateShaderObject()
         this->Destroy();
         return false;
     }
-
+    
+    s_shaderPrograms[this] = m_program;
     return true;
 }
 
