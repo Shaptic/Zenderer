@@ -47,7 +47,8 @@ namespace gfxcore
         DISABLE_BLEND,      ///< Disables blending
         ENABLE_BLEND,       ///< Just enables blending
         STANDARD_BLEND,     ///< Enables the standard blending function
-        ADDITIVE_BLEND      ///< Enables additive blending operation
+        ADDITIVE_BLEND,     ///< Enables additive blending operation
+        IS_ENABLED,         ///< Test if blending is enabled
     };
 
     /// Abstracts away API-specific rendering operations.
@@ -90,6 +91,7 @@ namespace gfxcore
         static CVertexArray         s_FullscreenQuad;
         static gfx::CMaterial*      s_DefaultMaterial;
         static math::matrix4x4_t    s_ProjMatrix;
+        static BlendFunc            s_LastBlend;
         static bool                 s_blend;
     };
 

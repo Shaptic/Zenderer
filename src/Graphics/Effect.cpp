@@ -50,7 +50,11 @@ bool CEffect::Init()
 
     else if(m_type == EffectType::GRAYSCALE)
         m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"TTFRender.fs");
+            ZENDERER_SHADER_PATH"Grayscale.fs");
+            
+    else if(m_type == EffectType::SPRITESHEET)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"SpriteSheet.fs");
 
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(

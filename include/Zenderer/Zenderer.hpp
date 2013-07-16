@@ -43,7 +43,7 @@
 // Link TTF library
 #pragma comment(lib, "freetype.lib")
 
-// For random-ness
+// For randomness
 #include <cstdlib>
 
 /// Attempt to detect OS.
@@ -73,6 +73,8 @@
 #include "Graphics/Window.hpp"
 #include "Graphics/Quad.hpp"
 #include "Graphics/Light.hpp"
+#include "Objects/Entity.hpp"
+#include "GUI/Font.hpp"
 #include "Graphics/Scene.hpp"
 
 // Assets
@@ -83,7 +85,6 @@
 #include "Audio/Music2D.hpp"
 #include "Audio/Sound2D.hpp"
 
-#include "GUI/Font.hpp"
 #include "Events/EventHandler.hpp"
 
 namespace zen

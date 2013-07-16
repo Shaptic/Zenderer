@@ -129,6 +129,8 @@ namespace gfx
  *  Each lighting type has its own special variables and parameters
  *  that can be modified and accessed. See the raw shader files to learn
  *  the specific parameter names, or the specification [here](specs.html).
+ *
+ * @todo    Investigate why the `scr_height` parameter is necessary.
  **/
 
 /** @} **/

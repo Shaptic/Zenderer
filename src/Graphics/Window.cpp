@@ -143,6 +143,18 @@ bool CWindow::IsOpen() const
     return !glfwWindowShouldClose(mp_Window);
 }
 
+math::vector_t CWindow::GetMousePosition() const
+{
+    double x, y;
+    glfwGetCursorPos(mp_Window, &x, &y);
+    return math::vector_t(x, y);
+}
+
+bool CWindow::GetMouseState(const evt::MouseButton& Btn) const 
+{
+    return glfwGetMouseButton(mp_Window, static_cast<int>(Btn)) == GLFW_PRESS;
+}
+
 bool CWindow::ToggleVSYNC()
 {
     static bool on = true;

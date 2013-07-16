@@ -55,7 +55,7 @@ namespace math
          **/
         real_t* operator[](uint8_t index);
 
-        /// Multiple two matrices together.
+        /// Multiply two matrices together.
         matrix4x4_t operator*(matrix4x4_t& Other) const;
 
         /// Translates the matrix by a vector.
@@ -95,6 +95,93 @@ namespace math
 
             if(!compf(Angles.y, 0.0f))
                 m_values[1][0] = -std::tan(rad(Angles.y));
+        }
+        
+        /**
+         * Scales the matrix by some scalar values.
+         *  If a matrix with a scaling factor of (1, 2, 0) is applied
+         *  to a (2, 3, 5) vector, for example, the resulting 
+         *  vector would be (2, 6, 0).
+         *  Scaling is a 1 to 1 ratio by default.
+         *
+         * @param   Factors     Scaling values in x, y, z direction.
+         **/
+        inline void Scale(const math::vector_t& Factors)
+        {
+            m_values[0][0] *= Factors.x;
+            m_values[1][1] *= Factors.y;
+            m_values[2][2] *= Factors.z;
+        }
+        
+        /**
+         * Performs a 2D rotation about an angle.
+         *  There is no support for rotation in all directions in 3D
+         *  space, but since @a Zenderer is (so far) exclusively a 2D
+         *  engine, this isn't necessary. Rotation in 2D can be considered
+         *  as rotation about the z-axis in 3D space, since the z-axis pops
+         *  out toward/away from the screen, taking this axis and turning it
+         *  would simply be turning the screen.
+         *
+         *  To combine rotations together, simply multiply their matrices
+         *  together. Like so:
+         *  @code
+         *  matrix4x4_t A = matrix4x4_t::CreateIdentityMatrix();
+         *  matrix4x4_t B = matrix4x4_t::CreateIdentityMatrix();
+         *
+         *  A.RotationZ(45.0);
+         *  B.RotationX(60.0);
+         *
+         *  matrix4x4_t C = A * B;
+         *  @endcode
+         *
+         *  Now matrix `C` contains the necessary transformation to go 60
+         *  degrees about the x-axis, and then 45 degrees about the z-axis.
+         *
+         * @note    Only rotations on the 2D xy-plane are supported;
+         *          this is rotation about the Z axis.
+         *
+         * @note    Multiplying matrix transformations performs the operations
+         *          in the reverse order in which they are multiplied.
+         *
+         * @see     zen::math::Vector::Rotate
+         * @see     http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf
+         **/
+        inline void RotationZ(const real_t degrees)
+        {
+            real_t r = rad(degrees);
+            real_t c = std::cos(r);
+            real_t s = std::sin(r);
+            
+            m_values[0][0] =  c;
+            m_values[0][1] = -s;
+            m_values[1][0] =  s;
+            m_values[1][1] =  c;
+        }
+        
+        /// Like RotationZ, but about the X-axis.
+        inline void RotationX(const real_t degrees)
+        {
+            real_t r = rad(degrees);
+            real_t c = std::cos(r);
+            real_t s = std::sin(r);
+            
+            m_values[1][1] =  c;
+            m_values[1][2] = -s;
+            m_values[2][1] =  s;
+            m_values[2][2] =  c;
+        }
+        
+        /// Like RotationZ, but about the Y-axis.
+        inline void RotationY(const real_t degrees)
+        {
+            real_t r = rad(degrees);
+            real_t c = std::cos(r);
+            real_t s = std::sin(r);
+            
+            m_values[0][0] =  c;
+            m_values[0][2] =  s;
+            m_values[2][1] = -s;
+            m_values[2][2] =  c;
         }
 
         inline const real_t* GetPointer() const

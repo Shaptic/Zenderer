@@ -42,7 +42,7 @@ bool CShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
 
 bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 {
-    //this->Destroy();
+    this->DestroyVS();
 
     mp_VShader = m_AssetManager.Create<CShader>(filename);
     if(mp_VShader == nullptr)
@@ -56,7 +56,7 @@ bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 
 bool CShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
 {
-    //this->Destroy();
+    this->DestroyFS();
 
     mp_FShader = m_AssetManager.Create<CShader>(filename);
     if(mp_FShader == nullptr)
@@ -200,17 +200,8 @@ const string_t& CShaderSet::GetLinkerLog() const
 
 bool CShaderSet::Destroy()
 {
-    if(mp_FShader != nullptr)
-    {
-        m_AssetManager.Delete(mp_FShader);
-        mp_FShader = nullptr;
-    }
-
-    if(mp_VShader != nullptr)
-    {
-        m_AssetManager.Delete(mp_VShader);
-        mp_VShader = nullptr;
-    }
+    this->DestroyFS();
+    this->DestroyVS();
 
     if(m_program > 0)
     {
@@ -220,4 +211,22 @@ bool CShaderSet::Destroy()
 
     m_error_str = "";
     return true;
+}
+
+bool CShaderSet::DestroyFS()
+{
+    if(mp_FShader != nullptr)
+    {
+        m_AssetManager.Delete(mp_FShader);
+        mp_FShader = nullptr;
+    }
+}
+
+bool CShaderSet::DestroyVS()
+{
+    if(mp_VShader != nullptr)
+    {
+        m_AssetManager.Delete(mp_VShader);
+        mp_VShader = nullptr;
+    }
 }

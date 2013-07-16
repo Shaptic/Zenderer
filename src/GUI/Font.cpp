@@ -7,7 +7,8 @@ using util::LogMode;
 using gui::CFont;
 
 CFont::CFont(const void* const owner) :
-    CAsset(owner), m_size(18), mp_Assets(nullptr) {}
+    CAsset(owner), mp_Assets(nullptr), m_Color(0.0, 0.0, 0.0, 1.0),
+    m_size(18), m_height(0) {}
 
 CFont::~CFont()
 {
@@ -22,8 +23,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     {
         m_Log   << m_Log.SetSystem("FreeType")
                 << m_Log.SetMode(LogMode::ZEN_FATAL)
-                << "FreeType2 API is not initialized."
-                << CLog::endl;
+                << "FreeType2 API is not initialized." << CLog::endl;
         return (m_loaded = false);
     }
 
@@ -46,6 +46,9 @@ bool CFont::LoadFromFile(const string_t& filename)
                 << "Failed to set font size." << CLog::endl;
         return (m_loaded = false);
     }
+    
+    // Set universal line height.
+    m_height = m_FontFace->height;
 
     // Loads all printable ASCII characters.
     uint32_t space = FT_Get_Char_Index(m_FontFace, ' ');
@@ -58,15 +61,13 @@ bool CFont::LoadFromFile(const string_t& filename)
         // otherwise.
         if(index == 0)
         {
-            m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-                    << "Character '" << s
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) << "Character '" << s
                     << "' does not exist for this font." << CLog::endl;
         }
 
         this->LoadGlyph(s, (!index) ? space : index);
     }
 
-    m_loaded = true;
     this->SetFilename(filename);
 
     // Cleanup
@@ -75,7 +76,7 @@ bool CFont::LoadFromFile(const string_t& filename)
 
 const void* const CFont::GetData() const
 {
-    return reinterpret_cast<const void* const>(&mp_glyphData);
+    return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
 bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
@@ -99,54 +100,64 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
     math::vectoru16_t totals;
 
-    // Coordinates to start rendering at.
-    int32_t last_w = 0, last_h = this->GetTextHeight(text);
+    // Rendering position. By default, we use the line height, because the any 
+    // line of the given text will at the very most be as tall as a line. But,
+    // it may be true that there are no full line-height characters, so if there
+    // are none then we just start at the lowest one.
+    math::vector_t Pos(
+        0.0, 
+        math::min<uint16_t>(m_height, this->GetTextHeight(text))
+    );
 
     // Fill up the buffers.
     for(size_t i = 0; i < vlen; i += 4)
     {
         char c = text[i >> 2];
 
-        // Just increase Y-coordinate for rendering.
-        // We use an arbitrary "large" letter that takes
-        // up an entire line to adjust properly.
+        // Handle newlines by resetting the x-coordinate and 
+        // increasing the y by the current font faces line height
+        // property (universal on all glyphs).
         if(c == '\n')
         {
-            last_w = 0;
-            last_h += mp_glyphData['H'].dim.y + mp_glyphData['H'].dim.h;
+            Pos.x  = 0.0;
+            Pos.y += m_height;
             continue;
         }
 
         // Use space (' ') as a placeholder for non-renderable chars.
         char letter = (c > '~' || c < ' ') ? ' ' : c;
 
-        // Shortcut to glyph dimensions.
-        const math::rect_t& Dim = mp_glyphData[letter].dim;
+        // Shortcut to glyph data.
+        const glyph_t& gl = m_glyphData[letter];
 
-        real_t w = last_w;  // Store current x-coordinate.
-        real_t h = Dim.y;   // Store current y-coordinate.
-        last_w  += Dim.w;   // Increment for next glyph.
+        real_t x = gl.position.x;   // Store current x-coordinate.
+        real_t h = gl.position.y;   // Store current y-coordinate.
+        Pos.x   += gl.advance;      // Increment position for the next glyph.
 
-        // [i]      : top left
-        // [i + 1]  : top right
-        // [i + 2]  : bottom right
-        // [i + 3]  : bottom left
-        verts[i].position   = math::vector_t(w,     last_h - Dim.h);
-        verts[i+1].position = math::vector_t(last_w,last_h - Dim.h);
-        verts[i+2].position = math::vector_t(last_w,last_h - Dim.h + h);
-        verts[i+3].position = math::vector_t(w,     last_h - Dim.h + h);
+        /*
+         * [i]      : top left
+         * [i + 1]  : top right
+         * [i + 2]  : bottom right
+         * [i + 3]  : bottom left
+         */
+        verts[i].position   = math::vector_t(Pos.x,             m_height - gl.position.x);
+        verts[i+1].position = math::vector_t(Pos.x + gl.size.x, m_height - gl.position.x);
+        verts[i+2].position = math::vector_t(Pos.x + gl.size.x, m_height);
+        verts[i+3].position = math::vector_t(Pos.x,             m_height);
 
         // Load up the bitmap texture coordinates moving
         // counter-clockwise from the origin.
-        verts[i].tc     = math::vector_t(0, 0);
-        verts[i+1].tc   = math::vector_t(1, 0);
-        verts[i+2].tc   = math::vector_t(1, 1);
-        verts[i+3].tc   = math::vector_t(0, 1);
+        verts[i].tc     = math::vector_t(0, 1);
+        verts[i+1].tc   = math::vector_t(1, 1);
+        verts[i+2].tc   = math::vector_t(1, 0);
+        verts[i+3].tc   = math::vector_t(0, 0);
 
         // Uniform font color.
-        for(size_t j = i; j < i + 4; ++j)
-            verts[j].color = m_Color;
+        for(size_t j = i; j < i + 4; ++j) verts[j].color = m_Color;
 
+        // Calculate index starting point. Since 6 indices / vertex,
+        // we do i / 4 (since 4 iterations per vertex) to get the
+        // vertex number, and * 6 to get to the first index for it.
         int x = (i >> 2) * 6;
 
         // Standard quad indices.
@@ -158,8 +169,8 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         inds[x+5] = i + 1;
 
         // Track total dimensions.
-        totals.x += Dim.w;
-        totals.y  = math::max<uint16_t>(totals.y, Dim.h + totals.y);
+        totals.x += math::max<uint16_t>(gl.size.w, gl.advance);
+        totals.y  = math::max<uint16_t>(totals.y, gl.size.h);
     }
 
     // Render all of the loaded data onto a texture,
@@ -186,46 +197,74 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     VAO.Bind(); FBO.Bind();
     FBO.Clear();
 
+    bool blend = gfxcore::CRenderer::BlendOperation(
+                            gfxcore::BlendFunc::IS_ENABLED);
+    
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
     gfxcore::CRenderer::GetDefaultEffect().Enable();
     gfxcore::CRenderer::GetDefaultEffect().SetParameter("proj",
-        gfxcore::CRenderer::GetProjectionMatrix());
+               gfxcore::CRenderer::GetProjectionMatrix());
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
         // Render each character (skip if unrenderable).
         if(text[i] > '~' || text[i] < ' ') continue;
 
-        mp_glyphData[text[i]].texture->Bind();
+        m_glyphData[text[i]].texture->Bind();
         GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
             (void*)(sizeof(gfxcore::index_t) * i * 6)));
     }
 
     FBO.Unbind();
     gfxcore::CRenderer::GetDefaultEffect().SetParameter("proj",
-        gfxcore::CRenderer::GetProjectionMatrix());
+               gfxcore::CRenderer::GetProjectionMatrix());
     gfxcore::CRenderer::ResetMaterialState();
-    gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::DISABLE_BLEND);
+    
+    // Only disable blending if it wasn't enabled prior to calling
+    // this method (checked above).
+    if(!blend) gfxcore::CRenderer::BlendOperation(
+                          gfxcore::BlendFunc::DISABLE_BLEND);
 
-    // Now the string has been rendered to the FBO texture,
-    // so all we need to do is create a material and attach
-    // it to the quad.
+    // Now the string has been rendered to the FBO texture, so all we need to
+    // do is create a material and attach it to the quad.
+    
+    // Create a texture wrapper from the texture handle in the FBO.
+    gfxcore::CTexture* pTexture =
+        mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
+    pTexture->LoadFromExisting(FBO.GetTexture());
+
+    // Retrieve the raw data.
+    const unsigned char* data =
+        reinterpret_cast<const unsigned char*>(pTexture->GetData());
+
+    // Load the texture wrapper with raw data, because the FBO will go out
+    // of scope soon, thus destroying the texture handle, but the data needs
+    // to be preserved.
+    pTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
+
     gfx::CMaterial M(*mp_Assets);
     if(!M.LoadEffect(gfx::EffectType::GRAYSCALE) ||
-       !M.LoadTextureFromHandle(FBO.GetTexture()))
+       !M.LoadTexture(*pTexture))
     {
+        delete[] data;
         delete[] verts;
         delete[] inds;
 
+        FBO.Destroy() && VAO.Destroy();
         return false;
     }
 
     gfx::CQuad Q(*mp_Assets, totals.x, totals.y);
     Q.AttachMaterial(M);
     Q.Create();
+    Q.SetColor(color4f_t());
 
     Ent.AddPrimitive(Q);
 
+    mp_Assets->Delete(pTexture);
+    mp_Assets->Delete(pFinal);
+
+    delete[] data;
     delete[] verts;
     delete[] inds;
 
@@ -240,15 +279,14 @@ void CFont::ClearString()
 bool CFont::Destroy()
 {
     m_size = 18;
-    for(auto i : mp_glyphData)
+    for(auto i : m_glyphData)
         mp_Assets->Delete(i.second.texture);
-    mp_glyphData.clear();
+    m_glyphData.clear();
     this->ClearString();
     return true;
 }
 
-
-bool CFont::LoadGlyph(const char c, const uint32_t index)
+bool CFont::LoadGlyph(const char c, const uint16_t index)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     FT_Glyph g;
@@ -260,7 +298,7 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
 
     // Minor shortcuts.
     FT_GlyphSlot slot = m_FontFace->glyph;
-    FT_Bitmap& bitmap  = slot->bitmap;
+    FT_Bitmap& bitmap = slot->bitmap;
 
     // Shortcut to dimensions.
     uint32_t w = bitmap.width;
@@ -278,7 +316,7 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
     // Store for restoring later.
     GLint pack;
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
-    GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1))
+    GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 
     gfxcore::CTexture* pTexture = mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
@@ -288,17 +326,18 @@ bool CFont::LoadGlyph(const char c, const uint32_t index)
 
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
 
-    // Clean up TTF data.
-    FT_Done_Glyph(g);
-
     // Store the glyph internally.
     glyph_t glyph;
     glyph.texture   = pTexture;
-    glyph.dim       = math::rect_t(w, h,    // Raw bitmap w/h
-        slot->advance.x >> 6,               // Pixels to adjust till next character
-        slot->metrics.horiBearingY >> 6);   // Line height offset (stuff like 'y' and 'h')
-
-    mp_glyphData[c] = glyph;
+    glyph.size      = math::vector_t(w, h);
+    glyph.position  = math::vector_t(slot->metrics.horiBearingY >> 6,
+                                     slot->metrics.horiBearingX >> 6);
+    glyph.advance   = slot->advance.x >> 6;
+    m_glyphData[c]  = glyph;
+    
+    // Clean up TTF data.
+    FT_Done_Glyph(g);
+    
     return true;
 }
 
@@ -307,35 +346,50 @@ void CFont::AttachManager(asset::CAssetManager& Assets)
     mp_Assets = &Assets;
 }
 
-uint32_t CFont::GetTextWidth(const string_t& text) const
+void CFont::SetColor(const color4f_t& Color)
+{
+    m_Color = Color;
+}
+
+uint16_t CFont::GetTextWidth(const string_t& text) const
 {
     if(text.empty()) return 0;
 
-    uint32_t w = 0;
-    uint32_t l = text.length();
+    uint16_t w = 0, tmp_w = 0;
+    uint16_t l = text.length();
 
     for(size_t i = 0; i < l; ++i)
     {
-        const auto it = mp_glyphData.find(text[i]);
-        w += it->second.dim.w;
+        if(text[i] == '\n')
+        {
+            w = math::max<uint16_t>(w, tmp_w);
+            tmp_w = 0;
+        }
+        else
+        {
+            const auto it = m_glyphData.find(text[i]);
+            if(it != m_glyphData.end())
+            {
+                tmp_w += math::max<uint16_t>(it->second.size.w,
+                                             it->second.advance);
+            }
+        }
     }
 
-    return w;
+    return math::max<uint16_t>(w, tmp_w);
 }
 
-uint32_t CFont::GetTextHeight(const string_t& text) const
+uint16_t CFont::GetTextHeight(const string_t& text) const
 {
     if(text.empty()) return 0;
 
-    uint32_t h = 0;
-    uint32_t l = text.length();
-
-    for(size_t i = 0; i < l; ++i)
-    {
-        const auto it = mp_glyphData.find(text[i]);
-        h = math::max<int>(it->second.dim.y, h);
-    }
-
-    return h;
+    uint16_t lines = 1;
+    
+    auto i = text.begin();
+         j = text.end();
+         
+    for( ; i != j; ++i)
+        if((*i) == '\n') ++lines;
+        
+    return lines * m_height;
 }
-

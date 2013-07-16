@@ -50,12 +50,25 @@ namespace evt
             position(0, 0),
             button(MouseButton::UNKNOWN),
             down(false) {}
-
+            
         math::vector_t position;
         MouseButton button;
         bool down;
         int mods;
     };
+    
+    math::vector_t GetMousePosition()
+    {
+        double x, y;
+        glfwGetMousePos(glfwGetCurrentContext(), &x, &y);
+        return math::vector_t(x, y);
+    }
+    
+    bool CWindow::GetMouseState(const evt::MouseButton& Btn) const 
+    {
+        return glfwGetMouseButton(glfwGetCurrentContext(),
+                                  static_cast<int>(Btn)) == GLFW_PRESS;
+    }
 }
 }
 
