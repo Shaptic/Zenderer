@@ -132,9 +132,20 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         false;
 }
 
-void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO)
+void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO, const bool keep)
 {
-    VAO.AddData(m_DrawData);
+    if(m_DrawData.Vertices == nullptr ||
+       m_DrawData.Indices == nullptr) return;
+    
+    gfxcore::index_t i = VAO.AddData(m_DrawData);
+    if(!keep)
+    {
+        delete[] m_DrawData.Vertices;
+        delete[] m_DrawData.Indices;
+        m_DrawData.Vertices = nullptr;
+        m_DrawData.Indices = nullptr;
+        m_offset = i;
+    }
 }
 
 bool CDrawable::IsModifiable() const

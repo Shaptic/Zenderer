@@ -129,12 +129,16 @@ namespace gfxcore
 
         /**
          * Shortcut to prevent loading simple objects manually.
-         *  This DOES NOT delete any internal vertex data, and thus
-         *  can be called multiple times with various vertex settings.
+         *  This DOES NOT delete any internal vertex data unless
+         *  explicitly specified. Thus, this can be called multiple
+         *  times with various vertex settings to set up different
+         *  primitives in the given vertex array.
          *
-         * @param   VAO     The vertex array to store data into
+         * @param   VAO         The vertex array to store data into
+         * @param   preserve    Should we keep our local vertex data?
          **/
-        void LoadIntoVAO(gfxcore::CVertexArray& VAO);
+        void LoadIntoVAO(gfxcore::CVertexArray& VAO,
+                         const bool preserve = true);
 
         /// For setting things implicitly.
         friend class ZEN_API CSceneManager;
