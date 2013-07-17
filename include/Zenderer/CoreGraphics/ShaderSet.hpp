@@ -23,6 +23,7 @@
 #ifndef ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 #define ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 
+#include <map>
 #include <sstream>
 
 #include "Zenderer/Assets/AssetManager.hpp"

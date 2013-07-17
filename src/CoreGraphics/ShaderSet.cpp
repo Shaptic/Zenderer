@@ -88,7 +88,7 @@ bool CShaderSet::CreateShaderObject()
     auto i = s_shaderPrograms.begin(), j = s_shaderPrograms.end();
     for( ; i != j; ++i)
     {
-        const CShaderSet& SS = *(*i);
+        CShaderSet& SS = *(i->first);
         if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader &&
            SS.mp_VShader->GetOwner() == nullptr &&
            SS.mp_FShader->GetOwner() == nullptr)
@@ -100,7 +100,7 @@ bool CShaderSet::CreateShaderObject()
             m_error_str = SS.m_error_str;
             m_link_log  = SS.m_link_log;
             m_ID        = SS.m_ID;
-            SS.m_refcount++;
+            m_refcount  = ++SS.m_refcount;
             return m_error_str.empty();
         }
     }
@@ -158,7 +158,8 @@ bool CShaderSet::CreateShaderObject()
     ++m_refcount;
     m_ID = s_ID++;
     
-    ZEN_ASSERTM(s_ID < (1 << 6)), "too many shader programs; material ID will not be unique");
+    ZEN_ASSERTM(s_ID < (1 << 6),
+        "too many shader programs; material ID will not be unique");
     
     s_shaderPrograms[this] = m_program;
     return true;
