@@ -99,7 +99,7 @@ namespace gfx
 
         CEffect& GetEffect();
         const gfxcore::CTexture& GetTexture() const;
-        uint16_t GetMaterialID() const { return m_ID; }
+        uint16_t GetID() const { return m_ID; }
 
     private:
         void Destroy();

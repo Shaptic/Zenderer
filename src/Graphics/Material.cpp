@@ -214,6 +214,6 @@ void CMaterial::Destroy()
 
 void CMaterial::SetID()
 {
-    m_ID = (mp_Texture->GetID() << 10) & m_Effect->GetID();
+    m_ID = (mp_Texture->GetID() << 10) & m_Effect.GetID();
     ZEN_ASSERT(m_ID == 0);
 }

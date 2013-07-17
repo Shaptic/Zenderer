@@ -201,9 +201,7 @@ namespace gfx
             M.Enable();
 
             // Commence individual primitive rendering.
-            auto i = m_allEntities.begin(),
-                 j = m_allEntities.end();
-
+            i = m_allEntities.begin();
             for( ; i != j; ++i)
             {
                 MV.Translate((*i)->GetPosition());

@@ -24,10 +24,10 @@
 #define ZENDERER__CORE_GRAPHICS__SORTER_CPP
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Objects/Entity.hpp"
 
 namespace zen
 {
+namespace obj { class ZEN_API CEntity; }
 namespace gfxcore
 {
     /// A collection of sort methods to optimize rendering.
@@ -78,11 +78,12 @@ namespace gfxcore
         // Not implemented; purely static class.
         CSorter(); ~CSorter();
 
-        static inline const obj::CEntity*
+        static const obj::CEntity*
         SortBy(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2, const uint32_t flag)
         {
+            return pEnt1;/*
             return (pEnt1->GetSortFlag() & flag) < (pEnt2->GetSortFlag() & flag)
-                ?   pEnt1 : pEnt2;
+                ?   pEnt1 : pEnt2;*/
         }
     };
 }   // namespace gfxcore
