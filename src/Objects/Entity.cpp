@@ -135,7 +135,6 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
-/// @todo Check for material `nullptr`
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
     // All entity primitives must have viable textures attached.

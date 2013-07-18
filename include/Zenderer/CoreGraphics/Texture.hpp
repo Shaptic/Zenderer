@@ -88,6 +88,8 @@ namespace gfxcore
  *  with 24-bit and 32-bit `.png` files. It will internally attempt force
  *  a conversion to a 32-bit RGBA format. If this doesn't succeed, it will
  *  obviously be apparent as soon as the texture is rendered.
+ *
+ * @todo    Add documentation.
  **/
 
 /** @} **/

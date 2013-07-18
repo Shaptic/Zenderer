@@ -165,12 +165,23 @@ namespace zen
  *
  * @todo    Test cross-platform compatibility.
  *
- * @section prep    Preprocessor `#define`s
+ * @section prep    Preprocessor Defines
  *  There are several preprocessor directives that can be set to slightly
  *  modify the behavior of the engine at runtime. They are outlined below.
  *
  *  @htmlonly
- *  <table>
+ *  <style>
+ *  .define table { 
+ *      border: 1px solid black;
+ *      border-collapse: collapse;
+ *  }
+ *
+ *  .define tr, 
+ *  .define td {
+ *      padding: 2px 5px 2px;
+ *  }
+ *  </style>
+ *  <table class="define">
  *  <tr><th align="center"><pre>#define</pre></th><th>Action</th></tr>
  *  <tr>
  *      <td><code>ZEN_DEBUG_BUILD</code></td>
@@ -179,9 +190,9 @@ namespace zen
  *          in  Zenderer/Utilities/Assert.hpp), and other debugging features.
  *          The build will initially attempt to detect this on its own,
  *          based on the presence of the <code>_DEBUG</code> (MSVC compiler)
- *          and <code>NDEBUG</code> (in <code>&lt;cassert&gt;</code>)
- *          directives, but this may give bad results, thus explicitly
- *          <code>#define</code>-ing it is recommended.</td>
+ *          or <code>DEBUG</code> (just a guess) directives, but this may
+ *          give bad results, thus explicitly <code>#define</code>-ing it
+ *          is recommended.</td>
  *  </tr>
  *  <tr>
  *      <td><code>ZEN_DOUBLE_PRECISION</code></td>

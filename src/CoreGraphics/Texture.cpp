@@ -79,7 +79,6 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
     return (m_loaded = ret);
 }
 
-/// @todo Calculate texture w/h.
 bool zen::gfxcore::CTexture::LoadFromExisting(const GLuint handle)
 {
     GLint w, h;

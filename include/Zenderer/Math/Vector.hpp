@@ -271,7 +271,6 @@ namespace math
  *  vector representation that is used throughout the engine.
  *
  * @todo    Add support for translation via matrices.
- * @todo    Move semantics
  *
  * @note    There is support for creating translation matrices via
  *          vectors but not vice-versa.

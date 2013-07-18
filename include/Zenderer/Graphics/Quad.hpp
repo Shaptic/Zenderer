@@ -124,8 +124,6 @@ namespace gfx
  *  internally by zen::obj::CEntity instances, which just attach materials to
  *  one or more of them and draw them on-screen using the standard
  *  implementation.
- *
- * @todo   Write copy constructor
  **/
 
 /** @} **/
