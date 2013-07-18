@@ -57,6 +57,7 @@ namespace asset
          *  Assets created in different instances of this class are also
          *  considered to be completely separate.
          *
+         * @tparam  T           An asset::CAsset inheriting class type
          * @param   filename    Filename to load asset from
          * @param   owner       Address of asset owner (optional=`nullptr`)
          *
@@ -70,8 +71,12 @@ namespace asset
         template<typename T>
         T* Create(const char* const filename, const void* const owner = nullptr);
 
-        /// Creates a raw managed asset instance (unloaded).
-        /// @todo   Make this return a reference.
+        /**
+         * Creates a raw managed asset instance (unloaded).
+         * @tparam  T           An asset::CAsset inheriting class type
+         * @param   owner   The asset's "owner" (optional=`nullptr`)
+         * @todo    Make this return a reference.
+         **/
         template<typename T>
         T* Create(const void* const owner = nullptr);
 

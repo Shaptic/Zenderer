@@ -16,6 +16,8 @@
  *  limitations under the License.
  *
  * @addtogroup GUI
+ *  Contains objects and wrapper classes for easily rendering things like 
+ *  text, menus, and other UI elements on-screen.
  * @{
  **/
 
@@ -100,5 +102,15 @@ namespace gui
 }   // namespace zen
 
 #endif // ZENDERER__GUI__FONT_CORE_HPP
+
+/**
+ * @class zen::gui::CFontLibrary
+ * @details
+ *  This is a wrapper class around the FreeType API that is at the core
+ *  of rendering text in @a Zenderer. It will initialize the library a 
+ *  single time and track its state, cleaning up when necessary.
+ *
+ * @see zen::Init()
+ **/
 
 /** @} **/
