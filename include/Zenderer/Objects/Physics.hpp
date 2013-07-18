@@ -23,24 +23,27 @@
 #ifndef ZENDERER__OBJECTS__PHYSICS_HPP
 #define ZENDERER__OBJECTS__PHYSICS_HPP
 
+#include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Math/Math.hpp"
+
 namespace zen
 {
 namespace obj
 {
     /**
      * An axis-aligned bounding box (AABB) representation.
-     *	This is used for basic quad collision detection throughout @a Zenderer
-     *	using the separation of axis theorem. The two components are defined
-     *	by the top-left and the bottom-right points of a standard, unrotated
-     *	quad.
+     *  This is used for basic quad collision detection throughout @a Zenderer
+     *  using the separation of axis theorem. The two components are defined
+     *  by the top-left and the bottom-right points of a standard, unrotated
+     *  quad.
      *
      * @see http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem
      * @see http://gafferongames.com/game-physics/integration-basics/
      **/
-    struct ZEN_API bbox_t
+    struct ZEN_API bbox_t 
     {
-	math::vector_t m_Min;
-	math::vector_t m_Max;
+        math::vector_t m_Min;
+        math::vector_t m_Max;
     };
 
     /**
@@ -50,35 +53,36 @@ namespace obj
      **/
     struct ZEN_API circle_t
     {
-	real_t		m_radius;
-	math::vector_t	m_Position;
+        real_t          m_radius;
+        math::vector_t  m_Position;
     };
 
     struct material_t
     {
-	real_t m_inv_mass;
-    };	
+        real_t m_imass;     ///< Inverted mass value
+    };
 
     /// Checks for collision between two AABB boxes.
-    /// @note	This algorithm doesn't work well with rotated boxes. 
+    /// @note   This algorithm doesn't work well with rotated boxes. 
     bool collides(const bbox_t& a, const bbox_t& b)
     {
-	if(!compf(a.m_Max.z, b.m_Max.z)) return false;
-	if(a.m_Max.x < b.m_Min.x || a.m_Min.x > b.m_Max.x) return false;
-	if(a.m_Max.y < b.m_Min.y || a.m_Min.y > b.m_Max.y) return false;
+        if(!compf(a.m_Max.z, b.m_Max.z)) return false;
+        if(a.m_Max.x < b.m_Min.x || a.m_Min.x > b.m_Max.x) return false;
+        if(a.m_Max.y < b.m_Min.y || a.m_Min.y > b.m_Max.y) return false;
 
-	return true;
+        return true;
     }
 
     /// @overload
     bool collides(const circle_t& a, const circle_t& b)
     {
-	real_t r = a.m_radius + b.m_radius;
-	r *= r;
-	return r < a.m_Position.distance(a, b, false);
+        real_t r = a.m_radius + b.m_radius;
+        r *= r;
+        return r < a.m_Position.distance(a, b, false);
     }
-}
-}
+
+}   // namespace obj
+}   // namespace zen
 
 #endif // ZENDERER__OBJECTS__PHYSICS_HPP
 
