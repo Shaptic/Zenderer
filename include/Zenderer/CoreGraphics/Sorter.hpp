@@ -20,8 +20,8 @@
  * @{
  **/
 
-#ifndef ZENDERER__CORE_GRAPHICS__SORTER_CPP
-#define ZENDERER__CORE_GRAPHICS__SORTER_CPP
+#ifndef ZENDERER__CORE_GRAPHICS__SORTER_HPP
+#define ZENDERER__CORE_GRAPHICS__SORTER_HPP
 
 #include "Zenderer/Core/Types.hpp"
 
@@ -79,17 +79,14 @@ namespace gfxcore
         CSorter(); ~CSorter();
 
         static const obj::CEntity*
-        SortBy(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2, const uint32_t flag)
-        {
-            return pEnt1;/*
-            return (pEnt1->GetSortFlag() & flag) < (pEnt2->GetSortFlag() & flag)
-                ?   pEnt1 : pEnt2;*/
-        }
+        SortBy(const obj::CEntity* pEnt1,
+               const obj::CEntity* pEnt2,
+               const uint32_t flag);
     };
 }   // namespace gfxcore
 }   // namespace zen
 
-#endif // ZENDERER__CORE_GRAPHICS__SORTER_CPP
+#endif // ZENDERER__CORE_GRAPHICS__SORTER_HPP
 
 /**
  * @class       zen::gfxcore::CSorter

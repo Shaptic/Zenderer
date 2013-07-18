@@ -158,6 +158,7 @@
     <ClCompile Include="src\CoreGraphics\Renderer.cpp" />
     <ClCompile Include="src\CoreGraphics\Shader.cpp" />
     <ClCompile Include="src\CoreGraphics\ShaderSet.cpp" />
+    <ClCompile Include="src\CoreGraphics\Sorter.cpp" />
     <ClCompile Include="src\CoreGraphics\Texture.cpp" />
     <ClCompile Include="src\CoreGraphics\VertexArray.cpp" />
     <ClCompile Include="src\Core\Allocator.cpp" />
