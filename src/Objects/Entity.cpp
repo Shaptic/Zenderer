@@ -149,8 +149,8 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
     mp_allPrims.push_back(pQuad);
     
     // Reset then set the material flag.
-    m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
-    m_sort |= (pQuad->GetMaterial().GetID() << gfxcore::CSorter::MATERIAL_OFFSET);
+    //m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
+    //m_sort |= (pQuad->GetMaterial().GetID() << gfxcore::CSorter::MATERIAL_OFFSET);
     return true;
 }
 

@@ -31,7 +31,6 @@
 
 #include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/Drawable.hpp"
-#include "Zenderer/CoreGraphics/Sorter.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "Zenderer/Graphics/Quad.hpp"
 #include "Zenderer/Utilities/INIParser.hpp"
@@ -103,8 +102,8 @@ namespace obj
             // Limit depth to 8-bit values (256).
             clamp<uint16_t>(depth, 0U, 1U << 8);
             m_depth = depth;
-            m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
-            m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
+            //m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
+            //m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
         }
 
         const math::vector_t& GetPosition() const { return m_Position; }

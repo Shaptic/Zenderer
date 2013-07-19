@@ -24,10 +24,10 @@
 #define ZENDERER__CORE_GRAPHICS__SORTER_HPP
 
 #include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Objects/Entity.hpp"
 
 namespace zen
 {
-namespace obj { class ZEN_API CEntity; }
 namespace gfxcore
 {
     /// A collection of sort methods to optimize rendering.
