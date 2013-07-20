@@ -5,7 +5,7 @@ uint32_t CAsset::GetFilenameHash() const
             m_filename_hash);
 }
 
-uint32_t CAsset::GetID() const
+uint32_t CAsset::GetAssetID() const
 {
     return m_id;
 }

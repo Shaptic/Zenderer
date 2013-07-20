@@ -73,7 +73,7 @@ namespace asset
         inline uint32_t GetFilenameHash() const;
 
         /// Returns the unique asset ID.
-        inline assetid_t GetID() const;
+        virtual inline assetid_t GetAssetID() const final;
 
         /// Returns the filename used to load the asset.
         inline const string_t& GetFilename() const;

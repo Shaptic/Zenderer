@@ -81,7 +81,7 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
 {
     if(success)
     {
-        m_Log << "Success. ID: " << pAsset->GetID() << "." << util::CLog::endl;
+        m_Log << "Success. ID: " << pAsset->GetAssetID() << "." << util::CLog::endl;
 
         // Add to containers and return.
         ++pAsset->m_refcount;

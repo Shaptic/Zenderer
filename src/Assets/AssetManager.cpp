@@ -44,9 +44,10 @@ bool CAssetManager::Delete(CAsset* const pAsset)
     ZEN_ASSERT(this->IsInit());
     if(pAsset == nullptr) return false;
 
+    m_Log.SetSystem("AssetMgr");
+
     // Verify that this is our asset to delete.
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
-
     for( ; b != e; )
     {
         if(*b == pAsset && (*b)->GetOwner() == pAsset->GetOwner())
@@ -61,9 +62,8 @@ bool CAssetManager::Delete(CAsset* const pAsset)
                 return false;
             }
 
-            m_Log   << m_Log.SetSystem("AssetMgr")
-                    << m_Log.SetMode(LogMode::ZEN_INFO)
-                    << "Deleting asset: " << (*b)->GetID()
+            m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
+                    << "Deleting asset: " << (*b)->GetAssetID()
                     << " (" << (*b)->GetFilename() << ")." << CLog::endl;
 
             delete *b;
@@ -110,7 +110,7 @@ bool CAssetManager::Delete(const uint32_t index)
     {
         m_Log   << m_Log.SetSystem("AssetMgr")
             << m_Log.SetMode(LogMode::ZEN_INFO)
-            << "Deleting asset: " << (*it)->GetID()
+            << "Deleting asset: " << (*it)->GetAssetID()
             << '(' << (*it)->GetFilename() << ")." << CLog::endl;
 
         mp_managerAssets.erase(it);
@@ -155,7 +155,7 @@ CAsset* CAssetManager::Find(const assetid_t id) const
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
     for( ; b != e; ++b)
     {
-        if((*b)->GetID() == id) return *b;
+        if((*b)->GetAssetID() == id) return *b;
     }
 
     return nullptr;

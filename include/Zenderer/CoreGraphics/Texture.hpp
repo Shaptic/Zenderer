@@ -57,7 +57,7 @@ namespace gfxcore
         uint16_t GetHeight()    const { return m_height; }
         
         /// Returns program ID (unique for different textures).
-        uint16_t GetID() const { return m_ID; }
+        uint16_t GetID() const { return m_TextureID; }
 
         static CTexture& GetDefaultTexture();
 
@@ -72,7 +72,7 @@ namespace gfxcore
 
         GLuint m_texture;
         GLuint m_width, m_height;
-        uint16_t m_ID;
+        uint16_t m_TextureID;
     };
 }   // namespace gfxcore
 }   // namespace zen
