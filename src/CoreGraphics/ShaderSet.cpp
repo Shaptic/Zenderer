@@ -89,10 +89,14 @@ bool CShaderSet::CreateShaderObject()
     for( ; i != j; ++i)
     {
         CShaderSet& SS = *(i->first);
-        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader &&
-           SS.mp_VShader->GetOwner() == nullptr &&
-           SS.mp_FShader->GetOwner() == nullptr)
+        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
         {
+            m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("ShaderSet")
+                  << "Found existing shader program for {'"
+                  << mp_VShader->GetFilename() << "', '"
+                  << mp_FShader->GetFilename() << "'}: " << SS.m_program
+                  << '.' << CLog::endl;
+
             // We have a match, so copy the shader program handle
             // instead of creating a new one. It may have errors, so we
             // give feedback to the user accordingly.

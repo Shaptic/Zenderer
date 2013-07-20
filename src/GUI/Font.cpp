@@ -6,10 +6,13 @@ using util::CLog;
 using util::LogMode;
 using gui::CFont;
 
+gfx::CEffect* CFont::s_FontFx = nullptr;
+
 CFont::CFont(const void* const owner) :
-    CAsset(owner), mp_Assets(nullptr), m_FontFx(nullptr),
+    CAsset(owner), mp_Assets(nullptr),
     m_Color(0.0, 0.0, 0.0, 1.0),
-    m_size(18), m_height(0) {}
+    m_size(18), m_height(0)
+{}
 
 CFont::~CFont()
 {
@@ -19,17 +22,17 @@ CFont::~CFont()
 bool CFont::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "Asset manager MUST be attached!");
-    if(m_FontFx == nullptr)
+    if(s_FontFx == nullptr)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Internal font rendering effect not loaded. "
                 << "Check the log for error details." << CLog::endl;
-
         return (m_loaded = false);
     }
 
     // Logging.
-    m_Log.SetSystem("FreeType");
+    m_Log   << m_Log.SetMode(LogMode::ZEN_INFO) << m_Log.SetSystem("FreeType")
+            << "Loading font '" << filename << "'." << CLog::endl;
 
     const gui::CFontLibrary& Lib = gui::CFontLibrary::InitFreetype();
 
@@ -99,7 +102,10 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
 
-    if(text.empty() || !m_loaded || m_FontFx == nullptr) return false;
+    if(text.empty() || !m_loaded || s_FontFx == nullptr) return false;
+
+    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("FreeType")
+            << "Rendering text string '" << text << "'." << CLog::endl;
 
     // Fresh start.
     Ent.Destroy();
@@ -116,15 +122,14 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     math::vectoru16_t totals;
     uint16_t tmp_tx = 0;
 
-    // Rendering position. By default, we use the text height, because the any 
-    // line of the given text will at the very most be as tall as a line. But,
-    // there is the possibility of characters dropping off the bottom of the 
-    // base-line.
+    // Rendering position. We calculate this by detecting any newline ('\n') 
+    // characters. If there aren't any, the position begins at the (0, 0, 1),
+    // otherwise, it begins at the end of the last line, since rendering is 
+    // performed upside down (to be compatible with the quad texture coords).
     math::vectoru16_t Pos;
 
     uint16_t line = 0;
-    auto a = text.begin(),
-         b = text.end();
+    auto a = text.begin(), b = text.end();
     for( ; a != b; ++a)
     {
         if(*a == '\n') ++line;
@@ -238,8 +243,8 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
                             gfxcore::BlendFunc::IS_ENABLED);
     
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
-    m_FontFx->Enable();
-    m_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
+    s_FontFx->Enable();
+    s_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
@@ -380,19 +385,22 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
 bool CFont::AttachManager(asset::CAssetManager& Assets)
 {
     mp_Assets = &Assets;
-    delete m_FontFx;
-    m_FontFx = new gfx::CEffect(gfx::EffectType::SPRITESHEET, Assets);
-    if(!m_FontFx->Init())
+    if(s_FontFx == nullptr)
     {
-        delete m_FontFx;
-        m_FontFx = nullptr;
-        return false;
+        s_FontFx = new gfx::CEffect(gfx::EffectType::SPRITESHEET, Assets);
+        if(!s_FontFx->Init())
+        {
+            delete s_FontFx;
+            s_FontFx = nullptr;
+            return false;
+        }
+
+        s_FontFx->Enable();
+        s_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
+        s_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        s_FontFx->Disable();
     }
 
-    m_FontFx->Enable();
-    m_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
-    m_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-    m_FontFx->Disable();
     return true;
 }
 

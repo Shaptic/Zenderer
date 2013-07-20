@@ -29,12 +29,11 @@
 
 #include "Zenderer/Utilities/Log.hpp"
 
-// Include necessary Zenderer API files for rendering
-// bitmaps to entities.
-#include "FontCore.hpp"
+// Include necessary Zenderer API files for rendering bitmaps to entities.
 #include "Zenderer/CoreGraphics/VertexArray.hpp"
 #include "Zenderer/Graphics/RenderTarget.hpp"
 #include "Zenderer/Objects/Entity.hpp"
+#include "FontCore.hpp"
 
 namespace zen
 {
@@ -179,7 +178,7 @@ namespace gui
                         gfxcore::index_t* inds);
 
         asset::CAssetManager* mp_Assets;
-        gfx::CEffect* m_FontFx;
+        static gfx::CEffect* s_FontFx;
         color4f_t m_Color;
         FT_Face m_FontFace;
 
@@ -212,6 +211,9 @@ namespace gui
  * @todo    Utilize a texture atlas instead of individual quads
  * @todo    Implement SDFF technique
  *          (https://forum.libcinder.org/topic/signed-distance-field-font-rendering)
+ *
+ * @bug     Rendering text more than once causes a black background on the 
+ *          final entity to appear, instead of a transparent one.
  *
  * @example Fonts
  * @section Font Rendering Examples
