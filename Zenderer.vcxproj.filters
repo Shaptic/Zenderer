@@ -225,6 +225,9 @@
     <ClInclude Include="include\Zenderer\Scripting\Lua.hpp">
       <Filter>Header Files\Scripting</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Objects\Physics.hpp">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">

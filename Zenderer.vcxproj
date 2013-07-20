@@ -135,6 +135,7 @@
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp" />
     <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
     <ClInclude Include="include\Zenderer\Objects\Entity.hpp" />
+    <ClInclude Include="include\Zenderer\Objects\Physics.hpp" />
     <ClInclude Include="include\Zenderer\Scripting\Lua.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Assert.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />

@@ -66,7 +66,7 @@ namespace obj
     /// @note   This algorithm doesn't work well with rotated boxes. 
     bool collides(const bbox_t& a, const bbox_t& b)
     {
-        if(!compf(a.m_Max.z, b.m_Max.z)) return false;
+        if(!math::compf(a.m_Max.z, b.m_Max.z)) return false;
         if(a.m_Max.x < b.m_Min.x || a.m_Min.x > b.m_Max.x) return false;
         if(a.m_Max.y < b.m_Min.y || a.m_Min.y > b.m_Max.y) return false;
 
@@ -78,11 +78,10 @@ namespace obj
     {
         real_t r = a.m_radius + b.m_radius;
         r *= r;
-        return r < a.m_Position.distance(a, b, false);
+        return r < a.m_Position.distance(a.m_Position, b.m_Position, false);
     }
 
 }   // namespace obj
 }   // namespace zen
 
 #endif // ZENDERER__OBJECTS__PHYSICS_HPP
-
