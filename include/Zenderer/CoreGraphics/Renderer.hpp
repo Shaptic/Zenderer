@@ -51,6 +51,8 @@ namespace gfxcore
     };
 
     /// Abstracts away API-specific rendering operations.
+    /// @todo   Add support for depth test toggling.
+    /// @todo   Document class in detail.
     class ZEN_API CRenderer
     {
     public:

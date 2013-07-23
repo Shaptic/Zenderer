@@ -129,11 +129,16 @@ namespace gfx
         /// Renders the scene to the current render target.
         bool Render();
 
+        /// Verifies the given index is within the valid range.
+        bool IsValidEntityIndex(int32_t i);
+
         /// Returns the queue index of a certain entity (or -1).
         int32_t GetEntityIndex(const obj::CEntity& D);
 
-        /// Verifies the given index is within the valid range.
-        bool IsValidEntityIndex(int32_t i);
+        /// Enables / disables scene lighting.
+        void EnableLighting()  { m_lighting = true;  }
+        void DisableLighting() { m_lighting = false; }
+        bool ToggleLighting()  { return m_lighting = !m_lighting; }
 
     private:
         util::CLog&             m_Log;

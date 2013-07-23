@@ -89,7 +89,6 @@ using gfxcore::CRenderer;
 
     gfx::CEffect& DEffect = CRenderer::GetDefaultEffect();
 
-    double x, y;
     real_t angle = 45.0, d = -5.5;
 
     evt::CEventHandler& Evt = evt::CEventHandler::GetInstance();
@@ -110,9 +109,30 @@ using gfxcore::CRenderer;
     Font->Render(Ent);
     Ent.Move(100, 69);
 
-    obj::CEntity Ent2(Manager);
+    gfx::CScene Scene(800, 600, Manager);
+    Scene.Init(); Scene.EnableLighting();
+    obj::CEntity& Ent2 = Scene.AddEntity();
+    obj::CEntity& Ent3 = Scene.AddEntity();
+    gfx::CLight& L2 = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
+    gfx::CLight& L3 = Scene.AddLight(gfx::LightType::ZEN_POINT);
     Font->Render(Ent2, "Hi");
     Ent2.Move(200, 200);
+
+    Ent3.LoadFromTexture("sample.png");
+
+    L2.Enable();
+    L2.SetBrightness(0.8);
+    L2.SetMaximumAngle(270.0);
+    L2.SetMinimumAngle(0.0);
+    L2.SetColor(color3f_t(1.0, 0.0, 0.0));
+    L2.Disable();
+
+    L3.Enable();
+    L3.SetBrightness(1.8);
+    L3.SetColor(color3f_t(0.0, 1.0, 0.0));
+    L3.Disable();
+
+    math::vector_t mouse;
 
     while(Window.IsOpen())
     {
@@ -137,7 +157,7 @@ using gfxcore::CRenderer;
             }
         }
 
-        glfwGetCursorPos(Window.GetWindow(), &x, &y);
+        mouse = evt::GetMousePosition();
 
         // Game logic
         Sound->Update();
@@ -167,11 +187,11 @@ using gfxcore::CRenderer;
         Vao.Draw();
         Sample.Disable();
 
-        Default.Move(x, y);
+        Default.Move(mouse);
         Default.Draw();
 
         Ent.Draw();
-        Ent2.Draw();
+        Scene.Render();
 
         {
             Grass.Enable();

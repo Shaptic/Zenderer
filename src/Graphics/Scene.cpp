@@ -16,6 +16,7 @@ CScene::CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) :
 
 CScene::~CScene()
 {
+    this->Destroy();
 }
 
 bool CScene::Init()
@@ -26,7 +27,17 @@ bool CScene::Init()
 
 bool CScene::Destroy()
 {
-    return false;
+    bool ret = m_FBO1.Destroy() && m_FBO2.Destroy() && m_Geometry.Destroy();
+
+    for(auto& i : m_allEntities)delete i;
+    for(auto& i : m_allPPFX)    delete i;
+    for(auto& i : m_allLights)  delete i;
+
+    m_allEntities.clear();
+    m_allPPFX.clear();
+    m_allLights.clear();
+
+    return ret;
 }
 
 obj::CEntity& CScene::AddEntity()
@@ -36,6 +47,7 @@ obj::CEntity& CScene::AddEntity()
     return *m_allEntities.back();
 }
 
+/// @todo Fix hard-coded 800.
 CLight& CScene::AddLight(const LightType& Type)
 {
     CLight* pNew = new CLight(m_Assets, Type, 800);
