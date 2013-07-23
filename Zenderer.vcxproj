@@ -168,6 +168,7 @@
     <ClCompile Include="src\DLLMain.cpp" />
     <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Events\EventHandler.cpp" />
+    <ClCompile Include="src\Events\Mouse.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
     <ClCompile Include="src\Graphics\Material.cpp" />

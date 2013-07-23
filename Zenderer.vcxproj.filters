@@ -347,6 +347,9 @@
     <ClCompile Include="src\CoreGraphics\Sorter.cpp">
       <Filter>Source Files\CoreGraphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Events\Mouse.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">

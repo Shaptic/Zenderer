@@ -25,6 +25,7 @@
 
 #include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Math/Vector.hpp"
+#include "Zenderer/CoreGraphics/OpenGL.hpp"
 
 namespace zen
 {
@@ -46,11 +47,7 @@ namespace evt
 
     struct mouse_t
     {
-        mouse_t() :
-            position(0, 0),
-            button(MouseButton::UNKNOWN),
-            down(false) {}
-
+        mouse_t();
         math::vector_t position;
         MouseButton button;
         bool down;
