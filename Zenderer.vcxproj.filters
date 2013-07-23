@@ -350,6 +350,9 @@
     <ClCompile Include="src\Events\Mouse.cpp">
       <Filter>Source Files\Events</Filter>
     </ClCompile>
+    <ClCompile Include="src\Graphics\Scene.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">
@@ -414,6 +417,9 @@
     </None>
     <None Include="data\shaders\SpriteSheet.fs">
       <Filter>Shaders</Filter>
+    </None>
+    <None Include="include\Zenderer\Graphics\Scene.inl">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
 </Project>

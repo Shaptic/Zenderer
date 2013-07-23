@@ -57,14 +57,9 @@ namespace obj
         };
 
     public:
-        CEntity(asset::CAssetManager& Assets) :
-            m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
-            m_sort(0), m_depth(1) {}
+        CEntity(asset::CAssetManager& Assets);
 
-        virtual ~CEntity()
-        {
-            this->Destroy();
-        }
+        virtual ~CEntity();
 
         bool LoadFromFile(const string_t& filename);
         bool LoadFromTexture(const string_t& filename);
@@ -72,46 +67,20 @@ namespace obj
         bool AddPrimitive(const gfx::CQuad& Prim);
         bool Optimize();
 
-        bool Draw(bool is_bound = false)
-        {
-            for(size_t i = 0; i < mp_allPrims.size(); ++i)
-                mp_allPrims[i]->Draw(is_bound);
-
-            return true;
-        }
+        bool Draw(bool is_bound = false);
 
         /// @todo   Support a variety of primitive depths.
-        void Move(const real_t x, const real_t y, const real_t z = 1.0)
-        {
-            auto i = mp_allPrims.begin(),
-                 j = mp_allPrims.end();
+        void Move(const real_t x, const real_t y, const real_t z = 1.0);
 
-            for( ; i != j; ++i) (*i)->Move(x, y, z);
-        }
+        void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
 
-        void Offload(gfxcore::CVertexArray& VAO, const bool keep = true)
-        {
-            auto i = mp_allPrims.begin(),
-                 j = mp_allPrims.end();
+        void SetDepth(uint16_t depth);
 
-            for( ; i != j; ++i) (*i)->LoadIntoVAO(VAO, keep);
-        }
+        inline const math::vector_t& GetPosition() const { return m_Position; }
+        inline uint32_t GetSortFlag() const              { return m_sort;     }
 
-        void SetDepth(uint16_t depth)
-        {
-            // Limit depth to 8-bit values (256).
-            clamp<uint16_t>(depth, 0U, 1U << 8);
-            m_depth = depth;
-            //m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
-            //m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
-        }
-
-        const math::vector_t& GetPosition() const { return m_Position; }
-
-        inline uint32_t GetSortFlag() const
-        {
-            return m_sort;
-        }
+        std::vector<gfx::CQuad*>::const_iterator cbegin() const;
+        std::vector<gfx::CQuad*>::const_iterator cend() const;
 
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;

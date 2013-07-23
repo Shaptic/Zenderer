@@ -6,6 +6,17 @@ using util::CLog;
 using util::LogMode;
 using obj::CEntity;
 
+CEntity::CEntity(asset::CAssetManager& Assets) :
+    m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
+    m_sort(0), m_depth(1)
+{
+}
+
+CEntity::~CEntity()
+{
+    this->Destroy();
+}
+
 bool CEntity::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERT(!filename.empty());
@@ -199,4 +210,48 @@ bool CEntity::FileError(const string_t& filename,
 
     m_Log << ")." << CLog::endl;
     return false;
+}
+
+bool CEntity::Draw(bool is_bound /*= false*/)
+{
+    for(size_t i = 0; i < mp_allPrims.size(); ++i)
+        mp_allPrims[i]->Draw(is_bound);
+
+    return true;
+}
+
+void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
+{
+    auto i = mp_allPrims.begin(),
+        j = mp_allPrims.end();
+
+    for( ; i != j; ++i) (*i)->Move(x, y, z);
+    m_Position = math::vector_t(x, y);
+}
+
+void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
+{
+    auto i = mp_allPrims.begin(),
+        j = mp_allPrims.end();
+
+    for( ; i != j; ++i) (*i)->LoadIntoVAO(VAO, keep);
+}
+
+void CEntity::SetDepth(uint16_t depth)
+{
+    // Limit depth to 8-bit values (256).
+    clamp<uint16_t>(depth, 0U, 1U << 8);
+    m_depth = depth;
+    //m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
+    //m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
+}
+
+std::vector<gfx::CQuad*>::const_iterator CEntity::cbegin() const
+{
+    return mp_allPrims.cbegin();
+}
+
+std::vector<gfx::CQuad*>::const_iterator CEntity::cend() const
+{
+    return mp_allPrims.cend();
 }

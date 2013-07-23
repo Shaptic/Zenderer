@@ -129,13 +129,13 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
 
     return !is_bound ?
         (CRenderer::ResetMaterialState() && mp_VAO->Unbind()) :
-        false;
+        true;
 }
 
 void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO, const bool keep)
 {
     if(m_DrawData.Vertices == nullptr ||
-       m_DrawData.Indices == nullptr) return;
+       m_DrawData.Indices  == nullptr) return;
 
     gfxcore::index_t i = VAO.AddData(m_DrawData);
     if(!keep)
