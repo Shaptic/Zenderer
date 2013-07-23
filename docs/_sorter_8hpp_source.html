@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,21 +110,73 @@ $(document).ready(function(){initNavTree('_sorter_8hpp_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="_sorter_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef ZENDERER__CORE_GRAPHICS__SORTER_CPP</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__CORE_GRAPHICS__SORTER_CPP</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef ZENDERER__CORE_GRAPHICS__SORTER_HPP</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__CORE_GRAPHICS__SORTER_HPP</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Zenderer/Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//#include &quot;Zenderer/Objects/Entity.hpp&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp - A generic entity class wrapping drawable primitives, materials, and easy sprite-like functionality together.">Zenderer/Objects/Entity.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>gfxcore</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__SORTER_CPP</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html">   34</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html" title="A collection of sort methods to optimize rendering.">CSorter</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>*</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#ab431df10250fd7c5c5481a3800597930">   38</a></span>&#160;        SortByMaterial(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt1, <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt2)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> CSorter::SortBy(pEnt1, pEnt2, MATERIAL_FLAG);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>*</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#a3a5a8026244b14f3561ad3a4d1e94a6d">   44</a></span>&#160;        SortByDepth(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt1, <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt2)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> CSorter::SortBy(pEnt1, pEnt2, DEPTH_FLAG);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>*</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#a96b289555fcd6083257345d49239a3e4">   50</a></span>&#160;        SortByAlpha(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt1, <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt2)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> CSorter::SortBy(pEnt1, pEnt2, ALPHA_FLAG);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">static</span> <span class="keyword">inline</span> uint32_t</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#a114b9838422d7cdbd052431a086c877d">   56</a></span>&#160;        CreateSortFlag(<span class="keyword">const</span> uint16_t material_id,  <span class="keyword">const</span> uint16_t depth_value,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                       <span class="keyword">const</span> uint8_t  alpha_bit,    <span class="keyword">const</span> uint16_t unused = 0)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span>  (material_id &lt;&lt; MATERIAL_OFFSET)|</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    (depth_value &lt;&lt; DEPTH_OFFSET)   |</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    (alpha_bit   &lt;&lt; ALPHA_OFFSET)   |</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    (unused      &lt;&lt; UNUSED_OFFSET);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#af73b46ffeb7cfe886a9300c6e85de8dd">   65</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t MATERIAL_FLAG     = 0xFFFF0000;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#a009f44ecfb0f63c468d03cc6383b4053">   66</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t MATERIAL_OFFSET   = 16; <span class="comment">// 24 bits into the flag</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#ade046c7c54f46a219f3b141edd2a58e0">   68</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t DEPTH_FLAG        = 0x0000FF00;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#ae192e4509528039e0d5c345281289263">   69</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t DEPTH_OFFSET      = 8;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#aabc96f79eaffee8fd00a10b2b3dfecaa">   71</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t ALPHA_FLAG        = 0x00000080;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#a03f681912811c2fc3133f7cf12342a2c">   72</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t ALPHA_OFFSET      = 7;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#ae69663c819dec868f0d1cb8f665ae056">   74</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t UNUSED_FLAG       = 0x0000007F;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html#a4de7192dc04108ff5308fef7591916aa">   75</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint32_t UNUSED_OFFSET     = 0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// Not implemented; purely static class.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html" title="A collection of sort methods to optimize rendering.">CSorter</a>(); ~<a class="code" href="classzen_1_1gfxcore_1_1_c_sorter.html" title="A collection of sort methods to optimize rendering.">CSorter</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>*</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        SortBy(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt1,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;               <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>* pEnt2,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;               <span class="keyword">const</span> uint32_t flag);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    };</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__SORTER_HPP</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

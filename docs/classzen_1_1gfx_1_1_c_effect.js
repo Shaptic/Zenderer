@@ -13,7 +13,8 @@ var classzen_1_1gfx_1_1_c_effect =
     [ "Disable", "classzen_1_1gfx_1_1_c_effect.html#ac4d46b32f3c12853f2ff38f3e2f9c831", null ],
     [ "GetObjectHandle", "classzen_1_1gfx_1_1_c_effect.html#a7b8c9a5bf841f2f8e81b6b4e3b3cb8c9", null ],
     [ "GetError", "classzen_1_1gfx_1_1_c_effect.html#a3238e4b5c27c7d88f5b1cd4a5387d448", null ],
-    [ "SetType", "classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78", null ],
     [ "GetType", "classzen_1_1gfx_1_1_c_effect.html#a0b2b3e9fb37b848b92f9991de69479be", null ],
+    [ "GetID", "classzen_1_1gfx_1_1_c_effect.html#af44d97ae520e8e360a35ccf60ff2fe13", null ],
+    [ "SetType", "classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78", null ],
     [ "CMaterial", "classzen_1_1gfx_1_1_c_effect.html#a0b4556cbcbc88cbe9ec08c9f5b372880", null ]
 ];

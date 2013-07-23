@@ -1,9 +1,9 @@
 var classzen_1_1gfxcore_1_1_c_sorter =
 [
-    [ "SortByMaterial", "classzen_1_1gfxcore_1_1_c_sorter.html#a867624a8cc8a05f1470a4504a08f1ee3", null ],
-    [ "SortByDepth", "classzen_1_1gfxcore_1_1_c_sorter.html#ad6cb65e80284f42c9b590da69017375a", null ],
-    [ "SortByAlpha", "classzen_1_1gfxcore_1_1_c_sorter.html#a6de593ebc8f18b090bff99af3b704edb", null ],
-    [ "CreateSortFlag", "classzen_1_1gfxcore_1_1_c_sorter.html#a3bd8801ad0c02c199da450e9ac74b606", null ],
+    [ "SortByMaterial", "classzen_1_1gfxcore_1_1_c_sorter.html#ab431df10250fd7c5c5481a3800597930", null ],
+    [ "SortByDepth", "classzen_1_1gfxcore_1_1_c_sorter.html#a3a5a8026244b14f3561ad3a4d1e94a6d", null ],
+    [ "SortByAlpha", "classzen_1_1gfxcore_1_1_c_sorter.html#a96b289555fcd6083257345d49239a3e4", null ],
+    [ "CreateSortFlag", "classzen_1_1gfxcore_1_1_c_sorter.html#a114b9838422d7cdbd052431a086c877d", null ],
     [ "MATERIAL_FLAG", "classzen_1_1gfxcore_1_1_c_sorter.html#af73b46ffeb7cfe886a9300c6e85de8dd", null ],
     [ "MATERIAL_OFFSET", "classzen_1_1gfxcore_1_1_c_sorter.html#a009f44ecfb0f63c468d03cc6383b4053", null ],
     [ "DEPTH_FLAG", "classzen_1_1gfxcore_1_1_c_sorter.html#ade046c7c54f46a219f3b141edd2a58e0", null ],

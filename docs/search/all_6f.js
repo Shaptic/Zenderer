@@ -2,7 +2,7 @@ var searchData=
 [
   ['o',['O',['../_keyboard_8hpp.html#ae48bf9dad3f5d442f9d14d931be6f43e',1,'Keyboard.hpp']]],
   ['objects',['Objects',['../group___objects.html',1,'']]],
-  ['offload',['Offload',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae',1,'zen::gfxcore::CVertexArray']]],
+  ['offload',['Offload',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae',1,'zen::gfxcore::CVertexArray::Offload()'],['../classzen_1_1obj_1_1_c_entity.html#a69916391f193e312359cb4e85f6240df',1,'zen::obj::CEntity::Offload()']]],
   ['offloaded',['Offloaded',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d',1,'zen::gfxcore::CVertexArray']]],
   ['oggerror',['OGGError',['../classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1',1,'zen::sfx::CAudioManager']]],
   ['one',['ONE',['../_keyboard_8hpp.html#a2cb8470634cc90a55800ee95f967eade',1,'Keyboard.hpp']]],
@@ -25,6 +25,6 @@ var searchData=
   ['operator_3d_3d',['operator==',['../structzen_1_1math_1_1_vector.html#af606b191be1e741359753b5b251b7943',1,'zen::math::Vector::operator==()'],['../classzen_1_1util_1_1_c_option.html#a87feea8dedabd95dc4eea01f441756e3',1,'zen::util::COption::operator==(const COption &amp;value) const '],['../classzen_1_1util_1_1_c_option.html#a126a66ce23187af399a28ffb28ac9ea5',1,'zen::util::COption::operator==(const string_t &amp;value) const '],['../classzen_1_1util_1_1_c_option.html#aa68feab3eec761c81215b455f5582f4d',1,'zen::util::COption::operator==(const bool value) const '],['../classzen_1_1util_1_1_c_option.html#a6d338a392e7ab4c5e0703f3259077d4f',1,'zen::util::COption::operator==(const T &amp;value) const '],['../structzen_1_1math_1_1_vector.html#af606b191be1e741359753b5b251b7943',1,'zen::math::Vector::operator==()']]],
   ['operator_5b_5d',['operator[]',['../classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31',1,'zen::CAllocator::operator[]()'],['../classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6',1,'zen::math::matrix4x4_t::operator[]()'],['../classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4',1,'zen::util::CSettings::operator[]()']]],
   ['operator_5e',['operator^',['../structzen_1_1math_1_1_vector.html#a8fcf0ac9428fda78ecca25cbd1aa77bd',1,'zen::math::Vector::operator^(const Vector&lt; U &gt; &amp;Other) const '],['../structzen_1_1math_1_1_vector.html#abce3f167575b8348199265d921e6e392',1,'zen::math::Vector::operator^(const Vector&lt; U &gt; &amp;Other) const ']]],
-  ['optimize',['Optimize',['../classzen_1_1obj_1_1_c_entity.html#a8505a7f8d061b68a7e064edd56f9bced',1,'zen::obj::CEntity']]],
+  ['optimize',['Optimize',['../classzen_1_1obj_1_1_c_entity.html#ad5a5f5d9f1874acdbb44bcb4379ec87c',1,'zen::obj::CEntity']]],
   ['options',['options',['../namespacezen_1_1util.html#a37be06342d2b8e2b9143908d5a3d141f',1,'zen::util::XMLNode']]]
 ];

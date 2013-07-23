@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -162,9 +162,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac620df10ab31ecb12fca55e4202c194b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf">GetY</a> () const </td></tr>
 <tr class="separator:a54e399e7380b905d0544bb6c7e9a1dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0be143258b456d9590d1462bf1d0ff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3">LoadIntoVAO</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO)</td></tr>
-<tr class="memdesc:ae0be143258b456d9590d1462bf1d0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut to prevent loading simple objects manually.  <a href="#ae0be143258b456d9590d1462bf1d0ff3">More...</a><br/></td></tr>
-<tr class="separator:ae0be143258b456d9590d1462bf1d0ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad81d33436b4c823c160a983b4294fc06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ad81d33436b4c823c160a983b4294fc06">LoadIntoVAO</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO, const bool preserve=true)</td></tr>
+<tr class="memdesc:ad81d33436b4c823c160a983b4294fc06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut to prevent loading simple objects manually.  <a href="#ad81d33436b4c823c160a983b4294fc06">More...</a><br/></td></tr>
+<tr class="separator:ad81d33436b4c823c160a983b4294fc06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -480,7 +480,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00140">140</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8cpp_source.html#l00151">151</a> of file <a class="el" href="_drawable_8cpp_source.html">Drawable.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -568,7 +568,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ae0be143258b456d9590d1462bf1d0ff3"></a>
+<a class="anchor" id="ad81d33436b4c823c160a983b4294fc06"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -576,15 +576,26 @@ Here is the caller graph for this function:</div>
           <td class="memname">void CDrawable::LoadIntoVAO </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>VAO</em></td><td>)</td>
+          <td class="paramname"><em>VAO</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>preserve</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This DOES NOT delete any internal vertex data, and thus can be called multiple times with various vertex settings.</p>
+<p>This DOES NOT delete any internal vertex data unless explicitly specified. Thus, this can be called multiple times with various vertex settings to set up different primitives in the given vertex array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">VAO</td><td>The vertex array to store data into </td></tr>
+    <tr><td class="paramname">preserve</td><td>Should we keep our local vertex data? </td></tr>
   </table>
   </dd>
 </dl>
@@ -612,7 +623,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00140">140</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00144">144</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +646,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00149">149</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00153">153</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -657,7 +668,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00150">150</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00154">154</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -679,7 +690,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00151">151</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00155">155</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -701,7 +712,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00152">152</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00156">156</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>

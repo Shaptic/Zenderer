@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -162,6 +162,9 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 <li>GetAssetCount()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564">zen::asset::CAssetManager</a>
 </li>
+<li>GetAssetID()
+: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#aaed4ef4074a9a461037f5e7d348a0091">zen::asset::CAsset</a>
+</li>
 <li>GetAttributeLocation()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00">zen::gfxcore::CShaderSet</a>
 </li>
@@ -181,11 +184,11 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1_c_light.html#a5307cfb44e32bed716045c1f7669ad37">zen::gfx::CLight</a>
 </li>
 <li>GetData()
-: <a class="el" href="classzen_1_1gui_1_1_c_font.html#a47e5fcc173bf07896c9929ac6437d0e1">zen::gui::CFont</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b">zen::gfxcore::CTexture</a>
+, <a class="el" href="classzen_1_1gui_1_1_c_font.html#a47e5fcc173bf07896c9929ac6437d0e1">zen::gui::CFont</a>
 , <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231">zen::asset::CAsset</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb">zen::sfx::CAudio2D</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89">zen::gfxcore::CShader</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b">zen::gfxcore::CTexture</a>
 </li>
 <li>GetDefaultEffect()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a9c30fb338b4e85403dbd749eb36f0843">zen::gfxcore::CRenderer</a>
@@ -239,7 +242,10 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">zen::gfxcore::CVertexArray</a>
 </li>
 <li>GetID()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">zen::asset::CAsset</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8ffa30edb76b0d902354599abcf29068">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#ac2b096539e6bd2422be0547c2ad392e0">zen::gfxcore::CTexture</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#af44d97ae520e8e360a35ccf60ff2fe13">zen::gfx::CEffect</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_material.html#a0c6f53b01b6bdfd43c21388004c35cde">zen::gfx::CMaterial</a>
 </li>
 <li>GetIdentityMatrix()
 : <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">zen::math::matrix4x4_t</a>
@@ -291,13 +297,13 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 : <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d">zen::math::matrix4x4_t</a>
 </li>
 <li>GetPosition()
-: <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142">zen::gfxcore::CDrawable</a>
-, <a class="el" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">zen::gfx::CLight</a>
+: <a class="el" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">zen::gfx::CLight</a>
 , <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0805fc171d6da43047f9cf36edb4a01b">zen::obj::CEntity</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142">zen::gfxcore::CDrawable</a>
 </li>
 <li>GetProjectionMatrix()
-: <a class="el" href="classzen_1_1gfx_1_1_c_window.html#aec125cfb8e67f9339fddff514a4b529b">zen::gfx::CWindow</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">zen::gfxcore::CRenderer</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">zen::gfxcore::CRenderer</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#aec125cfb8e67f9339fddff514a4b529b">zen::gfx::CWindow</a>
 </li>
 <li>GetShaderLog()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf">zen::gfxcore::CShader</a>
@@ -305,6 +311,9 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 <li>GetShaderObject()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b">zen::gfxcore::CShader</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">zen::gfxcore::CShaderSet</a>
+</li>
+<li>GetSortFlag()
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a52969951ed0cdfd55c4e46428f6501d2">zen::obj::CEntity</a>
 </li>
 <li>GetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d">zen::util::CLog</a>
@@ -314,12 +323,12 @@ $(document).ready(function(){initNavTree('functions_0x67.html','');});
 , <a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a790ac5ea3bc0f7b9e03ea77f797550d7">zen::gui::CFontAtlas</a>
 </li>
 <li>GetTexture()
-: <a class="el" href="classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2">zen::gfx::CMaterial</a>
-, <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">zen::gfx::CRenderTarget</a>
+: <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">zen::gfx::CRenderTarget</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2">zen::gfx::CMaterial</a>
 </li>
 <li>GetTextWidth()
-: <a class="el" href="classzen_1_1gui_1_1_c_font.html#a659a117b4f8da639b7bc25fee79d1cdb">zen::gui::CFont</a>
-, <a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a401ef566265f2895605148b06e394ff3">zen::gui::CFontAtlas</a>
+: <a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a401ef566265f2895605148b06e394ff3">zen::gui::CFontAtlas</a>
+, <a class="el" href="classzen_1_1gui_1_1_c_font.html#a659a117b4f8da639b7bc25fee79d1cdb">zen::gui::CFont</a>
 </li>
 <li>GetTime()
 : <a class="el" href="classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c">zen::util::CTimer</a>

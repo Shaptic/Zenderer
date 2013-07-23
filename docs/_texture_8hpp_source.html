@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -145,24 +145,28 @@ $(document).ready(function(){initNavTree('_texture_8hpp_source.html','');});
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26">   56</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26">GetWidth</a>()<span class="keyword">     const </span>{ <span class="keywordflow">return</span> m_width; }</div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc">   57</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc">GetHeight</a>()<span class="keyword">    const </span>{ <span class="keywordflow">return</span> m_height; }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>&amp; GetDefaultTexture();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> asset::CAssetManager;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>(const void* const owner = nullptr);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        bool Destroy();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        static <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a> s_DefaultTexture;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        GLuint m_texture;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        GLuint m_width, m_height;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    };</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__TEXTURE_HPP</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac2b096539e6bd2422be0547c2ad392e0">   60</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac2b096539e6bd2422be0547c2ad392e0" title="Returns program ID (unique for different textures).">GetID</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_TextureID; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>&amp; GetDefaultTexture();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> asset::CAssetManager;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a>(const void* const owner = nullptr);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        bool Destroy();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        static <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">CTexture</a> s_DefaultTexture;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        static uint16_t s_ID;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        GLuint m_texture;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        GLuint m_width, m_height;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        uint16_t m_TextureID;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__TEXTURE_HPP</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -175,6 +175,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:addd5eb8166b408c26abe605ff7d3e7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3f789974bf6235ee73b814290a009f2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">gfxcore::CTexture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2">GetTexture</a> () const </td></tr>
 <tr class="separator:ab3f789974bf6235ee73b814290a009f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6f53b01b6bdfd43c21388004c35cde"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_material.html#a0c6f53b01b6bdfd43c21388004c35cde">GetID</a> () const </td></tr>
+<tr class="separator:a0c6f53b01b6bdfd43c21388004c35cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A material is a combination of an effect (shaders) and a texture. It's used to specify what picture should be drawn on the screen, and how it should be drawn. There is a default instance of it in <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html" title="Abstracts away API-specific rendering operations.">zen::gfxcore::CRenderer</a>, and it is used for standard rendering to the screen, primarily for primitives.</p>
@@ -185,9 +187,6 @@ Public Member Functions</h2></td></tr>
 <a class="anchor" id="abd23ec17632f3e5dc1920eef2cf72c0f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CMaterial::CMaterial </td>
@@ -197,11 +196,6 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="_material_8cpp_source.html#l00009">9</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
@@ -222,7 +216,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00018">18</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00019">19</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +233,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00031">31</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00034">34</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 </div>
 </div>
@@ -275,7 +269,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="specs.html#ZMatSpec">Specification</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00036">36</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00039">39</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -331,7 +325,7 @@ Here is the caller graph for this function:</div>
 <dd>
 <a class="el" href="classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae" title="Fills the key-value dictionary by parsing a file stream.">zen::util::CINIParser::LoadFromStream()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00067">67</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00071">71</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -358,7 +352,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00094">94</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00098">98</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -385,7 +379,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00119">119</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00124">124</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -412,7 +406,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00125">125</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00138">138</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 </div>
 </div>
@@ -430,7 +424,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00130">130</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00145">145</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -508,14 +502,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00148">148</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00167">167</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_material_a320cb498234e02231b9ce04cf78999e9_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_material_a320cb498234e02231b9ce04cf78999e9_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_material_a320cb498234e02231b9ce04cf78999e9_icgraph" id="classzen_1_1gfx_1_1_c_material_a320cb498234e02231b9ce04cf78999e9_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="184,5,355,32"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="188,57,351,98"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="184,5,355,32"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="188,57,351,98"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="244,123,295,149"/></map>
 </div>
 </p>
 
@@ -534,7 +528,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00153">153</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00172">172</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 </div>
 </div>
@@ -551,7 +545,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00158">158</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00177">177</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfx_1_1_c_material_a4866a925322a57f4cb0d70833db0da7a_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_material_a4866a925322a57f4cb0d70833db0da7a_icgraph" alt=""/></div>
+<map name="classzen_1_1gfx_1_1_c_material_a4866a925322a57f4cb0d70833db0da7a_icgraph" id="classzen_1_1gfx_1_1_c_material_a4866a925322a57f4cb0d70833db0da7a_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="184,12,235,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -568,14 +571,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00163">163</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00182">182</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_material_a5962ae2836315bf7d6175a43035855a1_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_material_a5962ae2836315bf7d6175a43035855a1_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_material_a5962ae2836315bf7d6175a43035855a1_icgraph" id="classzen_1_1gfx_1_1_c_material_a5962ae2836315bf7d6175a43035855a1_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="184,12,355,39"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="184,5,355,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="244,56,295,83"/></map>
 </div>
 </p>
 
@@ -594,7 +597,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00168">168</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00187">187</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 </div>
 </div>
@@ -611,7 +614,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00173">173</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00192">192</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 </div>
 </div>
@@ -628,14 +631,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00178">178</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00197">197</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfx_1_1_c_material_addd5eb8166b408c26abe605ff7d3e7de_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_material_addd5eb8166b408c26abe605ff7d3e7de_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_material_addd5eb8166b408c26abe605ff7d3e7de_icgraph" id="classzen_1_1gfx_1_1_c_material_addd5eb8166b408c26abe605ff7d3e7de_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="184,147,347,189"/><area shape="rect" id="node10" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="184,213,347,254"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="601,5,743,46"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="821,155,872,181"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="592,129,752,156"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="395,231,522,273"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="395,297,522,338"/><area shape="rect" id="node8" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="395,63,522,105"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="571,71,773,97"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="184,187,347,229"/><area shape="rect" id="node10" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="184,101,347,142"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="821,195,872,221"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="601,78,743,119"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="592,195,752,221"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="395,246,522,287"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="395,311,522,353"/><area shape="rect" id="node8" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="395,129,522,170"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="571,144,773,171"/></map>
 </div>
 </p>
 
@@ -654,7 +657,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00183">183</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_material_8cpp_source.html#l00202">202</a> of file <a class="el" href="_material_8cpp_source.html">Material.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -664,6 +667,31 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="184,165,347,206"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="821,188,872,215"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="395,5,522,46"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="395,289,522,330"/><area shape="rect" id="node8" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="395,223,522,265"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="601,122,743,163"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="592,188,752,215"/><area shape="rect" id="node9" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="571,239,773,265"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a0c6f53b01b6bdfd43c21388004c35cde"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t zen::gfx::CMaterial::GetID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_material_8hpp_source.html#l00102">102</a> of file <a class="el" href="_material_8hpp_source.html">Material.hpp</a>.</p>
 
 </div>
 </div>

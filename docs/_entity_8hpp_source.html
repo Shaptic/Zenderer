@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -140,59 +140,83 @@ $(document).ready(function(){initNavTree('_entity_8hpp_source.html','');});
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#ad205f24da849a39624205314f14fdaa2">   60</a></span>&#160;        <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">CEntity</a>(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets) :</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            m_Assets(Assets), m_Log(util::CLog::GetEngineLog()) {}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#abfcbe70066b0b6377706a6d340d432e9">   63</a></span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">CEntity</a>()</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            this-&gt;Destroy();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> LoadFromTexture(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">bool</span> AddPrimitive(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">gfx::CQuad</a>&amp; Prim);</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a8505a7f8d061b68a7e064edd56f9bced">   72</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a8505a7f8d061b68a7e064edd56f9bced">Optimize</a>() { <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(<span class="keyword">false</span>, <span class="stringliteral">&quot;not implemented&quot;</span>); <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a4c506edf6eef2c9c1dc8e6e404aacf5a">   74</a></span>&#160;        <span class="keywordtype">bool</span> Draw(<span class="keywordtype">bool</span> is_bound = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; mp_allPrims.size(); ++i)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                mp_allPrims[i]-&gt;Draw(is_bound);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">   83</a></span>&#160;        <span class="keywordtype">void</span> Move(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> z = 1.0)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keyword">auto</span> i = mp_allPrims.begin(),</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                 j = mp_allPrims.end();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i) (*i)-&gt;Move(x, y, z);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0805fc171d6da43047f9cf36edb4a01b">   91</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0805fc171d6da43047f9cf36edb4a01b">GetPosition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Position; }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> gui::<a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">CFont</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        friend class <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html">gfx::CScene</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        void Destroy();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        bool FileError(const string_t&amp; filename,</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                       const string_t&amp; line, const uint32_t line_no,</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                       const ErrorType&amp; Err = ErrorType::BAD_PAIR);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">  102</a></span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp;           m_Assets;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#af795614f802cfaf2418678b75ad2d074">  103</a></span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp;                     m_Log;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a631dc80219f62c772438c7745750ec7f">  105</a></span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>                  m_Position;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">  106</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>                        m_filename;</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">  107</a></span>&#160;        std::vector&lt;gfx::CQuad*&gt;        mp_allPrims;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    };</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif // ZENDERER__OBJECTS__ENTITY_HPP</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            m_sort(0), m_depth(1) {}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#abfcbe70066b0b6377706a6d340d432e9">   64</a></span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">CEntity</a>()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            this-&gt;Destroy();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> LoadFromTexture(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; filename);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">bool</span> AddPrimitive(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">gfx::CQuad</a>&amp; Prim);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">bool</span> Optimize();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a4c506edf6eef2c9c1dc8e6e404aacf5a">   75</a></span>&#160;        <span class="keywordtype">bool</span> Draw(<span class="keywordtype">bool</span> is_bound = <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; mp_allPrims.size(); ++i)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                mp_allPrims[i]-&gt;Draw(is_bound);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">   84</a></span>&#160;        <span class="keywordtype">void</span> Move(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> z = 1.0)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">auto</span> i = mp_allPrims.begin(),</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                 j = mp_allPrims.end();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i) (*i)-&gt;Move(x, y, z);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a69916391f193e312359cb4e85f6240df">   92</a></span>&#160;        <span class="keywordtype">void</span> Offload(<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a>&amp; VAO, <span class="keyword">const</span> <span class="keywordtype">bool</span> keep = <span class="keyword">true</span>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keyword">auto</span> i = mp_allPrims.begin(),</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                 j = mp_allPrims.end();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">for</span>( ; i != j; ++i) (*i)-&gt;LoadIntoVAO(VAO, keep);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a457dd0001de00555b57dfbad547bef66">  100</a></span>&#160;        <span class="keywordtype">void</span> SetDepth(uint16_t depth)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="comment">// Limit depth to 8-bit values (256).</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            clamp&lt;uint16_t&gt;(depth, 0<a class="code" href="_keyboard_8hpp.html#a81cf6107131a3583e2b0b762cb9c2862">U</a>, 1U &lt;&lt; 8);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            m_depth = depth;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="comment">//m_sort &amp;= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="comment">//m_sort |= (depth &lt;&lt; gfxcore::CSorter::DEPTH_OFFSET);</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0805fc171d6da43047f9cf36edb4a01b">  109</a></span>&#160;        <span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; <a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0805fc171d6da43047f9cf36edb4a01b">GetPosition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Position; }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a52969951ed0cdfd55c4e46428f6501d2">  111</a></span>&#160;        <span class="keyword">inline</span> uint32_t GetSortFlag()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> m_sort;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> gui::<a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">CFont</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        friend class <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html">gfx::CScene</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        void Destroy();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        bool FileError(const string_t&amp; filename,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                       const string_t&amp; line, const uint32_t line_no,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                       const ErrorType&amp; Err = ErrorType::BAD_PAIR);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">  125</a></span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp;       m_Assets;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#af795614f802cfaf2418678b75ad2d074">  126</a></span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">util::CLog</a>&amp;                 m_Log;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a631dc80219f62c772438c7745750ec7f">  128</a></span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>              m_Position;</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">  129</a></span>&#160;        std::vector&lt;gfx::CQuad*&gt;    mp_allPrims;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">  130</a></span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>                    m_filename;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#abb871fd28ffebcf62fd41d8c32da4933">  131</a></span>&#160;        uint16_t                    m_depth;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="code" href="classzen_1_1obj_1_1_c_entity.html#a1430c60e31989987755c2174cd495c45">  132</a></span>&#160;        uint32_t                    m_sort;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    };</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif // ZENDERER__OBJECTS__ENTITY_HPP</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

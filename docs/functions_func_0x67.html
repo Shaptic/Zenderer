@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -152,6 +152,9 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 <li>GetAssetCount()
 : <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564">zen::asset::CAssetManager</a>
 </li>
+<li>GetAssetID()
+: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#aaed4ef4074a9a461037f5e7d348a0091">zen::asset::CAsset</a>
+</li>
 <li>GetAttributeLocation()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00">zen::gfxcore::CShaderSet</a>
 </li>
@@ -229,7 +232,10 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">zen::gfxcore::CVertexArray</a>
 </li>
 <li>GetID()
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292">zen::asset::CAsset</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8ffa30edb76b0d902354599abcf29068">zen::gfxcore::CShaderSet</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#ac2b096539e6bd2422be0547c2ad392e0">zen::gfxcore::CTexture</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#af44d97ae520e8e360a35ccf60ff2fe13">zen::gfx::CEffect</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_material.html#a0c6f53b01b6bdfd43c21388004c35cde">zen::gfx::CMaterial</a>
 </li>
 <li>GetIdentityMatrix()
 : <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">zen::math::matrix4x4_t</a>
@@ -259,16 +265,16 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1_c_window.html#ab9ed5973af4d2224a482eae56ebad084">zen::gfx::CWindow</a>
 </li>
 <li>GetName()
-: <a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#aa05627df3b5723c2221d58d5a8da4732">zen::gfxcore::CGLSubsystem</a>
-, <a class="el" href="classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79">zen::CSubsystem</a>
+: <a class="el" href="classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79">zen::CSubsystem</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#aa05627df3b5723c2221d58d5a8da4732">zen::gfxcore::CGLSubsystem</a>
 </li>
 <li>GetNormalized()
 : <a class="el" href="structzen_1_1math_1_1_vector.html#adafedf5c311dd3cf17d8138d0c335d2e">zen::math::Vector&lt; T &gt;</a>
 </li>
 <li>GetObjectHandle()
-: <a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a1c51e85829c109daddc6f4a5aba66ac8">zen::gfxcore::CGLSubsystem</a>
+: <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a7b8c9a5bf841f2f8e81b6b4e3b3cb8c9">zen::gfx::CEffect</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a1c51e85829c109daddc6f4a5aba66ac8">zen::gfxcore::CGLSubsystem</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">zen::gfxcore::CVertexArray</a>
-, <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a7b8c9a5bf841f2f8e81b6b4e3b3cb8c9">zen::gfx::CEffect</a>
 , <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#ab27ab130d9778d04220ec7eea766f19c">zen::gfx::CRenderTarget</a>
 </li>
 <li>GetOwner()
@@ -286,8 +292,8 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 , <a class="el" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">zen::gfx::CLight</a>
 </li>
 <li>GetProjectionMatrix()
-: <a class="el" href="classzen_1_1gfx_1_1_c_window.html#aec125cfb8e67f9339fddff514a4b529b">zen::gfx::CWindow</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">zen::gfxcore::CRenderer</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">zen::gfxcore::CRenderer</a>
+, <a class="el" href="classzen_1_1gfx_1_1_c_window.html#aec125cfb8e67f9339fddff514a4b529b">zen::gfx::CWindow</a>
 </li>
 <li>GetShaderLog()
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf">zen::gfxcore::CShader</a>
@@ -296,12 +302,15 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a6072d2d3a77269ea40eeaa7d157cf8e8">zen::gfxcore::CShaderSet</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b">zen::gfxcore::CShader</a>
 </li>
+<li>GetSortFlag()
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a52969951ed0cdfd55c4e46428f6501d2">zen::obj::CEntity</a>
+</li>
 <li>GetSystem()
 : <a class="el" href="classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d">zen::util::CLog</a>
 </li>
 <li>GetTextHeight()
-: <a class="el" href="classzen_1_1gui_1_1_c_font.html#a1eb79d2679e08b3b85df0281bd8d8fee">zen::gui::CFont</a>
-, <a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a790ac5ea3bc0f7b9e03ea77f797550d7">zen::gui::CFontAtlas</a>
+: <a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a790ac5ea3bc0f7b9e03ea77f797550d7">zen::gui::CFontAtlas</a>
+, <a class="el" href="classzen_1_1gui_1_1_c_font.html#a1eb79d2679e08b3b85df0281bd8d8fee">zen::gui::CFont</a>
 </li>
 <li>GetTexture()
 : <a class="el" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">zen::gfx::CRenderTarget</a>

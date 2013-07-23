@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -105,9 +105,10 @@ $(document).ready(function(){initNavTree('namespacezen_1_1obj.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">zen::obj Namespace Reference</div>  </div>
+<div class="title">zen::obj Namespace Reference<div class="ingroups"><a class="el" href="group___objects.html">Objects</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -119,6 +120,22 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html">CEntity</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base class for all "in-game" objects.  <a href="classzen_1_1obj_1_1_c_entity.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structzen_1_1obj_1_1bbox__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#structzen_1_1obj_1_1bbox__t">bbox_t</a></td></tr>
+<tr class="memdesc:structzen_1_1obj_1_1bbox__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">An axis-aligned bounding box (AABB) representation.  <a href="group___objects.html#structzen_1_1obj_1_1bbox__t">More...</a><br/></td></tr>
+<tr class="separator:structzen_1_1obj_1_1bbox__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structzen_1_1obj_1_1circle__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#structzen_1_1obj_1_1circle__t">circle_t</a></td></tr>
+<tr class="memdesc:structzen_1_1obj_1_1circle__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">A representation of a circle to provide an alternative collision in <em>Zenderer</em> for objects or sprites that don't play nicely with quads.  <a href="group___objects.html#structzen_1_1obj_1_1circle__t">More...</a><br/></td></tr>
+<tr class="separator:structzen_1_1obj_1_1circle__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structzen_1_1obj_1_1material__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#structzen_1_1obj_1_1material__t">material_t</a></td></tr>
+<tr class="separator:structzen_1_1obj_1_1material__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga925e8bd382dc3a99ce61fd2b9635aaf0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga925e8bd382dc3a99ce61fd2b9635aaf0">collides</a> (const <a class="el" href="group___objects.html#structzen_1_1obj_1_1bbox__t">bbox_t</a> &amp;a, const <a class="el" href="group___objects.html#structzen_1_1obj_1_1bbox__t">bbox_t</a> &amp;b)</td></tr>
+<tr class="memdesc:ga925e8bd382dc3a99ce61fd2b9635aaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collision between two AABB boxes.  <a href="group___objects.html#ga925e8bd382dc3a99ce61fd2b9635aaf0">More...</a><br/></td></tr>
+<tr class="separator:ga925e8bd382dc3a99ce61fd2b9635aaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18bea3a1e52819aedaab745a949eabab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga18bea3a1e52819aedaab745a949eabab">collides</a> (const <a class="el" href="group___objects.html#structzen_1_1obj_1_1circle__t">circle_t</a> &amp;a, const <a class="el" href="group___objects.html#structzen_1_1obj_1_1circle__t">circle_t</a> &amp;b)</td></tr>
+<tr class="separator:ga18bea3a1e52819aedaab745a949eabab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -131,8 +131,9 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_shader_set.html">zen::gfxcore::CShaderSet</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for a useable set of shaders (an OpenGL program).  <a href="classzen_1_1gfxcore_1_1_c_shader_set.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:classzen_1_1gfxcore_1_1_c_sorter"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___core_graphics.html#classzen_1_1gfxcore_1_1_c_sorter">zen::gfxcore::CSorter</a></td></tr>
-<tr class="separator:classzen_1_1gfxcore_1_1_c_sorter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_sorter.html">zen::gfxcore::CSorter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A collection of sort methods to optimize rendering.  <a href="classzen_1_1gfxcore_1_1_c_sorter.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">zen::gfxcore::CTexture</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level texture asset abstraction over OpenGL texture handles.  <a href="classzen_1_1gfxcore_1_1_c_texture.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,41 +154,6 @@ Macros</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Currently, <em>Zenderer</em> only supports OpenGL, but with a good level of abstraction, it should be possible to adapt it to use DirectX for rendering, as well. </p>
-<hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="classzen_1_1gfxcore_1_1_c_sorter" id="classzen_1_1gfxcore_1_1_c_sorter"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">class zen::gfxcore::CSorter</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"><h1><a class="anchor" id="sort"></a>
-Optimized Sorting Algorithm</h1>
-<h2><a class="anchor" id="expl"></a>
-Explanation</h2>
-<p>In order to maximize rendering efficiency, it is important to make as little state changes as possible to the underlying rendering API. For this, <em>Zenderer</em> implements a high-speed sorting technique that operates at maximum performance.</p>
-<p>Essentially, each entity internally stores a 32-bit integer consisted of various state flags describing material usage, depth, transparency, and other data.</p>
-<p>This state flag is used for comparing the scene graph prior to rendering in order to, for example, group all entities with identical materials together in order to minimize texture swaps.</p>
-<p>A material is defined as follows:</p>
-<p>material = texture + vshader + fshader</p>
-<p>And a thorough explanation of the state bit definitions are ahead.</p>
-<p>We expect to have no more than 4096 materials in a single game. This can, of course, be easily expanded, but 4096 is more than enough for a standard 2D game. For this, we allocate 12 bits in the flag for storing a unique material ID (2<sup>12</sup> = 4096).</p>
-<p>Thus: 32 - 12 = 20 bits remaining.</p>
-<p>For depth information, we allocate 8 bits, giving us 256 different levels of depth for any entity in the game. Again this is perfectly acceptable for a 2D game.</p>
-<p>Thus: 20 - 8 = 12 bits remaining.</p>
-<p>For transparency, we only need a single bit. to compare if a</p>
-<p>Thus: 12 - 1 = 11 bits remaining.</p>
-<p>The remaining bits are reserved for any future sorting requirements. 11 bits gives 2048 different values, surely large enough to accommodate any future requirements.</p>
-<h2><a class="anchor" id="algo"></a>
-Sorting</h2>
-<p>The actual sorting process works as follows:</p>
-<p>The scene stores a list of entities for rendering. It also contains an internal dictionary associating the various sorting parameters (material, depth) with a list of entities that use that parameter.</p>
-<p>On addition of an entity from the scene, it's inserted into the appropriate list based on its internal flags. </p>
-</div>
-</div>
-</div>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="gadd7e49d426171a52326fe77251d93c3d"></a>
 <div class="memitem">

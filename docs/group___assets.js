@@ -8,7 +8,7 @@ var group___assets =
       [ "LoadFromFile", "classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0", null ],
       [ "LoadFromExisting", "classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a", null ],
       [ "GetFilenameHash", "classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37", null ],
-      [ "GetID", "classzen_1_1asset_1_1_c_asset.html#acf4f65383e1dcbcb5e5e1f4ab0b9f292", null ],
+      [ "GetAssetID", "classzen_1_1asset_1_1_c_asset.html#aaed4ef4074a9a461037f5e7d348a0091", null ],
       [ "GetFilename", "classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174", null ],
       [ "GetData", "classzen_1_1asset_1_1_c_asset.html#a723a8b0b7caf38bd28ead2c5add97231", null ],
       [ "GetOwner", "classzen_1_1asset_1_1_c_asset.html#a533ca42ad6d3749252d61a284b0bc020", null ],

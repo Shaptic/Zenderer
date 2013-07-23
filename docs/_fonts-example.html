@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -114,7 +114,7 @@ Without a Scene</h2>
 <div class="line">Font-&gt;AttachManager(Assets);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Error checking omitted for brevity.</span></div>
-<div class="line">Font-&gt;LoadFromFile(<span class="stringliteral">&quot;sample.ttf&quot;</span>); </div>
+<div class="line">Font-&gt;LoadFromFile(<span class="stringliteral">&quot;sample.ttf&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Render a string to an entity</span></div>
 <div class="line">obj::CEntity&amp; Score = Scene.AddEntity();</div>
@@ -174,26 +174,27 @@ Render Data</h2>
 <p>There is a feature allowing for streaming data directly "into" the font instance and then calling <code>Render()</code> without a <code>string_t</code> parameter, demonstrated below.</p>
 <div class="fragment"><div class="line">obj::CEntity&amp; Ent = m_Scene.AddEntity();</div>
 <div class="line"><a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">gui::CFont</a>* pFont = m_Assets.Create&lt;<a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">gui::CFont</a>&gt;();</div>
-<div class="line">pFont-&gt;Resize(22);</div>
-<div class="line">pFont-&gt;LoadFromFile(<span class="stringliteral">&quot;data/fonts/default.ttf&quot;</span>);</div>
+<div class="line"><a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">gui::CFont</a>&amp; Font  = *pFont;</div>
+<div class="line">Font.Resize(22);</div>
+<div class="line">Font.LoadFromFile(<span class="stringliteral">&quot;data/fonts/default.ttf&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">uint16_t score = 100;</div>
 <div class="line"><a name="a1"></a><a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> health = 45.8;</div>
 <div class="line"></div>
-<div class="line">pFont &lt;&lt; <span class="stringliteral">&quot;Score: &quot;</span> &lt;&lt; score &lt;&lt; <span class="stringliteral">&quot;\nHealth: &quot;</span> &lt;&lt; health;</div>
-<div class="line">pFont-&gt;Render(Ent);</div>
+<div class="line">Font &lt;&lt; <span class="stringliteral">&quot;Score: &quot;</span> &lt;&lt; score &lt;&lt; <span class="stringliteral">&quot;\nHealth: &quot;</span> &lt;&lt; health;</div>
+<div class="line">Font.Render(Ent);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// `Ent` now contains the following:</span></div>
 <div class="line"><span class="comment">// Score: 100</span></div>
 <div class="line"><span class="comment">// Health: 45.8</span></div>
 <div class="line"></div>
-<div class="line">pFont-&gt;Render(Ent, <span class="stringliteral">&quot;Random Data\nLines&quot;</span>);</div>
+<div class="line">Font.Render(Ent, <span class="stringliteral">&quot;Random Data\nLines&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// `Ent` now contains the following:</span></div>
 <div class="line"><span class="comment">// Random Data</span></div>
 <div class="line"><span class="comment">// Lines</span></div>
 <div class="line"></div>
-<div class="line">pFont &lt;&lt; <span class="stringliteral">&quot;\nName: Zenderer&quot;</span>;</div>
+<div class="line">(*pFont) &lt;&lt; <span class="stringliteral">&quot;\nName: Zenderer&quot;</span>; <span class="comment">// Also done like this with the pointer</span></div>
 <div class="line">pFont-&gt;Render(Ent);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// `Ent` now contains the following:</span></div>

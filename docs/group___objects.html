@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -101,7 +101,9 @@ $(document).ready(function(){initNavTree('group___objects.html','');});
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Objects</div>  </div>
 </div><!--header-->
@@ -115,15 +117,264 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacezen"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen.html">zen</a></td></tr>
 <tr class="memdesc:namespacezen"><td class="mdescLeft">&#160;</td><td class="mdescRight">An all-encompassing namespace for any and all components of <em>Zenderer</em>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacezen_1_1obj"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacezen_1_1obj.html">zen::obj</a></td></tr>
+<tr class="memdesc:namespacezen_1_1obj"><td class="mdescLeft">&#160;</td><td class="mdescRight">A group of sprite-like objects that operate at a high level of abstraction. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:structzen_1_1obj_1_1bbox__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#structzen_1_1obj_1_1bbox__t">zen::obj::bbox_t</a></td></tr>
+<tr class="memdesc:structzen_1_1obj_1_1bbox__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">An axis-aligned bounding box (AABB) representation.  <a href="group___objects.html#structzen_1_1obj_1_1bbox__t">More...</a><br/></td></tr>
+<tr class="separator:structzen_1_1obj_1_1bbox__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structzen_1_1obj_1_1circle__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#structzen_1_1obj_1_1circle__t">zen::obj::circle_t</a></td></tr>
+<tr class="memdesc:structzen_1_1obj_1_1circle__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">A representation of a circle to provide an alternative collision in <em>Zenderer</em> for objects or sprites that don't play nicely with quads.  <a href="group___objects.html#structzen_1_1obj_1_1circle__t">More...</a><br/></td></tr>
+<tr class="separator:structzen_1_1obj_1_1circle__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structzen_1_1obj_1_1material__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#structzen_1_1obj_1_1material__t">zen::obj::material_t</a></td></tr>
+<tr class="separator:structzen_1_1obj_1_1material__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html">zen::obj::CEntity</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base class for all "in-game" objects.  <a href="classzen_1_1obj_1_1_c_entity.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga925e8bd382dc3a99ce61fd2b9635aaf0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga925e8bd382dc3a99ce61fd2b9635aaf0">zen::obj::collides</a> (const bbox_t &amp;a, const bbox_t &amp;b)</td></tr>
+<tr class="memdesc:ga925e8bd382dc3a99ce61fd2b9635aaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for collision between two AABB boxes.  <a href="#ga925e8bd382dc3a99ce61fd2b9635aaf0">More...</a><br/></td></tr>
+<tr class="separator:ga925e8bd382dc3a99ce61fd2b9635aaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18bea3a1e52819aedaab745a949eabab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga18bea3a1e52819aedaab745a949eabab">zen::obj::collides</a> (const circle_t &amp;a, const circle_t &amp;b)</td></tr>
+<tr class="separator:ga18bea3a1e52819aedaab745a949eabab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga34bcf56f3a3a6ca6fa19bd6c0170c97d"><td class="memItemLeft" align="right" valign="top">math::vector_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga34bcf56f3a3a6ca6fa19bd6c0170c97d">zen::obj::bbox_t::m_Min</a></td></tr>
+<tr class="separator:ga34bcf56f3a3a6ca6fa19bd6c0170c97d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3623283095e9780bb2d04872ba70b972"><td class="memItemLeft" align="right" valign="top">math::vector_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga3623283095e9780bb2d04872ba70b972">zen::obj::bbox_t::m_Max</a></td></tr>
+<tr class="separator:ga3623283095e9780bb2d04872ba70b972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeccc93d696d0f1e0b5c7aa73e51caf3a"><td class="memItemLeft" align="right" valign="top">real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#gaeccc93d696d0f1e0b5c7aa73e51caf3a">zen::obj::circle_t::m_radius</a></td></tr>
+<tr class="separator:gaeccc93d696d0f1e0b5c7aa73e51caf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c09246cff275551ea63fd24ea89fc01"><td class="memItemLeft" align="right" valign="top">math::vector_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#ga4c09246cff275551ea63fd24ea89fc01">zen::obj::circle_t::m_Position</a></td></tr>
+<tr class="separator:ga4c09246cff275551ea63fd24ea89fc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd5fad4ba953ede084f71bac6aedaa71"><td class="memItemLeft" align="right" valign="top">real_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___objects.html#gadd5fad4ba953ede084f71bac6aedaa71">zen::obj::material_t::m_imass</a></td></tr>
+<tr class="memdesc:gadd5fad4ba953ede084f71bac6aedaa71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverted mass value.  <a href="#gadd5fad4ba953ede084f71bac6aedaa71">More...</a><br/></td></tr>
+<tr class="separator:gadd5fad4ba953ede084f71bac6aedaa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>These classes are a step above the simple primitive rendering scheme set up by the architecture in <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives.">zen::gfxcore::CDrawable</a>, and are the most likely to face direct user interaction through the application. </p>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structzen_1_1obj_1_1bbox__t" id="structzen_1_1obj_1_1bbox__t"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct zen::obj::bbox_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock"><p>This is used for basic quad collision detection throughout <em>Zenderer</em> using the separation of axis theorem. The two components are defined by the top-left and the bottom-right points of a standard, unrotated quad.</p>
+<dl class="section see"><dt>See Also</dt><dd><a href="http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem">http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem</a> </dd>
+<dd>
+<a href="http://gafferongames.com/game-physics/integration-basics/">http://gafferongames.com/game-physics/integration-basics/</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00043">43</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="ga34bcf56f3a3a6ca6fa19bd6c0170c97d"></a>vector_t</td>
+<td class="fieldname">
+m_Min</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="ga3623283095e9780bb2d04872ba70b972"></a>vector_t</td>
+<td class="fieldname">
+m_Max</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structzen_1_1obj_1_1circle__t" id="structzen_1_1obj_1_1circle__t"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct zen::obj::circle_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00054">54</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="gaeccc93d696d0f1e0b5c7aa73e51caf3a"></a><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a></td>
+<td class="fieldname">
+m_radius</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="ga4c09246cff275551ea63fd24ea89fc01"></a>vector_t</td>
+<td class="fieldname">
+m_Position</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structzen_1_1obj_1_1material__t" id="structzen_1_1obj_1_1material__t"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct zen::obj::material_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00060">60</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="gadd5fad4ba953ede084f71bac6aedaa71"></a><a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a></td>
+<td class="fieldname">
+m_imass</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga925e8bd382dc3a99ce61fd2b9635aaf0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::obj::collides </td>
+          <td>(</td>
+          <td class="paramtype">const bbox_t &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bbox_t &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>This algorithm doesn't work well with rotated boxes. </dd></dl>
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00067">67</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga18bea3a1e52819aedaab745a949eabab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::obj::collides </td>
+          <td>(</td>
+          <td class="paramtype">const circle_t &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const circle_t &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00077">77</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="ga34bcf56f3a3a6ca6fa19bd6c0170c97d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">math::vector_t zen::obj::bbox_t::m_Min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00045">45</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3623283095e9780bb2d04872ba70b972"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">math::vector_t zen::obj::bbox_t::m_Max</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00046">46</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaeccc93d696d0f1e0b5c7aa73e51caf3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real_t zen::obj::circle_t::m_radius</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00056">56</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4c09246cff275551ea63fd24ea89fc01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">math::vector_t zen::obj::circle_t::m_Position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00057">57</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gadd5fad4ba953ede084f71bac6aedaa71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real_t zen::obj::material_t::m_imass</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_physics_8hpp_source.html#l00062">62</a> of file <a class="el" href="_physics_8hpp_source.html">Physics.hpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

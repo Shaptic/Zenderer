@@ -15,8 +15,9 @@ var group___graphics =
       [ "Disable", "classzen_1_1gfx_1_1_c_effect.html#ac4d46b32f3c12853f2ff38f3e2f9c831", null ],
       [ "GetObjectHandle", "classzen_1_1gfx_1_1_c_effect.html#a7b8c9a5bf841f2f8e81b6b4e3b3cb8c9", null ],
       [ "GetError", "classzen_1_1gfx_1_1_c_effect.html#a3238e4b5c27c7d88f5b1cd4a5387d448", null ],
-      [ "SetType", "classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78", null ],
       [ "GetType", "classzen_1_1gfx_1_1_c_effect.html#a0b2b3e9fb37b848b92f9991de69479be", null ],
+      [ "GetID", "classzen_1_1gfx_1_1_c_effect.html#af44d97ae520e8e360a35ccf60ff2fe13", null ],
+      [ "SetType", "classzen_1_1gfx_1_1_c_effect.html#ad158fce4d64e9b0c1193733f2287db78", null ],
       [ "CMaterial", "classzen_1_1gfx_1_1_c_effect.html#a0b4556cbcbc88cbe9ec08c9f5b372880", null ]
     ] ],
     [ "CLight", "classzen_1_1gfx_1_1_c_light.html", [
@@ -60,7 +61,8 @@ var group___graphics =
       [ "DisableEffect", "classzen_1_1gfx_1_1_c_material.html#a1b01d4800f23dee94cff5d4e7d69d74f", null ],
       [ "DisableTexture", "classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d", null ],
       [ "GetEffect", "classzen_1_1gfx_1_1_c_material.html#addd5eb8166b408c26abe605ff7d3e7de", null ],
-      [ "GetTexture", "classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2", null ]
+      [ "GetTexture", "classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2", null ],
+      [ "GetID", "classzen_1_1gfx_1_1_c_material.html#a0c6f53b01b6bdfd43c21388004c35cde", null ]
     ] ],
     [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html", [
       [ "CQuad", "classzen_1_1gfx_1_1_c_quad.html#a76122affb224683f76cea7b65fb2c2b7", null ],

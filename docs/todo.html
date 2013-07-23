@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -104,24 +104,22 @@ $(document).ready(function(){initNavTree('todo.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000019"></a>page <a class="el" href="index.html">Main Page</a>  </dt>
+<dt><a class="anchor" id="_todo000020"></a>page <a class="el" href="index.html">Main Page</a>  </dt>
 <dd>Test cross-platform compatibility. </dd>
-<dt><a class="anchor" id="_todo000001"></a>Global <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c">zen::asset::CAssetManager::Recreate</a>  (const T *const Copier, const void *const owner=nullptr)</dt>
-<dd>Add some sort of check to make sure <code>T</code> is an inheriting class of CAsset. </dd>
-<dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="classzen_1_1evt_1_1_c_event_handler.html">zen::evt::CEventHandler</a>  </dt>
+<dt><a class="anchor" id="_todo000001"></a>Global <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a42ee278bf92387e58908e744e35d89e0">zen::asset::CAssetManager::Create</a>  (const void *const owner=nullptr)</dt>
+<dd>Make this return a reference.  </dd>
+<dt><a class="anchor" id="_todo000004"></a>Class <a class="el" href="classzen_1_1evt_1_1_c_event_handler.html">zen::evt::CEventHandler</a>  </dt>
 <dd><p class="startdd">Window events / callback. </p>
 <p class="enddd">Document API.  </p>
 </dd>
-<dt><a class="anchor" id="_todo000005"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">zen::gfx::CEffect::Init</a>  ()</dt>
+<dt><a class="anchor" id="_todo000006"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">zen::gfx::CEffect::Init</a>  ()</dt>
 <dd>Use Gaussian Blur vertex shaders.  </dd>
 <dt><a class="anchor" id="_todo000013"></a>Class <a class="el" href="group___g_u_i.html">zen::gfx::CFont</a>  </dt>
 <dd><p class="startdd">Utilize a texture atlas instead of individual quads </p>
 <p class="enddd">Implement SDFF technique (<a href="https://forum.libcinder.org/topic/signed-distance-field-font-rendering">https://forum.libcinder.org/topic/signed-distance-field-font-rendering</a>) </p>
 </dd>
-<dt><a class="anchor" id="_todo000006"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_light.html">zen::gfx::CLight</a>  </dt>
+<dt><a class="anchor" id="_todo000007"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_light.html">zen::gfx::CLight</a>  </dt>
 <dd>Investigate why the <code>scr_height</code> parameter is necessary.  </dd>
-<dt><a class="anchor" id="_todo000007"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_quad.html">zen::gfx::CQuad</a>  </dt>
-<dd>Write copy constructor  </dd>
 <dt><a class="anchor" id="_todo000008"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_scene.html">zen::gfx::CScene</a>  </dt>
 <dd>Set up entity internals  </dd>
 <dt><a class="anchor" id="_todo000009"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1">zen::gfx::CScene::AddLight</a>  (const LightType &amp;Type)</dt>
@@ -134,21 +132,19 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <dd>Implement this  </dd>
 <dt><a class="anchor" id="_todo000002"></a>Global <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a03d22a2a626bdeb8209ea231a06b235f">zen::gfxcore::CDrawable::Move</a>  (const real_t x, const real_t y, const real_t z=1.0)</dt>
 <dd>Make it work properly when <code>CQuad</code> is inverted.  </dd>
-<dt><a class="anchor" id="_todo000021"></a>Global <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html#a7ed57f37f22e441e648ae6712278ad77">zen::gfxcore::CTexture::LoadFromExisting</a>  (const GLuint handle)</dt>
-<dd>Calculate texture w/h.  </dd>
+<dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="classzen_1_1gfxcore_1_1_c_texture.html">zen::gfxcore::CTexture</a>  </dt>
+<dd>Add documentation.  </dd>
 <dt><a class="anchor" id="_todo000015"></a>Global <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">zen::math::matrix4x4_t::Shear</a>  (const math::vector_t &amp;Angles)</dt>
 <dd>Add 3D shearing.  </dd>
+<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="structzen_1_1math_1_1_vector.html#a4c3f5ddb7f6cb13b8a46fa563baee493">zen::math::Vector&lt; T &gt;::distance</a>  (const Vector&lt; T &gt; &amp;A, const Vector&lt; U &gt; &amp;B, const bool do_sqrt=false)</dt>
+<dd>Investigate potential problems between a signed and unsigned <code>Vector&lt;T&gt;</code> or <code>Vector&lt;U&gt;</code>.  </dd>
 <dt><a class="anchor" id="_todo000016"></a>Class <a class="el" href="group___math.html">zen::math::vector_t</a>  </dt>
-<dd><p class="startdd">Add support for translation via matrices. </p>
-<p class="enddd">Move semantics </p>
-</dd>
-<dt><a class="anchor" id="_todo000022"></a>Global <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430">zen::obj::CEntity::AddPrimitive</a>  (const gfx::CQuad &amp;Prim)</dt>
-<dd>Check for material <code>nullptr</code>  </dd>
-<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">zen::obj::CEntity::Move</a>  (const real_t x, const real_t y, const real_t z=1.0)</dt>
+<dd>Add support for translation via matrices. </dd>
+<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">zen::obj::CEntity::Move</a>  (const real_t x, const real_t y, const real_t z=1.0)</dt>
 <dd>Support a variety of primitive depths.  </dd>
-<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D::LoadFromFile</a>  (const string_t &amp;filename)</dt>
+<dt><a class="anchor" id="_todo000021"></a>Global <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D::LoadFromFile</a>  (const string_t &amp;filename)</dt>
 <dd>Use some standardized WAV loading library.  </dd>
-<dt><a class="anchor" id="_todo000018"></a>Class <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html">zen::util::CXMLParser</a>  </dt>
+<dt><a class="anchor" id="_todo000019"></a>Class <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html">zen::util::CXMLParser</a>  </dt>
 <dd>Fix <code>XMLNode</code> parent setting </dd>
 </dl>
 </div></div><!-- contents -->

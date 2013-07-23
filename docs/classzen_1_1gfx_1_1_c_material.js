@@ -19,5 +19,6 @@ var classzen_1_1gfx_1_1_c_material =
     [ "DisableEffect", "classzen_1_1gfx_1_1_c_material.html#a1b01d4800f23dee94cff5d4e7d69d74f", null ],
     [ "DisableTexture", "classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d", null ],
     [ "GetEffect", "classzen_1_1gfx_1_1_c_material.html#addd5eb8166b408c26abe605ff7d3e7de", null ],
-    [ "GetTexture", "classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2", null ]
+    [ "GetTexture", "classzen_1_1gfx_1_1_c_material.html#ab3f789974bf6235ee73b814290a009f2", null ],
+    [ "GetID", "classzen_1_1gfx_1_1_c_material.html#a0c6f53b01b6bdfd43c21388004c35cde", null ]
 ];

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -155,6 +155,9 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_Assets
 : <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">zen::obj::CEntity</a>
 </li>
+<li>m_depth
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#abb871fd28ffebcf62fd41d8c32da4933">zen::obj::CEntity</a>
+</li>
 <li>m_DrawData
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">zen::gfxcore::CDrawable</a>
 </li>
@@ -165,11 +168,14 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">zen::asset::CAsset</a>
 </li>
 <li>m_filename
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">zen::asset::CAsset</a>
-, <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">zen::obj::CEntity</a>
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">zen::obj::CEntity</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">zen::asset::CAsset</a>
 </li>
 <li>m_filename_hash
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">zen::asset::CAsset</a>
+</li>
+<li>m_imass
+: <a class="el" href="group___objects.html#gadd5fad4ba953ede084f71bac6aedaa71">zen::obj::material_t</a>
 </li>
 <li>m_init
 : <a class="el" href="classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b">zen::CSubsystem</a>
@@ -182,9 +188,9 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">zen::asset::CAsset</a>
 </li>
 <li>m_Log
-: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b">zen::asset::CAsset</a>
-, <a class="el" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">zen::CSubsystem</a>
+: <a class="el" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">zen::CSubsystem</a>
 , <a class="el" href="classzen_1_1obj_1_1_c_entity.html#af795614f802cfaf2418678b75ad2d074">zen::obj::CEntity</a>
+, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b">zen::asset::CAsset</a>
 </li>
 <li>m_loop
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a4a83aad12f3ce5ca4156398153cedb62">zen::sfx::CAudio2D</a>
@@ -192,22 +198,41 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_Material
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a2c602d30d89ee5868102aafb773e31a8">zen::gfxcore::CDrawable</a>
 </li>
+<li>m_Max
+: <a class="el" href="group___objects.html#ga3623283095e9780bb2d04872ba70b972">zen::obj::bbox_t</a>
+</li>
+<li>m_Min
+: <a class="el" href="group___objects.html#ga34bcf56f3a3a6ca6fa19bd6c0170c97d">zen::obj::bbox_t</a>
+</li>
 <li>m_name
 : <a class="el" href="classzen_1_1_c_subsystem.html#a02f9f748324c01276de3702ee7d8c860">zen::CSubsystem</a>
 </li>
 <li>m_Position
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">zen::gfxcore::CDrawable</a>
 , <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a631dc80219f62c772438c7745750ec7f">zen::obj::CEntity</a>
+, <a class="el" href="group___objects.html#ga4c09246cff275551ea63fd24ea89fc01">zen::obj::circle_t</a>
+</li>
+<li>m_radius
+: <a class="el" href="group___objects.html#gaeccc93d696d0f1e0b5c7aa73e51caf3a">zen::obj::circle_t</a>
+</li>
+<li>m_sort
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a1430c60e31989987755c2174cd495c45">zen::obj::CEntity</a>
 </li>
 <li>Magnitude()
 : <a class="el" href="structzen_1_1math_1_1_vector.html#af4c58eb0409ab7a67af84e3ac56c04b7">zen::math::Vector&lt; T &gt;</a>
 </li>
+<li>MATERIAL_FLAG
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_sorter.html#af73b46ffeb7cfe886a9300c6e85de8dd">zen::gfxcore::CSorter</a>
+</li>
+<li>MATERIAL_OFFSET
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_sorter.html#a009f44ecfb0f63c468d03cc6383b4053">zen::gfxcore::CSorter</a>
+</li>
 <li>matrix4x4_t()
-: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">zen::math::matrix4x4_t</a>
+: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a49dffe1c86a43ba7543352eaf050bb87">zen::math::matrix4x4_t</a>
 </li>
 <li>mods
-: <a class="el" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f">zen::evt::mouse_t</a>
-, <a class="el" href="structzen_1_1evt_1_1key__t.html#ade5446443436a36bea1c945da1f51e84">zen::evt::key_t</a>
+: <a class="el" href="structzen_1_1evt_1_1key__t.html#ade5446443436a36bea1c945da1f51e84">zen::evt::key_t</a>
+, <a class="el" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f">zen::evt::mouse_t</a>
 </li>
 <li>mouse
 : <a class="el" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">zen::evt::event_t</a>
@@ -223,7 +248,7 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 </li>
 <li>Move()
 : <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">zen::obj::CEntity</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2">zen::gfxcore::CDrawable</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a03d22a2a626bdeb8209ea231a06b235f">zen::gfxcore::CDrawable</a>
 </li>
 <li>mp_allPrims
 : <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">zen::obj::CEntity</a>

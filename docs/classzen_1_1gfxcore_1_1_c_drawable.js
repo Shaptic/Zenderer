@@ -15,7 +15,7 @@ var classzen_1_1gfxcore_1_1_c_drawable =
     [ "GetPosition", "classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142", null ],
     [ "GetX", "classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b", null ],
     [ "GetY", "classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf", null ],
-    [ "LoadIntoVAO", "classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3", null ],
+    [ "LoadIntoVAO", "classzen_1_1gfxcore_1_1_c_drawable.html#ad81d33436b4c823c160a983b4294fc06", null ],
     [ "CSceneManager", "classzen_1_1gfxcore_1_1_c_drawable.html#a6d20ac109ac17c348b7a8a1a032216e7", null ],
     [ "m_Material", "classzen_1_1gfxcore_1_1_c_drawable.html#a2c602d30d89ee5868102aafb773e31a8", null ],
     [ "m_Position", "classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27", null ],

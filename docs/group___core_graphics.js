@@ -17,7 +17,7 @@ var group___core_graphics =
       [ "GetPosition", "classzen_1_1gfxcore_1_1_c_drawable.html#ab5996d9c20af4a349098a2f8af134142", null ],
       [ "GetX", "classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b", null ],
       [ "GetY", "classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf", null ],
-      [ "LoadIntoVAO", "classzen_1_1gfxcore_1_1_c_drawable.html#ae0be143258b456d9590d1462bf1d0ff3", null ],
+      [ "LoadIntoVAO", "classzen_1_1gfxcore_1_1_c_drawable.html#ad81d33436b4c823c160a983b4294fc06", null ],
       [ "CSceneManager", "classzen_1_1gfxcore_1_1_c_drawable.html#a6d20ac109ac17c348b7a8a1a032216e7", null ],
       [ "m_Material", "classzen_1_1gfxcore_1_1_c_drawable.html#a2c602d30d89ee5868102aafb773e31a8", null ],
       [ "m_Position", "classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27", null ],
@@ -67,9 +67,23 @@ var group___core_graphics =
       [ "GetUniformLocation", "classzen_1_1gfxcore_1_1_c_shader_set.html#ae1640821acc07a4ce9f772a894e2c4ae", null ],
       [ "GetAttributeLocation", "classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00", null ],
       [ "GetError", "classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984", null ],
-      [ "GetLinkerLog", "classzen_1_1gfxcore_1_1_c_shader_set.html#a9a2a779cd8db53bdad4f4dce5b9496cc", null ]
+      [ "GetLinkerLog", "classzen_1_1gfxcore_1_1_c_shader_set.html#a9a2a779cd8db53bdad4f4dce5b9496cc", null ],
+      [ "GetID", "classzen_1_1gfxcore_1_1_c_shader_set.html#a8ffa30edb76b0d902354599abcf29068", null ]
     ] ],
-    [ "CSorter", "group___core_graphics.html#classzen_1_1gfxcore_1_1_c_sorter", null ],
+    [ "CSorter", "classzen_1_1gfxcore_1_1_c_sorter.html", [
+      [ "SortByMaterial", "classzen_1_1gfxcore_1_1_c_sorter.html#ab431df10250fd7c5c5481a3800597930", null ],
+      [ "SortByDepth", "classzen_1_1gfxcore_1_1_c_sorter.html#a3a5a8026244b14f3561ad3a4d1e94a6d", null ],
+      [ "SortByAlpha", "classzen_1_1gfxcore_1_1_c_sorter.html#a96b289555fcd6083257345d49239a3e4", null ],
+      [ "CreateSortFlag", "classzen_1_1gfxcore_1_1_c_sorter.html#a114b9838422d7cdbd052431a086c877d", null ],
+      [ "MATERIAL_FLAG", "classzen_1_1gfxcore_1_1_c_sorter.html#af73b46ffeb7cfe886a9300c6e85de8dd", null ],
+      [ "MATERIAL_OFFSET", "classzen_1_1gfxcore_1_1_c_sorter.html#a009f44ecfb0f63c468d03cc6383b4053", null ],
+      [ "DEPTH_FLAG", "classzen_1_1gfxcore_1_1_c_sorter.html#ade046c7c54f46a219f3b141edd2a58e0", null ],
+      [ "DEPTH_OFFSET", "classzen_1_1gfxcore_1_1_c_sorter.html#ae192e4509528039e0d5c345281289263", null ],
+      [ "ALPHA_FLAG", "classzen_1_1gfxcore_1_1_c_sorter.html#aabc96f79eaffee8fd00a10b2b3dfecaa", null ],
+      [ "ALPHA_OFFSET", "classzen_1_1gfxcore_1_1_c_sorter.html#a03f681912811c2fc3133f7cf12342a2c", null ],
+      [ "UNUSED_FLAG", "classzen_1_1gfxcore_1_1_c_sorter.html#ae69663c819dec868f0d1cb8f665ae056", null ],
+      [ "UNUSED_OFFSET", "classzen_1_1gfxcore_1_1_c_sorter.html#a4de7192dc04108ff5308fef7591916aa", null ]
+    ] ],
     [ "CTexture", "classzen_1_1gfxcore_1_1_c_texture.html", [
       [ "~CTexture", "classzen_1_1gfxcore_1_1_c_texture.html#af240c8e09cc7cd641e2463e4e1c76e00", null ],
       [ "LoadFromFile", "classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091", null ],
@@ -81,6 +95,7 @@ var group___core_graphics =
       [ "Unbind", "classzen_1_1gfxcore_1_1_c_texture.html#a3b9ae915c98b731b41d19a74c15a1f49", null ],
       [ "GetWidth", "classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26", null ],
       [ "GetHeight", "classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc", null ],
+      [ "GetID", "classzen_1_1gfxcore_1_1_c_texture.html#ac2b096539e6bd2422be0547c2ad392e0", null ],
       [ "GetDefaultTexture", "classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8", null ]
     ] ],
     [ "CVertexArray", "classzen_1_1gfxcore_1_1_c_vertex_array.html", [

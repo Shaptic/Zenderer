@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6604 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -364,6 +364,12 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Assets are set up on the <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> base class, which guarantees the ability to load from a file. That's what this method will do: load an asset from a file. Since assets may be identical but claimed by different parts of the engine, such as vertex buffer and mesh data for unique scenes, it is possible to specify an "owner" for the asset. This is entirely optional, and the asset will default to having no unique owner. Assets created in different instances of this class are also considered to be completely separate.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>An <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a> inheriting class type </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to load asset from </td></tr>
@@ -432,6 +438,19 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>An <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a> inheriting class type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>The asset's "owner" (optional=<code>nullptr</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Make this return a reference. </dd></dl>
 
 <p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00045">45</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 
@@ -462,7 +481,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Since assets are set up such that there is only one existing copy at a time, calling <code>Create&lt;CMesh*&gt;("test.txt")</code> three times will give the same return value every time. Sometimes, though, it is desirable to have multiple copies of an asset, and this method will do so.</p>
+<p>Since assets are set up such that there is only one existing copy at a time, calling</p>
+<div class="fragment"><div class="line">Create&lt;CMesh*&gt;(<span class="stringliteral">&quot;test.txt&quot;</span>)</div>
+</div><!-- fragment --><p>three times will give the same return value every time. Sometimes, though, it is desirable to have multiple copies of an asset, and this method will do so.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>A child class of <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">asset::CAsset</a> </td></tr>
@@ -477,8 +498,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A dynamically created asset if it copies successfully, and <code>nullptr</code> otherwise.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>This relies on the <code>T</code> object to have implemented <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a" title="Copies an asset from another.">CAsset::LoadFromExisting()</a>, which is not guaranteed.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Add some sort of check to make sure <code>T</code> is an inheriting class of <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This relies on the <code>T</code> object to have implemented <a class="el" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a" title="Copies an asset from another.">CAsset::LoadFromExisting()</a>, which is not guaranteed. </dd></dl>
 
 <p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00064">64</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 
