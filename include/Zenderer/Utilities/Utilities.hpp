@@ -40,7 +40,6 @@
 
 namespace zen
 {
-
 /**
  * Contains various utilities that can help with loading, rendering,
  * logging, and debugging.

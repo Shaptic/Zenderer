@@ -35,10 +35,10 @@
 
 #include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Core/Subsystem.hpp"
+#include "Zenderer/Utilities/Assert.hpp"
 
 namespace zen
 {
-
 /// An abstraction layer over raw embedding of the Lua scripting environment.
 namespace lua
 {
@@ -152,7 +152,7 @@ namespace lua
         }
 
     private:
-        const luaLibs_t& m_Libraries;
+        const luaLibs_t& m_Libs;
         lua_State* m_Lua;
     };
 }

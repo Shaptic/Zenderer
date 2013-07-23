@@ -77,7 +77,6 @@ namespace sfx
         uint32_t    m_error_code;   // OpenAL error code
         bool        m_loop;         // Loop after finishing?
     };
-
 }   // namespace sfx
 }   // namespace zen
 

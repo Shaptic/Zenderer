@@ -88,15 +88,15 @@ namespace obj
 
             for( ; i != j; ++i) (*i)->Move(x, y, z);
         }
-        
+
         void Offload(gfxcore::CVertexArray& VAO, const bool keep = true)
         {
             auto i = mp_allPrims.begin(),
                  j = mp_allPrims.end();
-            
+
             for( ; i != j; ++i) (*i)->LoadIntoVAO(VAO, keep);
         }
-        
+
         void SetDepth(uint16_t depth)
         {
             // Limit depth to 8-bit values (256).
@@ -107,7 +107,7 @@ namespace obj
         }
 
         const math::vector_t& GetPosition() const { return m_Position; }
-        
+
         inline uint32_t GetSortFlag() const
         {
             return m_sort;
@@ -131,7 +131,6 @@ namespace obj
         uint16_t                    m_depth;
         uint32_t                    m_sort;
     };
-
 }   // namespace gfxcore
 }   // namespace zen
 

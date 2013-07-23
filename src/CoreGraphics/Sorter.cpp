@@ -9,4 +9,3 @@ const zen::obj::CEntity* CSorter::SortBy(const zen::obj::CEntity* pEnt1,
     return (pEnt1->GetSortFlag() & flag) < (pEnt2->GetSortFlag() & flag)
         ?   pEnt1 : pEnt2;
 }
-

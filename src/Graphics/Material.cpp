@@ -131,7 +131,7 @@ bool CMaterial::LoadTextureFromFile(const string_t& filename)
         this->SetID();
         return false;
     }
-    
+
     return true;
 }
 

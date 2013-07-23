@@ -64,7 +64,7 @@ bool CFont::LoadFromFile(const string_t& filename)
                 << "Failed to set font size." << CLog::endl;
         return (m_loaded = false);
     }
-    
+
     // Set universal line height.
     m_height = (m_FontFace->ascender + m_FontFace->descender) >> 6;
 
@@ -122,9 +122,9 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     math::vectoru16_t totals;
     uint16_t tmp_tx = 0;
 
-    // Rendering position. We calculate this by detecting any newline ('\n') 
+    // Rendering position. We calculate this by detecting any newline ('\n')
     // characters. If there aren't any, the position begins at the (0, 0, 1),
-    // otherwise, it begins at the end of the last line, since rendering is 
+    // otherwise, it begins at the end of the last line, since rendering is
     // performed upside down (to be compatible with the quad texture coords).
     math::vectoru16_t Pos;
 
@@ -144,7 +144,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     {
         char c = text[i >> 2];
 
-        // Handle newlines by resetting the x-coordinate and 
+        // Handle newlines by resetting the x-coordinate and
         // increasing the y by the current font faces line height
         // property (universal on all glyphs).
         if(c == '\n')
@@ -192,7 +192,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // Uniform font color.
         for(size_t j = i; j < i + 4; ++j) verts[j].color = m_Color;
 
-        // Calculate index starting point. Since 6 indices / vertex,
+        // Calculate index starting point. Since 6 indices per vertex,
         // we do i / 4 (since 4 iterations per vertex) to get the
         // vertex number, and * 6 to get to the first index for it.
         int x = (i >> 2) * 6;
@@ -236,16 +236,17 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     VAO.AddData(D);
     VAO.Offload();
 
-    VAO.Bind(); FBO.Bind();
-    FBO.Clear();
+    VAO.Bind();
+    FBO.Bind();
 
     bool blend = gfxcore::CRenderer::BlendOperation(
                             gfxcore::BlendFunc::IS_ENABLED);
-    
+
     gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
     s_FontFx->Enable();
     s_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
 
+    FBO.Clear();
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
         // Render each character (skip if unrenderable).
@@ -258,7 +259,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
     FBO.Unbind();
     gfxcore::CRenderer::ResetMaterialState();
-    
+
     // Only disable blending if it wasn't enabled prior to calling
     // this method (checked above).
     if(!blend) gfxcore::CRenderer::BlendOperation(
@@ -266,7 +267,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
     // Now the string has been rendered to the FBO texture, so all we need to
     // do is create a material and attach it to the quad.
-    
+
     // Create a texture wrapper from the texture handle in the FBO.
     gfxcore::CTexture* pTexture =
         mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
@@ -347,7 +348,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
 
     if(w == 0 || h == 0)
     {
-        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) 
+        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Empty character bitmap for '" << c << '\'' << CLog::endl;
     }
 
@@ -378,7 +379,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
 
     // Clean up TTF data.
     FT_Done_Glyph(g);
-    
+
     return true;
 }
 

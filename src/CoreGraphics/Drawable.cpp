@@ -3,7 +3,7 @@
 using namespace zen;
 using gfxcore::CDrawable;
 
-CDrawable::CDrawable(asset::CAssetManager& Assets) : 
+CDrawable::CDrawable(asset::CAssetManager& Assets) :
     m_Assets(Assets), mp_VAO(nullptr), m_Material(Assets),
     mp_MVMatrix(nullptr), m_offset(0), m_internal(false)
 {
@@ -136,7 +136,7 @@ void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO, const bool keep)
 {
     if(m_DrawData.Vertices == nullptr ||
        m_DrawData.Indices == nullptr) return;
-    
+
     gfxcore::index_t i = VAO.AddData(m_DrawData);
     if(!keep)
     {

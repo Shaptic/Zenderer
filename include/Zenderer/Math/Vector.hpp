@@ -215,13 +215,13 @@ namespace math
 	 *  @todo   Investigate potential problems between a signed
 	 * 	    and unsigned `Vector<T>` or `Vector<U>`.
 	 **/
-	template<typename T, typename U> static 
+	template<typename T, typename U> static
 	real_t distance(const Vector<T>& A, const Vector<U>& B,
 		        const bool do_sqrt = false)
 	{
-	    real_t pyth = (A.x + B.x) * (A.x + B.x) + 
+	    real_t pyth = (A.x + B.x) * (A.x + B.x) +
 			  (A.y + B.y) + (A.y + B.y);
-	    return !do_sqrt ? pyth : std::sqrt(pyth); 
+	    return !do_sqrt ? pyth : std::sqrt(pyth);
 	}
     };
 
@@ -238,7 +238,6 @@ namespace math
 
     /// Standard 32-bit integral vector shortcut.
     typedef Vector<int32_t> vectori_t;
-
 }   // namespace math
 }   // namespace ic
 

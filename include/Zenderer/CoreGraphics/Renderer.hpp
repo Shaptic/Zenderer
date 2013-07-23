@@ -31,7 +31,6 @@
 
 namespace zen
 {
-
 namespace gfx
 {
     // Forward declarations.

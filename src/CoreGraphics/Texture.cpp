@@ -46,9 +46,9 @@ bool CTexture::LoadFromFile(const string_t& filename)
     bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA, w, h, raw);
 
     m_TextureID = s_ID++;
-    
+
     ZEN_ASSERTM(s_ID < (1 << 10), "too many textures, material ID can't be unique");
-    
+
     stbi_image_free(raw);
     this->SetFilename(filename);
     return (m_loaded = true);

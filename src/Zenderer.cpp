@@ -117,4 +117,3 @@ void zen::Quit()
 
     Log.Destroy();
 }
-

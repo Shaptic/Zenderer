@@ -171,12 +171,12 @@ namespace zen
  *
  *  @htmlonly
  *  <style>
- *  .define table { 
+ *  .define table {
  *      border: 1px solid black;
  *      border-collapse: collapse;
  *  }
  *
- *  .define tr, 
+ *  .define tr,
  *  .define td {
  *      padding: 2px 5px 2px;
  *  }

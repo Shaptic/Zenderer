@@ -31,7 +31,7 @@ bool CRenderer::ResetMaterialState()
 bool CRenderer::BlendOperation(const BlendFunc& Func)
 {
     if(s_LastBlend == Func) return true;
-    
+
     switch(Func)
     {
     case BlendFunc::DISABLE_BLEND:
@@ -57,7 +57,7 @@ bool CRenderer::BlendOperation(const BlendFunc& Func)
         BlendOperation(BlendFunc::ENABLE_BLEND);
         GL(glBlendFunc(GL_ONE, GL_ONE));
         break;
-        
+
     case BlendFunc::IS_ENABLED:
     {
         GLboolean status = GL_FALSE;
@@ -65,7 +65,7 @@ bool CRenderer::BlendOperation(const BlendFunc& Func)
         return (s_blend = (status == GL_TRUE));
     }
     }
-    
+
     s_LastBlend = Func;
     return true;
 }

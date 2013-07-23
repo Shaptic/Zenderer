@@ -203,7 +203,6 @@ namespace util
 
     // Include definition for the templated operator<<
     #include "Log.inl"
-
 }   // namespace util
 }   // namespace ic
 

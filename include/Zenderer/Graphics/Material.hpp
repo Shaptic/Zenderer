@@ -34,7 +34,7 @@ namespace gfx
 {
     /// Rendering data composed of a shader effect and a texture.
     class ZEN_API CMaterial
-    {   
+    {
     public:
         CMaterial(asset::CAssetManager& Assets);
         CMaterial(const CMaterial& Copy);

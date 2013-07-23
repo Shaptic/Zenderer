@@ -43,7 +43,6 @@
 
 namespace zen
 {
-
 /// Encompasses all user-level graphics APIs.
 namespace gfx
 {
@@ -98,7 +97,7 @@ namespace gfx
          * Destroys the current OpenGL-enabled window.
          *  This should only be called if you are planning on calling Init()
          *  again, otherwise this will ruin any OpenGL object cleanup and cause
-         *  fatal errors in debug builds. Leave the window management to 
+         *  fatal errors in debug builds. Leave the window management to
          *  zen::Quit().
          *
          * @return  `true`, always.
@@ -166,7 +165,7 @@ namespace gfx
 
         /// @todo Remove when uneccessary.
         inline GLFWwindow* GetWindow() const { return mp_Window; }
-        
+
         math::vector_t GetMousePosition() const;
         bool GetMouseState(const evt::MouseButton& Btn) const;
 

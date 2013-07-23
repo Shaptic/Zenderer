@@ -111,7 +111,6 @@ namespace gfx
         math::Vector<uint16_t> m_Size;
         bool m_inv, m_rep;
     };
-
 }   // namespace gfx
 }   // namespace zen
 

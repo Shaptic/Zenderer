@@ -27,7 +27,6 @@ namespace zen
 {
 namespace evt
 {
-
 #ifdef DELETE
 #undef DELETE
 #endif // DELETE

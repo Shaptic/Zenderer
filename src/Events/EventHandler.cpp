@@ -5,7 +5,6 @@ using namespace zen::evt;
 std::stack<event_t> CEventHandler::s_evtList;
 event_t CEventHandler::s_Active;
 
-
 CEventHandler::~CEventHandler()
 {
     while(!s_evtList.empty()) s_evtList.pop();

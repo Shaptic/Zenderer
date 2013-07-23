@@ -25,7 +25,6 @@
    #define stbi_inline __forceinline
 #endif
 
-
 // implementation:
 typedef unsigned char   uint8;
 typedef unsigned short  uint16;
@@ -74,7 +73,6 @@ typedef struct
    uint8 *img_buffer, *img_buffer_end;
    uint8 *img_buffer_original;
 } stbi;
-
 
 void refill_buffer(stbi *s);
 
@@ -385,7 +383,6 @@ void   stbi_hdr_to_ldr_scale(float scale) { h2l_scale_i = 1/scale; }
 void   stbi_ldr_to_hdr_gamma(float gamma) { l2h_gamma = gamma; }
 void   stbi_ldr_to_hdr_scale(float scale) { l2h_scale = scale; }
 #endif
-
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -1465,7 +1462,6 @@ void stbi_install_YCbCr_to_RGB(stbi_YCbCr_to_RGB_run func)
 }
 #endif
 
-
 // clean up the temporary component buffers
 void cleanup_jpeg(jpeg *j)
 {
@@ -2072,7 +2068,6 @@ int stbi_zlib_decode_noheader_buffer(char *obuffer, int olen, const char *ibuffe
 //    performance
 //      - uses stb_zlib, a PD zlib implementation with fast huffman decoding
 
-
 typedef struct
 {
    uint32 length;
@@ -2103,7 +2098,6 @@ typedef struct
    stbi *s;
    uint8 *idata, *expanded, *out;
 } png;
-
 
 enum {
    F_none=0, F_sub=1, F_up=2, F_avg=3, F_paeth=4,
@@ -2594,7 +2588,6 @@ int stbi_bmp_test(stbi *s)
    return r;
 }
 
-
 // returns 0..31 for the highest set bit
 int high_bit(unsigned int z)
 {
@@ -2834,7 +2827,6 @@ stbi_uc *stbi_bmp_load(stbi *s,int *x, int *y, int *comp, int req_comp)
 {
    return bmp_load(s, x,y,comp,req_comp);
 }
-
 
 // Targa Truevision - TGA
 // by Jonathan Dummer
@@ -3139,7 +3131,6 @@ stbi_uc *stbi_tga_load(stbi *s, int *x, int *y, int *comp, int req_comp)
    return tga_load(s,x,y,comp,req_comp);
 }
 
-
 // *************************************************************************************************
 // Photoshop PSD loader -- PD by Thatcher Ulrich, integration by Nicolas Schulz, tweaked by STB
 
@@ -3281,7 +3272,6 @@ stbi_uc *psd_load(stbi *s, int *x, int *y, int *comp, int req_comp)
             }
          }
       }
-
    } else {
       // We're at the raw image data.  It's each channel in order (Red, Green, Blue, Alpha, ...)
       // where each channel consists of an 8-bit value for each pixel in the image.
@@ -3877,7 +3867,6 @@ int stbi_gif_info(stbi *s, int *x, int *y, int *comp)
    return stbi_gif_info_raw(s,x,y,comp);
 }
 
-
 // *************************************************************************************************
 // Radiance RGBE HDR loader
 // originally by Nicolas Schulz
@@ -3960,7 +3949,6 @@ float *hdr_load(stbi *s, int *x, int *y, int *comp, int req_comp)
    int len;
    unsigned char count, value;
    int i, j, k, c1,c2, z;
-
 
    // Check identifier
    if (strcmp(hdr_gettoken(s,buffer), "#?RADIANCE") != 0)

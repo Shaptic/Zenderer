@@ -159,7 +159,6 @@ namespace util
     {
         return m_XMLTree.cend();
     }
-
 }   // namespace util
 }   // namespace zen
 

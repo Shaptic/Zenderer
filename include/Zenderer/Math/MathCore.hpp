@@ -108,7 +108,6 @@ namespace math
 
     // Definitions for the functions defined above.
     #include "MathCore.inl"
-
 }   // namespace math
 }   // namespace zen
 

@@ -155,7 +155,6 @@ namespace gfxcore
         DrawBatch           m_DrawData;
         bool                m_internal;
     };
-
 }   // namespace gfxcore
 }   // namespace zen
 

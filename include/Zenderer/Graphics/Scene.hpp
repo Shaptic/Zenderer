@@ -35,7 +35,6 @@
 
 #include "Zenderer/Objects/Entity.hpp"
 
-
 namespace zen
 {
 namespace gfx
@@ -47,7 +46,7 @@ namespace gfx
     class ZEN_API CScene : public CSubsystem
     {
     public:
-        CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) : 
+        CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) :
             m_Assets(Mgr), m_Log(util::CLog::GetEngineLog()),
             m_FBO1(w, h), m_FBO2(w, h) {}
         ~CScene() {}
@@ -73,7 +72,7 @@ namespace gfx
          *  The default primitive initialization options are specified for
          *  this primitive. If you want to specify them on your own, the
          *  suggested approach is adding a raw managed entity via AddEntity(),
-         *  and then loading it with primitives yourself. 
+         *  and then loading it with primitives yourself.
          *
          * @return  A `CEntity&` instance loaded with the given primitive.
          **/
@@ -147,7 +146,7 @@ namespace gfx
          * @return  A `CEntity&` instance with no data.
          *
          * @warning The index must be in the range of the current list, or
-         *          an entity will just be inserted at the end of the internal 
+         *          an entity will just be inserted at the end of the internal
          *          list. The range cannot be checked because this method only
          *          returns a valid reference. Use `IsValidEntityIndex()` to
          *          check for a good index.
@@ -177,11 +176,11 @@ namespace gfx
             // time to call it. Things won't be offloaded multiple times.
             auto i = m_allEntities.begin(),
                  j = m_allEntities.end();
-            for( ; i != j; ++i) 
+            for( ; i != j; ++i)
             {
                 (*i)->Offload(m_Geometry, false);
             }
-            
+
             m_Geometry.Offload();
 
             // Clear our frame buffers from the last drawing.

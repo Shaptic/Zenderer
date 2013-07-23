@@ -83,7 +83,7 @@ bool CShaderSet::CreateShaderObject()
 
         return false;
     }
-    
+
     // Test for existing shader program.
     auto i = s_shaderPrograms.begin(), j = s_shaderPrograms.end();
     for( ; i != j; ++i)
@@ -157,14 +157,14 @@ bool CShaderSet::CreateShaderObject()
         this->Destroy();
         return false;
     }
-    
+
     // Add ourselves to the internal program storage.
     ++m_refcount;
     m_ID = s_ID++;
-    
+
     ZEN_ASSERTM(s_ID < (1 << 6),
         "too many shader programs; material ID will not be unique");
-    
+
     s_shaderPrograms[this] = m_program;
     return true;
 }

@@ -138,7 +138,7 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
     // All entity primitives must have viable textures attached.
-    if(&Quad.GetMaterial().GetTexture() == 
+    if(&Quad.GetMaterial().GetTexture() ==
        &gfxcore::CRenderer::GetDefaultTexture())
         return false;
 
@@ -147,7 +147,7 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
     pQuad->Create();
     pQuad->SetColor(color4f_t(1, 1, 1, 1));
     mp_allPrims.push_back(pQuad);
-    
+
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
     //m_sort |= (pQuad->GetMaterial().GetID() << gfxcore::CSorter::MATERIAL_OFFSET);

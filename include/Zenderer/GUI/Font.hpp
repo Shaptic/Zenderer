@@ -138,17 +138,17 @@ namespace gui
          * Attaches an asset manager to the font for loading textures.
          *  It's absolutely essential to perform a call to this method
          *  after constructing a font instance, because it is impossible
-         *  for the font to load and create texture assets without a 
+         *  for the font to load and create texture assets without a
          *  manager. This cannot be done through the constructor, either
-         *  because the manager is in itself an asset, so it must be 
+         *  because the manager is in itself an asset, so it must be
          *  created with a manager :)
          *
-         *  Please reference the font loading example to see proper 
+         *  Please reference the font loading example to see proper
          *  techniques for using the font API.
          *
          * @param   Assets  The asset manager to attach.
          *
-         * @return  `true`  if the internal font rendering effect loaded 
+         * @return  `true`  if the internal font rendering effect loaded
          *          successfully, `false` otherwise.
          *
          * @pre     The given manager must be initialized.
@@ -165,7 +165,7 @@ namespace gui
         uint16_t GetTextHeight(const string_t& text) const;
 
         friend class ZEN_API asset::CAssetManager;
-        
+
     private:
         CFont(const void* const owner = nullptr);
         bool Destroy();
@@ -188,7 +188,6 @@ namespace gui
         uint16_t m_size;
         uint16_t m_height;
     };
-
 }   // namespace gfx
 }   // namespace zen
 
@@ -212,7 +211,7 @@ namespace gui
  * @todo    Implement SDFF technique
  *          (https://forum.libcinder.org/topic/signed-distance-field-font-rendering)
  *
- * @bug     Rendering text more than once causes a black background on the 
+ * @bug     Rendering text more than once causes a black background on the
  *          final entity to appear, instead of a transparent one.
  *
  * @example Fonts
@@ -232,7 +231,7 @@ namespace gui
  *  Font->AttachManager(Assets);
  *
  *  // Error checking omitted for brevity.
- *  Font->LoadFromFile("sample.ttf"); 
+ *  Font->LoadFromFile("sample.ttf");
  *
  *  // Render a string to an entity
  *  obj::CEntity& Score = Scene.AddEntity();

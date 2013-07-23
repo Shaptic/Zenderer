@@ -40,7 +40,7 @@ namespace obj
      * @see http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem
      * @see http://gafferongames.com/game-physics/integration-basics/
      **/
-    struct ZEN_API bbox_t 
+    struct ZEN_API bbox_t
     {
         math::vector_t m_Min;
         math::vector_t m_Max;
@@ -63,7 +63,7 @@ namespace obj
     };
 
     /// Checks for collision between two AABB boxes.
-    /// @note   This algorithm doesn't work well with rotated boxes. 
+    /// @note   This algorithm doesn't work well with rotated boxes.
     bool collides(const bbox_t& a, const bbox_t& b)
     {
         if(!math::compf(a.m_Max.z, b.m_Max.z)) return false;
@@ -80,7 +80,6 @@ namespace obj
         r *= r;
         return r < a.m_Position.distance(a.m_Position, b.m_Position, false);
     }
-
 }   // namespace obj
 }   // namespace zen
 

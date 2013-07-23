@@ -117,7 +117,6 @@ namespace gfx
 
     // Shortcut for light containers.
     typedef std::vector<CLight*> LightSet_t;
-
 }   // namespace gfx
 }   // namespace zen
 

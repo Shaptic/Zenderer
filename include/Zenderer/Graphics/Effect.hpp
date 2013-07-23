@@ -240,7 +240,7 @@ namespace gfx
  *    <td><pre>SPRITESHEET</pre></td>
  *    <td><pre>Default.vs<br/>SpriteSheet.fs</pre></td>
  *    <td>
- *      Renders a texture using an offset, thus only rendering a 
+ *      Renders a texture using an offset, thus only rendering a
  *      portion of it. Useful for sprite sheets and other texture atlases.
  *      The size of the texture rendered will match the size of your sprite,
  *      and tiling / stretching is impossible.

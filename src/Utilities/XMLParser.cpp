@@ -271,4 +271,3 @@ int CXMLParser::CreateNode(const string_t& line,
 
     return -1;
 }
-

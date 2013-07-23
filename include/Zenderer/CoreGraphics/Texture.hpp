@@ -55,7 +55,7 @@ namespace gfxcore
 
         uint16_t GetWidth()     const { return m_width; }
         uint16_t GetHeight()    const { return m_height; }
-        
+
         /// Returns program ID (unique for different textures).
         uint16_t GetID() const { return m_TextureID; }
 

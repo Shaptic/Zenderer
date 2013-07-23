@@ -96,11 +96,11 @@ namespace math
             if(!compf(Angles.y, 0.0f))
                 m_values[1][0] = -std::tan(rad(Angles.y));
         }
-        
+
         /**
          * Scales the matrix by some scalar values.
          *  If a matrix with a scaling factor of (1, 2, 0) is applied
-         *  to a (2, 3, 5) vector, for example, the resulting 
+         *  to a (2, 3, 5) vector, for example, the resulting
          *  vector would be (2, 6, 0).
          *  Scaling is a 1 to 1 ratio by default.
          *
@@ -112,7 +112,7 @@ namespace math
             m_values[1][1] *= Factors.y;
             m_values[2][2] *= Factors.z;
         }
-        
+
         /**
          * Performs a 2D rotation about an angle.
          *  There is no support for rotation in all directions in 3D
@@ -151,33 +151,33 @@ namespace math
             real_t r = rad(degrees);
             real_t c = std::cos(r);
             real_t s = std::sin(r);
-            
+
             m_values[0][0] =  c;
             m_values[0][1] = -s;
             m_values[1][0] =  s;
             m_values[1][1] =  c;
         }
-        
+
         /// Like RotationZ, but about the X-axis.
         inline void RotationX(const real_t degrees)
         {
             real_t r = rad(degrees);
             real_t c = std::cos(r);
             real_t s = std::sin(r);
-            
+
             m_values[1][1] =  c;
             m_values[1][2] = -s;
             m_values[2][1] =  s;
             m_values[2][2] =  c;
         }
-        
+
         /// Like RotationZ, but about the Y-axis.
         inline void RotationY(const real_t degrees)
         {
             real_t r = rad(degrees);
             real_t c = std::cos(r);
             real_t s = std::sin(r);
-            
+
             m_values[0][0] =  c;
             m_values[0][2] =  s;
             m_values[2][1] = -s;

@@ -34,7 +34,6 @@
 
 namespace zen
 {
-
 /// A namespace encompassing asset-related objects and managers.
 namespace asset
 {

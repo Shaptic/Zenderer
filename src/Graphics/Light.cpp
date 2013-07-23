@@ -20,7 +20,6 @@ CLight::CLight(asset::CAssetManager& m_Assets,
     m_loccol(-1), m_locbrt(-1), m_locpos(-1), m_locatt(-1),
     m_loctmx(-1), m_loctmn(-1)
 {
-
 }
 
 CLight::~CLight()

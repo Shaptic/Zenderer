@@ -150,7 +150,7 @@ math::vector_t CWindow::GetMousePosition() const
     return math::vector_t(x, y);
 }
 
-bool CWindow::GetMouseState(const evt::MouseButton& Btn) const 
+bool CWindow::GetMouseState(const evt::MouseButton& Btn) const
 {
     return glfwGetMouseButton(mp_Window, static_cast<int>(Btn)) == GLFW_PRESS;
 }

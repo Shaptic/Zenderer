@@ -153,7 +153,6 @@ namespace util
     {
         return hash(str.c_str(), str.size(), seed);
     }
-
 }   // namespace util
 }   // namespace zen
 

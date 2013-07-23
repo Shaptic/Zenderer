@@ -31,11 +31,11 @@
 
 /**
  * The entry point for the Zenderer engine DLL.
- * 
+ *
  * @param   HMODULE Module
  * @param   DWORD   Reason for calling function
  * @param   void*   Reserved data that has no use in this case
- * 
+ *
  * @return  `true`, always.
  **/
 bool APIENTRY DllMain(HMODULE hModule, DWORD reason, void* preserved)

@@ -50,13 +50,13 @@ namespace evt
             position(0, 0),
             button(MouseButton::UNKNOWN),
             down(false) {}
-            
+
         math::vector_t position;
         MouseButton button;
         bool down;
         int mods;
     };
-    
+
     math::vector_t GetMousePosition();
     bool GetMouseState(const evt::MouseButton& Btn);
 }
