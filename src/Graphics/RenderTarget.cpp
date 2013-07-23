@@ -90,7 +90,7 @@ bool CRenderTarget::Destroy()
 
 bool CRenderTarget::Bind() const
 {
-    // Bind the framebuffer and set our viewport.
+    // Bind the framebuffer and set our view port.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));
     GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));
     gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
@@ -100,7 +100,7 @@ bool CRenderTarget::Bind() const
 
 bool CRenderTarget::Unbind() const
 {
-    // Unbind the framebuffer and reset the viewport.
+    // Unbind the framebuffer and reset the view port.
     gfxcore::CRenderer::s_ProjMatrix = m_Main;
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));

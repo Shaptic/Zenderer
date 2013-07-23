@@ -21,8 +21,7 @@ using gfxcore::CRenderer;
 
     Window.Init();
 
-    sfx::CSound2D* Sound =
-        Manager.Create<sfx::CSound2D>("Crackle.wav");
+    sfx::CSound2D* Sound = Manager.Create<sfx::CSound2D>("Crackle.wav");
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
@@ -111,6 +110,10 @@ using gfxcore::CRenderer;
     Font->Render(Ent);
     Ent.Move(100, 69);
 
+    obj::CEntity Ent2(Manager);
+    Font->Render(Ent2, "Hi");
+    Ent2.Move(200, 200);
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -168,6 +171,7 @@ using gfxcore::CRenderer;
         Default.Draw();
 
         Ent.Draw();
+        Ent2.Draw();
 
         {
             Grass.Enable();

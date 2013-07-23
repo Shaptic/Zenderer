@@ -211,9 +211,6 @@ namespace gui
  * @todo    Implement SDFF technique
  *          (https://forum.libcinder.org/topic/signed-distance-field-font-rendering)
  *
- * @bug     Rendering text more than once causes a black background on the
- *          final entity to appear, instead of a transparent one.
- *
  * @example Fonts
  * @section Font Rendering Examples
  * @subsection Rendering With a Scene

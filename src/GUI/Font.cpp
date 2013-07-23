@@ -239,14 +239,14 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     VAO.Bind();
     FBO.Bind();
 
-    bool blend = gfxcore::CRenderer::BlendOperation(
-                            gfxcore::BlendFunc::IS_ENABLED);
-
-    gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
     s_FontFx->Enable();
     s_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
 
-    FBO.Clear();
+    bool blend = gfxcore::CRenderer::BlendOperation(
+        gfxcore::BlendFunc::IS_ENABLED);
+
+    gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
         // Render each character (skip if unrenderable).
