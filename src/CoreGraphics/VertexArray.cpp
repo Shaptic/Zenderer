@@ -69,17 +69,21 @@ index_t CVertexArray::AddData(const DrawBatch& D)
     ZEN_ASSERTM(D.vcount > 0, "no buffer vertices given");
     ZEN_ASSERTM(D.icount > 0, "no buffer indices given");
 
+    // Calculates the offset within the index buffer for the given indices.
+    size_t offset = m_vaoIndices.size() + m_icount;
+
+    // We need to account for the fact that the given index buffer assumes that
+    // the vertices start at index 0. So we must add the total vertex count,
+    // as well as the current (non-loaded) vertex count.
+    m_vaoIndices.reserve(m_vaoIndices.size() + D.icount);
+    for(size_t i = 0; i < D.icount; ++i)
+        m_vaoIndices.push_back(D.Indices[i] + m_vcount + m_vaoVertices.size());
+
     m_vaoVertices.reserve(m_vaoVertices.size() + D.vcount);
     for(size_t v = 0; v < D.vcount; ++v)
         m_vaoVertices.push_back(D.Vertices[v]);
 
-    size_t offset = m_vaoIndices.size();
-
-    m_vaoIndices.reserve(m_vaoIndices.size() + D.icount);
-    for(size_t i = 0; i < D.icount; ++i)
-        m_vaoIndices.push_back(D.Indices[i]);
-
-    return offset + m_icount;
+    return offset;
 }
 
 /// @see    http://stackoverflow.com/questions/8923174/opengl-vao-best-practices

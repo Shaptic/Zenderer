@@ -111,8 +111,8 @@ using gfxcore::CRenderer;
 
     gfx::CScene Scene(800, 600, Manager);
     Scene.Init(); Scene.EnableLighting();
-    obj::CEntity& Ent2 = Scene.AddEntity();
     obj::CEntity& Ent3 = Scene.AddEntity();
+    obj::CEntity& Ent2 = Scene.AddEntity();
     gfx::CLight& L2 = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
     gfx::CLight& L3 = Scene.AddLight(gfx::LightType::ZEN_POINT);
     Font->Render(Ent2, "Hi");
@@ -191,6 +191,7 @@ using gfxcore::CRenderer;
         Default.Draw();
 
         Ent.Draw();
+        Ent2.Move(mouse.x, mouse.y);
         Scene.Render();
 
         {

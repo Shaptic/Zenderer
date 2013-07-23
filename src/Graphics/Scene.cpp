@@ -83,8 +83,7 @@ bool CScene::Render()
 
     // Called every frame because there is no more appropriate
     // time to call it. Things won't be offloaded multiple times.
-    auto i = m_allEntities.begin(),
-        j = m_allEntities.end();
+    auto i = m_allEntities.begin(), j = m_allEntities.end();
     for( ; i != j; ++i)
     {
         (*i)->Offload(m_Geometry, false);
@@ -113,8 +112,7 @@ bool CScene::Render()
     i = m_allEntities.begin();
     for( ; i != j; ++i)
     {
-        MV.Translate((*i)->GetPosition());
-        MV.TranslateAdj(m_Camera);
+        MV.Translate((*i)->GetPosition() + m_Camera);
         E.SetParameter("mv", MV);
 
         auto a = (*i)->cbegin(), b = (*i)->cend();
