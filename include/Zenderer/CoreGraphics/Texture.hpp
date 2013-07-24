@@ -31,6 +31,9 @@
 #include "Zenderer/Utilities/Log.hpp"
 #include "OpenGL.hpp"
 
+/// For easily loading engine assets.
+#define ZENDERER_TEXTURE_PATH "Zenderer/textures/"
+
 namespace zen
 {
 namespace gfxcore

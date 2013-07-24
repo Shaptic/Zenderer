@@ -99,7 +99,10 @@ using gfxcore::CRenderer;
     EntPrim.SetInverted(true);
     EntPrim.Create();
 
-    obj::CEntity Ent(Manager);
+    gfx::CScene Scene(800, 600, Manager);
+    Scene.Init(); Scene.EnableLighting();
+
+    obj::CEntity& Ent = Scene.AddEntity();
     gui::CFont* Font = Manager.Create<gui::CFont>();
     Font->AttachManager(Manager);
     Font->SetSize(36);
@@ -109,8 +112,9 @@ using gfxcore::CRenderer;
     Font->Render(Ent);
     Ent.Move(100, 69);
 
-    gfx::CScene Scene(800, 600, Manager);
-    Scene.Init(); Scene.EnableLighting();
+    obj::CEntity& Bg = Scene.AddEntity();
+    Bg.LoadFromTexture("MockMenu.png");
+
     obj::CEntity& Ent3 = Scene.AddEntity();
     obj::CEntity& Ent2 = Scene.AddEntity();
     gfx::CLight& L2 = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
@@ -131,6 +135,12 @@ using gfxcore::CRenderer;
     L3.SetBrightness(1.8);
     L3.SetColor(color3f_t(0.0, 1.0, 0.0));
     L3.Disable();
+
+    obj::CEntity& Grass1 = Scene.AddEntity();
+    obj::CEntity& Grass2 = Scene.AddEntity();
+
+    Grass1.LoadFromTexture("Zenderer/textures/grass.png");
+    Grass2.LoadFromTexture("Zenderer/textures/grass2.png");
 
     math::vector_t mouse;
 

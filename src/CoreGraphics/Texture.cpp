@@ -30,7 +30,7 @@ bool CTexture::LoadFromFile(const string_t& filename)
 
     ZEN_ASSERT(w > 0 && h > 0);
 
-    stbi_flip_y(w, h, 4, raw);
+    //stbi_flip_y(w, h, 4, raw);
     if(comp != 4 && comp != 3)
     {
         m_error_str = "Invalid number of components. "
