@@ -138,10 +138,14 @@ using gfxcore::CRenderer;
 
     obj::CEntity& Grass1 = Scene.AddEntity();
     obj::CEntity& Grass2 = Scene.AddEntity();
+    obj::CEntity& Grass3 = Scene.AddEntity();
 
-    Grass1.LoadFromTexture("Zenderer/textures/grass.png");
-    Grass2.LoadFromTexture("Zenderer/textures/grass2.png");
+    Grass1.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
+    Grass2.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass2.png");
+    Grass3.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
 
+    math::vector_t GrassT(45.0, 45.0, -45.0);
+    math::vector_t GrassDT(-5.5, 3.4, -2.5);    
     math::vector_t mouse;
 
     while(Window.IsOpen())
@@ -202,6 +206,20 @@ using gfxcore::CRenderer;
 
         Ent.Draw();
         Ent2.Move(mouse.x, mouse.y);
+
+        if((GrassDT.x > 0 && GrassT.x > 45.0) ||
+           (GrassDT.x < 0 && GrassT.x < -45.0)) GrassDT.x = -GrassDT.x;
+
+        if((GrassDT.y > 0 && GrassT.y > 45.0) ||
+           (GrassDT.y < 0 && GrassT.y < -45.0)) GrassDT.y = -GrassDT.y;
+           
+        if((GrassDT.z > 0 && GrassT.z > 45.0) ||
+           (GrassDT.z < 0 && GrassT.z < -45.0)) GrassDT.z = -GrassDT.z;
+           
+        Grass1.Shear(math::vector_t(GrassT.x += Grass.DT.x, 0.0));
+        Grass2.Shear(math::vector_t(GrassT.y += Grass.DT.y, 0.0));
+        Grass3.Shear(math::vector_t(GrassT.z += Grass.DT.z, 0.0));
+        
         Scene.Render();
 
         {
