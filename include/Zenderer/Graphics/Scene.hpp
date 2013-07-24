@@ -39,9 +39,6 @@ namespace zen
 {
 namespace gfx
 {
-    using gfxcore::CRenderer;
-    using gfxcore::BlendFunc;
-
     /// @todo   Set up entity internals
     class ZEN_API CScene : public CSubsystem
     {
@@ -51,9 +48,17 @@ namespace gfx
 
         /// Initializes internal graphical components.
         bool Init();
-
         bool Destroy();
 
+        /** 
+         * Adds an unloaded, managed entity to the scene. 
+         *  If the entity is simply left as-returned, nothing will
+         *  be drawn on-screen. This method is merely here to abstract
+         *  away memory cleanup operations from the user and give them
+         *  a valid reference to work with at all times.
+         *
+         * @return  An unloaded entity instance.
+         **/
         obj::CEntity& AddEntity();
 
         /**
@@ -101,6 +106,8 @@ namespace gfx
          * @param   Type    The type of post-processing you wish to add
          *
          * @return  The effect instance
+         *
+         * @see     gfx::CEffect::GetError()
          **/
         CEffect& AddEffect(const EffectType& Type);
 
@@ -109,7 +116,8 @@ namespace gfx
          *  Sometimes, you need to have something drawn in a different order
          *  than you had originally planned. Thus this method allows you to
          *  insert entities at any point in the draw queue. This operation
-         *  is `O(n)`.
+         *  is `O(index)`, meaning it's complexity varies in direct proportion
+         *  to the `index` parameter.
          *
          * @param   index   The index to insert an entity at
          *
@@ -125,8 +133,20 @@ namespace gfx
          * @see     IsValidEntityIndex()
          **/
         obj::CEntity& InsertEntity(const uint32_t index);
+        
+        /**
+         * Removes an entity instance from the scene, if it exists.
+         *
+         * @param   Ent     The entity to remove from the manager
+         *
+         * @return  `true`  if the entity was removed from the internal manager,
+         *          `false` if it wasn't found or the index is out of range
+         *                  (for the indexed overload, of course).
+         **/
+        bool RemoveEntity(const obj::CEntity& Obj);
+        bool RemoveEntity(const uint32_t index);        ///< @overload
 
-        /// Renders the scene to the current render target.
+        /// Renders the scene to the screen.
         bool Render();
 
         /// Verifies the given index is within the valid range.

@@ -6,6 +6,7 @@ using namespace gfx;
 using util::CLog;
 using util::LogMode;
 using gfxcore::CRenderer;
+using gfxcore::BlendFunc;
 
 CScene::CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) :
     CSubsystem("Scene"), m_Assets(Mgr),
@@ -68,11 +69,41 @@ obj::CEntity& CScene::InsertEntity(const uint32_t index)
 {
     obj::CEntity* pNew = new obj::CEntity(m_Assets);
     auto i = m_allEntities.begin();
-    size_t j = 0, s = m_allEntities.size();
     for(size_t j = 0, s = m_allEntities.size();
         j < s && j != index; ++j, ++i);
-        m_allEntities.insert(i, pNew);
+        // No -op
+    
+    m_allEntities.insert(i, pNew);
     return *pNew;
+}
+
+bool CScene::RemoveEntity(const obj::CEntity& Obj) 
+{
+    auto i = m_allEntities.begin(),
+         j = m_allEntities.end();
+         
+    for( ; i != j; ++i) 
+    {
+        if(*i == &Obj)
+        {
+            m_allEntities.erase(i);
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+bool CScene::RemoveEntity(const uint32_t index)
+{
+    if(!this->IsValidEntityIndex(index)) return false;
+    
+    auto i = m_allEntities.begin();
+    for(size_t j = 0; j <= index; ++j, ++i);
+        // No-op
+    
+    m_allEntities.erase(i);
+    return true;
 }
 
 bool CScene::Render()
@@ -144,7 +175,7 @@ bool CScene::Render()
         CRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
 
         auto i = m_allLights.begin(),
-            j = m_allLights.end();
+             j = m_allLights.end();
 
         for( ; i != j; ++i)
         {
@@ -176,7 +207,7 @@ bool CScene::Render()
         CRenderTarget& Two = m_lighting ? m_FBO1 : m_FBO2;
 
         auto i = m_allPPFX.begin(),
-            j = m_allPPFX.end();
+             j = m_allPPFX.end();
 
         for(size_t c = 0; i != j; ++i, ++c)
         {
@@ -218,7 +249,7 @@ bool CScene::Render()
 int32_t CScene::GetEntityIndex(const obj::CEntity& D)
 {
     auto i = m_allEntities.begin(),
-        j = m_allEntities.end();
+         j = m_allEntities.end();
 
     int32_t index = -1;
     for( ; i != j; ++i, ++index)
