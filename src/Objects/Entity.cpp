@@ -8,7 +8,8 @@ using obj::CEntity;
 
 CEntity::CEntity(asset::CAssetManager& Assets) :
     m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
-    m_sort(0), m_depth(1)
+    m_sort(0), m_depth(1),
+    m_MV(math::matrix4x4_t::GetIdentityMatrix())
 {
 }
 
@@ -223,16 +224,16 @@ bool CEntity::Draw(bool is_bound /*= false*/)
 void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
     auto i = mp_allPrims.begin(),
-        j = mp_allPrims.end();
+         j = mp_allPrims.end();
 
     for( ; i != j; ++i) (*i)->Move(x, y, z);
-    m_Position = math::vector_t(x, y);
+    m_MV.Translate(x, y, z);
 }
 
 void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 {
     auto i = mp_allPrims.begin(),
-        j = mp_allPrims.end();
+         j = mp_allPrims.end();
 
     for( ; i != j; ++i) (*i)->LoadIntoVAO(VAO, keep);
 }
@@ -244,6 +245,21 @@ void CEntity::SetDepth(uint16_t depth)
     m_depth = depth;
     //m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
     //m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
+}
+
+const math::matrix4x4_t& CEntity::GetTransformation() const
+{
+    return m_MV;
+}
+
+math::vector_t CEntity::GetPosition() const
+{
+    return math::vector_t(m_MV[0][3], m_MV[1][3], m_MV[2][3]);
+}
+
+uint32_t CEntity::GetSortFlag() const
+{
+    return m_sort;
 }
 
 std::vector<gfx::CQuad*>::const_iterator CEntity::cbegin() const

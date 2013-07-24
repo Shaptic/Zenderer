@@ -71,13 +71,17 @@ namespace obj
 
         /// @todo   Support a variety of primitive depths.
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
+        
+        inline void Shear(const math::vector_t& Angles) { m_MV.Shear(Angles); }
+        inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
 
         void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
 
         void SetDepth(uint16_t depth);
 
-        inline const math::vector_t& GetPosition() const { return m_Position; }
-        inline uint32_t GetSortFlag() const              { return m_sort;     }
+        const math::matrix4x4_t& GetTransformation() const;
+        math::vector_t GetPosition() const;
+        uint32_t GetSortFlag() const;
 
         std::vector<gfx::CQuad*>::const_iterator cbegin() const;
         std::vector<gfx::CQuad*>::const_iterator cend() const;
@@ -94,7 +98,7 @@ namespace obj
         asset::CAssetManager&       m_Assets;
         util::CLog&                 m_Log;
 
-        math::vector_t              m_Position;
+        math::matrix4x4_t           m_MV;
         std::vector<gfx::CQuad*>    mp_allPrims;
         string_t                    m_filename;
         uint16_t                    m_depth;

@@ -124,6 +124,7 @@ namespace math
          *
          *  To combine rotations together, simply multiply their matrices
          *  together. Like so:
+         *
          *  @code
          *  matrix4x4_t A = matrix4x4_t::CreateIdentityMatrix();
          *  matrix4x4_t B = matrix4x4_t::CreateIdentityMatrix();

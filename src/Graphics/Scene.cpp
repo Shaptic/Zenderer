@@ -108,10 +108,6 @@ bool CScene::RemoveEntity(const uint32_t index)
 
 bool CScene::Render()
 {
-    // We keep only one matrix instance and just
-    // modify it for every object.
-    math::matrix4x4_t MV(math::matrix4x4_t::GetIdentityMatrix());
-
     // Called every frame because there is no more appropriate
     // time to call it. Things won't be offloaded multiple times.
     auto i = m_allEntities.begin(), j = m_allEntities.end();
@@ -143,15 +139,22 @@ bool CScene::Render()
     i = m_allEntities.begin();
     for( ; i != j; ++i)
     {
-        MV.Translate((*i)->GetPosition() + m_Camera);
-        E.SetParameter("mv", MV);
-
+        // Adjust for the camera.
+        (*i)->Move((*i)->GetPosition() + m_Camera);
+        
+        // Set the matrix for transformation.
+        const math::matrix4x4_t& Tmp = (*i)->GetTransformation();
+        E.SetParameter("mv", Tmp);
+        
         auto a = (*i)->cbegin(), b = (*i)->cend();
         for( ; a != b; ++a)
         {
             (*a)->GetMaterial().Enable();
             (*a)->Draw(true);
         }
+        
+        // Move back to original position.
+        (*i)->Move((*i)->GetPosition() - m_Camera);
     }
 
     M.Disable();
