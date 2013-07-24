@@ -88,7 +88,7 @@ namespace obj
 
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
-
+        
     protected:
         void Destroy();
         bool FileError(const string_t& filename,
@@ -128,9 +128,12 @@ namespace obj
  *
  *  The call to `Optimize()` is not necessary, but is recommended to merge
  *  identical primitives together if they use the same material, especially
- *  if you've got some CPU cycles to spare.
+ *  if you've got some CPU cycles to spare, because it will save render state
+ *  switches down the road.
  *
  * @see specs.html#ZEnt
+ *
+ * @todo    Allow for additional primitives not to stack up.
  **/
 
 /** @} **/

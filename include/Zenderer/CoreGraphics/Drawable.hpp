@@ -33,6 +33,7 @@
 
 namespace zen
 {
+namespace obj { class ZEN_API CEntity; }
 namespace gfxcore
 {
     /// An abstract base class for all drawable primitives.
@@ -141,7 +142,7 @@ namespace gfxcore
                          const bool preserve = true);
 
         /// For setting things implicitly.
-        friend class ZEN_API CSceneManager;
+        friend class ZEN_API CEntity;
 
     private:
         asset::CAssetManager& m_Assets;
