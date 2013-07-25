@@ -145,6 +145,7 @@ void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO, const bool keep)
         m_DrawData.Vertices = nullptr;
         m_DrawData.Indices = nullptr;
         m_offset = i;
+        mp_VAO = &VAO;
     }
 }
 

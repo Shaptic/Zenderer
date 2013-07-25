@@ -111,11 +111,14 @@ bool CScene::Render()
     // Called every frame because there is no more appropriate
     // time to call it. Things won't be offloaded multiple times.
     auto i = m_allEntities.begin(), j = m_allEntities.end();
-    for( ; i != j; ++i)
+    
+    // If the first is offloaded, the rest probably are too.
+    if(i != j && !(*i)->Offloaded())
     {
-        (*i)->Offload(m_Geometry, false);
+        for( ; i != j; ++i)
+            (*i)->Offload(m_Geometry, false);
     }
-
+    
     m_Geometry.Offload();
 
     // Clear our frame buffers from the last drawing.

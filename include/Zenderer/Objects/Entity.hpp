@@ -206,6 +206,16 @@ namespace obj
         /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
 
+        inline bool Offloaded() const
+        { 
+            for(const auto i : mp_allPrims)
+            {
+                if(i->m_DrawData.Vertices != nullptr) return false;
+            }
+            
+            return true;
+        }
+
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
 
