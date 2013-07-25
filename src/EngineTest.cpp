@@ -205,7 +205,7 @@ using gfxcore::CRenderer;
         FS.Draw();
 
         Sample.Enable();
-        auto MV = math::matrix4x4_t::CreateIdentityMatrix();
+        math::matrix4x4_t MV = math::matrix4x4_t::CreateIdentityMatrix();
         MV.Translate(math::vector_t(400, 100));
         Sample.GetEffect().SetParameter("proj", CRenderer::GetProjectionMatrix());
         Sample.GetEffect().SetParameter("mv", MV);

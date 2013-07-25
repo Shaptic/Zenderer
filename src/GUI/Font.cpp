@@ -122,22 +122,24 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     math::vectoru16_t totals;
     uint16_t tmp_tx = 0;
 
-    // Rendering position. We calculate this by detecting any newline ('\n')
-    // characters. If there aren't any, the position begins at the (0, 0, 1),
-    // otherwise, it begins at the end of the last line, since rendering is
-    // performed upside down (to be compatible with the quad texture coords).
+    // Rendering position. We calculate this based on the maximum y-bearing
+    // in the first line of text. Thus, we find the first \n character, if
+    // any, we stop max()-ing the bearing.
+    // Thus the (0, 0, 1) coordinate is the top of the line. Any subsequent
+    // lines just add their height to the y coordinate and keep rendering.
     math::vectoru16_t Pos;
 
-    uint16_t line = 0;
     auto a = text.begin(), b = text.end();
-    for( ; a != b; ++a)
+    uint16_t i = 0;
+    for( ; a != b; ++a, ++i)
     {
-        if(*a == '\n') ++line;
+        if(*a == '\n') break;
+        
         const auto it = m_glyphData.find(*a);
         if(it == m_glyphData.end()) continue;
-        Pos.y = math::max<uint16_t>(Pos.y,
-            it->second.size.y - it->second.position.y);
+        Pos.y = math::max(Pos.y, it->second.position.y);
     }
+    Pos.y = -Pos.y;
 
     // Fill up the buffers.
     for(size_t i = 0; i < vlen; i += 4)
@@ -152,7 +154,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
             Pos.x  = 0; Pos.y += m_height;
             totals.x = math::max(tmp_tx, totals.x);
             tmp_tx = 0;
-            --line;
             continue;
         }
 
@@ -176,14 +177,14 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
          * [i + 2]  : bottom right
          * [i + 3]  : bottom left
          */
-        uint16_t start_y    = Pos.y + gl.position.y;
-        verts[i].position   = math::vector_t(Pos.x,             start_y - gl.size.y);
-        verts[i+1].position = math::vector_t(Pos.x + gl.size.x, start_y - gl.size.y);
-        verts[i+2].position = math::vector_t(Pos.x + gl.size.x, start_y);
-        verts[i+3].position = math::vector_t(Pos.x,             start_y);
+        uint16_t start_y    = std::abs(gl.position.y + Pos.y);
+        verts[i].position   = math::vector_t(Pos.x,           start_y);
+        verts[i+1].position = math::vector_t(Pos.x+gl.size.x, start_y);
+        verts[i+2].position = math::vector_t(Pos.x+gl.size.x, start_y+gl.size.y);
+        verts[i+3].position = math::vector_t(Pos.x,           start_y+gl.size.y);
 
         // Load up the bitmap texture coordinates moving
-        // counter-clockwise from the top-left.
+        // clockwise from the top-left.
         verts[i].tc     = math::vector_t(0, 1);
         verts[i+1].tc   = math::vector_t(1, 1);
         verts[i+2].tc   = math::vector_t(1, 0);
@@ -207,7 +208,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
 
         // Track total dimensions.
         tmp_tx   += math::max(gl.size.x, gl.advance);
-        totals.y  = math::max<uint16_t>(totals.y, m_height * line + gl.size.y);
+        totals.y  = math::max<uint16_t>(totals.y, start_y + gl.size.y);
 
         // Increment position for the next glyph.
         Pos.x += gl.advance;
