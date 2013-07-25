@@ -191,9 +191,12 @@ namespace obj
          **/
         void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
 
+        /// Checks if the entity has offloaded any vertex data to a GPU buffer.
+        bool Offloaded() const;
+
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint16_t depth);
-
+        
         /// Retrieves an immutable reference to the transformation matrix.
         const math::matrix4x4_t& GetTransformation() const;
         math::vector_t GetPosition() const;
@@ -205,16 +208,6 @@ namespace obj
         
         /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
-
-        inline bool Offloaded() const
-        { 
-            for(const auto i : mp_allPrims)
-            {
-                if(i->m_DrawData.Vertices != nullptr) return false;
-            }
-            
-            return true;
-        }
 
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;

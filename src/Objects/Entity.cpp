@@ -246,6 +246,20 @@ void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
     for( ; i != j; ++i) (*i)->LoadIntoVAO(VAO, keep);
 }
 
+bool CEntity::Offloaded() const
+{ 
+    const auto i = mp_allPrims.begin(),
+               j = mp_allPrims.end();
+
+    for( ; i != j; ++i)
+    {
+        if((*i)->m_DrawData.Vertices != nullptr)
+            return false;
+    }
+    
+    return true;
+}
+
 void CEntity::SetDepth(uint16_t depth)
 {
     // Limit depth to 8-bit values (256).

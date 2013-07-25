@@ -86,6 +86,7 @@ bool CScene::RemoveEntity(const obj::CEntity& Obj)
     {
         if(*i == &Obj)
         {
+            delete *i;
             m_allEntities.erase(i);
             return true;
         }
@@ -102,6 +103,7 @@ bool CScene::RemoveEntity(const uint32_t index)
     for(size_t j = 0; j <= index; ++j, ++i);
         // No-op
 
+    delete *i;
     m_allEntities.erase(i);
     return true;
 }
