@@ -39,7 +39,6 @@ namespace zen
 {
 namespace gfx
 {
-    /// @todo   Set up entity internals
     class ZEN_API CScene : public CSubsystem
     {
     public:
@@ -160,6 +159,11 @@ namespace gfx
         void DisableLighting() { m_lighting = false; }
         bool ToggleLighting()  { return m_lighting = !m_lighting; }
 
+        /// Enables / disables post processing effects.
+        void EnablePostProcessing() { m_ppfx = true; } 
+        void DisablePostProcessing(){ m_ppfx = false; }
+        bool TogglePostProcessing() { return m_pffx = !m_ppfx; }
+        
         /**
          * Allows for underlying rendered data to be seen where scene is empty.
          *  If, for example, geometry is rendered prior to a call to Render()
