@@ -11,7 +11,7 @@ gfx::CEffect* CFont::s_FontFx = nullptr;
 CFont::CFont(const void* const owner) :
     CAsset(owner), mp_Assets(nullptr),
     m_Color(0.0, 0.0, 0.0, 1.0),
-    m_size(18), m_height(0)
+    m_size(18), m_height(0), m_stack(false)
 {}
 
 CFont::~CFont()
@@ -108,7 +108,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
             << "Rendering text string '" << text << "'." << CLog::endl;
 
     // Fresh start.
-    Ent.Destroy();
+    if(!m_stack) Ent.Destroy();
 
     // 4 vertices for each character, and 6 indices for
     // each character.
@@ -409,6 +409,11 @@ bool CFont::AttachManager(asset::CAssetManager& Assets)
 void CFont::SetColor(const color4f_t& Color)
 {
     m_Color = Color;
+}
+
+void CFont::SetStacking(const bool flag)
+{
+    m_stack = flag;
 }
 
 uint16_t CFont::GetTextWidth(const string_t& text) const

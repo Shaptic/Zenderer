@@ -161,6 +161,9 @@ namespace gui
         /// Sets the font size.
         void SetSize(const uint16_t size) { m_size = size; }
 
+        /// Enables / Disables rendering on top of existing entity data.
+        void SetStacking(const bool flag);
+        
         uint16_t GetTextWidth(const string_t&  text) const;
         uint16_t GetTextHeight(const string_t& text) const;
 
@@ -187,6 +190,7 @@ namespace gui
 
         uint16_t m_size;
         uint16_t m_height;
+        bool     m_stack;
     };
 }   // namespace gfx
 }   // namespace zen
