@@ -39,30 +39,19 @@ bool CEntity::LoadFromFile(const string_t& filename)
         ++line_no;
         if(line.empty() || line[0] == '/') continue;
 
-        if(line.find("position") != std::string::npos)
+        std::smatch res;
+        std::regex float3("=(\\d+\\.?\\d*),(\\d+\\.?\\d*),?(\\d+\\.?\\d*)?\s*$");
+        
+        if(line.find("position=") != std::string::npos &&
+           std::regex_match(line, res, float3))
         {
-            std::vector<string_t> pair = util::split(line, '=');
-            if(pair.size() != 2) return this->FileError(filename, line, line_no);
-
-            pair = util::split(line, ',');
-            if(pair.size() < 2)
-                return this->FileError(filename, line, line_no,
-                                       ErrorType::BAD_POSITION);
-
-            this->Move(std::stod(pair[0]), std::stod(pair[1]));
-
-            // Depth is optional
-            if(pair.size() == 3)
-                m_MV.TranslateAdj(math::vector_t(0, 0, std::stod(pair[2])));
+            this->Move(std::stod(res[0]), std::stod(res[1]));
         }
-
-        else if(line.find("primcount") != std::string::npos)
+        
+        else if(line.find("primcount") != std::string::npos &&
+                std::regex_match(line, res, std::regex("=(\\d+)\\s*$")))
         {
-            int count = std::stoi(util::split(line, '=')[1]);
-            if(count > 0)
-            {
-                mp_allPrims.reserve(count);
-            }
+            mp_allPrims.reserve(std::stoi(res[0]));
         }
 
         else if(line.find("<prim>") != std::string::npos)

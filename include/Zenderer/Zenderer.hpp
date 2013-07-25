@@ -47,7 +47,12 @@
 #include <cstdlib>
 
 /// Attempt to detect OS.
-#if !(                          \
+#if defined(__GNUC__)       || \
+    defined(__MINGW32__)    || \
+    defined(__MINGW64__)
+  #error "Zenderer must be compiled with C++11 regex support."
+#else if                        \
+    !(                          \
         defined(WIN32)      ||  \
         defined(_WIN32)     ||  \
         defined(__WIN32__)  ||  \

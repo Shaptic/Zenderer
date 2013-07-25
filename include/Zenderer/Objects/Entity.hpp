@@ -29,6 +29,8 @@
 #ifndef ZENDERER__OBJECTS__ENTITY_HPP
 #define ZENDERER__OBJECTS__ENTITY_HPP
 
+#include <regex>
+
 #include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/Drawable.hpp"
 #include "Zenderer/Graphics/Material.hpp"
