@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,20 +111,20 @@ $(document).ready(function(){initNavTree('_mouse_8cpp_source.html','');});
 <div class="contents">
 <a href="_mouse_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_mouse_8hpp.html" title="Zenderer/Events/Mouse.hpp - Defines mouse-related event data structures and convenience functionality...">Zenderer/Events/Mouse.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;evt::mouse_t::mouse_t() :</div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#a91dffe98c5b279c338a7e400c61ccafe">    3</a></span>&#160;<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a91dffe98c5b279c338a7e400c61ccafe">zen::evt::mouse_t::mouse_t</a>() :</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    position(0, 0), button(MouseButton::<a class="code" href="_keyboard_8hpp.html#ab6aedfcb4a10d1a01e272f492e2c2765">UNKNOWN</a>), down(false)</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">zen::math::vector_t</a> <a class="code" href="namespacezen_1_1evt.html#a004475d3ef807db50bc2b6859002ff6d">evt::GetMousePosition</a>()</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0">    8</a></span>&#160;<a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">zen::math::vector_t</a> <a class="code" href="namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0">zen::evt::GetMousePosition</a>()</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">double</span> x, y;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    glfwGetMousePos(glfwGetCurrentContext(), &amp;x, &amp;y);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    glfwGetCursorPos(glfwGetCurrentContext(), &amp;x, &amp;y);</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">zen::math::vector_t</a>(x, y);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">   15</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">zen::evt::GetMouseState</a>(<span class="keyword">const</span> evt::MouseButton&amp; Btn)<span class="keyword"> const </span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">   15</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">zen::evt::GetMouseState</a>(<span class="keyword">const</span> evt::MouseButton&amp; Btn)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> glfwGetMouseButton(glfwGetCurrentContext(),</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                              static_cast&lt;int&gt;(Btn)) == GLFW_PRESS;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>

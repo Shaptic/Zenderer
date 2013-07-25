@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -350,14 +350,14 @@ $(document).ready(function(){initNavTree('_font_8cpp_source.html','');});
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>();</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">bool</span> blend = <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                            <a class="code" href="_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586" title="Test if blending is enabled.">gfxcore::BlendFunc::IS_ENABLED</a>);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    s_FontFx-&gt;Enable();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">gfxcore::CRenderer::GetProjectionMatrix</a>());</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(<a class="code" href="_renderer_8hpp.html#a118561bac353cc035ab749d911916b4b" title="Enables the standard blending function.">gfxcore::BlendFunc::STANDARD_BLEND</a>);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    s_FontFx-&gt;Enable();</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">gfxcore::CRenderer::GetProjectionMatrix</a>());</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ad282b7a7076045660a12e7037d4861c3">Clear</a>();</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">bool</span> blend = <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="code" href="_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586" title="Test if blending is enabled.">gfxcore::BlendFunc::IS_ENABLED</a>);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(<a class="code" href="_renderer_8hpp.html#a118561bac353cc035ab749d911916b4b" title="Enables the standard blending function.">gfxcore::BlendFunc::STANDARD_BLEND</a>);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0, j = text.length(); i &lt; j; ++i)</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="comment">// Render each character (skip if unrenderable).</span></div>

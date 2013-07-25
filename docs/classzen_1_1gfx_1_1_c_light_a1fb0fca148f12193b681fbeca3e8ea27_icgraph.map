@@ -1,5 +1,6 @@
 <map id="zen::gfx::CLight::SetAttenuation" name="zen::gfx::CLight::SetAttenuation">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="296,5,435,32"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_light.html#a94ac3bba22924c6b0417466007b3ff3d" title="zen::gfx::CLight::SetAttenuation" alt="" coords="262,56,469,83"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="517,5,699,32"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_light.html#a94ac3bba22924c6b0417466007b3ff3d" title="zen::gfx::CLight::SetAttenuation" alt="" coords="262,56,469,83"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene." alt="" coords="517,5,699,32"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="747,5,797,32"/>
 </map>

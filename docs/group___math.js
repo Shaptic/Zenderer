@@ -8,6 +8,7 @@ var group___math =
       [ "matrix4x4_t", "classzen_1_1math_1_1matrix4x4__t.html#a4027c831e496ddff65875a47b0ebc71f", null ],
       [ "operator=", "classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8", null ],
       [ "operator[]", "classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6", null ],
+      [ "operator[]", "classzen_1_1math_1_1matrix4x4__t.html#a2af443c7bbaae9f1fdf806055ce0feae", null ],
       [ "operator*", "classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a", null ],
       [ "Translate", "classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf", null ],
       [ "TranslateAdj", "classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2", null ],

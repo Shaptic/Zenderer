@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -151,30 +151,36 @@ $(document).ready(function(){initNavTree('_matrix_8cpp_source.html','');});
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> m_values[index];</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a">   43</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a" title="Multiply two matrices together.">matrix4x4_t::operator*</a>(<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; Other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a2af443c7bbaae9f1fdf806055ce0feae">   43</a></span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a>* <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a3bce830d3b63cc3f759960f1495e1dc6" title="Provides the matrix&#39;s elements at that row.">matrix4x4_t::operator[]</a>(uint8_t index)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> Res;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span>(uint8_t r = 0; r &lt; 4; ++r)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span>(uint8_t c = 0; c &lt; 4; ++c)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">for</span>(uint8_t e = 0; e &lt; 4; ++e)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                Res[r][c] += (m_values[r][e]) * (Other[e][c]);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> Res;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">   55</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> Result;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Result[0][0] = Result[1][1] = Result[2][2] = Result[3][3] = 1.0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> Result;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">   62</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">matrix4x4_t::GetIdentityMatrix</a>()</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> IDENTITY = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> IDENTITY;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    clamp&lt;uint8_t&gt;(index, 0, 3);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> m_values[index];</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a">   49</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#adb99ea477f2389ad5244bcf826a7443a" title="Multiply two matrices together.">matrix4x4_t::operator*</a>(<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; Other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> Res;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">for</span>(uint8_t r = 0; r &lt; 4; ++r)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span>(uint8_t c = 0; c &lt; 4; ++c)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">for</span>(uint8_t e = 0; e &lt; 4; ++e)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                Res[r][c] += (m_values[r][e]) * (Other[e][c]);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> Res;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">   61</a></span>&#160;<a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> Result;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    Result[0][0] = Result[1][1] = Result[2][2] = Result[3][3] = 1.0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> Result;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">   68</a></span>&#160;<span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a>&amp; <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">matrix4x4_t::GetIdentityMatrix</a>()</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">matrix4x4_t</a> IDENTITY = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#afd5ac2890e4956d80553a9539e20ea5a">matrix4x4_t::CreateIdentityMatrix</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> IDENTITY;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

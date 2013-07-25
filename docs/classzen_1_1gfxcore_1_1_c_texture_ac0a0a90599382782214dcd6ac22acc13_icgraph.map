@@ -1,22 +1,22 @@
 <map id="zen::gfxcore::CTexture::LoadFromRaw" name="zen::gfxcore::CTexture::LoadFromRaw">
 <area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ad8f2bab0ba9424845c7a6dabade8d4a8" title="zen::gui::CFontAtlas\l::LoadFromFile" alt="" coords="215,6,356,47"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="1055,318,1196,359"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="209,523,362,565"/>
+<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="1055,166,1196,207"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_texture.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="209,185,362,226"/>
 <area shape="rect" id="node7" href="$classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="822,57,975,98"/>
-<area shape="rect" id="node12" href="$classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8" title="zen::gfxcore::CTexture\l::GetDefaultTexture" alt="" coords="209,363,362,405"/>
-<area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="1045,245,1205,272"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="421,694,552,735"/>
-<area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="835,662,962,703"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="1060,25,1191,66"/>
-<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="1040,90,1211,131"/>
-<area shape="rect" id="node11" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1275,493,1325,520"/>
-<area shape="rect" id="node13" href="$classzen_1_1gfx_1_1_c_material.html#a73e57ac33fcd48a19a270ef1283ed458" title="Loads a texture from an existing one." alt="" coords="421,363,552,405"/>
-<area shape="rect" id="node20" href="$classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk." alt="" coords="411,578,563,619"/>
-<area shape="rect" id="node14" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="611,363,773,405"/>
-<area shape="rect" id="node15" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="611,494,773,535"/>
-<area shape="rect" id="node19" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material." alt="" coords="611,429,773,470"/>
-<area shape="rect" id="node16" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="835,545,962,586"/>
-<area shape="rect" id="node17" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="835,377,962,418"/>
-<area shape="rect" id="node18" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="1024,384,1227,411"/>
-<area shape="rect" id="node21" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="627,662,757,703"/>
+<area shape="rect" id="node12" href="$classzen_1_1gfxcore_1_1_c_texture.html#a191a74863739177e5fe0d57e66192ea8" title="zen::gfxcore::CTexture\l::GetDefaultTexture" alt="" coords="209,341,362,382"/>
+<area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="1045,436,1205,463"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="421,195,552,237"/>
+<area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="835,253,962,294"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="1060,14,1191,55"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="1040,79,1211,121"/>
+<area shape="rect" id="node11" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1275,527,1325,553"/>
+<area shape="rect" id="node13" href="$classzen_1_1gfx_1_1_c_material.html#a73e57ac33fcd48a19a270ef1283ed458" title="Loads a texture from an existing one." alt="" coords="421,341,552,382"/>
+<area shape="rect" id="node20" href="$classzen_1_1gfx_1_1_c_material.html#a55a9539641630a1e5f7387d018678b06" title="Loads a texture from disk." alt="" coords="411,493,563,534"/>
+<area shape="rect" id="node14" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="611,341,773,382"/>
+<area shape="rect" id="node15" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="611,471,773,513"/>
+<area shape="rect" id="node19" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material." alt="" coords="611,275,773,317"/>
+<area shape="rect" id="node16" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="835,589,962,630"/>
+<area shape="rect" id="node17" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="835,370,962,411"/>
+<area shape="rect" id="node18" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="1024,377,1227,404"/>
+<area shape="rect" id="node21" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="627,406,757,447"/>
 </map>

@@ -26,5 +26,6 @@ var searchData=
   ['zenderer_2ehpp',['Zenderer.hpp',['../_zenderer_8hpp.html',1,'']]],
   ['zenderer_5fgl_5fversion',['ZENDERER_GL_VERSION',['../namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b',1,'zen::gfx']]],
   ['zenderer_5fshader_5fpath',['ZENDERER_SHADER_PATH',['../group___core_graphics.html#gad13a32464d536179e9bb243578075a0c',1,'Shader.hpp']]],
+  ['zenderer_5ftexture_5fpath',['ZENDERER_TEXTURE_PATH',['../group___core_graphics.html#gaa235422b75fb88d25c9d979074c6a993',1,'Texture.hpp']]],
   ['zero',['ZERO',['../_keyboard_8hpp.html#ab284bdf3b32e4fc5d5db7feb9fcfb8f0',1,'Keyboard.hpp']]]
 ];

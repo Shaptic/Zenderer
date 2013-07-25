@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('classzen_1_1gfxcore_1_1_c_renderer.htm
 <div class="contents">
 
 <p>Abstracts away API-specific rendering operations.  
-</p>
+ <a href="classzen_1_1gfxcore_1_1_c_renderer.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>&quot;</code></p>
 <table class="memberdecls">
@@ -127,6 +127,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#ab14ae2f572f0d2a405d8ebbee3e5bd52">EnableTexture</a> (const GLuint handle)</td></tr>
 <tr class="memdesc:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a texture handle.  <a href="#ab14ae2f572f0d2a405d8ebbee3e5bd52">More...</a><br/></td></tr>
 <tr class="separator:ab14ae2f572f0d2a405d8ebbee3e5bd52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5991b52e9549267a1a3672e9d5bcd0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2c5991b52e9549267a1a3672e9d5bcd0">ToggleWireframe</a> ()</td></tr>
+<tr class="memdesc:a2c5991b52e9549267a1a3672e9d5bcd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wire frame mode.  <a href="#a2c5991b52e9549267a1a3672e9d5bcd0">More...</a><br/></td></tr>
+<tr class="separator:a2c5991b52e9549267a1a3672e9d5bcd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc">ResetMaterialState</a> ()</td></tr>
 <tr class="memdesc:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets shader and texture state to nothing.  <a href="#af9f6b37fdd6d81a96308f4433f5d33dc">More...</a><br/></td></tr>
 <tr class="separator:af9f6b37fdd6d81a96308f4433f5d33dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,8 +151,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a581ae9a207692ce6d466cbd06321a6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00054">54</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Add support for depth test toggling. </p>
+<p class="enddd">Document class in detail. </p>
+</dd></dl>
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00056">56</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a2b356e4ef3d3b41a279fed90a7fa6804"></a>
 <div class="memitem">
@@ -218,6 +224,31 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a1f45e13224dd42f52ccb8194a1f2c9eb" title="zen::gfx::CRenderTarget\l::BindTexture" alt="" coords="216,5,379,46"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="427,12,477,39"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a2c5991b52e9549267a1a3672e9d5bcd0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CRenderer::ToggleWireframe </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00080">80</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +330,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00080">80</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00095">95</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>
@@ -381,7 +412,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph" alt=""/></div>
 <map name="classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph" id="classzen_1_1gfxcore_1_1_c_renderer_a132f203b3ea6a332abd9e5ae14c730ab_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="216,5,379,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material." alt="" coords="216,70,379,111"/><area shape="rect" id="node4" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="234,135,361,177"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="427,84,629,111"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="457,135,599,177"/><area shape="rect" id="node7" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="448,201,608,228"/><area shape="rect" id="node8" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="677,201,728,228"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="216,5,379,46"/><area shape="rect" id="node3" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material." alt="" coords="216,70,379,111"/><area shape="rect" id="node4" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="234,135,361,177"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="427,84,629,111"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="457,135,599,177"/><area shape="rect" id="node7" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="448,201,608,228"/><area shape="rect" id="node8" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="677,201,728,228"/></map>
 </div>
 </p>
 
@@ -442,7 +473,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00085">85</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_renderer_8hpp_source.html#l00100">100</a> of file <a class="el" href="_renderer_8hpp_source.html">Renderer.hpp</a>.</p>
 
 </div>
 </div>

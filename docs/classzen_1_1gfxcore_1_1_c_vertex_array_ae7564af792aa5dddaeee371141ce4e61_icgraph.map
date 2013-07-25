@@ -1,8 +1,11 @@
 <map id="zen::gfxcore::CVertexArray::Destroy" name="zen::gfxcore::CVertexArray::Destroy">
 <area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="469,5,611,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5c18d198b866efceae68f3e2d4b9eca" title="zen::gfxcore::CVertexArray\l::~CVertexArray" alt="" coords="232,59,411,101"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438" title="zen::gfxcore::CVertexArray\l::Init" alt="" coords="232,125,411,166"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="669,191,720,217"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="460,191,620,217"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="459,74,621,115"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5c18d198b866efceae68f3e2d4b9eca" title="zen::gfxcore::CVertexArray\l::~CVertexArray" alt="" coords="232,106,411,147"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438" title="zen::gfxcore::CVertexArray\l::Init" alt="" coords="232,171,411,213"/>
+<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="669,212,720,239"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_scene.html#a7cd402e9baf35c2819a4351744f6c6bd" title="Cleans up the subsystem completely." alt="" coords="234,343,409,369"/>
+<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="460,237,620,264"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="459,70,621,111"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components." alt="" coords="467,187,613,213"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_scene.html#a8f230d53cbde78e2a0d4a94fca1653b7" title="zen::gfx::CScene::\l~CScene" alt="" coords="475,339,605,381"/>
 </map>

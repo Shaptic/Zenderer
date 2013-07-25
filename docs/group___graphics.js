@@ -87,7 +87,7 @@ var group___graphics =
       [ "Bind", "classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f", null ],
       [ "BindTexture", "classzen_1_1gfx_1_1_c_render_target.html#a1f45e13224dd42f52ccb8194a1f2c9eb", null ],
       [ "Unbind", "classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0", null ],
-      [ "Clear", "classzen_1_1gfx_1_1_c_render_target.html#ad282b7a7076045660a12e7037d4861c3", null ],
+      [ "Clear", "classzen_1_1gfx_1_1_c_render_target.html#a99cd55ce477e7ef20e220f81a841f49e", null ],
       [ "AttachDepthBuffer", "classzen_1_1gfx_1_1_c_render_target.html#a1158e22ca14496564a677294ff11cd79", null ],
       [ "AttachStencilBuffer", "classzen_1_1gfx_1_1_c_render_target.html#ab4d5f66a4b553b2d68edb4ea728cab77", null ],
       [ "GetObjectHandle", "classzen_1_1gfx_1_1_c_render_target.html#ab27ab130d9778d04220ec7eea766f19c", null ],

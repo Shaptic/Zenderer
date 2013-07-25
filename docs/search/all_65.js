@@ -10,6 +10,7 @@ var searchData=
   ['enable_5fblend',['ENABLE_BLEND',['../_renderer_8hpp.html#ad3b02d075dc8217d2862581ba94b7ea2',1,'Renderer.hpp']]],
   ['enableeffect',['EnableEffect',['../classzen_1_1gfx_1_1_c_material.html#aabde12c0fa098dcc8febe03b5d5c320f',1,'zen::gfx::CMaterial']]],
   ['enablefullscreen',['EnableFullscreen',['../classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee',1,'zen::gfx::CWindow']]],
+  ['enablelighting',['EnableLighting',['../classzen_1_1gfx_1_1_c_scene.html#a95214df92f8dddc9434f2a52b945a72f',1,'zen::gfx::CScene']]],
   ['enabletexture',['EnableTexture',['../classzen_1_1gfxcore_1_1_c_renderer.html#ab14ae2f572f0d2a405d8ebbee3e5bd52',1,'zen::gfxcore::CRenderer::EnableTexture()'],['../classzen_1_1gfx_1_1_c_material.html#a4866a925322a57f4cb0d70833db0da7a',1,'zen::gfx::CMaterial::EnableTexture()']]],
   ['end',['end',['../classzen_1_1util_1_1_c_settings.html#a96ded7256e50a61d5e38beddf66e9e16',1,'zen::util::CSettings::end()'],['../classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69',1,'zen::util::CXMLParser::end()'],['../_keyboard_8hpp.html#a1de54bd922161dd5c6a353647f448fd6',1,'END():&#160;Keyboard.hpp']]],
   ['endl',['endl',['../classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5',1,'zen::util::CLog']]],

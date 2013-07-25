@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -179,16 +179,16 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a6d20ac109ac17c348b7a8a1a032216e7"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a6d20ac109ac17c348b7a8a1a032216e7">CSceneManager</a></td></tr>
-<tr class="memdesc:a6d20ac109ac17c348b7a8a1a032216e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">For setting things implicitly.  <a href="#a6d20ac109ac17c348b7a8a1a032216e7">More...</a><br/></td></tr>
-<tr class="separator:a6d20ac109ac17c348b7a8a1a032216e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5463bfc5db8586ae07b3a2d86a0d8718"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a5463bfc5db8586ae07b3a2d86a0d8718">CEntity</a></td></tr>
+<tr class="memdesc:a5463bfc5db8586ae07b3a2d86a0d8718"><td class="mdescLeft">&#160;</td><td class="mdescRight">For setting things implicitly.  <a href="#a5463bfc5db8586ae07b3a2d86a0d8718">More...</a><br/></td></tr>
+<tr class="separator:a5463bfc5db8586ae07b3a2d86a0d8718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>There are two ways to create renderable objects in <em>Zenderer</em>.</p>
 <p>Firstly is through the <code><a class="el" href="classzen_1_1gfx_1_1_c_scene.html">zen::gfx::CScene</a></code> class and its respective <code>AddPrimitive()</code> or <code>AddEntity()</code> methods. This will attach an internal <code><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">zen::gfxcore::CVertexArray</a></code> object that stores scene geometry. The scene itself takes care of the actual drawing, but the user can still call the <code>Drawable::Draw()</code> method if they want to do it again, post-render.</p>
 <p>The other way is to simply create a drawable object instance and call <code><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on-screen.">Draw()</a></code> on it. This will implicitly create a vertex array object internally the first time, and will just use it every subsequent call. Keep in mind that this object now can <b>NOT</b> be added to a scene. This functionality may be supported in future revisions. </p>
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00039">39</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00040">40</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a138126b609b3ae86c65711b40e246da2"></a>
 <div class="memitem">
@@ -391,7 +391,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable_a20601a6eca8f1835c3656ecbc2e66b67_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_drawable_a20601a6eca8f1835c3656ecbc2e66b67_icgraph" alt=""/></div>
 <map name="classzen_1_1gfxcore_1_1_c_drawable_a20601a6eca8f1835c3656ecbc2e66b67_icgraph" id="classzen_1_1gfxcore_1_1_c_drawable_a20601a6eca8f1835c3656ecbc2e66b67_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="423,5,564,46"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="643,155,693,181"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="413,129,573,156"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="217,231,343,273"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="217,297,343,338"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="217,63,343,105"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="392,71,595,97"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="423,107,564,149"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="643,239,693,265"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="413,5,573,32"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="217,166,343,207"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="217,231,343,273"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="217,49,343,90"/><area shape="rect" id="node8" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="392,56,595,83"/></map>
 </div>
 </p>
 
@@ -435,7 +435,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph.png" border="0" usemap="#classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph" alt=""/></div>
 <map name="classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph" id="classzen_1_1gfxcore_1_1_c_drawable_a19575263590fb0ef8eec10a6a14844c7_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="423,5,564,46"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="413,125,573,152"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="217,181,343,222"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="217,63,343,105"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="643,125,693,152"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="Adds a managed primitive to the scene as an entity." alt="" coords="392,71,595,97"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="423,5,564,46"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="413,129,573,156"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="217,181,343,222"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="217,63,343,105"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="643,155,693,181"/><area shape="rect" id="node7" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="392,71,595,97"/></map>
 </div>
 </p>
 
@@ -514,7 +514,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00124">124</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00125">125</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -539,7 +539,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00127">127</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00128">128</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -564,7 +564,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00128">128</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00129">129</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -605,7 +605,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a class="anchor" id="a6d20ac109ac17c348b7a8a1a032216e7"></a>
+<a class="anchor" id="a5463bfc5db8586ae07b3a2d86a0d8718"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -613,7 +613,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> CSceneManager</td>
+          <td class="memname">friend class <a class="el" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475">ZEN_API</a> CEntity</td>
         </tr>
       </table>
   </td>
@@ -623,7 +623,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00144">144</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00145">145</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -646,7 +646,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00153">153</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00154">154</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -668,7 +668,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00154">154</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00155">155</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -690,7 +690,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00155">155</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00156">156</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>
@@ -712,7 +712,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00156">156</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_drawable_8hpp_source.html#l00157">157</a> of file <a class="el" href="_drawable_8hpp_source.html">Drawable.hpp</a>.</p>
 
 </div>
 </div>

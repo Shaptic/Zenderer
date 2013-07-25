@@ -10,5 +10,6 @@ var dir_581b39117fad9c901c881a5f767a7292 =
     [ "Scene.hpp", "_scene_8hpp.html", [
       [ "CScene", "classzen_1_1gfx_1_1_c_scene.html", "classzen_1_1gfx_1_1_c_scene" ]
     ] ],
+    [ "Scene.inl", "_scene_8inl.html", null ],
     [ "Window.hpp", "_window_8hpp.html", "_window_8hpp" ]
 ];

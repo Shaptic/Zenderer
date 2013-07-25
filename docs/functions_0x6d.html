@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -184,13 +184,16 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_internal
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a4a873380d505b6ec978a1c6c09034a16">zen::gfxcore::CDrawable</a>
 </li>
+<li>m_inv
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#af1d0b75e8eab0f6c36bbbc5f6c68535a">zen::obj::CEntity</a>
+</li>
 <li>m_loaded
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">zen::asset::CAsset</a>
 </li>
 <li>m_Log
-: <a class="el" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">zen::CSubsystem</a>
+: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b">zen::asset::CAsset</a>
+, <a class="el" href="classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e">zen::CSubsystem</a>
 , <a class="el" href="classzen_1_1obj_1_1_c_entity.html#af795614f802cfaf2418678b75ad2d074">zen::obj::CEntity</a>
-, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a4902961e708ba1ef8f72ac26efabe05b">zen::asset::CAsset</a>
 </li>
 <li>m_loop
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a4a83aad12f3ce5ca4156398153cedb62">zen::sfx::CAudio2D</a>
@@ -204,12 +207,14 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_Min
 : <a class="el" href="group___objects.html#ga34bcf56f3a3a6ca6fa19bd6c0170c97d">zen::obj::bbox_t</a>
 </li>
+<li>m_MV
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#af8b5ac0aec9223944aa96cddc4b40333">zen::obj::CEntity</a>
+</li>
 <li>m_name
 : <a class="el" href="classzen_1_1_c_subsystem.html#a02f9f748324c01276de3702ee7d8c860">zen::CSubsystem</a>
 </li>
 <li>m_Position
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27">zen::gfxcore::CDrawable</a>
-, <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a631dc80219f62c772438c7745750ec7f">zen::obj::CEntity</a>
 , <a class="el" href="group___objects.html#ga4c09246cff275551ea63fd24ea89fc01">zen::obj::circle_t</a>
 </li>
 <li>m_radius
@@ -228,7 +233,7 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_sorter.html#a009f44ecfb0f63c468d03cc6383b4053">zen::gfxcore::CSorter</a>
 </li>
 <li>matrix4x4_t()
-: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a49dffe1c86a43ba7543352eaf050bb87">zen::math::matrix4x4_t</a>
+: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a04011aa970ede9e04b3f95825fe02ff0">zen::math::matrix4x4_t</a>
 </li>
 <li>mods
 : <a class="el" href="structzen_1_1evt_1_1key__t.html#ade5446443436a36bea1c945da1f51e84">zen::evt::key_t</a>
@@ -238,7 +243,7 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">zen::evt::event_t</a>
 </li>
 <li>mouse_t()
-: <a class="el" href="structzen_1_1evt_1_1mouse__t.html#ac316b089422713fd58184f4a079544a1">zen::evt::mouse_t</a>
+: <a class="el" href="structzen_1_1evt_1_1mouse__t.html#a91dffe98c5b279c338a7e400c61ccafe">zen::evt::mouse_t</a>
 </li>
 <li>MouseCallback()
 : <a class="el" href="classzen_1_1evt_1_1_c_event_handler.html#a39bd2b465b55b1aa00a268285e5d4d24">zen::evt::CEventHandler</a>
@@ -247,8 +252,8 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1evt_1_1_c_event_handler.html#a4557e6aab25904ba47f68c6ff0d5e52c">zen::evt::CEventHandler</a>
 </li>
 <li>Move()
-: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">zen::obj::CEntity</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a03d22a2a626bdeb8209ea231a06b235f">zen::gfxcore::CDrawable</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a65d35950a1094e90ac1e5aa9c4bb1bc2">zen::gfxcore::CDrawable</a>
+, <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a670a1ae47b5e60e281382c6a5c21e53d">zen::obj::CEntity</a>
 </li>
 <li>mp_allPrims
 : <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">zen::obj::CEntity</a>

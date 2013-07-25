@@ -1,7 +1,7 @@
 var _mouse_8hpp =
 [
     [ "mouse_t", "structzen_1_1evt_1_1mouse__t.html", "structzen_1_1evt_1_1mouse__t" ],
-    [ "GetMousePosition", "_mouse_8hpp.html#a004475d3ef807db50bc2b6859002ff6d", null ],
+    [ "GetMousePosition", "_mouse_8hpp.html#a936d1cbb9682e660e2b1da249e137af0", null ],
     [ "GetMouseState", "_mouse_8hpp.html#a99695098183c4a3750d66515c95c6103", null ],
     [ "UNKNOWN", "_mouse_8hpp.html#ab6aedfcb4a10d1a01e272f492e2c2765", null ],
     [ "LEFT", "_mouse_8hpp.html#a2349c85ca7362adcde4c67fbd81a4432", null ],

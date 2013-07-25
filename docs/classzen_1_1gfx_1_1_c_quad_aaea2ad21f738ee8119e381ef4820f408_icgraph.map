@@ -1,4 +1,9 @@
 <map id="zen::gfx::CQuad::SetInverted" name="zen::gfx::CQuad::SetInverted">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="281,5,332,32"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="243,57,370,98"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="669,57,720,83"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="243,28,370,69"/>
+<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="243,93,370,135"/>
+<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="243,159,370,200"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="419,107,621,134"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="449,159,591,200"/>
+<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="440,225,600,251"/>
 </map>

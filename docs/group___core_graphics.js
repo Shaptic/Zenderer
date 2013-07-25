@@ -18,7 +18,7 @@ var group___core_graphics =
       [ "GetX", "classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b", null ],
       [ "GetY", "classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf", null ],
       [ "LoadIntoVAO", "classzen_1_1gfxcore_1_1_c_drawable.html#ad81d33436b4c823c160a983b4294fc06", null ],
-      [ "CSceneManager", "classzen_1_1gfxcore_1_1_c_drawable.html#a6d20ac109ac17c348b7a8a1a032216e7", null ],
+      [ "CEntity", "classzen_1_1gfxcore_1_1_c_drawable.html#a5463bfc5db8586ae07b3a2d86a0d8718", null ],
       [ "m_Material", "classzen_1_1gfxcore_1_1_c_drawable.html#a2c602d30d89ee5868102aafb773e31a8", null ],
       [ "m_Position", "classzen_1_1gfxcore_1_1_c_drawable.html#a0f1c956bc36ed57958af7577a4c26d27", null ],
       [ "m_DrawData", "classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2", null ],
@@ -119,5 +119,6 @@ var group___core_graphics =
     ] ],
     [ "GL", "group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d", null ],
     [ "ZENDERER_SHADER_PATH", "group___core_graphics.html#gad13a32464d536179e9bb243578075a0c", null ],
+    [ "ZENDERER_TEXTURE_PATH", "group___core_graphics.html#gaa235422b75fb88d25c9d979074c6a993", null ],
     [ "VBO_OFFSET", "group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53", null ]
 ];

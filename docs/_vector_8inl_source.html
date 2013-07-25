@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">0.1.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6847 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -234,6 +234,15 @@ $(document).ready(function(){initNavTree('_vector_8inl_source.html','');});
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    out &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>.y &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code" href="_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d">V</a>.z &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt; <span class="keyword">static</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="_vector_8inl.html#af237dc75dfd57eab5beffdbeab04bbde">  128</a></span>&#160;<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="_vector_8inl.html#af237dc75dfd57eab5beffdbeab04bbde">distance</a>(<span class="keyword">const</span> Vector&lt;T&gt;&amp; <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a>, <span class="keyword">const</span> Vector&lt;U&gt;&amp; <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> do_sqrt)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> pyth = (A.x + B.x) * (A.x + B.x) +</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                  (A.y + B.y) * (A.y + B.y);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> !do_sqrt ? pyth : std::sqrt(pyth);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
