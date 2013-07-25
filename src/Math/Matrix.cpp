@@ -40,6 +40,12 @@ real_t* matrix4x4_t::operator[](uint8_t index)
     return m_values[index];
 }
 
+const real_t* const matrix4x4_t::operator[](uint8_t index) const
+{
+    clamp<uint8_t>(index, 0, 3);
+    return m_values[index];
+}
+
 matrix4x4_t matrix4x4_t::operator*(matrix4x4_t& Other) const
 {
     matrix4x4_t Res;

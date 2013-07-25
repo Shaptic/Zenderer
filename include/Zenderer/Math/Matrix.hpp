@@ -54,6 +54,7 @@ namespace math
          * @return  The `real_t` array at that index.
          **/
         real_t* operator[](uint8_t index);
+        const real_t* const operator[](uint8_t index) const;    ///< @overload
 
         /// Multiply two matrices together.
         matrix4x4_t operator*(matrix4x4_t& Other) const;
