@@ -210,19 +210,14 @@ namespace math
         std::ostream& operator<<(std::ostream& out,
                                  const Vector<U>& Other);
 
-	/**
-	 * Finds the distance between two points (optional `sqrt`).
-	 *  @todo   Investigate potential problems between a signed
-	 * 	    and unsigned `Vector<T>` or `Vector<U>`.
-	 **/
-	template<typename T, typename U> static
-	real_t distance(const Vector<T>& A, const Vector<U>& B,
-		        const bool do_sqrt = false)
-	{
-	    real_t pyth = (A.x + B.x) * (A.x + B.x) +
-			  (A.y + B.y) + (A.y + B.y);
-	    return !do_sqrt ? pyth : std::sqrt(pyth);
-	}
+        /**
+         * Finds the distance between two points (optional `sqrt`).
+         * @todo    Investigate potential problems between a signed
+         *          and unsigned `Vector<T>` or `Vector<U>`.
+         **/
+        template<typename T, typename U> static
+        real_t distance(const Vector<T>& A, const Vector<U>& B,
+                        const bool do_sqrt = false);
     };
 
     #include "Vector.inl"
