@@ -9,9 +9,10 @@ using gfxcore::CRenderer;
 gfx::CMaterial*         CRenderer::s_DefaultMaterial = nullptr;
 
 gfxcore::CVertexArray   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
-gfxcore::BlendFunc      CRenderer::s_LastBlend;
+gfxcore::BlendFunc      CRenderer::s_LastBlend = gfxcore::BlendFunc::DISABLE_BLEND;
 math::matrix4x4_t       CRenderer::s_ProjMatrix;
-bool                    CRenderer::s_blend;
+bool                    CRenderer::s_blend = false;
+bool                    CRenderer::s_wf = false;
 
 bool CRenderer::Init(
     asset::CAssetManager& Assets,

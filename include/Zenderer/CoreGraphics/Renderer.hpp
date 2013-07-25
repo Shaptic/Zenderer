@@ -62,6 +62,9 @@ namespace gfxcore
         /// Binds a texture handle.
         inline static bool EnableTexture(const GLuint handle);
 
+        /// Wire frame mode.
+        inline static bool ToggleWireframe();
+
         /// Resets shader and texture state to nothing.
         inline static bool ResetMaterialState();
 
@@ -93,7 +96,7 @@ namespace gfxcore
         static gfx::CMaterial*      s_DefaultMaterial;
         static math::matrix4x4_t    s_ProjMatrix;
         static BlendFunc            s_LastBlend;
-        static bool                 s_blend;
+        static bool                 s_blend, s_wf;
     };
 
     #include "Renderer.inl"

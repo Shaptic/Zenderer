@@ -76,6 +76,21 @@ bool CRenderer::EnableTexture(const GLuint handle)
     return true;
 }
 
+bool CRenderer::ToggleWireframe()
+{
+    s_wf = !s_wf;
+    if(s_wf)
+    {
+        GL(glPolygonMode(GL_FRONT_AND_BACK, GL_LINE));
+    }
+    else
+    {
+        GL(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
+    }
+
+    return s_wf;
+}
+
 bool CRenderer::DisableTexture()
 {
     return EnableTexture(0);
