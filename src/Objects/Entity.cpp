@@ -8,8 +8,8 @@ using obj::CEntity;
 
 CEntity::CEntity(asset::CAssetManager& Assets) :
     m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
-    m_sort(0), m_depth(1),
-    m_MV(math::matrix4x4_t::GetIdentityMatrix())
+    m_MV(math::matrix4x4_t::GetIdentityMatrix()),
+    m_sort(0), m_depth(1), m_inv(false)
 {
 }
 
@@ -52,7 +52,8 @@ bool CEntity::LoadFromFile(const string_t& filename)
             this->Move(std::stod(pair[0]), std::stod(pair[1]));
 
             // Depth is optional
-            if(pair.size() == 3) m_Position.z = std::stod(pair[2]);
+            if(pair.size() == 3)
+                m_MV.TranslateAdj(math::vector_t(0, 0, std::stod(pair[2])));
         }
 
         else if(line.find("primcount") != std::string::npos)
@@ -140,6 +141,7 @@ bool CEntity::LoadFromTexture(const string_t& filename)
         Mat.GetTexture().GetHeight());
 
     pPrimitive->AttachMaterial(Mat);
+    pPrimitive->SetInverted(m_inv);
     pPrimitive->Create();
     pPrimitive->SetColor(color4f_t(1, 1, 1, 1));
 
@@ -156,6 +158,7 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
     pQuad->AttachMaterial(const_cast<gfx::CMaterial&>(Quad.GetMaterial()));
+    pQuad->SetInverted(m_inv);
     pQuad->Create();
     pQuad->SetColor(color4f_t(1, 1, 1, 1));
     mp_allPrims.push_back(pQuad);
@@ -221,13 +224,18 @@ bool CEntity::Draw(bool is_bound /*= false*/)
     return true;
 }
 
+void CEntity::Move(const math::vector_t& Pos)
+{
+    this->Move(Pos.x, Pos.y, Pos.z);
+}
+
 void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
     auto i = mp_allPrims.begin(),
          j = mp_allPrims.end();
 
     for( ; i != j; ++i) (*i)->Move(x, y, z);
-    m_MV.Translate(x, y, z);
+    m_MV.Translate(math::vector_t(x, y, z));
 }
 
 void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)

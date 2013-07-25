@@ -70,12 +70,15 @@ namespace obj
         bool Draw(bool is_bound = false);
 
         /// @todo   Support a variety of primitive depths.
+        void Move(const math::vector_t& Pos);
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
-        
+
         inline void Shear(const math::vector_t& Angles) { m_MV.Shear(Angles); }
         inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
 
         void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
+
+        inline void Invert() { m_inv = true; }
 
         void SetDepth(uint16_t depth);
 
@@ -88,7 +91,7 @@ namespace obj
 
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
-        
+
     protected:
         void Destroy();
         bool FileError(const string_t& filename,
@@ -103,6 +106,7 @@ namespace obj
         string_t                    m_filename;
         uint16_t                    m_depth;
         uint32_t                    m_sort;
+        bool                        m_inv;
     };
 }   // namespace gfxcore
 }   // namespace zen
