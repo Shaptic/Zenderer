@@ -103,7 +103,7 @@ bool CEffect::Init()
         return (m_init = false);
     }
 
-    m_init = m_Shader.CreateShaderObject();
+    return (m_init = m_Shader.CreateShaderObject());
 }
 
 bool CEffect::Destroy()
