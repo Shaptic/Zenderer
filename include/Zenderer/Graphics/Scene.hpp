@@ -205,7 +205,20 @@ namespace gfx
 /**
  * @class zen::gfx::CScene
  * @details
- *  This high-level interface combines almost all components.
+ *  This high-level interface combines almost all components of @a Zenderer
+ *  in an easy-to-use, abstracted way that provides versatility, efficiency,
+ *  customization, and pretty scenes, of course.
+ *
+ *  A scene is a collection of renderable objects, lighting, and
+ *  post-processing effects drawn together on the main framebuffer
+ *  (otherwise know as the screen).
+ *
+ *  All components of the scene are managed by the scene, and the user is 
+ *  guaranteed to be interacting with valid references, unless they 
+ *  explicitly delete them from the scene via one of the `Delete*()`
+ *  calls.
+ *
+ * @todo    Test post-processing.
  **/
 
 /** @} **/
