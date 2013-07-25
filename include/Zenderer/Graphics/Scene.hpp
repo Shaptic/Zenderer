@@ -146,6 +146,7 @@ namespace gfx
         bool RemoveEntity(const uint32_t index);        ///< @overload
 
         /// Renders the scene to the screen.
+        /// @todo   Clipping.
         bool Render();
 
         /// Verifies the given index is within the valid range.
@@ -200,5 +201,11 @@ namespace gfx
 }
 
 #endif // ZENDERER__GRAPHICS__SCENE_HPP
+
+/**
+ * @class zen::gfx::CScene
+ * @details
+ *  This high-level interface combines almost all components.
+ **/
 
 /** @} **/

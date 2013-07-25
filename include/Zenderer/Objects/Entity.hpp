@@ -252,7 +252,7 @@ namespace obj
  *  if you've got some CPU cycles to spare, because it will save render state
  *  switches down the road.
  *
- * @see specs.html#ZEnt
+ * @see specs.html
  *
  * @todo    Allow for additional primitives not to stack up.
  **/
