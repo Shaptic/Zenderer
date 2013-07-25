@@ -57,36 +57,153 @@ namespace obj
         };
 
     public:
-        CEntity(asset::CAssetManager& Assets);
-
+        explicit CEntity(asset::CAssetManager& Assets);
         virtual ~CEntity();
 
+        /**
+         * Creates an entity mesh from a file.
+         *  There is a detailed specification for well-formed loading of
+         *  single and multi-primitive entity loading with unique material
+         *  attachments for each. This will implicitly call `Optimize()`
+         *  when loading is complete.
+         *
+         * @param   filename    The path to the entity file.
+         *
+         * @return  `true`  if loaded successfully, and
+         *          `false` otherwise. There is no retrievable error, but
+         *                  something appropriate will be logged.
+         *
+         * @see     The entity file specification page [here](index.html)
+         **/
         bool LoadFromFile(const string_t& filename);
+        
+        /**
+         * Creates an entity from a texture file.
+         *  This will simply make a quad entity the exact width and height
+         *  as the provided texture returns.
+         *
+         * @param   filename    Path to texture
+         *
+         * @return  `true`  if the image and entity loaded successfully,
+         *          `false` otherwise. There is no retrievable error, but
+         *                  something appropriate will be logged.
+         **/
         bool LoadFromTexture(const string_t& filename);
 
+        /**
+         * Creates an entity from an existing primitive, or adds it.
+         *  This will store a copy of the primitive locally, to prevent bad
+         *  references occuring later. Thus it's advisable to `delete` heap 
+         *  memory when done here, or ensure that the given primitive will go
+         *  off the stack soon, to prevent uneccessary memory duplication.
+         *
+         * @param   Prim    A primitive with a non-default material attached
+         *
+         * @return  `true`  if the primitive loaded with a valid textre, and
+         *          `false` otherwise.
+         *
+         * @note    Currently, multiple calls to this method will stack
+         *          primitive on top of one another, since there is no position
+         *          specification on them.
+         **/
         bool AddPrimitive(const gfx::CQuad& Prim);
+        
+        /**
+         * Merges primitive data with shared materials.
+         *  If multiple internal quads share the same material data, this will
+         *  merge their vertex buffer data together in order to minimize draw
+         *  calls and state changes later when rendering.
+         *
+         * @return  `true`  if any optimization was done, `false` otherwise.
+         *
+         * @warning Not implemented.
+         **/
         bool Optimize();
 
+        /**
+         * Draws the entity on-screen.
+         *  Since entities are just collections of one or more primitives, this
+         *  will simply call `gfx::CQuad::Draw` on each individual internal
+         *  primitive.
+         *  
+         *  If `is_bound` is `true`, the draw call will only do drawing (go
+         *  figure). Otherwise, it will create an internal vertex array (on
+         *  first draw), bind its local material, set up the model-view matrix,
+         *  etc, and then do drawing. This allows for various scenarios and
+         *  prevents the user from having to set up this data on their own if
+         *  they just want to get something on-screen.
+         *
+         * @param   is_bound    Is there already buffer / material data bound?
+         *
+         *  
+         **/
         bool Draw(bool is_bound = false);
 
-        /// @todo   Support a variety of primitive depths.
+        /** 
+         * Moves the entity to the specified position.
+         *  In future revisions, this will adjust all internal primitives
+         *  accordingly, once the default primitive stacking behavior is
+         *  removed.
+         *
+         * @param   Pos     The coordinate to place the entity at
+         *
+         * @todo    Support a variety of primitive depths.
+         **/
         void Move(const math::vector_t& Pos);
+        
+        /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
 
+        /// Transforms the entity with a shear.
         inline void Shear(const math::vector_t& Angles) { m_MV.Shear(Angles); }
+        
+        /// Transforms the entity with scaling factors.
         inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
 
+        /** 
+         * Inverts the vertex and texture coordinates of internal primitives.
+         *  This will do nothing for existing primitives and data, and only
+         *  applies to things that will be loaded after this call.
+         *
+         * @pre     Nothing has been loaded into the entity.
+         *
+         * @see     zen::gfx::CQuad::SetInverted()
+         **/
+        inline void Invert() { m_inv = true; }
+        
+        /**
+         * Offloads the internal primitives to the given GPU buffer.
+         *  If `keep` is specified (the default), the primitives will maintain
+         *  their data and just offload a copy of it. Otherwise, local data
+         *  will be permanently deleted until more data is added.
+         *
+         * @param   VAO     The vertex array to offload data to
+         * @param   keep    Keep the vertex data locally? (optional=`true`)
+         *
+         * @note    When permanently offloaded with `keep=false`, later adding
+         *          more primitives or reloading more data is untested and 
+         *          may cause problems.
+         *
+         * @warning The data will stay on the GPU, occupying precious video
+         *          memory, until the `gfxcore::CVertexArray` is cleared.
+         *
+         * @see     zen::gfxcore::CVertexArray::Clear()
+         **/
         void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
 
-        inline void Invert() { m_inv = true; }
-
+        /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint16_t depth);
 
+        /// Retrieves an immutable reference to the transformation matrix.
         const math::matrix4x4_t& GetTransformation() const;
         math::vector_t GetPosition() const;
+        
         uint32_t GetSortFlag() const;
 
+        /// Returns an iterator to the start of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cbegin() const;
+        
+        /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
 
         friend class ZEN_API gui::CFont;
