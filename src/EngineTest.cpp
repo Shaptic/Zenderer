@@ -123,6 +123,7 @@ using gfxcore::CRenderer;
     Ent2.Move(200, 200);
 
     Ent3.LoadFromTexture("sample.png");
+    Ent3.Move(500, 100);
 
     L2.Enable();
     L2.SetBrightness(0.8);
@@ -204,8 +205,10 @@ using gfxcore::CRenderer;
         FS.Draw();
 
         Sample.Enable();
+        auto MV = math::matrix4x4_t::CreateIdentityMatrix();
+        MV.Translate(math::vector_t(400, 100));
         Sample.GetEffect().SetParameter("proj", CRenderer::GetProjectionMatrix());
-        Sample.GetEffect().SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        Sample.GetEffect().SetParameter("mv", MV);
         Vao.Draw();
         Sample.Disable();
 

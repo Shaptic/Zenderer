@@ -113,10 +113,10 @@ void CQuad::LoadRegularTC()
         tc_h = m_Size.y / real_t(h);
     }
 
-    m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
-    m_DrawData.Vertices[1].tc = math::vector_t(tc_w, 0.0);
-    m_DrawData.Vertices[2].tc = math::vector_t(tc_w, tc_h);
-    m_DrawData.Vertices[3].tc = math::vector_t(0.0, tc_h);
+    m_DrawData.Vertices[0].tc = math::vector_t(0.0, tc_h);
+    m_DrawData.Vertices[1].tc = math::vector_t(tc_w, tc_h);
+    m_DrawData.Vertices[2].tc = math::vector_t(tc_w, 0.0);
+    m_DrawData.Vertices[3].tc = math::vector_t(0.0, 0.0);
 }
 
 void CQuad::LoadInvertedTC()
