@@ -11,7 +11,7 @@ using gfxcore::BlendFunc;
 CScene::CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) :
     CSubsystem("Scene"), m_Assets(Mgr),
     m_Log(util::CLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
-    m_lighting(false), m_ppfx(false)
+    m_lighting(false), m_ppfx(false), m_through(false)
 {
 }
 
@@ -72,17 +72,17 @@ obj::CEntity& CScene::InsertEntity(const uint32_t index)
     for(size_t j = 0, s = m_allEntities.size();
         j < s && j != index; ++j, ++i);
         // No -op
-    
+
     m_allEntities.insert(i, pNew);
     return *pNew;
 }
 
-bool CScene::RemoveEntity(const obj::CEntity& Obj) 
+bool CScene::RemoveEntity(const obj::CEntity& Obj)
 {
     auto i = m_allEntities.begin(),
          j = m_allEntities.end();
-         
-    for( ; i != j; ++i) 
+
+    for( ; i != j; ++i)
     {
         if(*i == &Obj)
         {
@@ -90,18 +90,18 @@ bool CScene::RemoveEntity(const obj::CEntity& Obj)
             return true;
         }
     }
-    
+
     return false;
 }
 
 bool CScene::RemoveEntity(const uint32_t index)
 {
     if(!this->IsValidEntityIndex(index)) return false;
-    
+
     auto i = m_allEntities.begin();
     for(size_t j = 0; j <= index; ++j, ++i);
         // No-op
-    
+
     m_allEntities.erase(i);
     return true;
 }
@@ -120,8 +120,11 @@ bool CScene::Render()
 
     // Clear our frame buffers from the last drawing.
     // We will be rendering to FBO1 at first.
-    m_FBO2.Bind(); m_FBO2.Clear();
-    m_FBO1.Bind(); m_FBO1.Clear();
+    color4f_t Clear = color4f_t(0.0, 0.0, 0.0, 0.0);
+    m_FBO2.Bind();
+    if(m_through) m_FBO2.Clear(Clear); else m_FBO2.Clear();
+    m_FBO1.Bind();
+    if(m_through) m_FBO1.Clear(Clear); else m_FBO1.Clear();
 
     // Set the standard blending state.
     bool blend = CRenderer::BlendOperation(BlendFunc::IS_ENABLED);
@@ -141,18 +144,18 @@ bool CScene::Render()
     {
         // Adjust for the camera.
         (*i)->Move((*i)->GetPosition() + m_Camera);
-        
+
         // Set the matrix for transformation.
         const math::matrix4x4_t& Tmp = (*i)->GetTransformation();
         E.SetParameter("mv", Tmp);
-        
+
         auto a = (*i)->cbegin(), b = (*i)->cend();
         for( ; a != b; ++a)
         {
             (*a)->GetMaterial().Enable();
             (*a)->Draw(true);
         }
-        
+
         // Move back to original position.
         (*i)->Move((*i)->GetPosition() - m_Camera);
     }
@@ -234,7 +237,7 @@ bool CScene::Render()
 
     E.Enable();
     CRenderer::EnableTexture(final_texture);
-    CRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
+    if(!m_through) CRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
     GL(glDisable(GL_DEPTH_TEST));
 
     // Make sure the right data is set.
@@ -245,6 +248,8 @@ bool CScene::Render()
 
     CRenderer::EnableTexture(0);
     CRenderer::ResetMaterialState();
+
+    if(!blend && m_through) CRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
 
     return true;
 }

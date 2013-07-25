@@ -113,10 +113,10 @@ bool CRenderTarget::BindTexture() const
     return gfxcore::CRenderer::EnableTexture(m_texture);
 }
 
-bool CRenderTarget::Clear()
+bool CRenderTarget::Clear(const color4f_t C)
 {
     GL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
-    GL(glClearColor(0.f, 0.f, 0.f, 1.f));
+    GL(glClearColor(C.r, C.g, C.b, C.a));
 
     return true;
 }

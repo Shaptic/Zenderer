@@ -52,7 +52,7 @@ using gfxcore::CRenderer;
     Default.Create();
     Default.LoadIntoVAO(FS);
 
-    // Stretched grass quad
+    // Tiled grass quad
     Default.SetInverted(true);
     Default.SetRepeating(true);
     Default.AttachMaterial(Grass);
@@ -100,7 +100,7 @@ using gfxcore::CRenderer;
     EntPrim.Create();
 
     gfx::CScene Scene(800, 600, Manager);
-    Scene.Init(); Scene.EnableLighting();
+    Scene.Init(); Scene.SetSeeThrough(true); //Scene.EnableLighting();
 
     obj::CEntity& Ent = Scene.AddEntity();
     gui::CFont* Font = Manager.Create<gui::CFont>();
@@ -113,7 +113,7 @@ using gfxcore::CRenderer;
     Ent.Move(100, 69);
 
     obj::CEntity& Bg = Scene.AddEntity();
-    Bg.LoadFromTexture("MockMenu.png");
+    //Bg.LoadFromTexture("MockMenu.png");
 
     obj::CEntity& Ent3 = Scene.AddEntity();
     obj::CEntity& Ent2 = Scene.AddEntity();
@@ -140,12 +140,20 @@ using gfxcore::CRenderer;
     obj::CEntity& Grass2 = Scene.AddEntity();
     obj::CEntity& Grass3 = Scene.AddEntity();
 
+    Grass1.Invert();
+    Grass2.Invert();
+    Grass3.Invert();
+
     Grass1.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
     Grass2.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass2.png");
     Grass3.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
 
+    Grass1.Move(100, 400);
+    Grass2.Move(100, 400);
+    Grass3.Move(100, 400);
+
     math::vector_t GrassT(45.0, 45.0, -45.0);
-    math::vector_t GrassDT(-5.5, 3.4, -2.5);    
+    math::vector_t GrassDT(-1.2, 0.9, -0.5);
     math::vector_t mouse;
 
     while(Window.IsOpen())
@@ -212,14 +220,14 @@ using gfxcore::CRenderer;
 
         if((GrassDT.y > 0 && GrassT.y > 45.0) ||
            (GrassDT.y < 0 && GrassT.y < -45.0)) GrassDT.y = -GrassDT.y;
-           
+
         if((GrassDT.z > 0 && GrassT.z > 45.0) ||
            (GrassDT.z < 0 && GrassT.z < -45.0)) GrassDT.z = -GrassDT.z;
-           
-        Grass1.Shear(math::vector_t(GrassT.x += Grass.DT.x, 0.0));
-        Grass2.Shear(math::vector_t(GrassT.y += Grass.DT.y, 0.0));
-        Grass3.Shear(math::vector_t(GrassT.z += Grass.DT.z, 0.0));
-        
+
+        Grass1.Shear(math::vector_t(GrassT.x += GrassDT.x, 0.0));
+        Grass2.Shear(math::vector_t(GrassT.y += GrassDT.y, 0.0));
+        Grass3.Shear(math::vector_t(GrassT.z += GrassDT.z, 0.0));
+
         Scene.Render();
 
         {

@@ -50,8 +50,8 @@ namespace gfx
         bool Init();
         bool Destroy();
 
-        /** 
-         * Adds an unloaded, managed entity to the scene. 
+        /**
+         * Adds an unloaded, managed entity to the scene.
          *  If the entity is simply left as-returned, nothing will
          *  be drawn on-screen. This method is merely here to abstract
          *  away memory cleanup operations from the user and give them
@@ -133,7 +133,7 @@ namespace gfx
          * @see     IsValidEntityIndex()
          **/
         obj::CEntity& InsertEntity(const uint32_t index);
-        
+
         /**
          * Removes an entity instance from the scene, if it exists.
          *
@@ -160,6 +160,21 @@ namespace gfx
         void DisableLighting() { m_lighting = false; }
         bool ToggleLighting()  { return m_lighting = !m_lighting; }
 
+        /**
+         * Allows for underlying rendered data to be seen where scene is empty.
+         *  If, for example, geometry is rendered prior to a call to Render()
+         *  on this particular scene, and there are portions of the scene
+         *  without geometry rendered to it, this will allow for that previously
+         *  rendered data to be seen in those parts.
+         *
+         * @param   flag    Turn it on, or off?
+         *
+         * @warning This does not work well when combined with lighting.
+         *
+         * @see     EnableLighting()
+         **/
+        inline void SetSeeThrough(bool flag) { m_through = flag; }
+
     private:
         util::CLog&             m_Log;
         asset::CAssetManager&   m_Assets;
@@ -173,7 +188,7 @@ namespace gfx
         std::list<CEffect*>         m_allPPFX;
         std::list<obj::CEntity*>    m_allEntities;
 
-        bool m_lighting, m_ppfx;
+        bool m_lighting, m_ppfx, m_through;
     };
 
     #include "Scene.inl"

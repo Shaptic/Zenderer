@@ -48,7 +48,7 @@ namespace gfx
         bool BindTexture() const;
         bool Unbind() const;
 
-        bool Clear();
+        bool Clear(const color4f_t C = color4f_t(0.0, 0.0, 0.0, 1.0));
 
         bool AttachDepthBuffer();
         bool AttachStencilBuffer();
