@@ -51,7 +51,7 @@
     defined(__MINGW32__)    || \
     defined(__MINGW64__)
   #error "Zenderer must be compiled with C++11 regex support."
-#else if                        \
+#elif                           \
     !(                          \
         defined(WIN32)      ||  \
         defined(_WIN32)     ||  \

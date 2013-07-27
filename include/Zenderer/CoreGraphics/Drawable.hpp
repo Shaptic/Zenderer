@@ -142,7 +142,7 @@ namespace gfxcore
                          const bool preserve = true);
 
         /// For setting things implicitly.
-        friend class ZEN_API CEntity;
+        friend class ZEN_API obj::CEntity;
 
     private:
         asset::CAssetManager& m_Assets;

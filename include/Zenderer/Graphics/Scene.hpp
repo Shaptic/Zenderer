@@ -161,10 +161,10 @@ namespace gfx
         bool ToggleLighting()  { return m_lighting = !m_lighting; }
 
         /// Enables / disables post processing effects.
-        void EnablePostProcessing() { m_ppfx = true; } 
+        void EnablePostProcessing() { m_ppfx = true; }
         void DisablePostProcessing(){ m_ppfx = false; }
-        bool TogglePostProcessing() { return m_pffx = !m_ppfx; }
-        
+        bool TogglePostProcessing() { return m_ppfx = !m_ppfx; }
+
         /**
          * Allows for underlying rendered data to be seen where scene is empty.
          *  If, for example, geometry is rendered prior to a call to Render()
@@ -213,8 +213,8 @@ namespace gfx
  *  post-processing effects drawn together on the main framebuffer
  *  (otherwise know as the screen).
  *
- *  All components of the scene are managed by the scene, and the user is 
- *  guaranteed to be interacting with valid references, unless they 
+ *  All components of the scene are managed by the scene, and the user is
+ *  guaranteed to be interacting with valid references, unless they
  *  explicitly delete them from the scene via one of the `Delete*()`
  *  calls.
  *
