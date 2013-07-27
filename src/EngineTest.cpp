@@ -105,10 +105,10 @@ using gfxcore::CRenderer;
     obj::CEntity& Ent = Scene.AddEntity();
     gui::CFont* Font = Manager.Create<gui::CFont>();
     Font->AttachManager(Manager);
-    Font->SetSize(36);
-    Font->SetColor(color4f_t(1.0, 1.0, 0.0));
+    Font->SetSize(18);
+    Font->SetColor(color4f_t(0.0, 0.0, 0.0));
     Font->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
-    (*Font) << "Zenderer!" << 6606 << " lines!";
+    (*Font) << "Zenderer! " << 6606 << " lines and\neven More qomments.";
     Font->Render(Ent);
     Ent.Move(100, 69);
 
