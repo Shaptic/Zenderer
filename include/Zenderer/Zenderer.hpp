@@ -78,9 +78,12 @@
 #include "Graphics/Window.hpp"
 #include "Graphics/Quad.hpp"
 #include "Graphics/Light.hpp"
-#include "Objects/Entity.hpp"
 #include "GUI/Font.hpp"
 #include "Graphics/Scene.hpp"
+
+// Object API
+#include "Objects/Entity.hpp"
+#include "Objects/Physics.hpp"
 
 // Assets
 #include "Assets/AssetManager.hpp"

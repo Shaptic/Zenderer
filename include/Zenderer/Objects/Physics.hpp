@@ -1,7 +1,6 @@
 /**
  * @file
- *  Zenderer/Objects/Physics.hpp - Defines the core-level physics structures
- *  that will be used for basic simulation of rigid body objects.
+ *  Zenderer/Objects/Physics.hpp - Integrates Box2D.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -23,63 +22,27 @@
 #ifndef ZENDERER__OBJECTS__PHYSICS_HPP
 #define ZENDERER__OBJECTS__PHYSICS_HPP
 
+#include <Box2D/Box2D.h>
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/Math.hpp"
+
+#ifdef ZEN_DEBUG_BUILD
+  #pragma comment(lib, "Box2D_DBG.lib")
+#else
+  #pragma comment(lib, "Box2D.lib")
+#endif
 
 namespace zen
 {
 namespace obj
 {
-    /**
-     * An axis-aligned bounding box (AABB) representation.
-     *  This is used for basic quad collision detection throughout @a Zenderer
-     *  using the separation of axis theorem. The two components are defined
-     *  by the top-left and the bottom-right points of a standard, unrotated
-     *  quad.
-     *
-     * @see http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem
-     * @see http://gafferongames.com/game-physics/integration-basics/
-     **/
-    struct ZEN_API bbox_t
+    class ZEN_API CBody
     {
-        math::vector_t m_Min;
-        math::vector_t m_Max;
+        b2World& m_World;
+
+    public:
+        CBody(b2World& World) :
+            m_World(World) {}
     };
-
-    /**
-     * A representation of a circle to provide an alternative collision
-     * in @a Zenderer for objects or sprites that don't play nicely with
-     * quads.
-     **/
-    struct ZEN_API circle_t
-    {
-        real_t          m_radius;
-        math::vector_t  m_Position;
-    };
-
-    struct material_t
-    {
-        real_t m_imass;     ///< Inverted mass value
-    };
-
-    /// Checks for collision between two AABB boxes.
-    /// @note   This algorithm doesn't work well with rotated boxes.
-    bool collides(const bbox_t& a, const bbox_t& b)
-    {
-        if(!math::compf(a.m_Max.z, b.m_Max.z)) return false;
-        if(a.m_Max.x < b.m_Min.x || a.m_Min.x > b.m_Max.x) return false;
-        if(a.m_Max.y < b.m_Min.y || a.m_Min.y > b.m_Max.y) return false;
-
-        return true;
-    }
-
-    /// @overload
-    bool collides(const circle_t& a, const circle_t& b)
-    {
-        real_t r = a.m_radius + b.m_radius;
-        r *= r;
-        return r < a.m_Position.distance(a.m_Position, b.m_Position, false);
-    }
 }   // namespace obj
 }   // namespace zen
 
