@@ -78,7 +78,7 @@ namespace obj
          * @see     The entity file specification page [here](index.html)
          **/
         bool LoadFromFile(const string_t& filename);
-        
+
         /**
          * Creates an entity from a texture file.
          *  This will simply make a quad entity the exact width and height
@@ -95,7 +95,7 @@ namespace obj
         /**
          * Creates an entity from an existing primitive, or adds it.
          *  This will store a copy of the primitive locally, to prevent bad
-         *  references occuring later. Thus it's advisable to `delete` heap 
+         *  references occuring later. Thus it's advisable to `delete` heap
          *  memory when done here, or ensure that the given primitive will go
          *  off the stack soon, to prevent uneccessary memory duplication.
          *
@@ -109,7 +109,7 @@ namespace obj
          *          specification on them.
          **/
         bool AddPrimitive(const gfx::CQuad& Prim);
-        
+
         /**
          * Merges primitive data with shared materials.
          *  If multiple internal quads share the same material data, this will
@@ -127,7 +127,7 @@ namespace obj
          *  Since entities are just collections of one or more primitives, this
          *  will simply call `gfx::CQuad::Draw` on each individual internal
          *  primitive.
-         *  
+         *
          *  If `is_bound` is `true`, the draw call will only do drawing (go
          *  figure). Otherwise, it will create an internal vertex array (on
          *  first draw), bind its local material, set up the model-view matrix,
@@ -137,11 +137,11 @@ namespace obj
          *
          * @param   is_bound    Is there already buffer / material data bound?
          *
-         *  
+         *
          **/
         bool Draw(bool is_bound = false);
 
-        /** 
+        /**
          * Moves the entity to the specified position.
          *  In future revisions, this will adjust all internal primitives
          *  accordingly, once the default primitive stacking behavior is
@@ -152,17 +152,17 @@ namespace obj
          * @todo    Support a variety of primitive depths.
          **/
         void Move(const math::vector_t& Pos);
-        
+
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
 
         /// Transforms the entity with a shear.
         inline void Shear(const math::vector_t& Angles) { m_MV.Shear(Angles); }
-        
+
         /// Transforms the entity with scaling factors.
         inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
 
-        /** 
+        /**
          * Inverts the vertex and texture coordinates of internal primitives.
          *  This will do nothing for existing primitives and data, and only
          *  applies to things that will be loaded after this call.
@@ -172,7 +172,7 @@ namespace obj
          * @see     zen::gfx::CQuad::SetInverted()
          **/
         inline void Invert() { m_inv = true; }
-        
+
         /**
          * Offloads the internal primitives to the given GPU buffer.
          *  If `keep` is specified (the default), the primitives will maintain
@@ -183,7 +183,7 @@ namespace obj
          * @param   keep    Keep the vertex data locally? (optional=`true`)
          *
          * @note    When permanently offloaded with `keep=false`, later adding
-         *          more primitives or reloading more data is untested and 
+         *          more primitives or reloading more data is untested and
          *          may cause problems.
          *
          * @warning The data will stay on the GPU, occupying precious video
@@ -198,16 +198,16 @@ namespace obj
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint16_t depth);
-        
+
         /// Retrieves an immutable reference to the transformation matrix.
         const math::matrix4x4_t& GetTransformation() const;
         math::vector_t GetPosition() const;
-        
+
         uint32_t GetSortFlag() const;
 
         /// Returns an iterator to the start of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cbegin() const;
-        
+
         /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
 
