@@ -175,6 +175,7 @@ using gfxcore::CRenderer;
                 break;
 
             case evt::EventType::PRINTABLE_KEY:
+                if(event.key.symbol == 'm') CRenderer::ToggleWireframe();
                 std::cout << "Printable: " << event.key.symbol << "\n";
                 break;
             }
