@@ -157,40 +157,33 @@ using gfxcore::CRenderer;
     math::vector_t GrassDT(-1.2, 0.9, -0.5);
     math::vector_t mouse;
 
-    b2Vec2 Gravity(0.0f, -9.81f);
-    b2World World(Gravity);
-    obj::CBody Body(World);
-    b2BodyDef bd;
-    bd.position.Set(0, 0);
-    b2Body& ground = *World.CreateBody(&bd);
+    obj::CPhysicsWorld World(math::vector_t(0.0, 9.81), 60);
+    World.Init();
 
-    b2PolygonShape gbox;
-    gbox.SetAsBox(50, 10);
-    ground.CreateFixture(&gbox, 0.f);
+    obj::CBody Ground(World, Manager);
+    Ground.SetType(obj::BodyType::STATIC_BODY);
+    Ground.Move(0, 800);
+    Ground.Create();
+    //Body.SetSize_px(800, 10);
+    //or
+    //World.SetScale(0.01);
+    //Body.SetSize(8, 0.1);
 
-    bd.type = b2_dynamicBody;
-    bd.position.Set(0.f, 4.f);
-    b2Body& box = *World.CreateBody(&bd);
-
-    b2PolygonShape pbox;
-    pbox.SetAsBox(1.f, 1.f);
-
-    b2FixtureDef boxf;
-    boxf.shape = &pbox;
-    boxf.density = 1.f;
-    boxf.friction = 0.3f;
-
-    box.CreateFixture(&boxf);
+    obj::CBody Falling(World, Manager);
+    Falling.SetType(obj::BodyType::DYNAMIC_BODY);
+    Falling.Move(10, 0);
+    Falling.Create();
+    //Falling.SetSize_px(32, 32);
+    //obj::fixture_t Fixture;
+    //Fixture.density = 1.0;
+    //Fixture.friction = 0.3;
+    //Falling.AddFixture(Fixture);
 
     while(Window.IsOpen())
     {
         Timer.Start();
 
-        World.Step(1.f / 60.f, 4, 6);
-
-        b2Vec2 position = box.GetPosition();
-        float32 angle = box.GetAngle();
-        printf("%4.2f %4.2f %4.2f\n", position.x, position.y, angle);
+        World.Update();
 
         // Handle events.
         Evt.PollEvents();
@@ -282,6 +275,8 @@ using gfxcore::CRenderer;
             Gr.Draw();
             Grass.Disable();
         }
+
+        PHYZ.Draw();
 
         Sound->Update();
         Window.Update();
