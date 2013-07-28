@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -151,6 +151,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a28a9a49d3ab9feb6595cd6e4a8468f26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font.html#a28a9a49d3ab9feb6595cd6e4a8468f26">SetSize</a> (const uint16_t size)</td></tr>
 <tr class="memdesc:a28a9a49d3ab9feb6595cd6e4a8468f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the font size.  <a href="#a28a9a49d3ab9feb6595cd6e4a8468f26">More...</a><br/></td></tr>
 <tr class="separator:a28a9a49d3ab9feb6595cd6e4a8468f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a38afde5e128835d1e92e707313ebb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font.html#a2a38afde5e128835d1e92e707313ebb1">SetStacking</a> (const bool flag)</td></tr>
+<tr class="memdesc:a2a38afde5e128835d1e92e707313ebb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables / Disables rendering on top of existing entity data.  <a href="#a2a38afde5e128835d1e92e707313ebb1">More...</a><br/></td></tr>
+<tr class="separator:a2a38afde5e128835d1e92e707313ebb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a659a117b4f8da639b7bc25fee79d1cdb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font.html#a659a117b4f8da639b7bc25fee79d1cdb">GetTextWidth</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text) const </td></tr>
 <tr class="separator:a659a117b4f8da639b7bc25fee79d1cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eb79d2679e08b3b85df0281bd8d8fee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font.html#a1eb79d2679e08b3b85df0281bd8d8fee">GetTextHeight</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;text) const </td></tr>
@@ -447,7 +450,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00316">316</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00319">319</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +478,7 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the internal font rendering effect loaded successfully, <code>false</code> otherwise.</dd></dl>
 <dl class="section pre"><dt>Precondition</dt><dd>The given manager must be initialized. </dd></dl>
 
-<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00386">386</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00389">389</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -502,7 +505,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00408">408</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00411">411</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -550,6 +553,24 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a2a38afde5e128835d1e92e707313ebb1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CFont::SetStacking </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>flag</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00416">416</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a659a117b4f8da639b7bc25fee79d1cdb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -564,7 +585,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00413">413</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00421">421</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
 
 </div>
 </div>
@@ -582,7 +603,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00441">441</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_font_8cpp_source.html#l00449">449</a> of file <a class="el" href="_font_8cpp_source.html">Font.cpp</a>.</p>
 
 </div>
 </div>

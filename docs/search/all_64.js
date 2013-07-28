@@ -15,6 +15,7 @@ var searchData=
   ['disableeffect',['DisableEffect',['../classzen_1_1gfx_1_1_c_material.html#a1b01d4800f23dee94cff5d4e7d69d74f',1,'zen::gfx::CMaterial']]],
   ['disablefullscreen',['DisableFullscreen',['../classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08',1,'zen::gfx::CWindow']]],
   ['disablelighting',['DisableLighting',['../classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6',1,'zen::gfx::CScene']]],
+  ['disablepostprocessing',['DisablePostProcessing',['../classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d',1,'zen::gfx::CScene']]],
   ['disabletexture',['DisableTexture',['../classzen_1_1gfxcore_1_1_c_renderer.html#ae184526b45d264101cc8e65186f8437e',1,'zen::gfxcore::CRenderer::DisableTexture()'],['../classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d',1,'zen::gfx::CMaterial::DisableTexture()']]],
   ['distance',['distance',['../structzen_1_1math_1_1_vector.html#a4c3f5ddb7f6cb13b8a46fa563baee493',1,'zen::math::Vector::distance()'],['../namespacezen_1_1math.html#a643457b2cf7252cfa12544aeb80588e2',1,'zen::math::distance()'],['../_vector_8inl.html#af237dc75dfd57eab5beffdbeab04bbde',1,'distance():&#160;Vector.inl']]],
   ['dllmain_2ecpp',['DLLMain.cpp',['../_d_l_l_main_8cpp.html',1,'']]],

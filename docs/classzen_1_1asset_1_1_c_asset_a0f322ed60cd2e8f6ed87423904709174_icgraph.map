@@ -10,7 +10,7 @@
 <area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="877,9,1008,50"/>
 <area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_material.html#a452b483a0c05089216fec332f0c576a6" title="Loads an effect from disk." alt="" coords="655,142,785,183"/>
 <area shape="rect" id="node20" href="$classzen_1_1gfx_1_1_c_scene.html#a637f4d8ba83dcb54ef7c73822b6903eb" title="Adds an effect to be rendered on the whole scene." alt="" coords="627,208,813,235"/>
-<area shape="rect" id="node8" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="1099,5,1226,46"/>
+<area shape="rect" id="node8" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file." alt="" coords="1099,5,1226,46"/>
 <area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="1332,297,1473,338"/>
 <area shape="rect" id="node11" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance." alt="" coords="861,329,1024,370"/>
 <area shape="rect" id="node12" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive." alt="" coords="861,143,1024,185"/>
@@ -18,8 +18,8 @@
 <area shape="rect" id="node19" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="877,77,1008,118"/>
 <area shape="rect" id="node13" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1552,264,1603,291"/>
 <area shape="rect" id="node14" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="1323,391,1483,417"/>
-<area shape="rect" id="node15" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="1099,70,1226,111"/>
-<area shape="rect" id="node16" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="1099,238,1226,279"/>
+<area shape="rect" id="node15" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file." alt="" coords="1099,70,1226,111"/>
+<area shape="rect" id="node16" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it." alt="" coords="1099,238,1226,279"/>
 <area shape="rect" id="node17" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="1301,245,1504,272"/>
 <area shape="rect" id="node22" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene." alt="" coords="1072,573,1253,600"/>
 <area shape="rect" id="node24" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="1337,442,1468,483"/>

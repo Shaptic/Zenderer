@@ -2,6 +2,7 @@ var searchData=
 [
   ['togglefullscreen',['ToggleFullscreen',['../classzen_1_1gfx_1_1_c_window.html#a7cf6874db28b2077f67f7c6f3a418e12',1,'zen::gfx::CWindow']]],
   ['togglelighting',['ToggleLighting',['../classzen_1_1gfx_1_1_c_scene.html#abb222521d57dfac131dd46b97547af71',1,'zen::gfx::CScene']]],
+  ['togglepostprocessing',['TogglePostProcessing',['../classzen_1_1gfx_1_1_c_scene.html#a0338d84ddede678ee55827bf604f1138',1,'zen::gfx::CScene']]],
   ['togglestdout',['ToggleStdout',['../classzen_1_1util_1_1_c_log.html#a354fc06ab4cb37b616f5322cf2b333e1',1,'zen::util::CLog']]],
   ['togglevsync',['ToggleVSYNC',['../classzen_1_1gfx_1_1_c_window.html#a63143db627c180d561c2162019c741d7',1,'zen::gfx::CWindow']]],
   ['togglewireframe',['ToggleWireframe',['../classzen_1_1gfxcore_1_1_c_renderer.html#a2c5991b52e9549267a1a3672e9d5bcd0',1,'zen::gfxcore::CRenderer']]],

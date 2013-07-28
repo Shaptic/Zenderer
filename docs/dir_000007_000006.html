@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>Zenderer Engine: Zenderer/include/Zenderer/Graphics -&gt; CoreGraphics Relation</title>
+<title>Zenderer Engine: Zenderer/include/Zenderer/Events -&gt; CoreGraphics Relation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1 pre-release</span>
+   &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4841 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -48,7 +48,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -82,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('dir_581b39117fad9c901c881a5f767a7292.html','');});
+$(document).ready(function(){initNavTree('dir_d434dd89545c808cdb27ee1725e3c16d.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -90,7 +89,7 @@ $(document).ready(function(){initNavTree('dir_581b39117fad9c901c881a5f767a7292.h
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,12 +99,12 @@ $(document).ready(function(){initNavTree('dir_581b39117fad9c901c881a5f767a7292.h
 </div>
 
 <div class="contents">
-<h3>Graphics &rarr; CoreGraphics Relation</h3><table class="dirtab"><tr class="dirtab"><th class="dirtab">File in Zenderer/include/Zenderer/Graphics</th><th class="dirtab">Includes file in Zenderer/include/Zenderer/CoreGraphics</th></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_effect_8hpp.html">Effect.hpp</a></td><td class="dirtab"><a class="el" href="_open_g_l_8hpp.html">OpenGL.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_effect_8hpp.html">Effect.hpp</a></td><td class="dirtab"><a class="el" href="_shader_set_8hpp.html">ShaderSet.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_light_8hpp.html">Light.hpp</a></td><td class="dirtab"><a class="el" href="_renderer_8hpp.html">Renderer.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_light_8hpp.html">Light.hpp</a></td><td class="dirtab"><a class="el" href="_shader_set_8hpp.html">ShaderSet.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_material_8hpp.html">Material.hpp</a></td><td class="dirtab"><a class="el" href="_texture_8hpp.html">Texture.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_quad_8hpp.html">Quad.hpp</a></td><td class="dirtab"><a class="el" href="_drawable_8hpp.html">Drawable.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_render_target_8hpp.html">RenderTarget.hpp</a></td><td class="dirtab"><a class="el" href="_open_g_l_8hpp.html">OpenGL.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_render_target_8hpp.html">RenderTarget.hpp</a></td><td class="dirtab"><a class="el" href="_renderer_8hpp.html">Renderer.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_scene_8hpp.html">Scene.hpp</a></td><td class="dirtab"><a class="el" href="_renderer_8hpp.html">Renderer.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_scene_8hpp.html">Scene.hpp</a></td><td class="dirtab"><a class="el" href="_sorter_8hpp.html">Sorter.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_scene_8hpp.html">Scene.hpp</a></td><td class="dirtab"><a class="el" href="_vertex_array_8hpp.html">VertexArray.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_window_8hpp.html">Window.hpp</a></td><td class="dirtab"><a class="el" href="_open_g_l_8hpp.html">OpenGL.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_window_8hpp.html">Window.hpp</a></td><td class="dirtab"><a class="el" href="_renderer_8hpp.html">Renderer.hpp</a></td></tr></table></div><!-- contents -->
+<h3>Events &rarr; CoreGraphics Relation</h3><table class="dirtab"><tr class="dirtab"><th class="dirtab">File in Zenderer/include/Zenderer/Events</th><th class="dirtab">Includes file in Zenderer/include/Zenderer/CoreGraphics</th></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_event_handler_8hpp.html">EventHandler.hpp</a></td><td class="dirtab"><a class="el" href="_open_g_l_8hpp.html">OpenGL.hpp</a></td></tr><tr class="dirtab"><td class="dirtab"><a class="el" href="_mouse_8hpp.html">Mouse.hpp</a></td><td class="dirtab"><a class="el" href="_open_g_l_8hpp.html">OpenGL.hpp</a></td></tr></table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_581b39117fad9c901c881a5f767a7292.html">Graphics</a></li>
+    <li class="navelem"><a class="el" href="dir_cd6979e7ce7ff2c8aeadb4e183fb34c4.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_83ce8f1182b9a0b14e91c4d6ff3d804c.html">include</a></li><li class="navelem"><a class="el" href="dir_ed5a72cd7c500fb83d60e97a060edfe5.html">Zenderer</a></li><li class="navelem"><a class="el" href="dir_d434dd89545c808cdb27ee1725e3c16d.html">Events</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>

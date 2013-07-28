@@ -3,7 +3,7 @@ var searchData=
   ['o',['O',['../_keyboard_8hpp.html#ae48bf9dad3f5d442f9d14d931be6f43e',1,'Keyboard.hpp']]],
   ['objects',['Objects',['../group___objects.html',1,'']]],
   ['offload',['Offload',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae',1,'zen::gfxcore::CVertexArray::Offload()'],['../classzen_1_1obj_1_1_c_entity.html#a6aeebacf52678e8605e02bc818e2cb50',1,'zen::obj::CEntity::Offload()']]],
-  ['offloaded',['Offloaded',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d',1,'zen::gfxcore::CVertexArray']]],
+  ['offloaded',['Offloaded',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d',1,'zen::gfxcore::CVertexArray::Offloaded()'],['../classzen_1_1obj_1_1_c_entity.html#a2478458913355ccb8cbb93040f27468c',1,'zen::obj::CEntity::Offloaded()']]],
   ['oggerror',['OGGError',['../classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1',1,'zen::sfx::CAudioManager']]],
   ['one',['ONE',['../_keyboard_8hpp.html#a2cb8470634cc90a55800ee95f967eade',1,'Keyboard.hpp']]],
   ['opengl_2ecpp',['OpenGL.cpp',['../_open_g_l_8cpp.html',1,'']]],

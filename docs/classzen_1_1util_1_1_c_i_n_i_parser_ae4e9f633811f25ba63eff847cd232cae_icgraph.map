@@ -1,4 +1,4 @@
 <map id="zen::util::CINIParser::LoadFromStream" name="zen::util::CINIParser::LoadFromStream">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a0c1a0412ef12327edb8cb948314f9c43" title="Loads a material from an existing file stream." alt="" coords="192,5,323,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="371,5,498,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file." alt="" coords="371,5,498,46"/>
 </map>

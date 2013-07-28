@@ -1,7 +1,7 @@
 var searchData=
 [
   ['offload',['Offload',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae',1,'zen::gfxcore::CVertexArray::Offload()'],['../classzen_1_1obj_1_1_c_entity.html#a6aeebacf52678e8605e02bc818e2cb50',1,'zen::obj::CEntity::Offload()']]],
-  ['offloaded',['Offloaded',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d',1,'zen::gfxcore::CVertexArray']]],
+  ['offloaded',['Offloaded',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#aac52e3c55abe635464334942e4f3b52d',1,'zen::gfxcore::CVertexArray::Offloaded()'],['../classzen_1_1obj_1_1_c_entity.html#a2478458913355ccb8cbb93040f27468c',1,'zen::obj::CEntity::Offloaded()']]],
   ['oggerror',['OGGError',['../classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1',1,'zen::sfx::CAudioManager']]],
   ['operator_20bool',['operator bool',['../classzen_1_1util_1_1_c_option.html#a3885ddaf194bd9d5d6363ee4114cf56a',1,'zen::util::COption']]],
   ['operator_20int',['operator int',['../classzen_1_1util_1_1_c_option.html#a90ed7bb3776e3309de2bb7cdf75e83a6',1,'zen::util::COption']]],

@@ -13,6 +13,7 @@ var hierarchy =
     ] ],
     [ "zen::sfx::CAudioManager", "classzen_1_1sfx_1_1_c_audio_manager.html", null ],
     [ "zen::gfxcore::CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html", [
+      [ "zen::gfx::CPolygon", "classzen_1_1gfx_1_1_c_polygon.html", null ],
       [ "zen::gfx::CQuad", "classzen_1_1gfx_1_1_c_quad.html", null ]
     ] ],
     [ "zen::obj::CEntity", "classzen_1_1obj_1_1_c_entity.html", null ],

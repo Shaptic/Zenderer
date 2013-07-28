@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -137,7 +137,7 @@ Data Structures</h2></td></tr>
 </div><div class="memdoc">
 <div class="textblock"><p>Fonts are unique assets that use the FreeType 2 to load TrueType (<code>.ttf</code>) fonts and render them in an OpenGL-compatible matter. They cannot be drawn directly to the screen, but instead will load themselves into <code><a class="el" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a></code> instances that can then be treated as such.</p>
 <dl class="section note"><dt>Note</dt><dd>It is absolutely essential that you call <code>AttachManager()</code> prior to loading any font instances, to ensure that the font textures can be created. This is a limitation of the asset API and may or may not change in the future.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd><p class="startdd">Utilize a texture atlas instead of individual quads </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd><p class="startdd">Utilize a texture atlas instead of individual quads </p>
 <p class="enddd">Implement SDFF technique (<a href="https://forum.libcinder.org/topic/signed-distance-field-font-rendering">https://forum.libcinder.org/topic/signed-distance-field-font-rendering</a>)</p>
 </dd></dl>
 </div>

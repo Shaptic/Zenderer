@@ -38,7 +38,7 @@
 <area shape="rect" id="node28" href="$_texture_8cpp.html" title="Zenderer/src/CoreGraphics\l/Texture.cpp" alt="" coords="1911,550,2088,591"/>
 <area shape="rect" id="node31" href="$_audio_manager_8cpp.html" title="Zenderer/src/Audio\l/AudioManager.cpp" alt="" coords="354,369,488,410"/>
 <area shape="rect" id="node33" href="$_allocator_8hpp.html" title="Zenderer/Core/Allocator.hpp &#45; A high&#45;speed allocator using a static memory stack." alt="" coords="598,459,769,501"/>
-<area shape="rect" id="node34" href="$_zenderer_2_scripting_2lua_8hpp.html" title="Zenderer/Scripting/Lua.hpp &#45; A wrapper around core Lua API interactions and embedding." alt="" coords="404,459,574,501"/>
+<area shape="rect" id="node34" href="$_scripting_2lua_8hpp.html" title="Zenderer/Scripting/Lua.hpp &#45; A wrapper around core Lua API interactions and embedding." alt="" coords="404,459,574,501"/>
 <area shape="rect" id="node35" href="$_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp &#45; An abstraction dictionary layer allowing easy setting of options..." alt="" coords="2214,459,2385,501"/>
 <area shape="rect" id="node37" href="$_subsystem_8cpp.html" title="Zenderer/src/Core/Subsystem.cpp" alt="" coords="794,467,1013,493"/>
 <area shape="rect" id="node39" href="$_render_target_8cpp.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="2338,913,2488,954"/>
