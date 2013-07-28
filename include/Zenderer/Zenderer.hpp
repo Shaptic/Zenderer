@@ -168,6 +168,11 @@ namespace zen
  *      -   OpenAL          (Open Audio Library)
  *      -   libvorbis       (OGG/Vorbis Audio Compression Algorithm)
  *
+ *  The headers for these files are located in the `Zenderer/External/` include
+ *  path. By default, this path is added to the include search directories for
+ *  the VS2012 project, so if you are using a different build system, be sure
+ *  to do likewise.
+ *
  * @note    All file version numbers are meaningless until a stable
  *          1.0.0-alpha release.
  *
@@ -179,13 +184,14 @@ namespace zen
  *
  *  @htmlonly
  *  <style>
- *  .define table {
+ *  .define {
  *      border: 1px solid black;
  *      border-collapse: collapse;
  *  }
  *
  *  .define tr,
  *  .define td {
+ *      border: 1px solid black;
  *      padding: 2px 5px 2px;
  *  }
  *  </style>
@@ -231,8 +237,8 @@ namespace zen
  *  occurred in @a IronClad due to the graphics subsystem attempting
  *  drawing or the asset subsystem attempting cleanup after there was no
  *  more OpenGL context existing, thus invalidating any handles that these
- *  systems had. Hopefully as development progresses, this fundamental
- *  subsystem architecture will prevent a similar problem. \n
+ *  systems had. This fundamental subsystem architecture prevents a similar
+ *  problem. \n
  *
  *  Below are detailed explanations of each of the components.
  *
@@ -390,11 +396,11 @@ namespace zen
  *  CMaterial M1, M2;
  *
  *  // Set up the first primitive.
- *  M1.LoadEffect(EffectType::GAUSSIAN_BLUR_H);
- *  M1.GetEffect()->Enable();
- *  M1.GetEffect()->SetParameter("radius", 0.005);
- *  M1.GetEffect()->Disable();
  *  M1.LoadTextureFromFile("textures/grass.png");
+ *  M1.LoadEffect(EffectType::GAUSSIAN_BLUR_H);
+ *  M1.GetEffect().Enable();
+ *  M1.GetEffect().SetParameter("radius", 0.005);
+ *  M1.GetEffect().Disable();
  *
  *  Q1.Resize(64, 64);
  *  Q1.SetRepeating(true);
@@ -407,8 +413,8 @@ namespace zen
  *  Q2.AttachMaterial(M2);
  *
  *  CEntity E;
- *  E.AddPrimitiveMesh(Q1);
- *  E.AddPrimitiveMesh(Q2);
+ *  E.AddPrimitive(Q1);
+ *  E.AddPrimitive(Q2);
  *  E.Create();
  *
  *  // Later...
