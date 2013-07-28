@@ -43,28 +43,31 @@ namespace gfx
         {
             gfxcore::vertex_t* V = new gfxcore::vertex_t;
             V->position = Position;
-
             m_Verts.push_back(V);
         }
 
         gfxcore::CDrawable& Create()
         {
-            uint16_t tris = m_Verts.size() - 2;
-            gfxcore::index_t* indices = new gfxcore::index_t[tris * 3];
+            if(m_Verts.size() <= 2) return (*this);
 
-            for(uint16_t i = 0; i < tris; ++i)
+            uint16_t tris = (m_Verts.size() - 2) * 3;
+            gfxcore::index_t* indices = new gfxcore::index_t[tris];
+
+            for(uint16_t i = 0; i < tris; i += 3)
             {
+                uint16_t x = i / 3;
                 indices[i] = 0;
-                indices[i+1] = i + 1;
-                indices[i+2] = i + 2;
+                indices[i+1] = x + 1;
+                indices[i+2] = x + 2;
             }
-            indices[m_Verts.size() - 1] = 0;
+            //indices[tris - 1] = 0;
 
             m_DrawData.Vertices = new gfxcore::vertex_t[m_Verts.size()];
             m_DrawData.vcount   = m_Verts.size();
             m_DrawData.Indices  = indices;
-            m_DrawData.icount   = tris * 3;
+            m_DrawData.icount   = tris;
 
+            math::vector_t First(m_Verts[0]->position);
             for(size_t i = 0; i < m_Verts.size(); ++i)
             {
                 m_DrawData.Vertices[i].position = m_Verts[i]->position;

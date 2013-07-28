@@ -149,20 +149,46 @@ using gfxcore::CRenderer;
     Grass2.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass2.png");
     Grass3.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
 
-    Grass1.Move(100, 400);
-    Grass2.Move(100, 400);
-    Grass3.Move(100, 400);
+    Grass1.Move(100, 423);
+    Grass2.Move(100, 423);
+    Grass3.Move(100, 423);
 
     math::vector_t GrassT(45.0, 45.0, -45.0);
     math::vector_t GrassDT(-1.2, 0.9, -0.5);
     math::vector_t mouse;
 
     gfx::CPolygon P(Manager);
-    P.AddVertex(math::vector_t());
-    P.AddVertex(math::vector_t(100, 100));
-    P.AddVertex(math::vector_t(0, 100));
-    P.SetColor(color4f_t(1, 0, 0, 1));
+    P.AddVertex(math::vector_t(0,   450));
+    P.AddVertex(math::vector_t(50,  425));
+    P.AddVertex(math::vector_t(130, 415));
+    P.AddVertex(math::vector_t(290, 455));
+    P.AddVertex(math::vector_t(290, Window.GetHeight()));
+    P.AddVertex(math::vector_t(0,   Window.GetHeight()));
+
+    gfx::CPolygon P2(Manager);
+    P2.AddVertex(math::vector_t(290, 455));
+    P2.AddVertex(math::vector_t(410, 445));
+    P2.AddVertex(math::vector_t(530, 460));
+    P2.AddVertex(math::vector_t(550, 495));
+    P2.AddVertex(math::vector_t(550, Window.GetHeight()));
+    P2.AddVertex(math::vector_t(0,   Window.GetHeight()));
+
+    /*gfx::CPolygon P3(Manager);
+    P3.AddVertex(math::vector_t(660, 470));
+    P.AddVertex(math::vector_t(740, 430));
+    P.AddVertex(math::vector_t(770, 375));
+    P.AddVertex(math::vector_t(800, 370));
+    P.AddVertex(math::vector_t(800, 370));
+    P.AddVertex(math::vector_t(800, 600));
+    P.AddVertex(math::vector_t(0,   600));
+    */
+    P.SetColor(color4f_t(0, 0, 0, 1));
+    P2.SetColor(color4f_t(0, 0, 0, 1));
+    //P3.SetColor(color4f_t(0, 0, 0, 1));
+
     P.Create();
+    P2.Create();
+    //P3.Create();
 
     while(Window.IsOpen())
     {
@@ -260,6 +286,8 @@ using gfxcore::CRenderer;
         }
 
         P.Draw();
+        P2.Draw();
+        //P3.Draw();
 
         Sound->Update();
         Window.Update();
