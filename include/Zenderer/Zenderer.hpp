@@ -74,16 +74,19 @@
 // Custom memory allocator.
 //#include "Core/Allocator.hpp"
 
-// Graphics API
-#include "Graphics/Window.hpp"
-#include "Graphics/Quad.hpp"
-#include "Graphics/Light.hpp"
-#include "Objects/Entity.hpp"
-#include "GUI/Font.hpp"
-#include "Graphics/Scene.hpp"
-
 // Assets
 #include "Assets/AssetManager.hpp"
+
+// Graphics API
+#include "GUI/Font.hpp"
+#include "Graphics/Window.hpp"
+#include "Graphics/Light.hpp"
+#include "Graphics/Scene.hpp"
+
+// Object API
+#include "Objects/Entity.hpp"
+#include "Graphics/Quad.hpp"
+#include "Graphics/Polygon.hpp"
 
 // Audio API
 #include "Audio/AudioManager.hpp"

@@ -157,6 +157,13 @@ using gfxcore::CRenderer;
     math::vector_t GrassDT(-1.2, 0.9, -0.5);
     math::vector_t mouse;
 
+    gfx::CPolygon P(Manager);
+    P.AddVertex(math::vector_t());
+    P.AddVertex(math::vector_t(100, 100));
+    P.AddVertex(math::vector_t(0, 100));
+    P.SetColor(color4f_t(1, 0, 0, 1));
+    P.Create();
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -251,6 +258,8 @@ using gfxcore::CRenderer;
             Gr.Draw();
             Grass.Disable();
         }
+
+        P.Draw();
 
         Sound->Update();
         Window.Update();

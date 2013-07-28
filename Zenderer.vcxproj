@@ -123,6 +123,7 @@
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Polygon.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Quad.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Scene.hpp" />
