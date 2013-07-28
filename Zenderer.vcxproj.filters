@@ -422,7 +422,7 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="include\Zenderer\Graphics\Scene.inl">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Graphics</Filter>
     </None>
   </ItemGroup>
 </Project>
