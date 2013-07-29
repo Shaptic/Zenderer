@@ -1,9 +1,10 @@
 /**
  * @file
- *  Zenderer/GUI/Font.hpp - A wrapper for TrueType font loading and rendering.
+ *  Zenderer/GUI/Button.hpp - A wrapper for easily creating roll-over button
+ *  effects.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     2.0
+ * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -33,10 +34,8 @@ namespace gui
     {
     public:
         CButton(gfx::CScene& MenuScene) : 
-            m_Scene(MenuScene),
-            m_Active(m_Scene.AddEntity()),
-            m_Normal(m_Scene.AddEntity()),
-            m_Current(m_Normal) {}
+            m_Scene(MenuScene), m_Active(m_Scene.AddEntity()),
+            m_Normal(m_Scene.AddEntity()), m_Current(m_Normal) {}
 
         ~CButton()
         {
@@ -93,13 +92,35 @@ namespace gui
                    mp_Font->Render(m_Active, text);
         }
         
-        bool Switch()
+        bool SetActive()
         {
-            if(!mp_Font || mp_Current == nullptr) return false;
-            if(mp_Current == &m_Normal) mp_Current = &m_Active;
-            else                        mp_Current = &m_Normal;
-
-            return true;
+            if(!mp_Font || mp_Current == &m_Normal) return;
+            
+            mp_Current->Disable();
+            mp_Current = &m_Active;
+            mp_Current->Enable();
+        }
+        
+        bool IsOver(const math::vector_t& Pos)
+        {
+            return this->IsOver(math::aabb_t(
+                Pos, math::Vector<uint32_t>(2, 2))
+            );
+        }
+        
+        bool IsOver(const math::aabb_t& Box)
+        {
+            if(mp_Current == nullptr || !mp_Font) return false;
+            return mp_Current->GetBox().collides(Box);
+        }
+        
+        void SetDefault()
+        {
+            if(!mp_Font || mp_Current == &m_Normal) return;
+            
+            mp_Current->Disable();
+            mp_Current = &m_Normal;
+            mp_Current->Enable();
         }
         
     private:
