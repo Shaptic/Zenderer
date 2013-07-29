@@ -209,7 +209,7 @@ namespace util
  *
  *  Let's assume we have a file whose contents look like so:
  *
- *  <pre>
+ *  @code
  *  file=example.txt
  *  author=me
  *  package=zenderer
@@ -217,7 +217,7 @@ namespace util
  *  // here is the point:
  *  values1=stuff,morestuff,finalstuff
  *  values2=data:moredata:finaldata
- *  </pre>
+ *  @endcode
  *
  *  And we want to retrieve the values after `values1` and
  *  `values2` separately, since zen::util::CINIParser::GetValue()
@@ -233,15 +233,15 @@ namespace util
  *      // Delimited defaults to a comma (',') character
  *      std::vector<string_t> keyValues = Parser.GetValues("values1");
  *
- *      for(size_t i = 0; i < keyValues.size(); ++i)
+ *      for(auto& i : keyValues)
  *      {
- *          std::cout << keyValues[i] << ' ';
+ *          std::cout << i << ' ';
  *      }
  *
  *      keyValues = Parser.GetValues("values2", ':');
- *      for(size_t i = 0; i < keyValues.size(); ++i)
+ *      for(auto& i : keyValues)
  *      {
- *          std::cout << keyValues[i] << ' ';
+ *          std::cout << i << ' ';
  *      }
  *  @endcode
  *

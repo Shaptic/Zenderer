@@ -45,16 +45,20 @@ namespace evt
         BUTTON8
     };
 
+    /// Mouse event structure.
     struct mouse_t
     {
         mouse_t();
-        math::vector_t position;
-        MouseButton button;
-        bool down;
-        int mods;
+        math::vector_t position;    /// Event location
+        MouseButton button;         /// Event's mouse button
+        bool down;                  /// Is the mouse button down?
+        int mods;                   /// Any key modifiers held during event.
     };
 
+    /// Retrieves the current mouse position on the active context.
     math::vector_t GetMousePosition();
+    
+    /// Returns `true` if the mouse button is pressed.
     bool GetMouseState(const evt::MouseButton& Btn);
 }
 }

@@ -27,13 +27,16 @@ namespace zen
 {
 namespace evt
 {
+
+// Sometimes this is defined as a macro
 #ifdef DELETE
-#undef DELETE
+  #undef DELETE
 #endif // DELETE
 
     /// Keyboard key enumerations.
     enum class ZEN_API Key
     {
+        // Punctuation
         UNKNOWN     = -1,
         SPACE       = 32,
         APOSTROPHE  = 39,
@@ -46,6 +49,7 @@ namespace evt
         ZERO,   ONE,    TWO,    THREE, FOUR,
         FIVE,   SIX,    SEVEN,  EIGHT, NINE,
 
+        // ASCII letters
         A = 65,
         B, C, D, E, F, G, H, I,
         J, K, L, M, N, O, P, Q,
@@ -53,20 +57,24 @@ namespace evt
 
         LEFT_BRACKET, BACKSLASH, RIGHT_BRACKET, GRAVE,
 
+        // Navigational keys
         ESCAPE = 256,
         ENTER,      TAB,        BACKSPACE,
         INSERT,     DELETE,
         RIGHT,      LEFT,       DOWN, UP,
         PAGE_UP,    PAGE_DOWN,  HOME, END,
 
+        // More modifiers
         CAPS_LOCK = 280,
         SCOLL_LOCK, NUM_LOCK,
         PRINT_SCR,  PAUSE,
 
+        // Function keys
         F1 = 290,
         F2, F3, F4,  F5,  F6, F7,
         F8, F9, F10, F11, F12,
 
+        // Modifiers.
         LEFT_SHIFT = 340,
         LEFT_CONTROL,   LEFT_ALT,       LEFT_SUPER,
         RIGHT_SHIFT,    RIGHT_CONTROL,  RIGHT_ALT,
@@ -78,16 +86,13 @@ namespace evt
     /// Keyboard event structure.
     struct key_t
     {
-        key_t() :
-            mods(0),
-            key(Key::UNKNOWN),
-            symbol('\0'),
-            scan(-1) {}
+        key_t() : mods(0), key(Key::UNKNOWN),
+                  symbol('\0'), scan(-1) {}
 
-        int     mods;
-        Key     key;
-        char    symbol;
-        int     scan;
+        int     mods;   /// Modifier keys (Shift, Alt, etc.)
+        Key     key;    /// The key pressed
+        char    symbol; /// The printable character for the key (if any)
+        int     scan;   /// The system-specific keyboard scan code.
     };
 }
 }

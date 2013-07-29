@@ -65,11 +65,11 @@ namespace asset
          *          `nullptr` otherwise.
          **/
         template<typename T>
-        T* Create(const string_t& filename, const void* const owner = nullptr);
+        T* Create(const string_t& filename, const void* const owner=nullptr);
 
         /// @overload
         template<typename T>
-        T* Create(const char* const filename, const void* const owner = nullptr);
+        T* Create(const char* const filename, const void* const owner=nullptr);
 
         /**
          * Creates a raw managed asset instance (unloaded).
@@ -86,7 +86,7 @@ namespace asset
          *  copy at a time, calling
          *
          *  @code
-         *      Create<CMesh*>("test.txt")
+         *      Create<gfx::CTexture>("test.tga");
          *  @endcode
          *
          *  three times will give the same return value every time.

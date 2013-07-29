@@ -172,7 +172,7 @@ namespace util
         /// Returns the sub-system initialization status.
         inline bool IsInit() const;
 
-        /// Makes it possible to inline the Set*() methods.
+        /// Makes it possible to inline the `Set*()` methods.
         friend std::ostream& operator<<(std::ostream& o, const CLog& Log);
 
         /// Singleton access to the engine log.
