@@ -233,6 +233,7 @@ namespace math
 
     /// Standard 32-bit integral vector shortcut.
     typedef Vector<int32_t> vectori_t;
+
 }   // namespace math
 }   // namespace ic
 
@@ -255,7 +256,7 @@ namespace math
  *  Vector<float> B(1.1, 2.2, 3.3);
  *
  *  Vector<float> C = A + B;    // INVALID!
- *  Vector<int> C = A + B;      // VALID
+ *  Vector<int>   C = A + B;    // VALID
  *  @endcode
  *
  *  Thus if you need a higher level of precision, keep that vector

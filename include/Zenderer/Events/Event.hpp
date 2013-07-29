@@ -17,6 +17,11 @@
  *  limitations under the License.
  *
  * @addtogroup Events
+ *  Contains structures and handlers for taking care of global application
+ *  events. Here we wrap GLFW's event handling implementation to provide a 
+ *  more object-oriented and poll-based event queue, similar to the one used
+ *  in SDL (1.2, at least).
+ *
  * @{
  **/
 

@@ -92,7 +92,7 @@ namespace util
         /**
          * Retrieves a value based on a key in the dictionary.
          *  If the file stream contained `texture=Data.tga`, and you
-         *  called GetValue("texture"), the function gives back "Data.tga".
+         *  called `GetValue("texture")`, the function gives back "Data.tga".
          *
          * @param   key     Key to access
          *
@@ -118,7 +118,7 @@ namespace util
          *  delimiter, and return the result.
          *
          * @param   key         Key to access
-         * @param   delimiter   Character to split 'value' on (optional=`comma`)
+         * @param   delimiter   Character to split 'value' on (optional=',')
          *
          * @return  Result if 'key' exists,
          *          the 'value' in the pair (in a `vector`) if not.

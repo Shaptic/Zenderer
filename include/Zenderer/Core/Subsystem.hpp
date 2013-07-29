@@ -50,8 +50,8 @@ namespace zen
         /**
          * Cleans up the subsystem completely.
          *  Typically, a subsystem can be re-initialized by setting new
-         *  parameters via various Set* methods and calling Init() again,
-         *  but this is specific to the inheriting class.
+         *  parameters via various `Set*()` methods and calling Init()
+         *  again, but this is specific to the inheriting class.
          **/
         virtual bool Destroy() = 0;
 

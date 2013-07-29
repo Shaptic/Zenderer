@@ -79,7 +79,7 @@ namespace util
     };
 
     /// A minimalistic XML parser that expects near-perfection from the user.
-    /// @todo   Fix `XMLNode` parent setting
+    /// @todo   Fix XMLNode parent setting
     class ZEN_API CXMLParser
     {
     public:
