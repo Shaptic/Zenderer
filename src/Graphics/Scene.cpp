@@ -48,10 +48,9 @@ obj::CEntity& CScene::AddEntity()
     return *m_allEntities.back();
 }
 
-/// @todo Fix hard-coded 800.
 CLight& CScene::AddLight(const LightType& Type)
 {
-    CLight* pNew = new CLight(m_Assets, Type, 800);
+    CLight* pNew = new CLight(m_Assets, Type, m_FBO1.GetHeight());
     pNew->Init();
     m_allLights.push_back(pNew);
     return *m_allLights.back();
