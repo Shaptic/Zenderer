@@ -95,7 +95,7 @@ bool CWindow::Init()
     glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);
 
     m_Log << "Initializing GLEW: ";
-    glewExperimental = true;
+    glewExperimental = GL_TRUE;
     if(glewInit() != GLEW_OK)
     {
         m_Log << m_Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
