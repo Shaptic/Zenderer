@@ -104,3 +104,13 @@ uint32_t CAssetManager::GetAssetCount() const
 {
     return mp_managerAssets.size();
 }
+
+std::list<CAsset*>::const_iterator CAssetManager::cbegin()
+{
+    return mp_managerAssets.begin();
+}
+
+std::list<CAsset*>::const_iterator CAssetManager::cend()
+{
+    return mp_managerAssets.end();
+}

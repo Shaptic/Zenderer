@@ -84,10 +84,15 @@ namespace gfx
          * @see     ToggleFullscreen()
          * @see     zen::asset::CAsset
          **/
-        CWindow(const uint16_t w,
-                const uint16_t h,
-                const string_t& caption,
-                asset::CAssetManager& Mgr);
+        CWindow(const uint16_t w, const uint16_t h,
+                const string_t& caption, asset::CAssetManager& Mgr,
+                const bool fullscreen = 
+#ifdef ZEN_DEBUG_BUILD
+    false
+#else
+    true
+#endif // ZEN_DEBUG_BUILD
+);
 
         ~CWindow();
 
@@ -135,15 +140,17 @@ namespace gfx
          *
          * @return  `true`  if the window is now in fullscreen mode, and
          *          `false` if it was changed to windowed mode.
-         *
-         * @todo    Implement this
          **/
-        inline bool ToggleFullscreen(int* const loaded = nullptr);
+        bool ToggleFullscreen(int* const loaded = nullptr);
 
-        inline bool EnableFullscreen();     ///< Enables fullscreen mode.
-        inline bool DisableFullscreen();    ///< Disables fullscreen mode.
+        /// Enables fullscreen mode.
+        bool EnableFullscreen(int* const loaded = nullptr);
+        
+        ///< Disables fullscreen mode.
+        bool DisableFullscreen(int* const loaded = nullptr);
 
         bool IsOpen() const;
+        bool IsFullscreen() const;
         void Close()  const;
 
         /**
@@ -176,6 +183,8 @@ namespace gfx
         // Prevent copying.
         CWindow(const CWindow&);
         CWindow& operator=(const CWindow&);
+        
+        uint32_t ReloadAssets();
 
         GLFWwindow*             mp_Window;
         util::CLog&             m_Log;

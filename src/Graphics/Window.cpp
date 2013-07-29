@@ -12,7 +12,8 @@ static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
 CWindow::CWindow(const uint16_t     width,
                  const uint16_t     height,
                  const string_t&    caption,
-                 asset::CAssetManager& Mgr) :
+                 asset::CAssetManager& Mgr,
+                 const bool         fullscreen) :
     CSubsystem("Window"), m_Log(CLog::GetEngineLog()),
     m_Assets(Mgr), m_Dimensions(width, height),
     m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),
@@ -63,6 +64,7 @@ bool CWindow::Init()
     glfwWindowHint(GLFW_STENCIL_BITS, 0);
 
     // Create the window.
+    m_fullscreen = fullscreen;
     mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y,
         m_caption.c_str(), m_fullscreen ? glfwGetPrimaryMonitor() : nullptr,
         nullptr);
@@ -149,9 +151,44 @@ void CWindow::Update() const
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }
 
+bool CWindow::ToggleFullscreen(const int* const loaded)
+{
+    if(m_fullscreen) return this->DisableFullscreen(loaded);
+    else             return this->EnableFullscreen(loaded);
+}
+
+bool CWindow::EnableFullscreen(const int* const loaded)
+{
+    if(m_fullscreen) return true;
+    
+    this->Destroy();
+    this->Init();
+    m_fullscreen = true;
+    uint32_t done = this->ReloadAssets();
+    if(loaded != nullptr) loaded = done;
+    return done == m_Assets.GetAssetCount();
+}
+
+bool CWindow::DisableFullscreen(const int* const loaded)
+{
+    if(!m_fullscreen) return true;
+    
+    this->Destroy();
+    this->Init();
+    m_fullscreen = false;
+    uint32_t done = this->ReloadAssets();
+    if(loaded != nullptr) loaded = done;
+    return done == m_Assets.GetAssetCount();
+}
+
 bool CWindow::IsOpen() const
 {
     return !glfwWindowShouldClose(mp_Window);
+}
+
+bool CWindow::IsFullscreen() const
+{
+    return m_fullscreen;
 }
 
 void CWindow::Close() const
@@ -169,6 +206,23 @@ math::vector_t CWindow::GetMousePosition() const
 bool CWindow::GetMouseState(const evt::MouseButton& Btn) const
 {
     return glfwGetMouseButton(mp_Window, static_cast<int>(Btn)) == GLFW_PRESS;
+}
+
+/// @todo   Implement asset reloading from file.
+uint32_t CWindow::ReloadAssets()
+{
+    this->Destroy();
+    m_fullscreen = !m_fullscreen;
+    this->Init();
+    
+    // Attempt to reload assets from their filenames.
+    uint32_t done = 0;
+    for(auto i = m_Assets.cbegin(); i != m_Assets.cend(); ++i) 
+    {
+        //if((*i)->Reload()) ++done;
+    }
+    
+    return done;
 }
 
 bool CWindow::ToggleVSYNC()
