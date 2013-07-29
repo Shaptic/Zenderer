@@ -158,7 +158,7 @@ namespace asset
  * @class zen::asset::CAssetManager
  * @details
  *  To be an asset instance supported by this manager, the
- *  object must inherit from zen::asset::CAsset
+ *  object must inherit from zen::asset::CAsset.
  **/
 
 /**

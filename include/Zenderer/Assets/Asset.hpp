@@ -68,6 +68,23 @@ namespace asset
          **/
         virtual bool LoadFromExisting(const CAsset* const pCopy);
 
+        /** 
+         * Reloads oneself from whatever method it was loaded from originally.
+         *  This is impossible to guarantee, of course, therefore the
+         *  implementor should return `false` to the caller if there is no
+         *  possible way to restore prior state. 
+         *
+         *  This method is primarily in place to allow for OpenGL assets to
+         *  reload after a context destruction / creation, such as when 
+         *  toggling full-screen mode.
+         *
+         * @return  `true`  if the asset reloaded itself successfully,
+         *          `false` otherwise.
+         *
+         * @see     zen::gfx::CWindow::ToggleFullscreen()
+         **/
+        virtual bool Reload() = 0;
+        
         /// Returns the hashed filename for quicker comparison.
         inline uint32_t GetFilenameHash() const;
 
@@ -163,6 +180,7 @@ namespace asset
  *      - Load from file / path
  *      - Load from another instance
  *      - Load from a filestream (optional but recommended)
+ *      - Reload oneself.
  *      - The ability to retrieve copyable data via `GetData()`
  *      - Sets filename and filename hash
  *      - Sets `m_error_str` when encountering errors.

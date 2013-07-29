@@ -219,7 +219,7 @@ uint32_t CWindow::ReloadAssets()
     uint32_t done = 0;
     for(auto i = m_Assets.cbegin(); i != m_Assets.cend(); ++i) 
     {
-        //if((*i)->Reload()) ++done;
+        if((*i)->Reload()) ++done;
     }
     
     return done;
