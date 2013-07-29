@@ -105,6 +105,11 @@ namespace math
     /// Compares two floating point values within a certain range.
     ZEN_API bool compf(const real_t, const real_t,
                        const real_t threshold = 0.0001);
+   
+    /// Calculates the distance between two points (`sqrt` optimization).
+    ZEN_API real_t distance(const real_t x1, const real_t y1,
+                            const real_t x2, const real_t y2,
+                            const bool do_sqrt=false);
 
     // Definitions for the functions defined above.
     #include "MathCore.inl"

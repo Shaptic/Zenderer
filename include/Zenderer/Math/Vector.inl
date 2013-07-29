@@ -128,7 +128,6 @@ template<typename T, typename U> static
 real_t distance(const Vector<T>& A, const Vector<U>& B,
                 const bool do_sqrt)
 {
-    real_t pyth = (A.x + B.x) * (A.x + B.x) +
-                  (A.y + B.y) * (A.y + B.y);
-    return !do_sqrt ? pyth : std::sqrt(pyth);
+    // Just call the (x, y) version.
+    return distance(A.x, A.y, B.x, B.y, do_sqrt);
 }
