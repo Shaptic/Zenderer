@@ -17,6 +17,7 @@ var searchData=
   ['_7ecluaapi',['~CLuaAPI',['../classzen_1_1lua_1_1_c_lua_a_p_i.html#a54359f6bc242737297f2ea0e0cdb5649',1,'zen::lua::CLuaAPI']]],
   ['_7ecmaterial',['~CMaterial',['../classzen_1_1gfx_1_1_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca',1,'zen::gfx::CMaterial']]],
   ['_7ecmusic2d',['~CMusic2D',['../classzen_1_1sfx_1_1_c_music2_d.html#aa46b12dc8f5701b3e5bb8fa7667fbc5a',1,'zen::sfx::CMusic2D']]],
+  ['_7ecpolygon',['~CPolygon',['../classzen_1_1gfx_1_1_c_polygon.html#ac26593374e13a37577647c1fe101f724',1,'zen::gfx::CPolygon']]],
   ['_7ecquad',['~CQuad',['../classzen_1_1gfx_1_1_c_quad.html#a60bf556640212f48877f7b406862e48e',1,'zen::gfx::CQuad']]],
   ['_7ecrendertarget',['~CRenderTarget',['../classzen_1_1gfx_1_1_c_render_target.html#a140f5687594cc589c8b22221c84e4fba',1,'zen::gfx::CRenderTarget']]],
   ['_7ecscene',['~CScene',['../classzen_1_1gfx_1_1_c_scene.html#a8f230d53cbde78e2a0d4a94fca1653b7',1,'zen::gfx::CScene']]],

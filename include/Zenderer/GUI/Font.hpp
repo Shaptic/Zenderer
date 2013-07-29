@@ -163,7 +163,7 @@ namespace gui
 
         /// Enables / Disables rendering on top of existing entity data.
         void SetStacking(const bool flag);
-        
+
         uint16_t GetTextWidth(const string_t&  text) const;
         uint16_t GetTextHeight(const string_t& text) const;
 

@@ -40,14 +40,14 @@ bool CEntity::LoadFromFile(const string_t& filename)
         if(line.empty() || line[0] == '/') continue;
 
         std::smatch res;
-        std::regex float3("=(\\d+\\.?\\d*),(\\d+\\.?\\d*),?(\\d+\\.?\\d*)?\s*$");
-        
+        std::regex float3("=(\\d+\\.?\\d*),(\\d+\\.?\\d*),?(\\d+\\.?\\d*)?\\s*$");
+
         if(line.find("position=") != std::string::npos &&
            std::regex_match(line, res, float3))
         {
             this->Move(std::stod(res[0]), std::stod(res[1]));
         }
-        
+
         else if(line.find("primcount") != std::string::npos &&
                 std::regex_match(line, res, std::regex("=(\\d+)\\s*$")))
         {
@@ -236,16 +236,16 @@ void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 }
 
 bool CEntity::Offloaded() const
-{ 
-    const auto i = mp_allPrims.begin(),
-               j = mp_allPrims.end();
+{
+    auto i = mp_allPrims.cbegin(),
+         j = mp_allPrims.cend();
 
     for( ; i != j; ++i)
     {
         if((*i)->m_DrawData.Vertices != nullptr)
             return false;
     }
-    
+
     return true;
 }
 

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -123,20 +123,22 @@ Installation</h1>
 <li>OpenAL (Open Audio Library)</li>
 <li>libvorbis (OGG/Vorbis Audio Compression Algorithm)</li>
 </ul>
+<p>The headers for these files are located in the <code>Zenderer/External/</code> include path. By default, this path is added to the include search directories for the VS2012 project, so if you are using a different build system, be sure to do likewise.</p>
 <dl class="section note"><dt>Note</dt><dd>All file version numbers are meaningless until a stable 1.0.0-alpha release.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Test cross-platform compatibility.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Test cross-platform compatibility.</dd></dl>
 <h1><a class="anchor" id="prep"></a>
 Preprocessor Defines</h1>
 <p>There are several preprocessor directives that can be set to slightly modify the behavior of the engine at runtime. They are outlined below.</p>
  
  <style>
- .define table {
+ .define {
      border: 1px solid black;
      border-collapse: collapse;
  }
 
  .define tr,
  .define td {
+     border: 1px solid black;
      padding: 2px 5px 2px;
  }
  </style>
@@ -170,7 +172,7 @@ Preprocessor Defines</h1>
  </table>
  <h1><a class="anchor" id="arch"></a>
 Architecture</h1>
-<p>The <em>Zenderer</em> engine is broken up into multiple components so that the user can use whichever parts are necessary for them. Despite that, almost all of the components interact with each other a lot, so by using one you are most likely using multiple others. At the root of these various components is often times a <b>subsystem</b>. In <em>Zenderer</em>, a subsystem is defined as an object with startup and shutdown methods that clean up completely after themselves and depend on nothing. This basic idea was put into place after numerous crashes occurred in <em>IronClad</em> due to the graphics subsystem attempting drawing or the asset subsystem attempting cleanup after there was no more OpenGL context existing, thus invalidating any handles that these systems had. Hopefully as development progresses, this fundamental subsystem architecture will prevent a similar problem. <br/>
+<p>The <em>Zenderer</em> engine is broken up into multiple components so that the user can use whichever parts are necessary for them. Despite that, almost all of the components interact with each other a lot, so by using one you are most likely using multiple others. At the root of these various components is often times a <b>subsystem</b>. In <em>Zenderer</em>, a subsystem is defined as an object with startup and shutdown methods that clean up completely after themselves and depend on nothing. This basic idea was put into place after numerous crashes occurred in <em>IronClad</em> due to the graphics subsystem attempting drawing or the asset subsystem attempting cleanup after there was no more OpenGL context existing, thus invalidating any handles that these systems had. This fundamental subsystem architecture prevents a similar problem. <br/>
 </p>
 <p>Below are detailed explanations of each of the components.</p>
 <h2><a class="anchor" id="comp_util"></a>

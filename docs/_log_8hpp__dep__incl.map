@@ -37,7 +37,7 @@
 <area shape="rect" id="node27" href="$_texture_8cpp.html" title="Zenderer/src/CoreGraphics\l/Texture.cpp" alt="" coords="1755,459,1932,501"/>
 <area shape="rect" id="node30" href="$_audio_manager_8cpp.html" title="Zenderer/src/Audio\l/AudioManager.cpp" alt="" coords="291,278,425,319"/>
 <area shape="rect" id="node32" href="$_allocator_8hpp.html" title="Zenderer/Core/Allocator.hpp &#45; A high&#45;speed allocator using a static memory stack." alt="" coords="419,641,589,682"/>
-<area shape="rect" id="node34" href="$_zenderer_2_scripting_2lua_8hpp.html" title="Zenderer/Scripting/Lua.hpp &#45; A wrapper around core Lua API interactions and embedding." alt="" coords="688,369,859,410"/>
+<area shape="rect" id="node34" href="$_scripting_2lua_8hpp.html" title="Zenderer/Scripting/Lua.hpp &#45; A wrapper around core Lua API interactions and embedding." alt="" coords="688,369,859,410"/>
 <area shape="rect" id="node35" href="$_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp &#45; An abstraction dictionary layer allowing easy setting of options..." alt="" coords="2059,369,2229,410"/>
 <area shape="rect" id="node37" href="$_subsystem_8cpp.html" title="Zenderer/src/Core/Subsystem.cpp" alt="" coords="342,376,561,403"/>
 <area shape="rect" id="node33" href="$_vertex_array_8hpp.html" title="Zenderer/CoreGraphics/VertexArray.hpp &#45; A wrapper class for OpenGL Vertex Array Objects." alt="" coords="1355,731,1557,773"/>

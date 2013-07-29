@@ -127,17 +127,17 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
     // any, we stop max()-ing the bearing.
     // Thus the (0, 0, 1) coordinate is the top of the line. Any subsequent
     // lines just add their height to the y coordinate and keep rendering.
-    math::vectoru16_t Pos;
+    math::Vector<int16_t> Pos;
 
     auto a = text.begin(), b = text.end();
     uint16_t i = 0;
     for( ; a != b; ++a, ++i)
     {
         if(*a == '\n') break;
-        
+
         const auto it = m_glyphData.find(*a);
         if(it == m_glyphData.end()) continue;
-        Pos.y = math::max(Pos.y, it->second.position.y);
+        Pos.y = math::max<int16_t>(Pos.y, it->second.position.y);
     }
     Pos.y = -Pos.y;
 
@@ -151,9 +151,11 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // property (universal on all glyphs).
         if(c == '\n')
         {
-            Pos.x  = 0; Pos.y += m_height;
+            Pos.x  = 0; Pos.y -= m_height;
             totals.x = math::max(tmp_tx, totals.x);
             tmp_tx = 0;
+            int16_t tmph = 0;
+
             continue;
         }
 
@@ -183,12 +185,12 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         verts[i+2].position = math::vector_t(Pos.x+gl.size.x, start_y+gl.size.y);
         verts[i+3].position = math::vector_t(Pos.x,           start_y+gl.size.y);
 
-        // Load up the bitmap texture coordinates moving
-        // clockwise from the top-left.
-        verts[i].tc     = math::vector_t(0, 1);
-        verts[i+1].tc   = math::vector_t(1, 1);
-        verts[i+2].tc   = math::vector_t(1, 0);
-        verts[i+3].tc   = math::vector_t(0, 0);
+        // The glyph textures are stored upside-down, so we set the texture
+        // coordinates to flip them back appropriately.
+        verts[i].tc     = math::vector_t(0, 0);
+        verts[i+1].tc   = math::vector_t(1, 0);
+        verts[i+2].tc   = math::vector_t(1, 1);
+        verts[i+3].tc   = math::vector_t(0, 1);
 
         // Uniform font color.
         for(size_t j = i; j < i + 4; ++j) verts[j].color = m_Color;

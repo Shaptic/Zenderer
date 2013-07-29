@@ -102,7 +102,7 @@ namespace gfxcore
         void RemoveMaterial();
 
         /// Sets all vertices to have a given color value.
-        void SetColor(const color4f_t& Color);
+        virtual void SetColor(const color4f_t& Color);
 
         /**
          * Draws the primitive on-screen.
@@ -142,7 +142,7 @@ namespace gfxcore
                          const bool preserve = true);
 
         /// For setting things implicitly.
-        friend class ZEN_API CEntity;
+        friend class ZEN_API obj::CEntity;
 
     private:
         asset::CAssetManager& m_Assets;

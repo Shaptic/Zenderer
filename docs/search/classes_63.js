@@ -25,6 +25,7 @@ var searchData=
   ['color3f_5ft',['color3f_t',['../structzen_1_1color3f__t.html',1,'zen']]],
   ['color4f_5ft',['color4f_t',['../structzen_1_1color4f__t.html',1,'zen']]],
   ['coption',['COption',['../classzen_1_1util_1_1_c_option.html',1,'zen::util']]],
+  ['cpolygon',['CPolygon',['../classzen_1_1gfx_1_1_c_polygon.html',1,'zen::gfx']]],
   ['cquad',['CQuad',['../classzen_1_1gfx_1_1_c_quad.html',1,'zen::gfx']]],
   ['crenderer',['CRenderer',['../classzen_1_1gfxcore_1_1_c_renderer.html',1,'zen::gfxcore']]],
   ['crendertarget',['CRenderTarget',['../classzen_1_1gfx_1_1_c_render_target.html',1,'zen::gfx']]],

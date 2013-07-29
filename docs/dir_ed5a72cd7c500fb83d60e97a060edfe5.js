@@ -5,6 +5,7 @@ var dir_ed5a72cd7c500fb83d60e97a060edfe5 =
     [ "Core", "dir_853c2b543f5b384380d1698b48cfe19a.html", "dir_853c2b543f5b384380d1698b48cfe19a" ],
     [ "CoreGraphics", "dir_88424f08fb9f6b5a5a3c5d8b116f9405.html", "dir_88424f08fb9f6b5a5a3c5d8b116f9405" ],
     [ "Events", "dir_d434dd89545c808cdb27ee1725e3c16d.html", "dir_d434dd89545c808cdb27ee1725e3c16d" ],
+    [ "External", "dir_898b4fac06b0f172e3b3e37f4fca246b.html", "dir_898b4fac06b0f172e3b3e37f4fca246b" ],
     [ "Graphics", "dir_581b39117fad9c901c881a5f767a7292.html", "dir_581b39117fad9c901c881a5f767a7292" ],
     [ "GUI", "dir_e1addd992e85f136b9e0af733a0c4dc3.html", "dir_e1addd992e85f136b9e0af733a0c4dc3" ],
     [ "Math", "dir_fb506ce3840802e4699f44ecb313702e.html", "dir_fb506ce3840802e4699f44ecb313702e" ],
