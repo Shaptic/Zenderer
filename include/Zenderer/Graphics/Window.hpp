@@ -144,6 +144,7 @@ namespace gfx
         inline bool DisableFullscreen();    ///< Disables fullscreen mode.
 
         bool IsOpen() const;
+        void Close()  const;
 
         /**
          * Sets OpenGL clearing bits.

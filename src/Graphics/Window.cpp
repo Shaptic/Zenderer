@@ -31,6 +31,15 @@ CWindow::~CWindow()
 
 bool CWindow::Init()
 {
+    if(m_init)
+    {
+        m_Log   << m_Log.SetSystem("Window")
+                << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << "Window is already initialized; destroy it first!"
+                << CLog::endl;
+        return false;
+    }
+    
     m_Log   << m_Log.SetSystem("Window")
             << m_Log.SetMode(LogMode::ZEN_INFO)
             << "Set up window (" << m_Dimensions.x << "x"
@@ -112,11 +121,13 @@ bool CWindow::Init()
 
 bool CWindow::Destroy()
 {
+    if(!m_init) return true;
+    
     delete gfxcore::CRenderer::s_DefaultMaterial;
     m_Assets.Destroy();
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
-    return true;
+    return !(m_init = false);
 }
 
 bool CWindow::Clear()
@@ -141,6 +152,11 @@ void CWindow::Update() const
 bool CWindow::IsOpen() const
 {
     return !glfwWindowShouldClose(mp_Window);
+}
+
+void CWindow::Close() const
+{
+    glfwSetWindowShouldClose(mp_Window, true);
 }
 
 math::vector_t CWindow::GetMousePosition() const
