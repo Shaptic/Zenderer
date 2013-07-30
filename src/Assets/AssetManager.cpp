@@ -133,13 +133,13 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
     uint32_t hash = util::string_hash(filename);
 
     // Speed comparisons: http://ideone.com/eaIbCB
-    auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
-    for( ; b != e; ++b)
+    // Above is out-dated: http://ideone.com/droMcn
+    for(auto b : mp_managerAssets)
     {
-        if((*b)->GetFilenameHash() == hash &&
-           (*b)->GetOwner() == owner)
+        if(b->GetFilenameHash() == hash &&
+           b->GetOwner() == owner)
         {
-            return *b;
+            return b;
         }
     }
 
@@ -152,10 +152,9 @@ CAsset* CAssetManager::Find(const assetid_t id) const
             << m_Log.SetSystem("AssetMgr")
             << "Searching for asset with ID " << id << '.' << CLog::endl;
 
-    auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
-    for( ; b != e; ++b)
+    for(auto b : mp_managerAssets)
     {
-        if((*b)->GetAssetID() == id) return *b;
+        if(b->GetAssetID() == id) return b;
     }
 
     return nullptr;

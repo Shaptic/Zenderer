@@ -122,7 +122,7 @@ namespace asset
                      const void* const owner = nullptr) const;
 
         /// Finds an asset by ID, if it exists.
-        /// @overload Find(const string_t& filename, const void* const owner = nullptr) const;
+        /// @overload
         CAsset* Find(const assetid_t id) const;
 
         /// Returns the amount of assets this manager has.
@@ -165,6 +165,11 @@ namespace asset
  * @fn zen::asset::CAssetManager::Find()
  * @details
  *  Technical details ahead:    \n
+ *
+ *  @warning    The benchmark info is out-dated and inaccurate. Range-based
+ *              `for()` loops outperform all other methods now and are used
+ *              throughout @a Zenderer where applicable. The metrics are kept
+ *              purely for historical measurement purposes.
  *
  *  @section search     Search
  *  @subsection perf    Performance Comparison
