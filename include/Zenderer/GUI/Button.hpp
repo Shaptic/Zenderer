@@ -33,98 +33,25 @@ namespace gui
     class ZEN_API CButton
     {
     public:
-        CButton(gfx::CScene& MenuScene) :
-            m_Scene(MenuScene), m_Active(m_Scene.AddEntity()),
-            m_Normal(m_Scene.AddEntity()), mp_Current(&m_Normal),
-            mp_Font(nullptr) {}
+        CButton(gfx::CScene& MenuScene);
 
-        ~CButton()
-        {
-            m_Scene.RemoveEntity(m_Active);
-            m_Scene.RemoveEntity(m_Normal);
-        }
+        ~CButton();
 
-        void SetFont(CFont& Font)
-        {
-            Font.SetStacking(true);
-            mp_Font = &Font;
-        }
+        void Place(const math::vector_t& Pos);
+        void Place(const real_t x, const real_t y);
 
-        void SetActiveColor(const color4f_t& active)
-        {
-            m_acolor = active;
-        }
+        bool Prepare(const string_t& text);
 
-        void SetNormalColor(const color4f_t& normal)
-        {
-            m_ncolor = normal;
-        }
+        bool IsOver(const math::vector_t& Pos);
+        bool IsOver(const math::aabb_t& Box);
 
-        void SetBackground(const obj::CEntity& Bg)
-        {
-            auto i = Bg.cbegin(), j = Bg.cend();
-            for( ; i != j; ++i)
-            {
-                m_Active.AddPrimitive(**i);
-                m_Normal.AddPrimitive(**i);
-            }
-        }
+        bool SetActive();
+        void SetDefault();
 
-        void Place(const math::vector_t& Pos)
-        {
-            m_Active.Move(Pos);
-            m_Normal.Move(Pos);
-        }
-
-        void Place(const real_t x, const real_t y)
-        {
-            m_Active.Move(x, y);
-            m_Normal.Move(x, y);
-        }
-
-        bool Prepare(const string_t& text)
-        {
-            if(!mp_Font || mp_Current == nullptr) return false;
-
-            mp_Font->SetColor(m_ncolor);
-            bool ret = mp_Font->Render(m_Normal, text);
-
-            mp_Font->SetColor(m_acolor);
-            return ret && mp_Font->Render(m_Active, text);
-        }
-
-        bool SetActive()
-        {
-            if(!mp_Font || mp_Current == &m_Active) return false;
-
-            mp_Current->Disable();
-            mp_Current = &m_Active;
-            mp_Current->Enable();
-
-            return true;
-        }
-
-        bool IsOver(const math::vector_t& Pos)
-        {
-            return this->IsOver(math::aabb_t(
-                Pos, math::Vector<uint32_t>(2, 2))
-            );
-        }
-
-        bool IsOver(const math::aabb_t& Box)
-        {
-            if(mp_Current == nullptr || !mp_Font) return false;
-            return mp_Current->GetBox().collides(Box);
-        }
-
-        void SetDefault()
-        {
-            if(!mp_Font || mp_Current == &m_Normal) return;
-
-            mp_Current->Disable();
-            mp_Current = &m_Normal;
-            mp_Current->Enable();
-        }
+        void SetFont(CFont& Font);
+        void SetActiveColor(const color4f_t& active);
+        void SetNormalColor(const color4f_t& normal);
+        void SetBackground(const obj::CEntity& Bg);
 
     private:
         gfx::CScene&    m_Scene;

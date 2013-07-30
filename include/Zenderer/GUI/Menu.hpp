@@ -35,114 +35,22 @@ namespace gui
     class ZEN_API CMenu
     {
     public:
-        CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
-            m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),
-            m_Background(m_Scene.AddEntity()), mp_Font(nullptr),
-            m_Title(m_Scene.AddEntity()),
-            mp_Bg(nullptr), m_spacing(0)
-        {
-            m_Scene.Init();
-            mp_menuButtons.clear();
-            m_Scene.DisableLighting();
-        }
+        CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets);
 
-        virtual ~CMenu()
-        {
-            m_Scene.Destroy();
-            for(auto& i : mp_menuButtons) delete i;
-            mp_menuButtons.clear();
-        }
+        virtual ~CMenu();
 
-        virtual int16_t HandleEvent(const evt::event_t& Evt)
-        {
-            if(Evt.type == evt::EventType::MOUSE_MOTION)
-            {
-                math::aabb_t MouseBox(Evt.mouse.position,
-                                      math::Vector<uint32_t>(2, 2));
+        virtual int16_t HandleEvent(const evt::event_t& Evt);
 
-                auto i = mp_menuButtons.begin(),
-                     j = mp_menuButtons.end();
+        virtual uint16_t AddButton(const string_t& text);
 
-                for( ; i != j; ++i)
-                {
-                    if((*i)->IsOver(MouseBox))
-                    {
-                        (*i)->SetActive();
-                    }
-                    else
-                    {
-                        (*i)->SetDefault();
-                    }
-                }
-            }
+        virtual void Update();
 
-            else if(Evt.type == evt::EventType::MOUSE_DOWN &&
-                    Evt.mouse.button == evt::MouseButton::LEFT)
-            {
-                math::aabb_t MouseBox(Evt.mouse.position,
-                                      math::Vector<uint32_t>(2, 2));
-
-                for(size_t i = 0; i < mp_menuButtons.size(); ++i)
-                {
-                    if(mp_menuButtons[i]->IsOver(MouseBox)) return i;
-                }
-            }
-
-            return -1;
-        }
-
-        virtual uint16_t AddButton(const string_t& text)
-        {
-            CButton* pNew = new CButton(m_Scene);
-            pNew->SetFont(*mp_Font);
-            pNew->SetActiveColor(m_acolor);
-            pNew->SetNormalColor(m_ncolor);
-
-            if(mp_Bg != nullptr) pNew->SetBackground(*mp_Bg);
-
-            pNew->Prepare(text);
-            pNew->Place(m_Position);
-            pNew->SetDefault();
-
-            m_Position.y += m_spacing;
-            mp_menuButtons.push_back(pNew);
-            return mp_menuButtons.size() - 1;
-        }
-
-        virtual void Update()
-        {
-            m_Scene.Render();
-        }
-
-        void SetFont(gui::CFont& Font)
-        {
-            mp_Font = &Font;
-        }
-
-        void SetButtonBackground(const obj::CEntity& Bg)
-        {
-            mp_Bg = &Bg;
-        }
-
-        void SetNormalButtonTextColor(const color4f_t& Color)
-        {
-            m_ncolor = Color;
-        }
-
-        void SetActiveButtonTextColor(const color4f_t& Color)
-        {
-            m_acolor = Color;
-        }
-
-        void SetInitialButtonPosition(const math::vector_t& Pos)
-        {
-            m_Position = Pos;
-        }
-
-        void SetSpacing(const uint16_t vertical_spacing)
-        {
-            m_spacing = vertical_spacing;
-        }
+        bool SetFont(const std::string& filename);
+        void SetButtonBackground(const obj::CEntity& Bg);
+        void SetNormalButtonTextColor(const color4f_t& Color);
+        void SetActiveButtonTextColor(const color4f_t& Color);
+        void SetInitialButtonPosition(const math::vector_t& Pos);
+        void SetSpacing(const uint16_t vertical_spacing);
 
     private:
         gfx::CScene m_Scene;
