@@ -143,11 +143,6 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
-    // All entity primitives must have viable textures attached.
-    if(&Quad.GetMaterial().GetTexture() ==
-       &gfxcore::CRenderer::GetDefaultTexture())
-        return false;
-
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
     pQuad->AttachMaterial(const_cast<gfx::CMaterial&>(Quad.GetMaterial()));
     pQuad->SetInverted(m_inv);
@@ -249,6 +244,8 @@ void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 
 bool CEntity::Offloaded() const
 {
+    if(mp_allPrims.size() == 0) return false;
+
     auto i = mp_allPrims.cbegin(),
          j = mp_allPrims.cend();
 
