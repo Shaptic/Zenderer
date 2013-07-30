@@ -35,7 +35,7 @@ bool CAllocator::Destroy()
 
     // Check for memory leaks (not that it matters).
     size_t total = 0;
-    for(auto& i : m_blocks)
+    for(const auto& i : m_blocks)
     {
         if(!IsFree(i))
         {

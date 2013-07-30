@@ -18,7 +18,7 @@ CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
 CMenu::~CMenu()
 {
     m_Scene.Destroy();
-    for(auto& i : m_menuActions) delete i;
+    for(auto& i : m_menuActions) delete i.first;
     m_menuActions.clear();
 }
 
@@ -31,13 +31,13 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
 
         for(auto& i : m_menuActions)
         {
-            if(i->first->IsOver(MouseBox))
+            if(i.first->IsOver(MouseBox))
             {
-                i->first->SetActive();
+                i.first->SetActive();
             }
             else
             {
-                i->first->SetDefault();
+                i.first->SetDefault();
             }
         }
     }
@@ -50,7 +50,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
 
         for(auto& i : m_menuActions)
         {
-            if(i->first->IsOver(MouseBox))
+            if(i.first->IsOver(MouseBox))
             {
                 i->second();
                 return true;
