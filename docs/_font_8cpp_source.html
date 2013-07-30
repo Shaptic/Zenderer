@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('_font_8cpp_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<a class="code" href="namespacezen_1_1gui.html#a4918d6cc956483bc4004d140b74a6345">CFont::CFont</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) :</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    CAsset(owner), mp_Assets(nullptr),</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Color(0.0, 0.0, 0.0, 1.0),</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    m_size(18), m_height(0)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    m_size(18), m_height(0), m_stack(false)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a1e1d2d4b4d14c7004289291785d75728">   17</a></span>&#160;CFont::~CFont()</div>
@@ -208,18 +208,18 @@ $(document).ready(function(){initNavTree('_font_8cpp_source.html','');});
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">void</span>* const<span class="keyword">&gt;</span>(&amp;m_glyphData);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249">  100</a></span>&#160;<span class="keywordtype">bool</span> CFont::Render(<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>&amp; Ent, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a> to_render)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166">  100</a></span>&#160;<span class="keywordtype">bool</span> CFont::Render(<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects.">obj::CEntity</a>&amp; Ent, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; to_render)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(mp_Assets != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;an asset manager must be attached&quot;</span>);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; text = to_render.empty() ? m_str.str() : to_render;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span>(text.empty() || !m_loaded || s_FontFx == <span class="keyword">nullptr</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>) &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;FreeType&quot;</span>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">LogMode::ZEN_DEBUG</a>) &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;FreeType&quot;</span>)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Rendering text string &#39;&quot;</span> &lt;&lt; text &lt;&lt; <span class="stringliteral">&quot;&#39;.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// Fresh start.</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    Ent.<a class="code" href="classzen_1_1obj_1_1_c_entity.html#af6670334ed481cf27b779969711d45dd">Destroy</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span>(!m_stack) Ent.<a class="code" href="classzen_1_1obj_1_1_c_entity.html#af6670334ed481cf27b779969711d45dd">Destroy</a>();</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">// 4 vertices for each character, and 6 indices for</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// each character.</span></div>
@@ -233,349 +233,358 @@ $(document).ready(function(){initNavTree('_font_8cpp_source.html','');});
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a> totals;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    uint16_t tmp_tx = 0;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Rendering position. We calculate this by detecting any newline (&#39;\n&#39;)</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// characters. If there aren&#39;t any, the position begins at the (0, 0, 1),</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// otherwise, it begins at the end of the last line, since rendering is</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// performed upside down (to be compatible with the quad texture coords).</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a> Pos;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    uint16_t line = 0;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Rendering position. We calculate this based on the maximum y-bearing</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// in the first line of text. Thus, we find the first \n character, if</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// any, we stop max()-ing the bearing.</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">// Thus the (0, 0, 1) coordinate is the top of the line. Any subsequent</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">// lines just add their height to the y coordinate and keep rendering.</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">math::Vector&lt;int16_t&gt;</a> Pos;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">auto</span> a = text.begin(), b = text.end();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">for</span>( ; a != b; ++a)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">if</span>(*a == <span class="charliteral">&#39;\n&#39;</span>) ++line;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> it = m_glyphData.find(*a);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">if</span>(it == m_glyphData.end()) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> = math::max&lt;uint16_t&gt;(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>,</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            it-&gt;second.size.y - it-&gt;second.position.y);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">// Fill up the buffers.</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; vlen; i += 4)</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">char</span> c = text[i &gt;&gt; 2];</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="comment">// Handle newlines by resetting the x-coordinate and</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="comment">// increasing the y by the current font faces line height</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="comment">// property (universal on all glyphs).</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">if</span>(c == <span class="charliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>  = 0; Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> += m_height;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> = <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(tmp_tx, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            tmp_tx = 0;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            --line;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    uint16_t i = 0;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">for</span>( ; a != b; ++a, ++i)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span>(*a == <span class="charliteral">&#39;\n&#39;</span>) <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> it = m_glyphData.find(*a);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordflow">if</span>(it == m_glyphData.end()) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> = math::max&lt;int16_t&gt;(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, it-&gt;second.position.y);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> = -Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">// Fill up the buffers.</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; vlen; i += 4)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordtype">char</span> c = text[i &gt;&gt; 2];</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="comment">// Handle newlines by resetting the x-coordinate and</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="comment">// increasing the y by the current font faces line height</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="comment">// property (universal on all glyphs).</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span>(c == <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>  = 0; Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> -= m_height;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> = <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(tmp_tx, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            tmp_tx = 0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            int16_t tmph = 0;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="comment">// Use space (&#39; &#39;) as a placeholder for non-renderable chars.</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordtype">char</span> letter = (c &gt; <span class="charliteral">&#39;~&#39;</span> || c &lt; <span class="charliteral">&#39; &#39;</span>) ? <span class="charliteral">&#39; &#39;</span> : c;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="comment">// Shortcut to glyph data.</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gui.html#structzen_1_1gui_1_1glyph__t" title="A glyph structure used internally by the font API.">glyph_t</a>&amp; gl = m_glyphData[letter];</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="comment">// Use space (&#39; &#39;) as a placeholder for non-renderable chars.</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordtype">char</span> letter = (c &gt; <span class="charliteral">&#39;~&#39;</span> || c &lt; <span class="charliteral">&#39; &#39;</span>) ? <span class="charliteral">&#39; &#39;</span> : c;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span>(letter == <span class="charliteral">&#39; &#39;</span>)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            <span class="comment">// Increment position for the next glyph.</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            tmp_tx  += gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>   += gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">         * [i]      : top left</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">         * [i + 1]  : top right</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">         * [i + 2]  : bottom right</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">         * [i + 3]  : bottom left</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        uint16_t start_y    = Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> + gl.<a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30" title="Position on baseline to render.">position</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        verts[i].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>,             start_y - gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        verts[i+1].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> + gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, start_y - gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        verts[i+2].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> + gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, start_y);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        verts[i+3].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>,             start_y);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="comment">// Load up the bitmap texture coordinates moving</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="comment">// counter-clockwise from the top-left.</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        verts[i].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>     = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(0, 1);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        verts[i+1].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(1, 1);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        verts[i+2].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(1, 0);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        verts[i+3].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(0, 0);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="comment">// Uniform font color.</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = i; j &lt; i + 4; ++j) verts[j].color = m_Color;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="comment">// Shortcut to glyph data.</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gui.html#structzen_1_1gui_1_1glyph__t" title="A glyph structure used internally by the font API.">glyph_t</a>&amp; gl = m_glyphData.find(letter)-&gt;second;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">if</span>(letter == <span class="charliteral">&#39; &#39;</span>)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="comment">// Increment position for the next glyph.</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            tmp_tx  += gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>   += gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">         * [i]      : top left</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">         * [i + 1]  : top right</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">         * [i + 2]  : bottom right</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">         * [i + 3]  : bottom left</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        uint16_t start_y    = std::abs(gl.<a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30" title="Position on baseline to render.">position</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> + Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        verts[i].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>,           start_y);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        verts[i+1].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>+gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, start_y);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        verts[i+2].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>+gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, start_y+gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        verts[i+3].<a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position.">position</a> = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>,           start_y+gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="comment">// The glyph textures are stored upside-down, so we set the texture</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="comment">// coordinates to flip them back appropriately.</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        verts[i].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>     = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(0, 0);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        verts[i+1].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(1, 0);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        verts[i+2].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(1, 1);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        verts[i+3].<a class="code" href="namespacezen_1_1gfxcore.html#a675b70ba4e8028edcf558f62c4cb5a81" title="Vertex texture coordinates.">tc</a>   = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(0, 1);</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="comment">// Calculate index starting point. Since 6 indices per vertex,</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="comment">// we do i / 4 (since 4 iterations per vertex) to get the</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="comment">// vertex number, and * 6 to get to the first index for it.</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">int</span> x = (i &gt;&gt; 2) * 6;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="comment">// Standard quad indices.</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        inds[x]   = i;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        inds[x+1] = i + 1;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        inds[x+2] = i + 3;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        inds[x+3] = i + 3;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        inds[x+4] = i + 2;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        inds[x+5] = i + 1;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment">// Track total dimensions.</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        tmp_tx   += <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>  = math::max&lt;uint16_t&gt;(totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, m_height * line + gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="comment">// Increment position for the next glyph.</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> += gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> = <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(tmp_tx, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="comment">// Render all of the loaded data onto a texture,</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">// then assign that texture to the entity.</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a CVertexArray.">gfxcore::DrawBatch</a> <a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a> VAO(GL_STATIC_DRAW);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a> FBO(totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#a840c53d7d48601c3a0672cfcfc3e480f" title="Vertex array.">Vertices</a> = verts;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>   = vlen;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#a83c7cacda425edf9caffaf5b141b13fd" title="Index array.">Indices</a>  = inds;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>   = ilen;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span>(!(VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>() &amp;&amp; FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0">Init</a>()))</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keyword">delete</span>[] verts;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keyword">delete</span>[] inds;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">AddData</a>(D);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>();</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="comment">// Uniform font color.</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = i; j &lt; i + 4; ++j) verts[j].color = m_Color;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="comment">// Calculate index starting point. Since 6 indices per vertex,</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="comment">// we do i / 4 (since 4 iterations per vertex) to get the</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="comment">// vertex number, and * 6 to get to the first index for it.</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordtype">int</span> x = (i &gt;&gt; 2) * 6;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="comment">// Standard quad indices.</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        inds[x]   = i;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        inds[x+1] = i + 1;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        inds[x+2] = i + 3;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        inds[x+3] = i + 3;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        inds[x+4] = i + 2;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        inds[x+5] = i + 1;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="comment">// Track total dimensions.</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        tmp_tx   += <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>  = math::max&lt;uint16_t&gt;(totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, start_y + gl.<a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size.">size</a>.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="comment">// Increment position for the next glyph.</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        Pos.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> += gl.<a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character.">advance</a>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a> = <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(tmp_tx, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">// Render all of the loaded data onto a texture,</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="comment">// then assign that texture to the entity.</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a CVertexArray.">gfxcore::DrawBatch</a> <a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a> VAO(GL_STATIC_DRAW);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations.">gfx::CRenderTarget</a> FBO(totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#a840c53d7d48601c3a0672cfcfc3e480f" title="Vertex array.">Vertices</a> = verts;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#ae97bf3356acd7fef63a4b99257a6aa58">vcount</a>   = vlen;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#a83c7cacda425edf9caffaf5b141b13fd" title="Index array.">Indices</a>  = inds;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    D.<a class="code" href="namespacezen_1_1gfxcore.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>   = ilen;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">if</span>(!(VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>() &amp;&amp; FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture.">Init</a>()))</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">delete</span>[] verts;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keyword">delete</span>[] inds;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>();</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">AddData</a>(D);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>();</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    s_FontFx-&gt;Enable();</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">gfxcore::CRenderer::GetProjectionMatrix</a>());</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f" title="All draws after this call will go to the texture, not the screen.">Bind</a>();</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">bool</span> blend = <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="code" href="_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586" title="Test if blending is enabled.">gfxcore::BlendFunc::IS_ENABLED</a>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    s_FontFx-&gt;Enable();</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">gfxcore::CRenderer::GetProjectionMatrix</a>());</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(<a class="code" href="_renderer_8hpp.html#a118561bac353cc035ab749d911916b4b" title="Enables the standard blending function.">gfxcore::BlendFunc::STANDARD_BLEND</a>);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0, j = text.length(); i &lt; j; ++i)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="comment">// Render each character (skip if unrenderable).</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">if</span>(text[i] &gt; <span class="charliteral">&#39;~&#39;</span> || text[i] &lt;= <span class="charliteral">&#39; &#39;</span>) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        m_glyphData[text[i]].texture-&gt;Bind();</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDrawElements(GL_TRIANGLES, 6, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices.">gfxcore::INDEX_TYPE</a>,</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">gfxcore::index_t</a>) * i * 6)));</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">Unbind</a>();</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc" title="Resets shader and texture state to nothing.">gfxcore::CRenderer::ResetMaterialState</a>();</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="comment">// Only disable blending if it wasn&#39;t enabled prior to calling</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">// this method (checked above).</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">if</span>(!blend) <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                          <a class="code" href="_renderer_8hpp.html#ab736b676d7971dff93d6bf8a4b13c830" title="Disables blending.">gfxcore::BlendFunc::DISABLE_BLEND</a>);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">// Now the string has been rendered to the FBO texture, so all we need to</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment">// do is create a material and attach it to the quad.</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">// Create a texture wrapper from the texture handle in the FBO.</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTexture =</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        mp_Assets-&gt;Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(this-&gt;GetOwner());</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">GetTexture</a>());</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pFinal =</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">bool</span> blend = <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <a class="code" href="_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586" title="Test if blending is enabled.">gfxcore::BlendFunc::IS_ENABLED</a>);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(<a class="code" href="_renderer_8hpp.html#a118561bac353cc035ab749d911916b4b" title="Enables the standard blending function.">gfxcore::BlendFunc::STANDARD_BLEND</a>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0, j = text.length(); i &lt; j; ++i)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="comment">// Render each character (skip if unrenderable).</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">if</span>(text[i] &gt; <span class="charliteral">&#39;~&#39;</span> || text[i] &lt;= <span class="charliteral">&#39; &#39;</span>) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keyword">auto</span> g = m_glyphData.find(text[i]);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        g-&gt;second.texture-&gt;Bind();</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDrawElements(GL_TRIANGLES, 6, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices.">gfxcore::INDEX_TYPE</a>,</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">gfxcore::index_t</a>) * i * 6)));</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0" title="Resume drawing to the screen.">Unbind</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc" title="Resets shader and texture state to nothing.">gfxcore::CRenderer::ResetMaterialState</a>();</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">// Only disable blending if it wasn&#39;t enabled prior to calling</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="comment">// this method (checked above).</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">if</span>(!blend) <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                          <a class="code" href="_renderer_8hpp.html#ab736b676d7971dff93d6bf8a4b13c830" title="Disables blending.">gfxcore::BlendFunc::DISABLE_BLEND</a>);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// Now the string has been rendered to the FBO texture, so all we need to</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">// do is create a material and attach it to the quad.</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="comment">// Create a texture wrapper from the texture handle in the FBO.</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTexture =</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        mp_Assets-&gt;Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(this-&gt;GetOwner());</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">// Retrieve the raw data.</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data =</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b" title="Returns raw asset data (usually for reloading).">GetData</a>());</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8" title="Get the raw render target&#39;s texture handle.">GetTexture</a>());</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pFinal =</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        mp_Assets-&gt;Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(this-&gt;GetOwner());</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">// Load the texture wrapper with raw data, because the FBO will go out</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="comment">// of scope soon, thus destroying the texture handle, but the data needs</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">// to be preserved.</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    pFinal-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13">LoadFromRaw</a>(GL_RGBA8, GL_RGBA, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, data);</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a> <a class="code" href="_keyboard_8hpp.html#aad05f78187c942f9dd521605fa81f1ba">M</a>(*mp_Assets);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span>(!M.<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a73e57ac33fcd48a19a270ef1283ed458" title="Loads a texture from an existing one.">LoadTexture</a>(*pFinal))</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    {</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keyword">delete</span>[] verts;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keyword">delete</span>[] inds;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">// Retrieve the raw data.</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data =</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ae307f81aa21e97e68cab549d0f4d6b7b" title="Returns raw asset data (usually for reloading).">GetData</a>());</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">// Load the texture wrapper with raw data, because the FBO will go out</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">// of scope soon, thus destroying the texture handle, but the data needs</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">// to be preserved.</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    pFinal-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13">LoadFromRaw</a>(GL_RGBA8, GL_RGBA, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, data);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_material.html" title="Rendering data composed of a shader effect and a texture.">gfx::CMaterial</a> <a class="code" href="_keyboard_8hpp.html#aad05f78187c942f9dd521605fa81f1ba">M</a>(*mp_Assets);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordflow">if</span>(!M.<a class="code" href="classzen_1_1gfx_1_1_c_material.html#a73e57ac33fcd48a19a270ef1283ed458" title="Loads a texture from an existing one.">LoadTexture</a>(*pFinal))</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keyword">delete</span>[] verts;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keyword">delete</span>[] inds;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">gfx::CQuad</a> <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>(*mp_Assets, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    Q.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive.">AttachMaterial</a>(M);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    Q.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    Q.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7" title="Sets all vertices to have a given color value.">SetColor</a>(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>());</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    Ent.<a class="code" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430">AddPrimitive</a>(Q);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    mp_Assets-&gt;Delete(pTexture);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    mp_Assets-&gt;Delete(pFinal);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keyword">delete</span>[] verts;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">delete</span>[] inds;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73" title="Destroys the render target and everything attached to it.">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">gfx::CQuad</a> <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>(*mp_Assets, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components.">x</a>, totals.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    Q.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a20601a6eca8f1835c3656ecbc2e66b67" title="Attaches a material to render on top of the primitive.">AttachMaterial</a>(M);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    Q.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    Q.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7" title="Sets all vertices to have a given color value.">SetColor</a>(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>());</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    Ent.<a class="code" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it.">AddPrimitive</a>(Q);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    mp_Assets-&gt;Delete(pTexture);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    mp_Assets-&gt;Delete(pFinal);</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordflow">return</span> FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;}</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#aecd552d0ce1527f7ebc37f764029ab7f">  316</a></span>&#160;<span class="keywordtype">void</span> CFont::ClearString()</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    m_str.str(std::string());</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;}</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keywordtype">bool</span> CFont::Destroy()</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;{</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    m_size = 18;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> i : m_glyphData)</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        mp_Assets-&gt;Delete(i.second.texture);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    m_glyphData.clear();</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    this-&gt;ClearString();</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;}</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="keywordtype">bool</span> CFont::LoadGlyph(<span class="keyword">const</span> <span class="keywordtype">char</span> c, <span class="keyword">const</span> uint16_t index)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;{</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(mp_Assets != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;an asset manager must be attached&quot;</span>);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    FT_Glyph g;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="comment">// Render as a monochrome bitmap into glyph struct.</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    FT_Render_Glyph(m_FontFace-&gt;glyph, FT_RENDER_MODE_NORMAL);</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    FT_Get_Glyph(m_FontFace-&gt;glyph, &amp;g);</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="comment">// Minor shortcuts.</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    FT_GlyphSlot slot = m_FontFace-&gt;glyph;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    FT_Bitmap&amp; bitmap = slot-&gt;bitmap;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">delete</span>[] verts;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keyword">delete</span>[] inds;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73" title="Destroys the render target and everything attached to it.">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#aecd552d0ce1527f7ebc37f764029ab7f">  320</a></span>&#160;<span class="keywordtype">void</span> CFont::ClearString()</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;{</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    m_str.str(std::string());</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;}</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="keywordtype">bool</span> CFont::Destroy()</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;{</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    m_size = 18;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> i : m_glyphData)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        mp_Assets-&gt;Delete(i.second.texture);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    m_glyphData.clear();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    this-&gt;ClearString();</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="keywordtype">bool</span> CFont::LoadGlyph(<span class="keyword">const</span> <span class="keywordtype">char</span> c, <span class="keyword">const</span> uint16_t index)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;{</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="code" href="group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836">ZEN_ASSERTM</a>(mp_Assets != <span class="keyword">nullptr</span>, <span class="stringliteral">&quot;an asset manager must be attached&quot;</span>);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    FT_Glyph g;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">// Render as a monochrome bitmap into glyph struct.</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    FT_Render_Glyph(m_FontFace-&gt;glyph, FT_RENDER_MODE_NORMAL);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    FT_Get_Glyph(m_FontFace-&gt;glyph, &amp;g);</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">// Shortcut to dimensions.</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    uint32_t w = bitmap.width;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    uint32_t h = bitmap.rows;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="comment">// Minor shortcuts.</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    FT_GlyphSlot slot = m_FontFace-&gt;glyph;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    FT_Bitmap&amp; bitmap = slot-&gt;bitmap;</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">if</span>(w == 0 || h == 0)</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    {</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>)</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Empty character bitmap for &#39;&quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\&#39;&#39;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    }</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">// Create the OpenGL texture and store the FreeType bitmap</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="comment">// in it as a monochrome texture.</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">// Store for restoring later.</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    GLint pack;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGetIntegerv(GL_UNPACK_ALIGNMENT, &amp;pack));</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTexture = mp_Assets-&gt;Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(this-&gt;GetOwner());</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13">LoadFromRaw</a>(GL_R8, GL_RED, w, h, bitmap.buffer);</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    std::stringstream ss;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    ss &lt;&lt; <span class="stringliteral">&quot;Size &quot;</span> &lt;&lt; m_size &lt;&lt; <span class="stringliteral">&quot; texture bitmap for &#39;&quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\&#39;&#39;</span>;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    pTexture-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename.">SetFilename</a>(ss.str());</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="comment">// Store the glyph internally.</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <a class="code" href="namespacezen.html#structzen_1_1glyph__t">glyph_t</a> glyph;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    glyph.texture   = pTexture;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    glyph.size      = <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">math::Vector&lt;uint32_t&gt;</a>(w, h);</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    glyph.<a class="code" href="namespacezen.html#a9342e3f2e598c3222a5e80ba698a76b9">position</a>  = <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">math::Vector&lt;int32_t&gt;</a>(slot-&gt;metrics.horiBearingX &gt;&gt; 6,</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                            slot-&gt;metrics.horiBearingY &gt;&gt; 6);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    glyph.<a class="code" href="namespacezen.html#a2af42039ae1272dc289227d9267efc0b">advance</a>   = slot-&gt;advance.x &gt;&gt; 6;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    m_glyphData[c]  = glyph;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="comment">// Clean up TTF data.</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    FT_Done_Glyph(g);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;}</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00386"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd">  386</a></span>&#160;<span class="keywordtype">bool</span> CFont::AttachManager(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets)</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;{</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    mp_Assets = &amp;Assets;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordflow">if</span>(s_FontFx == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    {</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        s_FontFx = <span class="keyword">new</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>(<a class="code" href="_effect_8hpp.html#a631dd1ea3fafc5d8921a10b3df5c619f" title="Render texture atlases using offsets.">gfx::EffectType::SPRITESHEET</a>, Assets);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">if</span>(!s_FontFx-&gt;Init())</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        {</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            <span class="keyword">delete</span> s_FontFx;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            s_FontFx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        }</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        s_FontFx-&gt;Enable();</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">gfxcore::CRenderer::GetProjectionMatrix</a>());</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        s_FontFx-&gt;Disable();</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;}</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
-<div class="line"><a name="l00408"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a3bf76a0c4cff9f878a422f9336b65d04">  408</a></span>&#160;<span class="keywordtype">void</span> CFont::SetColor(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>&amp; Color)</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;{</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    m_Color = Color;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;}</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
-<div class="line"><a name="l00413"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a659a117b4f8da639b7bc25fee79d1cdb">  413</a></span>&#160;uint16_t CFont::GetTextWidth(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; text)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordflow">if</span>(text.empty()) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="comment">// Shortcut to dimensions.</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    uint32_t w = bitmap.width;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    uint32_t h = bitmap.rows;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">if</span>(w == 0 || h == 0)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>)</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Empty character bitmap for &#39;&quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\&#39;&#39;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    }</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="comment">// Create the OpenGL texture and store the FreeType bitmap</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="comment">// in it as a monochrome texture.</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">// Store for restoring later.</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    GLint pack;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGetIntegerv(GL_UNPACK_ALIGNMENT, &amp;pack));</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTexture = mp_Assets-&gt;Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(this-&gt;GetOwner());</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#ac0a0a90599382782214dcd6ac22acc13">LoadFromRaw</a>(GL_R8, GL_RED, w, h, bitmap.buffer);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    ss &lt;&lt; <span class="stringliteral">&quot;Size &quot;</span> &lt;&lt; m_size &lt;&lt; <span class="stringliteral">&quot; texture bitmap for &#39;&quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\&#39;&#39;</span>;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    pTexture-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30" title="Overrides the asset filename.">SetFilename</a>(ss.str());</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="comment">// Store the glyph internally.</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <a class="code" href="namespacezen.html#structzen_1_1glyph__t">glyph_t</a> glyph;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    glyph.texture   = pTexture;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    glyph.size      = <a class="code" href="structzen_1_1math_1_1_vector.html">math::Vector&lt;uint32_t&gt;</a>(w, h);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    glyph.<a class="code" href="namespacezen.html#a9342e3f2e598c3222a5e80ba698a76b9">position</a>  = <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">math::Vector&lt;int32_t&gt;</a>(slot-&gt;metrics.horiBearingX &gt;&gt; 6,</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                                            slot-&gt;metrics.horiBearingY &gt;&gt; 6);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    glyph.<a class="code" href="namespacezen.html#a2af42039ae1272dc289227d9267efc0b">advance</a>   = slot-&gt;advance.x &gt;&gt; 6;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    m_glyphData[c]  = glyph;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="comment">// Clean up TTF data.</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    FT_Done_Glyph(g);</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;}</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd">  390</a></span>&#160;<span class="keywordtype">bool</span> CFont::AttachManager(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;{</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    mp_Assets = &amp;Assets;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">if</span>(s_FontFx == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    {</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        s_FontFx = <span class="keyword">new</span> <a class="code" href="classzen_1_1gfx_1_1_c_effect.html" title="A high-level shader wrapper.">gfx::CEffect</a>(<a class="code" href="_effect_8hpp.html#a631dd1ea3fafc5d8921a10b3df5c619f" title="Render texture atlases using offsets.">gfx::EffectType::SPRITESHEET</a>, Assets);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">if</span>(!s_FontFx-&gt;Init())</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        {</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            <span class="keyword">delete</span> s_FontFx;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            s_FontFx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        s_FontFx-&gt;Enable();</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;proj&quot;</span>, <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b">gfxcore::CRenderer::GetProjectionMatrix</a>());</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        s_FontFx-&gt;SetParameter(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        s_FontFx-&gt;Disable();</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    }</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;}</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;</div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a3bf76a0c4cff9f878a422f9336b65d04">  412</a></span>&#160;<span class="keywordtype">void</span> CFont::SetColor(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;{</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    m_Color = Color;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;}</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    uint16_t w = 0, tmp_w = 0;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    uint16_t l = text.length();</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; l; ++i)</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    {</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">if</span>(text[i] == <span class="charliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        {</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            w = math::max&lt;uint16_t&gt;(w, tmp_w);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            tmp_w = 0;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        }</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        {</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> it = m_glyphData.find(text[i]);</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            <span class="keywordflow">if</span>(it != m_glyphData.end())</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            {</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                tmp_w += math::max&lt;uint16_t&gt;(it-&gt;second.size.x,</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                                             it-&gt;second.advance);</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            }</div>
+<div class="line"><a name="l00417"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a2a38afde5e128835d1e92e707313ebb1">  417</a></span>&#160;<span class="keywordtype">void</span> CFont::SetStacking(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;{</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    m_stack = flag;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;}</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a659a117b4f8da639b7bc25fee79d1cdb">  422</a></span>&#160;uint16_t CFont::GetTextWidth(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; text)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordflow">if</span>(text.empty()) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    uint16_t w = 0, tmp_w = 0;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    uint16_t l = text.length();</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; l; ++i)</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    {</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordflow">if</span>(text[i] == <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        {</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            w = math::max&lt;uint16_t&gt;(w, tmp_w);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            tmp_w = 0;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        }</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    }</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keywordflow">return</span> math::max&lt;uint16_t&gt;(w, tmp_w);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;}</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
-<div class="line"><a name="l00441"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a1eb79d2679e08b3b85df0281bd8d8fee">  441</a></span>&#160;uint16_t CFont::GetTextHeight(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; text)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordflow">if</span>(text.empty()) <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    uint16_t lines = 1;</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    uint16_t h = 0, tmp_h = 0;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keyword">auto</span> i = text.begin(),</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;         j = text.end();</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">for</span>( ; i != j; ++i)</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    {</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keywordflow">if</span>((*i) == <span class="charliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        {</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            h = <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(h, tmp_h);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            tmp_h = 0;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        }</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        {</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> g = m_glyphData.find(*i);</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            tmp_h = math::max&lt;uint16_t&gt;(</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                g-&gt;second.size.y + g-&gt;second.position.y, tmp_h);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        }</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    }</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(h, tmp_h);</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;}</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        {</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> it = m_glyphData.find(text[i]);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            <span class="keywordflow">if</span>(it != m_glyphData.end())</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            {</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                tmp_w += math::max&lt;uint16_t&gt;(it-&gt;second.size.x,</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                                             it-&gt;second.advance);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            }</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    }</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <span class="keywordflow">return</span> math::max&lt;uint16_t&gt;(w, tmp_w);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;}</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
+<div class="line"><a name="l00450"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font.html#a1eb79d2679e08b3b85df0281bd8d8fee">  450</a></span>&#160;uint16_t CFont::GetTextHeight(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp; text)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">if</span>(text.empty()) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    uint16_t lines = 1;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    uint16_t h = 0, tmp_h = 0;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keyword">auto</span> i = text.begin(),</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;         j = text.end();</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <span class="keywordflow">for</span>( ; i != j; ++i)</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    {</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="keywordflow">if</span>((*i) == <span class="charliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        {</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            h = <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(h, tmp_h);</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            tmp_h = 0;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        }</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        {</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> g = m_glyphData.find(*i);</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;            tmp_h = math::max&lt;uint16_t&gt;(</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                g-&gt;second.size.y + g-&gt;second.position.y, tmp_h);</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        }</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    }</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacezen_1_1math.html#a74d88ec78c21fa3cb4d4b9df52767b54" title="Returns the maximum of two values (first value if same).">math::max</a>(h, tmp_h);</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

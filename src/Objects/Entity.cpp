@@ -9,7 +9,7 @@ using obj::CEntity;
 CEntity::CEntity(asset::CAssetManager& Assets) :
     m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
     m_MV(math::matrix4x4_t::GetIdentityMatrix()),
-    m_sort(0), m_depth(1), m_inv(false)
+    m_sort(0), m_depth(1), m_inv(false), m_enabled(true)
 {
 }
 
@@ -135,22 +135,27 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     pPrimitive->SetColor(color4f_t(1, 1, 1, 1));
 
     mp_allPrims.push_back(pPrimitive);
+    m_Box = math::aabb_t(this->GetPosition(),
+                         math::Vector<uint32_t>(pPrimitive->GetW(),
+                                                pPrimitive->GetH()));
     return true;
 }
 
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
-    // All entity primitives must have viable textures attached.
-    if(&Quad.GetMaterial().GetTexture() ==
-       &gfxcore::CRenderer::GetDefaultTexture())
-        return false;
-
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
     pQuad->AttachMaterial(const_cast<gfx::CMaterial&>(Quad.GetMaterial()));
     pQuad->SetInverted(m_inv);
     pQuad->Create();
     pQuad->SetColor(color4f_t(1, 1, 1, 1));
     mp_allPrims.push_back(pQuad);
+
+    m_Box = math::aabb_t(this->GetPosition(),
+                math::Vector<uint32_t>(
+                    math::max<uint32_t>(m_Box.xw.x * 2, pQuad->GetW()),
+                    math::max<uint32_t>(m_Box.yw.y * 2, pQuad->GetH())
+                )
+            );
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
@@ -207,6 +212,8 @@ bool CEntity::FileError(const string_t& filename,
 
 bool CEntity::Draw(bool is_bound /*= false*/)
 {
+    if(!m_enabled) return false;
+
     for(size_t i = 0; i < mp_allPrims.size(); ++i)
         mp_allPrims[i]->Draw(is_bound);
 
@@ -225,6 +232,10 @@ void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 
     for( ; i != j; ++i) (*i)->Move(x, y, z);
     m_MV.Translate(math::vector_t(x, y, z));
+
+    m_Box.pos = math::vector_t(x, y);
+    m_Box.xw.y = x;
+    m_Box.yw.x = y;
 }
 
 void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
@@ -237,6 +248,8 @@ void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 
 bool CEntity::Offloaded() const
 {
+    if(mp_allPrims.size() == 0) return false;
+
     auto i = mp_allPrims.cbegin(),
          j = mp_allPrims.cend();
 
@@ -266,6 +279,11 @@ const math::matrix4x4_t& CEntity::GetTransformation() const
 math::vector_t CEntity::GetPosition() const
 {
     return math::vector_t(m_MV[0][3], m_MV[1][3], m_MV[2][3]);
+}
+
+const math::aabb_t& CEntity::GetBox() const
+{
+    return m_Box;
 }
 
 uint32_t CEntity::GetSortFlag() const

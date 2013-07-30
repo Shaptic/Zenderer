@@ -23,6 +23,8 @@
 #define ZENDERER__MATH__SHAPES_HPP
 
 #include "Zenderer/Core/Types.hpp"
+#include "MathCore.hpp"
+#include "Vector.hpp"
 
 namespace zen
 {
@@ -44,8 +46,41 @@ namespace math
     {
         circle_t() : x(0.0), y(0.0), r(0.0) {}
         circle_t(real_t x, real_t y, real_t r) : x(x), y(y), r(r) {}
+
+        inline bool collides(const circle_t& Other) const
+        {
+            real_t d = distance(Other.x, Other.y, x, y, false);
+            return d <= (r + Other.r) * (r + Other.r);
+        }
+
         real_t x, y;
         real_t r;
+    };
+
+    /// Represents an axis-aligned bounding box.
+    struct ZEN_API aabb_t
+    {
+        aabb_t() {}
+
+        aabb_t(const math::vector_t& Pos,
+               const math::Vector<uint32_t>& Size) :
+            pos(Pos), xw(Size.x / 2, Pos.y), yw(Pos.x, Size.y / 2) {}
+
+        aabb_t(const math::rect_t& Data) :
+            pos(Data.x, Data.y), xw(Data.w / 2, Data.y), yw(Data.x, Data.h / 2) {}
+
+        inline bool collides(const aabb_t& Other) const
+        {
+            if(std::abs(pos.x - Other.pos.x) > (xw.x + Other.xw.x) ||
+               std::abs(pos.y - Other.pos.y) > (yw.y + Other.yw.y))
+                return false;
+
+            return true;
+        }
+
+        math::vector_t pos;
+        math::Vector<uint32_t> xw;
+        math::Vector<uint32_t> yw;
     };
 }   // namespace math
 }   // namespace zen

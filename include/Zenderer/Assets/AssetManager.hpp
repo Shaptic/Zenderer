@@ -65,11 +65,11 @@ namespace asset
          *          `nullptr` otherwise.
          **/
         template<typename T>
-        T* Create(const string_t& filename, const void* const owner = nullptr);
+        T* Create(const string_t& filename, const void* const owner=nullptr);
 
         /// @overload
         template<typename T>
-        T* Create(const char* const filename, const void* const owner = nullptr);
+        T* Create(const char* const filename, const void* const owner=nullptr);
 
         /**
          * Creates a raw managed asset instance (unloaded).
@@ -86,7 +86,7 @@ namespace asset
          *  copy at a time, calling
          *
          *  @code
-         *      Create<CMesh*>("test.txt")
+         *      Create<gfx::CTexture>("test.tga");
          *  @endcode
          *
          *  three times will give the same return value every time.
@@ -128,6 +128,12 @@ namespace asset
         /// Returns the amount of assets this manager has.
         inline uint32_t GetAssetCount() const;
 
+        /// Returns an iterator to the first asset.
+        inline std::list<CAsset*>::const_iterator cbegin();
+
+        /// Returns an iterator to the end of the asset list.
+        inline std::list<CAsset*>::const_iterator cend();
+
         /// Returns the amount of total assets @a Zenderer is aware of.
         static uint32_t GetGlobalAssetCount();
 
@@ -152,7 +158,7 @@ namespace asset
  * @class zen::asset::CAssetManager
  * @details
  *  To be an asset instance supported by this manager, the
- *  object must inherit from zen::asset::CAsset
+ *  object must inherit from zen::asset::CAsset.
  **/
 
 /**

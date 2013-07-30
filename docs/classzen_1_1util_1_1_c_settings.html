@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -272,7 +272,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Typically, a subsystem can be re-initialized by setting new parameters via various Set* methods and calling <a class="el" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem.">Init()</a> again, but this is specific to the inheriting class. </p>
+<p>Typically, a subsystem can be re-initialized by setting new parameters via various <code>Set*()</code> methods and calling <a class="el" href="classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem.">Init()</a> again, but this is specific to the inheriting class. </p>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>.</p>
 
@@ -304,7 +304,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"></div>
 <div class="line"><span class="comment">// Re-assigns the option &quot;FRAME_RATE&quot; to 24.</span></div>
 <div class="line">g_EngineSettings[<span class="stringliteral">&quot;FRAME_RATE&quot;</span>] = 24;</div>
-</div><!-- fragment --><p>This is possible by overloading <code>operator=</code> in an abstracted sub-class <code><a class="el" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">COption</a></code> that acts just like a normal type but can be assigned to an <code>int</code>, a <code>float</code>, a <code>bool</code>, or a <code>string_t</code>.</p>
+</div><!-- fragment --><p>This is possible by overloading <code>operator=</code> in an abstracted object <a class="el" href="classzen_1_1util_1_1_c_option.html" title="Used internally by CSettings to manage options of all types.">COption</a> that acts just like a normal type but can be assigned to an <code>int</code>, a <code>float</code>, a <code>bool</code>, or a <code>string_t</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">opt</td><td>Option to get value of</td></tr>

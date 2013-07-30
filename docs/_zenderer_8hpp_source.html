@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -137,55 +137,63 @@ $(document).ready(function(){initNavTree('_zenderer_8hpp_source.html','');});
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// For randomness</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#if !(                          \</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">        defined(WIN32)      ||  \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">        defined(_WIN32)     ||  \</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">        defined(__WIN32__)  ||  \</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">        defined(__WINDOWS__)    \</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">    )</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #warning &quot;Zenderer has only been tested on Windows using Visual Studio...&quot;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">  #ifndef _WIN32</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define _WIN32</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif // _WIN32</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // WIN32</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#if defined(__GNUC__)       || \</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">    defined(__MINGW32__)    || \</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    defined(__MINGW64__)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #error &quot;Zenderer must be compiled with C++11 regex support.&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#elif                           \</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">    !(                          \</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">        defined(WIN32)      ||  \</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">        defined(_WIN32)     ||  \</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">        defined(__WIN32__)  ||  \</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">        defined(__WINDOWS__)    \</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">    )</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #warning &quot;Zenderer has only been tested on Windows using Visual Studio...&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">// Core API</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Core/Types.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_math_8hpp.html" title="Zenderer/Math/Math.hpp - Includes all of the various math definitions and defines useful functions...">Math/Math.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8hpp.html" title="Utilities/Utilities.hpp - Includes all relevant headers in a batch and defines the hashing function...">Utilities/Utilities.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">// Custom memory allocator.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//#include &quot;Core/Allocator.hpp&quot;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">// Graphics API</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp - An OpenGL context wrapper that the engine performs operations on...">Graphics/Window.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp - A drawable primitive with 4 vertices.">Graphics/Quad.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp - An instance of lighting in the game scene.">Graphics/Light.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp - A generic entity class wrapping drawable primitives, materials, and easy sprite-like functionality together.">Objects/Entity.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_8hpp.html" title="Zenderer/GUI/Font.hpp - A wrapper for TrueType font loading and rendering.">GUI/Font.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp - A high-level graphics rendering interface intended to abstract away all...">Graphics/Scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">  #ifndef _WIN32</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define _WIN32</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif // _WIN32</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // WIN32</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">// Core API</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Zenderer/Core/Types.hpp - Defines standard types used extensively throughout almost every part of the...">Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_math_8hpp.html" title="Zenderer/Math/Math.hpp - Includes all of the various math definitions and defines useful functions...">Math/Math.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8hpp.html" title="Utilities/Utilities.hpp - Includes all relevant headers in a batch and defines the hashing function...">Utilities/Utilities.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// Custom memory allocator.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">//#include &quot;Core/Allocator.hpp&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">// Assets</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp - A container for all in-engine assets like shaders, textures, and audio files.">Assets/AssetManager.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// Assets</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp - A container for all in-engine assets like shaders, textures, and audio files.">Assets/AssetManager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">// Audio API</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio_manager_8hpp.html" title="Zenderer/Audio/AudioManager.hpp - Convenience functions for the audio library.">Audio/AudioManager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_music2_d_8hpp.html" title="Zenderer/Audio/Music2D.hpp - Long .ogg files used for music, dialogue, etc.">Audio/Music2D.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sound2_d_8hpp.html" title="Zenderer/Audio/Sound2D.hpp - Short .wav file sound effects used in-game.">Audio/Sound2D.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp - Defines an event-handling singleton object that stores and process...">Events/EventHandler.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">namespace </span>zen</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">void</span> <a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">Quit</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif // ZENDERER__ZENDERER_HPP</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">// Graphics API</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_window_8hpp.html" title="Zenderer/Graphics/Window.hpp - An OpenGL context wrapper that the engine performs operations on...">Graphics/Window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_light_8hpp.html" title="Zenderer/Graphics/Light.hpp - An instance of lighting in the game scene.">Graphics/Light.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp - A high-level graphics rendering interface intended to abstract away all...">Graphics/Scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_menu_8hpp.html" title="Zenderer/GUI/Menu.hpp - A high-level menu creating interface.">GUI/Menu.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">// Object API</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp - A generic entity class wrapping drawable primitives, materials, and easy sprite-like functionality together.">Objects/Entity.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp - A drawable primitive with 4 vertices.">Graphics/Quad.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp - A vertex-agnostic convex primitive.">Graphics/Polygon.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">// Audio API</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio_manager_8hpp.html" title="Zenderer/Audio/AudioManager.hpp - Convenience functions for the audio library.">Audio/AudioManager.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_music2_d_8hpp.html" title="Zenderer/Audio/Music2D.hpp - Long .ogg files used for music, dialogue, etc.">Audio/Music2D.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sound2_d_8hpp.html" title="Zenderer/Audio/Sound2D.hpp - Short .wav file sound effects used in-game.">Audio/Sound2D.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp - Defines an event-handling singleton object that stores and process...">Events/EventHandler.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">namespace </span>zen</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib.">ZEN_API</a> <span class="keywordtype">void</span> <a class="code" href="namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer.">Quit</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif // ZENDERER__ZENDERER_HPP</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

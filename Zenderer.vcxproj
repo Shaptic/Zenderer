@@ -39,13 +39,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)/include/Zenderer/External;$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)/include/Zenderer/External;$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
   </PropertyGroup>
@@ -123,12 +123,15 @@
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Polygon.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Quad.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Scene.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\Button.hpp" />
     <ClInclude Include="include\Zenderer\GUI\Font.hpp" />
     <ClInclude Include="include\Zenderer\GUI\FontCore.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\Menu.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />
@@ -172,6 +175,7 @@
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
     <ClCompile Include="src\Graphics\Material.cpp" />
+    <ClCompile Include="src\Graphics\Polygon.cpp" />
     <ClCompile Include="src\Graphics\Quad.cpp" />
     <ClCompile Include="src\Graphics\RenderTarget.cpp" />
     <ClCompile Include="src\Graphics\Scene.cpp" />

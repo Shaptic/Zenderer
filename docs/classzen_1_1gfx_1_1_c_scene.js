@@ -17,6 +17,9 @@ var classzen_1_1gfx_1_1_c_scene =
     [ "EnableLighting", "classzen_1_1gfx_1_1_c_scene.html#a95214df92f8dddc9434f2a52b945a72f", null ],
     [ "DisableLighting", "classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6", null ],
     [ "ToggleLighting", "classzen_1_1gfx_1_1_c_scene.html#abb222521d57dfac131dd46b97547af71", null ],
+    [ "EnablePostProcessing", "classzen_1_1gfx_1_1_c_scene.html#ab98f50b4c7b8011131564e4f5db92c87", null ],
+    [ "DisablePostProcessing", "classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d", null ],
+    [ "TogglePostProcessing", "classzen_1_1gfx_1_1_c_scene.html#a0338d84ddede678ee55827bf604f1138", null ],
     [ "SetSeeThrough", "classzen_1_1gfx_1_1_c_scene.html#a775696f2a5d021fda90aa2f512cb6e28", null ],
     [ "AddPrimitive", "classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5", null ]
 ];

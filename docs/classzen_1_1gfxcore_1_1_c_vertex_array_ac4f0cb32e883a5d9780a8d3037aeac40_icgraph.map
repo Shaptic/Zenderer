@@ -1,7 +1,7 @@
 <map id="zen::gfxcore::CVertexArray::AddData" name="zen::gfxcore::CVertexArray::AddData">
 <area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="243,5,384,46"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="232,70,395,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_drawable.html#ad81d33436b4c823c160a983b4294fc06" title="Shortcut to prevent loading simple objects manually." alt="" coords="232,135,395,177"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="233,201,393,228"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="443,201,493,228"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1_c_drawable.html#ad81d33436b4c823c160a983b4294fc06" title="Shortcut to prevent loading simple objects manually." alt="" coords="232,135,395,177"/>
+<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="233,201,393,228"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="443,140,493,167"/>
 </map>

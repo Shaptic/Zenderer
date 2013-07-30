@@ -47,7 +47,7 @@ namespace gfx
          * Constructs a light instance.
          *  The window height is required for the shader to perform some weird
          *  offset calculations that would otherwise give bad results in terms
-         *  of light positioning. It defaults to 800px.
+         *  of light positioning.
          *
          * @param   m_Assets    The asset manager to make the effect from
          * @param   Type        The light type you want
@@ -55,7 +55,7 @@ namespace gfx
          **/
         CLight(asset::CAssetManager& m_Assets,
                const LightType& Type,
-               const uint16_t window_h = 800);
+               const uint16_t window_h);
 
         ~CLight();
 
@@ -117,6 +117,7 @@ namespace gfx
 
     // Shortcut for light containers.
     typedef std::vector<CLight*> LightSet_t;
+
 }   // namespace gfx
 }   // namespace zen
 
@@ -129,7 +130,7 @@ namespace gfx
  *  that can be modified and accessed. See the raw shader files to learn
  *  the specific parameter names, or the specification [here](specs.html).
  *
- * @todo    Investigate why the `scr_height` parameter is necessary.
+ * @todo    Investigate why the `scr_height` shader parameter is necessary.
  **/
 
 /** @} **/

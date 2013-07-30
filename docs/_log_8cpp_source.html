@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(m_str.str().empty() || !this-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa" title="Returns the sub-system initialization status.">IsInit</a>()) <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifndef ZEN_DEBUG_BUILD</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(m_mode == <a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">util::LogMode::ZEN_DEBUG</a>) <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(m_mode == <a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">util::LogMode::ZEN_DEBUG</a>) <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif // ZEN_DEBUG_BUILD</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::stringstream tmp;</div>
@@ -185,7 +185,7 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">switch</span>(m_mode)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>:   tmp &lt;&lt; <span class="stringliteral">&quot;DEBUG&quot;</span>; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">LogMode::ZEN_DEBUG</a>:   tmp &lt;&lt; <span class="stringliteral">&quot;DEBUG&quot;</span>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message.">LogMode::ZEN_INFO</a>:    tmp &lt;&lt; <span class="stringliteral">&quot;INFO &quot;</span>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>:   tmp &lt;&lt; <span class="stringliteral">&quot;ERROR&quot;</span>; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">case</span> LogMode::ZEN_FATAL:   tmp &lt;&lt; <span class="stringliteral">&quot;FATAL&quot;</span>; <span class="keywordflow">break</span>;</div>

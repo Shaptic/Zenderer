@@ -149,9 +149,9 @@ using gfxcore::CRenderer;
     Grass2.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass2.png");
     Grass3.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
 
-    Grass1.Move(100, 400);
-    Grass2.Move(100, 400);
-    Grass3.Move(100, 400);
+    Grass1.Move(100, 423);
+    Grass2.Move(100, 423);
+    Grass3.Move(100, 423);
 
     math::vector_t GrassT(45.0, 45.0, -45.0);
     math::vector_t GrassDT(-1.2, 0.9, -0.5);
@@ -179,6 +179,53 @@ using gfxcore::CRenderer;
     //Fixture.friction = 0.3;
     //Falling.AddFixture(Fixture);
 
+    gfx::CPolygon P(Manager);
+    P.AddVertex(math::vector_t(0,   450));
+    P.AddVertex(math::vector_t(50,  425));
+    P.AddVertex(math::vector_t(130, 415));
+    P.AddVertex(math::vector_t(290, 455));
+    P.AddVertex(math::vector_t(290, Window.GetHeight()));
+    P.AddVertex(math::vector_t(0,   Window.GetHeight()));
+
+    gfx::CPolygon P2(Manager);
+    P2.AddVertex(math::vector_t(290, 455));
+    P2.AddVertex(math::vector_t(410, 445));
+    P2.AddVertex(math::vector_t(530, 460));
+    P2.AddVertex(math::vector_t(550, 495));
+    P2.AddVertex(math::vector_t(550, Window.GetHeight()));
+    P2.AddVertex(math::vector_t(0,   Window.GetHeight()));
+
+    /*gfx::CPolygon P3(Manager);
+    P3.AddVertex(math::vector_t(660, 470));
+    P.AddVertex(math::vector_t(740, 430));
+    P.AddVertex(math::vector_t(770, 375));
+    P.AddVertex(math::vector_t(800, 370));
+    P.AddVertex(math::vector_t(800, 370));
+    P.AddVertex(math::vector_t(800, 600));
+    P.AddVertex(math::vector_t(0,   600));
+    */
+    P.SetColor(color4f_t(0, 0, 0, 1));
+    P2.SetColor(color4f_t(0, 0, 0, 1));
+    //P3.SetColor(color4f_t(0, 0, 0, 1));
+
+    P.Create();
+    P2.Create();
+    //P3.Create();
+
+    gui::CFont* MenuFont = Manager.Create<gui::CFont>();
+    MenuFont->AttachManager(Manager);
+    MenuFont->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
+    gui::CMenu MainMenu(Window, Manager);
+    MainMenu.SetFont(*MenuFont);
+    MainMenu.SetNormalButtonTextColor(color4f_t(1, 0, 0, 1));
+    MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
+    MainMenu.SetSpacing(MenuFont->GetLineHeight());
+
+    MainMenu.AddButton("Play Game");
+    MainMenu.AddButton("Load Game");
+    MainMenu.AddButton("Options");
+    MainMenu.AddButton("Exit");
+
     while(Window.IsOpen())
     {
         Timer.Start();
@@ -188,6 +235,7 @@ using gfxcore::CRenderer;
         // Handle events.
         Evt.PollEvents();
 
+        int16_t mm_ret = -1;
         while(Evt.PopEvent(event))
         {
             switch(event.type)
@@ -202,8 +250,15 @@ using gfxcore::CRenderer;
                 if(event.key.symbol == 'm') CRenderer::ToggleWireframe();
                 std::cout << "Printable: " << event.key.symbol << "\n";
                 break;
+
+            default:
+                mm_ret = MainMenu.HandleEvent(event);
+                if(mm_ret != -1) goto done;
+                break;
             }
         }
+
+done:
 
         mouse = evt::GetMousePosition();
 
@@ -258,6 +313,10 @@ using gfxcore::CRenderer;
 
         Scene.Render();
 
+        MainMenu.Update();
+        printf("%d\n", mm_ret);
+        if(mm_ret == 3) Window.Close();
+
         {
             Grass.Enable();
 
@@ -275,8 +334,10 @@ using gfxcore::CRenderer;
             Gr.Draw();
             Grass.Disable();
         }
-
+        
         PHYZ.Draw();
+        P.Draw();
+        P2.Draw();
 
         Sound->Update();
         Window.Update();

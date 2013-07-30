@@ -4,6 +4,8 @@ var examples =
     [ "Fonts", "_fonts-example.html", null ],
     [ "Logging", "_logging-example.html", null ],
     [ "Parsing", "_parsing-example.html", null ],
+    [ "Polygons", "_polygons-example.html", null ],
+    [ "Scenes", "_scenes-example.html", null ],
     [ "Scripting", "_scripting-example.html", null ],
     [ "Subsystem", "_subsystem-example.html", null ],
     [ "Utilities", "_utilities-example.html", null ],

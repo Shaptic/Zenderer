@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -283,8 +283,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>See the following examples:</p>
-<p>matrix[0][3] // 3rd element of row 0 (r0, c3) matrix[3][1] // 1st element of row 3 (r3, c1) matrix[2][1] // 1st element of row 2 (r2, c1)</p>
-<p>The index value is automatically clamped at [0, 3].</p>
+<div class="fragment"><div class="line">matrix[0][3]  <span class="comment">// 3rd element of row 0 (r0, c3)</span></div>
+<div class="line">matrix[3][1]  <span class="comment">// 1st element of row 3 (r3, c1)</span></div>
+<div class="line">matrix[2][1]  <span class="comment">// 1st element of row 2 (r2, c1)</span></div>
+</div><!-- fragment --><p>The index value is automatically clamped at [0, 3].</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">index</td><td>Row index to access </td></tr>
@@ -356,7 +358,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00063">63</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00065">65</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -391,16 +393,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00071">71</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_a8490c81757977f33c6e4482e8b6a70e2_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_a8490c81757977f33c6e4482e8b6a70e2_icgraph" alt=""/></div>
-<map name="classzen_1_1math_1_1matrix4x4__t_a8490c81757977f33c6e4482e8b6a70e2_icgraph" id="classzen_1_1math_1_1matrix4x4__t_a8490c81757977f33c6e4482e8b6a70e2_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="201,5,327,46"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00073">73</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -438,7 +431,7 @@ Here is the caller graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>Only 2D shears are supported (X and Y directions). </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Add 3D shearing. </dd></dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00092">92</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00094">94</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -480,7 +473,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00110">110</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00112">112</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -518,11 +511,11 @@ Here is the caller graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>Only rotations on the 2D xy-plane are supported; this is rotation about the Z axis.</dd>
 <dd>
 Multiplying matrix transformations performs the operations in the reverse order in which they are multiplied.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8" title="Rotates the current vector using the rotation matrix.">zen::math::Vector::Rotate</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8" title="Rotates the current vector using the rotation matrix.">Vector::Rotate</a> </dd>
 <dd>
 <a href="http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf">http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00151">151</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00153">153</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -548,7 +541,7 @@ Multiplying matrix transformations performs the operations in the reverse order 
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00164">164</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00166">166</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -574,7 +567,7 @@ Multiplying matrix transformations performs the operations in the reverse order 
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00177">177</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00179">179</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +592,7 @@ Multiplying matrix transformations performs the operations in the reverse order 
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00189">189</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00191">191</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -666,14 +659,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The requested projection matrix. </dd></dl>
 
-<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00202">202</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00204">204</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph" id="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="zen::gfx::CRenderTarget\l::Init" alt="" coords="200,89,363,130"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="420,5,561,46"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="619,121,669,148"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components." alt="" coords="417,121,564,148"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="411,172,571,199"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture." alt="" coords="200,89,363,130"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="420,5,561,46"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="619,121,669,148"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components." alt="" coords="417,121,564,148"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="411,172,571,199"/></map>
 </div>
 </p>
 

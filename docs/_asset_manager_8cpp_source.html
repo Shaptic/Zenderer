@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -166,7 +166,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span>((*b)-&gt;m_refcount &gt; 1)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                --(*b)-&gt;m_refcount;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">util::LogMode::ZEN_DEBUG</a>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">util::LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                        &lt;&lt; <span class="stringliteral">&quot;Decreasing reference count for asset (&quot;</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        &lt;&lt; (*b)-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a8ee810e8f130b41733c45c7e05686ce1" title="Retrieves the current log filename.">GetFilename</a>() &lt;&lt; <span class="stringliteral">&quot;): &quot;</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        &lt;&lt; (*b)-&gt;m_refcount &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer.">util::CLog::endl</a>;</div>
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(this-&gt;<a class="code" href="classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef" title="Returns the sub-system initialization status.">IsInit</a>());</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(!filename.empty());</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;AssetMgr&quot;</span>)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Searching for &#39;&quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;&#39;:&quot;</span> &lt;&lt; owner &lt;&lt; <span class="stringliteral">&quot;.&quot;</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            &lt;&lt; CLog::endl;</div>
@@ -259,7 +259,7 @@ $(document).ready(function(){initNavTree('_asset_manager_8cpp_source.html','');}
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#ad3cd3dc070c009c2c93bf4afda94d137">  149</a></span>&#160;<a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">CAsset</a>* <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists.">CAssetManager::Find</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1asset.html#af09b06b63eca0db6bd340fa2c83ca449" title="For unique asset ID.">assetid_t</a> <span class="keywordtype">id</span>)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    m_Log   &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2" title="Sets the output mode to something in util::LogMode.">SetMode</a>(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            &lt;&lt; m_Log.<a class="code" href="classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7" title="Sets the current logging subsystem.">SetSystem</a>(<span class="stringliteral">&quot;AssetMgr&quot;</span>)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Searching for asset with ID &quot;</span> &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>

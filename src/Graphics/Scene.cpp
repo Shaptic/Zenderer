@@ -26,6 +26,7 @@ bool CScene::Init()
             m_FBO1.Init()       && m_FBO2.Init();
 }
 
+/// @bug A crash occurs deleting entities.
 bool CScene::Destroy()
 {
     bool ret = m_FBO1.Destroy() && m_FBO2.Destroy() && m_Geometry.Destroy();
@@ -48,10 +49,9 @@ obj::CEntity& CScene::AddEntity()
     return *m_allEntities.back();
 }
 
-/// @todo Fix hard-coded 800.
 CLight& CScene::AddLight(const LightType& Type)
 {
-    CLight* pNew = new CLight(m_Assets, Type, 800);
+    CLight* pNew = new CLight(m_Assets, Type, m_FBO1.GetHeight());
     pNew->Init();
     m_allLights.push_back(pNew);
     return *m_allLights.back();
@@ -114,22 +114,24 @@ bool CScene::Render()
     // time to call it. Things won't be offloaded multiple times.
     auto i = m_allEntities.begin(), j = m_allEntities.end();
 
-    // If the first is offloaded, the rest probably are too.
-    if(i != j && !(*i)->Offloaded())
+    if(i != j)
     {
         for( ; i != j; ++i)
+        {
+            // If any are offloaded, the rest probably are too.
+            if((*i)->Offloaded()) break;
             (*i)->Offload(m_Geometry, false);
+        }
     }
 
     m_Geometry.Offload();
 
     // Clear our frame buffers from the last drawing.
     // We will be rendering to FBO1 at first.
-    color4f_t Clear = color4f_t(0.0, 0.0, 0.0, 0.0);
-    m_FBO2.Bind();
-    if(m_through) m_FBO2.Clear(Clear); else m_FBO2.Clear();
-    m_FBO1.Bind();
-    if(m_through) m_FBO1.Clear(Clear); else m_FBO1.Clear();
+    color4f_t Clear = color4f_t(0.0, 0.0, 0.0, 1.0);
+    if(m_through) Clear.a = 1.0;
+    m_FBO2.Bind(); m_FBO2.Clear(Clear);
+    m_FBO1.Bind(); m_FBO1.Clear(Clear);
 
     // Set the standard blending state.
     bool blend = CRenderer::BlendOperation(BlendFunc::IS_ENABLED);
@@ -147,6 +149,8 @@ bool CScene::Render()
     i = m_allEntities.begin();
     for( ; i != j; ++i)
     {
+        if(!(*i)->m_enabled) continue;
+
         // Adjust for the camera.
         (*i)->Move((*i)->GetPosition() + m_Camera);
 

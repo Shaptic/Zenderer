@@ -12,17 +12,12 @@ static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
 CWindow::CWindow(const uint16_t     width,
                  const uint16_t     height,
                  const string_t&    caption,
-                 asset::CAssetManager& Mgr) :
+                 asset::CAssetManager& Mgr,
+                 const bool         fullscreen) :
     CSubsystem("Window"), m_Log(CLog::GetEngineLog()),
     m_Assets(Mgr), m_Dimensions(width, height),
     m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),
-    m_fullscreen(
-#ifdef _DEBUG
-        false)
-#else
-        true)
-#endif // _DEBUG
-{}
+    m_fullscreen(fullscreen) {}
 
 CWindow::~CWindow()
 {
@@ -31,6 +26,15 @@ CWindow::~CWindow()
 
 bool CWindow::Init()
 {
+    if(m_init)
+    {
+        m_Log   << m_Log.SetSystem("Window")
+                << m_Log.SetMode(LogMode::ZEN_ERROR)
+                << "Window is already initialized; destroy it first!"
+                << CLog::endl;
+        return false;
+    }
+
     m_Log   << m_Log.SetSystem("Window")
             << m_Log.SetMode(LogMode::ZEN_INFO)
             << "Set up window (" << m_Dimensions.x << "x"
@@ -86,7 +90,7 @@ bool CWindow::Init()
     glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);
 
     m_Log << "Initializing GLEW: ";
-    glewExperimental = true;
+    glewExperimental = GL_TRUE;
     if(glewInit() != GLEW_OK)
     {
         m_Log << m_Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
@@ -112,11 +116,13 @@ bool CWindow::Init()
 
 bool CWindow::Destroy()
 {
+    if(!m_init) return true;
+
     delete gfxcore::CRenderer::s_DefaultMaterial;
     m_Assets.Destroy();
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
-    return true;
+    return !(m_init = false);
 }
 
 bool CWindow::Clear()
@@ -138,9 +144,49 @@ void CWindow::Update() const
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }
 
+bool CWindow::ToggleFullscreen(int* const loaded)
+{
+    if(m_fullscreen) return this->DisableFullscreen(loaded);
+    else             return this->EnableFullscreen(loaded);
+}
+
+bool CWindow::EnableFullscreen(int* const loaded)
+{
+    if(m_fullscreen) return true;
+
+    this->Destroy();
+    this->Init();
+    m_fullscreen = true;
+    uint32_t done = this->ReloadAssets();
+    if(loaded != nullptr) *loaded = done;
+    return done == m_Assets.GetAssetCount();
+}
+
+bool CWindow::DisableFullscreen(int* const loaded)
+{
+    if(!m_fullscreen) return true;
+
+    this->Destroy();
+    this->Init();
+    m_fullscreen = false;
+    uint32_t done = this->ReloadAssets();
+    if(loaded != nullptr) *loaded = done;
+    return done == m_Assets.GetAssetCount();
+}
+
 bool CWindow::IsOpen() const
 {
     return !glfwWindowShouldClose(mp_Window);
+}
+
+bool CWindow::IsFullscreen() const
+{
+    return m_fullscreen;
+}
+
+void CWindow::Close() const
+{
+    glfwSetWindowShouldClose(mp_Window, true);
 }
 
 math::vector_t CWindow::GetMousePosition() const
@@ -153,6 +199,23 @@ math::vector_t CWindow::GetMousePosition() const
 bool CWindow::GetMouseState(const evt::MouseButton& Btn) const
 {
     return glfwGetMouseButton(mp_Window, static_cast<int>(Btn)) == GLFW_PRESS;
+}
+
+/// @todo   Implement asset reloading from file.
+uint32_t CWindow::ReloadAssets()
+{
+    this->Destroy();
+    m_fullscreen = !m_fullscreen;
+    this->Init();
+
+    // Attempt to reload assets from their filenames.
+    uint32_t done = 0;
+    for(auto i = m_Assets.cbegin(); i != m_Assets.cend(); ++i)
+    {
+        if((*i)->Reload()) ++done;
+    }
+
+    return done;
 }
 
 bool CWindow::ToggleVSYNC()

@@ -1,7 +1,9 @@
 <map id="Zenderer/include/Zenderer/Graphics/Scene.inl" name="Zenderer/include/Zenderer/Graphics/Scene.inl">
-<area shape="rect" id="node2" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="208,97,379,138"/>
-<area shape="rect" id="node3" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="116,187,287,229"/>
-<area shape="rect" id="node6" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="311,187,461,229"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="5,277,192,304"/>
-<area shape="rect" id="node5" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="217,277,391,304"/>
+<area shape="rect" id="node2" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="153,97,324,138"/>
+<area shape="rect" id="node3" href="$_button_8hpp.html" title="Zenderer/GUI/Button.hpp &#45; A wrapper for easily creating roll&#45;over button effects." alt="" coords="5,187,176,229"/>
+<area shape="rect" id="node4" href="$_menu_8hpp.html" title="Zenderer/GUI/Menu.hpp &#45; A high&#45;level menu creating interface." alt="" coords="56,278,227,319"/>
+<area shape="rect" id="node5" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="117,369,288,410"/>
+<area shape="rect" id="node8" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="302,187,452,229"/>
+<area shape="rect" id="node6" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="6,459,193,485"/>
+<area shape="rect" id="node7" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="219,459,392,485"/>
 </map>

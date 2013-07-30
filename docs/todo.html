@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,19 +119,17 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <p class="enddd">Implement SDFF technique (<a href="https://forum.libcinder.org/topic/signed-distance-field-font-rendering">https://forum.libcinder.org/topic/signed-distance-field-font-rendering</a>) </p>
 </dd>
 <dt><a class="anchor" id="_todo000008"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_light.html">zen::gfx::CLight</a>  </dt>
-<dd>Investigate why the <code>scr_height</code> parameter is necessary.  </dd>
+<dd>Investigate why the <code>scr_height</code> shader parameter is necessary.  </dd>
 <dt><a class="anchor" id="_todo000009"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_scene.html">zen::gfx::CScene</a>  </dt>
-<dd>Set up entity internals  </dd>
+<dd>Test post-processing. </dd>
 <dt><a class="anchor" id="_todo000010"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d">zen::gfx::CScene::AddLight</a>  (const LightType &amp;Type)</dt>
-<dd><p class="startdd">Fix window size </p>
-<p class="enddd">Fix hard-coded 800.  </p>
-</dd>
-<dt><a class="anchor" id="_todo000011"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_window.html">zen::gfx::CWindow</a>  </dt>
+<dd>Fix window size  </dd>
+<dt><a class="anchor" id="_todo000011"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd">zen::gfx::CScene::Render</a>  ()</dt>
+<dd>Clipping.  </dd>
+<dt><a class="anchor" id="_todo000012"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_window.html">zen::gfx::CWindow</a>  </dt>
 <dd>Test / Implement multiple-context control.  </dd>
 <dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7574da6790394665fb63d5be9058543b">zen::gfx::CWindow::GetWindow</a>  () const </dt>
 <dd>Remove when uneccessary.  </dd>
-<dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7cf6874db28b2077f67f7c6f3a418e12">zen::gfx::CWindow::ToggleFullscreen</a>  (int *const loaded=nullptr)</dt>
-<dd>Implement this  </dd>
 <dt><a class="anchor" id="_todo000002"></a>Global <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#a03d22a2a626bdeb8209ea231a06b235f">zen::gfxcore::CDrawable::Move</a>  (const real_t x, const real_t y, const real_t z=1.0)</dt>
 <dd>Make it work properly when <code>CQuad</code> is inverted.  </dd>
 <dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="classzen_1_1gfxcore_1_1_c_renderer.html">zen::gfxcore::CRenderer</a>  </dt>
@@ -153,7 +151,7 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <dt><a class="anchor" id="_todo000023"></a>Global <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D::LoadFromFile</a>  (const string_t &amp;filename)</dt>
 <dd>Use some standardized WAV loading library.  </dd>
 <dt><a class="anchor" id="_todo000021"></a>Class <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html">zen::util::CXMLParser</a>  </dt>
-<dd>Fix <code>XMLNode</code> parent setting </dd>
+<dd>Fix XMLNode parent setting </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

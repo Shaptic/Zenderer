@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -239,10 +239,9 @@ $(document).ready(function(){initNavTree('_vector_8inl_source.html','');});
 <div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="_vector_8inl.html#af237dc75dfd57eab5beffdbeab04bbde">  128</a></span>&#160;<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="_vector_8inl.html#af237dc75dfd57eab5beffdbeab04bbde">distance</a>(<span class="keyword">const</span> Vector&lt;T&gt;&amp; <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a>, <span class="keyword">const</span> Vector&lt;U&gt;&amp; <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>,</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">bool</span> do_sqrt)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> pyth = (A.x + B.x) * (A.x + B.x) +</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                  (A.y + B.y) * (A.y + B.y);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> !do_sqrt ? pyth : std::sqrt(pyth);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">// Just call the (x, y) version.</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="_vector_8inl.html#af237dc75dfd57eab5beffdbeab04bbde">distance</a>(A.x, A.y, B.x, B.y, do_sqrt);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

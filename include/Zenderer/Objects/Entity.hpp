@@ -162,6 +162,9 @@ namespace obj
         /// Transforms the entity with scaling factors.
         inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
 
+        /// Rotate the entity in 2-dimensions (on the Z-axis).
+        inline void Rotate(const real_t degrees) { m_MV.RotationZ(degrees); }
+
         /**
          * Inverts the vertex and texture coordinates of internal primitives.
          *  This will do nothing for existing primitives and data, and only
@@ -201,6 +204,7 @@ namespace obj
 
         /// Retrieves an immutable reference to the transformation matrix.
         const math::matrix4x4_t& GetTransformation() const;
+        const math::aabb_t& GetBox() const;
         math::vector_t GetPosition() const;
 
         uint32_t GetSortFlag() const;
@@ -210,6 +214,9 @@ namespace obj
 
         /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
+
+        inline void Enable()  { m_enabled = true; }
+        inline void Disable() { m_enabled = false; }
 
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
@@ -224,11 +231,12 @@ namespace obj
         util::CLog&                 m_Log;
 
         math::matrix4x4_t           m_MV;
+        math::aabb_t                m_Box;
         std::vector<gfx::CQuad*>    mp_allPrims;
         string_t                    m_filename;
         uint16_t                    m_depth;
         uint32_t                    m_sort;
-        bool                        m_inv;
+        bool                        m_inv, m_enabled;
     };
 }   // namespace gfxcore
 }   // namespace zen

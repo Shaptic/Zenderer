@@ -53,7 +53,7 @@ namespace gui
          * @tparam  T       Argument type is implicitly determined
          * @param   data    Data to write out to the stream
          *
-         * @see     _fonts-examples.html
+         * @see     <a href="_fonts-examples.html">Font Examples</a>
          **/
         template<typename T> inline
         CFont& operator<<(const T& data)
@@ -82,7 +82,7 @@ namespace gui
          * @return  `true`  if everything went smoothly,
          *          `false` otherwise.
          *
-         * @see     _fonts-examples.html
+         * @see     <a href="_fonts-examples.html">Font Examples</a>
          **/
         bool LoadFromFile(const string_t& filename);
 
@@ -112,11 +112,6 @@ namespace gui
          *  it will be rendered. The parameter takes precedence over
          *  the stream, so if they both exist, the parameter is used.
          *
-         *  As of this writing, there is a bug in multi-line text rendering
-         *  which causes the lines to be rendered in reverse order. Meaning if
-         *  given, say, "Hello,\nZenderer", the line "Zenderer" will appear
-         *  above "Hello," instead of vice-versa.
-         *
          * @param   Ent     The entity to store render data in
          * @param   text    The string to render (optional)
          *
@@ -127,9 +122,8 @@ namespace gui
          * @post    `Ent` contains a renderable string using this font.
          *
          * @warning Any existing data in the entity is deleted.
-         * @bug     Multi-line text is rendered in reverse order.
          **/
-        bool Render(obj::CEntity& Ent, const string_t text = "");
+        bool Render(obj::CEntity& Ent, const string_t& text = "") const;
 
         /// Clears the internal string stream.
         void ClearString();
@@ -166,11 +160,14 @@ namespace gui
 
         uint16_t GetTextWidth(const string_t&  text) const;
         uint16_t GetTextHeight(const string_t& text) const;
+        uint16_t GetLineHeight() const { return m_height; }
 
         friend class ZEN_API asset::CAssetManager;
 
     private:
         CFont(const void* const owner = nullptr);
+        CFont& operator=(const CFont& F);
+
         bool Destroy();
         bool LoadGlyph(const char c, const uint16_t index);
 
@@ -203,13 +200,13 @@ namespace gui
  *  Fonts are unique assets that use the FreeType 2 to load TrueType (`.ttf`)
  *  fonts and render them in an OpenGL-compatible matter.
  *  They cannot be drawn directly to the screen, but instead will load
- *  themselves into `obj::CEntity` instances that can then be treated as
+ *  themselves into obj::CEntity instances that can then be treated as
  *  such.
  *
- * @note    It is absolutely essential that you call `AttachManager()` prior
- *          to loading any font instances, to ensure that the font textures
- *          can be created. This is a limitation of the asset API and may or
- *          may not change in the future.
+ * @note    It is absolutely essential that you call gui::CFont::AttachManager()
+ *          prior to loading any font instances, to ensure that the font
+ *          textures can be created. This is a limitation of the asset API and
+ *          may or may not change in the future.
  *
  * @todo    Utilize a texture atlas instead of individual quads
  * @todo    Implement SDFF technique

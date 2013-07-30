@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -125,7 +125,7 @@ Data Structures</h2></td></tr>
 <tr class="separator:classzen_1_1math_1_1vector__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Actions such as moving an entity are performed with a combination of user-level contribution of <code>math::vector2_t</code>, and a low-level manipulation of <code>math::matrix4x4_t</code>. Collision detection and physical reactions require the <code>math::rect_t</code> object, which itself might depend on <code>math::vector2_t</code>, as well. Do you want to locate the angle for firing a shot? Well then you likely need <code>math::rad</code> and <code>math::deg</code> to get sensible values for trigonometric functions.<br/>
+<p>Actions such as moving an entity are performed with a combination of user-level contribution of <code><a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">zen::math::vector_t</a></code>, and a low-level manipulation of <code><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation.">zen::math::matrix4x4_t</a></code>. Collision detection and physical reactions require the <code><a class="el" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box.">zen::math::aabb_t</a></code> object, which itself depends on <code><a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">zen::math::vector_t</a></code>, as well. Do you want to locate the angle for firing a shot? Well then you likely need <code><a class="el" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians.">zen::math::rad</a></code> and <code><a class="el" href="namespacezen_1_1math.html#a35800854cfb92a44975ba964344e5315" title="Converts radians to degrees.">zen::math::deg</a></code> to get sensible values for trigonometric functions. <br/>
  As you can see, the <code>Math</code> group is at the very core of the engine. It's critical enough to be a part of <code>Core</code>, but can do enough on its own that it deserves its own group. </p>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
 <a name="classzen_1_1math_1_1vector__t" id="classzen_1_1math_1_1vector__t"></a>
@@ -143,7 +143,7 @@ Data Structures</h2></td></tr>
 <div class="line">Vector&lt;float&gt; <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>(1.1, 2.2, 3.3);</div>
 <div class="line"></div>
 <div class="line">Vector&lt;float&gt; <a class="code" href="_keyboard_8hpp.html#aaa53ca0b650dfd85c4f59fa156f7a2cc">C</a> = <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a> + <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>;    <span class="comment">// INVALID!</span></div>
-<div class="line">Vector&lt;int&gt; C = <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a> + <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>;      <span class="comment">// VALID</span></div>
+<div class="line">Vector&lt;int&gt;   C = <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a> + <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>;    <span class="comment">// VALID</span></div>
 </div><!-- fragment --><p>Thus if you need a higher level of precision, keep that vector instance on the right-hand side.</p>
 <p>There is a built-in shortcut to <code><a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">vector_t</a></code> that is a floating-point vector representation that is used throughout the engine.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Add support for translation via matrices.</dd></dl>

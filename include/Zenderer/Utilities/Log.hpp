@@ -41,12 +41,12 @@ namespace zen
 namespace util
 {
     /// Log output types
-    enum class ZEN_API LogMode : uint16_t
+    enum class ZEN_API LogMode
     {
-        ZEN_DEBUG,  ///< Only in builds with the _DEBUG flag
-        ZEN_INFO,   ///< Standard message
-        ZEN_ERROR,  ///< Worrisome but handleable error
-        ZEN_FATAL   ///< Critical error causing immediate exit
+        ZEN_DEBUG,  ///< Only in builds with the ZEN_DEBUG_BUILD flag.
+        ZEN_INFO,   ///< Standard message.
+        ZEN_ERROR,  ///< Worrisome but handleable error.
+        ZEN_FATAL   ///< Critical error causing immediate termination.
     };
 
     /// Creates a special file stream to store logging information.
@@ -80,7 +80,7 @@ namespace util
 
         /**
          * This destructor does nothing but call Destroy().
-         *  The zen::CSubsytem specification requires that the destructor
+         *  The zen::CSubsystem specification requires that the destructor
          *  only call Destroy(), and this behaves in a similar fashion.
          *
          * @see     zen::CSubsystem::~CSubsystem()
@@ -89,16 +89,10 @@ namespace util
 
         /**
          * Executes a CLog method in-stream.
-         *  This allows for chaining CLog method calls in operator<< with
+         *  This allows for chaining CLog method calls in `operator<<` with
          *  the guarantee that they will be executed in the specified
          *  order.
-         *  Thus, instead of the requirement that CLog::Newline() be executed
-         *  separately, like so:
-         *
-         *      Log << Log.SetSystem("Test") << "Data";
-         *      Log.Newline();
-         *
-         *  We can inline it like so:
+         *  Thus, we can inline the new-line method call like so:
          *
          *      Log << Log.SetSystem("Test") << "Data" << CLog::endl;
          *
@@ -111,9 +105,9 @@ namespace util
          * @note    The passed method must return a CLog& instance, and must
          *          take no parameters.
          *
-         * @note    This should only be called through the `CLog::endl` pointer.
+         * @note    This should only be called through the CLog::endl pointer.
          *
-         * @see     CLog::Newline()
+         * @see     CLog::endl
          **/
         virtual inline CLog& operator<< (CLog& (CLog::*method)()); // Dat syntax
 
@@ -122,7 +116,7 @@ namespace util
          *  Due to its templated nature, and the versatility of
          *  `std::ostream`, almost anything can be passed as an argument.
          *  The given data is written to an `std::stringstream`, and is
-         *  only writted to the file when CLog::Newline() is called.
+         *  only writted to the file when CLog::endl is called.
          *
          * @param   data    Data to log
          *
@@ -178,7 +172,7 @@ namespace util
         /// Returns the sub-system initialization status.
         inline bool IsInit() const;
 
-        /// Makes it possible to inline the Set*() methods.
+        /// Makes it possible to inline the `Set*()` methods.
         friend std::ostream& operator<<(std::ostream& o, const CLog& Log);
 
         /// Singleton access to the engine log.
@@ -223,29 +217,29 @@ namespace util
  *  constructor or ToggleStdout()), the data will be immediately
  *  output to the screen, as well.
  *  This eliminates the need to flush the stream repeatedly and output
- *  data in chunks, as was the case in v1.0 of @a IronClad.
+ *  data in chunks, as was the case in @a IronClad.
  *
  *  Log output is formatted like so:\n
  *  <pre>
  *  [MODE] Subsystem -- data
  *  </pre>
  *
- *  MODE is one of the 4 output modes in the LogMode enumerator:        \n
+ *  MODE is one of the 4 output modes in the util::LogMode enumerator:  \n
  *  <pre>
- *      DEBUG   --  Only shows up in debug builds (_DEBUG directive)
+ *      DEBUG   --  Only shows up in debug builds (ZEN_DEBUG_BUILD directive)
  *      INFO    --  Generic information
  *      ERROR   --  Error that should cause alarm but no serious harm
  *      FATAL   --  Critical error that terminates the program
- *                 with the given data as the message in the pop-up
- *                 window.
+ *                  with the given data as the message in the pop-up
+ *                  window.
  *  </pre>
  *
  *  Logging works by calling SetMode(), which will be output for every
  *  subsequent line until SetMode() is called again. Newlines are not
- *  automatically detected, so you must force them via Newline().
+ *  automatically detected, so you must force them via CLog::endl.
  *
  *  You should specify the subsystem that is doing the
- *  logging via SetSystem(), it will default to 'Log'.
+ *  logging via SetSystem(), it will default to "Log".
  *
  *  You can directly stream SetMode() and SetSystem() as output, like so:
  *  @code
@@ -266,7 +260,7 @@ namespace util
  *  [FATAL] Game -- Failure.
  *  </pre>
  *  In addition, a popup MessageBox (on Windows) will show with the caption
- *  'Game' and text saying 'Failure.' due to the specification of `ZEN_FATAL`.
+ *  "Game" and text saying "Failure." due to the specification of `ZEN_FATAL`.
  *
  *  You can see a few usage scenarios in the [Examples](examples.html)
  *  section.

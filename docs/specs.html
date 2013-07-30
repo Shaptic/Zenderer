@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -185,11 +185,11 @@ Example File</h3>
 <div class="line">CMaterial M1, M2;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Set up the first primitive.</span></div>
-<div class="line">M1.LoadEffect(<a class="code" href="_effect_8hpp.html#ae054d19009fdb647784ba822b6c6bd33" title="A horizontal Gaussian blur effect.">EffectType::GAUSSIAN_BLUR_H</a>);</div>
-<div class="line">M1.GetEffect()-&gt;Enable();</div>
-<div class="line">M1.GetEffect()-&gt;SetParameter(<span class="stringliteral">&quot;radius&quot;</span>, 0.005);</div>
-<div class="line">M1.GetEffect()-&gt;Disable();</div>
 <div class="line">M1.LoadTextureFromFile(<span class="stringliteral">&quot;textures/grass.png&quot;</span>);</div>
+<div class="line">M1.LoadEffect(<a class="code" href="_effect_8hpp.html#ae054d19009fdb647784ba822b6c6bd33" title="A horizontal Gaussian blur effect.">EffectType::GAUSSIAN_BLUR_H</a>);</div>
+<div class="line">M1.GetEffect().Enable();</div>
+<div class="line">M1.GetEffect().SetParameter(<span class="stringliteral">&quot;radius&quot;</span>, 0.005);</div>
+<div class="line">M1.GetEffect().Disable();</div>
 <div class="line"></div>
 <div class="line">Q1.Resize(64, 64);</div>
 <div class="line">Q1.SetRepeating(<span class="keyword">true</span>);</div>
@@ -202,8 +202,8 @@ Example File</h3>
 <div class="line">Q2.AttachMaterial(M2);</div>
 <div class="line"></div>
 <div class="line"><a class="code" href="namespacezen_1_1obj.html#a4f7aade26095ce1df207ddc52b09d68b">CEntity</a> <a class="code" href="_keyboard_8hpp.html#aa57b8491d1d8fc1014dd54bcf83b130a">E</a>;</div>
-<div class="line">E.AddPrimitiveMesh(Q1);</div>
-<div class="line">E.AddPrimitiveMesh(Q2);</div>
+<div class="line">E.AddPrimitive(Q1);</div>
+<div class="line">E.AddPrimitive(Q2);</div>
 <div class="line">E.Create();</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Later...</span></div>

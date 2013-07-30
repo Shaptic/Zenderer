@@ -44,9 +44,11 @@ namespace math
          * Provides the matrix's elements at that row.
          *  See the following examples:
          *
+         *  @code
          *    matrix[0][3]  // 3rd element of row 0 (r0, c3)
          *    matrix[3][1]  // 1st element of row 3 (r3, c1)
          *    matrix[2][1]  // 1st element of row 2 (r2, c1)
+         *  @endcode
          *
          *  The index value is automatically clamped at [0, 3].
          *
@@ -145,7 +147,7 @@ namespace math
          * @note    Multiplying matrix transformations performs the operations
          *          in the reverse order in which they are multiplied.
          *
-         * @see     zen::math::Vector::Rotate
+         * @see     Vector::Rotate
          * @see     http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf
          **/
         inline void RotationZ(const real_t degrees)

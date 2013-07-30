@@ -19,12 +19,13 @@
  * @addtogroup Math
  *  This group contains essentials for manipulation of objects throughout
  *  the rendering engine. Actions such as moving an entity are performed
- *  with a combination of user-level contribution of `math::vector2_t`, and
- *  a low-level manipulation of `math::matrix4x4_t`. Collision detection
- *  and physical reactions require the `math::rect_t` object, which itself
- *  might depend on `math::vector2_t`, as well. Do you want to locate the angle
- *  for firing a shot? Well then you likely need `math::rad` and
- *  `math::deg` to get sensible values for trigonometric functions.\n
+ *  with a combination of user-level contribution of `zen::math::vector_t`,
+ *  and a low-level manipulation of `zen::math::matrix4x4_t`. Collision
+ *  detection and physical reactions require the `zen::math::aabb_t` object,
+ *  which itself depends on `zen::math::vector_t`, as well. Do you want to
+ *  locate the angle for firing a shot? Well then you likely need
+ *  `zen::math::rad` and `zen::math::deg` to get sensible values for
+ *  trigonometric functions. \n
  *  As you can see, the `Math` group is at the very core of the engine.
  *  It's critical enough to be a part of `Core`, but can do enough on its
  *  own that it deserves its own group.
@@ -59,7 +60,7 @@ namespace zen
 namespace math
 {
     /// Famous mathematical constant.
-    static const real_t PI = 3.141592653;
+    static const real_t PI = 3.1415926535897932384626;
 
     /**
      * Returns a value that is a portion of the way between Start and End
@@ -105,6 +106,11 @@ namespace math
     /// Compares two floating point values within a certain range.
     ZEN_API bool compf(const real_t, const real_t,
                        const real_t threshold = 0.0001);
+   
+    /// Calculates the distance between two points (`sqrt` optimization).
+    ZEN_API real_t distance(const real_t x1, const real_t y1,
+                            const real_t x2, const real_t y2,
+                            const bool do_sqrt=false);
 
     // Definitions for the functions defined above.
     #include "MathCore.inl"

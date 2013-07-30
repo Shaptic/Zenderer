@@ -126,7 +126,7 @@ namespace util
          *  @endcode
          *
          *  This is possible by overloading `operator=` in an abstracted
-         *  sub-class `COption` that acts just like a normal type but can
+         *  object COption that acts just like a normal type but can
          *  be assigned to an `int`, a `float`, a `bool`, or a `string_t`.
          *
          * @param   opt     Option to get value of

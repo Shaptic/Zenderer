@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -334,7 +334,7 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            D.<a class="code" href="namespacezen_1_1gfxcore.html#a83c7cacda425edf9caffaf5b141b13fd" title="Index array.">Indices</a>  = inds;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            D.<a class="code" href="namespacezen_1_1gfxcore.html#aa54ae28df17ec7cd2677ae9b5e9f584e" title="Vertex / index count.">icount</a>   = ilen;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keywordflow">if</span>(!(VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>() &amp;&amp; FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0">Init</a>()))</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keywordflow">if</span>(!(VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a995dae2f3c1ef56ba717a5fa21f88438">Init</a>() &amp;&amp; FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture.">Init</a>()))</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            {</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="keyword">delete</span>[] verts;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="keyword">delete</span>[] inds;</div>
@@ -344,8 +344,8 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40" title="Adds data to the vertex buffer for drawing.">AddData</a>(D);</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU.">Offload</a>();</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>(); FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f">Bind</a>();</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a99cd55ce477e7ef20e220f81a841f49e">Clear</a>();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad5fa502f379f8c2e3c10057ca3db3a59">Bind</a>(); FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f" title="All draws after this call will go to the texture, not the screen.">Bind</a>();</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a99cd55ce477e7ef20e220f81a841f49e" title="Clears the rendering target texture with a color (default black).">Clear</a>();</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            <span class="keywordtype">bool</span> blend = <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#a2b356e4ef3d3b41a279fed90a7fa6804" title="Sets the blending mode for subsequent draw calls.">gfxcore::CRenderer::BlendOperation</a>(</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                    <a class="code" href="_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586" title="Test if blending is enabled.">gfxcore::BlendFunc::IS_ENABLED</a>);</div>
@@ -365,7 +365,7 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                                 (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(<a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification.">gfxcore::index_t</a>) * i * 6)));</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            }</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0">Unbind</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0" title="Resume drawing to the screen.">Unbind</a>();</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <a class="code" href="classzen_1_1gfxcore_1_1_c_renderer.html#af9f6b37fdd6d81a96308f4433f5d33dc" title="Resets shader and texture state to nothing.">gfxcore::CRenderer::ResetMaterialState</a>();</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="comment">// Only disable blending if it wasn&#39;t enabled prior to calling</span></div>
@@ -379,7 +379,7 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="comment">// Create a texture wrapper from the texture handle in the FBO.</span></div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>* pTexture =</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                mp_Assets-&gt;Create&lt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles.">gfxcore::CTexture</a>&gt;(this-&gt;GetOwner());</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8">GetTexture</a>());</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            pTexture-&gt;<a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html#aceae841cbe44f079418484a903deb4f2">LoadFromExisting</a>(FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8" title="Get the raw render target&#39;s texture handle.">GetTexture</a>());</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <span class="comment">// Retrieve the raw data.</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data =</div>
@@ -398,7 +398,7 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                <span class="keyword">delete</span>[] verts;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <span class="keyword">delete</span>[] inds;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73" title="Destroys the render target and everything attached to it.">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            }</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
@@ -407,7 +407,7 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            Q.<a class="code" href="classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure.">Create</a>();</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            Q.<a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html#a19575263590fb0ef8eec10a6a14844c7" title="Sets all vertices to have a given color value.">SetColor</a>(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>());</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            Ent.<a class="code" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430">AddPrimitive</a>(Q);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            Ent.<a class="code" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it.">AddPrimitive</a>(Q);</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            mp_Assets-&gt;Delete(pTexture);</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            mp_Assets-&gt;Delete(pFinal);</div>
@@ -416,7 +416,7 @@ $(document).ready(function(){initNavTree('_font_atlas_8hpp_source.html','');});
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            <span class="keyword">delete</span>[] verts;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            <span class="keyword">delete</span>[] inds;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <span class="keywordflow">return</span> FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <span class="keywordflow">return</span> FBO.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a2de2294eb5cd10e8d1f7b412a41fad73" title="Destroys the render target and everything attached to it.">Destroy</a>() &amp;&amp; VAO.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ae7564af792aa5dddaeee371141ce4e61">Destroy</a>();</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        }</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        </div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keywordtype">void</span> AttachManager(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Assets);</div>

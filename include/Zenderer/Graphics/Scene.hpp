@@ -219,6 +219,30 @@ namespace gfx
  *  calls.
  *
  * @todo    Test post-processing.
+ *
+ * @example Scenes
+ *  Here we create a managed scene and draw a single textured entity.
+ *
+ *  @code
+ *  // Assuming a asset::CAssetMananger instance has been defined above/
+ *  // As well as a window with a valid context.
+ *
+ *  gfx::CScene Scene(Window.GetWidth(), Window.GetHeight(), Manager);
+ *
+ *  obj::CEntity& Entity = Scene.AddEntity();
+ *  Entity.LoadFromTexture(ZENDERER_TEXTURE_PATH"sample.png");
+ *  Entity.Move(100, 100);
+ *
+ *  while(Window.IsOpen())
+ *  {
+ *      Window.Clear();
+ *      Scene.Render();
+ *      Window.Update();
+ *  }
+ *
+ *  // Optional, will be done when scene goes out of scope.
+ *  Scene.RemoveEntity(Entity);
+ *  @endcode
  **/
 
 /** @} **/

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -128,41 +128,67 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11b9405b57ca1b32d270c6a661c11683"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a11b9405b57ca1b32d270c6a661c11683">~CEntity</a> ()</td></tr>
 <tr class="separator:a11b9405b57ca1b32d270c6a661c11683"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a566cefb83ad8fd96e459e69e7881c821"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:a566cefb83ad8fd96e459e69e7881c821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entity mesh from a file.  <a href="#a566cefb83ad8fd96e459e69e7881c821">More...</a><br/></td></tr>
 <tr class="separator:a566cefb83ad8fd96e459e69e7881c821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb1b9ade210dbb66e7e0c23042e7aa3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a">LoadFromTexture</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
+<tr class="memdesc:aeb1b9ade210dbb66e7e0c23042e7aa3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entity from a texture file.  <a href="#aeb1b9ade210dbb66e7e0c23042e7aa3a">More...</a><br/></td></tr>
 <tr class="separator:aeb1b9ade210dbb66e7e0c23042e7aa3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63e5f09fdd8171e4a8f783b78eb3e430"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430">AddPrimitive</a> (const <a class="el" href="classzen_1_1gfx_1_1_c_quad.html">gfx::CQuad</a> &amp;Prim)</td></tr>
+<tr class="memdesc:a63e5f09fdd8171e4a8f783b78eb3e430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entity from an existing primitive, or adds it.  <a href="#a63e5f09fdd8171e4a8f783b78eb3e430">More...</a><br/></td></tr>
 <tr class="separator:a63e5f09fdd8171e4a8f783b78eb3e430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5a5f5d9f1874acdbb44bcb4379ec87c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ad5a5f5d9f1874acdbb44bcb4379ec87c">Optimize</a> ()</td></tr>
+<tr class="memdesc:ad5a5f5d9f1874acdbb44bcb4379ec87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges primitive data with shared materials.  <a href="#ad5a5f5d9f1874acdbb44bcb4379ec87c">More...</a><br/></td></tr>
 <tr class="separator:ad5a5f5d9f1874acdbb44bcb4379ec87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69719a869c3b6a8dd4d587236f5c82e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a69719a869c3b6a8dd4d587236f5c82e1">Draw</a> (bool is_bound=false)</td></tr>
+<tr class="memdesc:a69719a869c3b6a8dd4d587236f5c82e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the entity on-screen.  <a href="#a69719a869c3b6a8dd4d587236f5c82e1">More...</a><br/></td></tr>
 <tr class="separator:a69719a869c3b6a8dd4d587236f5c82e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670a1ae47b5e60e281382c6a5c21e53d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a670a1ae47b5e60e281382c6a5c21e53d">Move</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;Pos)</td></tr>
+<tr class="memdesc:a670a1ae47b5e60e281382c6a5c21e53d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity to the specified position.  <a href="#a670a1ae47b5e60e281382c6a5c21e53d">More...</a><br/></td></tr>
 <tr class="separator:a670a1ae47b5e60e281382c6a5c21e53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12398e18f6d83b2a32875b005ccf81c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a12398e18f6d83b2a32875b005ccf81c9">Move</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> x, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> y, const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> z=1.0)</td></tr>
 <tr class="separator:a12398e18f6d83b2a32875b005ccf81c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a429ec24cc0bc58e796dda3c9be6bfb72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a429ec24cc0bc58e796dda3c9be6bfb72">Shear</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;Angles)</td></tr>
+<tr class="memdesc:a429ec24cc0bc58e796dda3c9be6bfb72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the entity with a shear.  <a href="#a429ec24cc0bc58e796dda3c9be6bfb72">More...</a><br/></td></tr>
 <tr class="separator:a429ec24cc0bc58e796dda3c9be6bfb72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add396dcb93edb4abadfde2b5845143c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#add396dcb93edb4abadfde2b5845143c5">Scale</a> (const <a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> &amp;Factors)</td></tr>
+<tr class="memdesc:add396dcb93edb4abadfde2b5845143c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the entity with scaling factors.  <a href="#add396dcb93edb4abadfde2b5845143c5">More...</a><br/></td></tr>
 <tr class="separator:add396dcb93edb4abadfde2b5845143c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aeebacf52678e8605e02bc818e2cb50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a6aeebacf52678e8605e02bc818e2cb50">Offload</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO, const bool keep=true)</td></tr>
-<tr class="separator:a6aeebacf52678e8605e02bc818e2cb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29af9606f3ee96900399360b68c40325"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a29af9606f3ee96900399360b68c40325">Rotate</a> (const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a> degrees)</td></tr>
+<tr class="memdesc:a29af9606f3ee96900399360b68c40325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate the entity in 2-dimensions (on the Z-axis).  <a href="#a29af9606f3ee96900399360b68c40325">More...</a><br/></td></tr>
+<tr class="separator:a29af9606f3ee96900399360b68c40325"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76cd1ef51b44c3e58ba8e3c4c19a92d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a76cd1ef51b44c3e58ba8e3c4c19a92d1">Invert</a> ()</td></tr>
+<tr class="memdesc:a76cd1ef51b44c3e58ba8e3c4c19a92d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverts the vertex and texture coordinates of internal primitives.  <a href="#a76cd1ef51b44c3e58ba8e3c4c19a92d1">More...</a><br/></td></tr>
 <tr class="separator:a76cd1ef51b44c3e58ba8e3c4c19a92d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aeebacf52678e8605e02bc818e2cb50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a6aeebacf52678e8605e02bc818e2cb50">Offload</a> (<a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">gfxcore::CVertexArray</a> &amp;VAO, const bool keep=true)</td></tr>
+<tr class="memdesc:a6aeebacf52678e8605e02bc818e2cb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offloads the internal primitives to the given GPU buffer.  <a href="#a6aeebacf52678e8605e02bc818e2cb50">More...</a><br/></td></tr>
+<tr class="separator:a6aeebacf52678e8605e02bc818e2cb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2478458913355ccb8cbb93040f27468c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a2478458913355ccb8cbb93040f27468c">Offloaded</a> () const </td></tr>
+<tr class="memdesc:a2478458913355ccb8cbb93040f27468c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the entity has offloaded any vertex data to a GPU buffer.  <a href="#a2478458913355ccb8cbb93040f27468c">More...</a><br/></td></tr>
+<tr class="separator:a2478458913355ccb8cbb93040f27468c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f661afcfe6c8ff5da6f4d5646563b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a98f661afcfe6c8ff5da6f4d5646563b4">SetDepth</a> (uint16_t depth)</td></tr>
+<tr class="memdesc:a98f661afcfe6c8ff5da6f4d5646563b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the depth of the entity, for shadows or masking later on.  <a href="#a98f661afcfe6c8ff5da6f4d5646563b4">More...</a><br/></td></tr>
 <tr class="separator:a98f661afcfe6c8ff5da6f4d5646563b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eae20ab0ada82a7d558957059f28463"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a1eae20ab0ada82a7d558957059f28463">GetTransformation</a> () const </td></tr>
+<tr class="memdesc:a1eae20ab0ada82a7d558957059f28463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves an immutable reference to the transformation matrix.  <a href="#a1eae20ab0ada82a7d558957059f28463">More...</a><br/></td></tr>
 <tr class="separator:a1eae20ab0ada82a7d558957059f28463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0421c82d46697cf7b3742ad7b8531c5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structzen_1_1math_1_1aabb__t.html">math::aabb_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#aa0421c82d46697cf7b3742ad7b8531c5">GetBox</a> () const </td></tr>
+<tr class="separator:aa0421c82d46697cf7b3742ad7b8531c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af814d19c507e3c5e1034385818c865c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#af814d19c507e3c5e1034385818c865c2">GetPosition</a> () const </td></tr>
 <tr class="separator:af814d19c507e3c5e1034385818c865c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b961d24230991eea86c734be525ba48"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a8b961d24230991eea86c734be525ba48">GetSortFlag</a> () const </td></tr>
 <tr class="separator:a8b961d24230991eea86c734be525ba48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50320d838ac9db5d3c2cba05ad75970a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_quad.html">gfx::CQuad</a> * &gt;<br class="typebreak"/>
 ::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a50320d838ac9db5d3c2cba05ad75970a">cbegin</a> () const </td></tr>
+<tr class="memdesc:a50320d838ac9db5d3c2cba05ad75970a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the start of the internal primitive list.  <a href="#a50320d838ac9db5d3c2cba05ad75970a">More...</a><br/></td></tr>
 <tr class="separator:a50320d838ac9db5d3c2cba05ad75970a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e70cf86da7e4b0af6277f5c45716828"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_quad.html">gfx::CQuad</a> * &gt;<br class="typebreak"/>
 ::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a5e70cf86da7e4b0af6277f5c45716828">cend</a> () const </td></tr>
+<tr class="memdesc:a5e70cf86da7e4b0af6277f5c45716828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator to the end of the internal primitive list.  <a href="#a5e70cf86da7e4b0af6277f5c45716828">More...</a><br/></td></tr>
 <tr class="separator:a5e70cf86da7e4b0af6277f5c45716828"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a89c01da497112d99b0cdd8af36134"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a05a89c01da497112d99b0cdd8af36134">Enable</a> ()</td></tr>
+<tr class="separator:a05a89c01da497112d99b0cdd8af36134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab252e7b7fb213c8047ef46651478990c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ab252e7b7fb213c8047ef46651478990c">Disable</a> ()</td></tr>
+<tr class="separator:ab252e7b7fb213c8047ef46651478990c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -179,6 +205,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:af795614f802cfaf2418678b75ad2d074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b5ac0aec9223944aa96cddc4b40333"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#af8b5ac0aec9223944aa96cddc4b40333">m_MV</a></td></tr>
 <tr class="separator:af8b5ac0aec9223944aa96cddc4b40333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaea03f9ace2d3a6521f5be9475602c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structzen_1_1math_1_1aabb__t.html">math::aabb_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#afaea03f9ace2d3a6521f5be9475602c4">m_Box</a></td></tr>
+<tr class="separator:afaea03f9ace2d3a6521f5be9475602c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9716e68cd74d264fc980294621fabbff"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classzen_1_1gfx_1_1_c_quad.html">gfx::CQuad</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a9716e68cd74d264fc980294621fabbff">mp_allPrims</a></td></tr>
 <tr class="separator:a9716e68cd74d264fc980294621fabbff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ea5ae5d40e12e5d5c1d9bfd9ff1893a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">m_filename</a></td></tr>
@@ -189,20 +217,25 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a1430c60e31989987755c2174cd495c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1d0b75e8eab0f6c36bbbc5f6c68535a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#af1d0b75e8eab0f6c36bbbc5f6c68535a">m_inv</a></td></tr>
 <tr class="separator:af1d0b75e8eab0f6c36bbbc5f6c68535a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34594239ebc364b8275f9a4578e02abb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a34594239ebc364b8275f9a4578e02abb">m_enabled</a></td></tr>
+<tr class="separator:a34594239ebc364b8275f9a4578e02abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>These differ from generic primitives in the sense that they have a lot more functionality abstracted away, as well as additional functions like animation and physics reactions (in inheriting classes). They do use the <a class="el" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive.">zen::gfx::CQuad</a> class at their core, but function at a much higher level.</p>
 <p>They can also be loaded from files (see the spec) and can contain multiple primitive instances.</p>
-<p>When creating an entity from multiple primitives, a copy of the primitive data will be stored internally in order to prevent a bad reference later. Thus it's recommended that if you will be creating via <code><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430">AddPrimitive()</a></code> that you either dynamically allocate the primitives and then <code>delete</code> later, or you ensure that they go out of scope soon to prevent useless data duplication.</p>
-<p>The call to <code><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ad5a5f5d9f1874acdbb44bcb4379ec87c">Optimize()</a></code> is not necessary, but is recommended to merge identical primitives together if they use the same material, especially if you've got some CPU cycles to spare, because it will save render state switches down the road.</p>
-<dl class="section see"><dt>See Also</dt><dd>specs.html::ZEnt</dd></dl>
+<p>When creating an entity from multiple primitives, a copy of the primitive data will be stored internally in order to prevent a bad reference later. Thus it's recommended that if you will be creating via <code><a class="el" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it.">AddPrimitive()</a></code> that you either dynamically allocate the primitives and then <code>delete</code> later, or you ensure that they go out of scope soon to prevent useless data duplication.</p>
+<p>The call to <code><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ad5a5f5d9f1874acdbb44bcb4379ec87c" title="Merges primitive data with shared materials.">Optimize()</a></code> is not necessary, but is recommended to merge identical primitives together if they use the same material, especially if you've got some CPU cycles to spare, because it will save render state switches down the road.</p>
+<dl class="section see"><dt>See Also</dt><dd>specs.html</dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Allow for additional primitives not to stack up. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00047">47</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00049">49</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a671c6ef43261b9c0deed7ec4a8451e33"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CEntity::CEntity </td>
@@ -212,6 +245,11 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00009">9</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
@@ -257,6 +295,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>There is a detailed specification for well-formed loading of single and multi-primitive entity loading with unique material attachments for each. This will implicitly call <code><a class="el" href="classzen_1_1obj_1_1_c_entity.html#ad5a5f5d9f1874acdbb44bcb4379ec87c" title="Merges primitive data with shared materials.">Optimize()</a></code> when loading is complete.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The path to the entity file.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if loaded successfully, and <code>false</code> otherwise. There is no retrievable error, but something appropriate will be logged.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>The entity file specification page <a href="index.html">here</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00021">21</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
@@ -275,8 +322,16 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This will simply make a quad entity the exact width and height as the provided texture returns.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Path to texture</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the image and entity loaded successfully, <code>false</code> otherwise. There is no retrievable error, but something appropriate will be logged. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00132">132</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00121">121</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -302,15 +357,24 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This will store a copy of the primitive locally, to prevent bad references occuring later. Thus it's advisable to <code>delete</code> heap memory when done here, or ensure that the given primitive will go off the stack soon, to prevent uneccessary memory duplication.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Prim</td><td>A primitive with a non-default material attached</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the primitive loaded with a valid textre, and <code>false</code> otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Currently, multiple calls to this method will stack primitive on top of one another, since there is no position specification on them. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00152">152</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00144">144</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1obj_1_1_c_entity_a63e5f09fdd8171e4a8f783b78eb3e430_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_a63e5f09fdd8171e4a8f783b78eb3e430_icgraph" alt=""/></div>
 <map name="classzen_1_1obj_1_1_c_entity_a63e5f09fdd8171e4a8f783b78eb3e430_icgraph" id="classzen_1_1obj_1_1_c_entity_a63e5f09fdd8171e4a8f783b78eb3e430_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="181,5,384,32"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="212,57,353,98"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="203,123,363,149"/><area shape="rect" id="node5" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="432,123,483,149"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="181,5,384,32"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="212,57,353,98"/><area shape="rect" id="node4" href="classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="203,123,363,149"/><area shape="rect" id="node5" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="432,123,483,149"/></map>
 </div>
 </p>
 
@@ -328,8 +392,11 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If multiple internal quads share the same material data, this will merge their vertex buffer data together in order to minimize draw calls and state changes later when rendering.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if any optimization was done, <code>false</code> otherwise.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Not implemented. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00172">172</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00166">166</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -346,8 +413,16 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Since entities are just collections of one or more primitives, this will simply call <code><a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on-screen.">gfx::CQuad::Draw</a></code> on each individual internal primitive.</p>
+<p>If <code>is_bound</code> is <code>true</code>, the draw call will only do drawing (go figure). Otherwise, it will create an internal vertex array (on first draw), bind its local material, set up the model-view matrix, etc, and then do drawing. This allows for various scenarios and prevents the user from having to set up this data on their own if they just want to get something on-screen.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is_bound</td><td>Is there already buffer / material data bound? </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00219">219</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00213">213</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -373,16 +448,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>In future revisions, this will adjust all internal primitives accordingly, once the default primitive stacking behavior is removed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Pos</td><td>The coordinate to place the entity at</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Support a variety of primitive depths. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00227">227</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00223">223</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1obj_1_1_c_entity_a670a1ae47b5e60e281382c6a5c21e53d_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_a670a1ae47b5e60e281382c6a5c21e53d_icgraph" alt=""/></div>
 <map name="classzen_1_1obj_1_1_c_entity_a670a1ae47b5e60e281382c6a5c21e53d_icgraph" id="classzen_1_1obj_1_1_c_entity_a670a1ae47b5e60e281382c6a5c21e53d_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="249,5,300,32"/><area shape="rect" id="node3" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="211,57,338,98"/></map>
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="249,5,300,32"/><area shape="rect" id="node3" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file." alt="" coords="211,57,338,98"/></map>
 </div>
 </p>
 
@@ -417,6 +499,7 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. </p>
 
 </div>
 </div>
@@ -442,7 +525,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00076">76</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00160">160</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -477,7 +560,70 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00077">77</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00163">163</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a29af9606f3ee96900399360b68c40325"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::obj::CEntity::Rotate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a5d32de474b003f05ae63578b15865826">real_t</a>&#160;</td>
+          <td class="paramname"><em>degrees</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00166">166</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76cd1ef51b44c3e58ba8e3c4c19a92d1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::obj::CEntity::Invert </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This will do nothing for existing primitives and data, and only applies to things that will be loaded after this call.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>Nothing has been loaded into the entity.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values.">zen::gfx::CQuad::SetInverted()</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00177">177</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph" alt=""/></div>
+<map name="classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph" id="classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="181,12,232,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -504,42 +650,36 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>If <code>keep</code> is specified (the default), the primitives will maintain their data and just offload a copy of it. Otherwise, local data will be permanently deleted until more data is added.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">VAO</td><td>The vertex array to offload data to </td></tr>
+    <tr><td class="paramname">keep</td><td>Keep the vertex data locally? (optional=<code>true</code>)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>When permanently offloaded with <code>keep=false</code>, later adding more primitives or reloading more data is untested and may cause problems.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The data will stay on the GPU, occupying precious video memory, until the <code><a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects.">gfxcore::CVertexArray</a></code> is cleared.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>zen::gfxcore::CVertexArray::Clear() </dd></dl>
 
 <p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00241">241</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a76cd1ef51b44c3e58ba8e3c4c19a92d1"></a>
+<a class="anchor" id="a2478458913355ccb8cbb93040f27468c"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void zen::obj::CEntity::Invert </td>
+          <td class="memname">bool CEntity::Offloaded </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00081">81</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph" alt=""/></div>
-<map name="classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph" id="classzen_1_1obj_1_1_c_entity_a76cd1ef51b44c3e58ba8e3c4c19a92d1_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="181,12,232,39"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00249">249</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +697,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00249">249</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00265">265</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -574,7 +714,24 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00258">258</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00274">274</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa0421c82d46697cf7b3742ad7b8531c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structzen_1_1math_1_1aabb__t.html">math::aabb_t</a> &amp; CEntity::GetBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00284">284</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -591,7 +748,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00263">263</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00279">279</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1obj_1_1_c_entity_af814d19c507e3c5e1034385818c865c2_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_af814d19c507e3c5e1034385818c865c2_icgraph" alt=""/></div>
+<map name="classzen_1_1obj_1_1_c_entity_af814d19c507e3c5e1034385818c865c2_icgraph" id="classzen_1_1obj_1_1_c_entity_af814d19c507e3c5e1034385818c865c2_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file." alt="" coords="182,5,309,46"/><area shape="rect" id="node4" href="classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it." alt="" coords="182,91,309,133"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="608,84,659,111"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="357,51,560,77"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="388,102,529,143"/><area shape="rect" id="node7" href="classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="379,168,539,195"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -608,7 +774,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00268">268</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00289">289</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -625,7 +791,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00273">273</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00294">294</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1obj_1_1_c_entity_a50320d838ac9db5d3c2cba05ad75970a_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_a50320d838ac9db5d3c2cba05ad75970a_icgraph" alt=""/></div>
+<map name="classzen_1_1obj_1_1_c_entity_a50320d838ac9db5d3c2cba05ad75970a_icgraph" id="classzen_1_1obj_1_1_c_entity_a50320d838ac9db5d3c2cba05ad75970a_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_button.html#a5165ca36535e9607cf1919d2be10cf4b" title="zen::gui::CButton::\lSetBackground" alt="" coords="181,5,312,46"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_menu.html#a97dfac22c8a04f2f5dbab8234f2a354c" title="zen::gui::CMenu::AddButton" alt="" coords="360,12,547,39"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="595,12,645,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -642,7 +817,66 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00278">278</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00299">299</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1obj_1_1_c_entity_a5e70cf86da7e4b0af6277f5c45716828_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_a5e70cf86da7e4b0af6277f5c45716828_icgraph" alt=""/></div>
+<map name="classzen_1_1obj_1_1_c_entity_a5e70cf86da7e4b0af6277f5c45716828_icgraph" id="classzen_1_1obj_1_1_c_entity_a5e70cf86da7e4b0af6277f5c45716828_icgraph">
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_button.html#a5165ca36535e9607cf1919d2be10cf4b" title="zen::gui::CButton::\lSetBackground" alt="" coords="208,5,339,46"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_menu.html#a97dfac22c8a04f2f5dbab8234f2a354c" title="zen::gui::CMenu::AddButton" alt="" coords="387,12,573,39"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="621,12,672,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a05a89c01da497112d99b0cdd8af36134"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::obj::CEntity::Enable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00218">218</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab252e7b7fb213c8047ef46651478990c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zen::obj::CEntity::Disable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00219">219</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -667,14 +901,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00178">178</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00172">172</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph" alt=""/></div>
 <map name="classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph" id="classzen_1_1obj_1_1_c_entity_af6670334ed481cf27b779969711d45dd_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="191,5,332,46"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="181,71,341,97"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#a11b9405b57ca1b32d270c6a661c11683" title="zen::obj::CEntity::\l~CEntity" alt="" coords="198,122,325,163"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="198,187,325,229"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="198,253,325,294"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="389,165,440,192"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="191,5,332,46"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="181,71,341,97"/><area shape="rect" id="node5" href="classzen_1_1obj_1_1_c_entity.html#a11b9405b57ca1b32d270c6a661c11683" title="zen::obj::CEntity::\l~CEntity" alt="" coords="198,122,325,163"/><area shape="rect" id="node6" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file." alt="" coords="198,187,325,229"/><area shape="rect" id="node7" href="classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file." alt="" coords="198,253,325,294"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="389,165,440,192"/></map>
 </div>
 </p>
 
@@ -724,14 +958,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00184">184</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00178">178</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1obj_1_1_c_entity_afe01427442323f71ab2e20174a71a12c_icgraph.png" border="0" usemap="#classzen_1_1obj_1_1_c_entity_afe01427442323f71ab2e20174a71a12c_icgraph" alt=""/></div>
 <map name="classzen_1_1obj_1_1_c_entity_afe01427442323f71ab2e20174a71a12c_icgraph" id="classzen_1_1obj_1_1_c_entity_afe01427442323f71ab2e20174a71a12c_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="182,5,309,46"/></map>
+<area shape="rect" id="node2" href="classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file." alt="" coords="182,5,309,46"/></map>
 </div>
 </p>
 
@@ -756,7 +990,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00101">101</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00230">230</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -778,7 +1012,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00102">102</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00231">231</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -800,7 +1034,29 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00104">104</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00233">233</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afaea03f9ace2d3a6521f5be9475602c4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structzen_1_1math_1_1aabb__t.html">math::aabb_t</a> zen::obj::CEntity::m_Box</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00234">234</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -822,7 +1078,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00105">105</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00235">235</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -844,7 +1100,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00106">106</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00236">236</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +1122,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00107">107</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00237">237</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -888,7 +1144,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00108">108</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00238">238</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +1166,29 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00109">109</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00239">239</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a34594239ebc364b8275f9a4578e02abb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool zen::obj::CEntity::m_enabled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00239">239</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>

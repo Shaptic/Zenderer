@@ -92,7 +92,7 @@ namespace util
         /**
          * Retrieves a value based on a key in the dictionary.
          *  If the file stream contained `texture=Data.tga`, and you
-         *  called GetValue("texture"), the function gives back "Data.tga".
+         *  called `GetValue("texture")`, the function gives back "Data.tga".
          *
          * @param   key     Key to access
          *
@@ -118,7 +118,7 @@ namespace util
          *  delimiter, and return the result.
          *
          * @param   key         Key to access
-         * @param   delimiter   Character to split 'value' on (optional=`comma`)
+         * @param   delimiter   Character to split 'value' on (optional=',')
          *
          * @return  Result if 'key' exists,
          *          the 'value' in the pair (in a `vector`) if not.
@@ -209,7 +209,7 @@ namespace util
  *
  *  Let's assume we have a file whose contents look like so:
  *
- *  <pre>
+ *  @code
  *  file=example.txt
  *  author=me
  *  package=zenderer
@@ -217,7 +217,7 @@ namespace util
  *  // here is the point:
  *  values1=stuff,morestuff,finalstuff
  *  values2=data:moredata:finaldata
- *  </pre>
+ *  @endcode
  *
  *  And we want to retrieve the values after `values1` and
  *  `values2` separately, since zen::util::CINIParser::GetValue()
@@ -233,15 +233,15 @@ namespace util
  *      // Delimited defaults to a comma (',') character
  *      std::vector<string_t> keyValues = Parser.GetValues("values1");
  *
- *      for(size_t i = 0; i < keyValues.size(); ++i)
+ *      for(auto& i : keyValues)
  *      {
- *          std::cout << keyValues[i] << ' ';
+ *          std::cout << i << ' ';
  *      }
  *
  *      keyValues = Parser.GetValues("values2", ':');
- *      for(size_t i = 0; i < keyValues.size(); ++i)
+ *      for(auto& i : keyValues)
  *      {
- *          std::cout << keyValues[i] << ' ';
+ *          std::cout << i << ' ';
  *      }
  *  @endcode
  *

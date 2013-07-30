@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -121,9 +121,9 @@ $(document).ready(function(){initNavTree('classzen_1_1gfx_1_1_c_light.html','');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab363c7d9882dff55b50a72faedcd2ccc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html#ab363c7d9882dff55b50a72faedcd2ccc">CLight</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;m_Assets, const LightType &amp;Type, const uint16_t window_h=800)</td></tr>
-<tr class="memdesc:ab363c7d9882dff55b50a72faedcd2ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a light instance.  <a href="#ab363c7d9882dff55b50a72faedcd2ccc">More...</a><br/></td></tr>
-<tr class="separator:ab363c7d9882dff55b50a72faedcd2ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc1cb87199f57548ff303fb324ff08e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html#adc1cb87199f57548ff303fb324ff08e1">CLight</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;m_Assets, const LightType &amp;Type, const uint16_t window_h)</td></tr>
+<tr class="memdesc:adc1cb87199f57548ff303fb324ff08e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a light instance.  <a href="#adc1cb87199f57548ff303fb324ff08e1">More...</a><br/></td></tr>
+<tr class="separator:adc1cb87199f57548ff303fb324ff08e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef6c25b7608cf6776c3a627c03f70ff2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2">~CLight</a> ()</td></tr>
 <tr class="separator:aef6c25b7608cf6776c3a627c03f70ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcbc2641c459f93aebd72f3ff99fa0df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df">Init</a> ()</td></tr>
@@ -163,11 +163,11 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Each lighting type has its own special variables and parameters that can be modified and accessed. See the raw shader files to learn the specific parameter names, or the specification <a href="specs.html">here</a>.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Investigate why the <code>scr_height</code> parameter is necessary. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Investigate why the <code>scr_height</code> shader parameter is necessary. </dd></dl>
 
 <p>Definition at line <a class="el" href="_light_8hpp_source.html#l00043">43</a> of file <a class="el" href="_light_8hpp_source.html">Light.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab363c7d9882dff55b50a72faedcd2ccc"></a>
+<a class="anchor" id="adc1cb87199f57548ff303fb324ff08e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>window_h</em> = <code>800</code>&#160;</td>
+          <td class="paramname"><em>window_h</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -196,7 +196,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The window height is required for the shader to perform some weird offset calculations that would otherwise give bad results in terms of light positioning. It defaults to 800px.</p>
+<p>The window height is required for the shader to perform some weird offset calculations that would otherwise give bad results in terms of light positioning.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">m_Assets</td><td>The asset manager to make the effect from </td></tr>

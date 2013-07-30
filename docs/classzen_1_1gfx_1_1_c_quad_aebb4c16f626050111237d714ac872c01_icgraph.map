@@ -1,0 +1,8 @@
+<map id="zen::gfx::CQuad::GetW" name="zen::gfx::CQuad::GetW">
+<area shape="rect" id="node2" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file." alt="" coords="214,5,341,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it." alt="" coords="214,91,341,133"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="640,84,691,111"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="389,51,592,77"/>
+<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="420,102,561,143"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="411,168,571,195"/>
+</map>

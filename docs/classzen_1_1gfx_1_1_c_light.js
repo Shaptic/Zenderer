@@ -1,6 +1,6 @@
 var classzen_1_1gfx_1_1_c_light =
 [
-    [ "CLight", "classzen_1_1gfx_1_1_c_light.html#ab363c7d9882dff55b50a72faedcd2ccc", null ],
+    [ "CLight", "classzen_1_1gfx_1_1_c_light.html#adc1cb87199f57548ff303fb324ff08e1", null ],
     [ "~CLight", "classzen_1_1gfx_1_1_c_light.html#aef6c25b7608cf6776c3a627c03f70ff2", null ],
     [ "Init", "classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df", null ],
     [ "IsInit", "classzen_1_1gfx_1_1_c_light.html#ad9a41b61cf148dc434c47efb07b57339", null ],

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -123,158 +123,220 @@ $(document).ready(function(){initNavTree('_window_8cpp_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="namespacezen_1_1gfx.html#a7fc1cbadadf44939bd470783cd2b33d2">CWindow::CWindow</a>(<span class="keyword">const</span> uint16_t     width,</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                 <span class="keyword">const</span> uint16_t     height,</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                 <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine.">string_t</a>&amp;    caption,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                 <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Mgr) :</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a>(<span class="stringliteral">&quot;Window&quot;</span>), m_Log(<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>::GetEngineLog()),</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    m_Assets(Mgr), m_Dimensions(width, height),</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    m_fullscreen(</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;#ifdef _DEBUG</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        false)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;#else</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        true)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;#endif <span class="comment">// _DEBUG</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                 <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets.">asset::CAssetManager</a>&amp; Mgr,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                 <span class="keyword">const</span> <span class="keywordtype">bool</span>         fullscreen) :</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems.">CSubsystem</a>(<span class="stringliteral">&quot;Window&quot;</span>), m_Log(<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information.">CLog</a>::GetEngineLog()),</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_Assets(Mgr), m_Dimensions(width, height),</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_fullscreen(fullscreen) {}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87">   22</a></span>&#160;CWindow::~CWindow()</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87">   27</a></span>&#160;CWindow::~CWindow()</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8">   27</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CWindow::Init</a>()</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    this-&gt;Destroy();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">CWindow::Init</a>()</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Window&quot;</span>)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message.">LogMode::ZEN_INFO</a>)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Set up window (&quot;</span> &lt;&lt; m_Dimensions.x &lt;&lt; <span class="stringliteral">&quot;x&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            &lt;&lt; m_Dimensions.y &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; m_caption &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    uint16_t major = (int)<a class="code" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b" title="Minimum supported OpenGL API version.">ZENDERER_GL_VERSION</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    uint16_t minor = floor(((<a class="code" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b" title="Minimum supported OpenGL API version.">ZENDERER_GL_VERSION</a> - major) * 10) + 0.5);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    m_Log   &lt;&lt; <span class="stringliteral">&quot;Minimum OpenGL version: &quot;</span> &lt;&lt; major &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; minor</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Set up window to be version major.minor and core profile only.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    glfwWindowHint(GLFW_RED_BITS, 8);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    glfwWindowHint(GLFW_BLUE_BITS, 8);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    glfwWindowHint(GLFW_GREEN_BITS, 8);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    glfwWindowHint(GLFW_ALPHA_BITS, 8);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    glfwWindowHint(GLFW_DEPTH_BITS, 24);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    glfwWindowHint(GLFW_STENCIL_BITS, 0);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Create the window.</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        m_caption.c_str(), m_fullscreen ? glfwGetPrimaryMonitor() : <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span>(mp_Window == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_FATAL)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Failed to create OpenGL window v&quot;</span> &lt;&lt; major &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; minor</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                &lt;&lt; <span class="stringliteral">&quot; (fullscreen = &quot;</span> &lt;&lt; (m_fullscreen ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;)!&quot;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        m_Log   &lt;&lt; <span class="stringliteral">&quot;Created OpenGL window v&quot;</span> &lt;&lt; major &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; minor</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                &lt;&lt; <span class="stringliteral">&quot; (fullscreen = &quot;</span> &lt;&lt; (m_fullscreen ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    glfwMakeContextCurrent(mp_Window);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span>(m_fullscreen)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">// Registers event callbacks with GLFW.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    glfwSetCharCallback(mp_Window, evt::CEventHandler::CharacterCallback);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    glfwSetKeyCallback(mp_Window, evt::CEventHandler::KeyboardCallback);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    glfwSetMouseButtonCallback(mp_Window, evt::CEventHandler::MouseCallback);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    m_Log &lt;&lt; <span class="stringliteral">&quot;Initializing GLEW: &quot;</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    glewExperimental = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">if</span>(glewInit() != GLEW_OK)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        m_Log &lt;&lt; m_Log.SetMode(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">else</span> m_Log &lt;&lt; <span class="stringliteral">&quot;SUCCESS.&quot;</span> &lt;&lt; CLog::endl;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Clears a weird error of glewInit() giving 1280 (invalid enumerant)</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"></span>    glGetError();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(m_init)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Window&quot;</span>)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error.">LogMode::ZEN_ERROR</a>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Window is already initialized; destroy it first!&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Window&quot;</span>)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message.">LogMode::ZEN_INFO</a>)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Set up window (&quot;</span> &lt;&lt; m_Dimensions.x &lt;&lt; <span class="stringliteral">&quot;x&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            &lt;&lt; m_Dimensions.y &lt;&lt; <span class="stringliteral">&quot;): &quot;</span> &lt;&lt; m_caption &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    uint16_t major = (int)<a class="code" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b" title="Minimum supported OpenGL API version.">ZENDERER_GL_VERSION</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    uint16_t minor = floor(((<a class="code" href="namespacezen_1_1gfx.html#ae7063428bb7b670de6aa13b3ebc39b2b" title="Minimum supported OpenGL API version.">ZENDERER_GL_VERSION</a> - major) * 10) + 0.5);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    m_Log   &lt;&lt; <span class="stringliteral">&quot;Minimum OpenGL version: &quot;</span> &lt;&lt; major &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; minor</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Set up window to be version major.minor and core profile only.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    glfwWindowHint(GLFW_RED_BITS, 8);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    glfwWindowHint(GLFW_BLUE_BITS, 8);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    glfwWindowHint(GLFW_GREEN_BITS, 8);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    glfwWindowHint(GLFW_ALPHA_BITS, 8);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    glfwWindowHint(GLFW_DEPTH_BITS, 24);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    glfwWindowHint(GLFW_STENCIL_BITS, 0);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// Create the window.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        m_caption.c_str(), m_fullscreen ? glfwGetPrimaryMonitor() : <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(mp_Window == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        m_Log   &lt;&lt; m_Log.SetMode(LogMode::ZEN_FATAL)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Failed to create OpenGL window v&quot;</span> &lt;&lt; major &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; minor</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                &lt;&lt; <span class="stringliteral">&quot; (fullscreen = &quot;</span> &lt;&lt; (m_fullscreen ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;)!&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        m_Log   &lt;&lt; <span class="stringliteral">&quot;Created OpenGL window v&quot;</span> &lt;&lt; major &lt;&lt; <span class="charliteral">&#39;.&#39;</span> &lt;&lt; minor</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                &lt;&lt; <span class="stringliteral">&quot; (fullscreen = &quot;</span> &lt;&lt; (m_fullscreen ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    glfwMakeContextCurrent(mp_Window);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>(m_fullscreen)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// Registers event callbacks with GLFW.</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    glfwSetCharCallback(mp_Window, evt::CEventHandler::CharacterCallback);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    glfwSetKeyCallback(mp_Window, evt::CEventHandler::KeyboardCallback);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    glfwSetMouseButtonCallback(mp_Window, evt::CEventHandler::MouseCallback);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    m_Log &lt;&lt; <span class="stringliteral">&quot;Initializing GLEW: &quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    glewExperimental = GL_TRUE;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">if</span>(glewInit() != GLEW_OK)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        m_Log &lt;&lt; m_Log.SetMode(LogMode::ZEN_FATAL) &lt;&lt; <span class="stringliteral">&quot;FAILED.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">else</span> m_Log &lt;&lt; <span class="stringliteral">&quot;SUCCESS.&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                                   m_Dimensions.y,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                                   16, 1);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// Clears a weird error of glewInit() giving 1280 (invalid enumerant)</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"></span>    glGetError();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> (m_init = <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">gfxcore::CRenderer::Init</a>(m_Assets,</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                              m_Dimensions.x,</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                              m_Dimensions.y));</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">  113</a></span>&#160;<span class="keywordtype">bool</span> CWindow::Destroy()</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">delete</span> gfxcore::CRenderer::s_DefaultMaterial;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    m_Assets.Destroy();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    glfwDestroyWindow(mp_Window);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    mp_Window = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a8c829e940b9d9fea7ac4f416e828df05">  122</a></span>&#160;<span class="keywordtype">bool</span> CWindow::Clear()</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClear(m_clearbits));</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClearColor(0.f, 0.f, 0.f, 1.f));</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a7f0bbe1f4f851531112c92844555761f">  129</a></span>&#160;<span class="keywordtype">bool</span> CWindow::Clear(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>&amp; Color)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClear(m_clearbits));</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClearColor(Color.<a class="code" href="structzen_1_1color4f__t.html#a44262def993ddcd13124c8a3b7b7f3d5" title="Red.">r</a>, Color.<a class="code" href="structzen_1_1color4f__t.html#abca0c3ccf903bdd501f5b466b2b28288" title="Green.">g</a>, Color.<a class="code" href="structzen_1_1color4f__t.html#af262e04a2155f880cb4eeb887e3a27a3" title="Blue.">b</a>, Color.<a class="code" href="structzen_1_1color4f__t.html#a25b572bb79a9fec7ca39cc8051e11739" title="Alpha.">a</a>));</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c">  136</a></span>&#160;<span class="keywordtype">void</span> CWindow::Update()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">if</span>(this-&gt;IsInit()) glfwSwapBuffers(mp_Window);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091">  141</a></span>&#160;<span class="keywordtype">bool</span> CWindow::IsOpen()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span> !glfwWindowShouldClose(mp_Window);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#ad1976ef7e312c2df8694759f9a421fb3">  146</a></span>&#160;<a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> <a class="code" href="namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0">CWindow::GetMousePosition</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">double</span> x, y;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    glfwGetCursorPos(mp_Window, &amp;x, &amp;y);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(x, y);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                                   m_Dimensions.y,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                                   16, 1);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> (m_init = <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">gfxcore::CRenderer::Init</a>(m_Assets,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                              m_Dimensions.x,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                              m_Dimensions.y));</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855">  117</a></span>&#160;<span class="keywordtype">bool</span> CWindow::Destroy()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span>(!m_init) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">delete</span> gfxcore::CRenderer::s_DefaultMaterial;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    m_Assets.Destroy();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    glfwDestroyWindow(mp_Window);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    mp_Window = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a8c829e940b9d9fea7ac4f416e828df05">  128</a></span>&#160;<span class="keywordtype">bool</span> CWindow::Clear()</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClear(m_clearbits));</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClearColor(0.f, 0.f, 0.f, 1.f));</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a7f0bbe1f4f851531112c92844555761f">  135</a></span>&#160;<span class="keywordtype">bool</span> CWindow::Clear(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA).">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClear(m_clearbits));</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glClearColor(Color.<a class="code" href="structzen_1_1color4f__t.html#a44262def993ddcd13124c8a3b7b7f3d5" title="Red.">r</a>, Color.<a class="code" href="structzen_1_1color4f__t.html#abca0c3ccf903bdd501f5b466b2b28288" title="Green.">g</a>, Color.<a class="code" href="structzen_1_1color4f__t.html#af262e04a2155f880cb4eeb887e3a27a3" title="Blue.">b</a>, Color.<a class="code" href="structzen_1_1color4f__t.html#a25b572bb79a9fec7ca39cc8051e11739" title="Alpha.">a</a>));</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c">  142</a></span>&#160;<span class="keywordtype">void</span> CWindow::Update()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">if</span>(this-&gt;IsInit()) glfwSwapBuffers(mp_Window);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#ab5987f93d975a7548e40c7c8aad1307d">  147</a></span>&#160;<span class="keywordtype">bool</span> CWindow::ToggleFullscreen(<span class="keywordtype">int</span>* <span class="keyword">const</span> loaded)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">if</span>(m_fullscreen) <span class="keywordflow">return</span> this-&gt;DisableFullscreen(loaded);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">else</span>             <span class="keywordflow">return</span> this-&gt;EnableFullscreen(loaded);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#ab9ed5973af4d2224a482eae56ebad084">  153</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">CWindow::GetMouseState</a>(<span class="keyword">const</span> evt::MouseButton&amp; Btn)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> glfwGetMouseButton(mp_Window, static_cast&lt;int&gt;(Btn)) == GLFW_PRESS;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a63143db627c180d561c2162019c741d7">  158</a></span>&#160;<span class="keywordtype">bool</span> CWindow::ToggleVSYNC()</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> on = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="_window_8cpp.html#aeae8c3bbe97eb9a2c33b381c08c2a5ac">wglSwapIntervalEXT</a> = (<a class="code" href="_window_8cpp.html#a81af93c1ee0952eb0254c259125970f5">PFNWGLSWAPINTERVALFARPROC</a>)</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        wglGetProcAddress(<span class="stringliteral">&quot;wglSwapIntervalEXT&quot;</span>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="_window_8cpp.html#aeae8c3bbe97eb9a2c33b381c08c2a5ac">wglSwapIntervalEXT</a>(on = !on);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">return</span> on;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a3339fcf4250c24f03448f1b8c51c2012">  153</a></span>&#160;<span class="keywordtype">bool</span> CWindow::EnableFullscreen(<span class="keywordtype">int</span>* <span class="keyword">const</span> loaded)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span>(m_fullscreen) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    this-&gt;<a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    m_fullscreen = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    uint32_t done = this-&gt;ReloadAssets();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">if</span>(loaded != <span class="keyword">nullptr</span>) *loaded = done;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> done == m_Assets.GetAssetCount();</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#afd3587d5359dc9b8ac1adc0758f05a84">  165</a></span>&#160;<span class="keywordtype">bool</span> CWindow::DisableFullscreen(<span class="keywordtype">int</span>* <span class="keyword">const</span> loaded)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordflow">if</span>(!m_fullscreen) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    this-&gt;<a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    m_fullscreen = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    uint32_t done = this-&gt;ReloadAssets();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">if</span>(loaded != <span class="keyword">nullptr</span>) *loaded = done;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> done == m_Assets.GetAssetCount();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091">  177</a></span>&#160;<span class="keywordtype">bool</span> CWindow::IsOpen()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">return</span> !glfwWindowShouldClose(mp_Window);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a9b3c60c007d0108ee82304277549b7ad">  182</a></span>&#160;<span class="keywordtype">bool</span> CWindow::IsFullscreen()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordflow">return</span> m_fullscreen;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#ac2ec148343bb7675d331f06bed192ab3">  187</a></span>&#160;<span class="keywordtype">void</span> CWindow::Close()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    glfwSetWindowShouldClose(mp_Window, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#ad1976ef7e312c2df8694759f9a421fb3">  192</a></span>&#160;<a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> <a class="code" href="namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0" title="Retrieves the current mouse position on the active context.">CWindow::GetMousePosition</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">double</span> x, y;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    glfwGetCursorPos(mp_Window, &amp;x, &amp;y);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">math::vector_t</a>(x, y);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#ab9ed5973af4d2224a482eae56ebad084">  199</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103" title="Returns true if the mouse button is pressed.">CWindow::GetMouseState</a>(<span class="keyword">const</span> evt::MouseButton&amp; Btn)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">return</span> glfwGetMouseButton(mp_Window, static_cast&lt;int&gt;(Btn)) == GLFW_PRESS;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;uint32_t CWindow::ReloadAssets()</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;{</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    this-&gt;Destroy();</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    m_fullscreen = !m_fullscreen;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    this-&gt;<a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer.">Init</a>();</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">// Attempt to reload assets from their filenames.</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    uint32_t done = 0;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> i = m_Assets.cbegin(); i != m_Assets.cend(); ++i)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">if</span>((*i)-&gt;Reload()) ++done;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">return</span> done;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;}</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_window.html#a63143db627c180d561c2162019c741d7">  221</a></span>&#160;<span class="keywordtype">bool</span> CWindow::ToggleVSYNC()</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> on = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="_window_8cpp.html#aeae8c3bbe97eb9a2c33b381c08c2a5ac">wglSwapIntervalEXT</a> = (<a class="code" href="_window_8cpp.html#a81af93c1ee0952eb0254c259125970f5">PFNWGLSWAPINTERVALFARPROC</a>)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        wglGetProcAddress(<span class="stringliteral">&quot;wglSwapIntervalEXT&quot;</span>);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="_window_8cpp.html#aeae8c3bbe97eb9a2c33b381c08c2a5ac">wglSwapIntervalEXT</a>(on = !on);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> on;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

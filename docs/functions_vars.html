@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">0.1.*-dev</span>
+   &#160;<span id="projectnumber">1.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7003 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -257,11 +257,17 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>m_Assets
 : <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a1e0602295558bc4f3b9bf106c6994798">zen::obj::CEntity</a>
 </li>
+<li>m_Box
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#afaea03f9ace2d3a6521f5be9475602c4">zen::obj::CEntity</a>
+</li>
 <li>m_depth
 : <a class="el" href="classzen_1_1obj_1_1_c_entity.html#abb871fd28ffebcf62fd41d8c32da4933">zen::obj::CEntity</a>
 </li>
 <li>m_DrawData
 : <a class="el" href="classzen_1_1gfxcore_1_1_c_drawable.html#ac7a4507b960a2ad4079961b0e677d5c2">zen::gfxcore::CDrawable</a>
+</li>
+<li>m_enabled
+: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a34594239ebc364b8275f9a4578e02abb">zen::obj::CEntity</a>
 </li>
 <li>m_error_code
 : <a class="el" href="classzen_1_1sfx_1_1_c_audio2_d.html#a93f482a8e975a9f6130f1366a70d702f">zen::sfx::CAudio2D</a>
@@ -270,8 +276,8 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">zen::asset::CAsset</a>
 </li>
 <li>m_filename
-: <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">zen::obj::CEntity</a>
-, <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">zen::asset::CAsset</a>
+: <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">zen::asset::CAsset</a>
+, <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a0ea5ae5d40e12e5d5c1d9bfd9ff1893a">zen::obj::CEntity</a>
 </li>
 <li>m_filename_hash
 : <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">zen::asset::CAsset</a>
@@ -362,11 +368,14 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>parent
 : <a class="el" href="namespacezen_1_1util.html#a26448969e6306e4a91ffc71867590f55">zen::util::XMLNode</a>
 </li>
+<li>pos
+: <a class="el" href="structzen_1_1math_1_1aabb__t.html#aea57563135ff408fb404cd1ed34172f9">zen::math::aabb_t</a>
+</li>
 <li>position
-: <a class="el" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">zen::gui::glyph_t</a>
-, <a class="el" href="namespacezen.html#a9342e3f2e598c3222a5e80ba698a76b9">zen::glyph_t</a>
+: <a class="el" href="namespacezen.html#a9342e3f2e598c3222a5e80ba698a76b9">zen::glyph_t</a>
 , <a class="el" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">zen::evt::mouse_t</a>
 , <a class="el" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a">zen::gfxcore::vertex_t</a>
+, <a class="el" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">zen::gui::glyph_t</a>
 </li>
 </ul>
 
@@ -448,8 +457,11 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
 <li>x
 : <a class="el" href="structzen_1_1math_1_1rect__t.html#a1f4008364992e31c29fd8aac0be98dc3">zen::math::rect_t</a>
-, <a class="el" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7">zen::math::Vector&lt; T &gt;</a>
 , <a class="el" href="structzen_1_1math_1_1circle__t.html#a6c6c2707cc0f7ad3f6de214536fcb26f">zen::math::circle_t</a>
+, <a class="el" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7">zen::math::Vector&lt; T &gt;</a>
+</li>
+<li>xw
+: <a class="el" href="structzen_1_1math_1_1aabb__t.html#acd591568b25d7385d885a6cfdaad9c17">zen::math::aabb_t</a>
 </li>
 </ul>
 
@@ -457,8 +469,11 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <h3><a class="anchor" id="index_y"></a>- y -</h3><ul>
 <li>y
 : <a class="el" href="structzen_1_1math_1_1rect__t.html#a5a13393802c38a76bf78d735a24cebdb">zen::math::rect_t</a>
-, <a class="el" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">zen::math::Vector&lt; T &gt;</a>
 , <a class="el" href="structzen_1_1math_1_1circle__t.html#ad4bb585734f9733ee54ecaf9c39cbcde">zen::math::circle_t</a>
+, <a class="el" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">zen::math::Vector&lt; T &gt;</a>
+</li>
+<li>yw
+: <a class="el" href="structzen_1_1math_1_1aabb__t.html#a4b12cf143991d7ebdf82a8a9457bfe4d">zen::math::aabb_t</a>
 </li>
 </ul>
 
