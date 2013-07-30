@@ -15,9 +15,11 @@ var searchData=
   ['insertentity',['InsertEntity',['../classzen_1_1gfx_1_1_c_scene.html#afda837fcd999b0566b3e7212e5d71fdf',1,'zen::gfx::CScene']]],
   ['invert',['Invert',['../classzen_1_1obj_1_1_c_entity.html#a76cd1ef51b44c3e58ba8e3c4c19a92d1',1,'zen::obj::CEntity']]],
   ['is_5fenabled',['IS_ENABLED',['../_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586',1,'Renderer.hpp']]],
+  ['isfullscreen',['IsFullscreen',['../classzen_1_1gfx_1_1_c_window.html#a9b3c60c007d0108ee82304277549b7ad',1,'zen::gfx::CWindow']]],
   ['isinit',['IsInit',['../classzen_1_1sfx_1_1_c_audio_manager.html#a0e37c14ea1008f7a514cbfc5b67a0914',1,'zen::sfx::CAudioManager::IsInit()'],['../classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef',1,'zen::CSubsystem::IsInit()'],['../classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#a8f51d92f06d547070a5231f10f21fb7e',1,'zen::gfxcore::CGLSubsystem::IsInit()'],['../classzen_1_1gfx_1_1_c_light.html#ad9a41b61cf148dc434c47efb07b57339',1,'zen::gfx::CLight::IsInit()'],['../classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa',1,'zen::util::CLog::IsInit()']]],
   ['isloaded',['IsLoaded',['../classzen_1_1asset_1_1_c_asset.html#afc4ccb384bf6277fafeca9974ccdf017',1,'zen::asset::CAsset']]],
   ['ismodifiable',['IsModifiable',['../classzen_1_1gfxcore_1_1_c_drawable.html#a12ccd6cd370ebfc28858789d8a4392d7',1,'zen::gfxcore::CDrawable']]],
   ['isopen',['IsOpen',['../classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091',1,'zen::gfx::CWindow']]],
+  ['isover',['IsOver',['../classzen_1_1gui_1_1_c_button.html#aa501928d923654fb5ea486899df11189',1,'zen::gui::CButton::IsOver(const math::vector_t &amp;Pos)'],['../classzen_1_1gui_1_1_c_button.html#af8e80a25c082143a77d9b0937fb7f0cb',1,'zen::gui::CButton::IsOver(const math::aabb_t &amp;Box)']]],
   ['isvalidentityindex',['IsValidEntityIndex',['../classzen_1_1gfx_1_1_c_scene.html#abec7fa7a09742ed866cb84e54aed4e48',1,'zen::gfx::CScene']]]
 ];

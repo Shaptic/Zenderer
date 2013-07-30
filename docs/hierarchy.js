@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "zen::math::aabb_t", "structzen_1_1math_1_1aabb__t.html", null ],
     [ "zen::sfx::CAudio2D::ALData", "classzen_1_1sfx_1_1_c_audio2_d.html#structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data", null ],
     [ "zen::obj::bbox_t", "group___objects.html#structzen_1_1obj_1_1bbox__t", null ],
     [ "zen::asset::CAsset", "classzen_1_1asset_1_1_c_asset.html", [
@@ -12,6 +13,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "zen::sfx::CAudioManager", "classzen_1_1sfx_1_1_c_audio_manager.html", null ],
+    [ "zen::gui::CButton", "classzen_1_1gui_1_1_c_button.html", null ],
     [ "zen::gfxcore::CDrawable", "classzen_1_1gfxcore_1_1_c_drawable.html", [
       [ "zen::gfx::CPolygon", "classzen_1_1gfx_1_1_c_polygon.html", null ],
       [ "zen::gfx::CQuad", "classzen_1_1gfx_1_1_c_quad.html", null ]
@@ -31,6 +33,7 @@ var hierarchy =
     [ "zen::gfx::CLight", "classzen_1_1gfx_1_1_c_light.html", null ],
     [ "zen::util::CLog", "classzen_1_1util_1_1_c_log.html", null ],
     [ "zen::gfx::CMaterial", "classzen_1_1gfx_1_1_c_material.html", null ],
+    [ "zen::gui::CMenu", "classzen_1_1gui_1_1_c_menu.html", null ],
     [ "zen::color3f_t", "structzen_1_1color3f__t.html", null ],
     [ "zen::color4f_t", "structzen_1_1color4f__t.html", null ],
     [ "zen::util::COption", "classzen_1_1util_1_1_c_option.html", null ],
@@ -58,7 +61,9 @@ var hierarchy =
     [ "zen::evt::mouse_t", "structzen_1_1evt_1_1mouse__t.html", null ],
     [ "zen::math::rect_t", "structzen_1_1math_1_1rect__t.html", null ],
     [ "zen::math::Vector< T >", "structzen_1_1math_1_1_vector.html", null ],
+    [ "zen::math::Vector< real_t >", "structzen_1_1math_1_1_vector.html", null ],
     [ "zen::math::Vector< uint16_t >", "structzen_1_1math_1_1_vector.html", null ],
+    [ "zen::math::Vector< uint32_t >", "structzen_1_1math_1_1_vector.html", null ],
     [ "zen::math::vector_t", "group___math.html#classzen_1_1math_1_1vector__t", null ],
     [ "zen::gfxcore::vertex_t", "namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t", null ],
     [ "zen::util::XMLNode", "namespacezen_1_1util.html#structzen_1_1util_1_1_x_m_l_node", null ]

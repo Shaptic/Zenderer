@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives." alt="" coords="5,31,168,57"/>
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_polygon.html" title="zen::gfx::CPolygon" alt="" coords="217,5,349,32"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_polygon.html" title="An arbitrary n&#45;vertex convex polygon." alt="" coords="217,5,349,32"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_quad.html" title="A four&#45;sided quadrilateral primitive." alt="" coords="225,56,341,83"/>
 </map>

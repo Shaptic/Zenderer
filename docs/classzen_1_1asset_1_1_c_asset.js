@@ -5,6 +5,7 @@ var classzen_1_1asset_1_1_c_asset =
     [ "CAsset", "classzen_1_1asset_1_1_c_asset.html#afe42ff44f3521e608b1637e86996a33a", null ],
     [ "LoadFromFile", "classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0", null ],
     [ "LoadFromExisting", "classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a", null ],
+    [ "Reload", "classzen_1_1asset_1_1_c_asset.html#a804f623074852da842775ee3c7003597", null ],
     [ "GetFilenameHash", "classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37", null ],
     [ "GetAssetID", "classzen_1_1asset_1_1_c_asset.html#aaed4ef4074a9a461037f5e7d348a0091", null ],
     [ "GetFilename", "classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174", null ],

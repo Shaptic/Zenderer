@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -134,22 +134,23 @@ $(document).ready(function(){initNavTree('_mouse_8hpp_source.html','');});
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        BUTTON8</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html">   48</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structzen_1_1evt_1_1mouse__t.html">mouse_t</a></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="structzen_1_1evt_1_1mouse__t.html#a91dffe98c5b279c338a7e400c61ccafe">mouse_t</a>();</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">   51</a></span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> <a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520">   52</a></span>&#160;        MouseButton <a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520">button</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9b2bc9ed6ec2c1fb8f0e914089101f00">   53</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9b2bc9ed6ec2c1fb8f0e914089101f00">down</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f">   54</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f">mods</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> <a class="code" href="namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0">GetMousePosition</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103">GetMouseState</a>(<span class="keyword">const</span> evt::MouseButton&amp; Btn);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // ZENDERER__EVENTS__MOUSE_HPP</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html">   49</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structzen_1_1evt_1_1mouse__t.html" title="Mouse event structure.">mouse_t</a></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="structzen_1_1evt_1_1mouse__t.html#a91dffe98c5b279c338a7e400c61ccafe">mouse_t</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">   52</a></span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> <a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>;    </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520">   53</a></span>&#160;        MouseButton <a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520" title="Event location.">button</a>;         </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9b2bc9ed6ec2c1fb8f0e914089101f00">   54</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9b2bc9ed6ec2c1fb8f0e914089101f00" title="Event&#39;s mouse button.">down</a>;                  </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f">   55</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f" title="Is the mouse button down?">mods</a>;                   </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a> <a class="code" href="namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0" title="Retrieves the current mouse position on the active context.">GetMousePosition</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103" title="Returns true if the mouse button is pressed.">GetMouseState</a>(<span class="keyword">const</span> evt::MouseButton&amp; Btn);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // ZENDERER__EVENTS__MOUSE_HPP</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -184,24 +184,25 @@ $(document).ready(function(){initNavTree('_vector_8hpp_source.html','');});
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;U&gt;</a>&amp; Other);</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt; <span class="keyword">static</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="namespacezen_1_1math.html#a643457b2cf7252cfa12544aeb80588e2">distance</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;T&gt;</a>&amp; <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a>, <span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;U&gt;</a>&amp; <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>,</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> <a class="code" href="namespacezen_1_1math.html#ad0590aed15a517ae91eb37d5640f55f8" title="Calculates the distance between two points (sqrt optimization).">distance</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;T&gt;</a>&amp; <a class="code" href="_keyboard_8hpp.html#a3b98e2dffc6cb06a89dcb0d5c60a0206">A</a>, <span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;U&gt;</a>&amp; <a class="code" href="_keyboard_8hpp.html#a9d3d9048db16a7eee539e93e3618cbe7">B</a>,</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">bool</span> do_sqrt = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    };</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_vector_8inl.html">Vector.inl</a>&quot;</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">  226</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;real_t&gt;</a> <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">vector_t</a>;</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c">  226</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structzen_1_1math_1_1_vector.html">Vector&lt;real_t&gt;</a> <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine.">vector_t</a>;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00229"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#a73db4a585e2e07333d41f039e5b89885">  229</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;real_t&gt;</a> <a class="code" href="namespacezen_1_1math.html#a73db4a585e2e07333d41f039e5b89885" title="Floating-point vector shortcut.">vectorf_t</a>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#a73db4a585e2e07333d41f039e5b89885">  229</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structzen_1_1math_1_1_vector.html">Vector&lt;real_t&gt;</a> <a class="code" href="namespacezen_1_1math.html#a73db4a585e2e07333d41f039e5b89885" title="Floating-point vector shortcut.">vectorf_t</a>;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#ad273fd47b6c01faa8b3baa9984b1783a">  232</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structzen_1_1math_1_1_vector.html">Vector&lt;uint16_t&gt;</a> <a class="code" href="namespacezen_1_1math.html#ad273fd47b6c01faa8b3baa9984b1783a" title="16-bit unsigned integral vector shortcut.">vectoru16_t</a>;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
 <div class="line"><a name="l00235"></a><span class="lineno"><a class="code" href="namespacezen_1_1math.html#a8efa8e8f4ce783129c672facb9de060e">  235</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space.">Vector&lt;int32_t&gt;</a> <a class="code" href="namespacezen_1_1math.html#a8efa8e8f4ce783129c672facb9de060e" title="Standard 32-bit integral vector shortcut.">vectori_t</a>;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;}   <span class="comment">// namespace math</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__MATH__VECTOR_2_HPP</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;}   <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__MATH__VECTOR_2_HPP</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

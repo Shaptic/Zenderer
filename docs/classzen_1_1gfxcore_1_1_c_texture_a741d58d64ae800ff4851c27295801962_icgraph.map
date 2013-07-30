@@ -3,7 +3,7 @@
 <area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_material.html#a320cb498234e02231b9ce04cf78999e9" title="Enables the effect and texture for rendering." alt="" coords="220,181,351,222"/>
 <area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_material.html#a4866a925322a57f4cb0d70833db0da7a" title="Enables only the texture." alt="" coords="220,263,351,305"/>
 <area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="425,5,567,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="416,71,576,97"/>
+<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="416,71,576,97"/>
 <area shape="rect" id="node5" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="629,188,680,215"/>
 <area shape="rect" id="node7" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="415,122,577,163"/>
 <area shape="rect" id="node8" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen." alt="" coords="411,239,581,265"/>

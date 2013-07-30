@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -126,7 +126,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac7b4358bbb73e4247a0e9225f82fe284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes internal graphical components.  <a href="#ac7b4358bbb73e4247a0e9225f82fe284">More...</a><br/></td></tr>
 <tr class="separator:ac7b4358bbb73e4247a0e9225f82fe284"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd402e9baf35c2819a4351744f6c6bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_scene.html#a7cd402e9baf35c2819a4351744f6c6bd">Destroy</a> ()</td></tr>
-<tr class="memdesc:a7cd402e9baf35c2819a4351744f6c6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up the subsystem completely.  <a href="#a7cd402e9baf35c2819a4351744f6c6bd">More...</a><br/></td></tr>
 <tr class="separator:a7cd402e9baf35c2819a4351744f6c6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9bf1c452fcfd96a2549f5a5f77a770e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classzen_1_1obj_1_1_c_entity.html">obj::CEntity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_scene.html#ae9bf1c452fcfd96a2549f5a5f77a770e">AddEntity</a> ()</td></tr>
 <tr class="memdesc:ae9bf1c452fcfd96a2549f5a5f77a770e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an unloaded, managed entity to the scene.  <a href="#ae9bf1c452fcfd96a2549f5a5f77a770e">More...</a><br/></td></tr>
@@ -218,7 +217,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>This high-level interface combines almost all components of <em>Zenderer</em> in an easy-to-use, abstracted way that provides versatility, efficiency, customization, and pretty scenes, of course.</p>
 <p>A scene is a collection of renderable objects, lighting, and post-processing effects drawn together on the main framebuffer (otherwise know as the screen).</p>
 <p>All components of the scene are managed by the scene, and the user is guaranteed to be interacting with valid references, unless they explicitly delete them from the scene via one of the <code>Delete*()</code> calls.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Test post-processing. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Test post-processing.</dd></dl>
 
 <p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00042">42</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -330,11 +329,11 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Typically, a subsystem can be re-initialized by setting new parameters via various Set* methods and calling <a class="el" href="classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components.">Init()</a> again, but this is specific to the inheriting class. </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>A crash occurs deleting entities. </dd></dl>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>.</p>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00029">29</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00030">30</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -362,7 +361,7 @@ Here is the caller graph for this function:</div>
 <p>If the entity is simply left as-returned, nothing will be drawn on-screen. This method is merely here to abstract away memory cleanup operations from the user and give them a valid reference to work with at all times.</p>
 <dl class="section return"><dt>Returns</dt><dd>An unloaded entity instance. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00044">44</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00045">45</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -419,7 +418,6 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A created light instance.</dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Fix window size </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>Fix hard-coded 800. </dd></dl>
 
 <p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00052">52</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
@@ -578,7 +576,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00276">276</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00280">280</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -605,7 +603,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00262">262</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00266">266</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>

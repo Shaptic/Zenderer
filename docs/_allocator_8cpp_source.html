@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -224,7 +224,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        alloc += bytes;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Allocator&quot;</span>)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Allocated &quot;</span> &lt;&lt; bytes &lt;&lt; <span class="stringliteral">&quot; bytes [0x&quot;</span> &lt;&lt; ptr</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;] (&quot;</span> &lt;&lt; alloc &lt;&lt; <span class="stringliteral">&quot; total).&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif // _DEBUG</span></div>
@@ -285,7 +285,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            total_freed += freed + 1;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Allocator&quot;</span>)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the _DEBUG flag.">LogMode::ZEN_DEBUG</a>)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag.">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;Freed &quot;</span> &lt;&lt; freed &lt;&lt; <span class="stringliteral">&quot; bytes (&quot;</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    &lt;&lt; total_freed &lt;&lt; <span class="stringliteral">&quot; total).&quot;</span> &lt;&lt; CLog::endl;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#endif // _DEBUG</span></div>

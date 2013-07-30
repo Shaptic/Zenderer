@@ -1,35 +1,38 @@
 <map id="Zenderer/include/Zenderer/Utilities/INIParser.inl" name="Zenderer/include/Zenderer/Utilities/INIParser.inl">
-<area shape="rect" id="node2" href="$_i_n_i_parser_8hpp.html" title="Zenderer/Utilities/INIParser.hpp &#45; A key=value pair file parser used throughout Zenderer to load vari..." alt="" coords="1051,97,1221,138"/>
-<area shape="rect" id="node3" href="$_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="836,187,1007,229"/>
-<area shape="rect" id="node13" href="$_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="277,550,448,591"/>
-<area shape="rect" id="node31" href="$_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp &#45; An abstraction dictionary layer allowing easy setting of options..." alt="" coords="1173,187,1344,229"/>
-<area shape="rect" id="node32" href="$_utilities_8hpp.html" title="Utilities/Utilities.hpp &#45; Includes all relevant headers in a batch and defines the hashing function..." alt="" coords="1265,278,1436,319"/>
-<area shape="rect" id="node34" href="$_i_n_i_parser_8cpp.html" title="Zenderer/src/Utilities\l/INIParser.cpp" alt="" coords="1368,187,1509,229"/>
-<area shape="rect" id="node4" href="$_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="1055,278,1241,319"/>
-<area shape="rect" id="node5" href="$_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="701,369,888,410"/>
-<area shape="rect" id="node30" href="$_material_8cpp.html" title="Zenderer/src/Graphics\l/Material.cpp" alt="" coords="846,278,996,319"/>
-<area shape="rect" id="node22" href="$_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="1485,641,1656,682"/>
-<area shape="rect" id="node24" href="$_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="1013,550,1197,591"/>
-<area shape="rect" id="node11" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="860,731,1031,773"/>
-<area shape="rect" id="node26" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1291,641,1461,682"/>
-<area shape="rect" id="node29" href="$_renderer_8cpp.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="1342,369,1519,410"/>
-<area shape="rect" id="node6" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic primitive." alt="" coords="501,459,672,501"/>
-<area shape="rect" id="node10" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="696,459,867,501"/>
-<area shape="rect" id="node21" href="$_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="891,459,1068,501"/>
-<area shape="rect" id="node7" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="605,822,776,863"/>
-<area shape="rect" id="node8" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="494,912,681,939"/>
-<area shape="rect" id="node9" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="707,912,880,939"/>
-<area shape="rect" id="node20" href="$_quad_8cpp.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="706,550,856,591"/>
-<area shape="rect" id="node12" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="870,822,1020,863"/>
-<area shape="rect" id="node14" href="$_sorter_8hpp.html" title="Zenderer/CoreGraphics/Sorter.hpp &#45; Sorts entites in a variety of different ways, such as by material ..." alt="" coords="8,641,179,682"/>
-<area shape="rect" id="node16" href="$_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="573,641,744,682"/>
-<area shape="rect" id="node18" href="$_font_atlas_8hpp.html" title="Zenderer/include/Zenderer\l/GUI/FontAtlas.hpp" alt="" coords="768,641,939,682"/>
-<area shape="rect" id="node19" href="$_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="203,641,345,682"/>
-<area shape="rect" id="node15" href="$_sorter_8cpp.html" title="Zenderer/src/CoreGraphics\l/Sorter.cpp" alt="" coords="5,731,181,773"/>
-<area shape="rect" id="node17" href="$_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="661,739,835,765"/>
-<area shape="rect" id="node23" href="$_light_8cpp.html" title="Zenderer/src/Graphics\l/Light.cpp" alt="" coords="1535,731,1685,773"/>
-<area shape="rect" id="node25" href="$_render_target_8cpp.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="1014,641,1164,682"/>
-<area shape="rect" id="node27" href="$_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="1055,731,1233,773"/>
-<area shape="rect" id="node28" href="$_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="1258,731,1408,773"/>
-<area shape="rect" id="node33" href="$_settings_8cpp.html" title="Zenderer/src/Utilities\l/Settings.cpp" alt="" coords="1460,278,1601,319"/>
+<area shape="rect" id="node2" href="$_i_n_i_parser_8hpp.html" title="Zenderer/Utilities/INIParser.hpp &#45; A key=value pair file parser used throughout Zenderer to load vari..." alt="" coords="1260,97,1431,138"/>
+<area shape="rect" id="node3" href="$_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="1036,187,1207,229"/>
+<area shape="rect" id="node16" href="$_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together." alt="" coords="868,550,1039,591"/>
+<area shape="rect" id="node34" href="$_settings_8hpp.html" title="Zenderer/Utilities/Settings.hpp &#45; An abstraction dictionary layer allowing easy setting of options..." alt="" coords="1260,187,1431,229"/>
+<area shape="rect" id="node35" href="$_utilities_8hpp.html" title="Utilities/Utilities.hpp &#45; Includes all relevant headers in a batch and defines the hashing function..." alt="" coords="1581,278,1752,319"/>
+<area shape="rect" id="node37" href="$_i_n_i_parser_8cpp.html" title="Zenderer/src/Utilities\l/INIParser.cpp" alt="" coords="1505,187,1647,229"/>
+<area shape="rect" id="node4" href="$_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="1205,278,1392,319"/>
+<area shape="rect" id="node5" href="$_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; An abstract base class for drawing primitives." alt="" coords="855,369,1041,410"/>
+<area shape="rect" id="node33" href="$_material_8cpp.html" title="Zenderer/src/Graphics\l/Material.cpp" alt="" coords="933,278,1083,319"/>
+<area shape="rect" id="node25" href="$_light_8hpp.html" title="Zenderer/Graphics/Light.hpp &#45; An instance of lighting in the game scene." alt="" coords="1463,641,1633,682"/>
+<area shape="rect" id="node27" href="$_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects." alt="" coords="1107,550,1291,591"/>
+<area shape="rect" id="node12" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="1027,731,1197,773"/>
+<area shape="rect" id="node29" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1657,641,1828,682"/>
+<area shape="rect" id="node32" href="$_renderer_8cpp.html" title="Zenderer/src/CoreGraphics\l/Renderer.cpp" alt="" coords="1159,369,1336,410"/>
+<area shape="rect" id="node6" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive." alt="" coords="108,459,279,501"/>
+<area shape="rect" id="node11" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices." alt="" coords="609,459,780,501"/>
+<area shape="rect" id="node24" href="$_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="855,459,1032,501"/>
+<area shape="rect" id="node7" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="1023,1003,1193,1045"/>
+<area shape="rect" id="node10" href="$_polygon_8cpp.html" title="Zenderer/src/Graphics\l/Polygon.cpp" alt="" coords="5,550,155,591"/>
+<area shape="rect" id="node8" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="911,1093,1099,1120"/>
+<area shape="rect" id="node9" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="1124,1093,1297,1120"/>
+<area shape="rect" id="node23" href="$_quad_8cpp.html" title="Zenderer/src/Graphics\l/Quad.cpp" alt="" coords="619,550,769,591"/>
+<area shape="rect" id="node13" href="$_button_8hpp.html" title="Zenderer/GUI/Button.hpp &#45; A wrapper for easily creating roll&#45;over button effects." alt="" coords="817,822,988,863"/>
+<area shape="rect" id="node14" href="$_menu_8hpp.html" title="Zenderer/GUI/Menu.hpp &#45; A high&#45;level menu creating interface." alt="" coords="879,913,1049,954"/>
+<area shape="rect" id="node15" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="1063,822,1213,863"/>
+<area shape="rect" id="node17" href="$_sorter_8hpp.html" title="Zenderer/CoreGraphics/Sorter.hpp &#45; Sorts entites in a variety of different ways, such as by material ..." alt="" coords="332,641,503,682"/>
+<area shape="rect" id="node19" href="$_font_8hpp.html" title="Zenderer/GUI/Font.hpp &#45; A wrapper for TrueType font loading and rendering." alt="" coords="695,641,865,682"/>
+<area shape="rect" id="node21" href="$_font_atlas_8hpp.html" title="Zenderer/include/Zenderer\l/GUI/FontAtlas.hpp" alt="" coords="991,641,1161,682"/>
+<area shape="rect" id="node22" href="$_entity_8cpp.html" title="Zenderer/src/Objects\l/Entity.cpp" alt="" coords="527,641,669,682"/>
+<area shape="rect" id="node18" href="$_sorter_8cpp.html" title="Zenderer/src/CoreGraphics\l/Sorter.cpp" alt="" coords="333,731,509,773"/>
+<area shape="rect" id="node20" href="$_font_8cpp.html" title="Zenderer/src/GUI/Font.cpp" alt="" coords="567,739,741,765"/>
+<area shape="rect" id="node26" href="$_light_8cpp.html" title="Zenderer/src/Graphics\l/Light.cpp" alt="" coords="1222,731,1372,773"/>
+<area shape="rect" id="node28" href="$_render_target_8cpp.html" title="Zenderer/src/Graphics\l/RenderTarget.cpp" alt="" coords="1237,641,1387,682"/>
+<area shape="rect" id="node30" href="$_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="1624,731,1803,773"/>
+<area shape="rect" id="node31" href="$_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="1449,731,1599,773"/>
+<area shape="rect" id="node36" href="$_settings_8cpp.html" title="Zenderer/src/Utilities\l/Settings.cpp" alt="" coords="1416,278,1557,319"/>
 </map>

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">1.0.*-dev</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7093 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7477 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -122,9 +122,9 @@ $(document).ready(function(){initNavTree('classzen_1_1gfx_1_1_c_window.html','')
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a71b46c3707eea0963bd55bbbe7b5767a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a71b46c3707eea0963bd55bbbe7b5767a">CWindow</a> (const uint16_t w, const uint16_t h, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;caption, <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Mgr)</td></tr>
-<tr class="memdesc:a71b46c3707eea0963bd55bbbe7b5767a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and sets up an OpenGL-enabled window for rendering.  <a href="#a71b46c3707eea0963bd55bbbe7b5767a">More...</a><br/></td></tr>
-<tr class="separator:a71b46c3707eea0963bd55bbbe7b5767a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3233b027a3a0560c8a113e22eacfa40b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a3233b027a3a0560c8a113e22eacfa40b">CWindow</a> (const uint16_t w, const uint16_t h, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;caption, <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Mgr, const bool fullscreen=true)</td></tr>
+<tr class="memdesc:a3233b027a3a0560c8a113e22eacfa40b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and sets up an OpenGL-enabled window for rendering.  <a href="#a3233b027a3a0560c8a113e22eacfa40b">More...</a><br/></td></tr>
+<tr class="separator:a3233b027a3a0560c8a113e22eacfa40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a952e8bd3d29abbac67c252c192077c87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87">~CWindow</a> ()</td></tr>
 <tr class="separator:a952e8bd3d29abbac67c252c192077c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a43bdacc8a996a71bfa0255796145e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8">Init</a> ()</td></tr>
@@ -142,17 +142,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af21d93ba75e342c3c0010bbd86536e0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c">Update</a> () const </td></tr>
 <tr class="memdesc:af21d93ba75e342c3c0010bbd86536e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a context update.  <a href="#af21d93ba75e342c3c0010bbd86536e0c">More...</a><br/></td></tr>
 <tr class="separator:af21d93ba75e342c3c0010bbd86536e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cf6874db28b2077f67f7c6f3a418e12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7cf6874db28b2077f67f7c6f3a418e12">ToggleFullscreen</a> (int *const loaded=nullptr)</td></tr>
-<tr class="memdesc:a7cf6874db28b2077f67f7c6f3a418e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the OpenGL context into/out of fullscreen mode.  <a href="#a7cf6874db28b2077f67f7c6f3a418e12">More...</a><br/></td></tr>
-<tr class="separator:a7cf6874db28b2077f67f7c6f3a418e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af76a58db9ba0df3f8434b86422bf0dee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee">EnableFullscreen</a> ()</td></tr>
-<tr class="memdesc:af76a58db9ba0df3f8434b86422bf0dee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables fullscreen mode.  <a href="#af76a58db9ba0df3f8434b86422bf0dee">More...</a><br/></td></tr>
-<tr class="separator:af76a58db9ba0df3f8434b86422bf0dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd71b5e856974c6ae65a8a0f3dbfc08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08">DisableFullscreen</a> ()</td></tr>
-<tr class="memdesc:a9bd71b5e856974c6ae65a8a0f3dbfc08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables fullscreen mode.  <a href="#a9bd71b5e856974c6ae65a8a0f3dbfc08">More...</a><br/></td></tr>
-<tr class="separator:a9bd71b5e856974c6ae65a8a0f3dbfc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5987f93d975a7548e40c7c8aad1307d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#ab5987f93d975a7548e40c7c8aad1307d">ToggleFullscreen</a> (int *const loaded=nullptr)</td></tr>
+<tr class="memdesc:ab5987f93d975a7548e40c7c8aad1307d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the OpenGL context into/out of fullscreen mode.  <a href="#ab5987f93d975a7548e40c7c8aad1307d">More...</a><br/></td></tr>
+<tr class="separator:ab5987f93d975a7548e40c7c8aad1307d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3339fcf4250c24f03448f1b8c51c2012"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a3339fcf4250c24f03448f1b8c51c2012">EnableFullscreen</a> (int *const loaded=nullptr)</td></tr>
+<tr class="memdesc:a3339fcf4250c24f03448f1b8c51c2012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables fullscreen mode.  <a href="#a3339fcf4250c24f03448f1b8c51c2012">More...</a><br/></td></tr>
+<tr class="separator:a3339fcf4250c24f03448f1b8c51c2012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd3587d5359dc9b8ac1adc0758f05a84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#afd3587d5359dc9b8ac1adc0758f05a84">DisableFullscreen</a> (int *const loaded=nullptr)</td></tr>
+<tr class="separator:afd3587d5359dc9b8ac1adc0758f05a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633a8eee54aaee24cdab3bf8f5e2f091"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a633a8eee54aaee24cdab3bf8f5e2f091">IsOpen</a> () const </td></tr>
 <tr class="separator:a633a8eee54aaee24cdab3bf8f5e2f091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3c60c007d0108ee82304277549b7ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9b3c60c007d0108ee82304277549b7ad">IsFullscreen</a> () const </td></tr>
+<tr class="separator:a9b3c60c007d0108ee82304277549b7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ec148343bb7675d331f06bed192ab3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#ac2ec148343bb7675d331f06bed192ab3">Close</a> () const </td></tr>
+<tr class="separator:ac2ec148343bb7675d331f06bed192ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac142af8c14b730f077e35445934ff0be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gfx_1_1_c_window.html#ac142af8c14b730f077e35445934ff0be">SetClearBits</a> (const uint32_t bits)</td></tr>
 <tr class="memdesc:ac142af8c14b730f077e35445934ff0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets OpenGL clearing bits.  <a href="#ac142af8c14b730f077e35445934ff0be">More...</a><br/></td></tr>
 <tr class="separator:ac142af8c14b730f077e35445934ff0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +218,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_window_8hpp_source.html#l00053">53</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a71b46c3707eea0963bd55bbbe7b5767a"></a>
+<a class="anchor" id="a3233b027a3a0560c8a113e22eacfa40b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -241,7 +244,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
-          <td class="paramname"><em>Mgr</em>&#160;</td>
+          <td class="paramname"><em>Mgr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>fullscreen</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -264,11 +273,11 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The window will automatically be created fullscreen in release mode (ZEN_DEBUG_BUILD).</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem.">Init()</a> </dd>
 <dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_window.html#af76a58db9ba0df3f8434b86422bf0dee" title="Enables fullscreen mode.">EnableFullscreen()</a> </dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a3339fcf4250c24f03448f1b8c51c2012" title="Enables fullscreen mode.">EnableFullscreen()</a> </dd>
 <dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a9bd71b5e856974c6ae65a8a0f3dbfc08" title="Disables fullscreen mode.">DisableFullscreen()</a> </dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_window.html#afd3587d5359dc9b8ac1adc0758f05a84">DisableFullscreen()</a> </dd>
 <dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_window.html#a7cf6874db28b2077f67f7c6f3a418e12" title="Toggles the OpenGL context into/out of fullscreen mode.">ToggleFullscreen()</a> </dd>
+<a class="el" href="classzen_1_1gfx_1_1_c_window.html#ab5987f93d975a7548e40c7c8aad1307d" title="Toggles the OpenGL context into/out of fullscreen mode.">ToggleFullscreen()</a> </dd>
 <dd>
 <a class="el" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset.">zen::asset::CAsset</a> </dd></dl>
 
@@ -287,7 +296,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00027">27</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00022">22</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -317,7 +326,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a5c72ec2b5c58ee70f346aec64eaf2dd8">zen::CSubsystem</a>.</p>
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00032">32</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00027">27</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -357,7 +366,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948">zen::CSubsystem</a>.</p>
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00113">113</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00117">117</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +383,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00122">122</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00128">128</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -401,7 +410,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00129">129</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00135">135</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -418,7 +427,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00136">136</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00142">142</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -431,82 +440,66 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a7cf6874db28b2077f67f7c6f3a418e12"></a>
+<a class="anchor" id="ab5987f93d975a7548e40c7c8aad1307d"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::gfx::CWindow::ToggleFullscreen </td>
+          <td class="memname">bool CWindow::ToggleFullscreen </td>
           <td>(</td>
           <td class="paramtype">int *const&#160;</td>
           <td class="paramname"><em>loaded</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>Switching in and out of fullscreen mode requires a complete destruction and re-creation of the OpenGL context, invalidating any and all handles to OpenGL objects like textures, vertex buffers, and shaders. Thus, it is necessary for the user to attempt to keep track reloading assets and OpenGL data as needed. If a manager was given via AttachAssetManager(), an attempt will be made to reload all of the assets it contains via the zen::asset::CAsset::Reload method. The optional <code>loaded</code> parameter will be set to the number of assets that were reloaded successfully, based on the return value of the method.</p>
+<p>Switching in and out of fullscreen mode requires a complete destruction and re-creation of the OpenGL context, invalidating any and all handles to OpenGL objects like textures, vertex buffers, and shaders. Thus, it is necessary for the user to attempt to keep track reloading assets and OpenGL data as needed. If a manager was given via AttachAssetManager(), an attempt will be made to reload all of the assets it contains via the <a class="el" href="classzen_1_1asset_1_1_c_asset.html#a804f623074852da842775ee3c7003597" title="Reloads oneself from whatever method it was loaded from originally.">zen::asset::CAsset::Reload</a> method. The optional <code>loaded</code> parameter will be set to the number of assets that were reloaded successfully, based on the return value of the method.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">loaded</td><td>Track number of assets reloaded (optional=<code>nullptr</code>)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the window is now in fullscreen mode, and <code>false</code> if it was changed to windowed mode.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Implement this </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the window is now in fullscreen mode, and <code>false</code> if it was changed to windowed mode. </dd></dl>
+
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00147">147</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af76a58db9ba0df3f8434b86422bf0dee"></a>
+<a class="anchor" id="a3339fcf4250c24f03448f1b8c51c2012"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::gfx::CWindow::EnableFullscreen </td>
+          <td class="memname">bool CWindow::EnableFullscreen </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int *const&#160;</td>
+          <td class="paramname"><em>loaded</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<p>Disables fullscreen mode. </p>
+
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00153">153</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9bd71b5e856974c6ae65a8a0f3dbfc08"></a>
+<a class="anchor" id="afd3587d5359dc9b8ac1adc0758f05a84"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::gfx::CWindow::DisableFullscreen </td>
+          <td class="memname">bool CWindow::DisableFullscreen </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int *const&#160;</td>
+          <td class="paramname"><em>loaded</em> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00165">165</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -523,7 +516,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00141">141</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00177">177</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -531,6 +524,49 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph" alt=""/></div>
 <map name="classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph" id="classzen_1_1gfx_1_1_c_window_a633a8eee54aaee24cdab3bf8f5e2f091_icgraph">
 <area shape="rect" id="node2" href="namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="193,5,343,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="243,56,293,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9b3c60c007d0108ee82304277549b7ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CWindow::IsFullscreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00182">182</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2ec148343bb7675d331f06bed192ab3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CWindow::Close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00187">187</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1gfx_1_1_c_window_ac2ec148343bb7675d331f06bed192ab3_icgraph.png" border="0" usemap="#classzen_1_1gfx_1_1_c_window_ac2ec148343bb7675d331f06bed192ab3_icgraph" alt=""/></div>
+<map name="classzen_1_1gfx_1_1_c_window_ac2ec148343bb7675d331f06bed192ab3_icgraph" id="classzen_1_1gfx_1_1_c_window_ac2ec148343bb7675d331f06bed192ab3_icgraph">
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="192,12,243,39"/></map>
 </div>
 </p>
 
@@ -581,7 +617,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00160">160</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00168">168</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -606,7 +642,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00163">163</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00171">171</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -631,7 +667,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00164">164</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00172">172</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -664,9 +700,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Remove when uneccessary. </dd></dl>
 
-<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00167">167</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00175">175</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
@@ -683,7 +719,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00146">146</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00192">192</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -701,7 +737,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00153">153</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00199">199</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
@@ -726,7 +762,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00158">158</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_window_8cpp_source.html#l00221">221</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
