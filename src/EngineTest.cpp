@@ -192,12 +192,12 @@ using gfxcore::CRenderer;
 
     gui::CFont* MenuFont = Manager.Create<gui::CFont>();
     MenuFont->AttachManager(Manager);
-    MenuFont->LoadFromFile("default.ttf");
+    MenuFont->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
     gui::CMenu MainMenu(Window, Manager);
     MainMenu.SetFont(*MenuFont);
-    MainMenu.SetNormalButtonTextColor(color4f_t());
-    MainMenu.SetActiveButtonTextColor(color4f_t(0, 0, 0, 1));
-    MainMenu.SetSpacing(MenuFont->GetLineHeight() + 32);
+    MainMenu.SetNormalButtonTextColor(color4f_t(1, 0, 0, 1));
+    MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
+    MainMenu.SetSpacing(MenuFont->GetLineHeight());
 
     MainMenu.AddButton("Play Game");
     MainMenu.AddButton("Load Game");
@@ -290,6 +290,7 @@ done:
         Scene.Render();
 
         MainMenu.Update();
+        printf("%d\n", mm_ret);
         if(mm_ret == 3) Window.Close();
 
         {

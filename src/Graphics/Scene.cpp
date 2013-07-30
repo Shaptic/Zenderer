@@ -26,6 +26,7 @@ bool CScene::Init()
             m_FBO1.Init()       && m_FBO2.Init();
 }
 
+/// @bug A crash occurs deleting entities.
 bool CScene::Destroy()
 {
     bool ret = m_FBO1.Destroy() && m_FBO2.Destroy() && m_Geometry.Destroy();

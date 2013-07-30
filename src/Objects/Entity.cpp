@@ -232,6 +232,10 @@ void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 
     for( ; i != j; ++i) (*i)->Move(x, y, z);
     m_MV.Translate(math::vector_t(x, y, z));
+
+    m_Box.pos = math::vector_t(x, y);
+    m_Box.xw.y = x;
+    m_Box.yw.x = y;
 }
 
 void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)

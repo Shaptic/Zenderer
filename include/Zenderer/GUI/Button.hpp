@@ -44,8 +44,9 @@ namespace gui
             m_Scene.RemoveEntity(m_Normal);
         }
 
-        void SetFont(const CFont& Font)
+        void SetFont(CFont& Font)
         {
+            Font.SetStacking(true);
             mp_Font = &Font;
         }
 
@@ -85,13 +86,16 @@ namespace gui
         {
             if(!mp_Font || mp_Current == nullptr) return false;
 
-            return mp_Font->Render(m_Normal, text) &&
-                   mp_Font->Render(m_Active, text);
+            mp_Font->SetColor(m_ncolor);
+            mp_Font->Render(m_Normal, text);
+
+            mp_Font->SetColor(m_acolor);
+            mp_Font->Render(m_Active, text);
         }
 
         bool SetActive()
         {
-            if(!mp_Font || mp_Current == &m_Normal) return false;
+            if(!mp_Font || mp_Current == &m_Active) return false;
 
             mp_Current->Disable();
             mp_Current = &m_Active;
@@ -123,11 +127,11 @@ namespace gui
         }
 
     private:
-        gfx::CScene&        m_Scene;
-        obj::CEntity&       m_Active;
-        obj::CEntity&       m_Normal;
-        obj::CEntity*       mp_Current;
-        const gui::CFont*   mp_Font;
+        gfx::CScene&    m_Scene;
+        obj::CEntity&   m_Active;
+        obj::CEntity&   m_Normal;
+        obj::CEntity*   mp_Current;
+        gui::CFont*     mp_Font;
 
         color4f_t m_acolor, m_ncolor;
     };

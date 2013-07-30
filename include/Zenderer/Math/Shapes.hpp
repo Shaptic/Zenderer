@@ -72,7 +72,7 @@ namespace math
         inline bool collides(const aabb_t& Other) const
         {
             if(std::abs(pos.x - Other.pos.x) > (xw.x + Other.xw.x) ||
-               std::abs(pos.x - Other.pos.x) > (xw.x + Other.xw.x))
+               std::abs(pos.y - Other.pos.y) > (yw.y + Other.yw.y))
                 return false;
 
             return true;

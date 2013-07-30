@@ -43,6 +43,7 @@ namespace gui
         {
             m_Scene.Init();
             mp_menuButtons.clear();
+            m_Scene.DisableLighting();
         }
 
         virtual ~CMenu()
@@ -113,7 +114,7 @@ namespace gui
             m_Scene.Render();
         }
 
-        void SetFont(const gui::CFont& Font)
+        void SetFont(gui::CFont& Font)
         {
             mp_Font = &Font;
         }
@@ -149,7 +150,7 @@ namespace gui
         obj::CEntity& m_Title;
         const obj::CEntity* mp_Bg;
 
-        const gui::CFont* mp_Font;
+        gui::CFont* mp_Font;
         color4f_t m_acolor, m_ncolor;
 
         std::vector<CButton*> mp_menuButtons;
