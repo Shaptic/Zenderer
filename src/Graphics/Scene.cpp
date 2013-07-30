@@ -60,7 +60,14 @@ CLight& CScene::AddLight(const LightType& Type)
 CEffect& CScene::AddEffect(const EffectType& Type)
 {
     CEffect* pNew = new CEffect(Type, m_Assets);
-    pNew->Init();
+    if(pNew->Init())
+    {
+        pNew->Enable();
+        pNew->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        pNew->SetParameter("proj", CRenderer::GetProjectionMatrix());
+        pNew->Disable();
+    }
+
     m_allPPFX.push_back(pNew);
     return *m_allPPFX.back();
 }

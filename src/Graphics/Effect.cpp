@@ -42,11 +42,11 @@ bool CEffect::Init()
 
     else if(m_type == EffectType::GAUSSIAN_BLUR_H)
         m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"GuassianBlurH.fs");
+            ZENDERER_SHADER_PATH"GaussianBlurH.fs");
 
     else if(m_type == EffectType::GAUSSIAN_BLUR_V)
         m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"GuassianBlurV.fs");
+            ZENDERER_SHADER_PATH"GaussianBlurV.fs");
 
     else if(m_type == EffectType::GRAYSCALE)
         m_init = m_Shader.LoadFragmentShaderFromFile(
