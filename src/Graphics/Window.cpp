@@ -17,13 +17,7 @@ CWindow::CWindow(const uint16_t     width,
     CSubsystem("Window"), m_Log(CLog::GetEngineLog()),
     m_Assets(Mgr), m_Dimensions(width, height),
     m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),
-    m_fullscreen(
-#ifdef _DEBUG
-        false)
-#else
-        true)
-#endif // _DEBUG
-{}
+    m_fullscreen(fullscreen) {}
 
 CWindow::~CWindow()
 {
@@ -40,7 +34,7 @@ bool CWindow::Init()
                 << CLog::endl;
         return false;
     }
-    
+
     m_Log   << m_Log.SetSystem("Window")
             << m_Log.SetMode(LogMode::ZEN_INFO)
             << "Set up window (" << m_Dimensions.x << "x"
@@ -64,7 +58,6 @@ bool CWindow::Init()
     glfwWindowHint(GLFW_STENCIL_BITS, 0);
 
     // Create the window.
-    m_fullscreen = fullscreen;
     mp_Window = glfwCreateWindow(m_Dimensions.x, m_Dimensions.y,
         m_caption.c_str(), m_fullscreen ? glfwGetPrimaryMonitor() : nullptr,
         nullptr);
@@ -124,7 +117,7 @@ bool CWindow::Init()
 bool CWindow::Destroy()
 {
     if(!m_init) return true;
-    
+
     delete gfxcore::CRenderer::s_DefaultMaterial;
     m_Assets.Destroy();
     glfwDestroyWindow(mp_Window);
@@ -151,33 +144,33 @@ void CWindow::Update() const
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }
 
-bool CWindow::ToggleFullscreen(const int* const loaded)
+bool CWindow::ToggleFullscreen(int* const loaded)
 {
     if(m_fullscreen) return this->DisableFullscreen(loaded);
     else             return this->EnableFullscreen(loaded);
 }
 
-bool CWindow::EnableFullscreen(const int* const loaded)
+bool CWindow::EnableFullscreen(int* const loaded)
 {
     if(m_fullscreen) return true;
-    
+
     this->Destroy();
     this->Init();
     m_fullscreen = true;
     uint32_t done = this->ReloadAssets();
-    if(loaded != nullptr) loaded = done;
+    if(loaded != nullptr) *loaded = done;
     return done == m_Assets.GetAssetCount();
 }
 
-bool CWindow::DisableFullscreen(const int* const loaded)
+bool CWindow::DisableFullscreen(int* const loaded)
 {
     if(!m_fullscreen) return true;
-    
+
     this->Destroy();
     this->Init();
     m_fullscreen = false;
     uint32_t done = this->ReloadAssets();
-    if(loaded != nullptr) loaded = done;
+    if(loaded != nullptr) *loaded = done;
     return done == m_Assets.GetAssetCount();
 }
 
@@ -214,14 +207,14 @@ uint32_t CWindow::ReloadAssets()
     this->Destroy();
     m_fullscreen = !m_fullscreen;
     this->Init();
-    
+
     // Attempt to reload assets from their filenames.
     uint32_t done = 0;
-    for(auto i = m_Assets.cbegin(); i != m_Assets.cend(); ++i) 
+    for(auto i = m_Assets.cbegin(); i != m_Assets.cend(); ++i)
     {
         if((*i)->Reload()) ++done;
     }
-    
+
     return done;
 }
 

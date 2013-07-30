@@ -97,7 +97,7 @@ const void* const CFont::GetData() const
     return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
-bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
+bool CFont::Render(obj::CEntity& Ent, const string_t& to_render) const
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
@@ -163,7 +163,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         char letter = (c > '~' || c < ' ') ? ' ' : c;
 
         // Shortcut to glyph data.
-        const glyph_t& gl = m_glyphData[letter];
+        const glyph_t& gl = m_glyphData.find(letter)->second;
 
         if(letter == ' ')
         {
@@ -255,7 +255,8 @@ bool CFont::Render(obj::CEntity& Ent, const string_t to_render)
         // Render each character (skip if unrenderable).
         if(text[i] > '~' || text[i] <= ' ') continue;
 
-        m_glyphData[text[i]].texture->Bind();
+        auto g = m_glyphData.find(text[i]);
+        g->second.texture->Bind();
         GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
             (void*)(sizeof(gfxcore::index_t) * i * 6)));
     }

@@ -128,8 +128,10 @@
     <ClInclude Include="include\Zenderer\Graphics\RenderTarget.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Scene.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\Button.hpp" />
     <ClInclude Include="include\Zenderer\GUI\Font.hpp" />
     <ClInclude Include="include\Zenderer\GUI\FontCore.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\Menu.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />

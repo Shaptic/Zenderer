@@ -129,11 +129,11 @@ namespace asset
         inline uint32_t GetAssetCount() const;
 
         /// Returns an iterator to the first asset.
-        inline std::list<CAsset*>::const_iterator cbegin() { return mp_managerAssets.begin(); }
-        
+        inline std::list<CAsset*>::const_iterator cbegin();
+
         /// Returns an iterator to the end of the asset list.
-        inline std::list<CAsset*>::const_iterator cend() { return mp_managerAssets.end(); }
-        
+        inline std::list<CAsset*>::const_iterator cend();
+
         /// Returns the amount of total assets @a Zenderer is aware of.
         static uint32_t GetGlobalAssetCount();
 

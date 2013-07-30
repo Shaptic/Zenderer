@@ -189,16 +189,16 @@ using gfxcore::CRenderer;
     P.Create();
     P2.Create();
     //P3.Create();
-    
+
     gui::CFont* MenuFont = Manager.Create<gui::CFont>();
     MenuFont->AttachManager(Manager);
-    MenuFont->LoadFromFile(ZENDERER_FONT_PATH"default.ttf");
+    MenuFont->LoadFromFile("default.ttf");
     gui::CMenu MainMenu(Window, Manager);
-    MainMenu.SetFont(MenuFont);
+    MainMenu.SetFont(*MenuFont);
     MainMenu.SetNormalButtonTextColor(color4f_t());
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 0, 0, 1));
     MainMenu.SetSpacing(MenuFont->GetLineHeight() + 32);
-    
+
     MainMenu.AddButton("Play Game");
     MainMenu.AddButton("Load Game");
     MainMenu.AddButton("Options");
@@ -211,6 +211,7 @@ using gfxcore::CRenderer;
         // Handle events.
         Evt.PollEvents();
 
+        int16_t mm_ret = -1;
         while(Evt.PopEvent(event))
         {
             switch(event.type)
@@ -225,12 +226,15 @@ using gfxcore::CRenderer;
                 if(event.key.symbol == 'm') CRenderer::ToggleWireframe();
                 std::cout << "Printable: " << event.key.symbol << "\n";
                 break;
-                
+
             default:
-                Menu.HandleEvent(event);
+                mm_ret = MainMenu.HandleEvent(event);
+                if(mm_ret != -1) goto done;
                 break;
             }
         }
+
+done:
 
         mouse = evt::GetMousePosition();
 
@@ -284,9 +288,9 @@ using gfxcore::CRenderer;
         Grass3.Shear(math::vector_t(GrassT.z += GrassDT.z, 0.0));
 
         Scene.Render();
-        
-        int16_t i = Menu.Update();
-        if(i == 3) Window.Close();
+
+        MainMenu.Update();
+        if(mm_ret == 3) Window.Close();
 
         {
             Grass.Enable();

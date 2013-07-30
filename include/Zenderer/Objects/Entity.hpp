@@ -161,7 +161,7 @@ namespace obj
 
         /// Transforms the entity with scaling factors.
         inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
-        
+
         /// Rotate the entity in 2-dimensions (on the Z-axis).
         inline void Rotate(const real_t degrees) { m_MV.RotationZ(degrees); }
 
@@ -215,6 +215,9 @@ namespace obj
         /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
 
+        inline void Enable()  { m_enabled = true; }
+        inline void Disable() { m_enabled = false; }
+
         friend class ZEN_API gui::CFont;
         friend class ZEN_API gfx::CScene;
 
@@ -233,7 +236,7 @@ namespace obj
         string_t                    m_filename;
         uint16_t                    m_depth;
         uint32_t                    m_sort;
-        bool                        m_inv;
+        bool                        m_inv, m_enabled;
     };
 }   // namespace gfxcore
 }   // namespace zen

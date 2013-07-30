@@ -123,7 +123,7 @@ namespace gui
          *
          * @warning Any existing data in the entity is deleted.
          **/
-        bool Render(obj::CEntity& Ent, const string_t& text = "");
+        bool Render(obj::CEntity& Ent, const string_t& text = "") const;
 
         /// Clears the internal string stream.
         void ClearString();
@@ -160,11 +160,14 @@ namespace gui
 
         uint16_t GetTextWidth(const string_t&  text) const;
         uint16_t GetTextHeight(const string_t& text) const;
+        uint16_t GetLineHeight() const { return m_height; }
 
         friend class ZEN_API asset::CAssetManager;
 
     private:
         CFont(const void* const owner = nullptr);
+        CFont& operator=(const CFont& F);
+
         bool Destroy();
         bool LoadGlyph(const char c, const uint16_t index);
 

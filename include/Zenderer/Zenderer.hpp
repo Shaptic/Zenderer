@@ -78,10 +78,10 @@
 #include "Assets/AssetManager.hpp"
 
 // Graphics API
-#include "GUI/Font.hpp"
 #include "Graphics/Window.hpp"
 #include "Graphics/Light.hpp"
 #include "Graphics/Scene.hpp"
+#include "GUI/Menu.hpp"
 
 // Object API
 #include "Objects/Entity.hpp"
