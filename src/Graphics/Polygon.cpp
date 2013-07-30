@@ -43,11 +43,11 @@ gfxcore::CDrawable& CPolygon::Create()
     m_DrawData.icount   = tris;
 
     math::vector_t First(m_Verts[0]->position);
-    for(size_t i = 0; i < m_Verts.size(); ++i)
+    for(auto& i : m_Verts)
     {
-        m_DrawData.Vertices[i].position = m_Verts[i]->position;
-        m_DrawData.Vertices[i].color    = m_Verts[i]->color;
-        m_DrawData.Vertices[i].tc       = m_Verts[i]->tc;
+        m_DrawData.Vertices[i].position = i->position;
+        m_DrawData.Vertices[i].color    = i->color;
+        m_DrawData.Vertices[i].tc       = i->tc;
     }
 
     for(auto& i : m_Verts) delete i;
@@ -58,6 +58,5 @@ gfxcore::CDrawable& CPolygon::Create()
 
 void CPolygon::SetColor(const color4f_t& Color)
 {
-    auto i = m_Verts.begin(), j = m_Verts.end();
-    for( ; i != j; ++i) (*i)->color = Color;
+    for(auto& i : m_Verts) i->color = Color;
 }

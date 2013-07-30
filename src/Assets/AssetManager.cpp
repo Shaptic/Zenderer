@@ -152,7 +152,7 @@ CAsset* CAssetManager::Find(const assetid_t id) const
             << m_Log.SetSystem("AssetMgr")
             << "Searching for asset with ID " << id << '.' << CLog::endl;
 
-    for(auto b : mp_managerAssets)
+    for(auto& b : mp_managerAssets)
     {
         if(b->GetAssetID() == id) return b;
     }

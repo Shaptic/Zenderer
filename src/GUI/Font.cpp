@@ -129,13 +129,11 @@ bool CFont::Render(obj::CEntity& Ent, const string_t& to_render) const
     // lines just add their height to the y coordinate and keep rendering.
     math::Vector<int16_t> Pos;
 
-    auto a = text.begin(), b = text.end();
-    uint16_t i = 0;
-    for( ; a != b; ++a, ++i)
+    for(auto& i : text)
     {
         if(*a == '\n') break;
 
-        const auto it = m_glyphData.find(*a);
+        const auto it = m_glyphData.find(i);
         if(it == m_glyphData.end()) continue;
         Pos.y = math::max<int16_t>(Pos.y, it->second.position.y);
     }
@@ -454,19 +452,16 @@ uint16_t CFont::GetTextHeight(const string_t& text) const
     uint16_t lines = 1;
     uint16_t h = 0, tmp_h = 0;
 
-    auto i = text.begin(),
-         j = text.end();
-
-    for( ; i != j; ++i)
+    for(auto& i : text)
     {
-        if((*i) == '\n')
+        if(i == '\n')
         {
             h = math::max(h, tmp_h);
             tmp_h = 0;
         }
         else
         {
-            const auto g = m_glyphData.find(*i);
+            const auto g = m_glyphData.find(i);
             tmp_h = math::max<uint16_t>(
                 g->second.size.y + g->second.position.y, tmp_h);
         }

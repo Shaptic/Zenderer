@@ -85,8 +85,7 @@ bool CShaderSet::CreateShaderObject()
     }
 
     // Test for existing shader program.
-    auto i = s_shaderPrograms.begin(), j = s_shaderPrograms.end();
-    for( ; i != j; ++i)
+    for(auto& i : s_shaderPrograms)
     {
         CShaderSet& SS = *(i->first);
         if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)

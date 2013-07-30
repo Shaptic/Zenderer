@@ -29,10 +29,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
         math::aabb_t MouseBox(Evt.mouse.position,
             math::Vector<uint32_t>(2, 2));
 
-        auto i = m_menuActions.begin(),
-             j = m_menuActions.end();
-
-        for( ; i != j; ++i)
+        for(auto& i : m_menuActions)
         {
             if(i->first->IsOver(MouseBox))
             {
@@ -51,8 +48,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
         math::aabb_t MouseBox(Evt.mouse.position,
             math::Vector<uint32_t>(2, 2));
 
-        auto i = m_menuActions.begin(), j = m_menuActions.end();
-        for( ; i != j; ++i)
+        for(auto& i : m_menuActions)
         {
             if(i->first->IsOver(MouseBox))
             {

@@ -171,7 +171,7 @@ bool CEntity::Optimize()
 
 void CEntity::Destroy()
 {
-    for(auto i : mp_allPrims) { delete i; i = nullptr; }
+    for(auto& i : mp_allPrims) { delete i; i = nullptr; }
     mp_allPrims.clear();
 }
 
@@ -214,8 +214,8 @@ bool CEntity::Draw(bool is_bound /*= false*/)
 {
     if(!m_enabled) return false;
 
-    for(size_t i = 0; i < mp_allPrims.size(); ++i)
-        mp_allPrims[i]->Draw(is_bound);
+    for(auto& i : mp_allPrims)
+        i->Draw(is_bound);
 
     return true;
 }
@@ -227,10 +227,9 @@ void CEntity::Move(const math::vector_t& Pos)
 
 void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
-    auto i = mp_allPrims.begin(),
-         j = mp_allPrims.end();
+    for(auto& i : mp_allPrims)
+        i->Move(x, y, z);
 
-    for( ; i != j; ++i) (*i)->Move(x, y, z);
     m_MV.Translate(math::vector_t(x, y, z));
 
     m_Box.pos = math::vector_t(x, y);
@@ -240,22 +239,17 @@ void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 
 void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 {
-    auto i = mp_allPrims.begin(),
-         j = mp_allPrims.end();
-
-    for( ; i != j; ++i) (*i)->LoadIntoVAO(VAO, keep);
+    for(auto& i : mp_allPrims)
+        i->LoadIntoVAO(VAO, keep);
 }
 
 bool CEntity::Offloaded() const
 {
     if(mp_allPrims.size() == 0) return false;
 
-    auto i = mp_allPrims.cbegin(),
-         j = mp_allPrims.cend();
-
-    for( ; i != j; ++i)
+    for(auto& i : mp_allPrims)
     {
-        if((*i)->m_DrawData.Vertices != nullptr)
+        if(i->m_DrawData.Vertices != nullptr)
             return false;
     }
 

@@ -121,14 +121,11 @@ bool CScene::Render()
     // time to call it. Things won't be offloaded multiple times.
     auto i = m_allEntities.begin(), j = m_allEntities.end();
 
-    if(i != j)
+    for(auto& i : m_allEntities)
     {
-        for( ; i != j; ++i)
-        {
-            // If any are offloaded, the rest probably are too.
-            if((*i)->Offloaded()) break;
-            (*i)->Offload(m_Geometry, false);
-        }
+        // If any are offloaded, the rest probably are too.
+        if(i->Offloaded()) break;
+        i->Offload(m_Geometry, false);
     }
 
     m_Geometry.Offload();
@@ -153,19 +150,18 @@ bool CScene::Render()
     M.Enable();
 
     // Commence individual primitive rendering.
-    i = m_allEntities.begin();
-    for( ; i != j; ++i)
+    for(auto& i : m_allEntities)
     {
-        if(!(*i)->m_enabled) continue;
+        if(!i->m_enabled) continue;
 
         // Adjust for the camera.
-        (*i)->Move((*i)->GetPosition() + m_Camera);
+        i->Move(i->GetPosition() + m_Camera);
 
         // Set the matrix for transformation.
-        const math::matrix4x4_t& Tmp = (*i)->GetTransformation();
+        const math::matrix4x4_t& Tmp = i->GetTransformation();
         E.SetParameter("mv", Tmp);
 
-        auto a = (*i)->cbegin(), b = (*i)->cend();
+        auto a = i->cbegin(), b = i->cend();
         for( ; a != b; ++a)
         {
             (*a)->GetMaterial().Enable();
@@ -173,7 +169,7 @@ bool CScene::Render()
         }
 
         // Move back to original position.
-        (*i)->Move((*i)->GetPosition() - m_Camera);
+        i->Move(i->GetPosition() - m_Camera);
     }
 
     M.Disable();
@@ -196,22 +192,18 @@ bool CScene::Render()
         CRenderer::EnableTexture(final_texture);
         CRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
 
-        auto i = m_allLights.begin(),
-             j = m_allLights.end();
-
-        for( ; i != j; ++i)
+        for(auto& i : m_allLights)
         {
-            CLight& L = *(*i);
-            L.Enable();
+            i->Enable();
 
             // Move with scene
-            L.Adjust(m_Camera.x, m_Camera.y);
+            i->Adjust(m_Camera.x, m_Camera.y);
 
             FS.Draw();
 
             // Restore state
-            L.Adjust(-m_Camera.x, -m_Camera.y);
-            L.Disable();
+            i->Adjust(-m_Camera.x, -m_Camera.y);
+            i->Disable();
         }
 
         final_texture = m_FBO2.GetTexture();
@@ -233,14 +225,15 @@ bool CScene::Render()
 
         for(size_t c = 0; i != j; ++i, ++c)
         {
+            auto& FX = *i;
             bool even = ((c & 0x1) == 0);
             if(even)    Two.Bind();
             else        One.Bind();
 
-            (*i)->Enable();
+            FX->Enable();
             CRenderer::EnableTexture(final_texture);
             FS.Draw();
-            (*i)->Disable();
+            FX->Disable();
 
             final_texture = even ? Two.GetTexture() : One.GetTexture();
         }
@@ -272,12 +265,10 @@ bool CScene::Render()
 
 int32_t CScene::GetEntityIndex(const obj::CEntity& D)
 {
-    auto i = m_allEntities.begin(),
-         j = m_allEntities.end();
-
     int32_t index = -1;
-    for( ; i != j; ++i, ++index)
+    for(auto i : m_allEntities)
     {
+        ++index;
         if((*i) == &D) return index;
     }
 
