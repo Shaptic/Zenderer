@@ -199,10 +199,10 @@ using gfxcore::CRenderer;
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
     MainMenu.SetSpacing(MenuFont->GetLineHeight());
 
-    MainMenu.AddButton("Play Game");
-    MainMenu.AddButton("Load Game");
-    MainMenu.AddButton("Options");
-    MainMenu.AddButton("Exit");
+    MainMenu.AddButton("Play Game", []{});
+    MainMenu.AddButton("Load Game", []{});
+    MainMenu.AddButton("Options"), []{};
+    MainMenu.AddButton("Exit", [&Window] { Window.Close() });
 
     while(Window.IsOpen())
     {

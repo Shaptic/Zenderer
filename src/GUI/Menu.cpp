@@ -10,7 +10,7 @@ CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
     mp_Bg(nullptr), m_spacing(0)
 {
     m_Scene.Init();
-    mp_menuButtons.clear();
+    m_menuActions.clear();
     m_Scene.DisableLighting();
     mp_Font->AttachManager(Assets);
 }
@@ -18,29 +18,29 @@ CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
 CMenu::~CMenu()
 {
     m_Scene.Destroy();
-    for(auto& i : mp_menuButtons) delete i;
-    mp_menuButtons.clear();
+    for(auto& i : m_menuActions) delete i;
+    m_menuActions.clear();
 }
 
-int16_t CMenu::HandleEvent(const evt::event_t& Evt)
+bool CMenu::HandleEvent(const evt::event_t& Evt)
 {
     if(Evt.type == evt::EventType::MOUSE_MOTION)
     {
         math::aabb_t MouseBox(Evt.mouse.position,
             math::Vector<uint32_t>(2, 2));
 
-        auto i = mp_menuButtons.begin(),
-            j = mp_menuButtons.end();
+        auto i = m_menuActions.begin(),
+             j = m_menuActions.end();
 
         for( ; i != j; ++i)
         {
-            if((*i)->IsOver(MouseBox))
+            if(i->first->IsOver(MouseBox))
             {
-                (*i)->SetActive();
+                i->first->SetActive();
             }
             else
             {
-                (*i)->SetDefault();
+                i->first->SetDefault();
             }
         }
     }
@@ -51,16 +51,21 @@ int16_t CMenu::HandleEvent(const evt::event_t& Evt)
         math::aabb_t MouseBox(Evt.mouse.position,
             math::Vector<uint32_t>(2, 2));
 
-        for(size_t i = 0; i < mp_menuButtons.size(); ++i)
+        auto i = m_menuActions.begin(), j = m_menuActions.end();
+        for( ; i != j; ++i)
         {
-            if(mp_menuButtons[i]->IsOver(MouseBox)) return i;
+            if(i->first->IsOver(MouseBox))
+            {
+                i->second();
+                return true;
+            }
         }
     }
 
-    return -1;
+    return false;
 }
 
-uint16_t CMenu::AddButton(const string_t& text)
+uint16_t CMenu::AddButton(const string_t& text, std::function<void()> handler)
 {
     CButton* pNew = new CButton(m_Scene);
     pNew->SetFont(*mp_Font);
@@ -74,8 +79,8 @@ uint16_t CMenu::AddButton(const string_t& text)
     pNew->SetDefault();
 
     m_Position.y += m_spacing;
-    mp_menuButtons.push_back(pNew);
-    return mp_menuButtons.size() - 1;
+    m_menuActions[pNew] = handler;
+    return m_menuActions.size() - 1;
 }
 
 void CMenu::Update()

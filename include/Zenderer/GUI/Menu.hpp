@@ -22,6 +22,8 @@
 #ifndef ZENDERER__GUI__MENU_HPP
 #define ZENDERER__GUI__MENU_HPP
 
+#include <functional>
+
 #include "Zenderer/Events/EventHandler.hpp"
 #include "Zenderer/Events/Mouse.hpp"
 #include "Zenderer/Graphics/Scene.hpp"
@@ -39,9 +41,10 @@ namespace gui
 
         virtual ~CMenu();
 
-        virtual int16_t HandleEvent(const evt::event_t& Evt);
+        virtual bool HandleEvent(const evt::event_t& Evt);
 
-        virtual uint16_t AddButton(const string_t& text);
+        virtual uint16_t AddButton(const string_t& text,
+                                   std::function<void()> handler);
 
         virtual void Update();
 
@@ -61,7 +64,7 @@ namespace gui
         gui::CFont* mp_Font;
         color4f_t m_acolor, m_ncolor;
 
-        std::vector<CButton*> mp_menuButtons;
+        std::map<CButton*, std::function<int()>> m_menuActions;
 
         math::vector_t m_Position;
         uint16_t m_spacing;
