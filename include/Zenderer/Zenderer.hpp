@@ -173,9 +173,6 @@ namespace zen
  *  the VS2012 project, so if you are using a different build system, be sure
  *  to do likewise.
  *
- * @note    All file version numbers are meaningless until a stable
- *          1.0.0-alpha release.
- *
  * @todo    Test cross-platform compatibility.
  *
  * @section prep    Preprocessor Defines
