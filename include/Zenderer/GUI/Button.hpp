@@ -87,10 +87,10 @@ namespace gui
             if(!mp_Font || mp_Current == nullptr) return false;
 
             mp_Font->SetColor(m_ncolor);
-            mp_Font->Render(m_Normal, text);
+            bool ret = mp_Font->Render(m_Normal, text);
 
             mp_Font->SetColor(m_acolor);
-            mp_Font->Render(m_Active, text);
+            return ret && mp_Font->Render(m_Active, text);
         }
 
         bool SetActive()
