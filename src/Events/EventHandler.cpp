@@ -59,7 +59,7 @@ void CEventHandler::MouseMotionCallback(GLFWwindow*, double x, double y)
 
 void CEventHandler::MouseCallback(GLFWwindow*, int button, int action, int mods)
 {
-    //GetMousePosition(s_Active.mouse.position);
+    s_Active.mouse.position = evt::GetMousePosition();
     s_Active.mouse.button   = static_cast<MouseButton>(button);
     s_Active.mouse.down     = (action == GLFW_PRESS);
     s_Active.mouse.mods     = mods;

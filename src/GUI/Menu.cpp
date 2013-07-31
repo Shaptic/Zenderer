@@ -43,7 +43,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
     }
 
     else if(Evt.type == evt::EventType::MOUSE_DOWN &&
-        Evt.mouse.button == evt::MouseButton::LEFT)
+            Evt.mouse.button == evt::MouseButton::LEFT)
     {
         math::aabb_t MouseBox(Evt.mouse.position,
             math::Vector<uint32_t>(2, 2));
