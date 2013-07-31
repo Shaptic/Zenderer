@@ -269,7 +269,7 @@ int32_t CScene::GetEntityIndex(const obj::CEntity& D)
     for(auto i : m_allEntities)
     {
         ++index;
-        if((*i) == &D) return index;
+        if(i == &D) return index;
     }
 
     return index;

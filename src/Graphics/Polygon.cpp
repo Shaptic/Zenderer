@@ -43,11 +43,11 @@ gfxcore::CDrawable& CPolygon::Create()
     m_DrawData.icount   = tris;
 
     math::vector_t First(m_Verts[0]->position);
-    for(auto& i : m_Verts)
+    for(size_t i = 0; i < m_Verts.size(); ++i)
     {
-        m_DrawData.Vertices[i].position = i->position;
-        m_DrawData.Vertices[i].color    = i->color;
-        m_DrawData.Vertices[i].tc       = i->tc;
+        m_DrawData.Vertices[i].position = m_Verts[i]->position;
+        m_DrawData.Vertices[i].color    = m_Verts[i]->color;
+        m_DrawData.Vertices[i].tc       = m_Verts[i]->tc;
     }
 
     for(auto& i : m_Verts) delete i;

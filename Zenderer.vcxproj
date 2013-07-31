@@ -180,6 +180,7 @@
     <ClCompile Include="src\Graphics\RenderTarget.cpp" />
     <ClCompile Include="src\Graphics\Scene.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\GUI\Button.cpp" />
     <ClCompile Include="src\GUI\Font.cpp" />
     <ClCompile Include="src\GUI\Menu.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />

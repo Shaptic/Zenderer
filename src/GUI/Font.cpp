@@ -131,7 +131,7 @@ bool CFont::Render(obj::CEntity& Ent, const string_t& to_render) const
 
     for(auto& i : text)
     {
-        if(*a == '\n') break;
+        if(i == '\n') break;
 
         const auto it = m_glyphData.find(i);
         if(it == m_glyphData.end()) continue;

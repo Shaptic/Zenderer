@@ -72,7 +72,7 @@ void CButton::SetDefault()
     mp_Current->Enable();
 }
 
-void CButton::SetFont(CFont& Font)
+void CButton::SetFont(gui::CFont& Font)
 {
     Font.SetStacking(true);
     mp_Font = &Font;

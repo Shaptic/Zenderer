@@ -64,7 +64,7 @@ namespace gui
         gui::CFont* mp_Font;
         color4f_t m_acolor, m_ncolor;
 
-        std::map<CButton*, std::function<int()>> m_menuActions;
+        std::map<CButton*, std::function<void()>> m_menuActions;
 
         math::vector_t m_Position;
         uint16_t m_spacing;

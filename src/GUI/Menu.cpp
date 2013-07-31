@@ -52,7 +52,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
         {
             if(i.first->IsOver(MouseBox))
             {
-                i->second();
+                i.second();
                 return true;
             }
         }

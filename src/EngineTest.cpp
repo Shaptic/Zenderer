@@ -113,7 +113,7 @@ using gfxcore::CRenderer;
     Ent.Move(100, 69);
 
     obj::CEntity& Bg = Scene.AddEntity();
-    //Bg.LoadFromTexture("MockMenu.png");
+    Bg.LoadFromTexture("MockMenu.png");
 
     obj::CEntity& Ent3 = Scene.AddEntity();
     obj::CEntity& Ent2 = Scene.AddEntity();
@@ -190,19 +190,26 @@ using gfxcore::CRenderer;
     P2.Create();
     //P3.Create();
 
-    gui::CFont* MenuFont = Manager.Create<gui::CFont>();
-    MenuFont->AttachManager(Manager);
-    MenuFont->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
     gui::CMenu MainMenu(Window, Manager);
-    MainMenu.SetFont(*MenuFont);
+    MainMenu.SetFont("C:\\Windows\\Fonts\\segoeuil.ttf");
     MainMenu.SetNormalButtonTextColor(color4f_t(1, 0, 0, 1));
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
-    MainMenu.SetSpacing(MenuFont->GetLineHeight());
+    MainMenu.SetSpacing(32);
 
     MainMenu.AddButton("Play Game", []{});
     MainMenu.AddButton("Load Game", []{});
-    MainMenu.AddButton("Options"), []{};
-    MainMenu.AddButton("Exit", [&Window] { Window.Close() });
+    MainMenu.AddButton("Options", []{});
+    MainMenu.AddButton("Exit", [&Window] { Window.Close(); });
+
+    Scene.SetSeeThrough(false);
+    Scene.EnablePostProcessing();
+
+    gfx::CEffect& GB = Scene.AddEffect(gfx::EffectType::GAUSSIAN_BLUR_H);
+    real_t radius = 1.0 / 512;
+    GB.Init();
+    GB.Enable();
+    GB.SetParameter("radius", &radius);
+    GB.Disable();
 
     while(Window.IsOpen())
     {
@@ -228,13 +235,10 @@ using gfxcore::CRenderer;
                 break;
 
             default:
-                mm_ret = MainMenu.HandleEvent(event);
-                if(mm_ret != -1) goto done;
+                MainMenu.HandleEvent(event);
                 break;
             }
         }
-
-done:
 
         mouse = evt::GetMousePosition();
 
@@ -290,7 +294,6 @@ done:
         Scene.Render();
 
         MainMenu.Update();
-        printf("%d\n", mm_ret);
         if(mm_ret == 3) Window.Close();
 
         {
