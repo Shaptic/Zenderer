@@ -233,7 +233,6 @@ namespace math
 
     /// Standard 32-bit integral vector shortcut.
     typedef Vector<int32_t> vectori_t;
-
 }   // namespace math
 }   // namespace ic
 

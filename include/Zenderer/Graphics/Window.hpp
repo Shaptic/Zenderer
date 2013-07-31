@@ -86,7 +86,7 @@ namespace gfx
          **/
         CWindow(const uint16_t w, const uint16_t h,
                 const string_t& caption, asset::CAssetManager& Mgr,
-                const bool fullscreen = 
+                const bool fullscreen =
 #ifdef ZEN_DEBUG_BUILD
     false
 #else
@@ -145,7 +145,7 @@ namespace gfx
 
         /// Enables fullscreen mode.
         bool EnableFullscreen(int* const loaded = nullptr);
-        
+
         ///< Disables fullscreen mode.
         bool DisableFullscreen(int* const loaded = nullptr);
 
@@ -183,7 +183,7 @@ namespace gfx
         // Prevent copying.
         CWindow(const CWindow&);
         CWindow& operator=(const CWindow&);
-        
+
         uint32_t ReloadAssets();
 
         GLFWwindow*             mp_Window;

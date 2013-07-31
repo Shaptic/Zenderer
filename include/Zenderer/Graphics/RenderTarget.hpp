@@ -44,19 +44,19 @@ namespace gfx
 
         /// Creates the render target with an attached texture.
         bool Init();
-        
+
         /// Destroys the render target and everything attached to it.
         bool Destroy();
 
         /// All draws after this call will go to the texture, not the screen.
         bool Bind() const;
-        
+
         /// Resume drawing to the screen.
         bool Unbind() const;
-        
+
         /// Binds the render target's texture for drawing or modification.
         bool BindTexture() const;
-        
+
         /// Clears the rendering target texture with a color (default black).
         bool Clear(const color4f_t C = color4f_t(0.0, 0.0, 0.0, 1.0));
 
@@ -65,12 +65,12 @@ namespace gfx
 
         /// Get the raw render target OpenGL handle.
         GLuint GetObjectHandle() const;
-        
+
         /// Get the raw render target's texture handle.
         GLuint GetTexture() const;
-        
-        inline uint16_t GetHeight() const { return m_Viewport.x; } 
-        inline uint16_t GetWidth()  const { return m_Viewport.y; } 
+
+        inline uint16_t GetHeight() const { return m_Viewport.x; }
+        inline uint16_t GetWidth()  const { return m_Viewport.y; }
 
     private:
         util::CLog& m_Log;

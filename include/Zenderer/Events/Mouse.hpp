@@ -57,7 +57,7 @@ namespace evt
 
     /// Retrieves the current mouse position on the active context.
     math::vector_t GetMousePosition();
-    
+
     /// Returns `true` if the mouse button is pressed.
     bool GetMouseState(const evt::MouseButton& Btn);
 }
