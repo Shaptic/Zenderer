@@ -27,6 +27,7 @@
 #include "Zenderer/Events/EventHandler.hpp"
 #include "Zenderer/Events/Mouse.hpp"
 #include "Zenderer/Graphics/Scene.hpp"
+
 #include "Font.hpp"
 #include "Button.hpp"
 
@@ -48,7 +49,7 @@ namespace gui
 
         virtual void Update();
 
-        bool SetFont(const std::string& filename);
+        bool SetFont(const std::string& filename, const uint16_t size=18);
         void SetButtonBackground(const obj::CEntity& Bg);
         void SetNormalButtonTextColor(const color4f_t& Color);
         void SetActiveButtonTextColor(const color4f_t& Color);

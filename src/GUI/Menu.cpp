@@ -12,6 +12,7 @@ CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
     m_Scene.Init();
     m_menuActions.clear();
     m_Scene.DisableLighting();
+    m_Scene.DisablePostProcessing();
     mp_Font->AttachManager(Assets);
 }
 
@@ -84,9 +85,12 @@ void CMenu::Update()
     m_Scene.Render();
 }
 
-bool CMenu::SetFont(const std::string& filename)
+bool CMenu::SetFont(const std::string& filename, const uint16_t size)
 {
-    return mp_Font->LoadFromFile(filename);
+    mp_Font->SetSize(size);
+    bool ret = mp_Font->LoadFromFile(filename);
+    m_spacing = mp_Font->GetLineHeight();
+    return ret;
 }
 
 void CMenu::SetButtonBackground(const obj::CEntity& Bg)
