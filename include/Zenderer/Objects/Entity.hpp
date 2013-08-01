@@ -66,7 +66,7 @@ namespace obj
          * Creates an entity mesh from a file.
          *  There is a detailed specification for well-formed loading of
          *  single and multi-primitive entity loading with unique material
-         *  attachments for each. This will implicitly call `Optimize()`
+         *  attachments for each. This will implicitly call Optimize()
          *  when loading is complete.
          *
          * @param   filename    The path to the entity file.
@@ -125,7 +125,7 @@ namespace obj
         /**
          * Draws the entity on-screen.
          *  Since entities are just collections of one or more primitives, this
-         *  will simply call `gfx::CQuad::Draw` on each individual internal
+         *  will simply call gfx::CQuad::Draw on each individual internal
          *  primitive.
          *
          *  If `is_bound` is `true`, the draw call will only do drawing (go
@@ -190,7 +190,7 @@ namespace obj
          *          may cause problems.
          *
          * @warning The data will stay on the GPU, occupying precious video
-         *          memory, until the `gfxcore::CVertexArray` is cleared.
+         *          memory, until the gfxcore::CVertexArray is cleared.
          *
          * @see     zen::gfxcore::CVertexArray::Clear()
          **/
@@ -256,16 +256,16 @@ namespace obj
  *
  *  When creating an entity from multiple primitives, a copy of the primitive
  *  data will be stored internally in order to prevent a bad reference later. Thus
- *  it's recommended that if you will be creating via `AddPrimitive()` that you
+ *  it's recommended that if you will be creating via AddPrimitive() that you
  *  either dynamically allocate the primitives and then `delete` later, or you
  *  ensure that they go out of scope soon to prevent useless data duplication.
  *
- *  The call to `Optimize()` is not necessary, but is recommended to merge
+ *  The call to Optimize() is not necessary, but is recommended to merge
  *  identical primitives together if they use the same material, especially
  *  if you've got some CPU cycles to spare, because it will save render state
  *  switches down the road.
  *
- * @see specs.html
+ * @see     <a href="specs.html#ZEnt">Entity Specification</a>
  *
  * @todo    Allow for additional primitives not to stack up.
  **/
