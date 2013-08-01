@@ -1,3 +1,5 @@
 <map id="zen::gui::CFont::Render" name="zen::gui::CFont::Render">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="213,5,264,32"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="627,5,677,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="213,29,344,70"/>
+<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_menu.html#a6fb215ff542d0cdcad22c448ad37badd" title="zen::gui::CMenu::AddButton" alt="" coords="392,32,579,59"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="Zenderer/include/Zenderer/Core/Allocator.hpp" name="Zenderer/include/Zenderer/Core/Allocator.hpp">
 <area shape="rect" id="node3" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="7,261,173,288"/>
-<area shape="rect" id="node6" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="129,96,327,123"/>
-<area shape="rect" id="node8" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="342,171,460,213"/>
-<area shape="rect" id="node13" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="561,261,772,288"/>
+<area shape="rect" id="node6" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc. " alt="" coords="129,96,327,123"/>
+<area shape="rect" id="node8" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file. " alt="" coords="342,171,460,213"/>
+<area shape="rect" id="node13" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling. " alt="" coords="561,261,772,288"/>
 <area shape="rect" id="node15" href="$_log_8inl.html" title="Log.inl" alt="" coords="797,261,856,288"/>
 </map>

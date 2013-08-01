@@ -1,5 +1,5 @@
 <map id="zen::gfx::CLight::SetMaximumAngle" name="zen::gfx::CLight::SetMaximumAngle">
 <area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="669,12,720,39"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="253,37,392,64"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene." alt="" coords="440,37,621,64"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene. " alt="" coords="440,37,621,64"/>
 </map>

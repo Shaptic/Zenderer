@@ -1,7 +1,7 @@
 <map id="zen::util::hash" name="zen::util::hash">
-<area shape="rect" id="node2" href="$namespacezen_1_1util.html#a613ef6d857cad323640de5c03bc87e4e" title="Hashes a string to a unique value." alt="" coords="158,123,301,149"/>
-<area shape="rect" id="node3" href="$classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists." alt="" coords="349,5,533,46"/>
-<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing)." alt="" coords="375,201,508,242"/>
-<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem." alt="" coords="375,70,508,111"/>
-<area shape="rect" id="node6" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence." alt="" coords="367,135,515,177"/>
+<area shape="rect" id="node2" href="$namespacezen_1_1util.html#a613ef6d857cad323640de5c03bc87e4e" title="Hashes a string to a unique value. " alt="" coords="158,123,301,149"/>
+<area shape="rect" id="node3" href="$classzen_1_1asset_1_1_c_asset_manager.html#a297ea5291960e1b9444433e460218a54" title="Finds an asset by filename, if it exists. " alt="" coords="349,5,533,46"/>
+<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4" title="Retrieves the value of an option (creates if non&#45;existing). " alt="" coords="375,201,508,242"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550" title="Initializes the subsystem. " alt="" coords="375,70,508,111"/>
+<area shape="rect" id="node6" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11" title="Retrieve the mutable node data for the first tag occurrence. " alt="" coords="367,135,515,177"/>
 </map>

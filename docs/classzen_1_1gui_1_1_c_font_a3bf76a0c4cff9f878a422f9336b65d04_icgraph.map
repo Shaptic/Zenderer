@@ -1,3 +1,5 @@
 <map id="zen::gui::CFont::SetColor" name="zen::gui::CFont::SetColor">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="224,5,275,32"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="637,5,688,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="224,29,355,70"/>
+<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_menu.html#a6fb215ff542d0cdcad22c448ad37badd" title="zen::gui::CMenu::AddButton" alt="" coords="403,32,589,59"/>
 </map>

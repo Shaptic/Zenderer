@@ -7,7 +7,7 @@ var searchData=
   ['unused_5fflag',['UNUSED_FLAG',['../classzen_1_1gfxcore_1_1_c_sorter.html#ae69663c819dec868f0d1cb8f665ae056',1,'zen::gfxcore::CSorter']]],
   ['unused_5foffset',['UNUSED_OFFSET',['../classzen_1_1gfxcore_1_1_c_sorter.html#a4de7192dc04108ff5308fef7591916aa',1,'zen::gfxcore::CSorter']]],
   ['up',['UP',['../_keyboard_8hpp.html#ab9396f8576c1edddba6173922f0812ad',1,'Keyboard.hpp']]],
-  ['update',['Update',['../classzen_1_1sfx_1_1_c_audio2_d.html#ab2f2dcf0135d07daf4ac735ee59daec5',1,'zen::sfx::CAudio2D::Update()'],['../classzen_1_1sfx_1_1_c_music2_d.html#aa2d07ee000b0dfeabc800f46f580b649',1,'zen::sfx::CMusic2D::Update()'],['../classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b',1,'zen::sfx::CSound2D::Update()'],['../classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c',1,'zen::gfx::CWindow::Update()'],['../classzen_1_1gui_1_1_c_menu.html#ada783a04704d816d1f366b00361edefe',1,'zen::gui::CMenu::Update()']]],
+  ['update',['Update',['../classzen_1_1sfx_1_1_c_audio2_d.html#ab2f2dcf0135d07daf4ac735ee59daec5',1,'zen::sfx::CAudio2D::Update()'],['../classzen_1_1sfx_1_1_c_music2_d.html#aa2d07ee000b0dfeabc800f46f580b649',1,'zen::sfx::CMusic2D::Update()'],['../classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b',1,'zen::sfx::CSound2D::Update()'],['../classzen_1_1gfx_1_1_c_window.html#af21d93ba75e342c3c0010bbd86536e0c',1,'zen::gfx::CWindow::Update()'],['../classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639',1,'zen::gui::CMenu::Update()']]],
   ['utilities',['Utilities',['../group___utilities.html',1,'']]],
   ['utilities_2ehpp',['Utilities.hpp',['../_utilities_8hpp.html',1,'']]]
 ];

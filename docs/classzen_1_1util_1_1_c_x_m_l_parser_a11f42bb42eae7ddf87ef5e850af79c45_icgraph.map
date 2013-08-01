@@ -1,5 +1,5 @@
 <map id="zen::util::CXMLParser::ClearTree" name="zen::util::CXMLParser::ClearTree">
-<area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#acfc41063166e5fd59c0daf944d24bd80" title="Clears the internal XML tree." alt="" coords="203,5,351,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b" title="Loads and parses an XML file from disk." alt="" coords="203,70,351,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b" title="Loads and parses XML data from a string." alt="" coords="203,135,351,177"/>
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#acfc41063166e5fd59c0daf944d24bd80" title="Clears the internal XML tree. " alt="" coords="203,5,351,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b" title="Loads and parses an XML file from disk. " alt="" coords="203,70,351,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b" title="Loads and parses XML data from a string. " alt="" coords="203,135,351,177"/>
 </map>

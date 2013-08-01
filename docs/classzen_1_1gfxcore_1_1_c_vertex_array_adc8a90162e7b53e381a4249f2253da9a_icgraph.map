@@ -1,8 +1,11 @@
 <map id="zen::gfxcore::CVertexArray::GetIndicesFromGPU" name="zen::gfxcore::CVertexArray::GetIndicesFromGPU">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU." alt="" coords="232,129,411,170"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="473,5,615,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="463,70,625,111"/>
-<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="677,161,728,188"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen." alt="" coords="459,187,629,213"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="464,237,624,264"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae" title="Offloads local vertex data to the GPU. " alt="" coords="232,114,411,155"/>
+<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="468,5,609,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen. " alt="" coords="671,55,833,97"/>
+<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1120,197,1171,224"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. " alt="" coords="667,172,837,199"/>
+<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="459,273,619,300"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639" title="zen::gui::CMenu::Update" alt="" coords="895,223,1062,249"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="687,325,817,366"/>
+<area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_menu.html#a6fb215ff542d0cdcad22c448ad37badd" title="zen::gui::CMenu::AddButton" alt="" coords="885,328,1072,355"/>
 </map>

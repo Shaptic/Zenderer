@@ -2,9 +2,9 @@
 <area shape="rect" id="node2" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="45,395,211,421"/>
 <area shape="rect" id="node5" href="$_math_8hpp.html" title="Zenderer/Math/Math.hpp &#45; Includes all of the various math definitions and defines useful functions..." alt="" coords="195,96,357,123"/>
 <area shape="rect" id="node6" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="390,320,492,347"/>
-<area shape="rect" id="node9" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="233,245,319,272"/>
+<area shape="rect" id="node9" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure. " alt="" coords="233,245,319,272"/>
 <area shape="rect" id="node12" href="$_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="156,171,239,197"/>
-<area shape="rect" id="node13" href="$_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures." alt="" coords="313,171,404,197"/>
+<area shape="rect" id="node13" href="$_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures. " alt="" coords="313,171,404,197"/>
 <area shape="rect" id="node8" href="$_math_core_8inl.html" title="MathCore.inl" alt="" coords="406,395,500,421"/>
 <area shape="rect" id="node11" href="$_vector_8inl.html" title="Vector.inl" alt="" coords="237,320,315,347"/>
 </map>

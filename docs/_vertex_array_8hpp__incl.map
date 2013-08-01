@@ -1,13 +1,13 @@
 <map id="Zenderer/include/Zenderer/CoreGraphics/VertexArray.hpp" name="Zenderer/include/Zenderer/CoreGraphics/VertexArray.hpp">
 <area shape="rect" id="node3" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="790,352,956,379"/>
-<area shape="rect" id="node6" href="$_allocator_8hpp.html" title="Zenderer/Core/Allocator.hpp &#45; A high&#45;speed allocator using a static memory stack." alt="" coords="525,96,707,123"/>
+<area shape="rect" id="node6" href="$_allocator_8hpp.html" title="Zenderer/Core/Allocator.hpp &#45; A high&#45;speed allocator using a static memory stack. ..." alt="" coords="525,96,707,123"/>
 <area shape="rect" id="node17" href="$_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="830,96,924,123"/>
-<area shape="rect" id="node8" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc." alt="" coords="419,179,617,205"/>
-<area shape="rect" id="node9" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file." alt="" coords="443,262,561,303"/>
-<area shape="rect" id="node14" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling." alt="" coords="5,352,216,379"/>
+<area shape="rect" id="node8" href="$_subsystem_8hpp.html" title="Zenderer/Core/Subsystem.hpp &#45; An abstract base class for all &#39;systems&#39; in the engine, like the asset manager, file handler, etc. " alt="" coords="419,179,617,205"/>
+<area shape="rect" id="node9" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file. " alt="" coords="443,262,561,303"/>
+<area shape="rect" id="node14" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling. " alt="" coords="5,352,216,379"/>
 <area shape="rect" id="node16" href="$_log_8inl.html" title="Log.inl" alt="" coords="241,352,300,379"/>
-<area shape="rect" id="node20" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure." alt="" coords="1186,179,1357,205"/>
-<area shape="rect" id="node26" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime." alt="" coords="642,171,760,213"/>
+<area shape="rect" id="node20" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure. " alt="" coords="1186,179,1357,205"/>
+<area shape="rect" id="node26" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime. " alt="" coords="642,171,760,213"/>
 <area shape="rect" id="node23" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="1147,269,1249,296"/>
 <area shape="rect" id="node25" href="$_vector_8inl.html" title="Vector.inl" alt="" coords="1368,269,1445,296"/>
 <area shape="rect" id="node24" href="$_math_core_8inl.html" title="MathCore.inl" alt="" coords="1151,352,1245,379"/>

@@ -1,7 +1,10 @@
 <map id="zen::math::matrix4x4_t::Projection2D" name="zen::math::matrix4x4_t::Projection2D">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture." alt="" coords="200,89,363,130"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture. " alt="" coords="200,89,363,130"/>
 <area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="420,5,561,46"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="619,121,669,148"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components." alt="" coords="417,121,564,148"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="411,172,571,199"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1069,172,1120,199"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="417,121,564,148"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="411,223,571,249"/>
+<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="619,172,786,199"/>
+<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="637,274,768,315"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_menu.html#a6fb215ff542d0cdcad22c448ad37badd" title="zen::gui::CMenu::AddButton" alt="" coords="835,277,1021,304"/>
 </map>

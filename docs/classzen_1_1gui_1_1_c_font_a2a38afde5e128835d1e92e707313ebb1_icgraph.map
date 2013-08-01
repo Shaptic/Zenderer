@@ -1,5 +1,5 @@
 <map id="zen::gui::CFont::SetStacking" name="zen::gui::CFont::SetStacking">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_button.html#a01e301a652a8ec213960f42ecdaca24b" title="zen::gui::CButton::\lSetFont" alt="" coords="245,5,376,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_menu.html#a97dfac22c8a04f2f5dbab8234f2a354c" title="zen::gui::CMenu::AddButton" alt="" coords="424,12,611,39"/>
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_button.html#a9cb7b22a6ee45b202b8c40106b4cdd2f" title="zen::gui::CButton::\lSetFont" alt="" coords="245,5,376,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_menu.html#a6fb215ff542d0cdcad22c448ad37badd" title="zen::gui::CMenu::AddButton" alt="" coords="424,12,611,39"/>
 <area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="659,12,709,39"/>
 </map>

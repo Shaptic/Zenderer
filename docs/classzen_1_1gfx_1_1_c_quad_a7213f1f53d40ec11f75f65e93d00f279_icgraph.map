@@ -1,8 +1,11 @@
 <map id="zen::gfx::CQuad::Create" name="zen::gfx::CQuad::Create">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="423,107,564,149"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="643,173,693,200"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering." alt="" coords="413,5,573,32"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file." alt="" coords="217,166,343,207"/>
-<area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it." alt="" coords="217,49,343,90"/>
-<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="392,56,595,83"/>
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="423,5,564,46"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1056,197,1107,224"/>
+<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="413,172,573,199"/>
+<area shape="rect" id="node7" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file. " alt="" coords="851,274,978,315"/>
+<area shape="rect" id="node8" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="217,106,343,147"/>
+<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="643,106,773,147"/>
+<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#a6fb215ff542d0cdcad22c448ad37badd" title="zen::gui::CMenu::AddButton" alt="" coords="821,113,1008,140"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="392,71,595,97"/>
+<area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_button.html#aa4165c2363eef8f791ca901d62bc9fd9" title="zen::gui::CButton::\lSetBackground" alt="" coords="643,41,773,82"/>
 </map>

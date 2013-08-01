@@ -1,7 +1,6 @@
 <map id="zen::gfxcore::CShaderSet::Unbind" name="zen::gfxcore::CShaderSet::Unbind">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="237,5,376,32"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd" title="zen::gfx::CLight::Disable" alt="" coords="225,56,389,83"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene." alt="" coords="437,5,619,32"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="667,56,717,83"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen." alt="" coords="443,107,613,133"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="224,5,363,32"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_light.html#a50fa9064e9f4b80ecd0fed9a71675dcd" title="zen::gfx::CLight::Disable" alt="" coords="419,56,583,83"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene. " alt="" coords="411,5,592,32"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="640,31,691,57"/>
 </map>

@@ -1,16 +1,18 @@
 <map id="Zenderer/include/Zenderer/Events/Mouse.hpp" name="Zenderer/include/Zenderer/Events/Mouse.hpp">
-<area shape="rect" id="node2" href="$_event_8hpp.html" title="Zenderer/Events/Event.hpp &#45; Defines keyboard&#45;related event data structures and convenience functional..." alt="" coords="373,97,544,138"/>
-<area shape="rect" id="node3" href="$_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp &#45; Defines an event&#45;handling singleton object that stores and process..." alt="" coords="373,187,544,229"/>
-<area shape="rect" id="node8" href="$_menu_8hpp.html" title="Zenderer/GUI/Menu.hpp &#45; A high&#45;level menu creating interface." alt="" coords="93,550,264,591"/>
-<area shape="rect" id="node15" href="$_mouse_8cpp.html" title="Zenderer/src/Events\l/Mouse.cpp" alt="" coords="569,97,705,138"/>
-<area shape="rect" id="node4" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="373,278,544,319"/>
-<area shape="rect" id="node9" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine." alt="" coords="544,641,715,682"/>
-<area shape="rect" id="node14" href="$_event_handler_8cpp.html" title="Zenderer/src/Events\l/EventHandler.cpp" alt="" coords="769,278,905,319"/>
-<area shape="rect" id="node5" href="$_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="464,369,643,410"/>
-<area shape="rect" id="node6" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="93,369,264,410"/>
-<area shape="rect" id="node13" href="$_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="289,369,439,410"/>
-<area shape="rect" id="node7" href="$_button_8hpp.html" title="Zenderer/GUI/Button.hpp &#45; A wrapper for easily creating roll&#45;over button effects." alt="" coords="93,459,264,501"/>
-<area shape="rect" id="node12" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="289,459,439,501"/>
-<area shape="rect" id="node10" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="433,731,620,757"/>
-<area shape="rect" id="node11" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="645,731,819,757"/>
+<area shape="rect" id="node2" href="$_event_8hpp.html" title="Zenderer/Events/Event.hpp &#45; Defines keyboard&#45;related event data structures and convenience functional..." alt="" coords="133,97,304,138"/>
+<area shape="rect" id="node3" href="$_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp &#45; Defines an event&#45;handling singleton object that stores and process..." alt="" coords="133,187,304,229"/>
+<area shape="rect" id="node8" href="$_menu_8hpp.html" title="Zenderer/GUI/Menu.hpp &#45; A high&#45;level menu creating interface. " alt="" coords="285,550,456,591"/>
+<area shape="rect" id="node17" href="$_mouse_8cpp.html" title="Zenderer/src/Events\l/Mouse.cpp" alt="" coords="329,97,465,138"/>
+<area shape="rect" id="node4" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="436,278,607,319"/>
+<area shape="rect" id="node9" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine. " alt="" coords="732,641,903,682"/>
+<area shape="rect" id="node16" href="$_event_handler_8cpp.html" title="Zenderer/src/Events\l/EventHandler.cpp" alt="" coords="43,278,180,319"/>
+<area shape="rect" id="node5" href="$_error_handler_8hpp.html" title="Zenderer/include/Zenderer\l/Graphics/ErrorHandler.hpp" alt="" coords="432,369,611,410"/>
+<area shape="rect" id="node6" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="635,369,805,410"/>
+<area shape="rect" id="node15" href="$_window_8cpp.html" title="Zenderer/src/Graphics\l/Window.cpp" alt="" coords="257,369,407,410"/>
+<area shape="rect" id="node7" href="$_button_8hpp.html" title="Zenderer/GUI/Button.hpp &#45; A wrapper for easily creating roll&#45;over button effects. ..." alt="" coords="584,459,755,501"/>
+<area shape="rect" id="node14" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="409,459,559,501"/>
+<area shape="rect" id="node13" href="$_button_8cpp.html" title="Zenderer/src/GUI/Button.cpp" alt="" coords="568,557,755,584"/>
+<area shape="rect" id="node12" href="$_menu_8cpp.html" title="Zenderer/src/GUI/Menu.cpp" alt="" coords="280,648,461,675"/>
+<area shape="rect" id="node10" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="621,731,808,757"/>
+<area shape="rect" id="node11" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="833,731,1007,757"/>
 </map>
