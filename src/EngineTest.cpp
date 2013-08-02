@@ -196,12 +196,10 @@ using gfxcore::CRenderer;
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
     MainMenu.SetSpacing(32);
 
-    auto Callback = [] { std::cout << "WUDDUP.\n"; };
-
-    MainMenu.AddButton("Play Game", Callback);
-    MainMenu.AddButton("Load Game", Callback);
-    MainMenu.AddButton("Options",   Callback);
-    MainMenu.AddButton("Exit",      [&Window] {
+    MainMenu.AddButton("Play Game");
+    MainMenu.AddButton("Load Game");
+    MainMenu.AddButton("Options");
+    MainMenu.AddButton("Exit", [&Window] {
         Window.Close();
     });
 

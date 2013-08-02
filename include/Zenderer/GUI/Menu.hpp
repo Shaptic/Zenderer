@@ -45,7 +45,7 @@ namespace gui
         virtual bool HandleEvent(const evt::event_t& Evt);
 
         virtual uint16_t AddButton(const string_t& text,
-                                   std::function<void()> handler);
+                                   std::function<void()> handler = []{});
 
         virtual void Update();
 

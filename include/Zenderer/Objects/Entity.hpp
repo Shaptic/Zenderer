@@ -215,7 +215,7 @@ namespace obj
         /// Returns an iterator to the end of the internal primitive list.
         std::vector<gfx::CQuad*>::const_iterator cend() const;
 
-        inline void Enable()  { m_enabled = true; }
+        inline void Enable()  { m_enabled = true;  }
         inline void Disable() { m_enabled = false; }
 
         friend class ZEN_API gui::CFont;
