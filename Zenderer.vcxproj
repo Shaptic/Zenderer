@@ -186,6 +186,7 @@
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
     <ClCompile Include="src\Objects\Entity.cpp" />
+    <ClCompile Include="src\Pong.cpp" />
     <ClCompile Include="src\stb_image.c" />
     <ClCompile Include="src\Utilities\Assert.cpp" />
     <ClCompile Include="src\Utilities\Helpers.cpp" />

@@ -371,6 +371,9 @@
     <ClCompile Include="src\GUI\Button.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="src\Pong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">

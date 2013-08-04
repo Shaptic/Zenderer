@@ -12,7 +12,7 @@ using gfxcore::CRenderer;
   int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPInst,
                      LPSTR lpCmdLine, int nShowCmd)
 #else
-  int main(int argc, char* argv[])
+  int main2(int argc, char* argv[])
 #endif // _DEBUG
 {
     Init();
