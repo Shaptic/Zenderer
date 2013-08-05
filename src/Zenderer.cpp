@@ -52,7 +52,20 @@ bool zen::Init()
         Log << "SUCCESS." << util::CLog::endl;
     }
 
-    for(auto* i : CSubsystem::sp_allSystems)
+#ifdef _WIN32
+    Log << "Initializing Winsock: ";
+#endif // _WIN32
+    if(!net::CSocket::InitializeLibrary())
+    {
+        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        return false;
+    }
+    else
+    {
+        Log << "SUCCESS." << util::CLog::endl;
+    }
+
+    for(auto& i : CSubsystem::sp_allSystems)
     {
         Log << "Initializing global subsystem (" << i->GetName() << "): ";
         if(!i->Init())

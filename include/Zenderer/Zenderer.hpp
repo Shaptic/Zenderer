@@ -95,6 +95,9 @@
 
 #include "Events/EventHandler.hpp"
 
+// Networking API.
+#include "Network/Socket.hpp"
+
 namespace zen
 {
     /// Initializes the subsystems of @a Zenderer.
