@@ -23,6 +23,7 @@ int main()
     gfx::CScene Field(Main.GetWidth(), Main.GetHeight(), Assets);
 
     Field.Init();
+    Field.EnableLighting();
     Field.DisablePostProcessing();
     Field.SetSeeThrough(false);
 

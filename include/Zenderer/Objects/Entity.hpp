@@ -206,6 +206,10 @@ namespace obj
         const math::matrix4x4_t& GetTransformation() const;
         const math::aabb_t& GetBox() const;
         math::vector_t GetPosition() const;
+        real_t GetX() const { return m_MV[0][3]; }
+        real_t GetY() const { return m_MV[1][3]; }
+        real_t GetW() const { return m_Box.xw.x * 2; }
+        real_t GetH() const { return m_Box.yw.y * 2; }
 
         uint32_t GetSortFlag() const;
 
@@ -222,6 +226,9 @@ namespace obj
         friend class ZEN_API gfx::CScene;
 
     protected:
+        CEntity(const CEntity&);                // not implemented to 
+        CEntity& operator=(const CEntity&);     // prevent compiler default
+
         void Destroy();
         bool FileError(const string_t& filename,
                        const string_t& line, const uint32_t line_no,
