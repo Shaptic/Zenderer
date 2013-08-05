@@ -151,11 +151,10 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
     mp_allPrims.push_back(pQuad);
 
     m_Box = math::aabb_t(this->GetPosition(),
-                math::Vector<uint32_t>(
-                    math::max<uint32_t>(m_Box.xw.x * 2, pQuad->GetW()),
-                    math::max<uint32_t>(m_Box.yw.y * 2, pQuad->GetH())
-                )
-            );
+                         math::Vector<uint32_t>(
+                            math::max<uint32_t>(m_Box.xw.x * 2, pQuad->GetW()),
+                            math::max<uint32_t>(m_Box.yw.y * 2, pQuad->GetH())
+                        ));
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
@@ -171,7 +170,12 @@ bool CEntity::Optimize()
 
 void CEntity::Destroy()
 {
-    for(auto& i : mp_allPrims) { delete i; i = nullptr; }
+    for(auto& i : mp_allPrims)
+    {
+        delete i;
+        i = nullptr;
+    }
+
     mp_allPrims.clear();
 }
 
@@ -259,7 +263,8 @@ bool CEntity::Offloaded() const
 
     for(auto& i : mp_allPrims)
     {
-        if(i->m_DrawData.Vertices != nullptr)
+        if(i->m_DrawData.Vertices != nullptr || 
+           i->m_DrawData.Indices  != nullptr)
             return false;
     }
 

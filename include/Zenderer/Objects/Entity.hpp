@@ -219,6 +219,7 @@ namespace obj
         const math::matrix4x4_t& GetTransformation() const;
         const math::aabb_t& GetBox() const;
         math::vector_t GetPosition() const;
+        
         real_t GetX() const { return m_MV[0][3]; }
         real_t GetY() const { return m_MV[1][3]; }
         real_t GetW() const { return m_Box.xw.x * 2; }
