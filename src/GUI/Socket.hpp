@@ -119,7 +119,7 @@ namespace net
             if(WSAStartup(MAKEWORD(2, 0), &Data) != 0)
             {
                 std::cerr << "WinSock2 failed to initialize!\n";
-                return false;
+                return (s_init = false);
             }
 #endif  // _WIN32
             return (s_init = true);
@@ -180,10 +180,24 @@ namespace net
 #endif // _WIN32
         }
         
+        /**
+         * Receives any incoming data on the socket.
+         *  This call will block the process until some amount of data
+         *  is received, unless SetNonblocking() is called.
+         *
+         * @param   size    The maximum size of the data to receive
+         * @param   address The IP address of the sender
+         *
+         * @return  Data that was received from the socket, if any.
+         * 
+         * @warning Packets less than `size` will NOT be removed from 
+         *          the socket queue.
+         **/
         string_t RecvFrom(const size_t size, string_t& address)
         {
             if(m_socket <= 0) return -1;
             
+            address = "";
             sockaddr_in addr;
             int addrlen = 0;
             char* buffer = new char[size];
@@ -210,9 +224,24 @@ namespace net
             return ret;
         }
         
+        /**
+         * Sends a message to an IP:port address.
+         *
+         * @param   addr    The IP address to send to
+         * @param   port    The port to send to
+         * @param   data    The data to send
+         *
+         * @return  The number of bytes sent, or -1 on error.
+         *
+         * @warning This is only available for UDP sockets.
+         *
+         * @see     GetError()
+         * @see     SendAll()
+         * @see     SocketType
+         **/
         int SendTo(const std::string& addr, const std::string& port, const std::string& data)
         {
-            if(m_socket < 0) return -1;
+            if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
             
 #ifdef ZEN_DEBUG_BUILD
             CLog& Log = CLog::GetEngineLog();
@@ -223,6 +252,11 @@ namespace net
             
             sockaddr_in sock = { CSocket::GetAddress(addr) };
             return sendto(m_socket, data.c_str(), data.size(), 0, &sock, sizeof(sock));
+        }
+        
+        bool Ping()
+        {
+            ZEN_ASSERT(false, "not implemented");
         }
         
         bool SetSocketOption(const int type, const int option, const bool flag)
