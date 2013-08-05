@@ -40,9 +40,9 @@ int main()
     RightPaddle.AddPrimitive(Paddle);
     Ball.LoadFromTexture("assets/textures/ball.png");
 
-    LeftPaddle.Move(0, Main.GetHeight() / 2 - LeftPaddle.GetBox().yw.y);
-    RightPaddle.Move(Main.GetWidth() - RightPaddle.GetBox().xw.x * 2,
-                     Main.GetHeight() / 2 - RightPaddle.GetBox().yw.y);
+    LeftPaddle.Move(0, Main.GetHeight() / 2 - LeftPaddle.GetH() / 2);
+    RightPaddle.Move(Main.GetWidth() - RightPaddle.GetW(), 
+                     Main.GetHeight() / 2 - RightPaddle.GetH() / 2);
 
     BallLight.Enable();
     BallLight.SetBrightness(1.0);
@@ -115,23 +115,19 @@ int main()
             }
         }
 
-        if(Ball.GetPosition().x <= 0.0 ||
-           Ball.GetPosition().x >= Main.GetWidth())
+        if(Ball.GetX() <= 0.0 || Ball.GetX() >= Main.GetWidth())
         {
             Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
             ball_d = make_ball();
         }
 
-        else if(Ball.GetPosition().y <= 0.0 ||
-                Ball.GetPosition().y >= Main.GetHeight())
+        else if(Ball.GetY() <= 0.0 || Ball.GetY() >= Main.GetHeight())
         {
             ball_d.y = -ball_d.y;
         }
 
-        LeftPaddle.Move(LeftPaddle.GetPosition() + math::vector_t(0.0, dy, 0.0));
-        Ball.Move(Ball.GetPosition() + ball_d);
-
-        std::cout << Ball.GetPosition() << std::endl;
+        LeftPaddle.Adjust(0.0, dy);
+        Ball.Adjust(ball_d);
 
         BallLight.Enable();
         BallLight.SetPosition(Ball.GetPosition());

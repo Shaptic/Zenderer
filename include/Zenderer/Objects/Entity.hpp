@@ -155,6 +155,19 @@ namespace obj
 
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
+        
+        /**
+         * Adjusts an entity's position based on some values.
+         *
+         * @param   dx      Change in the x-direction
+         * @param   dy      Change in the y-direction
+         * @param   dz      Change in the z-direction
+         *
+         * @note    This is equivalent to calling 
+         *          `Move(GetPosition() + math::vector_t(dx, dy, dz));`
+         **/
+        void Adjust(const real_t dx, const real_t dy, const real_t dz = 0.0);
+        void Adjust(const math::vector_t& delta);   ///< @overload
 
         /// Transforms the entity with a shear.
         inline void Shear(const math::vector_t& Angles) { m_MV.Shear(Angles); }

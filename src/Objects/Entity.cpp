@@ -237,6 +237,16 @@ void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
     m_Box.yw.x = y;
 }
 
+void CEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
+{
+    this->Move(this->GetPosition() + math::vector_t(dx, dy, dz));
+}
+
+void CEntity::Adjust(const math::vector_t& delta)
+{
+    this->Move(this->GetPosition() + delta);
+}
+
 void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 {
     for(auto& i : mp_allPrims)
