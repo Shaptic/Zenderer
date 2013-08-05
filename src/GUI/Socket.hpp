@@ -1,4 +1,36 @@
+/**
+ * @file
+ *  Zenderer/Network/Socket.hpp - A low-level, cross-platform, socket
+ *  wrapper API class.
+ *
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     1.0
+ * @copyright   Apache License v2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License").         \n
+ *  You may not use this file except in compliance with the License.        \n
+ *  You may obtain a copy of the License at:
+ *  http://www.apache.org/licenses/LICENSE-2.0                              \n
+ *  Unless required by applicable law or agreed to in writing, software     \n
+ *  distributed under the License is distributed on an "AS IS" BASIS,       \n
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
+ *  See the License for the specific language governing permissions and     \n
+ *  limitations under the License.
+ *
+ * @addtogroup Network
+ *  A group with interfaces and routines for more simplified multiplayer
+ *  or networked development that allows for an easy cross platform interface
+ *  to be shared for a variety of architectures. The group provides
+ *  facilities for peer-to-peer, client-to-server, and other standard
+ *  communication protocols for various applications.
+ *
+ * @{
+ **/
+
+#ifndef ZENDERER__NETWORK__SOCKET_HPP
+#define ZENDERER__NETWORK__SOCKET_HPP
+
 #include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Utilities/Log.hpp"
 
 #ifdef _WIN32
   #include <thread>
@@ -24,7 +56,6 @@ namespace net
 // for raw sockets and administrative rights.
 #ifndef _WIN32
 #pragma pack(1)
-
     struct IPHeader
     {
         unsigned int    h_len:4;
@@ -49,7 +80,6 @@ namespace net
         uint16_t    seq;
         uint32_t    time;
     };
-
 #pragma pack()
 
     enum ICMPReply
@@ -71,6 +101,9 @@ namespace net
 
     enum class SocketType { TCP, UDP, RAW };
 
+    using util::CLog;
+    using util::LogMode;
+    
     class ZEN_API CSocket
     {
     public:
@@ -92,7 +125,7 @@ namespace net
             return (s_init = true);
         }
         
-        bool Init(const string_t& host, const string_t& port)
+        virtual bool Init(const string_t& host, const string_t& port)
         {
             addrinfo hints;
             addrinfo* tmp;
@@ -107,7 +140,9 @@ namespace net
             else if(m_Type == SocketType::RAW)
                 hints.ai_socktype = SOCK_RAW;
 
-            if(getaddrinfo(host, port, &hints, &tmp) != 0)
+            if(getaddrinfo(host.empty() ? nullptr : host.c_str(),
+                           port.empty() ? nullptr : port.c_str(),
+                           &hints, &tmp) != 0)
             {
                 return false;
             }
@@ -153,7 +188,7 @@ namespace net
             int addrlen = 0;
             char* buffer = new char[size];
             
-            int bytes = recv(m_socket, buffer, size, 0, &addr, &addrlen);
+            int bytes = recvfrom(m_socket, buffer, size, 0, &addr, &addrlen);
             if(bytes == -1)
             {
                 delete[] buffer;
@@ -165,12 +200,26 @@ namespace net
             string_t ret(buffer, bytes);
             delete[] buffer;
             
+#ifdef ZEN_DEBUG_BUILD
+            CLog& Log = CLog::GetEngineLog();
+            Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
+                << "Received '" << ret << "' from '" << address << "'."
+                << CLog::endl;
+#endif  // ZEN_DEBUG_BUILD
+            
             return ret;
         }
         
         int SendTo(const std::string& addr, const std::string& port, const std::string& data)
         {
             if(m_socket < 0) return -1;
+            
+#ifdef ZEN_DEBUG_BUILD
+            CLog& Log = CLog::GetEngineLog();
+            Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
+                << "Sending '" << addr << "' to " << addr << ':' << port
+                << "." << CLog::endl;
+#endif  // ZEN_DEBUG_BUILD
             
             sockaddr_in sock = { CSocket::GetAddress(addr) };
             return sendto(m_socket, data.c_str(), data.size(), 0, &sock, sizeof(sock));
@@ -183,6 +232,17 @@ namespace net
             return setsockopt(m_socket, type, option, &set) == 0;
         }
         
+        /**
+         * Enables or disables blocking for socket operations.
+         *
+         *
+         * @param   flag    Set blocking mode, or no?
+         *
+         * @return  `true`  if the non-blocking flag could be set,
+         *          `false` otherwise, or if a socket hasn't been created.
+         *
+         *
+         **/
         bool SetNonblocking(const bool flag)
         {
             if(m_socket < 0) return false;
@@ -190,7 +250,28 @@ namespace net
             int set = flag ? 1 : 0;
 #ifdef _WIN32
             return ioctlsocket(m_socket, FIONBIO, &set) == 0;
+#else
+            return fcntl(m_socket, F_SETFL, O_NONBLOCK) == 0;
 #endif
+        }
+        
+        /**
+         * Retrieves the last error number.
+         *
+         * @return  The last error code, if any.
+         *
+         * @warning This is platform dependant.
+         *
+         * @see http://linux.die.net/man/3/errno
+         * @see http://msdn.microsoft.com/en-us/library/aa924071.aspx
+         **/
+        int GetError() const
+        {
+#ifdef _WIN32
+            return WSAGetLastError();
+#else
+            return errno;
+#endif // _WIN32
         }
         
     private:
@@ -238,3 +319,7 @@ namespace net
         return 0;
     }
 }
+
+#endif // ZENDERER__NETWORK__SOCKET_HPP
+
+/** @} **/
