@@ -320,6 +320,13 @@ int main()
 
     uint32_t frame = 0;
     uint32_t last  = 0;
+    
+    obj::CEntity& NetStatus = Field.AddEntity();
+    gui::CFont& Font = *Assets.Create<gui::CFont>();
+    Font.AttachManager(Assets);
+    Font.LoadFromFile("assets/ttf/menu.ttf");
+    Font.Render(NetStatus, "ok.");
+    
     while(Main.IsOpen())
     {
         ++last;
@@ -381,6 +388,15 @@ int main()
             ));
         }
         
+        if(last > 60 * 4)
+        {
+            Font.Render(NetStatus, "losing connection.");
+        }
+        else if(last > 60 * 8)
+        {
+            Font.Render(NetStatus, "connection lost.");
+        }
+        
         string_t addr;
         string_t data = Socket.RecvFrom(MAX_PONG, addr);
         if(addr == conn && data.size() > 0)
@@ -395,7 +411,8 @@ int main()
                 //{
                 //    Socket.SendTo(addr, resp.data);
                 //}
-                last = 0
+                Font.Render(NetStatus, "ok.");
+                last = 0;
                 break;
             
             case PacketType::POS_PADDLE:
