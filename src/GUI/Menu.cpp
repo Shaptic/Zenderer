@@ -49,20 +49,23 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
         math::aabb_t MouseBox(Evt.mouse.position,
             math::Vector<uint32_t>(2, 2));
 
+        size_t index = 0;
         for(auto& i : m_menuActions)
         {
             if(i.first->IsOver(MouseBox))
             {
-                i.second();
+                i.second(index);
                 return true;
             }
+            
+            ++index;
         }
     }
 
     return false;
 }
 
-uint16_t CMenu::AddButton(const string_t& text, std::function<void()> handler)
+uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> handler)
 {
     CButton* pNew = new CButton(m_Scene);
     pNew->SetFont(*mp_Font);
