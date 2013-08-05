@@ -1,11 +1,38 @@
 #include <random>
+#include <sstream>
+
 #include "Zenderer/Zenderer.hpp"
 
 using namespace zen;
 
+enum class PacketType : uint16_t
+{
+    UNKNOWN,
+    HOST_AVAIL,
+    HOST_BUSY,
+    HOST_INGAME,
+    JOIN,
+    PING,
+    POS_PLAYER,
+    POS_BALL,
+    STATUS,
+    SYNC
+};
+
+struct PongPacket
+{
+    uint32_t    seq;
+    uint32_t    stamp;
+    PacketType  type;
+    uint16_t    size;
+    std::string data;
+};
+
 std::mt19937 rng;
 math::vector_t make_ball();
 int randint(const int low, const int hi);
+bool parse_msg(const string_t& data, PongPacket& P);
+string_t build_packet(PacketType type, const string_t& data);
 
 int main()
 {
@@ -57,8 +84,10 @@ int main()
     math::vector_t ball_d = make_ball();
     Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
+    bool play = false, host = false, join = false;
+    bool is_start = false;
+    
     // Main menu.
-    bool play = false;
     gui::CMenu MainMenu(Main, Assets);
     MainMenu.SetFont("assets/ttf/menu.ttf", 24);
     MainMenu.SetNormalButtonTextColor(color4f_t(1, 1, 1));
@@ -66,11 +95,15 @@ int main()
     MainMenu.SetInitialButtonPosition(math::vector_t(64, 200));
     MainMenu.SetSpacing(32);
 
-    MainMenu.AddButton("Play Pong!", [&play]{
-        play = true;
+    MainMenu.AddButton("Host a Game", [&host, &play](size_t) {
+        play = host = true;
+    });
+    
+    MainMenu.AddButton("Join a Game", [&join, &play](size_t) {
+        play = join = true;
     });
 
-    MainMenu.AddButton("Quit", [&Main] {
+    MainMenu.AddButton("Quit", [&Main](size_t) {
         Main.Close();
     });
 
@@ -85,9 +118,221 @@ int main()
         MainMenu.Update();
         Main.Update();
     }
+    
+    net::CSocket Socket(net::SocketType::UDP);
+    Socket.Init();
+    string_t conn;
+    
+    if(play && join)
+    {
+        static const uint16_t MAX_PONG = 256;
 
+        gui::CMenu HostList(Main, Assets);
+        HostList.SetFont("assets/ttf/menu.ttf");
+        HostList.SetNormalButtonTextColor(color4f_t(1, 1, 1));
+        HostList.SetActiveButtonTextColor(color4f_t(0, 1, 1));
+        HostList.SetInitialButtonPosition(math::vector_t(64, 200));
+        HostList.SetSpacing(32);
+        
+        HostList.SetTitle("Searching for hosts...");
+        
+        std::vector<string_t> hosts;
+        int16_t index = -1;
+        
+        string_t packet = build_packet(PacketType::STATUS, "");
+        
+        Socket.SetBlocking(false);
+        Socket.SendBroadcast(packet);
+
+        PongPacket response;
+        
+        while(Main.IsOpen() && index == -1)
+        {
+            std::string addr, data;
+            data = Socket.RecvFrom(MAX_PONG, addr);
+            
+            parse_msg(data, response);
+            
+            size_t b4 = hosts.size();
+            
+            if(!data.empty() && response.type == PacketType::HOST_AVAIL &&
+               std::find(hosts.begin(), hosts.end(), addr) == hosts.end())
+            {
+                hosts.push_back(addr);
+                HostList.AddButton(addr, [&index](size_t i) {
+                    index = i;
+                });
+            }
+        
+            if(b4 != hosts.size())
+            {
+                Hosts.Destroy();
+                for(auto& i : hosts) Font << i << '\n';
+                Font.Render(Hosts);
+            }
+        
+            Main.Clear();
+            HostList.Update();
+            Main.Update();
+        }
+        
+        // User chose a host?
+        if(index != -1)
+        {
+            gfx::CScene Prelim(Window.GetWidth(), Window.GetHeight(), Assets);
+            Prelim.Init();
+            Prelim.DisableLighting();
+            
+            obj::CEntity& Status = Prelim.AddEntity();
+            gui::CFont& Font = *Assets.Create<gui::CFont>();
+            Font.AttachManager(Assets);
+            Font.LoadFromFile("assets/ttf/menu.ttf");
+            
+            Font << "Attempting to join " << hosts[index] << "...";
+            Font.Render(Status);
+            
+            Socket.SendTo(hosts[index], PONG_PORT,
+                          build_packet(PacketType::STATUS, ""));
+            
+            while(Main.IsOpen())
+            {
+                string_t addr;
+                string_t r = Socket.RecvFrom(MAX_PONG, addr);
+                if(!r.empty() && addr == hosts[index])
+                {
+                    parse_msg(r, response);
+                    if(response.type == PacketType::HOST_AVAIL)
+                    {
+                        std::stringstream ss;
+                        Socket.SendTo(hosts[index], PONG_PORT, build_packet(
+                            PacketType::JOIN, "username"
+                        ));
+                        break;
+                    }
+                    else
+                    {
+                        Font.ClearString();
+                        Font << "Host failed to respond!";
+                        Font.Render(Status);
+                    }
+                }
+                
+                Main.Clear();
+                Prelim.Render();
+                Main.Update();
+            }
+            
+            // We've sent our status, now wait for response.
+            while(Main.IsOpen())
+            {
+                string_t addr;
+                string_t r = Socket.RecvFrom(MAX_PONG, addr);
+                
+                util::CLog& Log = util::CLog::GetEngineLog();
+                Log << Log.SetMode(util::LogMode::ZEN_INFO)
+                    << Log.SetSystem("Net") << "Received '" << r << "' from '"
+                    << addr << "'." << util::CLog::endl;
+                
+                if(!r.empty() && addr == hosts[index])
+                {
+                    parse_msg(r, response);
+                    if(response.type == PacketType::SYNC)
+                    {
+                        std::vector<string_t> parts = util::split(response.data, ';');
+                        
+                        // Protocol states that the sync gives the ball position,
+                        // and the ball forces in this format:
+                        // bx;by;bdx;bdy
+                        Ball.Move(stod(parts[0]), stod(parts[1]));
+                        ball_d = math::vector_t(stod(parts[2]), stod(parts[3]), 0.0);
+                        conn = hosts[index];
+                        is_start = false;
+                        break;
+                    }
+                }
+                
+                Main.Clear();
+                Prelim.Render();
+                Main.Update();
+            }
+        }
+    }
+    
+    else if(play && join)
+    {
+        is_start = true;
+        
+        gfx::CScene Waiter(Main.GetWidth(), Main.GetHeight(), Assets);
+        Waiter.Init();
+        Waiter.DisableLighting();
+        
+        obj::CEntity& Status = Waiter.AddEntity();
+        gui::CFont& Font = *Assets.Create<gui::CFont>();
+        Font.AttachManager(Assets);
+        Font.Render(Status, "Awaiting player...");
+        
+        string_t addr;
+        bool potential = false;
+        
+        while(Main.IsOpen())
+        {
+            string_t tmpaddr;
+            string_t data = Socket.RecvFrom(PONG_MAX, tmpaddr);
+            
+            PongPacket resp;
+            if(parse_msg(data, resp))
+            {
+                if(resp.type == PacketType::STATUS)
+                {
+                    Socket.SendTo(addr, build_packet(
+                        PacketType::HOST_AVAIL, ""
+                    ));
+                    
+                    Font.ClearString();
+                    Font << "Potential match: " << addr << "\nResolving...";
+                    Font.Render(Status);
+                    potential = true;
+                    addr = tmpaddr;
+                }
+
+                else if(resp.type == PacketType::JOIN && potential && tmpaddr == addr)
+                {
+                    std::stringstream ss;
+                    ss << ball_d.x << ';' << ball_d.y;
+                    Socket.SendTo(addr, build_packet(
+                        PacketType::SYNC, ss.str()
+                    ));
+
+                    break;
+                }
+            }
+
+            Main.Clear();
+            Waiter.Render();
+            Main.Update();
+        }
+    }
+
+    // Now we have established a connection to another peer (host / client
+    // is now irrelevant). Every frame we check for socket data, pinging
+    // the client every second, and send our paddle position if it has
+    // changed.
+
+    uint32_t frame = 0;
+    uint32_t last  = 0;
     while(Main.IsOpen())
     {
+        ++last;
+        if(++frame % 60 == 0)
+        {
+            std::stringstream ss;
+            ss << util::hash(time(nullptr), sizeof(uint32_t));
+            
+            Socket.SendTo(conn, PONG_PORT, build_packet(
+                PacketType::PING, ss.str()
+            ));
+        }
+        
         Timer.Start();
 
         Evts.PollEvents();
@@ -126,7 +371,80 @@ int main()
             ball_d.y = -ball_d.y;
         }
 
-        LeftPaddle.Adjust(0.0, dy);
+        if(!math::compf(dy, 0.0))
+        {
+            std::stringstream ss;
+            LeftPaddle.Adjust(0.0, dy);
+            ss << LeftPaddle.GetX() << ';' << LeftPaddle.GetY();
+            Socket.SendTo(conn, PONG_PORT, build_packet(
+                PacketType::POS_PADDLE, ss.str()
+            ));
+        }
+        
+        string_t addr;
+        string_t data = Socket.RecvFrom(MAX_PONG, addr);
+        if(addr == conn && data.size() > 0)
+        {
+            PongPacket resp;
+            parse_msg(data, resp);
+            switch(resp.type)
+            {
+            case PacketType::PING:
+                // Confirm ping.
+                //if(resp.data != last_ping) 
+                //{
+                //    Socket.SendTo(addr, resp.data);
+                //}
+                last = 0
+                break;
+            
+            case PacketType::POS_PADDLE:
+            {
+                std::vector<string_t> parts = util::split(resp.data, ';');
+                RightPaddle.Move(RightPaddle.GetX(), stod(parts[1]));
+                break;
+            }
+                
+            case PacketType::POS_BALL:
+            {
+                std::vector<string_t> parts = util::split(resp.data, ';');
+                Ball.Move(std::stod(parts[0]), std::stod(parts[1]));
+                break;
+            }
+            
+            case PacketType::SYNC:
+            {
+                std::vector<string_t> parts = util::split(resp.data, ';');
+                math::vector_t ball_d_tmp(std::stod(parts[0]), std::stod(parts[1]));
+                if(ball_d_tmp != ball_d)
+                {
+                    if(is_start)
+                    {
+                        std::stringstream ss;
+                        ss << ball_d.x << ';' << ball_d.y;
+                        Socket.SendTo(conn, build_packet(
+                            PacketType::SYNC, ss.str()
+                        ));
+                    }
+                    else
+                    {
+                        ball_d = ball_d_tmp;
+                    }
+                }
+                
+                break;
+            }
+            
+            case PacketType::UNKNOWN:
+            {
+                util::CLog& L = util::CLog::GetEngineLog();
+                L << L.SetMode(util::LogMode::ZEN_ERROR) << L.SetSystem("Pong")
+                  << "Unknown packet received from peer." << util::CLog::endl;
+              break;
+            }
+            }
+        }
+        
         Ball.Adjust(ball_d);
 
         BallLight.Enable();
@@ -160,4 +478,47 @@ int randint(const int low, const int hi)
 {
     std::uniform_int_distribution<int> dist(low, hi);
     return dist(rng);
+}
+
+bool parse_msg(const string_t& data, PongPacket& P)
+{
+    P.seq = P.stamp = P.size = 0;
+    P.type = PacketType::UNKNOWN;
+    P.data = "";
+
+    if(data.empty() || data.size() < MIN_SIZE) return false;
+    
+    std::vector<string_t> parts = util::split(data, ':');
+    if(parts.size() < 5) return false;
+    
+    PongPacket.seq  = stoi(parts[0]);
+    PongPacket.stamp= stoi(parts[1]);
+    PongPacket.type = static_cast<PacketType>(stoi(parts[2]));
+    PongPacket.size = stoi(parts[3]);
+    PongPacket.data.resize(PongPacket.size(), '\0');
+    
+    // Compensate for the fact that the data itself may have 
+    // contained the ':' character.
+    string_t final_data;
+    for(size_t i = 4; i < parts.size(); ++i)
+    {
+        final_data += parts[i];
+    }
+    PongPacket.data = final_data;
+    
+    return PongPacket.type != PacketType::UNKNOWN;
+}
+
+string_t build_packet(PacketType type, const string_t& data)
+{
+    static std::stringstream ss;
+    static uint32_t seq_no = 0;
+    
+    ss.str(std::string());
+    
+    ss << ++seq_no << ":" << (ts > 0 ? ts : time(nullptr)) << ":"
+       << static_cast<uint16_t>(type) << ":" << data.size() 
+       << data;
+
+    return ss.str();
 }
