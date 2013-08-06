@@ -79,7 +79,11 @@ uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> hand
     pNew->SetDefault();
 
     m_Position.y += m_spacing;
-    m_menuActions[pNew] = handler;
+    
+    // Credit where credit is due:
+    // @Griwes for this optimization.
+    m_menuActions.emplace(std::make_pair(pNew, std::move(handler)));
+
     return m_menuActions.size() - 1;
 }
 
