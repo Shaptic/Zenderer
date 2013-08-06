@@ -203,6 +203,19 @@ bool CVertexArray::Offload()
     return this->Unbind();
 }
 
+bool CVertexArray::Clear()
+{
+    if(!this->Bind()) return false;
+    GL(glBufferData(GL_ARRAY_BUFFER, 0, nullptr, m_type));
+    GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, nullptr, m_type));
+    
+    m_icount = m_vcount = 0;
+    m_vaoIndices.clear();
+    m_vaoVertices.clear();
+    
+    return this->Unbind();
+}
+
 const vertex_t* const CVertexArray::GetVerticesFromGPU() const
 {
     return (vertex_t*)GL(glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY));

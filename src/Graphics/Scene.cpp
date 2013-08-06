@@ -115,6 +115,19 @@ bool CScene::RemoveEntity(const uint32_t index)
     return true;
 }
 
+bool CScene::Clear()
+{
+    for(auto i : m_allEntities) delete i;
+    for(auto i : m_allLights) delete i;
+    for(auto i : m_allPPFX) delete i;
+    
+    m_allEntities.clear();
+    m_allLights.clear();
+    m_allPPFX.clear();
+    
+    return m_Geometry.Clear();
+}
+
 bool CScene::Render()
 {
     // Called every frame because there is no more appropriate

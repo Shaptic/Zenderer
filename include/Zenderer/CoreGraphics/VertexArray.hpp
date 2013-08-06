@@ -104,6 +104,9 @@ namespace gfxcore
          * @see     Zenderer/CoreGraphics/OpenGL.hpp
          **/
         bool Offload();
+        
+        /// Deletes all vertex and index data from the GPU and locally.
+        bool Clear();
 
         GLuint GetObjectHandle() const  { return m_vao; }
         GLuint GetVBOHandle()    const  { return m_vbo; }
@@ -116,8 +119,8 @@ namespace gfxcore
         const index_t*  const GetIndicesFromGPU()   const;
 
         bool Offloaded() const;
-
-        bool Draw()
+        
+        inline bool Draw()
         {
             if(!this->Bind()) return false;
             GL(glDrawElements(GL_TRIANGLES, m_icount, INDEX_TYPE, nullptr));
@@ -144,6 +147,8 @@ namespace gfxcore
  *  This manages offloading raw, low-level draw data to the GPU for
  *  efficient access and local memory consumption. It's used internally
  *  by the scene wrapper to store scene geometry.
+ *
+ * @todo    More documentation.
  *
  * @example VertexArray
  * @section vao_draw    Raw Vertex Drawing

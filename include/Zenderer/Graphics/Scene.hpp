@@ -143,8 +143,11 @@ namespace gfx
          *                  (for the indexed overload, of course).
          **/
         bool RemoveEntity(const obj::CEntity& Obj);
-        bool RemoveEntity(const uint32_t index);        ///< @overload
+        bool RemoveEntity(const uint32_t index);    ///< @overload
 
+        /// Deletes all scene data (lights, objects, effects, etc).
+        bool Clear();
+        
         /// Renders the scene to the screen.
         /// @todo   Clipping.
         bool Render();
