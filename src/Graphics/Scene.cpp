@@ -29,17 +29,8 @@ bool CScene::Init()
 /// @bug A crash occurs deleting entities.
 bool CScene::Destroy()
 {
-    bool ret = m_FBO1.Destroy() && m_FBO2.Destroy() && m_Geometry.Destroy();
-
-    for(auto& i : m_allEntities)delete i;
-    for(auto& i : m_allPPFX)    delete i;
-    for(auto& i : m_allLights)  delete i;
-
-    m_allEntities.clear();
-    m_allPPFX.clear();
-    m_allLights.clear();
-
-    return ret;
+    return this->Clear()    && m_FBO1.Destroy() &&
+           m_FBO2.Destroy() && m_Geometry.Destroy();
 }
 
 obj::CEntity& CScene::AddEntity()
