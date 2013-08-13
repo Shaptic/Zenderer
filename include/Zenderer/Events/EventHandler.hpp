@@ -38,8 +38,6 @@ namespace zen
 {
 namespace evt
 {
-    /// @todo   Window events / callback.
-    /// @todo   Document API.
     class ZEN_API CEventHandler
     {
     public:
@@ -64,14 +62,21 @@ namespace evt
         /// Retrieves the singleton instance of the event handler.
         static CEventHandler& GetInstance();
 
+        /// OS-callback for printable characters.
         static void CharacterCallback(GLFWwindow*, unsigned int c);
+        
+        /// OS-callback for any keyboard events.
         static void KeyboardCallback(GLFWwindow*, int key,    int scancode,
                                                   int action, int mods);
+
+        /// OS-callback for mouse movements.
         static void MouseMotionCallback(GLFWwindow*, double x, double y);
+
+        /// OS-callback for mouse-click events.
         static void MouseCallback(GLFWwindow*, int button, int action, int mods);
 
     private:
-        CEventHandler() {}
+        CEventHandler() { s_Active.Reset(); } 
         CEventHandler(const CEventHandler&);
         CEventHandler& operator=(const CEventHandler&);
 
@@ -82,5 +87,37 @@ namespace evt
 }
 
 #endif // ZENDERER__EVENTS__EVENT_HANDLER_HPP
+
+/**
+ * @class zen::evt::CEventHandler
+ * @details
+ *  This singleton class instance handles system-wide event occurences during
+ *  the application's run-time. It does not *do* anything with these events, 
+ *  merely providing the user with an interface to poll them and handle them
+ *  as they see fit.
+ *
+ * @todo   Window events / callback.
+ *
+ * @example Events
+ *  This is a very simple event loop that would output every printable
+ *  character that a user hits during the duration of the program.
+ *
+ *  @code
+ *  zen::evt::CEventHandler& Events = zen::evt::CEventHandler::GetInstance();
+ *  zen::evt::event_t Evt;
+ *
+ *  while(Window.IsOpen())
+ *  {
+ *      Events.PollEvents();    // or zen::evt::CEventHandler::PollEvents();
+ *      while(Events.PopEvent(Evt))
+ *      {
+ *          if(Evt.type == zen::evt::EventType::PRINTABLE_KEY)
+ *          {
+ *              std::cout << "User pressed " << Evt.key.key.symbol << ".\n";
+ *          }
+ *      }
+ *  }
+ *  @endcode
+ **/
 
 /** @} **/
