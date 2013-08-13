@@ -54,12 +54,12 @@ std::vector<string_t> util::split(const string_t& text, const char delim, const 
             next = text.find(delim, index + 1);
 
             // Add and repeat.
-            splitResults.push_back(text.substr(index, next - index));
+            splitResults.emplace_back(text.substr(index, next - index));
         }
         else
         {
             // Add everything that's left.
-            splitResults.push_back(text.substr(last, index));
+            splitResults.emplace_back(text.substr(last, index));
             break;
         }
 
