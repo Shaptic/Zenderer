@@ -4,30 +4,22 @@ using namespace zen;
 
 void util::stripl(std::string& text)
 {
-    size_t i = 0;
-    while(text[i++] == ' ' || text[i] == '\t' && i < text.length());
-    text = text.substr(i - 1);
+    text = text.substr(text.find_first_not_of(" \t"));
 }
 
 std::string util::stripl(const std::string& text)
 {
-    size_t i = 0;
-    while(text[i++] == ' ' || text[i] == '\t' && i < text.length());
-    return text.substr(i - 1);
+    return text.substr(text.find_first_not_of(" \t");
 }
 
 void util::stript(std::string& text)
 {
-    int i = text.length();
-    while(text[--i] == ' ' || text[i] == '\t' && i >= 0);
-    text = text.substr(0, i + 1);
+    text = text.substr(0, text.find_last_not_of(" \t"));
 }
 
 std::string util::stript(const std::string& text)
 {
-    int i = text.length();
-    while(text[--i] == ' ' || text[i] == '\t' && i >= 0);
-    return text.substr(0, i + 1);
+    return text.substr(0, text.find_last_not_of(" \t"));
 }
 
 std::vector<string_t> util::split(const string_t& text, const char delim, const size_t approx)
