@@ -23,7 +23,7 @@ CAssetManager::~CAssetManager()
 bool CAssetManager::Init()
 {
     if(m_init) return false;
-    if(CAsset::s_seed != 0) CAsset::s_seed = rand() % RAND_MAX;
+    if(CAsset::s_seed == 0) CAsset::s_seed = rand() % RAND_MAX;
     return (m_init = true);
 }
 
@@ -33,6 +33,7 @@ bool CAssetManager::Destroy()
     {
         while(!mp_managerAssets.empty())
             this->Delete(*mp_managerAssets.begin());
+
         mp_managerAssets.clear();
     }
 
@@ -109,9 +110,9 @@ bool CAssetManager::Delete(const uint32_t index)
     if(it != mp_managerAssets.end())
     {
         m_Log   << m_Log.SetSystem("AssetMgr")
-            << m_Log.SetMode(LogMode::ZEN_INFO)
-            << "Deleting asset: " << (*it)->GetAssetID()
-            << '(' << (*it)->GetFilename() << ")." << CLog::endl;
+                << m_Log.SetMode(LogMode::ZEN_INFO)
+                << "Deleting asset: " << (*it)->GetAssetID()
+                << '(' << (*it)->GetFilename() << ")." << CLog::endl;
 
         mp_managerAssets.erase(it);
     }
@@ -126,9 +127,8 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
     ZEN_ASSERT(!filename.empty());
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-            << m_Log.SetSystem("AssetMgr")
-            << "Searching for '" << filename << "':" << owner << "."
-            << CLog::endl;
+            << m_Log.SetSystem("AssetMgr") << "Searching for '"
+            << filename << "':" << owner << "." << CLog::endl;
 
     uint32_t hash = util::string_hash(filename);
 
@@ -136,8 +136,7 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
     // Above is out-dated: http://ideone.com/droMcn
     for(auto b : mp_managerAssets)
     {
-        if(b->GetFilenameHash() == hash &&
-           b->GetOwner() == owner)
+        if(b->GetFilenameHash() == hash && b->GetOwner() == owner)
         {
             return b;
         }
