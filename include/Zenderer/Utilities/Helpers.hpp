@@ -38,11 +38,18 @@ namespace util
 
     /**
      * Strips leading whitespace from a string (original untouched).
+     *
      * @param   text    Text to strip whitespace from
+     *
      * @return  String with stripped leading whitespace.
+     *
      * @note    Performs slower using STL; see repo for old version
      *          if there is a bottle-neck. This applies to all
      *          `util::strip*()` functions.
+     *
+     * @see     http://ideone.com/82CIuY for a benchmark / optimized version.
+     *          Credit to Kirrahe on ##c++ for the iterator-based
+     *          implementation.
      **/
     ZEN_API string_t stripl(const string_t& text);
 

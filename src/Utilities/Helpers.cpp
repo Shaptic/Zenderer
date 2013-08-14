@@ -14,12 +14,13 @@ std::string util::stripl(const std::string& text)
 
 void util::stript(std::string& text)
 {
-    text = text.substr(0, text.find_last_not_of(" \t"));
+    text.resize(text.find_last_not_of(" \t"));
 }
 
-std::string util::stript(const std::string& text)
+std::string util::stript(std::string text)
 {
-    return text.substr(0, text.find_last_not_of(" \t"));
+    text.resize(text.find_last_not_of(" \t"));
+    return text;
 }
 
 void strip(string_t& text)
@@ -31,7 +32,7 @@ void strip(string_t& text)
 string_t strip(const string_t& text)
 {
     return text.substr(text.find_first_not_of(" \t"),
-                       text.find_last_not_of(" \t"));
+                       text.find_last_not_of (" \t"));
 }
 
 std::vector<string_t> util::split(const string_t& text, const char delim, const size_t approx)
