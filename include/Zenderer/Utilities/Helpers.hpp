@@ -56,6 +56,16 @@ namespace util
      **/
     ZEN_API string_t stript(const string_t& text);
 
+    /// Strips leading and trailing whitespace from a string (in-place).
+    ZEN_API void strip(string_t& text);
+
+    /**
+     * Strips leading and trailing whitespace from a string.
+     * @param   text    Text to strip whitespace from
+     * @return  String with stripped trailing whitespace.
+     **/
+    ZEN_API string_t strip(const string_t& text);
+
     /**
      * Splits a string into a list of substrings based on a delimiter.
      *

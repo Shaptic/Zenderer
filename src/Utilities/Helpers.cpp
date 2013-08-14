@@ -22,6 +22,18 @@ std::string util::stript(const std::string& text)
     return text.substr(0, text.find_last_not_of(" \t"));
 }
 
+void strip(string_t& text)
+{
+    text = text.substr(text.find_first_not_of(" \t"),
+                       text.find_last_not_of (" \t"));
+}
+
+string_t strip(const string_t& text)
+{
+    return text.substr(text.find_first_not_of(" \t"),
+                       text.find_last_not_of(" \t"));
+}
+
 std::vector<string_t> util::split(const string_t& text, const char delim, const size_t approx)
 {
     std::vector<string_t> splitResults;
