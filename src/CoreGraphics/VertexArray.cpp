@@ -238,5 +238,5 @@ size_t CVertexArray::GetIndexCount() const
 
 bool CVertexArray::Offloaded() const
 {
-    return (m_vaoIndices.size() == 0 && m_vaoVertices.size() == 0);
+    return (m_vaoIndices.empty() && m_vaoVertices.empty());
 }

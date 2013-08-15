@@ -259,7 +259,7 @@ void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 
 bool CEntity::Offloaded() const
 {
-    if(mp_allPrims.size() == 0) return false;
+    if(mp_allPrims.empty()) return false;
 
     for(auto& i : mp_allPrims)
     {
