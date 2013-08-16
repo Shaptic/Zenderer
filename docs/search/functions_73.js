@@ -1,6 +1,7 @@
 var searchData=
 [
   ['scale',['Scale',['../classzen_1_1math_1_1matrix4x4__t.html#a09e0b0fba8259a7cb5e54335156934fa',1,'zen::math::matrix4x4_t::Scale()'],['../classzen_1_1obj_1_1_c_entity.html#add396dcb93edb4abadfde2b5845143c5',1,'zen::obj::CEntity::Scale()']]],
+  ['sendto',['SendTo',['../classzen_1_1net_1_1_c_socket.html#a5c9256496a30638416e3387987f11d5c',1,'zen::net::CSocket']]],
   ['setactive',['SetActive',['../classzen_1_1gui_1_1_c_button.html#a6f1a72400853322c40c7a81e510a0ea4',1,'zen::gui::CButton']]],
   ['setactivebuttontextcolor',['SetActiveButtonTextColor',['../classzen_1_1gui_1_1_c_menu.html#ab54af6d3448d85ea3693e0d20244af1e',1,'zen::gui::CMenu']]],
   ['setactivecolor',['SetActiveColor',['../classzen_1_1gui_1_1_c_button.html#aed4a01efb9936a0cf6faa90f63061124',1,'zen::gui::CButton']]],
@@ -13,7 +14,7 @@ var searchData=
   ['setdefault',['SetDefault',['../classzen_1_1gui_1_1_c_button.html#a63558b308cbae31f8e4f4e8d132021e4',1,'zen::gui::CButton']]],
   ['setdepth',['SetDepth',['../classzen_1_1obj_1_1_c_entity.html#a98f661afcfe6c8ff5da6f4d5646563b4',1,'zen::obj::CEntity']]],
   ['setfilename',['SetFilename',['../classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30',1,'zen::asset::CAsset::SetFilename()'],['../classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d',1,'zen::util::CLog::SetFilename()']]],
-  ['setfont',['SetFont',['../classzen_1_1gui_1_1_c_button.html#a9cb7b22a6ee45b202b8c40106b4cdd2f',1,'zen::gui::CButton::SetFont()'],['../classzen_1_1gui_1_1_c_menu.html#a5de4f108c87460a5ae0ae0fc366088a8',1,'zen::gui::CMenu::SetFont()']]],
+  ['setfont',['SetFont',['../classzen_1_1gui_1_1_c_button.html#a9cb7b22a6ee45b202b8c40106b4cdd2f',1,'zen::gui::CButton::SetFont()'],['../classzen_1_1gui_1_1_c_menu.html#a7e7472b56e75b3d8de5cf4ba2bab0178',1,'zen::gui::CMenu::SetFont()']]],
   ['setframerate',['SetFrameRate',['../classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b',1,'zen::util::CTimer']]],
   ['setinitialbuttonposition',['SetInitialButtonPosition',['../classzen_1_1gui_1_1_c_menu.html#ae1d6bd48b5fe23604b1d3752b1b12868',1,'zen::gui::CMenu']]],
   ['setinverted',['SetInverted',['../classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408',1,'zen::gfx::CQuad']]],
@@ -21,6 +22,7 @@ var searchData=
   ['setmaximumangle',['SetMaximumAngle',['../classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132',1,'zen::gfx::CLight']]],
   ['setminimumangle',['SetMinimumAngle',['../classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719',1,'zen::gfx::CLight']]],
   ['setmode',['SetMode',['../classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2',1,'zen::util::CLog']]],
+  ['setnonblocking',['SetNonblocking',['../classzen_1_1net_1_1_c_socket.html#ab22c84dba9f0d913b9e45f192069e448',1,'zen::net::CSocket']]],
   ['setnormalbuttontextcolor',['SetNormalButtonTextColor',['../classzen_1_1gui_1_1_c_menu.html#a5765bd4b4bcf821cf68783195e67fe8d',1,'zen::gui::CMenu']]],
   ['setnormalcolor',['SetNormalColor',['../classzen_1_1gui_1_1_c_button.html#a7c8d82637c2bee209de150f521933e63',1,'zen::gui::CButton']]],
   ['setowner',['SetOwner',['../classzen_1_1asset_1_1_c_asset.html#ab43b0d72c2e2df204df3f582d10efeba',1,'zen::asset::CAsset']]],
@@ -29,6 +31,7 @@ var searchData=
   ['setrepeating',['SetRepeating',['../classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333',1,'zen::gfx::CQuad']]],
   ['setseethrough',['SetSeeThrough',['../classzen_1_1gfx_1_1_c_scene.html#a775696f2a5d021fda90aa2f512cb6e28',1,'zen::gfx::CScene']]],
   ['setsize',['SetSize',['../classzen_1_1gui_1_1_c_font.html#a28a9a49d3ab9feb6595cd6e4a8468f26',1,'zen::gui::CFont']]],
+  ['setsocketoption',['SetSocketOption',['../classzen_1_1net_1_1_c_socket.html#a1f3bbeb9359c3246d4d2a2ee30096100',1,'zen::net::CSocket']]],
   ['setspacing',['SetSpacing',['../classzen_1_1gui_1_1_c_menu.html#a0e54f4a703d93cdeba184dbc737fa04b',1,'zen::gui::CMenu']]],
   ['setstacking',['SetStacking',['../classzen_1_1gui_1_1_c_font.html#a2a38afde5e128835d1e92e707313ebb1',1,'zen::gui::CFont']]],
   ['setsystem',['SetSystem',['../classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7',1,'zen::util::CLog']]],
@@ -42,6 +45,7 @@ var searchData=
   ['split',['split',['../namespacezen_1_1util.html#ae654fd97afaaac2c3dd25dd18111385a',1,'zen::util']]],
   ['start',['Start',['../classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae',1,'zen::util::CTimer']]],
   ['string_5fhash',['string_hash',['../namespacezen_1_1util.html#a613ef6d857cad323640de5c03bc87e4e',1,'zen::util']]],
-  ['stripl',['stripl',['../namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea',1,'zen::util::stripl(string_t &amp;text)'],['../namespacezen_1_1util.html#a75be5691bdb9c06944dc063450e3ca90',1,'zen::util::stripl(const string_t &amp;text)']]],
-  ['stript',['stript',['../namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c',1,'zen::util::stript(string_t &amp;text)'],['../namespacezen_1_1util.html#a3826b0db2e11c31105d7dee750c2de04',1,'zen::util::stript(const string_t &amp;text)']]]
+  ['strip',['strip',['../namespacezen_1_1util.html#a82b0a427c202f3d5fd7941d0d58d2f5c',1,'zen::util::strip(string_t &amp;text)'],['../namespacezen_1_1util.html#a2ed860fd30470b66bfb4860f5a913604',1,'zen::util::strip(const string_t &amp;text)'],['../_helpers_8cpp.html#a5cf1868cee4ac9e791c21dafb8cd99dc',1,'strip(string_t &amp;text):&#160;Helpers.cpp'],['../_helpers_8cpp.html#a9f3bbb6e37795c9c5392ef3f36a458e7',1,'strip(const string_t &amp;text):&#160;Helpers.cpp']]],
+  ['stripl',['stripl',['../namespacezen_1_1util.html#a9f970dca52b6ce6ba2f93af6a7acb4ea',1,'zen::util::stripl(string_t &amp;text)'],['../namespacezen_1_1util.html#a6d5e3b5845375ffd863e7d0217d52787',1,'zen::util::stripl(const string_t &amp;text)']]],
+  ['stript',['stript',['../namespacezen_1_1util.html#a065432e1a575f5bcda1039580ebd794c',1,'zen::util::stript(string_t &amp;text)'],['../namespacezen_1_1util.html#ab73cc070bd836f088f546451e5c1da4a',1,'zen::util::stript(const string_t &amp;text)']]]
 ];

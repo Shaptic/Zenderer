@@ -8,6 +8,7 @@ var classzen_1_1gfxcore_1_1_c_vertex_array =
     [ "Unbind", "classzen_1_1gfxcore_1_1_c_vertex_array.html#a7363f6b19699a918e04de8a132aaa390", null ],
     [ "AddData", "classzen_1_1gfxcore_1_1_c_vertex_array.html#ac4f0cb32e883a5d9780a8d3037aeac40", null ],
     [ "Offload", "classzen_1_1gfxcore_1_1_c_vertex_array.html#a47daca5c022f423c5892f8902a7cf9ae", null ],
+    [ "Clear", "classzen_1_1gfxcore_1_1_c_vertex_array.html#a8d1ed05e370ea881ac19da8883e6dbd4", null ],
     [ "GetObjectHandle", "classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653", null ],
     [ "GetVBOHandle", "classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea", null ],
     [ "GetIBOHandle", "classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714", null ],

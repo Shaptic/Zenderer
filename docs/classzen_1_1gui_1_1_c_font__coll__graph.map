@@ -1,6 +1,0 @@
-<map id="zen::gui::CFont" name="zen::gui::CFont">
-<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="57,467,204,823"/>
-<area shape="rect" id="node3" title="STL class." alt="" coords="28,231,108,308"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="5,6,131,98"/>
-<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="133,150,256,389"/>
-</map>

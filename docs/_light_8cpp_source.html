@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">1.0.1-alpha</span>
+   &#160;<span id="projectnumber">2.4.2-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7508 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_light_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -261,50 +261,50 @@ $(document).ready(function(){initNavTree('_light_8cpp_source.html','');});
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_light.html#a1fb0fca148f12193b681fbeca3e8ea27">SetAttenuation</a>(Att.x, Att.y, Att.z);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">  153</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">CLight::SetPosition</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    m_Position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">math::vector_t</a>(x, y);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUniform2f(m_locpos, x, y));</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a5128a50da4d0be3710a65a555316269f">  160</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">CLight::SetPosition</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">SetPosition</a>(Pos.x, Pos.y);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132">  165</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132">CLight::SetMaximumAngle</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> degrees)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    m_Max = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">math::vector_t</a>(1, 0);</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    m_Max.Rotate(<a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(degrees));</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUniform2f(m_loctmx, m_Max.x, m_Max.y));</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719">  174</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719">CLight::SetMinimumAngle</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> degrees)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;{</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    m_Min = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">math::vector_t</a>(1, 0);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    m_Min.Rotate(<a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(degrees));</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUniform2f(m_loctmn, m_Min.x, m_Min.y));</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;}</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#afa076f90dc70323274703772f20313fa">  183</a></span>&#160;<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">zen::real_t</a> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#afa076f90dc70323274703772f20313fa">CLight::GetBrightness</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">return</span> m_brt;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;}</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a5307cfb44e32bed716045c1f7669ad37">  188</a></span>&#160;<span class="keyword">const</span> <a class="code" href="structzen_1_1color3f__t.html" title="A 24-bit floating point color component (RGB). ">color3f_t</a>&amp; <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a5307cfb44e32bed716045c1f7669ad37">CLight::GetColor</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">return</span> m_Color;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;}</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">  193</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">CLight::GetPosition</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">return</span> m_Position;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">  154</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">CLight::SetPosition</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> x, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> y)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    m_Position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">math::vector_t</a>(x, y);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUniform2f(m_locpos, x, y + 200));</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a5128a50da4d0be3710a65a555316269f">  161</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">CLight::SetPosition</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">SetPosition</a>(Pos.x, Pos.y);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132">  166</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6c9fae4d974cb0a4012107b9753d6132">CLight::SetMaximumAngle</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> degrees)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    m_Max = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">math::vector_t</a>(1, 0);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    m_Max.Rotate(<a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(degrees));</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUniform2f(m_loctmx, m_Max.x, m_Max.y));</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719">  175</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a6d6ce70d7bdb8c94817c24fac3535719">CLight::SetMinimumAngle</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> degrees)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    m_Min = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">math::vector_t</a>(1, 0);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    m_Min.Rotate(<a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(degrees));</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUniform2f(m_loctmn, m_Min.x, m_Min.y));</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#afa076f90dc70323274703772f20313fa">  184</a></span>&#160;<a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">zen::real_t</a> <a class="code" href="classzen_1_1gfx_1_1_c_light.html#afa076f90dc70323274703772f20313fa">CLight::GetBrightness</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">return</span> m_brt;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a5307cfb44e32bed716045c1f7669ad37">  189</a></span>&#160;<span class="keyword">const</span> <a class="code" href="structzen_1_1color3f__t.html" title="A 24-bit floating point color component (RGB). ">color3f_t</a>&amp; <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a5307cfb44e32bed716045c1f7669ad37">CLight::GetColor</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">return</span> m_Color;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">  194</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; <a class="code" href="classzen_1_1gfx_1_1_c_light.html#a2ccaeefc0115bd76e7284e97bd97738c">CLight::GetPosition</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">return</span> m_Position;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,7 +1,0 @@
-<map id="zen::sfx::CAudio2D" name="zen::sfx::CAudio2D">
-<area shape="rect" id="node2" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="52,467,199,823"/>
-<area shape="rect" id="node3" title="STL class." alt="" coords="28,231,108,308"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="5,6,131,98"/>
-<area shape="rect" id="node5" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="133,150,256,389"/>
-<area shape="rect" id="node6" href="$structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data.html" title="{zen::sfx::CAudio2D\l::ALData\n|+ buffers\l+ buffer_count\l+ source\l+ volume\l|}" alt="" coords="223,577,357,713"/>
-</map>

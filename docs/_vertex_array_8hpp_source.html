@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">1.0.1-alpha</span>
+   &#160;<span id="projectnumber">2.4.2-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7508 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp_source.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -155,39 +155,41 @@ $(document).ready(function(){initNavTree('_vertex_array_8hpp_source.html','');})
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">bool</span> Offload();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">  108</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">GetObjectHandle</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> m_vao; }</div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea">  109</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea">GetVBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_vbo; }</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">  110</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">GetIBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_ibo; }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">size_t</span> GetVertexCount() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">size_t</span> GetIndexCount()  <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">bool</span> Clear();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">  111</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ac32c693ba3e9b2aae670aba24de63653">GetObjectHandle</a>()<span class="keyword"> const  </span>{ <span class="keywordflow">return</span> m_vao; }</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea">  112</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea">GetVBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_vbo; }</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">  113</a></span>&#160;        GLuint <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714">GetIBOHandle</a>()<span class="keyword">    const  </span>{ <span class="keywordflow">return</span> m_ibo; }</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t">vertex_t</a>* <span class="keyword">const</span> GetVerticesFromGPU()  <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a>*  <span class="keyword">const</span> GetIndicesFromGPU()   <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">size_t</span> GetVertexCount() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordtype">size_t</span> GetIndexCount()  <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">bool</span> Offloaded() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">  120</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>()</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">if</span>(!this-&gt;Bind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDrawElements(GL_TRIANGLES, m_icount, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices. ">INDEX_TYPE</a>, <span class="keyword">nullptr</span>));</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">return</span> this-&gt;Unbind();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        std::vector&lt;index_t&gt;    m_vaoIndices;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        std::vector&lt;vertex_t&gt;   m_vaoVertices;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">size_t</span> m_icount, m_vcount;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        GLuint m_vao, m_vbo, m_ibo;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        GLenum m_type;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    };</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__VERTEXBUFFER_HPP</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t">vertex_t</a>* <span class="keyword">const</span> GetVerticesFromGPU()  <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a>*  <span class="keyword">const</span> GetIndicesFromGPU()   <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">bool</span> Offloaded() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">  123</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>()</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">if</span>(!this-&gt;Bind()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDrawElements(GL_TRIANGLES, m_icount, <a class="code" href="namespacezen_1_1gfxcore.html#a328c12f24524e9a7224bd8a33810a1e8" title="Type of indices. ">INDEX_TYPE</a>, <span class="keyword">nullptr</span>));</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span> this-&gt;Unbind();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        std::vector&lt;index_t&gt;    m_vaoIndices;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        std::vector&lt;vertex_t&gt;   m_vaoVertices;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordtype">size_t</span> m_icount, m_vcount;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        GLuint m_vao, m_vbo, m_ibo;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        GLenum m_type;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    };</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;}   <span class="comment">// namespace gfxcore</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#endif // ZENDERER__CORE_GRAPHICS__VERTEXBUFFER_HPP</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

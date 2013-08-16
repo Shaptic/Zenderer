@@ -1,5 +1,0 @@
-<map id="zen::gfx::CQuad::Create" name="zen::gfx::CQuad::Create">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="392,34,552,60"/>
-<area shape="rect" id="node3" href="$group___objects.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="217,22,343,64"/>
-<area shape="rect" id="node4" href="$group___objects.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="217,88,343,129"/>
-</map>

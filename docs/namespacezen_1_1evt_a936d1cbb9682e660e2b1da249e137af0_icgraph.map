@@ -1,4 +1,4 @@
 <map id="zen::evt::GetMousePosition" name="zen::evt::GetMousePosition">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="292,5,343,32"/>
-<area shape="rect" id="node3" href="$classzen_1_1evt_1_1_c_event_handler.html#a39bd2b465b55b1aa00a268285e5d4d24" title="zen::evt::CEventHandler\l::MouseCallback" alt="" coords="237,57,397,98"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="289,5,346,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1evt_1_1_c_event_handler.html#a39bd2b465b55b1aa00a268285e5d4d24" title="OS&#45;callback for mouse&#45;click events. " alt="" coords="237,57,397,98"/>
 </map>

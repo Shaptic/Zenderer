@@ -1,9 +1,11 @@
 var searchData=
 [
   ['rad',['rad',['../namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2',1,'zen::math']]],
+  ['randint',['randint',['../_pong_8cpp.html#a34fc95d1c948f8ebf073395131a32315',1,'Pong.cpp']]],
   ['ready',['Ready',['../classzen_1_1sfx_1_1_c_audio2_d.html#aa0e76601525a3d5605e731b1a6fdad9e',1,'zen::sfx::CAudio2D::Ready()'],['../classzen_1_1sfx_1_1_c_music2_d.html#ad8453333272f08243b7fc9c0e49dd78b',1,'zen::sfx::CMusic2D::Ready()'],['../classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108',1,'zen::sfx::CSound2D::Ready()']]],
   ['recreate',['Recreate',['../classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c',1,'zen::asset::CAssetManager::Recreate(const T *const Copier, const void *const owner=nullptr)'],['../classzen_1_1asset_1_1_c_asset_manager.html#a1e58c31383b98ca31da29478bc430060',1,'zen::asset::CAssetManager::Recreate(const T *const Copier, const void *const owner)']]],
   ['rect_5ft',['rect_t',['../structzen_1_1math_1_1rect__t.html#a7a1526b88224e896ce2d75e9ea891c01',1,'zen::math::rect_t::rect_t()'],['../structzen_1_1math_1_1rect__t.html#a642d6535748f7979a8b17c94f1092062',1,'zen::math::rect_t::rect_t(real_t x, real_t y, uint32_t w, uint32_t h)']]],
+  ['recvfrom',['RecvFrom',['../classzen_1_1net_1_1_c_socket.html#a46b770b300a46f515196fd59a4b84b7d',1,'zen::net::CSocket']]],
   ['reload',['Reload',['../classzen_1_1asset_1_1_c_asset.html#a804f623074852da842775ee3c7003597',1,'zen::asset::CAsset']]],
   ['removeentity',['RemoveEntity',['../classzen_1_1gfx_1_1_c_scene.html#a3646f0f295bbb4440d22a552226425a1',1,'zen::gfx::CScene::RemoveEntity(const obj::CEntity &amp;Obj)'],['../classzen_1_1gfx_1_1_c_scene.html#af4360449cd2a03481e0f7c3a8fa75512',1,'zen::gfx::CScene::RemoveEntity(const uint32_t index)']]],
   ['removematerial',['RemoveMaterial',['../classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2',1,'zen::gfxcore::CDrawable']]],

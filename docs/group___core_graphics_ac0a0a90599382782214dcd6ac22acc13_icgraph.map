@@ -1,8 +1,0 @@
-<map id="zen::gfxcore::CTexture::LoadFromRaw" name="zen::gfxcore::CTexture::LoadFromRaw">
-<area shape="rect" id="node2" href="$group___core_graphics.html#adfa741332f9226592d2eba3df65c2091" title="Loads an asset from the disk." alt="" coords="209,5,362,46"/>
-<area shape="rect" id="node5" href="$group___core_graphics.html#aceae841cbe44f079418484a903deb4f2" title="zen::gfxcore::CTexture\l::LoadFromExisting" alt="" coords="209,70,362,111"/>
-<area shape="rect" id="node3" href="$group___graphics.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file." alt="" coords="431,5,561,46"/>
-<area shape="rect" id="node4" href="$group___objects.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="646,5,773,46"/>
-<area shape="rect" id="node6" href="$group___graphics.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle." alt="" coords="411,70,581,111"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="629,77,789,104"/>
-</map>

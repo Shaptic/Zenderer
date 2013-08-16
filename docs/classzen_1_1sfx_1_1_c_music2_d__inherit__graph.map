@@ -1,4 +1,0 @@
-<map id="zen::sfx::CMusic2D" name="zen::sfx::CMusic2D">
-<area shape="rect" id="node2" href="$classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="11,453,145,707"/>
-<area shape="rect" id="node3" href="$classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset." alt="" coords="5,5,152,405"/>
-</map>

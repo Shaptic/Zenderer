@@ -1,6 +1,7 @@
 var examples =
 [
     [ "Allocation", "_allocation-example.html", null ],
+    [ "Events", "_events-example.html", null ],
     [ "Fonts", "_fonts-example.html", null ],
     [ "Logging", "_logging-example.html", null ],
     [ "Parsing", "_parsing-example.html", null ],

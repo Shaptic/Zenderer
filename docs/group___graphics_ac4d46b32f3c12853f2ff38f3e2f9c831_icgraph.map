@@ -1,5 +1,0 @@
-<map id="zen::gfx::CEffect::Disable" name="zen::gfx::CEffect::Disable">
-<area shape="rect" id="node2" href="$group___graphics.html#a5962ae2836315bf7d6175a43035855a1" title="Disables rendering with the effect/texture." alt="" coords="181,5,312,46"/>
-<area shape="rect" id="node4" href="$group___graphics.html#a1b01d4800f23dee94cff5d4e7d69d74f" title="Disables only the effect." alt="" coords="181,70,312,111"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="360,12,531,39"/>
-</map>

@@ -40,7 +40,9 @@ var NAVTREE =
       [ "All", "namespacemembers.html", null ],
       [ "Functions", "namespacemembers_func.html", null ],
       [ "Variables", "namespacemembers_vars.html", null ],
-      [ "Typedefs", "namespacemembers_type.html", null ]
+      [ "Typedefs", "namespacemembers_type.html", null ],
+      [ "Enumerations", "namespacemembers_enum.html", null ],
+      [ "Enumerator", "namespacemembers_eval.html", null ]
     ] ],
     [ "Data Structures", null, [
       [ "Data Structures", "annotated.html", "annotated" ],
@@ -61,6 +63,8 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ],
@@ -71,11 +75,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_allocation-example.html",
-"_math_core_8hpp.html#ab57deae763932c27a8763f2cca6e64a9",
-"classzen_1_1asset_1_1_c_asset_manager.html#a6b3c4cec7356a6d9fc93c2193ed5f05c",
-"classzen_1_1gfxcore_1_1_c_sorter.html#af73b46ffeb7cfe886a9300c6e85de8dd",
-"classzen_1_1util_1_1_c_option.html#afdc30416ab45cc5d1c31934e25f6401b",
-"structzen_1_1evt_1_1key__t.html#aec05fc4c5734eb6c9654b576e414bd8a"
+"_math_core_8hpp.html#a632cc061a47530a2c87e7a283b6c93ef",
+"classzen_1_1_c_subsystem.html#a02f9f748324c01276de3702ee7d8c860",
+"classzen_1_1gfxcore_1_1_c_renderer.html#a8f2b14f4475f2773c75e63438b9f328b",
+"classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01",
+"namespacemembers_func.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,8 +1,0 @@
-<map id="zen::asset::CAsset" name="zen::asset::CAsset">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects." alt="" coords="5,483,155,677"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_texture.html" title="Low&#45;level texture asset abstraction over OpenGL texture handles." alt="" coords="179,483,332,677"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class." alt="" coords="357,490,504,670"/>
-<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_audio2_d.html" title="An abstract base class for audio objects." alt="" coords="529,453,663,707"/>
-<area shape="rect" id="node6" href="$classzen_1_1sfx_1_1_c_music2_d.html" title="Music files (.ogg files)" alt="" coords="445,763,581,899"/>
-<area shape="rect" id="node7" href="$classzen_1_1sfx_1_1_c_sound2_d.html" title="Sound effects (.wav files)" alt="" coords="605,755,752,906"/>
-</map>

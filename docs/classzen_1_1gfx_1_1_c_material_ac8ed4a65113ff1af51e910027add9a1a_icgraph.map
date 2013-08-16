@@ -1,6 +1,0 @@
-<map id="zen::gfx::CMaterial::GetTexture" name="zen::gfx::CMaterial::GetTexture">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="184,5,347,46"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="240,71,291,97"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="zen::obj::CEntity::\lLoadFromFile" alt="" coords="202,122,329,163"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="202,187,329,229"/>
-</map>

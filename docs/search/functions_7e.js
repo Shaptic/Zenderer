@@ -26,6 +26,7 @@ var searchData=
   ['_7ecsettings',['~CSettings',['../classzen_1_1util_1_1_c_settings.html#a2e529f0e906c1abb97f6aede2ae91292',1,'zen::util::CSettings']]],
   ['_7ecshader',['~CShader',['../classzen_1_1gfxcore_1_1_c_shader.html#a9961296e74a4c5a16701811fa67840b5',1,'zen::gfxcore::CShader']]],
   ['_7ecshaderset',['~CShaderSet',['../classzen_1_1gfxcore_1_1_c_shader_set.html#af5a7a142cd8f8ecc04ccfee5447a75b4',1,'zen::gfxcore::CShaderSet']]],
+  ['_7ecsocket',['~CSocket',['../classzen_1_1net_1_1_c_socket.html#a83bd5bd7e19ba5ee120acd40a375b686',1,'zen::net::CSocket']]],
   ['_7ecsound2d',['~CSound2D',['../classzen_1_1sfx_1_1_c_sound2_d.html#af011d370d19170f5098097accc07b0b4',1,'zen::sfx::CSound2D']]],
   ['_7ecsubsystem',['~CSubsystem',['../classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72',1,'zen::CSubsystem']]],
   ['_7ectexture',['~CTexture',['../classzen_1_1gfxcore_1_1_c_texture.html#af240c8e09cc7cd641e2463e4e1c76e00',1,'zen::gfxcore::CTexture']]],

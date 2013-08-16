@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">1.0.1-alpha</span>
+   &#160;<span id="projectnumber">2.4.2-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7508 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_scene_8hpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -150,46 +150,48 @@ $(document).ready(function(){initNavTree('_scene_8hpp_source.html','');});
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; InsertEntity(<span class="keyword">const</span> uint32_t index);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">bool</span> RemoveEntity(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; Obj);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">bool</span> RemoveEntity(<span class="keyword">const</span> uint32_t index);        </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">bool</span> RemoveEntity(<span class="keyword">const</span> uint32_t index);    </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordtype">bool</span> Render();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordtype">bool</span> IsValidEntityIndex(int32_t i);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">bool</span> Clear();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordtype">bool</span> Render();</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        int32_t GetEntityIndex(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; <a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordtype">bool</span> IsValidEntityIndex(int32_t i);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a95214df92f8dddc9434f2a52b945a72f">  159</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a95214df92f8dddc9434f2a52b945a72f" title="Enables / disables scene lighting. ">EnableLighting</a>()  { m_lighting = <span class="keyword">true</span>;  }</div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6">  160</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6">DisableLighting</a>() { m_lighting = <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abb222521d57dfac131dd46b97547af71">  161</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abb222521d57dfac131dd46b97547af71">ToggleLighting</a>()  { <span class="keywordflow">return</span> m_lighting = !m_lighting; }</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ab98f50b4c7b8011131564e4f5db92c87">  164</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ab98f50b4c7b8011131564e4f5db92c87" title="Enables / disables post processing effects. ">EnablePostProcessing</a>() { m_ppfx = <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d">  165</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d">DisablePostProcessing</a>(){ m_ppfx = <span class="keyword">false</span>; }</div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0338d84ddede678ee55827bf604f1138">  166</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0338d84ddede678ee55827bf604f1138">TogglePostProcessing</a>() { <span class="keywordflow">return</span> m_ppfx = !m_ppfx; }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a775696f2a5d021fda90aa2f512cb6e28">  181</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a775696f2a5d021fda90aa2f512cb6e28" title="Allows for underlying rendered data to be seen where scene is empty. ">SetSeeThrough</a>(<span class="keywordtype">bool</span> flag) { m_through = flag; }</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>&amp;             m_Log;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::CAssetManager</a>&amp;   m_Assets;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects. ">gfxcore::CVertexArray</a>   m_Geometry;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations. ">gfx::CRenderTarget</a>      m_FBO1, m_FBO2;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>          m_Camera;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="comment">// Lists of things that will be rendered.</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        std::list&lt;CLight*&gt;          m_allLights;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        std::list&lt;CEffect*&gt;         m_allPPFX;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        std::list&lt;obj::CEntity*&gt;    m_allEntities;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordtype">bool</span> m_lighting, m_ppfx, m_through;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    };</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        int32_t GetEntityIndex(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; <a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a95214df92f8dddc9434f2a52b945a72f">  162</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a95214df92f8dddc9434f2a52b945a72f" title="Enables / disables scene lighting. ">EnableLighting</a>()  { m_lighting = <span class="keyword">true</span>;  }</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6">  163</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6">DisableLighting</a>() { m_lighting = <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abb222521d57dfac131dd46b97547af71">  164</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abb222521d57dfac131dd46b97547af71">ToggleLighting</a>()  { <span class="keywordflow">return</span> m_lighting = !m_lighting; }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ab98f50b4c7b8011131564e4f5db92c87">  167</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ab98f50b4c7b8011131564e4f5db92c87" title="Enables / disables post processing effects. ">EnablePostProcessing</a>() { m_ppfx = <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d">  168</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d">DisablePostProcessing</a>(){ m_ppfx = <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0338d84ddede678ee55827bf604f1138">  169</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0338d84ddede678ee55827bf604f1138">TogglePostProcessing</a>() { <span class="keywordflow">return</span> m_ppfx = !m_ppfx; }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a775696f2a5d021fda90aa2f512cb6e28">  184</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a775696f2a5d021fda90aa2f512cb6e28" title="Allows for underlying rendered data to be seen where scene is empty. ">SetSeeThrough</a>(<span class="keywordtype">bool</span> flag) { m_through = flag; }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>&amp;             m_Log;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::CAssetManager</a>&amp;   m_Assets;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html" title="A wrapper for OpenGL Vertex Array Objects. ">gfxcore::CVertexArray</a>   m_Geometry;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations. ">gfx::CRenderTarget</a>      m_FBO1, m_FBO2;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>          m_Camera;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="comment">// Lists of things that will be rendered.</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        std::list&lt;CLight*&gt;          m_allLights;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        std::list&lt;CEffect*&gt;         m_allPPFX;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        std::list&lt;obj::CEntity*&gt;    m_allEntities;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_scene_8inl.html">Scene.inl</a>&quot;</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__SCENE_HPP</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">bool</span> m_lighting, m_ppfx, m_through;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    };</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_scene_8inl.html">Scene.inl</a>&quot;</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__SCENE_HPP</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

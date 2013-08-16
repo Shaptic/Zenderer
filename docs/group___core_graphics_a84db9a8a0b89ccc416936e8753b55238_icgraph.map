@@ -1,6 +1,0 @@
-<map id="zen::gfxcore::CShaderSet::Bind" name="zen::gfxcore::CShaderSet::Bind">
-<area shape="rect" id="node2" href="$group___graphics.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="236,5,375,32"/>
-<area shape="rect" id="node4" href="$group___graphics.html#a0d5c3ae85e8081a181f101c01eac0672" title="zen::gfx::CLight::Enable" alt="" coords="225,56,386,83"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a66a092c0f8981b49ee4fce28b0c3a4e1" title="Creates and adds a managed light instance to the scene." alt="" coords="435,5,616,32"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a7bdec0bd5cb43847da9e5ecb18083a0e" title="Renders the scene to the current render target." alt="" coords="440,56,611,83"/>
-</map>

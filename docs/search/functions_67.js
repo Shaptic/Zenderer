@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get',['get',['../classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89',1,'zen::CAllocator::get(size_t count=1)'],['../classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df',1,'zen::CAllocator::Get()']]],
+  ['get',['Get',['../classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df',1,'zen::CAllocator::Get()'],['../classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89',1,'zen::CAllocator::get(size_t count=1)']]],
   ['getassetcount',['GetAssetCount',['../classzen_1_1asset_1_1_c_asset_manager.html#ad0d707c91e8c93528c8876d2ca4f4564',1,'zen::asset::CAssetManager']]],
   ['getassetid',['GetAssetID',['../classzen_1_1asset_1_1_c_asset.html#aaed4ef4074a9a461037f5e7d348a0091',1,'zen::asset::CAsset']]],
   ['getattributelocation',['GetAttributeLocation',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a8e62b3fd221feb916314d134885add00',1,'zen::gfxcore::CShaderSet']]],
@@ -18,12 +18,12 @@ var searchData=
   ['getengineinstance',['GetEngineInstance',['../classzen_1_1util_1_1_c_settings.html#a9cec9f73af011cb99e0c1df142ba4e02',1,'zen::util::CSettings']]],
   ['getenginelog',['GetEngineLog',['../classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d',1,'zen::util::CLog']]],
   ['getentityindex',['GetEntityIndex',['../classzen_1_1gfx_1_1_c_scene.html#a64f011804bd27564dfa509d42421bf6c',1,'zen::gfx::CScene']]],
-  ['geterror',['GetError',['../classzen_1_1asset_1_1_c_asset.html#a056356e8c670ec772528435ddb1cc3ed',1,'zen::asset::CAsset::GetError()'],['../classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984',1,'zen::gfxcore::CShaderSet::GetError()'],['../classzen_1_1gfx_1_1_c_effect.html#a3238e4b5c27c7d88f5b1cd4a5387d448',1,'zen::gfx::CEffect::GetError()'],['../classzen_1_1lua_1_1_c_lua_a_p_i.html#a5c6980d793d7831788c7880e1c4e896d',1,'zen::lua::CLuaAPI::GetError()']]],
+  ['geterror',['GetError',['../classzen_1_1asset_1_1_c_asset.html#a056356e8c670ec772528435ddb1cc3ed',1,'zen::asset::CAsset::GetError()'],['../classzen_1_1gfxcore_1_1_c_shader_set.html#ad9dc6e638b6fbc08cb0c7d24ebdb2984',1,'zen::gfxcore::CShaderSet::GetError()'],['../classzen_1_1gfx_1_1_c_effect.html#a3238e4b5c27c7d88f5b1cd4a5387d448',1,'zen::gfx::CEffect::GetError()'],['../classzen_1_1net_1_1_c_socket.html#a6e46a0976beea454500711243ad340d1',1,'zen::net::CSocket::GetError()'],['../classzen_1_1lua_1_1_c_lua_a_p_i.html#a5c6980d793d7831788c7880e1c4e896d',1,'zen::lua::CLuaAPI::GetError()']]],
   ['getfilename',['GetFilename',['../classzen_1_1asset_1_1_c_asset.html#a0f322ed60cd2e8f6ed87423904709174',1,'zen::asset::CAsset::GetFilename()'],['../classzen_1_1util_1_1_c_log.html#a8ee810e8f130b41733c45c7e05686ce1',1,'zen::util::CLog::GetFilename()']]],
   ['getfilenamehash',['GetFilenameHash',['../classzen_1_1asset_1_1_c_asset.html#ae9fa59ebe5c3a989d77b9095a624fd37',1,'zen::asset::CAsset']]],
   ['getfullscreenvbo',['GetFullscreenVBO',['../classzen_1_1gfxcore_1_1_c_renderer.html#a581ae9a207692ce6d466cbd06321a6c2',1,'zen::gfxcore::CRenderer']]],
   ['getglobalassetcount',['GetGlobalAssetCount',['../classzen_1_1asset_1_1_c_asset_manager.html#a74f6639a66860d3e93695ceb2a3aea07',1,'zen::asset::CAssetManager']]],
-  ['geth',['GetH',['../classzen_1_1gfx_1_1_c_quad.html#adcb3228cc38c642baaa63029ca135ea7',1,'zen::gfx::CQuad']]],
+  ['geth',['GetH',['../classzen_1_1gfx_1_1_c_quad.html#adcb3228cc38c642baaa63029ca135ea7',1,'zen::gfx::CQuad::GetH()'],['../classzen_1_1obj_1_1_c_entity.html#a33ec43ba45077bcfcbce780403d78ca9',1,'zen::obj::CEntity::GetH()']]],
   ['getheight',['GetHeight',['../classzen_1_1gfxcore_1_1_c_texture.html#a799aec47cc79aa2fe767c9e87c7cc0dc',1,'zen::gfxcore::CTexture::GetHeight()'],['../classzen_1_1gfx_1_1_c_render_target.html#a20df8fedbc1bb60e134ea7e17018944a',1,'zen::gfx::CRenderTarget::GetHeight()'],['../classzen_1_1gfx_1_1_c_window.html#ae3b4451816d29a80829d70a87fad62b5',1,'zen::gfx::CWindow::GetHeight()']]],
   ['getibohandle',['GetIBOHandle',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#ab631a297d3f4e16412c4ec5d33c2a714',1,'zen::gfxcore::CVertexArray']]],
   ['getid',['GetID',['../classzen_1_1gfxcore_1_1_c_shader_set.html#a8ffa30edb76b0d902354599abcf29068',1,'zen::gfxcore::CShaderSet::GetID()'],['../classzen_1_1gfxcore_1_1_c_texture.html#ac2b096539e6bd2422be0547c2ad392e0',1,'zen::gfxcore::CTexture::GetID()'],['../classzen_1_1gfx_1_1_c_effect.html#af44d97ae520e8e360a35ccf60ff2fe13',1,'zen::gfx::CEffect::GetID()'],['../classzen_1_1gfx_1_1_c_material.html#a0c6f53b01b6bdfd43c21388004c35cde',1,'zen::gfx::CMaterial::GetID()']]],
@@ -64,10 +64,10 @@ var searchData=
   ['getvbohandle',['GetVBOHandle',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a70df5e1fc03235d797202dbb56beb4ea',1,'zen::gfxcore::CVertexArray']]],
   ['getvertexcount',['GetVertexCount',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a564bd6dab654b924300f087ede631a93',1,'zen::gfxcore::CVertexArray']]],
   ['getverticesfromgpu',['GetVerticesFromGPU',['../classzen_1_1gfxcore_1_1_c_vertex_array.html#a2a32139330aa0f8bbbaa2bd60d15cca2',1,'zen::gfxcore::CVertexArray']]],
-  ['getw',['GetW',['../classzen_1_1gfx_1_1_c_quad.html#aebb4c16f626050111237d714ac872c01',1,'zen::gfx::CQuad']]],
+  ['getw',['GetW',['../classzen_1_1gfx_1_1_c_quad.html#aebb4c16f626050111237d714ac872c01',1,'zen::gfx::CQuad::GetW()'],['../classzen_1_1obj_1_1_c_entity.html#a0ba6ac30af819c882cecd0e6fe69c25d',1,'zen::obj::CEntity::GetW()']]],
   ['getwidth',['GetWidth',['../classzen_1_1gfxcore_1_1_c_texture.html#af3e8e6c3c1f6bd0298ec293b7ca56f26',1,'zen::gfxcore::CTexture::GetWidth()'],['../classzen_1_1gfx_1_1_c_render_target.html#a32f74785727a099ea9ad847ad4755918',1,'zen::gfx::CRenderTarget::GetWidth()'],['../classzen_1_1gfx_1_1_c_window.html#a8852633544730f480dad49ad4b53dbf6',1,'zen::gfx::CWindow::GetWidth()']]],
   ['getwindow',['GetWindow',['../classzen_1_1gfx_1_1_c_window.html#a7574da6790394665fb63d5be9058543b',1,'zen::gfx::CWindow']]],
-  ['getx',['GetX',['../classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b',1,'zen::gfxcore::CDrawable']]],
-  ['gety',['GetY',['../classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf',1,'zen::gfxcore::CDrawable']]],
+  ['getx',['GetX',['../classzen_1_1gfxcore_1_1_c_drawable.html#ac620df10ab31ecb12fca55e4202c194b',1,'zen::gfxcore::CDrawable::GetX()'],['../classzen_1_1obj_1_1_c_entity.html#a7c238293a40ddbcb391e1395a0122944',1,'zen::obj::CEntity::GetX()']]],
+  ['gety',['GetY',['../classzen_1_1gfxcore_1_1_c_drawable.html#a54e399e7380b905d0544bb6c7e9a1dbf',1,'zen::gfxcore::CDrawable::GetY()'],['../classzen_1_1obj_1_1_c_entity.html#af641d54d43954900d2431fef469fb1b2',1,'zen::obj::CEntity::GetY()']]],
   ['glcheck',['glCheck',['../namespacezen_1_1gfxcore.html#ae4533b6d5c7873ea5ba0de62ad7af968',1,'zen::gfxcore']]]
 ];

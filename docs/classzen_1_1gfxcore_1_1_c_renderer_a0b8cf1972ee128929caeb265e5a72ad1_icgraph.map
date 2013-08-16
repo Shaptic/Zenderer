@@ -1,7 +1,0 @@
-<map id="zen::gfxcore::CRenderer::GetDefaultMaterial" name="zen::gfxcore::CRenderer::GetDefaultMaterial">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen." alt="" coords="216,5,379,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_quad.html#a7213f1f53d40ec11f75f65e93d00f279" title="Creates initial vertex structure." alt="" coords="216,71,379,97"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#ac97fd63454d2d1879f0ac87faacb1249" title="Stores render data in the provided for easy rendering." alt="" coords="603,75,763,101"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="zen::obj::CEntity::\lLoadFromTexture" alt="" coords="427,63,554,105"/>
-<area shape="rect" id="node6" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="zen::obj::CEntity::\lAddPrimitive" alt="" coords="427,129,554,170"/>
-</map>

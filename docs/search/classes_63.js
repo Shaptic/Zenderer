@@ -35,6 +35,7 @@ var searchData=
   ['csettings',['CSettings',['../classzen_1_1util_1_1_c_settings.html',1,'zen::util']]],
   ['cshader',['CShader',['../classzen_1_1gfxcore_1_1_c_shader.html',1,'zen::gfxcore']]],
   ['cshaderset',['CShaderSet',['../classzen_1_1gfxcore_1_1_c_shader_set.html',1,'zen::gfxcore']]],
+  ['csocket',['CSocket',['../classzen_1_1net_1_1_c_socket.html',1,'zen::net']]],
   ['csorter',['CSorter',['../classzen_1_1gfxcore_1_1_c_sorter.html',1,'zen::gfxcore']]],
   ['csound2d',['CSound2D',['../classzen_1_1sfx_1_1_c_sound2_d.html',1,'zen::sfx']]],
   ['csubsystem',['CSubsystem',['../classzen_1_1_c_subsystem.html',1,'zen']]],

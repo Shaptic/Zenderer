@@ -1,6 +1,0 @@
-<map id="zen::gfx::CWindow" name="zen::gfx::CWindow">
-<area shape="rect" id="node2" href="$classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems." alt="" coords="125,453,251,648"/>
-<area shape="rect" id="node4" title="STL class." alt="" coords="85,231,165,308"/>
-<area shape="rect" id="node5" title="STL class." alt="" coords="62,6,188,98"/>
-<area shape="rect" id="node6" href="$classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information." alt="" coords="190,150,313,389"/>
-</map>

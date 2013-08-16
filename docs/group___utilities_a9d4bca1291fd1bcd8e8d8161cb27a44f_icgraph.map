@@ -1,8 +1,0 @@
-<map id="zen::util::CLog::Destroy" name="zen::util::CLog::Destroy">
-<area shape="rect" id="node2" href="$group___utilities.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy()." alt="" coords="213,5,365,32"/>
-<area shape="rect" id="node3" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer." alt="" coords="255,56,323,83"/>
-<area shape="rect" id="node7" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer." alt="" coords="455,107,529,133"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="669,56,720,83"/>
-<area shape="rect" id="node5" href="$group___graphics.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem." alt="" coords="414,5,570,32"/>
-<area shape="rect" id="node6" href="$namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="619,5,770,32"/>
-</map>
