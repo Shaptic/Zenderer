@@ -143,11 +143,13 @@ bool CEntity::LoadFromTexture(const string_t& filename)
 
 bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
 {
+    if(Quad.m_DrawData.icount == 0 || Quad.m_DrawData.vcount == 0) return false;
+
     gfx::CQuad* pQuad = new gfx::CQuad(Quad);
     pQuad->AttachMaterial(const_cast<gfx::CMaterial&>(Quad.GetMaterial()));
     pQuad->SetInverted(m_inv);
     pQuad->Create();
-    pQuad->SetColor(color4f_t(1, 1, 1, 1));
+    pQuad->SetColor(Quad.m_DrawData.Vertices[0].color);
     mp_allPrims.push_back(pQuad);
 
     m_Box = math::aabb_t(this->GetPosition(),

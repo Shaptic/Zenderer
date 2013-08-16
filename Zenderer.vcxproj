@@ -220,6 +220,7 @@
     <None Include="include\Zenderer\Math\Vector.inl" />
     <None Include="include\Zenderer\Utilities\INIParser.inl" />
     <None Include="include\Zenderer\Utilities\Log.inl" />
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

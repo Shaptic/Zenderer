@@ -442,5 +442,6 @@
     <None Include="include\Zenderer\Graphics\Scene.inl">
       <Filter>Header Files\Graphics</Filter>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
 </Project>
