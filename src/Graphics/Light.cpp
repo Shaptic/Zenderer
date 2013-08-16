@@ -150,10 +150,11 @@ bool CLight::SetAttenuation(const math::vector_t& Att)
     return this->SetAttenuation(Att.x, Att.y, Att.z);
 }
 
+/// @todo   Figure out why the 200px offset is necessary.
 bool CLight::SetPosition(const real_t x, const real_t y)
 {
     m_Position = math::vector_t(x, y);
-    GL(glUniform2f(m_locpos, x, y));
+    GL(glUniform2f(m_locpos, x, y + 200));
     return true;
 }
 
