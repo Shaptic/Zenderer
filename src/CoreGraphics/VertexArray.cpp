@@ -208,11 +208,11 @@ bool CVertexArray::Clear()
     if(!this->Bind()) return false;
     GL(glBufferData(GL_ARRAY_BUFFER, 0, nullptr, m_type));
     GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, nullptr, m_type));
-    
+
     m_icount = m_vcount = 0;
     m_vaoIndices.clear();
     m_vaoVertices.clear();
-    
+
     return this->Unbind();
 }
 

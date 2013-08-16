@@ -64,7 +64,7 @@ namespace evt
 
         /// OS-callback for printable characters.
         static void CharacterCallback(GLFWwindow*, unsigned int c);
-        
+
         /// OS-callback for any keyboard events.
         static void KeyboardCallback(GLFWwindow*, int key,    int scancode,
                                                   int action, int mods);
@@ -76,7 +76,7 @@ namespace evt
         static void MouseCallback(GLFWwindow*, int button, int action, int mods);
 
     private:
-        CEventHandler() { s_Active.Reset(); } 
+        CEventHandler() { s_Active.Reset(); }
         CEventHandler(const CEventHandler&);
         CEventHandler& operator=(const CEventHandler&);
 
@@ -92,7 +92,7 @@ namespace evt
  * @class zen::evt::CEventHandler
  * @details
  *  This singleton class instance handles system-wide event occurences during
- *  the application's run-time. It does not *do* anything with these events, 
+ *  the application's run-time. It does not *do* anything with these events,
  *  merely providing the user with an interface to poll them and handle them
  *  as they see fit.
  *

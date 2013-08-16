@@ -147,7 +147,7 @@ namespace gfx
 
         /// Deletes all scene data (lights, objects, effects, etc).
         bool Clear();
-        
+
         /// Renders the scene to the screen.
         /// @todo   Clipping.
         bool Render();

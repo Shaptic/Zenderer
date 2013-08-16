@@ -104,7 +104,7 @@ namespace gfxcore
          * @see     Zenderer/CoreGraphics/OpenGL.hpp
          **/
         bool Offload();
-        
+
         /// Deletes all vertex and index data from the GPU and locally.
         bool Clear();
 
@@ -119,7 +119,7 @@ namespace gfxcore
         const index_t*  const GetIndicesFromGPU()   const;
 
         bool Offloaded() const;
-        
+
         inline bool Draw()
         {
             if(!this->Bind()) return false;

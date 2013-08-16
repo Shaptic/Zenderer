@@ -155,7 +155,7 @@ namespace obj
 
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
-        
+
         /**
          * Adjusts an entity's position based on some values.
          *
@@ -163,7 +163,7 @@ namespace obj
          * @param   dy      Change in the y-direction
          * @param   dz      Change in the z-direction
          *
-         * @note    This is equivalent to calling 
+         * @note    This is equivalent to calling
          *          `Move(GetPosition() + math::vector_t(dx, dy, dz));`
          **/
         void Adjust(const real_t dx, const real_t dy, const real_t dz = 0.0);
@@ -219,7 +219,7 @@ namespace obj
         const math::matrix4x4_t& GetTransformation() const;
         const math::aabb_t& GetBox() const;
         math::vector_t GetPosition() const;
-        
+
         real_t GetX() const { return m_MV[0][3]; }
         real_t GetY() const { return m_MV[1][3]; }
         real_t GetW() const { return m_Box.xw.x * 2; }
@@ -240,7 +240,7 @@ namespace obj
         friend class ZEN_API gfx::CScene;
 
     protected:
-        CEntity(const CEntity&);                // not implemented to 
+        CEntity(const CEntity&);                // not implemented to
         CEntity& operator=(const CEntity&);     // prevent compiler default
 
         void Destroy();

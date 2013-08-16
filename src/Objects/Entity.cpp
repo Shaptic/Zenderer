@@ -263,7 +263,7 @@ bool CEntity::Offloaded() const
 
     for(auto& i : mp_allPrims)
     {
-        if(i->m_DrawData.Vertices != nullptr || 
+        if(i->m_DrawData.Vertices != nullptr ||
            i->m_DrawData.Indices  != nullptr)
             return false;
     }
