@@ -111,11 +111,11 @@ bool CScene::Clear()
     for(auto i : m_allEntities) delete i;
     for(auto i : m_allLights) delete i;
     for(auto i : m_allPPFX) delete i;
-    
+
     m_allEntities.clear();
     m_allLights.clear();
     m_allPPFX.clear();
-    
+
     return m_Geometry.Clear();
 }
 
@@ -123,8 +123,6 @@ bool CScene::Render()
 {
     // Called every frame because there is no more appropriate
     // time to call it. Things won't be offloaded multiple times.
-    auto i = m_allEntities.begin(), j = m_allEntities.end();
-
     for(auto& i : m_allEntities)
     {
         // If any are offloaded, the rest probably are too.
@@ -136,7 +134,7 @@ bool CScene::Render()
 
     // Clear our frame buffers from the last drawing.
     // We will be rendering to FBO1 at first.
-    color4f_t Clear = color4f_t(0.0, 0.0, 0.0, 1.0);
+    color4f_t Clear = color4f_t(0.0, 0.0, 0.0);
     if(m_through) Clear.a = 0.0;
     m_FBO2.Bind(); m_FBO2.Clear(Clear);
     m_FBO1.Bind(); m_FBO1.Clear(Clear);
