@@ -28,6 +28,10 @@ struct PongPacket
     std::string data;
 };
 
+static const string_t PONG_PORT("2013");
+static const uint16_t MAX_PONG = sizeof(PongPacket) + 255;
+static const uint16_t MIN_PONG = 1;
+
 std::mt19937 rng;
 math::vector_t make_ball();
 int randint(const int low, const int hi);
@@ -68,7 +72,7 @@ int main()
     Ball.LoadFromTexture("assets/textures/ball.png");
 
     LeftPaddle.Move(0, Main.GetHeight() / 2 - LeftPaddle.GetH() / 2);
-    RightPaddle.Move(Main.GetWidth() - RightPaddle.GetW(), 
+    RightPaddle.Move(Main.GetWidth() - RightPaddle.GetW(),
                      Main.GetHeight() / 2 - RightPaddle.GetH() / 2);
 
     BallLight.Enable();
@@ -86,7 +90,7 @@ int main()
 
     bool play = false, host = false, join = false;
     bool is_start = false;
-    
+
     // Main menu.
     gui::CMenu MainMenu(Main, Assets);
     MainMenu.SetFont("assets/ttf/menu.ttf", 24);
@@ -98,7 +102,7 @@ int main()
     MainMenu.AddButton("Host a Game", [&host, &play](size_t) {
         play = host = true;
     });
-    
+
     MainMenu.AddButton("Join a Game", [&join, &play](size_t) {
         play = join = true;
     });
@@ -118,11 +122,16 @@ int main()
         MainMenu.Update();
         Main.Update();
     }
-    
+
     net::CSocket Socket(net::SocketType::UDP);
-    Socket.Init();
+    Socket.Init("", PONG_PORT);
     string_t conn;
-    
+
+    gui::CFont& Font = *Assets.Create<gui::CFont>();
+    Font.AttachManager(Assets);
+    Font.LoadFromFile("assets/ttf/menu.ttf");
+    //Font.Render(NetStatus, "ok.");
+
     if(play && join)
     {
         static const uint16_t MAX_PONG = 256;
@@ -133,28 +142,28 @@ int main()
         HostList.SetActiveButtonTextColor(color4f_t(0, 1, 1));
         HostList.SetInitialButtonPosition(math::vector_t(64, 200));
         HostList.SetSpacing(32);
-        
-        HostList.SetTitle("Searching for hosts...");
-        
+
+        //HostList.SetTitle("Searching for hosts...");
+
         std::vector<string_t> hosts;
         int16_t index = -1;
-        
+
         string_t packet = build_packet(PacketType::STATUS, "");
-        
-        Socket.SetBlocking(false);
-        Socket.SendBroadcast(packet);
+
+        Socket.SetNonblocking(true);
+        //Socket.SendBroadcast(packet);
 
         PongPacket response;
-        
+
         while(Main.IsOpen() && index == -1)
         {
             std::string addr, data;
             data = Socket.RecvFrom(MAX_PONG, addr);
-            
+
             parse_msg(data, response);
-            
+
             size_t b4 = hosts.size();
-            
+
             if(!data.empty() && response.type == PacketType::HOST_AVAIL &&
                std::find(hosts.begin(), hosts.end(), addr) == hosts.end())
             {
@@ -163,37 +172,37 @@ int main()
                     index = i;
                 });
             }
-        
+
             if(b4 != hosts.size())
             {
-                Hosts.Destroy();
+                //Hosts.Destroy();
                 for(auto& i : hosts) Font << i << '\n';
-                Font.Render(Hosts);
+                //Font.Render(Hosts);
             }
-        
+
             Main.Clear();
             HostList.Update();
             Main.Update();
         }
-        
+
         // User chose a host?
         if(index != -1)
         {
-            gfx::CScene Prelim(Window.GetWidth(), Window.GetHeight(), Assets);
+            gfx::CScene Prelim(Main.GetWidth(), Main.GetHeight(), Assets);
             Prelim.Init();
             Prelim.DisableLighting();
-            
+
             obj::CEntity& Status = Prelim.AddEntity();
             gui::CFont& Font = *Assets.Create<gui::CFont>();
             Font.AttachManager(Assets);
             Font.LoadFromFile("assets/ttf/menu.ttf");
-            
+
             Font << "Attempting to join " << hosts[index] << "...";
             Font.Render(Status);
-            
+
             Socket.SendTo(hosts[index], PONG_PORT,
                           build_packet(PacketType::STATUS, ""));
-            
+
             while(Main.IsOpen())
             {
                 string_t addr;
@@ -216,30 +225,30 @@ int main()
                         Font.Render(Status);
                     }
                 }
-                
+
                 Main.Clear();
                 Prelim.Render();
                 Main.Update();
             }
-            
+
             // We've sent our status, now wait for response.
             while(Main.IsOpen())
             {
                 string_t addr;
                 string_t r = Socket.RecvFrom(MAX_PONG, addr);
-                
+
                 util::CLog& Log = util::CLog::GetEngineLog();
                 Log << Log.SetMode(util::LogMode::ZEN_INFO)
                     << Log.SetSystem("Net") << "Received '" << r << "' from '"
                     << addr << "'." << util::CLog::endl;
-                
+
                 if(!r.empty() && addr == hosts[index])
                 {
                     parse_msg(r, response);
                     if(response.type == PacketType::SYNC)
                     {
                         std::vector<string_t> parts = util::split(response.data, ';');
-                        
+
                         // Protocol states that the sync gives the ball position,
                         // and the ball forces in this format:
                         // bx;by;bdx;bdy
@@ -250,44 +259,44 @@ int main()
                         break;
                     }
                 }
-                
+
                 Main.Clear();
                 Prelim.Render();
                 Main.Update();
             }
         }
     }
-    
+
     else if(play && join)
     {
         is_start = true;
-        
+
         gfx::CScene Waiter(Main.GetWidth(), Main.GetHeight(), Assets);
         Waiter.Init();
         Waiter.DisableLighting();
-        
+
         obj::CEntity& Status = Waiter.AddEntity();
         gui::CFont& Font = *Assets.Create<gui::CFont>();
         Font.AttachManager(Assets);
         Font.Render(Status, "Awaiting player...");
-        
+
         string_t addr;
         bool potential = false;
-        
+
         while(Main.IsOpen())
         {
             string_t tmpaddr;
-            string_t data = Socket.RecvFrom(PONG_MAX, tmpaddr);
-            
+            string_t data = Socket.RecvFrom(MAX_PONG, tmpaddr);
+
             PongPacket resp;
             if(parse_msg(data, resp))
             {
                 if(resp.type == PacketType::STATUS)
                 {
-                    Socket.SendTo(addr, build_packet(
+                    Socket.SendTo(addr, PONG_PORT, build_packet(
                         PacketType::HOST_AVAIL, ""
                     ));
-                    
+
                     Font.ClearString();
                     Font << "Potential match: " << addr << "\nResolving...";
                     Font.Render(Status);
@@ -299,7 +308,7 @@ int main()
                 {
                     std::stringstream ss;
                     ss << ball_d.x << ';' << ball_d.y;
-                    Socket.SendTo(addr, build_packet(
+                    Socket.SendTo(addr, PONG_PORT, build_packet(
                         PacketType::SYNC, ss.str()
                     ));
 
@@ -320,26 +329,22 @@ int main()
 
     uint32_t frame = 0;
     uint32_t last  = 0;
-    
+
     obj::CEntity& NetStatus = Field.AddEntity();
-    gui::CFont& Font = *Assets.Create<gui::CFont>();
-    Font.AttachManager(Assets);
-    Font.LoadFromFile("assets/ttf/menu.ttf");
-    Font.Render(NetStatus, "ok.");
-    
+
     while(Main.IsOpen())
     {
         ++last;
         if(++frame % 60 == 0)
         {
             std::stringstream ss;
-            ss << util::hash(time(nullptr), sizeof(uint32_t));
-            
+            ss << time(nullptr);
+
             Socket.SendTo(conn, PONG_PORT, build_packet(
                 PacketType::PING, ss.str()
             ));
         }
-        
+
         Timer.Start();
 
         Evts.PollEvents();
@@ -384,10 +389,10 @@ int main()
             LeftPaddle.Adjust(0.0, dy);
             ss << LeftPaddle.GetX() << ';' << LeftPaddle.GetY();
             Socket.SendTo(conn, PONG_PORT, build_packet(
-                PacketType::POS_PADDLE, ss.str()
+                PacketType::POS_PLAYER, ss.str()
             ));
         }
-        
+
         if(last > 60 * 4)
         {
             Font.Render(NetStatus, "losing connection.");
@@ -396,7 +401,7 @@ int main()
         {
             Font.Render(NetStatus, "connection lost.");
         }
-        
+
         string_t addr;
         string_t data = Socket.RecvFrom(MAX_PONG, addr);
         if(addr == conn && data.size() > 0)
@@ -407,28 +412,28 @@ int main()
             {
             case PacketType::PING:
                 // Confirm ping.
-                //if(resp.data != last_ping) 
+                //if(resp.data != last_ping)
                 //{
                 //    Socket.SendTo(addr, resp.data);
                 //}
                 Font.Render(NetStatus, "ok.");
                 last = 0;
                 break;
-            
-            case PacketType::POS_PADDLE:
+
+            case PacketType::POS_PLAYER:
             {
                 std::vector<string_t> parts = util::split(resp.data, ';');
                 RightPaddle.Move(RightPaddle.GetX(), stod(parts[1]));
                 break;
             }
-                
+
             case PacketType::POS_BALL:
             {
                 std::vector<string_t> parts = util::split(resp.data, ';');
                 Ball.Move(std::stod(parts[0]), std::stod(parts[1]));
                 break;
             }
-            
+
             case PacketType::SYNC:
             {
                 std::vector<string_t> parts = util::split(resp.data, ';');
@@ -439,7 +444,7 @@ int main()
                     {
                         std::stringstream ss;
                         ss << ball_d.x << ';' << ball_d.y;
-                        Socket.SendTo(conn, build_packet(
+                        Socket.SendTo(conn, PONG_PORT, build_packet(
                             PacketType::SYNC, ss.str()
                         ));
                     }
@@ -448,10 +453,10 @@ int main()
                         ball_d = ball_d_tmp;
                     }
                 }
-                
+
                 break;
             }
-            
+
             case PacketType::UNKNOWN:
             {
                 util::CLog& L = util::CLog::GetEngineLog();
@@ -461,7 +466,7 @@ int main()
             }
             }
         }
-        
+
         Ball.Adjust(ball_d);
 
         BallLight.Enable();
@@ -503,38 +508,37 @@ bool parse_msg(const string_t& data, PongPacket& P)
     P.type = PacketType::UNKNOWN;
     P.data = "";
 
-    if(data.empty() || data.size() < MIN_SIZE) return false;
-    
+    if(data.empty() || data.size() < MIN_PONG) return false;
+
     std::vector<string_t> parts = util::split(data, ':');
     if(parts.size() < 5) return false;
-    
-    PongPacket.seq  = stoi(parts[0]);
-    PongPacket.stamp= stoi(parts[1]);
-    PongPacket.type = static_cast<PacketType>(stoi(parts[2]));
-    PongPacket.size = stoi(parts[3]);
-    PongPacket.data.resize(PongPacket.size(), '\0');
-    
-    // Compensate for the fact that the data itself may have 
+
+    P.seq  = stoi(parts[0]);
+    P.stamp= stoi(parts[1]);
+    P.type = static_cast<PacketType>(stoi(parts[2]));
+    P.size = stoi(parts[3]);
+    P.data.resize(data.size(), '\0');
+
+    // Compensate for the fact that the data itself may have
     // contained the ':' character.
     string_t final_data;
-    for(size_t i = 4; i < parts.size(); ++i)
-    {
-        final_data += parts[i];
-    }
-    PongPacket.data = final_data;
-    
-    return PongPacket.type != PacketType::UNKNOWN;
+    std::for_each(parts.begin(), parts.end(), [&final_data](const string_t& s) {
+        final_data.insert(final_data.end(), s.begin(), s.end());
+    });
+    P.data = final_data;
+
+    return P.type != PacketType::UNKNOWN;
 }
 
 string_t build_packet(PacketType type, const string_t& data)
 {
     static std::stringstream ss;
     static uint32_t seq_no = 0;
-    
+
     ss.str(std::string());
-    
-    ss << ++seq_no << ":" << (ts > 0 ? ts : time(nullptr)) << ":"
-       << static_cast<uint16_t>(type) << ":" << data.size() 
+
+    ss << ++seq_no << ":" << time(nullptr) << ":"
+       << static_cast<uint16_t>(type) << ":" << data.size()
        << data;
 
     return ss.str();
