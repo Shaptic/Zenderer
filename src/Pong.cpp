@@ -58,6 +58,7 @@ int main()
     Field.DisablePostProcessing();
     Field.SetSeeThrough(false);
 
+    obj::CEntity& BG            = Field.AddEntity();
     obj::CEntity& LeftPaddle    = Field.AddEntity();
     obj::CEntity& RightPaddle   = Field.AddEntity();
     obj::CEntity& Ball          = Field.AddEntity();
@@ -65,7 +66,7 @@ int main()
 
     gfx::CQuad Paddle(Assets, 8, 32);
     Paddle.Create();
-    Paddle.SetColor(color4f_t(1.0, 0.0, 0.0));
+    Paddle.SetColor(color4f_t(1.0, 1.0, 1.0));
 
     LeftPaddle.AddPrimitive(Paddle);
     RightPaddle.AddPrimitive(Paddle);
@@ -76,6 +77,7 @@ int main()
                      Main.GetHeight() / 2 - RightPaddle.GetH() / 2);
 
     BallLight.Enable();
+    BallLight.SetAttenuation(0.005, 0.01, 0.0);
     BallLight.SetBrightness(1.0);
     BallLight.SetColor(color3f_t(0.0, 1.0, 1.0));
     BallLight.SetPosition(Ball.GetPosition());
@@ -122,7 +124,7 @@ int main()
         MainMenu.Update();
         Main.Update();
     }
-
+    /*
     net::CSocket Socket(net::SocketType::UDP);
     Socket.Init("", PONG_PORT);
     string_t conn;
@@ -321,7 +323,7 @@ int main()
             Main.Update();
         }
     }
-
+    */
     // Now we have established a connection to another peer (host / client
     // is now irrelevant). Every frame we check for socket data, pinging
     // the client every second, and send our paddle position if it has
@@ -332,8 +334,13 @@ int main()
 
     obj::CEntity& NetStatus = Field.AddEntity();
 
+    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(), Main.GetHeight());
+    pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
+    BG.AddPrimitive(*pQuad);
+    delete pQuad;
+
     while(Main.IsOpen())
-    {
+    {/*
         ++last;
         if(++frame % 60 == 0)
         {
@@ -344,7 +351,7 @@ int main()
                 PacketType::PING, ss.str()
             ));
         }
-
+        */
         Timer.Start();
 
         Evts.PollEvents();
@@ -369,6 +376,7 @@ int main()
                 if(Evt.key.key == evt::Key::UP ||
                    Evt.key.key == evt::Key::DOWN)
                     dy = 0.0;
+                else if(Evt.key.key == evt::Key::L) Field.ToggleLighting();
             }
         }
 
@@ -387,12 +395,12 @@ int main()
         {
             std::stringstream ss;
             LeftPaddle.Adjust(0.0, dy);
-            ss << LeftPaddle.GetX() << ';' << LeftPaddle.GetY();
+            /*ss << LeftPaddle.GetX() << ';' << LeftPaddle.GetY();
             Socket.SendTo(conn, PONG_PORT, build_packet(
                 PacketType::POS_PLAYER, ss.str()
-            ));
+            ));*/
         }
-
+        /*
         if(last > 60 * 4)
         {
             Font.Render(NetStatus, "losing connection.");
@@ -466,11 +474,13 @@ int main()
             }
             }
         }
-
+        */
         Ball.Adjust(ball_d);
 
         BallLight.Enable();
-        BallLight.SetPosition(Ball.GetPosition());
+        BallLight.SetPosition(Ball.GetPosition() +
+                              math::vector_t(Ball.GetW() / 2,
+                                             Ball.GetH() / 2));
         BallLight.Disable();
 
         Main.Clear();
