@@ -51,7 +51,6 @@ namespace zen
 {
 namespace net
 {
-
 // Windows has a custom ICMP API that avoids the need
 // for raw sockets and administrative rights.
 #ifndef _WIN32
@@ -70,7 +69,7 @@ namespace net
         uint32_t        source_ip;
         uint32_t        dest_ip;
     };
-    
+
     struct ICMPHeader
     {
         uint8_t     type;
@@ -89,7 +88,7 @@ namespace net
         ICMP_ECHO_REQUEST       = 8
         ICMP_TTL_EXPIRE         = 11,
     };
-    
+
     enum class ICMPPacket
     {
         PACKET_SIZE     = 8,
@@ -103,40 +102,40 @@ namespace net
 
     using util::CLog;
     using util::LogMode;
-    
+
     class ZEN_API CSocket
     {
     public:
-        CSocket(const SocketType& Type) : m_type(Type), m_socket(-1) {}
-        virtual ~CSocket();
-        
+        CSocket(const SocketType& Type) : m_Type(Type), m_socket(-1) {}
+        virtual ~CSocket() { this->Destroy(); }
+
         static bool InitializeLibrary()
         {
-            if(s_init) return true;
-            
+            //if(s_init) return true;
+
 #ifdef _WIN32
             WSADATA Data;
             if(WSAStartup(MAKEWORD(2, 0), &Data) != 0)
             {
                 std::cerr << "WinSock2 failed to initialize!\n";
-                return (s_init = false);
+                return (/*s_init =*/ false);
             }
 #endif  // _WIN32
-            return (s_init = true);
+            return (/*s_init =*/ true);
         }
-        
+
         virtual bool Init(const string_t& host, const string_t& port)
         {
             addrinfo hints;
             addrinfo* tmp;
-            
+
             memset(&hints, NULL, sizeof(hints));
             hints.ai_family = AF_INET;
             hints.ai_socktype = SOCK_DGRAM;
-                
+
             if(m_Type == SocketType::TCP)
                 hints.ai_socktype = SOCK_STREAM;
-                
+
             else if(m_Type == SocketType::RAW)
                 hints.ai_socktype = SOCK_RAW;
 
@@ -146,40 +145,43 @@ namespace net
             {
                 return false;
             }
-            
+
             auto result = tmp;
             for( ; result != nullptr; result = result->ai_next)
             {
                 if((m_socket = socket(result->ai_family,
                                       result->ai_socktype,
-                                      result->ai_protocol) == -1)
+                                      result->ai_protocol)) == -1)
                 {
                     continue;
                 }
-                
+
                 this->SetSocketOption(SOL_SOCKET, SO_REUSEADDR, true);
-                
+
                 if(bind(m_socket, result->ai_addr, result->ai_addrlen) == -1)
                 {
                     this->Destroy();
                     continue;
                 }
             }
-            
+
             if(result == nullptr) return false;
-            
+
             freeaddrinfo(tmp);
+            return true;
         }
-        
+
         bool Destroy()
         {
+            if(m_socket == -1) return false;
 #ifdef _WIN32
             closesocket(m_socket);
 #else
             close(m_socket);
 #endif // _WIN32
+            return (m_socket = -1);
         }
-        
+
         /**
          * Receives any incoming data on the socket.
          *  This call will block the process until some amount of data
@@ -189,41 +191,42 @@ namespace net
          * @param   address The IP address of the sender
          *
          * @return  Data that was received from the socket, if any.
-         * 
-         * @warning Packets less than `size` will NOT be removed from 
+         *
+         * @warning Packets less than `size` will NOT be removed from
          *          the socket queue.
          **/
         string_t RecvFrom(const size_t size, string_t& address)
         {
-            if(m_socket <= 0) return -1;
-            
+            if(m_socket <= 0) return "";
+
             address = "";
             sockaddr_in addr;
             int addrlen = 0;
             char* buffer = new char[size];
-            
-            int bytes = recvfrom(m_socket, buffer, size, 0, &addr, &addrlen);
+
+            int bytes = recvfrom(m_socket, buffer, size, 0,
+                                 (sockaddr*)&addr, &addrlen);
             if(bytes == -1)
             {
                 delete[] buffer;
                 return string_t("");
             }
-            
+
             address = CSocket::GetAddress(addr);
-            
+
             string_t ret(buffer, bytes);
             delete[] buffer;
-            
+
 #ifdef ZEN_DEBUG_BUILD
             CLog& Log = CLog::GetEngineLog();
             Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
                 << "Received '" << ret << "' from '" << address << "'."
                 << CLog::endl;
 #endif  // ZEN_DEBUG_BUILD
-            
+
             return ret;
         }
-        
+
         /**
          * Sends a message to an IP:port address.
          *
@@ -242,30 +245,31 @@ namespace net
         int SendTo(const std::string& addr, const std::string& port, const std::string& data)
         {
             if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
-            
+
 #ifdef ZEN_DEBUG_BUILD
             CLog& Log = CLog::GetEngineLog();
             Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
                 << "Sending '" << addr << "' to " << addr << ':' << port
                 << "." << CLog::endl;
 #endif  // ZEN_DEBUG_BUILD
-            
+
             sockaddr_in sock = { CSocket::GetAddress(addr) };
-            return sendto(m_socket, data.c_str(), data.size(), 0, &sock, sizeof(sock));
+            return sendto(m_socket, data.c_str(), data.size(), 0,
+                          (sockaddr*)&sock, sizeof(sock));
         }
-        
+
         bool Ping()
         {
             ZEN_ASSERT(false, "not implemented");
         }
-        
+
         bool SetSocketOption(const int type, const int option, const bool flag)
         {
             if(m_socket < 0) return false;
-            int set = flag ? 1 : 0;
-            return setsockopt(m_socket, type, option, &set) == 0;
+            char set = flag ? 1 : 0;
+            return setsockopt(m_socket, type, option, &set, sizeof set) == 0;
         }
-        
+
         /**
          * Enables or disables blocking for socket operations.
          *
@@ -280,15 +284,16 @@ namespace net
         bool SetNonblocking(const bool flag)
         {
             if(m_socket < 0) return false;
-            
-            int set = flag ? 1 : 0;
+
 #ifdef _WIN32
+            unsigned long set = flag ? 1 : 0;
             return ioctlsocket(m_socket, FIONBIO, &set) == 0;
 #else
-            return fcntl(m_socket, F_SETFL, O_NONBLOCK) == 0;
+            int set = flag ? 1 : 0;
+            return fcntl(m_socket, F_SETFL, O_NONBLOCK, &set) == 0;
 #endif
         }
-        
+
         /**
          * Retrieves the last error number.
          *
@@ -307,7 +312,7 @@ namespace net
             return errno;
 #endif // _WIN32
         }
-        
+
     private:
         static string_t GetAddress(sockaddr_in& addr)
         {
@@ -315,43 +320,46 @@ namespace net
             inet_ntop(AF_INET, &(addr.sin_addr), ip, INET_ADDRSTRLEN);
             return string_t(ip);
         }
-        
+
         static uint32_t GetAddress(const std::string& ip)
         {
             uint32_t addr;
             inet_pton(AF_INET, ip.c_str(), &addr);
             return addr;
         }
-        
-        static bool s_init;
+
+        /*static*/ bool s_init;
+        SocketType m_Type;
         int m_socket;
     };
 }
 
+    /*
     int main()
     {
         net::CSocket::InitializeLibrary();
-        
+
         {
             net::CSocket Server(net::SocketType::UDP);
             Server.Init("localhost", "12345");
-            
+
             string_t cli;
             std::cout << "Client sent: '" << Server.RecvFrom(1024, cli) << "'\n";
-            
+
             Server.Destroy();
         }
-        
+
         {
             net::CSocket Client(net::SocketType::UDP);
             std::cout << "Client sent "
-                      << Client.SendTo("localhost", "12345", "What's up dudes?")
-                      << " bytes.\n";
+                        << Client.SendTo("localhost", "12345", "What's up dudes?")
+                        << " bytes.\n";
             Client.Destroy();
         }
-        
+
         return 0;
     }
+    */
 }
 
 #endif // ZENDERER__NETWORK__SOCKET_HPP

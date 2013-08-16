@@ -57,7 +57,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
                 i.second(index);
                 return true;
             }
-            
+
             ++index;
         }
     }
@@ -79,7 +79,7 @@ uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> hand
     pNew->SetDefault();
 
     m_Position.y += m_spacing;
-    
+
     // Credit where credit is due:
     // @Griwes for this optimization.
     m_menuActions.emplace(std::make_pair(pNew, std::move(handler)));

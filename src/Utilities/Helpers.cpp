@@ -2,24 +2,25 @@
 
 using namespace zen;
 
-void util::stripl(std::string& text)
+void util::stripl(string_t& text)
 {
     text = text.substr(text.find_first_not_of(" \t"));
 }
 
-std::string util::stripl(const std::string& text)
+string_t util::stripl(const string_t& text)
 {
-    return text.substr(text.find_first_not_of(" \t");
+    return text.substr(text.find_first_not_of(" \t"));
 }
 
-void util::stript(std::string& text)
+void util::stript(string_t& text)
 {
     text.resize(text.find_last_not_of(" \t"));
 }
 
-std::string util::stript(std::string text)
+string_t util::stript(const string_t& text)
 {
-    text.resize(text.find_last_not_of(" \t"));
+    string_t tmp = text;
+    tmp.resize(tmp.find_last_not_of(" \t"));
     return text;
 }
 
@@ -35,7 +36,9 @@ string_t strip(const string_t& text)
                        text.find_last_not_of (" \t"));
 }
 
-std::vector<string_t> util::split(const string_t& text, const char delim, const size_t approx)
+std::vector<string_t> util::split(const string_t& text,
+                                  const char delim,
+                                  const size_t approx)
 {
     std::vector<string_t> splitResults;
     size_t last = 0;

@@ -199,7 +199,7 @@ using gfxcore::CRenderer;
     MainMenu.AddButton("Play Game");
     MainMenu.AddButton("Load Game");
     MainMenu.AddButton("Options");
-    MainMenu.AddButton("Exit", [&Window] {
+    MainMenu.AddButton("Exit", [&Window](const size_t) {
         Window.Close();
     });
 
