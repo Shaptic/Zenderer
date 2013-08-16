@@ -80,8 +80,7 @@ index_t CVertexArray::AddData(const DrawBatch& D)
         m_vaoIndices.push_back(D.Indices[i] + m_vcount + m_vaoVertices.size());
 
     m_vaoVertices.reserve(m_vaoVertices.size() + D.vcount);
-    for(size_t v = 0; v < D.vcount; ++v)
-        m_vaoVertices.push_back(D.Vertices[v]);
+    m_vaoVertices.insert(m_vaoVertices.end(), D.Vertices, D.Vertices + D.vcount);
 
     return offset;
 }
