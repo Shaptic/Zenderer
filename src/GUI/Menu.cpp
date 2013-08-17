@@ -35,6 +35,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
             if(i.first->IsOver(MouseBox))
             {
                 i.first->SetActive();
+                break;
             }
             else
             {
