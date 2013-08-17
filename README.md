@@ -25,7 +25,8 @@ currently only support for Windows (*gasp*), due to the fact that I use
 Visual Studio and the Microsoft compiler for 95% of my C++ development.
 Thus, I can't guarantee any sort of cross-platform compatibility. But,
 this is obviously a potential `todo` for when everything else has been taken
-care of.
+care of. The only definite requirement for building *Zenderer* is a
+ C++11-compatible compiler with a functional `<regex>` implementation.
 
 There are various binary dependencies for this engine. Luckily, they are all
 cross platform and are relatively easy to build from source. They are

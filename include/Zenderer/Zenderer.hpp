@@ -160,7 +160,8 @@ namespace zen
  *  Visual Studio and the Microsoft compiler for 95% of my C++ development.
  *  Thus, I can't guarantee any sort of cross-platform compatibility. But,
  *  this is obviously a potential TODO for when everything else has been taken
- *  care of.
+ *  care of. The only definite requirement for building @a Zenderer is a
+ *  C++11-compatible compiler with a functional `<regex>` implementation.
  *
  *  There are various dependencies for this engine. Luckily, they are all
  *  cross platform and are relatively easy to build from source. They are
