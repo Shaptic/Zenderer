@@ -69,10 +69,10 @@ namespace math
         aabb_t(const math::rect_t& Data) :
             tl(Data.x, Data.y), br(Data.x + Data.w, Data.y + Data.h) {}
 
-        inline bool collides(const aabb_t& Other) const
+        inline bool collides(const aabb_t& b) const
         {
-            return !(br.x < Other.br.x || br.y < Other.br.y ||
-                     tl.x > Other.tl.x || tl.y > Other.tl.y);
+            return !(tl.x > b.br.x || br.x < b.tl.x ||
+                     tl.y > b.br.y || br.y < b.tl.y);
         }
 
         math::vector_t tl;      ///< Top-left point.

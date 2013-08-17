@@ -119,6 +119,7 @@ bool CFont::Render(obj::CEntity& Ent,
     Q.Create();
     Q.SetColor(color4f_t());
 
+    if(!m_stack) Ent.Destroy();
     Ent.AddPrimitive(Q);
     return true;
 }
