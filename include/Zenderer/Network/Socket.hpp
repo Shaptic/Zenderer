@@ -165,7 +165,7 @@ namespace net
                 }
             }
 
-            if(result == nullptr) return false;
+            if(m_socket == -1) return false;
 
             freeaddrinfo(tmp);
             return true;
@@ -195,13 +195,13 @@ namespace net
          * @warning Packets less than `size` will NOT be removed from
          *          the socket queue.
          **/
-        string_t RecvFrom(const size_t size, string_t& address)
+        string_t RecvFrom(const size_t size, string_t& address, string_t& port)
         {
             if(m_socket <= 0) return "";
 
             address = "";
             sockaddr_in addr;
-            int addrlen = 0;
+            int addrlen = sizeof(addr);
             char* buffer = new char[size];
 
             int bytes = recvfrom(m_socket, buffer, size, 0,
@@ -213,6 +213,9 @@ namespace net
             }
 
             address = CSocket::GetAddress(addr);
+            std::stringstream ss;
+            ss << ntohs(addr.sin_port);
+            port = ss.str();
 
             string_t ret(buffer, bytes);
             delete[] buffer;
@@ -242,14 +245,16 @@ namespace net
          * @see     SendAll()
          * @see     SocketType
          **/
-        int SendTo(const std::string& addr, const std::string& port, const std::string& data)
+        int SendTo(const std::string& addr,
+                   const std::string& port,
+                   const std::string& data)
         {
             if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
 
 #ifdef ZEN_DEBUG_BUILD
             CLog& Log = CLog::GetEngineLog();
             Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
-                << "Sending '" << addr << "' to " << addr << ':' << port
+                << "Sending '" << data << "' to " << addr << ':' << port
                 << "." << CLog::endl;
 #endif  // ZEN_DEBUG_BUILD
 
