@@ -47,6 +47,7 @@ namespace gfxcore
         bool LoadFromFile(const string_t& filename);
         bool LoadFromExisting(const CAsset* const pCopy);
         bool LoadFromExisting(const GLuint handle);
+        bool CopyFromExisting(const GLuint handle);
         bool LoadFromRaw(const GLenum iformat, const GLenum format,
                          const uint16_t w, const uint16_t h,
                          const unsigned char* data);

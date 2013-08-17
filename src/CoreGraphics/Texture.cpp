@@ -79,7 +79,7 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
     return (m_loaded = ret);
 }
 
-bool zen::gfxcore::CTexture::LoadFromExisting(const GLuint handle)
+bool CTexture::LoadFromExisting(const GLuint handle)
 {
     GLint w, h;
     GL(glBindTexture(GL_TEXTURE_2D, handle));
@@ -93,6 +93,23 @@ bool zen::gfxcore::CTexture::LoadFromExisting(const GLuint handle)
     ss << "Texture handle " << handle;
     this->SetFilename(ss.str());
     return m_loaded = ((m_texture = handle) != 0);
+}
+
+bool CTexture::CopyFromExisting(const GLuint handle)
+{
+    if(handle == 0) return false;
+
+    GLint w, h;
+    GL(glBindTexture(GL_TEXTURE_2D, handle));
+    GL(glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &w));
+    GL(glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &h));
+
+    unsigned char* raw = new unsigned char[w * h * 4];
+
+    GL(glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, raw));
+    GL(glBindTexture(GL_TEXTURE_2D, 0));
+
+    return this->LoadFromRaw(GL_RGBA8, GL_RGBA, w, h, raw);
 }
 
 bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
