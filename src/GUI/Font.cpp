@@ -295,22 +295,8 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     // do is create a material and attach it to the quad.
 
     // Create a texture wrapper from the texture handle in the FBO.
-    gfxcore::CTexture* pTexture =
-        mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
-    pTexture->LoadFromExisting(FBO.GetTexture());
+    Texture.CopyFromExisting(FBO.GetTexture());
 
-    // Retrieve the raw data.
-    const unsigned char* data =
-        reinterpret_cast<const unsigned char*>(pTexture->GetData());
-
-    // Load the texture wrapper with raw data, because the FBO will go out
-    // of scope soon, thus destroying the texture handle, but the data needs
-    // to be preserved.
-    Texture.LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
-
-    mp_Assets->Delete(pTexture);
-
-    delete[] data;
     delete[] verts;
     delete[] inds;
 
