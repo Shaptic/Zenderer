@@ -64,23 +64,19 @@ namespace math
 
         aabb_t(const math::vector_t& Pos,
                const math::Vector<uint32_t>& Size) :
-            pos(Pos), xw(Size.x / 2, Pos.y), yw(Pos.x, Size.y / 2) {}
+            tl(Pos), br(Pos + Size) {}
 
         aabb_t(const math::rect_t& Data) :
-            pos(Data.x, Data.y), xw(Data.w / 2, Data.y), yw(Data.x, Data.h / 2) {}
+            tl(Data.x, Data.y), br(Data.x + Data.w, Data.y + Data.h) {}
 
         inline bool collides(const aabb_t& Other) const
         {
-            if(std::abs(pos.x - Other.pos.x) > (xw.x + Other.xw.x) ||
-               std::abs(pos.y - Other.pos.y) > (yw.y + Other.yw.y))
-                return false;
-
-            return true;
+            return !(br.x < Other.br.x || br.y < Other.br.y ||
+                     tl.x > Other.tl.x || tl.y > Other.tl.y);
         }
 
-        math::vector_t pos;
-        math::Vector<uint32_t> xw;
-        math::Vector<uint32_t> yw;
+        math::vector_t tl;      ///< Top-left point.
+        math::vector_t br;      ///< Bottom-right point.
     };
 }   // namespace math
 }   // namespace zen

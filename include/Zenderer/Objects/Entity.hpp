@@ -222,8 +222,8 @@ namespace obj
 
         real_t GetX() const { return m_MV[0][3]; }
         real_t GetY() const { return m_MV[1][3]; }
-        real_t GetW() const { return m_Box.xw.x * 2; }
-        real_t GetH() const { return m_Box.yw.y * 2; }
+        real_t GetW() const { return m_Box.br.x - m_Box.tl.x; }
+        real_t GetH() const { return m_Box.br.y - m_Box.tl.y; }
 
         uint32_t GetSortFlag() const;
 

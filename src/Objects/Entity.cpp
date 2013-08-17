@@ -135,9 +135,9 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     pPrimitive->SetColor(color4f_t(1, 1, 1, 1));
 
     mp_allPrims.push_back(pPrimitive);
-    m_Box = math::aabb_t(this->GetPosition(),
-                         math::Vector<uint32_t>(pPrimitive->GetW(),
-                                                pPrimitive->GetH()));
+    m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
+                                      pPrimitive->GetW(),
+                                      pPrimitive->GetH()));
     return true;
 }
 
@@ -152,11 +152,9 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
     pQuad->SetColor(Quad.m_DrawData.Vertices[0].color);
     mp_allPrims.push_back(pQuad);
 
-    m_Box = math::aabb_t(this->GetPosition(),
-                         math::Vector<uint32_t>(
-                            math::max<uint32_t>(m_Box.xw.x * 2, pQuad->GetW()),
-                            math::max<uint32_t>(m_Box.yw.y * 2, pQuad->GetH())
-                        ));
+    m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
+                            math::max<uint32_t>(this->GetW(), pQuad->GetW()),
+                            math::max<uint32_t>(this->GetH(), pQuad->GetH())));
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
@@ -237,10 +235,7 @@ void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
         i->Move(x, y, z);
 
     m_MV.Translate(math::vector_t(x, y, z));
-
-    m_Box.pos = math::vector_t(x, y);
-    m_Box.xw.y = x;
-    m_Box.yw.x = y;
+    m_Box = math::aabb_t(math::rect_t(x, y, this->GetW(), this->GetH()));
 }
 
 void CEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
