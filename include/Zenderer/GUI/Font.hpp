@@ -125,6 +125,9 @@ namespace gui
          **/
         bool Render(obj::CEntity& Ent, const string_t& text = "") const;
 
+        /// @overload
+        bool Render(gfxcore::CTexture& Texture, const string_t& text ="") const;
+
         /// Clears the internal string stream.
         void ClearString();
 

@@ -97,18 +97,42 @@ const void* const CFont::GetData() const
     return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
-bool CFont::Render(obj::CEntity& Ent, const string_t& to_render) const
+bool CFont::Render(obj::CEntity& Ent,
+                   const string_t& to_render /*=""*/) const
 {
-    ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
+    gfxcore::CTexture& Texture = *mp_Assets->Create<gfxcore::CTexture>();
+    if(!this->Render(Texture, to_render))
+    {
+        mp_Assets->Delete(&Texture);
+        return false;
+    }
+
+    gfx::CMaterial M(*mp_Assets);
+    if(!M.LoadTexture(Texture))
+    {
+        mp_Assets->Delete(&Texture);
+        return false;
+    }
+
+    gfx::CQuad Q(*mp_Assets, Texture.GetWidth(), Texture.GetHeight());
+    Q.AttachMaterial(M);
+    Q.Create();
+    Q.SetColor(color4f_t());
+
+    Ent.AddPrimitive(Q);
+    return true;
+}
+
+bool CFont::Render(gfxcore::CTexture& Texture,
+                   const string_t& to_render /*=""*/) const
+{
+ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
 
     if(text.empty() || !m_loaded || s_FontFx == nullptr) return false;
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("FreeType")
             << "Rendering text string '" << text << "'." << CLog::endl;
-
-    // Fresh start.
-    if(!m_stack) Ent.Destroy();
 
     // 4 vertices for each character, and 6 indices for
     // each character.
@@ -275,9 +299,6 @@ bool CFont::Render(obj::CEntity& Ent, const string_t& to_render) const
         mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromExisting(FBO.GetTexture());
 
-    gfxcore::CTexture* pFinal =
-        mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
-
     // Retrieve the raw data.
     const unsigned char* data =
         reinterpret_cast<const unsigned char*>(pTexture->GetData());
@@ -285,28 +306,9 @@ bool CFont::Render(obj::CEntity& Ent, const string_t& to_render) const
     // Load the texture wrapper with raw data, because the FBO will go out
     // of scope soon, thus destroying the texture handle, but the data needs
     // to be preserved.
-    pFinal->LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
-
-    gfx::CMaterial M(*mp_Assets);
-    if(!M.LoadTexture(*pFinal))
-    {
-        delete[] data;
-        delete[] verts;
-        delete[] inds;
-
-        FBO.Destroy() && VAO.Destroy();
-        return false;
-    }
-
-    gfx::CQuad Q(*mp_Assets, totals.x, totals.y);
-    Q.AttachMaterial(M);
-    Q.Create();
-    Q.SetColor(color4f_t());
-
-    Ent.AddPrimitive(Q);
+    Texture.LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
 
     mp_Assets->Delete(pTexture);
-    mp_Assets->Delete(pFinal);
 
     delete[] data;
     delete[] verts;
