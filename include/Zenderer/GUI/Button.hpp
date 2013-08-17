@@ -45,7 +45,7 @@ namespace gui
         bool IsOver(const math::vector_t& Pos);
         bool IsOver(const math::aabb_t& Box);
 
-        bool SetActive();
+        void SetActive();
         void SetDefault();
 
         void SetFont(CFont& Font);

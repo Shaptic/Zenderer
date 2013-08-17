@@ -48,19 +48,17 @@ bool CButton::IsOver(const math::vector_t& Pos)
 
 bool CButton::IsOver(const math::aabb_t& Box)
 {
-    if(mp_Current == nullptr || !mp_Font) return false;
-    return mp_Current->GetBox().collides(Box);
+    return (mp_Current != nullptr && mp_Font != nullptr &&
+            mp_Current->GetBox().collides(Box));
 }
 
-bool CButton::SetActive()
+void CButton::SetActive()
 {
-    if(!mp_Font || mp_Current == &m_Active) return false;
+    if(!mp_Font || mp_Current == &m_Active) return;
 
     mp_Current->Disable();
     mp_Current = &m_Active;
     mp_Current->Enable();
-
-    return true;
 }
 
 void CButton::SetDefault()
