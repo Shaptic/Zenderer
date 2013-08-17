@@ -128,20 +128,30 @@ int main()
         MainMenu.Update();
         Main.Update();
     }
-    /*
+
+    obj::CEntity& NetStatus = Field.AddEntity();
+    obj::CEntity& Score     = Field.AddEntity();
+
+    std::pair<string_t, string_t> conn;
     net::CSocket Socket(net::SocketType::UDP);
-    Socket.Init("", PONG_PORT);
-    string_t conn;
+    if(!Socket.Init("", PONG_PORT))
+    {
+        util::CLog& Log = util::CLog::GetEngineLog();
+        Log << Log.SetMode(util::LogMode::ZEN_ERROR)
+            << Log.SetSystem("Socket") << "Failed to initialize socket: "
+            << Socket.GetError() << '.' << util::CLog::endl;
+    }
+    Socket.SetNonblocking(true);
 
     gui::CFont& Font = *Assets.Create<gui::CFont>();
     Font.AttachManager(Assets);
     Font.LoadFromFile("assets/ttf/menu.ttf");
+    Font.SetColor(color4f_t(1.0, 1.0, 0.0));
     Font.Render(NetStatus, "ok.");
 
     if(play && join)
     {
-        static const uint16_t MAX_PONG = 256;
-
+        /*
         gui::CMenu HostList(Main, Assets);
         HostList.SetFont("assets/ttf/menu.ttf");
         HostList.SetNormalButtonTextColor(color4f_t(1, 1, 1));
@@ -156,15 +166,14 @@ int main()
 
         string_t packet = build_packet(PacketType::STATUS, "");
 
-        Socket.SetNonblocking(true);
         //Socket.SendBroadcast(packet);
 
         PongPacket response;
 
         while(Main.IsOpen() && index == -1)
         {
-            std::string addr, data;
-            data = Socket.RecvFrom(MAX_PONG, addr);
+            string_t addr, port, data;
+            data = Socket.RecvFrom(MAX_PONG, addr, port);
 
             parse_msg(data, response);
 
@@ -240,8 +249,8 @@ int main()
             // We've sent our status, now wait for response.
             while(Main.IsOpen())
             {
-                string_t addr;
-                string_t r = Socket.RecvFrom(MAX_PONG, addr);
+                string_t addr, port;
+                string_t r = Socket.RecvFrom(MAX_PONG, addr, port);
 
                 util::CLog& Log = util::CLog::GetEngineLog();
                 Log << Log.SetMode(util::LogMode::ZEN_INFO)
@@ -260,7 +269,8 @@ int main()
                         // bx;by;bdx;bdy
                         Ball.Move(stod(parts[0]), stod(parts[1]));
                         ball_d = math::vector_t(stod(parts[2]), stod(parts[3]), 0.0);
-                        conn = hosts[index];
+                        conn.first = hosts[index];
+                        conn.second = port;
                         is_start = false;
                         break;
                     }
@@ -270,10 +280,10 @@ int main()
                 Prelim.Render();
                 Main.Update();
             }
-        }
+        }*/
     }
 
-    else if(play && join)
+    else if(play && host)
     {
         is_start = true;
 
@@ -282,24 +292,25 @@ int main()
         Waiter.DisableLighting();
 
         obj::CEntity& Status = Waiter.AddEntity();
-        gui::CFont& Font = *Assets.Create<gui::CFont>();
-        Font.AttachManager(Assets);
         Font.Render(Status, "Awaiting player...");
+        Status.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
-        string_t addr;
+        string_t addr, port;
         bool potential = false;
 
         while(Main.IsOpen())
         {
+            evt::CEventHandler::PollEvents();
+
             string_t tmpaddr;
-            string_t data = Socket.RecvFrom(MAX_PONG, tmpaddr);
+            string_t data = Socket.RecvFrom(MAX_PONG, tmpaddr, port);
 
             PongPacket resp;
             if(parse_msg(data, resp))
             {
                 if(resp.type == PacketType::STATUS)
                 {
-                    Socket.SendTo(addr, PONG_PORT, build_packet(
+                    Socket.SendTo(addr, port, build_packet(
                         PacketType::HOST_AVAIL, ""
                     ));
 
@@ -314,10 +325,12 @@ int main()
                 {
                     std::stringstream ss;
                     ss << ball_d.x << ';' << ball_d.y;
-                    Socket.SendTo(addr, PONG_PORT, build_packet(
+                    Socket.SendTo(addr, port, build_packet(
                         PacketType::SYNC, ss.str()
                     ));
 
+                    conn.first = addr;
+                    conn.second = port;
                     break;
                 }
             }
@@ -327,17 +340,12 @@ int main()
             Main.Update();
         }
     }
-    */
+
     // Now we have established a connection to another peer (host / client
     // is now irrelevant). Every frame we check for socket data, pinging
-    // the client every second, and send our paddle position if it has
-    // changed.
-
+    // the client every second, and send our paddle position if it has changed.
     uint32_t frame = 0;
     uint32_t last  = 0;
-
-    obj::CEntity& NetStatus = Field.AddEntity();
-    obj::CEntity& Score     = Field.AddEntity();
 
     gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(), Main.GetHeight());
     pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
@@ -345,29 +353,25 @@ int main()
     delete pQuad;
 
     uint16_t mescore = 0, theyscore = 0;
-
-    gui::CFont& Font = *Assets.Create<gui::CFont>();
-    Font.AttachManager(Assets);
-    Font.LoadFromFile("assets/ttf/menu.ttf");
-    Font.SetColor(color4f_t(1.0, 1.0, 0.0));
     Font << mescore << "    |    " << theyscore;
     Font.Render(Score);
 
     Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
+    bool losing = false, lost = false, kk = true;
 
     while(Main.IsOpen())
-    {/*
+    {
         ++last;
-        if(++frame % 60 == 0)
+        if(++frame % 60 == 0 && !lost)
         {
             std::stringstream ss;
             ss << time(nullptr);
 
-            Socket.SendTo(conn, PONG_PORT, build_packet(
+            Socket.SendTo(conn.first, conn.second, build_packet(
                 PacketType::PING, ss.str()
             ));
         }
-        */
+
         Timer.Start();
 
         Evts.PollEvents();
@@ -436,24 +440,29 @@ int main()
         {
             std::stringstream ss;
             LeftPaddle.Adjust(0.0, dy);
-            /*ss << LeftPaddle.GetX() << ';' << LeftPaddle.GetY();
-            Socket.SendTo(conn, PONG_PORT, build_packet(
-                PacketType::POS_PLAYER, ss.str()
-            ));*/
-        }
-        /*
-        if(last > 60 * 4)
-        {
-            Font.Render(NetStatus, "losing connection.");
-        }
-        else if(last > 60 * 8)
-        {
-            Font.Render(NetStatus, "connection lost.");
+            if(!lost)
+            {
+                ss << LeftPaddle.GetX() << ';' << LeftPaddle.GetY();
+                Socket.SendTo(conn.first, conn.second, build_packet(
+                    PacketType::POS_PLAYER, ss.str()
+                ));
+            }
         }
 
-        string_t addr;
-        string_t data = Socket.RecvFrom(MAX_PONG, addr);
-        if(addr == conn && data.size() > 0)
+        if(last > 60 * 8 && !lost)
+        {
+            Font.Render(NetStatus, "connection lost.");
+            lost = true; losing = kk = false;
+        }
+        else if(last > 60 * 4 && !losing)
+        {
+            Font.Render(NetStatus, "losing connection.");
+            losing = true; lost = kk = false;
+        }
+
+        string_t addr, port;
+        string_t data = Socket.RecvFrom(MAX_PONG, addr, port);
+        if(!lost && addr == conn.first && data.size() > 0)
         {
             PongPacket resp;
             parse_msg(data, resp);
@@ -465,7 +474,7 @@ int main()
                 //{
                 //    Socket.SendTo(addr, resp.data);
                 //}
-                Font.Render(NetStatus, "ok.");
+                if(!kk) Font.Render(NetStatus, "ok.");
                 last = 0;
                 break;
 
@@ -493,7 +502,7 @@ int main()
                     {
                         std::stringstream ss;
                         ss << ball_d.x << ';' << ball_d.y;
-                        Socket.SendTo(conn, PONG_PORT, build_packet(
+                        Socket.SendTo(conn.first, conn.second, build_packet(
                             PacketType::SYNC, ss.str()
                         ));
                     }
@@ -515,7 +524,7 @@ int main()
             }
             }
         }
-        */
+
         Ball.Adjust(ball_d);
 
         BallLight.Enable();
@@ -571,7 +580,8 @@ bool parse_msg(const string_t& data, PongPacket& P)
     // Compensate for the fact that the data itself may have
     // contained the ':' character.
     string_t final_data;
-    std::for_each(parts.begin(), parts.end(), [&final_data](const string_t& s) {
+    std::for_each(parts.begin() + 4, parts.end(),
+                 [&final_data](const string_t& s) {
         final_data.insert(final_data.end(), s.begin(), s.end());
     });
     P.data = final_data;
