@@ -30,7 +30,7 @@ void CButton::Place(const real_t x, const real_t y)
 
 bool CButton::Prepare(const string_t& text)
 {
-    if(!mp_Font || mp_Current == nullptr) return false;
+    if(mp_Font == nullptr && mp_Current == nullptr || text.empty()) return false;
 
     mp_Font->SetColor(m_ncolor);
     bool ret = mp_Font->Render(m_Normal, text);
