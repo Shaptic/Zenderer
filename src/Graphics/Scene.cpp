@@ -126,7 +126,7 @@ bool CScene::Render()
     for(auto& i : m_allEntities)
     {
         // If any are offloaded, the rest probably are too.
-        if(i->Offloaded()) break;
+        if(i->Offloaded()) continue;
         i->Offload(m_Geometry, false);
     }
 
