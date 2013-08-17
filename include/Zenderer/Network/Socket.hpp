@@ -260,7 +260,7 @@ namespace net
 
         bool Ping()
         {
-            ZEN_ASSERT(false, "not implemented");
+            ZEN_ASSERTM(false, "not implemented");
         }
 
         bool SetSocketOption(const int type, const int option, const bool flag)

@@ -64,7 +64,7 @@ int main()
     obj::CEntity& Ball          = Field.AddEntity();
     gfx::CLight& BallLight      = Field.AddLight(gfx::LightType::ZEN_POINT);
 
-    gfx::CQuad Paddle(Assets, 8, 32);
+    gfx::CQuad Paddle(Assets, 8, 64);
     Paddle.Create();
     Paddle.SetColor(color4f_t(1.0, 1.0, 1.0));
 
@@ -118,7 +118,11 @@ int main()
     {
         Evts.PollEvents();
         while(Evts.PopEvent(Evt))
+        {
+            Timer.Start();
             MainMenu.HandleEvent(Evt);
+            Timer.Delay();
+        }
 
         Main.Clear();
         MainMenu.Update();
@@ -132,7 +136,7 @@ int main()
     gui::CFont& Font = *Assets.Create<gui::CFont>();
     Font.AttachManager(Assets);
     Font.LoadFromFile("assets/ttf/menu.ttf");
-    //Font.Render(NetStatus, "ok.");
+    Font.Render(NetStatus, "ok.");
 
     if(play && join)
     {
@@ -333,11 +337,23 @@ int main()
     uint32_t last  = 0;
 
     obj::CEntity& NetStatus = Field.AddEntity();
+    obj::CEntity& Score     = Field.AddEntity();
 
     gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(), Main.GetHeight());
     pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
     BG.AddPrimitive(*pQuad);
     delete pQuad;
+
+    uint16_t mescore = 0, theyscore = 0;
+
+    gui::CFont& Font = *Assets.Create<gui::CFont>();
+    Font.AttachManager(Assets);
+    Font.LoadFromFile("assets/ttf/menu.ttf");
+    Font.SetColor(color4f_t(1.0, 1.0, 0.0));
+    Font << mescore << "    |    " << theyscore;
+    Font.Render(Score);
+
+    Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
 
     while(Main.IsOpen())
     {/*
@@ -362,33 +378,58 @@ int main()
                 switch(Evt.key.key)
                 {
                 case evt::Key::UP:
-                    dy = -5.0;
+                    dy = -8.0;
                     break;
 
                 case evt::Key::DOWN:
-                    dy = 5.0;
+                    dy = 8.0;
                     break;
                 }
             }
 
             else if(Evt.type == evt::EventType::KEY_UP)
             {
-                if(Evt.key.key == evt::Key::UP ||
-                   Evt.key.key == evt::Key::DOWN)
+                if(Evt.key.key == evt::Key::UP || Evt.key.key == evt::Key::DOWN)
                     dy = 0.0;
-                else if(Evt.key.key == evt::Key::L) Field.ToggleLighting();
+
+                else if(Evt.key.key == evt::Key::L)
+                    Field.ToggleLighting();
+
+                else if(Evt.key.key == evt::Key::M)
+                    gfxcore::CRenderer::ToggleWireframe();
+
+                else if(Evt.key.key == evt::Key::P)
+                    Field.TogglePostProcessing();
             }
         }
 
-        if(Ball.GetX() <= 0.0 || Ball.GetX() >= Main.GetWidth())
+        if(Ball.GetX() <= -Ball.GetW())
         {
+            Font.ClearString();
+            Font << mescore << "    |    " << ++theyscore;
+            Font.Render(Score);
+
             Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
             ball_d = make_ball();
         }
+        else if(Ball.GetX() >= Main.GetWidth())
+        {
+            Font.ClearString();
+            Font << ++mescore << "    |    " << theyscore;
+            Font.Render(Score);
 
-        else if(Ball.GetY() <= 0.0 || Ball.GetY() >= Main.GetHeight())
+            Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
+            ball_d = make_ball();
+        }
+        else if(Ball.GetY() <= 0.0 ||
+                Ball.GetY() >= Main.GetHeight() - Ball.GetH())
         {
             ball_d.y = -ball_d.y;
+        }
+
+        if(LeftPaddle.GetBox().collides(Ball.GetBox()))
+        {
+            ball_d.x = -ball_d.x;
         }
 
         if(!math::compf(dy, 0.0))
@@ -499,8 +540,6 @@ math::vector_t make_ball()
     math::Vector<int8_t> dirs(randint(-1, 1), randint(-1, 1));
     if(dirs.x == 0) dirs.x = -1;
     if(dirs.y == 0) dirs.y = -1;
-
-    printf("Making ball.\n");
 
     return math::vector_t(dirs.x * (randint(2, 7)),
                           dirs.y * (randint(2, 7)), 0.0);
