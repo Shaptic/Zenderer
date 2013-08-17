@@ -41,40 +41,23 @@ std::vector<string_t> util::split(const string_t& text,
                                   const size_t approx)
 {
     std::vector<string_t> splitResults;
-    size_t last = 0;
-
     if(approx) splitResults.resize(approx);
 
-    for( ; ; )
+    auto i = text.begin(), j = text.end();
+    auto last = i;
+    for( ; i != j; )
     {
-        size_t index = text.find(delim, last);
-        size_t next  = index - 1;
-
-        if(index != string_t::npos)
+        if(*i == delim)
         {
-            // Skip block of delimiters.
-            while(text[++index] == delim && index < text.length());
-
-            // Block till end? Done.
-            if(index >= text.length()) break;
-
-            // Find next one.
-            next = text.find(delim, index + 1);
-
-            // Add and repeat.
-            splitResults.emplace_back(text.substr(index, next - index));
+            splitResults.emplace_back(string_t(last, i));
+            last = ++i;
         }
         else
         {
-            // Add everything that's left.
-            splitResults.emplace_back(text.substr(last, index));
-            break;
+            ++i;
         }
-
-        // Start further in the string.
-        last = next;
     }
-
+    splitResults.emplace_back(string_t(last, j));
     ZEN_ASSERT(!splitResults.empty());
 
     return splitResults;
