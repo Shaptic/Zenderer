@@ -83,7 +83,7 @@ uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> hand
 
     // Credit where credit is due:
     // @Griwes for this optimization.
-    m_menuActions.emplace(std::make_pair(pNew, std::move(handler)));
+    m_menuActions.emplace_back(std::make_pair(pNew, std::move(handler)));
 
     return m_menuActions.size() - 1;
 }

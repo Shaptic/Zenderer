@@ -22,6 +22,7 @@
 #ifndef ZENDERER__GUI__MENU_HPP
 #define ZENDERER__GUI__MENU_HPP
 
+#include <unordered_map>
 #include <functional>
 
 #include "Zenderer/Events/EventHandler.hpp"
@@ -66,7 +67,12 @@ namespace gui
         gui::CFont* mp_Font;
         color4f_t m_acolor, m_ncolor;
 
-        std::map<CButton*, std::function<void(const size_t)>> m_menuActions;
+        std::vector<
+            std::pair<
+                CButton*,
+                std::function<void(const size_t)>
+            >
+        > m_menuActions;
 
         math::vector_t m_Position;
         uint16_t m_spacing;
