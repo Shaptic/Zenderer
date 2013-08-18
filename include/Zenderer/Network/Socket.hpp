@@ -268,6 +268,14 @@ namespace net
                          (sockaddr*)&sock, sizeof(sock));
         }
 
+        int SendBroadcast(const string_t& message, const string_t& port)
+        {
+            this->SetSocketOption(SOL_SOCKET, SO_BROADCAST, true);
+            int b = this->SendTo("255.255.255.255", port, message);
+            this->SetSocketOption(SOL_SOCKET, SO_BROADCAST, false);
+            return b;
+        }
+
         bool Ping()
         {
             ZEN_ASSERTM(false, "not implemented");
