@@ -151,7 +151,6 @@ int main()
 
     if(play && join)
     {
-        /*
         gui::CMenu HostList(Main, Assets);
         HostList.SetFont("assets/ttf/menu.ttf");
         HostList.SetNormalButtonTextColor(color4f_t(1, 1, 1));
@@ -159,19 +158,24 @@ int main()
         HostList.SetInitialButtonPosition(math::vector_t(64, 200));
         HostList.SetSpacing(32);
 
-        //HostList.SetTitle("Searching for hosts...");
+        HostList.AddButton("Searching for hosts...");
 
-        std::vector<string_t> hosts;
-        int16_t index = -1;
+        std::vector<std::pair<string_t, string_t>> hosts;
+        int16_t host = -1;
 
         string_t packet = build_packet(PacketType::STATUS, "");
 
-        //Socket.SendBroadcast(packet);
+        Socket.SendBroadcast(packet, "6543");
 
         PongPacket response;
-
-        while(Main.IsOpen() && index == -1)
+        while(Main.IsOpen() && host == -1)
         {
+            evt::CEventHandler::PollEvents();
+            while(evt::CEventHandler::GetInstance().PopEvent(Evt))
+            {
+                HostList.HandleEvent(Evt);
+            }
+
             string_t addr, port, data;
             data = Socket.RecvFrom(MAX_PONG, addr, port);
 
@@ -180,19 +184,14 @@ int main()
             size_t b4 = hosts.size();
 
             if(!data.empty() && response.type == PacketType::HOST_AVAIL &&
-               std::find(hosts.begin(), hosts.end(), addr) == hosts.end())
+                std::find(hosts.begin(), hosts.end(),
+                std::make_pair(addr, port)) == hosts.end())
             {
-                hosts.push_back(addr);
-                HostList.AddButton(addr, [&index](size_t i) {
-                    index = i;
+                hosts.emplace_back(std::make_pair(addr, port));
+                HostList.AddButton(addr, [&host](size_t i) {
+                    printf("%d\n", i);
+                    host = i - 1;   // Offset for the "Searching" button.
                 });
-            }
-
-            if(b4 != hosts.size())
-            {
-                //Hosts.Destroy();
-                for(auto& i : hosts) Font << i << '\n';
-                //Font.Render(Hosts);
             }
 
             Main.Clear();
@@ -201,36 +200,34 @@ int main()
         }
 
         // User chose a host?
-        if(index != -1)
+        if(host != -1)
         {
             gfx::CScene Prelim(Main.GetWidth(), Main.GetHeight(), Assets);
             Prelim.Init();
             Prelim.DisableLighting();
 
             obj::CEntity& Status = Prelim.AddEntity();
-            gui::CFont& Font = *Assets.Create<gui::CFont>();
-            Font.AttachManager(Assets);
-            Font.LoadFromFile("assets/ttf/menu.ttf");
-
-            Font << "Attempting to join " << hosts[index] << "...";
+            Font.ClearString();
+            Font << "Attempting to join " << hosts[host].first << "...";
             Font.Render(Status);
+            Status.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
-            Socket.SendTo(hosts[index], PONG_PORT,
+            Socket.SendTo(hosts[host].first, hosts[host].second,
                           build_packet(PacketType::STATUS, ""));
 
             while(Main.IsOpen())
             {
-                string_t addr;
-                string_t r = Socket.RecvFrom(MAX_PONG, addr);
-                if(!r.empty() && addr == hosts[index])
+                evt::CEventHandler::PollEvents();
+                string_t addr, port;
+                string_t r = Socket.RecvFrom(MAX_PONG, addr, port);
+                if(!r.empty() && addr == hosts[host].first)
                 {
                     parse_msg(r, response);
                     if(response.type == PacketType::HOST_AVAIL)
                     {
                         std::stringstream ss;
-                        Socket.SendTo(hosts[index], PONG_PORT, build_packet(
-                            PacketType::JOIN, "username"
-                        ));
+                        Socket.SendTo(hosts[host].first, hosts[host].second,
+                            build_packet(PacketType::JOIN, "username"));
                         break;
                     }
                     else
@@ -249,15 +246,11 @@ int main()
             // We've sent our status, now wait for response.
             while(Main.IsOpen())
             {
+                evt::CEventHandler::PollEvents();
                 string_t addr, port;
                 string_t r = Socket.RecvFrom(MAX_PONG, addr, port);
 
-                util::CLog& Log = util::CLog::GetEngineLog();
-                Log << Log.SetMode(util::LogMode::ZEN_INFO)
-                    << Log.SetSystem("Net") << "Received '" << r << "' from '"
-                    << addr << "'." << util::CLog::endl;
-
-                if(!r.empty() && addr == hosts[index])
+                if(!r.empty() && addr == hosts[host].first)
                 {
                     parse_msg(r, response);
                     if(response.type == PacketType::SYNC)
@@ -269,8 +262,7 @@ int main()
                         // bx;by;bdx;bdy
                         Ball.Move(stod(parts[0]), stod(parts[1]));
                         ball_d = math::vector_t(stod(parts[2]), stod(parts[3]), 0.0);
-                        conn.first = hosts[index];
-                        conn.second = port;
+                        conn = hosts[host];
                         is_start = false;
                         break;
                     }
@@ -280,7 +272,7 @@ int main()
                 Prelim.Render();
                 Main.Update();
             }
-        }*/
+        }
     }
 
     else if(play && host)
@@ -353,6 +345,7 @@ int main()
     delete pQuad;
 
     uint16_t mescore = 0, theyscore = 0;
+    Font.ClearString();
     Font << mescore << "    |    " << theyscore;
     Font.Render(Score);
 
@@ -452,12 +445,12 @@ int main()
         if(last > 60 * 8 && !lost)
         {
             Font.Render(NetStatus, "connection lost.");
-            lost = true; losing = kk = false;
+            lost = true; kk = false;
         }
         else if(last > 60 * 4 && !losing)
         {
             Font.Render(NetStatus, "losing connection.");
-            losing = true; lost = kk = false;
+            losing = true; kk = false;
         }
 
         string_t addr, port;
@@ -596,9 +589,9 @@ string_t build_packet(PacketType type, const string_t& data)
 
     ss.str(std::string());
 
-    ss << ++seq_no << ":" << time(nullptr) << ":"
-       << static_cast<uint16_t>(type) << ":" << data.size()
-       << data;
+    ss << ++seq_no << ':' << time(nullptr) << ':'
+       << static_cast<uint16_t>(type) << ':' << data.size()
+       << ':' << data;
 
     return ss.str();
 }
