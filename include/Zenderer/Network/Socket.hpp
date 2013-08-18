@@ -129,9 +129,10 @@ namespace net
             addrinfo hints;
             addrinfo* tmp;
 
-            memset(&hints, NULL, sizeof(hints));
+            memset(&hints, 0, sizeof(hints));
             hints.ai_family = AF_INET;
             hints.ai_socktype = SOCK_DGRAM;
+            hints.ai_flags = AI_PASSIVE ? host.empty() : 0;
 
             if(m_Type == SocketType::TCP)
                 hints.ai_socktype = SOCK_STREAM;
@@ -255,12 +256,16 @@ namespace net
             CLog& Log = CLog::GetEngineLog();
             Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
                 << "Sending '" << data << "' to " << addr << ':' << port
-                << "." << CLog::endl;
+                << '.' << CLog::endl;
 #endif  // ZEN_DEBUG_BUILD
 
-            sockaddr_in sock = { CSocket::GetAddress(addr) };
+            sockaddr_in sock;
+            sock.sin_family = AF_INET;
+            sock.sin_port   = htons(std::stoi(port));
+            sock.sin_addr   = this->GetAddress(addr);
+
             return sendto(m_socket, data.c_str(), data.size(), 0,
-                          (sockaddr*)&sock, sizeof(sock));
+                         (sockaddr*)&sock, sizeof(sock));
         }
 
         bool Ping()
@@ -326,11 +331,12 @@ namespace net
             return string_t(ip);
         }
 
-        static uint32_t GetAddress(const std::string& ip)
+        static in_addr GetAddress(const std::string& ip)
         {
+            in_addr s;
             uint32_t addr;
-            inet_pton(AF_INET, ip.c_str(), &addr);
-            return addr;
+            inet_pton(AF_INET, ip.c_str(), &s);
+            return s;
         }
 
         /*static*/ bool s_init;
