@@ -134,14 +134,6 @@ int main()
 
     std::pair<string_t, string_t> conn;
     net::CSocket Socket(net::SocketType::UDP);
-    if(!Socket.Init("", PONG_PORT))
-    {
-        util::CLog& Log = util::CLog::GetEngineLog();
-        Log << Log.SetMode(util::LogMode::ZEN_ERROR)
-            << Log.SetSystem("Socket") << "Failed to initialize socket: "
-            << Socket.GetError() << '.' << util::CLog::endl;
-    }
-    Socket.SetNonblocking(true);
 
     gui::CFont& Font = *Assets.Create<gui::CFont>();
     Font.AttachManager(Assets);
@@ -151,6 +143,15 @@ int main()
 
     if(play && join)
     {
+        if(!Socket.Init("", "2014"))
+        {
+            util::CLog& Log = util::CLog::GetEngineLog();
+            Log << Log.SetMode(util::LogMode::ZEN_ERROR)
+                << Log.SetSystem("Socket") << "Failed to initialize socket: "
+                << Socket.GetError() << '.' << util::CLog::endl;
+        }
+        Socket.SetNonblocking(true);
+
         gui::CMenu HostList(Main, Assets);
         HostList.SetFont("assets/ttf/menu.ttf");
         HostList.SetNormalButtonTextColor(color4f_t(1, 1, 1));
@@ -165,7 +166,7 @@ int main()
 
         string_t packet = build_packet(PacketType::STATUS, "");
 
-        Socket.SendBroadcast(packet, "6543");
+        Socket.SendBroadcast(packet, "2013");
 
         PongPacket response;
         while(Main.IsOpen() && host == -1)
@@ -189,7 +190,6 @@ int main()
             {
                 hosts.emplace_back(std::make_pair(addr, port));
                 HostList.AddButton(addr, [&host](size_t i) {
-                    printf("%d\n", i);
                     host = i - 1;   // Offset for the "Searching" button.
                 });
             }
@@ -277,6 +277,15 @@ int main()
 
     else if(play && host)
     {
+        if(!Socket.Init("", PONG_PORT))
+        {
+            util::CLog& Log = util::CLog::GetEngineLog();
+            Log << Log.SetMode(util::LogMode::ZEN_ERROR)
+                << Log.SetSystem("Socket") << "Failed to initialize socket: "
+                << Socket.GetError() << '.' << util::CLog::endl;
+        }
+        Socket.SetNonblocking(true);
+
         is_start = true;
 
         gfx::CScene Waiter(Main.GetWidth(), Main.GetHeight(), Assets);
@@ -302,12 +311,12 @@ int main()
             {
                 if(resp.type == PacketType::STATUS)
                 {
-                    Socket.SendTo(addr, port, build_packet(
+                    Socket.SendTo(tmpaddr, port, build_packet(
                         PacketType::HOST_AVAIL, ""
                     ));
 
                     Font.ClearString();
-                    Font << "Potential match: " << addr << "\nResolving...";
+                    Font << "Potential match: " << tmpaddr << "\nResolving...";
                     Font.Render(Status);
                     potential = true;
                     addr = tmpaddr;
@@ -316,7 +325,8 @@ int main()
                 else if(resp.type == PacketType::JOIN && potential && tmpaddr == addr)
                 {
                     std::stringstream ss;
-                    ss << ball_d.x << ';' << ball_d.y;
+                    ss << Ball.GetX() << ';' << Ball.GetY() << ';'
+                       << ball_d.x << ';' << ball_d.y;
                     Socket.SendTo(addr, port, build_packet(
                         PacketType::SYNC, ss.str()
                     ));
@@ -494,7 +504,8 @@ int main()
                     if(is_start)
                     {
                         std::stringstream ss;
-                        ss << ball_d.x << ';' << ball_d.y;
+                        ss << Ball.GetX() << ';' << Ball.GetY() << ';'
+                           << ball_d.x << ';' << ball_d.y;
                         Socket.SendTo(conn.first, conn.second, build_packet(
                             PacketType::SYNC, ss.str()
                         ));
