@@ -224,8 +224,8 @@ namespace net
 #ifdef ZEN_DEBUG_BUILD
             CLog& Log = CLog::GetEngineLog();
             Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
-                << "Received '" << ret << "' from '" << address << "'."
-                << CLog::endl;
+                << "Received '" << ret << "' from " << address << ':'
+                << port << '.' << CLog::endl;
 #endif  // ZEN_DEBUG_BUILD
 
             return ret;
