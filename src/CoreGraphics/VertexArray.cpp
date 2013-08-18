@@ -47,13 +47,15 @@ bool CVertexArray::Destroy()
     glDeleteBuffers(1, &m_vbo);
     glDeleteBuffers(1, &m_ibo);
 
-    return true;
+    return !(m_init = false);
 }
 
 bool CVertexArray::Bind() const
 {
     if(!m_init) return false;
     GL(glBindVertexArray(m_vao));
+    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
+    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
     return true;
 }
 
@@ -90,10 +92,6 @@ bool CVertexArray::Offload()
 {
     if(!this->Bind())       return false;
     if(this->Offloaded())   return false;
-
-    // Bind() only binds the VAO. We attach the VBO/IBO to it here.
-    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
-    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
 
     // Check if there's existing data on the buffers.
     GLint bsize = 0;
@@ -205,8 +203,8 @@ bool CVertexArray::Offload()
 bool CVertexArray::Clear()
 {
     if(!this->Bind()) return false;
-    GL(glBufferData(GL_ARRAY_BUFFER, 0, nullptr, m_type));
-    GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, nullptr, m_type));
+    GL(glBufferData(GL_ARRAY_BUFFER, 0, nullptr, GL_STATIC_DRAW));
+    GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, nullptr, GL_STATIC_DRAW));
 
     m_icount = m_vcount = 0;
     m_vaoIndices.clear();
