@@ -103,6 +103,7 @@ namespace net
     using util::CLog;
     using util::LogMode;
 
+    /// A low-level socket wrapper.
     class ZEN_API CSocket
     {
     public:
@@ -147,7 +148,7 @@ namespace net
                 return false;
             }
 
-            auto result = tmp;
+            addrinfo* result = tmp;
             for( ; result != nullptr; result = result->ai_next)
             {
                 if((m_socket = socket(result->ai_family,
@@ -166,10 +167,8 @@ namespace net
                 }
             }
 
-            if(m_socket == -1) return false;
-
             freeaddrinfo(tmp);
-            return true;
+            return m_socket != -1;
         }
 
         bool Destroy()
@@ -188,8 +187,9 @@ namespace net
          *  This call will block the process until some amount of data
          *  is received, unless SetNonblocking() is called.
          *
-         * @param   size    The maximum size of the data to receive
-         * @param   address The IP address of the sender
+         * @param   size        The maximum size of the data to receive
+         * @param   address     String to store the IP address of the sender
+         * @param   address     String to store the port of the sender
          *
          * @return  Data that was received from the socket, if any.
          *
@@ -263,7 +263,6 @@ namespace net
             sock.sin_family = AF_INET;
             sock.sin_port   = htons(std::stoi(port));
             sock.sin_addr   = this->GetAddress(addr);
-
             return sendto(m_socket, data.c_str(), data.size(), 0,
                          (sockaddr*)&sock, sizeof(sock));
         }
@@ -352,35 +351,47 @@ namespace net
         int m_socket;
     };
 }
-
-    /*
-    int main()
-    {
-        net::CSocket::InitializeLibrary();
-
-        {
-            net::CSocket Server(net::SocketType::UDP);
-            Server.Init("localhost", "12345");
-
-            string_t cli;
-            std::cout << "Client sent: '" << Server.RecvFrom(1024, cli) << "'\n";
-
-            Server.Destroy();
-        }
-
-        {
-            net::CSocket Client(net::SocketType::UDP);
-            std::cout << "Client sent "
-                        << Client.SendTo("localhost", "12345", "What's up dudes?")
-                        << " bytes.\n";
-            Client.Destroy();
-        }
-
-        return 0;
-    }
-    */
 }
 
 #endif // ZENDERER__NETWORK__SOCKET_HPP
+
+/**
+ * @class   zen::net::CSocket
+ * @details
+ *  This API provides a low-level abstraction layer over a lot of unwieldy 
+ *  and OS-dependant socket I/O operations.
+ *
+ * @note    There is currently only support for UDP communication via
+ *          `sendto()` and `recvfrom()`.
+ *
+ * @todo    Support for TCP, `connect()`, etc.
+ *
+ * @example Sockets
+ * @section udp Simple UDP Echo Client / Server
+ * Client code
+ * @code
+ * #include "Zenderer/Network/Socket.hpp"
+ * using namespace zen::net;
+ *
+ * CSocket Client(PacketType::UDP);
+ * Client.Init("", "6969");
+ * Client.SendTo("localhost", "7000", "Hello, Server!");
+ * Client.Destroy();
+ * @endcode
+ *
+ * Server code
+ * @code
+ * #include "Zenderer/Network/Socket.hpp"
+ * using namespace zen::net;
+ *
+ * CSocket Server(PacketType::UDP);
+ * Server.Init("", "7000");
+ * zen::string_t addr, port;
+ * zen::string_t data = Server.RecvFrom(1024, addr, port);
+ * std::reverse(data.begin(), data.end());
+ * Server.SendTo(addr, port, data);
+ * Client.Destroy();
+ * @endcode
+ **/
 
 /** @} **/
