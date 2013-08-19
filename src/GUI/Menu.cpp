@@ -88,6 +88,16 @@ uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> hand
     return m_menuActions.size() - 1;
 }
 
+obj::CEntity& CMenu::AddEntity()
+{
+    return m_Scene.AddEntity();
+}
+
+virtual bool RenderWithFont(obj::CEntity& Obj, const string_t& str)
+{
+    return mp_Font->Render(Obj, str);
+}
+
 void CMenu::Update()
 {
     m_Scene.Render();

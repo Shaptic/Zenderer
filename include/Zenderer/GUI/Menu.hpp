@@ -44,33 +44,30 @@ namespace gui
         virtual ~CMenu();
 
         virtual bool HandleEvent(const evt::event_t& Evt);
-
         virtual uint16_t AddButton(const string_t& text,
-                                   std::function<void(size_t)> handler =
-                                        [](size_t i){});
-
+                                   std::function<void(size_t)> handler);
+        virtual obj::CEntity& AddEntity();
+        virtual bool RenderWithFont(obj::CEntity& Obj);
         virtual void Update();
 
-        bool SetFont(const std::string& filename, const uint16_t size=18);
+        bool SetFont(const string_t& filename, const uint16_t size=18);
         void SetButtonBackground(const obj::CEntity& Bg);
         void SetNormalButtonTextColor(const color4f_t& Color);
         void SetActiveButtonTextColor(const color4f_t& Color);
         void SetInitialButtonPosition(const math::vector_t& Pos);
+        void SetTitle(const string_t& Title, const math::vector_t& Pos);
         void SetSpacing(const uint16_t vertical_spacing);
 
     private:
         gfx::CScene m_Scene;
-        obj::CEntity& m_Background;
-        obj::CEntity& m_Title;
         const obj::CEntity* mp_Bg;
-
         gui::CFont* mp_Font;
         color4f_t m_acolor, m_ncolor;
 
         std::vector<
             std::pair<
                 CButton*,
-                std::function<void(const size_t)>
+                std::function<void(size_t)>
             >
         > m_menuActions;
 
@@ -88,6 +85,8 @@ namespace gui
  *  A high-level wrapper that facilitates a simple method of creating
  *  fairly customizable and high-quality menus with custom buttons,
  *  fonts, backgrounds, and other sections.
+ *
+ * @todo    Document the API.
  **/
 
 /** @} **/
