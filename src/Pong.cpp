@@ -436,9 +436,21 @@ int main()
         {
             std::stringstream ss;
             ss << time(nullptr);
-
+            string_t tmp = ss.str();
+            ss.str(std::string());
+            ss << util::string_hash(tmp);
+            
             Socket.SendTo(Connection.first, Connection.second, build_packet(
                 PacketType::PING, ss.str()
+            ));
+            
+            // With a ping, send the ball position just so that we get
+            // a decent sync up.
+            ss.str(std::string());
+            ss << Ball.GetX() << ';' << Ball.GetY();
+            
+            Socket.SendTo(Connection.first, Connection.second, build_packet(
+                PacketType::BALL_POS, ss.str()
             ));
         }
 
@@ -595,9 +607,30 @@ int main()
                 // Ignore if we are in charge.
                 if(is_start) break;
                 std::vector<string_t> parts = util::split(resp.data, ';');
-                Ball.Move(std::stod(parts[0]), std::stod(parts[1]));
+                
+                // If we are inaccurate, we should probably think about
+                // syncing with the other player.
+                math::vector_t Pos(std::stod(parts[0]), std::stod(parts[1]));
+                if(Pos != Ball.GetPosition())
+                {
+                    std::stringstream ss;
+                    ss << Ball.GetX() << ';' << Ball.GetY() << ';'
+                       << ball_d.x    << ';' << ball_d.y;
+
+                    Socket.SendTo(Connection.first, Connection.second,
+                                  build_packet(PacketType::SYNC,
+                                               ss.str()));
+                }
+                
                 break;
             }
+            
+            // Someone wants to know wassup.
+            case PacketType::STATUS:
+                Socket.SendTo(Connection.first, Connection.second,
+                              build_packet(PacketType::HOST_INGAME,
+                                           Connection.first));
+                break;
 
             // Sync with player.
             case PacketType::SYNC:
