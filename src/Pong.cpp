@@ -68,7 +68,8 @@ int main()
     gfx::CLight& BallLight      = Field.AddLight(gfx::LightType::ZEN_POINT);
 
     // Create a near-black background for the light to properly render.
-    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(), Main.GetHeight());
+    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(),
+                                               Main.GetHeight());
     pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
     BG.AddPrimitive(*pQuad);
     delete pQuad;
@@ -170,8 +171,10 @@ int main()
         HostList.SetInitialButtonPosition(math::vector_t(64, 200));
         HostList.SetSpacing(32);
 
-        /// @todo   Make this the menu title.
-        HostList.AddButton("Searching for allHosts...");
+        // Add a title to the menu.
+        obj::CEntity& Title = HostList.AddEntity();
+        HostList.RenderWithFont(Title, "Searching for hosts...");
+        Title.Move(10.0, 10.0);
 
         std::vector<addr_t> allHosts;
         int16_t host = -1;
@@ -209,7 +212,7 @@ int main()
             {
                 allHosts.emplace_back(addr_t(std::make_pair(addr, port)));
                 HostList.AddButton(addr, [&host](size_t i) {
-                    host = i - 1;   // Offset for the "Searching" button (temporary).
+                    host = i;
                 });
             }
 
