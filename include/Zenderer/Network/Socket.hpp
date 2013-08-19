@@ -100,87 +100,19 @@ namespace net
 
     enum class SocketType { TCP, UDP, RAW };
 
-    using util::CLog;
-    using util::LogMode;
-
     /// A low-level socket wrapper.
     class ZEN_API CSocket
     {
     public:
-        CSocket(const SocketType& Type) : m_Type(Type), m_socket(-1) {}
+        CSocket(const SocketType& Type) : m_Type(Type),
+            m_socket(-1), m_Log(util::GetEngineLog()) {}
+
         virtual ~CSocket() { this->Destroy(); }
 
-        static bool InitializeLibrary()
-        {
-            //if(s_init) return true;
+        static bool InitializeLibrary();
 
-#ifdef _WIN32
-            WSADATA Data;
-            if(WSAStartup(MAKEWORD(2, 0), &Data) != 0)
-            {
-                std::cerr << "WinSock2 failed to initialize!\n";
-                return (/*s_init =*/ false);
-            }
-#endif  // _WIN32
-            return (/*s_init =*/ true);
-        }
-
-        virtual bool Init(const string_t& host, const string_t& port)
-        {
-            addrinfo hints;
-            addrinfo* tmp;
-
-            memset(&hints, 0, sizeof(hints));
-            hints.ai_family = AF_INET;
-            hints.ai_socktype = SOCK_DGRAM;
-            hints.ai_flags = AI_PASSIVE ? host.empty() : 0;
-
-            if(m_Type == SocketType::TCP)
-                hints.ai_socktype = SOCK_STREAM;
-
-            else if(m_Type == SocketType::RAW)
-                hints.ai_socktype = SOCK_RAW;
-
-            if(getaddrinfo(host.empty() ? nullptr : host.c_str(),
-                           port.empty() ? nullptr : port.c_str(),
-                           &hints, &tmp) != 0)
-            {
-                return false;
-            }
-
-            addrinfo* result = tmp;
-            for( ; result != nullptr; result = result->ai_next)
-            {
-                if((m_socket = socket(result->ai_family,
-                                      result->ai_socktype,
-                                      result->ai_protocol)) == -1)
-                {
-                    continue;
-                }
-
-                this->SetSocketOption(SOL_SOCKET, SO_REUSEADDR, true);
-
-                if(bind(m_socket, result->ai_addr, result->ai_addrlen) == -1)
-                {
-                    this->Destroy();
-                    continue;
-                }
-            }
-
-            freeaddrinfo(tmp);
-            return m_socket != -1;
-        }
-
-        bool Destroy()
-        {
-            if(m_socket == -1) return false;
-#ifdef _WIN32
-            closesocket(m_socket);
-#else
-            close(m_socket);
-#endif // _WIN32
-            return (m_socket = -1);
-        }
+        bool Init(const string_t& host, const string_t& port);
+        bool Destroy();
 
         /**
          * Receives any incoming data on the socket.
@@ -196,40 +128,7 @@ namespace net
          * @warning Packets less than `size` will NOT be removed from
          *          the socket queue.
          **/
-        string_t RecvFrom(const size_t size, string_t& address, string_t& port)
-        {
-            if(m_socket <= 0) return "";
-
-            address = "";
-            sockaddr_in addr;
-            int addrlen = sizeof(addr);
-            char* buffer = new char[size];
-
-            int bytes = recvfrom(m_socket, buffer, size, 0,
-                                 (sockaddr*)&addr, &addrlen);
-            if(bytes == -1)
-            {
-                delete[] buffer;
-                return string_t("");
-            }
-
-            address = CSocket::GetAddress(addr);
-            std::stringstream ss;
-            ss << ntohs(addr.sin_port);
-            port = ss.str();
-
-            string_t ret(buffer, bytes);
-            delete[] buffer;
-
-#ifdef ZEN_DEBUG_BUILD
-            CLog& Log = CLog::GetEngineLog();
-            Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
-                << "Received '" << ret << "' from " << address << ':'
-                << port << '.' << CLog::endl;
-#endif  // ZEN_DEBUG_BUILD
-
-            return ret;
-        }
+        string_t RecvFrom(const size_t size, string_t& address, string_t& port);
 
         /**
          * Sends a message to an IP:port address.
@@ -246,46 +145,15 @@ namespace net
          * @see     SendAll()
          * @see     SocketType
          **/
-        int SendTo(const std::string& addr,
-                   const std::string& port,
-                   const std::string& data)
-        {
-            if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
+        int SendTo(const std::string& addr, const std::string& port,
+                   const std::string& data);
 
-#ifdef ZEN_DEBUG_BUILD
-            CLog& Log = CLog::GetEngineLog();
-            Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
-                << "Sending '" << data << "' to " << addr << ':' << port
-                << '.' << CLog::endl;
-#endif  // ZEN_DEBUG_BUILD
+        /**
+         **/
+        int SendBroadcast(const string_t& message, const string_t& port = "");
 
-            sockaddr_in sock;
-            sock.sin_family = AF_INET;
-            sock.sin_port   = htons(std::stoi(port));
-            sock.sin_addr   = this->GetAddress(addr);
-            return sendto(m_socket, data.c_str(), data.size(), 0,
-                         (sockaddr*)&sock, sizeof(sock));
-        }
-
-        int SendBroadcast(const string_t& message, const string_t& port)
-        {
-            this->SetSocketOption(SOL_SOCKET, SO_BROADCAST, true);
-            int b = this->SendTo("255.255.255.255", port, message);
-            this->SetSocketOption(SOL_SOCKET, SO_BROADCAST, false);
-            return b;
-        }
-
-        bool Ping()
-        {
-            ZEN_ASSERTM(false, "not implemented");
-        }
-
-        bool SetSocketOption(const int type, const int option, const bool flag)
-        {
-            if(m_socket < 0) return false;
-            char set = flag ? 1 : 0;
-            return setsockopt(m_socket, type, option, &set, sizeof set) == 0;
-        }
+        bool Ping();
+        bool SetSocketOption(const int type, const int option, const bool flag);
 
         /**
          * Enables or disables blocking for socket operations.
@@ -298,18 +166,7 @@ namespace net
          *
          *
          **/
-        bool SetNonblocking(const bool flag)
-        {
-            if(m_socket < 0) return false;
-
-#ifdef _WIN32
-            unsigned long set = flag ? 1 : 0;
-            return ioctlsocket(m_socket, FIONBIO, &set) == 0;
-#else
-            int set = flag ? 1 : 0;
-            return fcntl(m_socket, F_SETFL, O_NONBLOCK, &set) == 0;
-#endif
-        }
+        bool SetNonblocking(const bool flag);
 
         /**
          * Retrieves the last error number.
@@ -321,32 +178,14 @@ namespace net
          * @see http://linux.die.net/man/3/errno
          * @see http://msdn.microsoft.com/en-us/library/aa924071.aspx
          **/
-        int GetError() const
-        {
-#ifdef _WIN32
-            return WSAGetLastError();
-#else
-            return errno;
-#endif // _WIN32
-        }
+        int GetError() const;
 
     private:
-        static string_t GetAddress(sockaddr_in& addr)
-        {
-            char ip[INET_ADDRSTRLEN] = {0};
-            inet_ntop(AF_INET, &(addr.sin_addr), ip, INET_ADDRSTRLEN);
-            return string_t(ip);
-        }
+        static string_t GetAddress(sockaddr_in& addr);
+        static in_addr GetAddress(const std::string& ip);
 
-        static in_addr GetAddress(const std::string& ip)
-        {
-            in_addr s;
-            uint32_t addr;
-            inet_pton(AF_INET, ip.c_str(), &s);
-            return s;
-        }
-
-        /*static*/ bool s_init;
+        static bool s_init;
+        util::CLog& m_Log;
         SocketType m_Type;
         int m_socket;
     };
