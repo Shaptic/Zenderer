@@ -35,17 +35,14 @@ static const string_t PONG_JOIN_PORT("2014");   ///< When joining.
 static const uint16_t MAX_PONG = sizeof(PongPacket) + 254;
 static const uint16_t MIN_PONG = 9;
 
-std::mt19937 rng;
+util::CRandom<> RNG;
 math::vector_t make_ball();
-int randint(const int low, const int hi);
 bool parse_msg(const string_t& data, PongPacket& P);
 string_t build_packet(PacketType type, const string_t& data);
 
 int main()
 {
     if(!Init()) return 1;
-    rng.seed(time(nullptr));
-
     util::CSettings Settings;
     Settings.Init();
 
@@ -662,18 +659,12 @@ int main()
 
 math::vector_t make_ball()
 {
-    math::Vector<int8_t> dirs(randint(-1, 1), randint(-1, 1));
+    math::Vector<int8_t> dirs(RNG.randint(-1, 1), RNG.randint(-1, 1));
     if(dirs.x == 0) dirs.x = -1;
     if(dirs.y == 0) dirs.y = -1;
 
-    return math::vector_t(dirs.x * (randint(2, 7)),
-                          dirs.y * (randint(2, 7)), 0.0);
-}
-
-int randint(const int low, const int hi)
-{
-    std::uniform_int_distribution<int> dist(low, hi);
-    return dist(rng);
+    return math::vector_t(dirs.x * (RNG.randint(2, 7)),
+                          dirs.y * (RNG.randint(2, 7)), 0.0);
 }
 
 bool parse_msg(const string_t& data, PongPacket& P)
