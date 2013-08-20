@@ -31,6 +31,7 @@
 
 #include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Utilities/Log.hpp"
+#include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef _WIN32
   #include <thread>
@@ -105,7 +106,7 @@ namespace net
     {
     public:
         CSocket(const SocketType& Type) : m_Type(Type),
-            m_socket(-1), m_Log(util::GetEngineLog()) {}
+            m_socket(-1), m_Log(util::CLog::GetEngineLog()) {}
 
         virtual ~CSocket() { this->Destroy(); }
 
@@ -197,7 +198,7 @@ namespace net
 /**
  * @class   zen::net::CSocket
  * @details
- *  This API provides a low-level abstraction layer over a lot of unwieldy 
+ *  This API provides a low-level abstraction layer over a lot of unwieldy
  *  and OS-dependant socket I/O operations.
  *
  * @note    There is currently only support for UDP communication via

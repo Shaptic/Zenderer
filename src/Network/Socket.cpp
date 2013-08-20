@@ -14,7 +14,7 @@ bool CSocket::InitializeLibrary()
 #ifdef _WIN32
     WSADATA Data;
     if(WSAStartup(MAKEWORD(2, 0), &Data) != 0)
-    {   
+    {
         return (s_init = false);
     }
 #endif  // _WIN32
@@ -136,14 +136,14 @@ int CSocket::SendTo(const std::string& addr, const std::string& port,
 
 int CSocket::SendBroadcast(const string_t& message, const string_t& port)
 {
-    if(m_Type != PacketType::UDP)
+    if(m_Type != SocketType::UDP)
     {
         m_Log << m_Log.SetSystem("Network")
               << m_Log.SetMode(LogMode::ZEN_ERROR)
               << "Broadcasting is only for UDP packets." << CLog::endl;
         return -1;
     }
-    
+
     this->SetSocketOption(SOL_SOCKET, SO_BROADCAST, true);
     int b = this->SendTo("255.255.255.255", port, message);
     this->SetSocketOption(SOL_SOCKET, SO_BROADCAST, false);
@@ -153,6 +153,7 @@ int CSocket::SendBroadcast(const string_t& message, const string_t& port)
 bool CSocket::Ping()
 {
     ZEN_ASSERTM(false, "not implemented");
+    return false;
 }
 
 bool CSocket::SetSocketOption(const int type, const int option,
@@ -195,7 +196,6 @@ string_t CSocket::GetAddress(sockaddr_in& addr)
 in_addr CSocket::GetAddress(const std::string& ip)
 {
     in_addr s;
-    uint32_t addr;
     inet_pton(AF_INET, ip.c_str(), &s);
     return s;
 }

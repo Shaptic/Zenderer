@@ -47,7 +47,7 @@ namespace gui
         virtual uint16_t AddButton(const string_t& text,
                                    std::function<void(size_t)> handler);
         virtual obj::CEntity& AddEntity();
-        virtual bool RenderWithFont(obj::CEntity& Obj);
+        virtual bool RenderWithFont(obj::CEntity& Obj, const string_t& str);
         virtual void Update();
 
         bool SetFont(const string_t& filename, const uint16_t size=18);

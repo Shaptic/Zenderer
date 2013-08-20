@@ -145,6 +145,7 @@
     <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Log.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\Random.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Settings.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Timer.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Utilities.hpp" />

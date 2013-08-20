@@ -237,6 +237,12 @@
     <ClInclude Include="include\Zenderer\GUI\Button.hpp">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Network\Socket.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Utilities\Random.hpp">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -372,6 +378,9 @@
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Pong.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Network\Socket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

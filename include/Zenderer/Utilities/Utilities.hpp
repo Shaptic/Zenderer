@@ -34,9 +34,7 @@
 #include "XMLParser.hpp"
 #include "Settings.hpp"
 #include "Timer.hpp"
-
-//#include "Loader.hpp"
-//#include "SysEvent.hpp"
+#include "Random.hpp"
 
 namespace zen
 {

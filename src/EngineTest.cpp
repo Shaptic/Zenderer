@@ -196,9 +196,9 @@ using gfxcore::CRenderer;
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
     MainMenu.SetSpacing(32);
 
-    MainMenu.AddButton("Play Game");
-    MainMenu.AddButton("Load Game");
-    MainMenu.AddButton("Options");
+    MainMenu.AddButton("Play Game", [](size_t){});
+    MainMenu.AddButton("Load Game",[](size_t){});
+    MainMenu.AddButton("Options", [](size_t){});
     MainMenu.AddButton("Exit", [&Window](const size_t) {
         Window.Close();
     });

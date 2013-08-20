@@ -5,8 +5,7 @@ using gui::CMenu;
 
 CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
     m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),
-    m_Background(m_Scene.AddEntity()), mp_Font(Assets.Create<gui::CFont>()),
-    m_Title(m_Scene.AddEntity()),
+    mp_Font(Assets.Create<gui::CFont>()),
     mp_Bg(nullptr), m_spacing(0)
 {
     m_Scene.Init();
@@ -93,7 +92,7 @@ obj::CEntity& CMenu::AddEntity()
     return m_Scene.AddEntity();
 }
 
-virtual bool RenderWithFont(obj::CEntity& Obj, const string_t& str)
+bool CMenu::RenderWithFont(obj::CEntity& Obj, const string_t& str)
 {
     return mp_Font->Render(Obj, str);
 }
