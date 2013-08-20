@@ -434,14 +434,10 @@ int main()
         // Ping once a second, if we haven't lost connection already.
         if(++frame % 60 == 0 && !lost)
         {
-            std::stringstream ss;
-            ss << time(nullptr);
-            string_t tmp = ss.str();
-            ss.str(std::string());
-            ss << util::string_hash(tmp);
-
             Socket.SendTo(Connection.first, Connection.second, build_packet(
-                PacketType::PING, ss.str()
+                PacketType::PING, std::to_string(
+                    util::string_hash(std::to_string(time(nullptr)))
+                )
             ));
 
             // With a ping, send the ball position just so that we get
