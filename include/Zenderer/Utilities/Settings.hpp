@@ -99,7 +99,7 @@ namespace util
             COption> settings_t;
 
     public:
-        CSettings(const string_t filename = "");
+        CSettings(const string_t& filename = "");
         ~CSettings();
 
         bool Init();

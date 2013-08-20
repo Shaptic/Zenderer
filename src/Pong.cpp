@@ -25,7 +25,7 @@ struct PongPacket
     uint32_t    stamp;
     PacketType  type;
     uint16_t    size;
-    std::string data;
+    string_t    data;
 };
 
 typedef std::pair<string_t, string_t> addr_t;

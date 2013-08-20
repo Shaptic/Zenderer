@@ -69,7 +69,7 @@ std::ostream& util::operator<<(std::ostream& o, const COption& Opt)
  *                      CSettings Definitions                   *
  ***************************************************************/
 
-CSettings::CSettings(const string_t filename) :
+CSettings::CSettings(const string_t& filename) :
     CSubsystem("Settings"), m_Log(CLog::GetEngineLog()),
     m_filename(filename)
 {}

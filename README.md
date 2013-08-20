@@ -1,5 +1,5 @@
 # Zenderer #
-v2.10.1-alpha  
+v2.10.2-alpha  
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
