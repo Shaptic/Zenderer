@@ -5,9 +5,9 @@ using namespace zen;
 using util::CLog;
 using util::LogMode;
 
-void zen::util::runtime_assert(     const bool expression,
-    const string_t expression_str,  const size_t line_no,
-    const string_t file_name,       const char* msg)
+void util::runtime_assert(              const bool expression,
+    const string_t& expression_str,     const size_t line_no,
+    const string_t& file_name,          const char* msg)
 {
     if(expression) return;
 

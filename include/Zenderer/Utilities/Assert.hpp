@@ -58,14 +58,14 @@ namespace util
      *
      * @param   expr        Boolean expression to assert on
      * @param   expr_str    The boolean expression as a string (for output)
-     * @param   line_no     The line number the assertion is occuring on
+     * @param   line_no     The line number the assertion is occurring on
      * @param   file_name   The file the assertion occurs in
      * @param   msg         A custom output message (optional=`nullptr`)
      **/
     ZEN_API void runtime_assert(const bool      expr,
-                                string_t        expr_str,
+                                const string_t& expr_str,
                                 const size_t    line_no,
-                                string_t        file_name,
+                                const string_t& file_name,
                                 const char*     msg = nullptr);
 }   // namespace util
 }   // namespace ic
