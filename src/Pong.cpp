@@ -64,13 +64,6 @@ int main()
     obj::CEntity& Ball          = Field.AddEntity();
     gfx::CLight& BallLight      = Field.AddLight(gfx::LightType::ZEN_POINT);
 
-    // Create a near-black background for the light to properly render.
-    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(),
-                                               Main.GetHeight());
-    pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
-    BG.AddPrimitive(*pQuad);
-    delete pQuad;
-    
     gfx::CQuad Paddle(Assets, 8, 64);
     Paddle.Create();
     Paddle.SetColor(color4f_t(1.0, 1.0, 1.0));
@@ -98,7 +91,7 @@ int main()
     Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
     bool host = false, join = false;
-    
+
     // Are we starting? Or are we using the other player's
     // initial ball position / velocity?
     bool is_start = false;
@@ -149,6 +142,13 @@ int main()
     Font.AttachManager(Assets);
     Font.LoadFromFile("assets/ttf/menu.ttf");
     Font.SetColor(color4f_t(1.0, 1.0, 0.0));
+
+    // Create a near-black background for the light to properly render.
+    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(),
+        Main.GetHeight());
+    pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
+    BG.AddPrimitive(*pQuad);
+    delete pQuad;
 
     if(join)
     {
@@ -202,10 +202,10 @@ int main()
             // this host isn't already in the list of allHosts. If
             // so, add it to the list of allHosts and post a menu button
             // allowing for the user to choose it.
-            if(parse_msg(data, response) && 
+            if(parse_msg(data, response) &&
                 response.type == PacketType::HOST_AVAIL &&
                 std::find(allHosts.begin(), allHosts.end(),
-                    std::make_pair(addr, port) == allHosts.end())
+                    std::make_pair(addr, port)) == allHosts.end())
             {
                 allHosts.emplace_back(addr_t(std::make_pair(addr, port)));
                 HostList.AddButton(addr, [&host](size_t i) {
@@ -226,7 +226,7 @@ int main()
             Prelim.DisableLighting();
 
             obj::CEntity& Status = Prelim.AddEntity();
-            
+
             Font.ClearString();
             Font << "Attempting to join " << allHosts[host].first << "...";
             Font.Render(Status);
@@ -242,7 +242,7 @@ int main()
             while(Main.IsOpen())
             {
                 Evts.PollEvents();
-                
+
                 // Receive any data.
                 string_t addr, port;
                 string_t r = Socket.RecvFrom(MAX_PONG, addr, port);
@@ -251,7 +251,7 @@ int main()
                 // packet, check the response type.
                 if(addr == allHosts[host].first && parse_msg(r, response))
                 {
-                    // Host is still available? Then, send him our player's 
+                    // Host is still available? Then, send him our player's
                     // name and move on to the next step. (temporary)
                     if(response.type == PacketType::HOST_AVAIL)
                     {
@@ -279,7 +279,7 @@ int main()
             while(Main.IsOpen())
             {
                 Evts.PollEvents();
-                
+
                 // Receive data.
                 string_t addr, port;
                 string_t r = Socket.RecvFrom(MAX_PONG, addr, port);
@@ -290,17 +290,17 @@ int main()
                     // If the host wants to sync...
                     if(response.type == PacketType::SYNC)
                     {
-                        // Parse the data on the semi-colon. 
+                        // Parse the data on the semi-colon.
                         // Protocol states that the sync gives the ball position,
                         // and the ball forces in this format:
                         // bx;by;bdx;bdy
                         std::vector<string_t> parts = util::split(response.data, ';');
-                        
+
                         Ball.Move(stod(parts[0]), stod(parts[1]));
                         ball_d = math::vector_t(stod(parts[2]), stod(parts[3]), 0.0);
                         Connection = std::move(allHosts[host]);
                         allHosts.clear();
-                        
+
                         // We aren't "starting," so we mark ourselves as such.
                         // Thus later on in the game loop when points are scored,
                         // we need to wait for server sync on the new ball position.
@@ -342,7 +342,7 @@ int main()
 
         // Final match for who to actually play with.
         addr_t Match;
-        
+
         // Do we have a potential host lined up?
         bool potential = false;
 
@@ -377,10 +377,10 @@ int main()
                     Match = std::make_pair(tmpaddr, tmpport);
                 }
 
-                // Someone has asked to join us, and they are the potential 
+                // Someone has asked to join us, and they are the potential
                 // client we set up earlier.
                 else if(resp.type == PacketType::JOIN &&
-                        potential && tmpaddr == addr)
+                        potential && tmpaddr == Match.first)
                 {
                     // Send them syncing data.
                     // Pong protocol dictates that sync data is in the
@@ -388,9 +388,9 @@ int main()
                     // ball_x;ball_y;ball_dx;ball_dy
                     std::stringstream ss;
                     ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-                       << ball_d.x << ';' << ball_d.y;
+                       << -ball_d.x   << ';' << ball_d.y;
 
-                    Socket.SendTo(addr, port, build_packet(
+                    Socket.SendTo(tmpaddr, tmpport, build_packet(
                         PacketType::SYNC, ss.str()
                     ));
 
@@ -413,13 +413,13 @@ int main()
     uint32_t last  = 0;
 
     // Track the scores of both players.
-    Vector<uint8_t> Scores;
+    math::Vector<uint16_t> Scores;
     Font.ClearString();
     Font << Scores.x << "    |    " << Scores.y;
     Font.Render(Score);
 
     Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
-    
+
     // Network status.
     bool losing = false, lost = false, kk = true;
     bool scored = false;
@@ -430,7 +430,7 @@ int main()
 
         // Increase tick count since last ping.
         ++last;
-        
+
         // Ping once a second, if we haven't lost connection already.
         if(++frame % 60 == 0 && !lost)
         {
@@ -439,18 +439,19 @@ int main()
             string_t tmp = ss.str();
             ss.str(std::string());
             ss << util::string_hash(tmp);
-            
+
             Socket.SendTo(Connection.first, Connection.second, build_packet(
                 PacketType::PING, ss.str()
             ));
-            
+
             // With a ping, send the ball position just so that we get
             // a decent sync up.
             ss.str(std::string());
-            ss << Ball.GetX() << ';' << Ball.GetY();
-            
+            ss << Ball.GetX() << ';' << Ball.GetY() << ';'
+               << (is_start ? -ball_d.x : ball_d.x) << ';' << ball_d.y;
+
             Socket.SendTo(Connection.first, Connection.second, build_packet(
-                PacketType::BALL_POS, ss.str()
+                PacketType::SYNC, ss.str()
             ));
         }
 
@@ -496,7 +497,7 @@ int main()
             }
         }
 
-        // Ball hit the left player's wall. 
+        // Ball hit the left player's wall.
         if(Ball.GetX() <= -Ball.GetW())
         {
             Font.ClearString();
@@ -505,17 +506,17 @@ int main()
 
             scored = true;
         }
-        
+
         // Ball hit the right player's wall.
         else if(Ball.GetX() >= Main.GetWidth())
         {
             Font.ClearString();
-            Font << ++Scores.x << "    |    " << ++Scores.y;
+            Font << ++Scores.x << "    |    " << Scores.y;
             Font.Render(Score);
 
             scored = true;
         }
-        
+
         // Ball hit the top / bottom walls.
         else if(Ball.GetY() <= 0.0 ||
                 Ball.GetY() >= Main.GetHeight() - Ball.GetH())
@@ -524,7 +525,7 @@ int main()
         }
 
         // Bounce ball off of player paddles.
-        if(LeftPaddle.GetBox().collides(Ball.GetBox()) || 
+        if(LeftPaddle.GetBox().collides(Ball.GetBox()) ||
            RightPaddle.GetBox().collides(Ball.GetBox()))
         {
             ball_d.x = -ball_d.x;
@@ -550,14 +551,14 @@ int main()
             Font.Render(NetStatus, "connection lost.");
             lost = true; kk = false;
         }
-        
+
         // ~4 seconds = losing connection.
         else if(last > 60 * 4 && !losing)
         {
             Font.Render(NetStatus, "losing connection.");
             losing = true; kk = false;
         }
-        
+
         // If there was a goal scored, we need to sync things up
         // with the other player. If we were originally the host,
         // we create the new ball position. Otherwise, we wait for
@@ -568,13 +569,13 @@ int main()
             ball_d = make_ball();
             std::stringstream ss;
             ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-               << ball_d.x << ';' << ball_d.y;
+               << -ball_d.x    << ';' << ball_d.y;
 
             Socket.SendTo(Connection.first, Connection.second,
                           build_packet(PacketType::SYNC, ss.str()));
             scored = false;
         }
-        
+
         // Handle network operations.
         PongPacket resp;
         string_t addr, port;
@@ -585,10 +586,10 @@ int main()
             {
             case PacketType::PING:
                 // Confirm ping.
-                if(resp.data != last_ping)
-                {
-                    Socket.SendTo(addr, port, resp.data);
-                }
+                //if(resp.data != last_ping)
+                //{
+                //    Socket.SendTo(addr, port, resp.data);
+                //}
                 if(!kk) Font.Render(NetStatus, "ok.");
                 last = 0;
                 break;
@@ -607,7 +608,7 @@ int main()
                 // Ignore if we are in charge.
                 if(is_start) break;
                 std::vector<string_t> parts = util::split(resp.data, ';');
-                
+
                 // If we are inaccurate, we should probably think about
                 // syncing with the other player.
                 math::vector_t Pos(std::stod(parts[0]), std::stod(parts[1]));
@@ -615,16 +616,16 @@ int main()
                 {
                     std::stringstream ss;
                     ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-                       << ball_d.x    << ';' << ball_d.y;
+                       << -ball_d.x   << ';' << ball_d.y;
 
                     Socket.SendTo(Connection.first, Connection.second,
                                   build_packet(PacketType::SYNC,
                                                ss.str()));
                 }
-                
+
                 break;
             }
-            
+
             // Someone wants to know wassup.
             case PacketType::STATUS:
                 Socket.SendTo(Connection.first, Connection.second,
@@ -637,14 +638,14 @@ int main()
             {
                 // Parse new ball data.
                 std::vector<string_t> parts = util::split(resp.data, ';');
-                
+
                 math::vector_t BallPosTmp(std::stod(parts[0]),
                                           std::stod(parts[1]));
                 math::vector_t BallDTmp  (std::stod(parts[2]),
                                           std::stod(parts[3]));
 
                 // Is the temporary velocity identical to ours?
-                if(ball_d_tmp != ball_d)
+                if(BallDTmp != ball_d)
                 {
                     // If not, and we are the hoster, we don't care about the
                     // temporary, and we just send our true position.
@@ -652,7 +653,7 @@ int main()
                     {
                         std::stringstream ss;
                         ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-                           << ball_d.x    << ';' << ball_d.y;
+                           << -ball_d.x   << ';' << ball_d.y;
 
                         Socket.SendTo(Connection.first, Connection.second,
                                       build_packet(PacketType::SYNC,
@@ -660,7 +661,7 @@ int main()
                     }
                     else
                     {
-                        ball_d = ball_d_tmp;
+                        ball_d = BallDTmp;
                         Ball.Move(BallPosTmp);
                     }
                 }
