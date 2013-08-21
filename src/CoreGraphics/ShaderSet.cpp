@@ -99,15 +99,14 @@ bool CShaderSet::LoadVertexShaderFromStr(const string_t& str)
 
     mp_VShader = m_AssetManager.Create<CShader>();
     return mp_VShader->LoadFromRaw(str);
-    return true;
 }
 
 bool CShaderSet::LoadFragmentShaderFromStr(const string_t& str)
 {
     this->DestroyFS();
 
-    mp_VShader = m_AssetManager.Create<CShader>();
-    return mp_VShader->LoadFromRaw(str);
+    mp_FShader = m_AssetManager.Create<CShader>();
+    return mp_FShader->LoadFromRaw(str);
 }
 
 bool CShaderSet::CreateShaderObject()
