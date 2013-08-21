@@ -7,13 +7,7 @@ using gfxcore::CRenderer;
   #pragma comment(lib, "Zenderer.lib")
 #endif // ZEN_API
 
-// Windowed version for release builds.
-#if !defined(_DEBUG) && defined(_WIN32)
-  int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPInst,
-                     LPSTR lpCmdLine, int nShowCmd)
-#else
-  int main2(int argc, char* argv[])
-#endif // _DEBUG
+int main2(int argc, char* argv[])
 {
     Init();
     asset::CAssetManager Manager; Manager.Init();

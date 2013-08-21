@@ -40,7 +40,11 @@ math::vector_t make_ball();
 bool parse_msg(const string_t& data, PongPacket& P);
 string_t build_packet(PacketType type, const string_t& data);
 
+#ifdef ZEN_DEBUG_BUILD || !defined(_WIN32)
 int main()
+#elif defined(_WIN32)
+int WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowCmd)
+#endif // ZEN_DEBUG_BUILD
 {
     if(!Init()) return 1;
     util::CSettings Settings;

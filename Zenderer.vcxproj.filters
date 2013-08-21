@@ -82,6 +82,9 @@
     <Filter Include="Source Files\Events">
       <UniqueIdentifier>{a2c6d35e-72ef-46fb-b7a0-e630c70df747}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Network">
+      <UniqueIdentifier>{a4b4fc94-6797-4a7b-9649-7056f770b34c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -384,7 +387,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Network\Socket.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
