@@ -91,7 +91,7 @@ namespace gfxcore
 
     /// Created from data/shaders/Default.vs.
     static const string_t DEFAULT_VS = string_t(
-        "#version 420 core\n"
+        "#version 330 core\n"
 
         "layout(location=0) in vec3  vs_vertex;\n"
         "layout(location=1) in vec2  vs_texc;\n"
@@ -99,7 +99,6 @@ namespace gfxcore
 
         "uniform mat4    proj;\n"
         "uniform mat4    mv;\n"
-        "uniform float   x_shear;\n"
 
         "smooth  out vec3 fs_vertex;\n"
         "smooth  out vec4 fs_color;\n"
@@ -136,7 +135,7 @@ namespace gfxcore
 
     /// Created from data/shaders/GaussianBlur.vs.
     static const string_t GAUSSIANBLUR_VS = string_t(
-        "#version 420 core\n"
+        "#version 330 core\n"
 
         "layout(location=0) in vec2  vs_vertex;\n"
         "layout(location=1) in vec2  vs_texc;\n"
@@ -282,7 +281,7 @@ namespace gfxcore
 
     /// Created from data/shaders/Ripple.fs.
     static const string_t RIPPLE_FS = string_t(
-        "#version 330\n"
+        "#version 330 core\n"
 
         "uniform float       rate;\n"
         "uniform float       time;   // time in seconds\n"
