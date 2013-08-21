@@ -65,8 +65,8 @@ std::ostream& util::operator<<(std::ostream& o, const COption& Opt)
     return (o << Opt.m_value);
 }
 
-/****************************************************************
- *                      CSettings Definitions                   *
+/***************************************************************
+ *                      CSettings Definitions                  *
  ***************************************************************/
 
 CSettings::CSettings(const string_t& filename) :
@@ -121,11 +121,10 @@ COption& CSettings::operator[](const string_t& opt)
 #endif // ZEN_DEBUG_BUILD
 
     auto iter = m_Options.find(hash);
-
     if(iter == m_Options.end())
     {
-        // Create a new blank option and return it
-        m_Options[hash] = COption();
+        // Create a new blank option and return it.
+        m_Options.emplace(std::make_pair(hash, COption()));
         return m_Options[hash];
     }
 
