@@ -98,6 +98,7 @@ bool CShaderSet::LoadVertexShaderFromStr(const string_t& str)
     this->DestroyVS();
 
     mp_VShader = m_AssetManager.Create<CShader>();
+    mp_VShader->SetType(GL_VERTEX_SHADER);
     return mp_VShader->LoadFromRaw(str);
 }
 
@@ -106,6 +107,7 @@ bool CShaderSet::LoadFragmentShaderFromStr(const string_t& str)
     this->DestroyFS();
 
     mp_FShader = m_AssetManager.Create<CShader>();
+    mp_FShader->SetType(GL_FRAGMENT_SHADER);
     return mp_FShader->LoadFromRaw(str);
 }
 
@@ -128,7 +130,8 @@ bool CShaderSet::CreateShaderObject()
         CShaderSet& SS = *(i.first);
         if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
         {
-            m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("ShaderSet")
+            m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG)
+                  << m_Log.SetSystem("ShaderSet")
                   << "Found existing shader program for {'"
                   << mp_VShader->GetFilename() << "', '"
                   << mp_FShader->GetFilename() << "'}: " << SS.m_program

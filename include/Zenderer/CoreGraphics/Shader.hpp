@@ -78,6 +78,9 @@ namespace gfxcore
         /// Returns the shader log.
         const string_t& GetShaderLog() const;
 
+        /// One of `GL_FRAGMENT_SHADER`, `GL_VERTEX_SHADER`, `GL_GEOMETRY_SHADER`.
+        void SetType(const GLenum shader_type);
+
     private:
         string_t m_shader_log;  ///< Log string from shader compilation.
         GLuint m_object;        ///< OpenGL shader object handle.
