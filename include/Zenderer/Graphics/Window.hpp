@@ -70,13 +70,14 @@ namespace gfx
          *  normally be successfully reloaded and attached properly to the new
          *  rendering context.
          *
-         * @param   w       Window width
-         * @param   h       Window height
-         * @param   caption Caption to place in the title bar (windowed mode)
-         * @param   Mgr     Manager to attach to window
+         * @param   w           Window width
+         * @param   h           Window height
+         * @param   caption     Caption to place in the title bar (windowed mode)
+         * @param   Mgr         Manager to attach to window
+         * @param   fullscreen  Enable fullscreen window? (optional)
          *
          * @note    The window will automatically be created fullscreen in
-         *          release mode (@ref ZEN_DEBUG_BUILD).
+         *          release mode (@ref ZEN_DEBUG_BUILD) if unspecified.
          *
          * @see     Init()
          * @see     EnableFullscreen()
@@ -86,13 +87,13 @@ namespace gfx
          **/
         CWindow(const uint16_t w, const uint16_t h,
                 const string_t& caption, asset::CAssetManager& Mgr,
-                const bool fullscreen =
+                const bool fullscreen = false);/*
 #ifdef ZEN_DEBUG_BUILD
     false
 #else
     true
 #endif // ZEN_DEBUG_BUILD
-);
+);*/
 
         ~CWindow();
 
