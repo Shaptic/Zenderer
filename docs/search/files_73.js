@@ -11,11 +11,13 @@ var searchData=
   ['shaderset_2ecpp',['ShaderSet.cpp',['../_shader_set_8cpp.html',1,'']]],
   ['shaderset_2ehpp',['ShaderSet.hpp',['../_shader_set_8hpp.html',1,'']]],
   ['shapes_2ehpp',['Shapes.hpp',['../_shapes_8hpp.html',1,'']]],
+  ['socket_2ecpp',['Socket.cpp',['../_socket_8cpp.html',1,'']]],
   ['socket_2ehpp',['Socket.hpp',['../_socket_8hpp.html',1,'']]],
   ['sorter_2ecpp',['Sorter.cpp',['../_sorter_8cpp.html',1,'']]],
   ['sorter_2ehpp',['Sorter.hpp',['../_sorter_8hpp.html',1,'']]],
   ['sound2d_2ecpp',['Sound2D.cpp',['../_sound2_d_8cpp.html',1,'']]],
   ['sound2d_2ehpp',['Sound2D.hpp',['../_sound2_d_8hpp.html',1,'']]],
+  ['string_2ehpp',['String.hpp',['../_string_8hpp.html',1,'']]],
   ['subsystem_2ecpp',['Subsystem.cpp',['../_subsystem_8cpp.html',1,'']]],
   ['subsystem_2ehpp',['Subsystem.hpp',['../_subsystem_8hpp.html',1,'']]]
 ];

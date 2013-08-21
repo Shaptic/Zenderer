@@ -5,8 +5,9 @@ var _pong_8cpp =
       [ "stamp", "_pong_8cpp.html#ac0c8980c0a2f69266305e18f72fa6901", null ],
       [ "type", "_pong_8cpp.html#a32d98163424b51c5d9d7576b55266bdf", null ],
       [ "size", "_pong_8cpp.html#a369ca9c65c8d96d97c55a4b151f87ba7", null ],
-      [ "data", "_pong_8cpp.html#aa6a48c21f1c7d21354c7bc655a1e1b73", null ]
+      [ "data", "_pong_8cpp.html#a4421d0c0b5dd0243a7655d9d73b734eb", null ]
     ] ],
+    [ "addr_t", "_pong_8cpp.html#a195881a23f1c443d163fab13cefd338f", null ],
     [ "PacketType", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155", [
       [ "UNKNOWN", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155a696b031073e74bf2cb98e5ef201d4aa3", null ],
       [ "HOST_AVAIL", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155ad6e277d8e287c36e85ae7b80928338e2", null ],
@@ -19,13 +20,13 @@ var _pong_8cpp =
       [ "STATUS", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155a5f241c8c8f985b3c51e05d39cf030f4c", null ],
       [ "SYNC", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155a274ccef15a21e829d03293a6fd1974f3", null ]
     ] ],
-    [ "PONG_PORT", "_pong_8cpp.html#a924a1efdb828f5ac0b4b8c5207f9ade9", null ],
     [ "make_ball", "_pong_8cpp.html#a98a1b5ac138d1987c46cd622078b22a1", null ],
-    [ "randint", "_pong_8cpp.html#a34fc95d1c948f8ebf073395131a32315", null ],
     [ "parse_msg", "_pong_8cpp.html#a637c70a19336d9c6a75c3b3891e2b334", null ],
     [ "build_packet", "_pong_8cpp.html#a5b10b66252707bc1a2af033fedb13daa", null ],
     [ "main", "_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ],
+    [ "PONG_HOST_PORT", "_pong_8cpp.html#abeee84cdae4ac2b1bcb89a2dd429908d", null ],
+    [ "PONG_JOIN_PORT", "_pong_8cpp.html#ab9ab1fa5032bb148b5dfc9d894be5d07", null ],
     [ "MAX_PONG", "_pong_8cpp.html#ae2d1697fd03b28bff8fb7a35ded43576", null ],
     [ "MIN_PONG", "_pong_8cpp.html#a820fea2a5356fb4906694179880791a4", null ],
-    [ "rng", "_pong_8cpp.html#adbe79e918414b2480135e3a7871b44ac", null ]
+    [ "RNG", "_pong_8cpp.html#ad467dc1e955b2e1f787b0ab67de915f2", null ]
 ];

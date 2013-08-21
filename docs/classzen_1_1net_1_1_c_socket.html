@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('classzen_1_1net_1_1_c_socket.html','')
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,9 +111,12 @@ $(document).ready(function(){initNavTree('classzen_1_1net_1_1_c_socket.html','')
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">zen::net::CSocket Class Reference</div>  </div>
+<div class="title">zen::net::CSocket Class Reference<div class="ingroups"><a class="el" href="group___network.html">Network</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A low-level socket wrapper.  
+ <a href="classzen_1_1net_1_1_c_socket.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>&quot;</code></p>
 <table class="memberdecls">
@@ -123,35 +126,41 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aadda732a0df14e4b06d4386476b3c899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83bd5bd7e19ba5ee120acd40a375b686"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a83bd5bd7e19ba5ee120acd40a375b686">~CSocket</a> ()</td></tr>
 <tr class="separator:a83bd5bd7e19ba5ee120acd40a375b686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae470123425b8990e202ae0df0ca940ad"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#ae470123425b8990e202ae0df0ca940ad">Init</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;host, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;port)</td></tr>
-<tr class="separator:ae470123425b8990e202ae0df0ca940ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a021960a288fe325623a8ea3065c2c7c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a021960a288fe325623a8ea3065c2c7c5">Destroy</a> ()</td></tr>
-<tr class="separator:a021960a288fe325623a8ea3065c2c7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46b770b300a46f515196fd59a4b84b7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a46b770b300a46f515196fd59a4b84b7d">RecvFrom</a> (const size_t size, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;address)</td></tr>
-<tr class="memdesc:a46b770b300a46f515196fd59a4b84b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives any incoming data on the socket.  <a href="#a46b770b300a46f515196fd59a4b84b7d">More...</a><br/></td></tr>
-<tr class="separator:a46b770b300a46f515196fd59a4b84b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c9256496a30638416e3387987f11d5c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a5c9256496a30638416e3387987f11d5c">SendTo</a> (const std::string &amp;addr, const std::string &amp;port, const std::string &amp;data)</td></tr>
-<tr class="memdesc:a5c9256496a30638416e3387987f11d5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to an IP:port address.  <a href="#a5c9256496a30638416e3387987f11d5c">More...</a><br/></td></tr>
-<tr class="separator:a5c9256496a30638416e3387987f11d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebcf776270fd007064d616f15a360043"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#aebcf776270fd007064d616f15a360043">Ping</a> ()</td></tr>
-<tr class="separator:aebcf776270fd007064d616f15a360043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f3bbeb9359c3246d4d2a2ee30096100"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a1f3bbeb9359c3246d4d2a2ee30096100">SetSocketOption</a> (const int type, const int option, const bool flag)</td></tr>
-<tr class="separator:a1f3bbeb9359c3246d4d2a2ee30096100"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab22c84dba9f0d913b9e45f192069e448"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#ab22c84dba9f0d913b9e45f192069e448">SetNonblocking</a> (const bool flag)</td></tr>
-<tr class="memdesc:ab22c84dba9f0d913b9e45f192069e448"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables blocking for socket operations.  <a href="#ab22c84dba9f0d913b9e45f192069e448">More...</a><br/></td></tr>
-<tr class="separator:ab22c84dba9f0d913b9e45f192069e448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e46a0976beea454500711243ad340d1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a6e46a0976beea454500711243ad340d1">GetError</a> () const </td></tr>
-<tr class="memdesc:a6e46a0976beea454500711243ad340d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last error number.  <a href="#a6e46a0976beea454500711243ad340d1">More...</a><br/></td></tr>
-<tr class="separator:a6e46a0976beea454500711243ad340d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c5200490294beca76d90b68a5b4c36"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a91c5200490294beca76d90b68a5b4c36">Init</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;host, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;port)</td></tr>
+<tr class="separator:a91c5200490294beca76d90b68a5b4c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2016666dc19a840a034fcf803d0c0054"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a2016666dc19a840a034fcf803d0c0054">Destroy</a> ()</td></tr>
+<tr class="separator:a2016666dc19a840a034fcf803d0c0054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e336dc2c399e7d54100683678c810f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a3e336dc2c399e7d54100683678c810f3">RecvFrom</a> (const size_t size, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;address, <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;port)</td></tr>
+<tr class="memdesc:a3e336dc2c399e7d54100683678c810f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives any incoming data on the socket.  <a href="#a3e336dc2c399e7d54100683678c810f3">More...</a><br/></td></tr>
+<tr class="separator:a3e336dc2c399e7d54100683678c810f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa19113138a004e4c2ab06addbdbce7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#afa19113138a004e4c2ab06addbdbce7f">SendTo</a> (const std::string &amp;addr, const std::string &amp;port, const std::string &amp;data)</td></tr>
+<tr class="memdesc:afa19113138a004e4c2ab06addbdbce7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to an IP:port address.  <a href="#afa19113138a004e4c2ab06addbdbce7f">More...</a><br/></td></tr>
+<tr class="separator:afa19113138a004e4c2ab06addbdbce7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8709897a5b3d05a7e4f881c2550f396c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a8709897a5b3d05a7e4f881c2550f396c">SendBroadcast</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;message, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;port=&quot;&quot;)</td></tr>
+<tr class="separator:a8709897a5b3d05a7e4f881c2550f396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe867536a5b9d70c579a489cee597ea2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#afe867536a5b9d70c579a489cee597ea2">Ping</a> ()</td></tr>
+<tr class="separator:afe867536a5b9d70c579a489cee597ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf39b391c80e53361b7635cea8bf22ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#abf39b391c80e53361b7635cea8bf22ad">SetSocketOption</a> (const int type, const int option, const bool flag)</td></tr>
+<tr class="separator:abf39b391c80e53361b7635cea8bf22ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7060ccec94d8de61d88f5fe54d6a5d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#ac7060ccec94d8de61d88f5fe54d6a5d8">SetNonblocking</a> (const bool flag)</td></tr>
+<tr class="memdesc:ac7060ccec94d8de61d88f5fe54d6a5d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables blocking for socket operations.  <a href="#ac7060ccec94d8de61d88f5fe54d6a5d8">More...</a><br/></td></tr>
+<tr class="separator:ac7060ccec94d8de61d88f5fe54d6a5d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38adda5444501d13b6d7164df62e02cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a38adda5444501d13b6d7164df62e02cb">GetError</a> () const </td></tr>
+<tr class="memdesc:a38adda5444501d13b6d7164df62e02cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last error number.  <a href="#a38adda5444501d13b6d7164df62e02cb">More...</a><br/></td></tr>
+<tr class="separator:a38adda5444501d13b6d7164df62e02cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ade52126d64122ea41884a8aa3e9b2cfc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#ade52126d64122ea41884a8aa3e9b2cfc">InitializeLibrary</a> ()</td></tr>
-<tr class="separator:ade52126d64122ea41884a8aa3e9b2cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0768ecfdaaaeda1e949f1e46f0b44dac"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1net_1_1_c_socket.html#a0768ecfdaaaeda1e949f1e46f0b44dac">InitializeLibrary</a> ()</td></tr>
+<tr class="separator:a0768ecfdaaaeda1e949f1e46f0b44dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00106">106</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<div class="textblock"><p>This API provides a low-level abstraction layer over a lot of unwieldy and OS-dependant socket I/O operations.</p>
+<dl class="section note"><dt>Note</dt><dd>There is currently only support for UDP communication via <code>sendto()</code> and <code>recvfrom()</code>.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>Support for TCP, <code>connect()</code>, etc.</dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_sockets-example.html#_a0">Sockets</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00105">105</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aadda732a0df14e4b06d4386476b3c899"></a>
 <div class="memitem">
@@ -175,7 +184,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00109">109</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00108">108</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -200,12 +209,12 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00110">110</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00111">111</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ade52126d64122ea41884a8aa3e9b2cfc"></a>
+<a class="anchor" id="a0768ecfdaaaeda1e949f1e46f0b44dac"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -213,7 +222,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool zen::net::CSocket::InitializeLibrary </td>
+          <td class="memname">bool CSocket::InitializeLibrary </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td></td>
@@ -221,24 +230,21 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00112">112</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00010">10</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae470123425b8990e202ae0df0ca940ad"></a>
+<a class="anchor" id="a91c5200490294beca76d90b68a5b4c36"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool zen::net::CSocket::Init </td>
+          <td class="memname">bool CSocket::Init </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
           <td class="paramname"><em>host</em>, </td>
@@ -255,51 +261,44 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00127">127</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00024">24</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1net_1_1_c_socket_a91c5200490294beca76d90b68a5b4c36_icgraph.png" border="0" usemap="#classzen_1_1net_1_1_c_socket_a91c5200490294beca76d90b68a5b4c36_icgraph" alt=""/></div>
+<map name="classzen_1_1net_1_1_c_socket_a91c5200490294beca76d90b68a5b4c36_icgraph" id="classzen_1_1net_1_1_c_socket_a91c5200490294beca76d90b68a5b4c36_icgraph">
+<area shape="rect" id="node2" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="205,5,256,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a021960a288fe325623a8ea3065c2c7c5"></a>
+<a class="anchor" id="a2016666dc19a840a034fcf803d0c0054"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::net::CSocket::Destroy </td>
+          <td class="memname">bool CSocket::Destroy </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00174">174</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00070">70</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a46b770b300a46f515196fd59a4b84b7d"></a>
+<a class="anchor" id="a3e336dc2c399e7d54100683678c810f3"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> zen::net::CSocket::RecvFrom </td>
+          <td class="memname"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> CSocket::RecvFrom </td>
           <td>(</td>
           <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>size</em>, </td>
@@ -308,7 +307,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>address</em>&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>port</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -316,36 +321,38 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>This call will block the process until some amount of data is received, unless <a class="el" href="classzen_1_1net_1_1_c_socket.html#ab22c84dba9f0d913b9e45f192069e448" title="Enables or disables blocking for socket operations. ">SetNonblocking()</a> is called.</p>
+<p>This call will block the process until some amount of data is received, unless <a class="el" href="classzen_1_1net_1_1_c_socket.html#ac7060ccec94d8de61d88f5fe54d6a5d8" title="Enables or disables blocking for socket operations. ">SetNonblocking()</a> is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>The maximum size of the data to receive </td></tr>
-    <tr><td class="paramname">address</td><td>The IP address of the sender</td></tr>
+    <tr><td class="paramname">address</td><td>String to store the IP address of the sender </td></tr>
+    <tr><td class="paramname">address</td><td>String to store the port of the sender</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Data that was received from the socket, if any.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Packets less than <code>size</code> will NOT be removed from the socket queue. </dd></dl>
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00198">198</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00081">81</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1net_1_1_c_socket_a3e336dc2c399e7d54100683678c810f3_icgraph.png" border="0" usemap="#classzen_1_1net_1_1_c_socket_a3e336dc2c399e7d54100683678c810f3_icgraph" alt=""/></div>
+<map name="classzen_1_1net_1_1_c_socket_a3e336dc2c399e7d54100683678c810f3_icgraph" id="classzen_1_1net_1_1_c_socket_a3e336dc2c399e7d54100683678c810f3_icgraph">
+<area shape="rect" id="node2" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="189,12,240,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a5c9256496a30638416e3387987f11d5c"></a>
+<a class="anchor" id="afa19113138a004e4c2ab06addbdbce7f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int zen::net::CSocket::SendTo </td>
+          <td class="memname">int CSocket::SendTo </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
@@ -368,11 +375,6 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -384,50 +386,85 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of bytes sent, or -1 on error.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This is only available for UDP sockets.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1net_1_1_c_socket.html#a6e46a0976beea454500711243ad340d1" title="Retrieves the last error number. ">GetError()</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1net_1_1_c_socket.html#a38adda5444501d13b6d7164df62e02cb" title="Retrieves the last error number. ">GetError()</a> </dd>
 <dd>
 SendAll() </dd>
 <dd>
 <a class="el" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">SocketType</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00245">245</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00117">117</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1net_1_1_c_socket_afa19113138a004e4c2ab06addbdbce7f_icgraph.png" border="0" usemap="#classzen_1_1net_1_1_c_socket_afa19113138a004e4c2ab06addbdbce7f_icgraph" alt=""/></div>
+<map name="classzen_1_1net_1_1_c_socket_afa19113138a004e4c2ab06addbdbce7f_icgraph" id="classzen_1_1net_1_1_c_socket_afa19113138a004e4c2ab06addbdbce7f_icgraph">
+<area shape="rect" id="node2" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="189,12,240,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aebcf776270fd007064d616f15a360043"></a>
+<a class="anchor" id="a8709897a5b3d05a7e4f881c2550f396c"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::net::CSocket::Ping </td>
+          <td class="memname">int CSocket::SendBroadcast </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>port</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00137">137</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1net_1_1_c_socket_a8709897a5b3d05a7e4f881c2550f396c_icgraph.png" border="0" usemap="#classzen_1_1net_1_1_c_socket_a8709897a5b3d05a7e4f881c2550f396c_icgraph" alt=""/></div>
+<map name="classzen_1_1net_1_1_c_socket_a8709897a5b3d05a7e4f881c2550f396c_icgraph" id="classzen_1_1net_1_1_c_socket_a8709897a5b3d05a7e4f881c2550f396c_icgraph">
+<area shape="rect" id="node2" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="189,12,240,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afe867536a5b9d70c579a489cee597ea2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CSocket::Ping </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00261">261</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00153">153</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1f3bbeb9359c3246d4d2a2ee30096100"></a>
+<a class="anchor" id="abf39b391c80e53361b7635cea8bf22ad"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::net::CSocket::SetSocketOption </td>
+          <td class="memname">bool CSocket::SetSocketOption </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>type</em>, </td>
@@ -450,37 +487,24 @@ SendAll() </dd>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00266">266</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00159">159</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab22c84dba9f0d913b9e45f192069e448"></a>
+<a class="anchor" id="ac7060ccec94d8de61d88f5fe54d6a5d8"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool zen::net::CSocket::SetNonblocking </td>
+          <td class="memname">bool CSocket::SetNonblocking </td>
           <td>(</td>
           <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>flag</em>)</td><td></td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -490,29 +514,30 @@ SendAll() </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the non-blocking flag could be set, <code>false</code> otherwise, or if a socket hasn't been created. </dd></dl>
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00284">284</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00167">167</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1net_1_1_c_socket_ac7060ccec94d8de61d88f5fe54d6a5d8_icgraph.png" border="0" usemap="#classzen_1_1net_1_1_c_socket_ac7060ccec94d8de61d88f5fe54d6a5d8_icgraph" alt=""/></div>
+<map name="classzen_1_1net_1_1_c_socket_ac7060ccec94d8de61d88f5fe54d6a5d8_icgraph" id="classzen_1_1net_1_1_c_socket_ac7060ccec94d8de61d88f5fe54d6a5d8_icgraph">
+<area shape="rect" id="node2" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="189,12,240,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a6e46a0976beea454500711243ad340d1"></a>
+<a class="anchor" id="a38adda5444501d13b6d7164df62e02cb"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int zen::net::CSocket::GetError </td>
+          <td class="memname">int CSocket::GetError </td>
           <td>(</td>
           <td class="paramname">)</td><td></td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>The last error code, if any.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This is platform dependant.</dd></dl>
@@ -520,12 +545,22 @@ SendAll() </dd>
 <dd>
 <a href="http://msdn.microsoft.com/en-us/library/aa924071.aspx">http://msdn.microsoft.com/en-us/library/aa924071.aspx</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_socket_8hpp_source.html#l00307">307</a> of file <a class="el" href="_socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_socket_8cpp_source.html#l00180">180</a> of file <a class="el" href="_socket_8cpp_source.html">Socket.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classzen_1_1net_1_1_c_socket_a38adda5444501d13b6d7164df62e02cb_icgraph.png" border="0" usemap="#classzen_1_1net_1_1_c_socket_a38adda5444501d13b6d7164df62e02cb_icgraph" alt=""/></div>
+<map name="classzen_1_1net_1_1_c_socket_a38adda5444501d13b6d7164df62e02cb_icgraph" id="classzen_1_1net_1_1_c_socket_a38adda5444501d13b6d7164df62e02cb_icgraph">
+<area shape="rect" id="node2" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="189,12,240,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Zenderer/include/Zenderer/Network/<a class="el" href="_socket_8hpp_source.html">Socket.hpp</a></li>
+<li>Zenderer/src/Network/<a class="el" href="_socket_8cpp_source.html">Socket.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

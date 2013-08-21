@@ -1,10 +1,7 @@
 <map id="zen::gfx::CRenderTarget::Init" name="zen::gfx::CRenderTarget::Init">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="225,5,367,46"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="893,124,950,151"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="623,229,769,256"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="216,121,376,148"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="838,229,1005,256"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="896,179,947,205"/>
-<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="424,173,555,214"/>
-<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_menu.html#a5ddf9b4cade6ac1da1b3c4a74ff3e955" title="zen::gui::CMenu::AddButton" alt="" coords="603,179,789,205"/>
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="219,5,360,46"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="466,71,523,97"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="216,121,363,148"/>
+<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="411,121,578,148"/>
+<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="469,172,520,199"/>
 </map>

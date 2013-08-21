@@ -1,9 +1,5 @@
 <map id="zen::gfxcore::CRenderer::ResetMaterialState" name="zen::gfxcore::CRenderer::ResetMaterialState">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="225,5,367,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen. " alt="" coords="424,59,587,101"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="216,125,376,152"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="870,125,927,152"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="440,177,571,218"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_menu.html#a5ddf9b4cade6ac1da1b3c4a74ff3e955" title="zen::gui::CMenu::AddButton" alt="" coords="635,180,821,207"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="873,180,924,207"/>
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="227,5,368,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen. " alt="" coords="216,70,379,111"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="427,77,485,104"/>
 </map>

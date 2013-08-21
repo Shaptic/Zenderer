@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -143,8 +143,8 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Store current render target&#39;s viewport.</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    GLint view[4];</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGetIntegerv(GL_VIEWPORT, view));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_OldViewport.x = view[2];</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    m_OldViewport.y = view[3];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    m_OldViewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components. ">x</a> = view[2];</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    m_OldViewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a> = view[3];</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Create frame buffer.</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGenFramebuffers(1, &amp;m_fbo));</div>
@@ -155,8 +155,8 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindTexture(GL_TEXTURE_2D, m_texture));</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Viewport.x,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            m_Viewport.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, <span class="keyword">nullptr</span>));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components. ">x</a>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, 0, GL_RGBA, GL_UNSIGNED_BYTE, <span class="keyword">nullptr</span>));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Attach texture to frame buffer.</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,</div>
@@ -179,7 +179,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    m_Main = gfxcore::CRenderer::s_ProjMatrix;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    m_ProjMatrix = <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#aaeaa55d84be7cf41d7eb81fed0b36e38" title="Creates a 2D projection matrix. ">math::matrix4x4_t::Projection2D</a>(</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        m_Viewport.x, m_Viewport.y, 16, 1);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components. ">x</a>, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>, 16, 1);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html#ad4248e312e0b60e82ff78d6e7b53f382">m_init</a> = (status == GL_FRAMEBUFFER_COMPLETE);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
@@ -203,7 +203,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Bind the framebuffer and set our view port.</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glViewport(0, 0, m_Viewport.x, m_Viewport.y));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glViewport(0, 0, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components. ">x</a>, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>));</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -214,7 +214,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">// Unbind the framebuffer and reset the view port.</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    gfxcore::CRenderer::s_ProjMatrix = m_Main;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindFramebuffer(GL_FRAMEBUFFER, 0));</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glViewport(0, 0, m_OldViewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components. ">x</a>, m_OldViewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>));</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
@@ -241,7 +241,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glGenRenderbuffers(1, &amp;rb));</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindRenderbuffer(GL_RENDERBUFFER, rb));</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            m_Viewport.x, m_Viewport.y));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a7bd1e1ee44eed6c0232c497cd30264d7" title="The publicly-accessible vector components. ">x</a>, m_Viewport.<a class="code" href="structzen_1_1math_1_1_vector.html#a401d315a154ddb601a983e61c5be592e">y</a>));</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT,</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            GL_RENDERBUFFER, rb));</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>

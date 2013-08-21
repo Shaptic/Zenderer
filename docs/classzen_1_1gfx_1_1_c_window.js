@@ -1,6 +1,6 @@
 var classzen_1_1gfx_1_1_c_window =
 [
-    [ "CWindow", "classzen_1_1gfx_1_1_c_window.html#a3233b027a3a0560c8a113e22eacfa40b", null ],
+    [ "CWindow", "classzen_1_1gfx_1_1_c_window.html#ae2650793decd989698b4243a4ac4da3e", null ],
     [ "~CWindow", "classzen_1_1gfx_1_1_c_window.html#a952e8bd3d29abbac67c252c192077c87", null ],
     [ "Init", "classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8", null ],
     [ "Destroy", "classzen_1_1gfx_1_1_c_window.html#a0174d1cf2c60a5b6f775751785616855", null ],

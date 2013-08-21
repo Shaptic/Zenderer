@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_scene_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -236,7 +236,7 @@ $(document).ready(function(){initNavTree('_scene_8cpp_source.html','');});
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_allEntities)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    {</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="comment">// If any are offloaded, the rest probably are too.</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">if</span>(i-&gt;Offloaded()) <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">if</span>(i-&gt;Offloaded()) <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        i-&gt;Offload(m_Geometry, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
@@ -332,65 +332,64 @@ $(document).ready(function(){initNavTree('_scene_8cpp_source.html','');});
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations. ">CRenderTarget</a>&amp; One = m_lighting ? m_FBO2 : m_FBO1;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations. ">CRenderTarget</a>&amp; Two = m_lighting ? m_FBO1 : m_FBO2;</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keyword">auto</span> i = m_allPPFX.begin(),</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;             j = m_allPPFX.end();</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> c = 0; i != j; ++i, ++c)</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        {</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keyword">auto</span>&amp; FX = *i;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keywordtype">bool</span> even = ((c &amp; 0x1) == 0);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">if</span>(even)    Two.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f" title="All draws after this call will go to the texture, not the screen. ">Bind</a>();</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">else</span>        One.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f" title="All draws after this call will go to the texture, not the screen. ">Bind</a>();</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            FX-&gt;Enable();</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            CRenderer::EnableTexture(final_texture);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            FX-&gt;Disable();</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            final_texture = even ? Two.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8" title="Get the raw render target&#39;s texture handle. ">GetTexture</a>() : One.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8" title="Get the raw render target&#39;s texture handle. ">GetTexture</a>();</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="comment">// Now we have the final scene data in `final_texture`</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">// Doesn&#39;t matter which we disable.</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    m_FBO1.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0" title="Resume drawing to the screen. ">Unbind</a>();</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a55724770ecc469bc576fbc2edd402432" title="A more user-friendly alias for binding. ">Enable</a>();</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    CRenderer::EnableTexture(final_texture);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">if</span>(!m_through) CRenderer::BlendOperation(<a class="code" href="_renderer_8hpp.html#ab736b676d7971dff93d6bf8a4b13c830" title="Disables blending. ">BlendFunc::DISABLE_BLEND</a>);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDisable(GL_DEPTH_TEST));</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">// Make sure the right data is set.</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter. ">SetParameter</a>(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter. ">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix());</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    CRenderer::EnableTexture(0);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    CRenderer::ResetMaterialState();</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">if</span>(!blend &amp;&amp; m_through) CRenderer::BlendOperation(<a class="code" href="_renderer_8hpp.html#ab736b676d7971dff93d6bf8a4b13c830" title="Disables blending. ">BlendFunc::DISABLE_BLEND</a>);</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a64f011804bd27564dfa509d42421bf6c">  268</a></span>&#160;int32_t <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a64f011804bd27564dfa509d42421bf6c" title="Returns the queue index of a certain entity (or -1). ">CScene::GetEntityIndex</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; <a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>)</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;{</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    int32_t index = -1;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> i : m_allEntities)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    {</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        ++index;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordflow">if</span>(i == &amp;D) <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00280"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abec7fa7a09742ed866cb84e54aed4e48">  280</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abec7fa7a09742ed866cb84e54aed4e48" title="Verifies the given index is within the valid range. ">CScene::IsValidEntityIndex</a>(int32_t i)</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">return</span> (i &gt; 0 &amp;&amp; i &lt; m_allEntities.size());</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keyword">auto</span> i = m_allPPFX.begin(), j = m_allPPFX.end();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> c = 0; i != j; ++i, ++c)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keyword">auto</span>&amp; FX = *i;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keywordtype">bool</span> even = ((c &amp; 0x1) == 0);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keywordflow">if</span>(even)    Two.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f" title="All draws after this call will go to the texture, not the screen. ">Bind</a>();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">else</span>        One.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a977428dad3918f406920190164760f6f" title="All draws after this call will go to the texture, not the screen. ">Bind</a>();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            FX-&gt;Enable();</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            CRenderer::EnableTexture(final_texture);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            FX-&gt;Disable();</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            final_texture = even ? Two.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8" title="Get the raw render target&#39;s texture handle. ">GetTexture</a>() : One.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#ac9dc97a466fa55c77089b61a384b28c8" title="Get the raw render target&#39;s texture handle. ">GetTexture</a>();</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">// Now we have the final scene data in `final_texture`</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// Doesn&#39;t matter which we disable.</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    m_FBO1.<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#aa1e1c94cbadb638ad5f0d084d915b7c0" title="Resume drawing to the screen. ">Unbind</a>();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#a55724770ecc469bc576fbc2edd402432" title="A more user-friendly alias for binding. ">Enable</a>();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    CRenderer::EnableTexture(final_texture);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">if</span>(!m_through) CRenderer::BlendOperation(<a class="code" href="_renderer_8hpp.html#ab736b676d7971dff93d6bf8a4b13c830" title="Disables blending. ">BlendFunc::DISABLE_BLEND</a>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glDisable(GL_DEPTH_TEST));</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="comment">// Make sure the right data is set.</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter. ">SetParameter</a>(<span class="stringliteral">&quot;mv&quot;</span>, <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd">math::matrix4x4_t::GetIdentityMatrix</a>());</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    E.<a class="code" href="classzen_1_1gfx_1_1_c_effect.html#aebfa8bad8c99a5d5b737258827424c41" title="Modifies the effect based on a certain parameter. ">SetParameter</a>(<span class="stringliteral">&quot;proj&quot;</span>, CRenderer::GetProjectionMatrix());</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    FS.<a class="code" href="classzen_1_1gfxcore_1_1_c_vertex_array.html#ad386ce51c382b3588c1316bbddda5135">Draw</a>();</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    CRenderer::EnableTexture(0);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    CRenderer::ResetMaterialState();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">if</span>(!blend &amp;&amp; m_through) CRenderer::BlendOperation(<a class="code" href="_renderer_8hpp.html#ab736b676d7971dff93d6bf8a4b13c830" title="Disables blending. ">BlendFunc::DISABLE_BLEND</a>);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a64f011804bd27564dfa509d42421bf6c">  267</a></span>&#160;int32_t <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a64f011804bd27564dfa509d42421bf6c" title="Returns the queue index of a certain entity (or -1). ">CScene::GetEntityIndex</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; <a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;{</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    int32_t index = -1;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> i : m_allEntities)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        ++index;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">if</span>(i == &amp;D) <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abec7fa7a09742ed866cb84e54aed4e48">  279</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1_c_scene.html#abec7fa7a09742ed866cb84e54aed4e48" title="Verifies the given index is within the valid range. ">CScene::IsValidEntityIndex</a>(int32_t i)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;{</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">return</span> (i &gt; 0 &amp;&amp; i &lt; m_allEntities.size());</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

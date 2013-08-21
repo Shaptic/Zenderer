@@ -1,8 +1,7 @@
 var classzen_1_1asset_1_1_c_asset =
 [
     [ "~CAsset", "classzen_1_1asset_1_1_c_asset.html#a34d3bc4ca78a32392f46b15e6f272ccc", null ],
-    [ "CAsset", "classzen_1_1asset_1_1_c_asset.html#a545ccfdabbcd898fea39617350a54e77", null ],
-    [ "CAsset", "classzen_1_1asset_1_1_c_asset.html#afe42ff44f3521e608b1637e86996a33a", null ],
+    [ "CAsset", "classzen_1_1asset_1_1_c_asset.html#a7660ff0cc7af2aaf0bf4ea611bca29ce", null ],
     [ "LoadFromFile", "classzen_1_1asset_1_1_c_asset.html#a3a5a49d12fc7f291f5de04a7f52757b0", null ],
     [ "LoadFromExisting", "classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a", null ],
     [ "Reload", "classzen_1_1asset_1_1_c_asset.html#a804f623074852da842775ee3c7003597", null ],
@@ -15,7 +14,6 @@ var classzen_1_1asset_1_1_c_asset =
     [ "IsLoaded", "classzen_1_1asset_1_1_c_asset.html#afc4ccb384bf6277fafeca9974ccdf017", null ],
     [ "SetOwner", "classzen_1_1asset_1_1_c_asset.html#ab43b0d72c2e2df204df3f582d10efeba", null ],
     [ "SetFilename", "classzen_1_1asset_1_1_c_asset.html#ace8121bde584098ce51920291346aa30", null ],
-    [ "operator=", "classzen_1_1asset_1_1_c_asset.html#ae4fdd1baab8bd5a2c9a131b65138a099", null ],
     [ "Destroy", "classzen_1_1asset_1_1_c_asset.html#a6c99023b4713d13d9483905b98d69f4d", null ],
     [ "CAssetManager", "classzen_1_1asset_1_1_c_asset.html#aa20cb7dae82bb824a64cb5b5bd8899f9", null ],
     [ "s_seed", "classzen_1_1asset_1_1_c_asset.html#a73d9bc5ded589b308c875d4ea152acf8", null ],

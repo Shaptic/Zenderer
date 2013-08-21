@@ -1,11 +1,8 @@
 <map id="zen::gfxcore::CVertexArray::Init" name="zen::gfxcore::CVertexArray::Init">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="241,5,383,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen. " alt="" coords="440,122,603,163"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="941,188,998,215"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="671,293,817,320"/>
-<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="232,188,392,215"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="886,293,1053,320"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="944,243,995,269"/>
-<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="456,239,587,281"/>
-<area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_menu.html#a5ddf9b4cade6ac1da1b3c4a74ff3e955" title="zen::gui::CMenu::AddButton" alt="" coords="651,243,837,269"/>
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="243,5,384,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen. " alt="" coords="232,70,395,111"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="498,136,555,163"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="240,187,387,213"/>
+<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="443,187,610,213"/>
+<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="501,237,552,264"/>
 </map>

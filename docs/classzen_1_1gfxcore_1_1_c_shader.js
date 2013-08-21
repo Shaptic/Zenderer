@@ -8,5 +8,6 @@ var classzen_1_1gfxcore_1_1_c_shader =
     [ "Destroy", "classzen_1_1gfxcore_1_1_c_shader.html#abce09e8b39114932f80b607fb2faced2", null ],
     [ "GetData", "classzen_1_1gfxcore_1_1_c_shader.html#a6f27513fba2207d5911771046723ee89", null ],
     [ "GetShaderObject", "classzen_1_1gfxcore_1_1_c_shader.html#a3dbb5b95d9819c8021f59f93fc14050b", null ],
-    [ "GetShaderLog", "classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf", null ]
+    [ "GetShaderLog", "classzen_1_1gfxcore_1_1_c_shader.html#a6e6efbfc45a5fb9203f65a3aec0cd1bf", null ],
+    [ "SetType", "classzen_1_1gfxcore_1_1_c_shader.html#aed3875e03a99f1868bd37c4fadc99712", null ]
 ];
