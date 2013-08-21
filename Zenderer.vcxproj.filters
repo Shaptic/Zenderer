@@ -243,6 +243,9 @@
     <ClInclude Include="include\Zenderer\Utilities\Random.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\CoreGraphics\ShaderFiles.hpp">
+      <Filter>Header Files\CoreGraphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
