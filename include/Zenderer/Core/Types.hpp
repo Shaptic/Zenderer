@@ -40,7 +40,7 @@
 
 /// The engine can be built as a DLL, then linked with the generated .lib.
 #if defined(ZENDERER_EXPORTS) && defined(_WIN32)
-  #define ZEN_API// __declspec(dllexport)
+  #define ZEN_API __declspec(dllexport)
 #else
   #ifdef ZEN_DEBUG_BUILD
     #define ZEN_API
