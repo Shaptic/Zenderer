@@ -58,11 +58,14 @@ namespace gfxcore
          * @see     gfxcore::DrawBatch
          **/
         CDrawable(const CDrawable& Copy);
+        CDrawable(CDrawable&& Copy);
+
+        // These are disabled due to the asset manager reference
+        // not able to being copied (dat wording).
+        //CDrawable& operator=(const CDrawable& Copy) = delete;
+        //CDrawable& operator=(CDrawable&& Copy) = delete;
 
         virtual ~CDrawable();
-
-        // No assigning primitives to each other.
-        CDrawable& operator=(const CDrawable&);
 
         /// Creates initial vertex structure.
         /// @return Reference to itself for easy chaining.

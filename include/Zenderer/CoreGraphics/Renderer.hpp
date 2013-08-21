@@ -96,7 +96,8 @@ namespace gfxcore
         static gfx::CMaterial*      s_DefaultMaterial;
         static math::matrix4x4_t    s_ProjMatrix;
         static BlendFunc            s_LastBlend;
-        static bool                 s_blend, s_wf;
+        static bool                 s_blend;
+        static bool                 s_wf;
     };
 
     #include "Renderer.inl"

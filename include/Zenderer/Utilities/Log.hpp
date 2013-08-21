@@ -67,16 +67,18 @@ namespace util
          * @see     CLog::Init()
          * @see     CLog::ToggleStdout()
          **/
-        CLog(const string_t& filename,  const bool show_stdout =
+        CLog(const string_t& filename, const bool show_stdout =
 #ifdef ZEN_DEBUG_BUILD
                 true);
 #else
                 false);
 #endif // ZEN_DEBUG_BUILD
 
+        // Deleting member functions is not implemented in VS2012.
+
         /// Copy constructor does not exist.
-        CLog(const CLog& Copy);// = delete; // unimplemented C++11 feature
-        CLog& operator=(const CLog& Copy); // = delete; // in MSVC
+        CLog(const CLog& Copy)/* = delete*/ {}
+        CLog& operator=(const CLog& Copy)/* = delete;*/ { return *this; }
 
         /**
          * This destructor does nothing but call Destroy().

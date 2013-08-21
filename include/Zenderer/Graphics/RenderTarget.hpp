@@ -75,7 +75,7 @@ namespace gfx
     private:
         util::CLog& m_Log;
 
-        math::vector_t m_OldViewport, m_Viewport;
+        math::vectoru16_t m_OldViewport, m_Viewport;
         math::matrix4x4_t m_ProjMatrix, m_Main;
 
         string_t m_error_str;

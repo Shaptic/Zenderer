@@ -72,8 +72,8 @@ namespace zen
 
     protected:
         /// No copying subsystems.
-        CSubsystem(const CSubsystem&);/*            = delete;*/
-        CSubsystem& operator=(const CSubsystem&);/* = delete;*/
+        //CSubsystem(const CSubsystem&)            = delete;
+        //CSubsystem& operator=(const CSubsystem&) = delete;
 
         static std::vector<CSubsystem*> sp_allSystems;
 

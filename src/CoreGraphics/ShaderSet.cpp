@@ -20,6 +20,28 @@ CShaderSet::~CShaderSet()
     this->Destroy();
 }
 
+CShaderSet::CShaderSet(const CShaderSet& Copy) :
+    m_Log(Copy.m_Log),
+    m_AssetManager(Copy.m_AssetManager),
+    mp_FShader(Copy.mp_FShader),
+    mp_VShader(Copy.mp_VShader),
+    m_error_str(Copy.GetError()),
+    m_link_log(Copy.GetLinkerLog()),
+    m_program(Copy.m_program)
+{
+}
+
+CShaderSet& CShaderSet::operator=(const CShaderSet& Copy)
+{
+    mp_FShader  = Copy.mp_FShader;
+    mp_VShader  = Copy.mp_VShader;
+    m_error_str = Copy.GetError();
+    m_link_log  = Copy.GetLinkerLog();
+    m_program   = Copy.m_program;
+
+    return (*this);
+}
+
 bool CShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
 {
     // Kill any existing shader programs.
@@ -69,6 +91,23 @@ bool CShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
     }
 
     return true;
+}
+
+bool CShaderSet::LoadVertexShaderFromStr(const string_t& str)
+{
+    this->DestroyVS();
+
+    mp_VShader = m_AssetManager.Create<CShader>();
+    return mp_VShader->LoadFromRaw(str);
+    return true;
+}
+
+bool CShaderSet::LoadFragmentShaderFromStr(const string_t& str)
+{
+    this->DestroyFS();
+
+    mp_VShader = m_AssetManager.Create<CShader>();
+    return mp_VShader->LoadFromRaw(str);
 }
 
 bool CShaderSet::CreateShaderObject()

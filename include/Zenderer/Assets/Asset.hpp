@@ -120,8 +120,8 @@ namespace asset
         CAsset(const void* const owner = nullptr);
 
         /// No copy or assignment of assets.
-        CAsset(const CAsset& Disabled);             /* = delete; */
-        CAsset& operator=(const CAsset& Disabled); /* = delete; */
+        //CAsset(const CAsset& Disabled)            = delete;
+        //CAsset& operator=(const CAsset& Disabled) = delete;
 
         virtual bool Destroy() = 0;
 
