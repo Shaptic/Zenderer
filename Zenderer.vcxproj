@@ -48,6 +48,7 @@
     <IncludePath>$(MSBuildProjectDirectory)/include/Zenderer/External;$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -76,10 +77,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>ZENDERER_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -108,6 +112,7 @@
     <ClInclude Include="include\Zenderer\CoreGraphics\OpenGL.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Renderer.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Shader.hpp" />
+    <ClInclude Include="include\Zenderer\CoreGraphics\ShaderFiles.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\ShaderSet.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Sorter.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Texture.hpp" />
