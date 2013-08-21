@@ -1,7 +1,7 @@
 /**
  * @file
- *  Zenderer/CoreGraphics/ShaderFiles.hpp - Constants for raw shader data, 
- *  generated from a script to prevent distributing raw shader files in 
+ *  Zenderer/CoreGraphics/ShaderFiles.hpp - Constants for raw shader data,
+ *  generated from a script to prevent distributing raw shader files in
  *  public release binaries.
  *
  * @author      George Kudrayvtsev (halcyon)
@@ -187,7 +187,7 @@ namespace gfxcore
         "    sum += texture2D(texture, vec2(fs_texc.x + 4.0*radius, fs_texc.y)) * 0.05;\n"
 
         "    final_color = sum * fs_color;\n"
-        "\n"
+        "}\n"
     );
 
     /// Created from data/shaders/GaussianBlurV.fs.
@@ -219,7 +219,7 @@ namespace gfxcore
         "    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 4.0*radius))  * 0.05;\n"
 
         "    final_color = sum * fs_color;\n"
-        "\n"
+        "}\n"
     );
 
     /// Created from data/shaders/Grayscale.fs.
