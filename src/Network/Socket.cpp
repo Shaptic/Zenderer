@@ -188,14 +188,27 @@ int CSocket::GetError() const
 
 string_t CSocket::GetAddress(sockaddr_in& addr)
 {
+    // We would like to support Windows XP and above.
+#ifdef _WIN32
+    return string_t(inet_ntoa(addr.sin_addr));
+#else
     char ip[INET_ADDRSTRLEN] = {0};
     inet_ntop(AF_INET, &(addr.sin_addr), ip, INET_ADDRSTRLEN);
     return string_t(ip);
+#endif // _WIN32
 }
 
 in_addr CSocket::GetAddress(const std::string& ip)
 {
     in_addr s;
+
+    // We would like to support Windows XP and above.
+#ifdef _WIN32
+    s.S_un.S_addr = inet_addr(ip.c_str());
+#else
     inet_pton(AF_INET, ip.c_str(), &s);
+#endif // _WIN32
+
     return s;
 }
+

@@ -43,7 +43,7 @@ string_t build_packet(PacketType type, const string_t& data);
 #ifdef ZEN_DEBUG_BUILD || !defined(_WIN32)
 int main()
 #elif defined(_WIN32)
-int WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowCmd)
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowCmd)
 #endif // ZEN_DEBUG_BUILD
 {
     if(!Init()) return 1;
