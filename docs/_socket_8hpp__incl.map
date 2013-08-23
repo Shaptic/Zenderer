@@ -1,6 +1,7 @@
 <map id="Zenderer/include/Zenderer/Network/Socket.hpp" name="Zenderer/include/Zenderer/Network/Socket.hpp">
-<area shape="rect" id="node2" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="5,187,171,213"/>
-<area shape="rect" id="node5" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file. " alt="" coords="339,97,457,138"/>
-<area shape="rect" id="node10" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling. " alt="" coords="559,187,769,213"/>
-<area shape="rect" id="node12" href="$_log_8inl.html" title="Log.inl" alt="" coords="794,187,853,213"/>
+<area shape="rect" id="node2" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="791,277,957,304"/>
+<area shape="rect" id="node5" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file. " alt="" coords="502,187,620,229"/>
+<area shape="rect" id="node13" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime. " alt="" coords="669,97,787,138"/>
+<area shape="rect" id="node10" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling. " alt="" coords="5,277,216,304"/>
+<area shape="rect" id="node12" href="$_log_8inl.html" title="Log.inl" alt="" coords="291,277,351,304"/>
 </map>

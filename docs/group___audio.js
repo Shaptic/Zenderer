@@ -9,8 +9,7 @@ var group___audio =
         [ "volume", "classzen_1_1sfx_1_1_c_audio2_d.html#a5fd045f2ca9d936822c8030ac686e3c1", null ]
       ] ],
       [ "~CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html#a5dc7ca735e0d95c26f112cf483245540", null ],
-      [ "CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html#ab6329654013c50dc824d0806a9d2abe9", null ],
-      [ "CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html#a162cbd74091084e92a2ab87b38513f2c", null ],
+      [ "CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html#ac9da50dd9b2bee52e7a7cf1460d4f115", null ],
       [ "LoadFromFile", "classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819", null ],
       [ "Play", "classzen_1_1sfx_1_1_c_audio2_d.html#a3b7e239fe6c2e676845fc385c4b7bab2", null ],
       [ "Update", "classzen_1_1sfx_1_1_c_audio2_d.html#ab2f2dcf0135d07daf4ac735ee59daec5", null ],

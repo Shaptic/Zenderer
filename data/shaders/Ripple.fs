@@ -1,4 +1,4 @@
-#version 330
+#version 330 core
 
 uniform float       rate;
 uniform float       time;   // time in seconds

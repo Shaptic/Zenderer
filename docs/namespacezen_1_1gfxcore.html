@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('namespacezen_1_1gfxcore.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -373,24 +373,24 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2    fs_texc;    // Texture coordinates from VS&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4    fs_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2    fs_texc;    // Texture coordinates from VS\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4    fs_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform vec3        light_col;  // Light color&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       light_brt;  // Light brightness&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform vec3        light_col;  // Light color\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       light_brt;  // Light brightness\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   geometry;   // texture with scene rendered to it&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   geometry;   // texture with scene rendered to it\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec4    out_color;  // Output color&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec4    out_color;  // Output color\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color   = light_brt * vec4(light_col, 1.0);&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color  *= fs_color;// * texture2D(geometry, fs_texc);&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color   = light_brt * vec4(light_col, 1.0);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color  *= fs_color;// * texture2D(geometry, fs_texc);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
 <p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00036">36</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
@@ -414,22 +414,22 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       tc_offset;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform vec2        tc_start;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       tc_offset;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform vec2        tc_start;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    vec2 coord= vec2(tc_start.s + (fs_texc.s * tc_offset), tc_start.t + fs_texc.t);&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color = texture2D(texture, coord) * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    vec2 coord= vec2(tc_start.s + (fs_texc.s * tc_offset), tc_start.t + fs_texc.t);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color = texture2D(texture, coord) * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
 <p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00057">57</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
@@ -453,20 +453,20 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform vec2        tc_offset;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform vec2        tc_offset;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color = texture2D(texture, fs_texc + tc_offset) * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color = texture2D(texture, fs_texc + tc_offset) * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
 <p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00076">76</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
@@ -490,29 +490,28 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 420 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;layout(location=0) in vec3  vs_vertex;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;layout(location=1) in vec2  vs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;layout(location=2) in vec4  vs_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;layout(location=0) in vec3  vs_vertex;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;layout(location=1) in vec2  vs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;layout(location=2) in vec4  vs_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform mat4    proj;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform mat4    mv;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float   x_shear;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform mat4    proj;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform mat4    mv;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec3 fs_vertex;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec4 fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec2 fs_texc;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec3 fs_vertex;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec4 fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec2 fs_texc;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    gl_Position = proj * mv * vec4(vs_vertex, 1.0);&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    gl_Position = proj * mv * vec4(vs_vertex, 1.0);\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;    fs_color    = vs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    fs_texc     = vs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    fs_vertex   = vs_vertex;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    fs_color    = vs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    fs_texc     = vs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    fs_vertex   = vs_vertex;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
 <p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00093">93</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
@@ -536,25 +535,25 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       alpha;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform vec2        tc_offset;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       alpha;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform vec2        tc_offset;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    vec4 final = texture2D(texture, fs_texc + tc_offset) * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color  = vec4(alpha * final.rgb, final.a);&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    vec4 final = texture2D(texture, fs_texc + tc_offset) * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color  = vec4(alpha * final.rgb, final.a);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00119">119</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00118">118</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -575,31 +574,31 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 420 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;layout(location=0) in vec2  vs_vertex;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;layout(location=1) in vec2  vs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;layout(location=2) in vec4  vs_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;layout(location=0) in vec2  vs_vertex;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;layout(location=1) in vec2  vs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;layout(location=2) in vec4  vs_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform mat4 proj;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform mat4 mv;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform mat4 proj;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform mat4 mv;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec2 fs_vertex;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec4 fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  out vec2 fs_texc;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec2 fs_vertex;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec4 fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  out vec2 fs_texc;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    gl_Position = proj * mv * vec4(vs_vertex, 1.0, 1.0);&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    gl_Position = proj * mv * vec4(vs_vertex, 1.0, 1.0);\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;    fs_color    = vs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    fs_texc     = vs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    fs_vertex   = sign(vs_vertex.xy) * 0.5 + 0.5;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    fs_color    = vs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    fs_texc     = vs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    fs_vertex   = sign(vs_vertex.xy) * 0.5 + 0.5;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00138">138</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00137">137</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -620,38 +619,38 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth in vec2      fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth in vec4      fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth out vec4     final_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth in vec2      fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth in vec4      fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth out vec4     final_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       radius;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       radius;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;// Performs a vertical blur by sampling 9 pixels.&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;void main(void)&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    vec4 sum = vec4(0.0);&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;// Performs a vertical blur by sampling 9 pixels.\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main(void)\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    vec4 sum = vec4(0.0);\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;    // blur in y (horizontal)&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    // take nine samples, with the distance &#39;radius&#39; between them&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - 4.0*radius, fs_texc.y)) * 0.05;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - 3.0*radius, fs_texc.y)) * 0.09;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - 2.0*radius, fs_texc.y)) * 0.12;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - radius, fs_texc.y))     * 0.15;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y))              * 0.16;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + radius, fs_texc.y))     * 0.15;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + 2.0*radius, fs_texc.y)) * 0.12;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + 3.0*radius, fs_texc.y)) * 0.09;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + 4.0*radius, fs_texc.y)) * 0.05;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    // blur in y (horizontal)\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    // take nine samples, with the distance &#39;radius&#39; between them\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - 4.0*radius, fs_texc.y)) * 0.05;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - 3.0*radius, fs_texc.y)) * 0.09;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - 2.0*radius, fs_texc.y)) * 0.12;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x - radius, fs_texc.y))     * 0.15;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y))              * 0.16;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + radius, fs_texc.y))     * 0.15;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + 2.0*radius, fs_texc.y)) * 0.12;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + 3.0*radius, fs_texc.y)) * 0.09;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x + 4.0*radius, fs_texc.y)) * 0.05;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;    final_color = sum * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    final_color = sum * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00163">163</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00162">162</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -672,38 +671,38 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth in vec2      fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth in vec4      fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth out vec4     final_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth in vec2      fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth in vec4      fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth out vec4     final_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       radius;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       radius;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;// Performs a horizontal blur by sampling 9 pixels.&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;void main(void)&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    vec4 sum = vec4(0.0);&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;// Performs a horizontal blur by sampling 9 pixels.\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main(void)\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    vec4 sum = vec4(0.0);\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;    // blur in y (vertical)&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    // take nine samples, with the distance &#39;radius&#39; between them&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 4.0*radius))  * 0.05;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 3.0*radius))  * 0.09;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 2.0*radius))  * 0.12;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - radius))      * 0.15;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y))               * 0.16;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + radius))      * 0.15;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 2.0*radius))  * 0.12;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 3.0*radius))  * 0.09;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 4.0*radius))  * 0.05;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    // blur in y (vertical)\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    // take nine samples, with the distance &#39;radius&#39; between them\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 4.0*radius))  * 0.05;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 3.0*radius))  * 0.09;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - 2.0*radius))  * 0.12;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y - radius))      * 0.15;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y))               * 0.16;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + radius))      * 0.15;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 2.0*radius))  * 0.12;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 3.0*radius))  * 0.09;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    sum += texture2D(texture, vec2(fs_texc.x, fs_texc.y + 4.0*radius))  * 0.05;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;    final_color = sum * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    final_color = sum * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00195">195</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00194">194</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -724,24 +723,24 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2    fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4    fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;        out vec4    out_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2    fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4    fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;        out vec4    out_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    vec4 color = texture2D(texture, fs_texc);&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color  = vec4(color.rgb * gray, color.a);&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    vec4 color = texture2D(texture, fs_texc);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color  = vec4(color.rgb * gray, color.a);\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00227">227</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00226">226</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -763,7 +762,7 @@ icount</td>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00245">245</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00244">244</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -784,28 +783,28 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       rate;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform float       time;   // time in seconds&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   tex;    // scene buffer&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       rate;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform float       time;   // time in seconds\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   tex;    // scene buffer\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2 fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4 fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;        out vec4 out_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main(void)&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;  vec2 pos  = -1.0 + 2.0 * fs_texc;//gl_FragCoord.xy / res;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;  float len = length(pos * max(0.2, time * rate));&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;  vec2 uv   = fs_texc + (pos / len) * cos(len * 12.0 - time * 4.0) * 0.03;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main(void)\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;  vec2 pos  = -1.0 + 2.0 * fs_texc;//gl_FragCoord.xy / res;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;  float len = length(pos * max(0.2, time * rate));\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;  vec2 uv   = fs_texc + (pos / len) * cos(len * 12.0 - time * 4.0) * 0.03;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;  out_color = texture2D(tex, uv) * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;  out_color = texture2D(tex, uv) * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00284">284</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00283">283</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -827,7 +826,7 @@ icount</td>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00306">306</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00305">305</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>
@@ -848,26 +847,26 @@ icount</td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(</div>
-<div class="line">        <span class="stringliteral">&quot;#version 330 core&quot;</span></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="_string_8hpp.html#a6a53ed918f712e7f9ce6ba4b0c9980a4">string_t</a>(</div>
+<div class="line">        <span class="stringliteral">&quot;#version 330 core\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform sampler2D   texture;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2    fs_texc;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4    fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;        out vec4    out_color;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec2    fs_texc;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;smooth  in  vec4    fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;        out vec4    out_color;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;uniform vec2    offset;&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;uniform vec2    offset;\n&quot;</span></div>
 <div class="line"></div>
-<div class="line">        <span class="stringliteral">&quot;void main()&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;{&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    out_color = texture2D(texture, fs_texc).rrrr * fs_color;&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;    //+ normalize(offset));&quot;</span></div>
-<div class="line">        <span class="stringliteral">&quot;}&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;void main()\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;{\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    out_color = texture2D(texture, fs_texc).rrrr * fs_color;\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;    //+ normalize(offset));\n&quot;</span></div>
+<div class="line">        <span class="stringliteral">&quot;}\n&quot;</span></div>
 <div class="line"></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00355">355</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_shader_files_8hpp_source.html#l00354">354</a> of file <a class="el" href="_shader_files_8hpp_source.html">ShaderFiles.hpp</a>.</p>
 
 </div>
 </div>

@@ -35,7 +35,7 @@ def main():
             string = ''
             
             if line.strip() != '':
-                string = '%s"%s"' % ((' ' * 8), line[:-1])
+                string = '%s"%s\\n"' % ((' ' * 8), line[:-1])
                 
             data.append(string + '\n')
             

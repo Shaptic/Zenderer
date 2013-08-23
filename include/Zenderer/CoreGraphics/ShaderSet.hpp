@@ -27,6 +27,7 @@
 #include <sstream>
 
 #include "Zenderer/Assets/AssetManager.hpp"
+#include "Zenderer/Utilities/Assert.hpp"
 #include "Shader.hpp"
 
 namespace zen
@@ -44,27 +45,8 @@ namespace gfxcore
         ~CShaderSet();
 
         /// Shallow-copy of internal shader objects.
-        CShaderSet(const CShaderSet& Copy) :
-            m_Log(Copy.m_Log),
-            m_AssetManager(Copy.m_AssetManager),
-            mp_FShader(Copy.mp_FShader),
-            mp_VShader(Copy.mp_VShader),
-            m_error_str(Copy.GetError()),
-            m_link_log(Copy.GetLinkerLog()),
-            m_program(Copy.m_program)
-        {
-        }
-
-        CShaderSet& operator=(const CShaderSet& Copy)
-        {
-            mp_FShader  = Copy.mp_FShader;
-            mp_VShader  = Copy.mp_VShader;
-            m_error_str = Copy.GetError();
-            m_link_log  = Copy.GetLinkerLog();
-            m_program   = Copy.m_program;
-
-            return (*this);
-        }
+        CShaderSet(const CShaderSet& Copy);
+        CShaderSet& operator=(const CShaderSet& Copy);
 
         /**
          * Loads a set of shader assets from a file.

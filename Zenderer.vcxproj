@@ -48,6 +48,7 @@
     <IncludePath>$(MSBuildProjectDirectory)/include/Zenderer/External;$(MSBuildProjectDirectory)/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(MSBuildProjectDirectory)/lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(MSBuildProjectDirectory)/src;$(SourcePath)</SourcePath>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -76,19 +77,22 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>ZENDERER_EXPORTS;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>rmdir /S /Q docs &amp; cd $(SolutionDir) &amp; update.py &amp; cd docs/html &amp; xcopy * "$(MSBuildProjectDirectory)/docs" /S /I /C /Y &amp; cd "$(MSBuildProjectDirectory)/data" &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ../docs &amp; del /S *.md5 &amp; cd ..</Command>
+      <Command>rmdir /S /Q docs &amp; cd $(SolutionDir) &amp; update.py &amp; cd docs/html &amp; del /S *.md5 &amp; xcopy * "$(MSBuildProjectDirectory)/docs" /S /I /C /Y &amp; cd "$(MSBuildProjectDirectory)/data" &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ../docs &amp; cd ..</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying documentation to repo and engine assets to output directory. </Message>
@@ -108,6 +112,7 @@
     <ClInclude Include="include\Zenderer\CoreGraphics\OpenGL.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Renderer.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Shader.hpp" />
+    <ClInclude Include="include\Zenderer\CoreGraphics\ShaderFiles.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\ShaderSet.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Sorter.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Texture.hpp" />

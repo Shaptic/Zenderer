@@ -30,5 +30,6 @@ var searchData=
   ['four',['FOUR',['../_keyboard_8hpp.html#a0a04eb9a514fbe0829cf48049cc69fc7',1,'Keyboard.hpp']]],
   ['free',['Free',['../classzen_1_1_c_allocator.html#aa5d0e8e44055abcbd9beec44a968fb0d',1,'zen::CAllocator']]],
   ['freesource',['FreeSource',['../classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01',1,'zen::sfx::CAudioManager']]],
+  ['front',['front',['../class_c_string.html#a45c2be61775b7b022ebcff899d81b3f0',1,'CString']]],
   ['file_20specifications',['File Specifications',['../specs.html',1,'']]]
 ];

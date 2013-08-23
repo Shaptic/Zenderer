@@ -9,7 +9,6 @@ var searchData=
   ['vector_2einl',['Vector.inl',['../_vector_8inl.html',1,'']]],
   ['vector_3c_20real_5ft_20_3e',['Vector&lt; real_t &gt;',['../structzen_1_1math_1_1_vector.html',1,'zen::math']]],
   ['vector_3c_20uint16_5ft_20_3e',['Vector&lt; uint16_t &gt;',['../structzen_1_1math_1_1_vector.html',1,'zen::math']]],
-  ['vector_3c_20uint32_5ft_20_3e',['Vector&lt; uint32_t &gt;',['../structzen_1_1math_1_1_vector.html',1,'zen::math']]],
   ['vector_5ft',['vector_t',['../group___math.html#classzen_1_1math_1_1vector__t',1,'zen::math']]],
   ['vector_5ft',['vector_t',['../namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c',1,'zen::math']]],
   ['vectorf_5ft',['vectorf_t',['../namespacezen_1_1math.html#a73db4a585e2e07333d41f039e5b89885',1,'zen::math']]],

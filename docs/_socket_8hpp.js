@@ -21,7 +21,6 @@ var _socket_8hpp =
       [ "seq", "namespacezen_1_1net.html#affedb683eefdc0c6b52311d6b6717f94", null ],
       [ "time", "namespacezen_1_1net.html#a9b65aa8dff3f8ac633a4fe2f9f40c16f", null ]
     ] ],
-    [ "CSocket", "classzen_1_1net_1_1_c_socket.html", "classzen_1_1net_1_1_c_socket" ],
     [ "ICMPReply", "_socket_8hpp.html#a33ebebe7a4cced99e9948d626fc57e18", [
       [ "ICMP_ECHO_REPLY", "_socket_8hpp.html#a33ebebe7a4cced99e9948d626fc57e18a5e4e888312c06d9457e6f40e9692453a", null ],
       [ "ICMP_DEST_UNREACHABLE", "_socket_8hpp.html#a33ebebe7a4cced99e9948d626fc57e18af1a3fd0f7869e515dd2903e3d528a73e", null ],

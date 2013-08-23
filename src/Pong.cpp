@@ -40,7 +40,11 @@ math::vector_t make_ball();
 bool parse_msg(const string_t& data, PongPacket& P);
 string_t build_packet(PacketType type, const string_t& data);
 
+#ifdef ZEN_DEBUG_BUILD || !defined(_WIN32)
 int main()
+#elif defined(_WIN32)
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowCmd)
+#endif // ZEN_DEBUG_BUILD
 {
     if(!Init()) return 1;
     util::CSettings Settings;
@@ -387,8 +391,8 @@ int main()
                     // following format:
                     // ball_x;ball_y;ball_dx;ball_dy
                     std::stringstream ss;
-                    ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-                       << -ball_d.x   << ';' << ball_d.y;
+                    ss << Main.GetWidth() - Ball.GetX() << ';' << Ball.GetY()
+                       << ';' << -ball_d.x   << ';' << ball_d.y;
 
                     Socket.SendTo(tmpaddr, tmpport, build_packet(
                         PacketType::SYNC, ss.str()
@@ -421,7 +425,7 @@ int main()
     Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
 
     // Network status.
-    bool losing = false, lost = false, kk = true;
+    bool losing = false, lost = false, kk = false;
     bool scored = false;
 
     while(Main.IsOpen())
@@ -443,7 +447,8 @@ int main()
             // With a ping, send the ball position just so that we get
             // a decent sync up.
             ss.str(std::string());
-            ss << Ball.GetX() << ';' << Ball.GetY() << ';'
+            ss << (is_start ? Main.GetWidth() - Ball.GetX() : Ball.GetX())
+               << ';' << Ball.GetY() << ';'
                << (is_start ? -ball_d.x : ball_d.x) << ';' << ball_d.y;
 
             Socket.SendTo(Connection.first, Connection.second, build_packet(
@@ -494,7 +499,7 @@ int main()
         }
 
         // Ball hit the left player's wall.
-        if(Ball.GetX() <= -Ball.GetW())
+        if(Ball.GetX() <= -Ball.GetW() && !scored)
         {
             Font.ClearString();
             Font << Scores.x << "    |    " << ++Scores.y;
@@ -504,7 +509,7 @@ int main()
         }
 
         // Ball hit the right player's wall.
-        else if(Ball.GetX() >= Main.GetWidth())
+        else if(Ball.GetX() >= Main.GetWidth() && !scored)
         {
             Font.ClearString();
             Font << ++Scores.x << "    |    " << Scores.y;
@@ -564,7 +569,7 @@ int main()
             Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
             ball_d = make_ball();
             std::stringstream ss;
-            ss << Ball.GetX() << ';' << Ball.GetY() << ';'
+            ss << Main.GetWidth() - Ball.GetX() << ';' << Ball.GetY() << ';'
                << -ball_d.x    << ';' << ball_d.y;
 
             Socket.SendTo(Connection.first, Connection.second,
@@ -612,7 +617,7 @@ int main()
                 {
                     std::stringstream ss;
                     ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-                       << -ball_d.x   << ';' << ball_d.y;
+                       << ball_d.x    << ';' << ball_d.y;
 
                     Socket.SendTo(Connection.first, Connection.second,
                                   build_packet(PacketType::SYNC,
@@ -648,8 +653,9 @@ int main()
                     if(is_start)
                     {
                         std::stringstream ss;
-                        ss << Ball.GetX() << ';' << Ball.GetY() << ';'
-                           << -ball_d.x   << ';' << ball_d.y;
+                        ss << Main.GetWidth() - Ball.GetX() << ';'
+                           << Ball.GetY() << ';' << -ball_d.x
+                           << ';' << ball_d.y;
 
                         Socket.SendTo(Connection.first, Connection.second,
                                       build_packet(PacketType::SYNC,
@@ -662,6 +668,10 @@ int main()
                     }
                 }
 
+                // "scored" is set when... well... someone scores. And another
+                // point cannot be made until the flag is unset.
+                // Thus we need to unset it when we sync up.
+                scored = false;
                 break;
             }
             }

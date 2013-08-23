@@ -1,13 +1,4 @@
 <map id="zen::obj::CEntity::GetPosition" name="zen::obj::CEntity::GetPosition">
-<area shape="rect" id="node2" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file. " alt="" coords="817,5,943,46"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1_c_entity.html#a63e5f09fdd8171e4a8f783b78eb3e430" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="182,190,309,231"/>
-<area shape="rect" id="node12" href="$classzen_1_1obj_1_1_c_entity.html#a5b4a9fff87254d468462e82229bd7490" title="zen::obj::CEntity::\lAdjust" alt="" coords="182,387,309,429"/>
-<area shape="rect" id="node4" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1025,205,1076,232"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="1022,71,1079,97"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="357,117,560,144"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="388,219,529,261"/>
-<area shape="rect" id="node8" href="$classzen_1_1gui_1_1_c_button.html#aa4165c2363eef8f791ca901d62bc9fd9" title="zen::gui::CButton::\lSetBackground" alt="" coords="608,187,739,229"/>
-<area shape="rect" id="node10" href="$classzen_1_1gui_1_1_c_font.html#ad7f89420db0c36338953a05f967a1166" title="Stores render data in the provided for easy rendering. " alt="" coords="379,67,539,93"/>
-<area shape="rect" id="node9" href="$classzen_1_1gui_1_1_c_menu.html#a5ddf9b4cade6ac1da1b3c4a74ff3e955" title="zen::gui::CMenu::AddButton" alt="" coords="787,161,973,188"/>
-<area shape="rect" id="node11" href="$classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906" title="zen::gui::CButton::\lPrepare" alt="" coords="608,122,739,163"/>
+<area shape="rect" id="node2" href="$classzen_1_1obj_1_1_c_entity.html#a5b4a9fff87254d468462e82229bd7490" title="zen::obj::CEntity::\lAdjust" alt="" coords="182,5,309,46"/>
+<area shape="rect" id="node3" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="220,71,271,97"/>
 </map>

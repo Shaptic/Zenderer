@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -116,36 +116,36 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa">    6</a></span>&#160;CMenu::CMenu(<a class="code" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context. ">gfx::CWindow</a>&amp; Window, <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::CAssetManager</a>&amp; Assets) :</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    m_Background(m_Scene.AddEntity()), mp_Font(Assets.Create&lt;gui::<a class="code" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class. ">CFont</a>&gt;()),</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    m_Title(m_Scene.AddEntity()),</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    mp_Bg(nullptr), m_spacing(0)</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. ">Init</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_menuActions.clear();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6">DisableLighting</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d">DisablePostProcessing</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures. ">AttachManager</a>(Assets);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab2ab7e24e646bcb61ad0b9d8484f2604">   19</a></span>&#160;<a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab2ab7e24e646bcb61ad0b9d8484f2604">CMenu::~CMenu</a>()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a7cd402e9baf35c2819a4351744f6c6bd">Destroy</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions) <span class="keyword">delete</span> i.first;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    m_menuActions.clear();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a1056e360f408ebd11153275ad8a30e89">   26</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a1056e360f408ebd11153275ad8a30e89">CMenu::HandleEvent</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events. ">evt::event_t</a>&amp; Evt)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span>(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">type</a> == <a class="code" href="_event_8hpp.html#a71268aba539dd623daf02e3b77ca897f">evt::EventType::MOUSE_MOTION</a>)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a> MouseBox(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <a class="code" href="structzen_1_1math_1_1_vector.html">math::Vector&lt;uint32_t&gt;</a>(2, 2));</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span>(i.first-&gt;IsOver(MouseBox))</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                i.first-&gt;SetActive();</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    mp_Font(Assets.Create&lt;gui::<a class="code" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class. ">CFont</a>&gt;()),</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    mp_Bg(nullptr), m_spacing(0)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. ">Init</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_menuActions.clear();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a0b61113ef961ed0a10a47c665a2e4fa6">DisableLighting</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a9498b02d4699e36e9c193e06ea8f778d">DisablePostProcessing</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures. ">AttachManager</a>(Assets);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab2ab7e24e646bcb61ad0b9d8484f2604">   18</a></span>&#160;<a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab2ab7e24e646bcb61ad0b9d8484f2604">CMenu::~CMenu</a>()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a7cd402e9baf35c2819a4351744f6c6bd">Destroy</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions) <span class="keyword">delete</span> i.first;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_menuActions.clear();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a1056e360f408ebd11153275ad8a30e89">   25</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a1056e360f408ebd11153275ad8a30e89">CMenu::HandleEvent</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events. ">evt::event_t</a>&amp; Evt)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">type</a> == <a class="code" href="_event_8hpp.html#a71268aba539dd623daf02e3b77ca897f">evt::EventType::MOUSE_MOTION</a>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a> MouseBox(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">math::Vector&lt;uint32_t&gt;</a>(2, 2));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span>(i.first-&gt;IsOver(MouseBox))</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                i.first-&gt;SetActive();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520" title="Event location. ">button</a> == <a class="code" href="_keyboard_8hpp.html#a2349c85ca7362adcde4c67fbd81a4432">evt::MouseButton::LEFT</a>)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a> MouseBox(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="structzen_1_1math_1_1_vector.html">math::Vector&lt;uint32_t&gt;</a>(2, 2));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">math::Vector&lt;uint32_t&gt;</a>(2, 2));</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">size_t</span> index = 0;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
@@ -176,7 +176,7 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a5ddf9b4cade6ac1da1b3c4a74ff3e955">   68</a></span>&#160;uint16_t <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a5ddf9b4cade6ac1da1b3c4a74ff3e955">CMenu::AddButton</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">size_t</span>)&gt; handler)</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#afe6cf555588c62c0bfd1266964738fb4">   68</a></span>&#160;uint16_t <a class="code" href="classzen_1_1gui_1_1_c_menu.html#afe6cf555588c62c0bfd1266964738fb4">CMenu::AddButton</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">size_t</span>)&gt; handler)</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classzen_1_1gui_1_1_c_button.html">CButton</a>* pNew = <span class="keyword">new</span> <a class="code" href="classzen_1_1gui_1_1_c_button.html">CButton</a>(m_Scene);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1_c_button.html#a9cb7b22a6ee45b202b8c40106b4cdd2f">SetFont</a>(*mp_Font);</div>
@@ -193,48 +193,58 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Credit where credit is due:</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// @Griwes for this optimization.</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    m_menuActions.emplace(std::make_pair(pNew, std::move(handler)));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    m_menuActions.emplace_back(std::make_pair(pNew, std::move(handler)));</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> m_menuActions.size() - 1;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639">   90</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639">CMenu::Update</a>()</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ae0733fc98531ae0192937f87ffab1f5b">   90</a></span>&#160;<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; <a class="code" href="classzen_1_1gui_1_1_c_menu.html#ae0733fc98531ae0192937f87ffab1f5b">CMenu::AddEntity</a>()</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. ">Render</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#ae9bf1c452fcfd96a2549f5a5f77a770e" title="Adds an unloaded, managed entity to the scene. ">AddEntity</a>();</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a7e7472b56e75b3d8de5cf4ba2bab0178">   95</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a7e7472b56e75b3d8de5cf4ba2bab0178">CMenu::SetFont</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size)</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a710e614f6705ef730d53780c1864aa2b">   95</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a710e614f6705ef730d53780c1864aa2b">CMenu::RenderWithFont</a>(<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; Obj, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#a28a9a49d3ab9feb6595cd6e4a8468f26" title="Sets the font size. ">SetSize</a>(size);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">bool</span> ret = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk. ">LoadFromFile</a>(filename);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    m_spacing = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#ad31a2ed5991e0fd75a82e7626ef260bc">GetLineHeight</a>();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a3db35e7b3990601712bf3fcec8f1e67b">  103</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a3db35e7b3990601712bf3fcec8f1e67b">CMenu::SetButtonBackground</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; Bg)</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    mp_Bg = &amp;Bg;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a5765bd4b4bcf821cf68783195e67fe8d">  108</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a5765bd4b4bcf821cf68783195e67fe8d">CMenu::SetNormalButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    m_ncolor = Color;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#aa50c1fd782063837efffbb7bed1e6841" title="Stores render data in the provided for easy rendering. ">Render</a>(Obj, str);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639">  100</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639">CMenu::Update</a>()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. ">Render</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#aef42a74422a3d63ddfaf073269833472">  105</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#aef42a74422a3d63ddfaf073269833472">CMenu::SetFont</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#a28a9a49d3ab9feb6595cd6e4a8468f26" title="Sets the font size. ">SetSize</a>(size);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> ret = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk. ">LoadFromFile</a>(filename);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    m_spacing = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1_c_font.html#ad31a2ed5991e0fd75a82e7626ef260bc">GetLineHeight</a>();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab54af6d3448d85ea3693e0d20244af1e">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab54af6d3448d85ea3693e0d20244af1e">CMenu::SetActiveButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a3db35e7b3990601712bf3fcec8f1e67b">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a3db35e7b3990601712bf3fcec8f1e67b">CMenu::SetButtonBackground</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; Bg)</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    m_acolor = Color;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    mp_Bg = &amp;Bg;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ae1d6bd48b5fe23604b1d3752b1b12868">  118</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#ae1d6bd48b5fe23604b1d3752b1b12868">CMenu::SetInitialButtonPosition</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a5765bd4b4bcf821cf68783195e67fe8d">  118</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a5765bd4b4bcf821cf68783195e67fe8d">CMenu::SetNormalButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    m_Position = Pos;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    m_ncolor = Color;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a0e54f4a703d93cdeba184dbc737fa04b">  123</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a0e54f4a703d93cdeba184dbc737fa04b">CMenu::SetSpacing</a>(<span class="keyword">const</span> uint16_t vertical_spacing)</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab54af6d3448d85ea3693e0d20244af1e">  123</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#ab54af6d3448d85ea3693e0d20244af1e">CMenu::SetActiveButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    m_spacing = vertical_spacing;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    m_acolor = Color;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#ae1d6bd48b5fe23604b1d3752b1b12868">  128</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#ae1d6bd48b5fe23604b1d3752b1b12868">CMenu::SetInitialButtonPosition</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    m_Position = Pos;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html#a0e54f4a703d93cdeba184dbc737fa04b">  133</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1_c_menu.html#a0e54f4a703d93cdeba184dbc737fa04b">CMenu::SetSpacing</a>(<span class="keyword">const</span> uint16_t vertical_spacing)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    m_spacing = vertical_spacing;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

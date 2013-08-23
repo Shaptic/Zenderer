@@ -1,4 +1,4 @@
-#version 420 core
+#version 330 core
 
 layout(location=0) in vec3  vs_vertex;
 layout(location=1) in vec2  vs_texc;
@@ -6,7 +6,6 @@ layout(location=2) in vec4  vs_color;
 
 uniform mat4    proj;
 uniform mat4    mv;
-uniform float   x_shear;
 
 smooth  out vec3 fs_vertex;
 smooth  out vec4 fs_color;

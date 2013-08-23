@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('index.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,7 +114,7 @@ About Me</h2>
  My current pet project is <em>Praecursor</em>, an awesome concept game in the form of a 2D platformer. The main game mechanic revolves around time manipulation to get through levels and past enemies. For now, though, that's on hold while I recover my bearings and put some time into this rendering engine to (hopefully) vastly improve what was brought about in <em>IronClad</em>. Feel free to check out my blog <a href="http://zenpandainteractive.blogspot.com">here</a> or my GitHub <a href="https://www.github.com/Ruskiy69">here</a>. You can also follow <em>Praecursor's</em> progress on Twitter <a href="https://www.twitter.com/PraecursorGame">here</a>, though it will probably be slow going for a while, with my job taking up most of my development energy and this engine taking everything else.</p>
 <h1><a class="anchor" id="install"></a>
 Installation</h1>
-<p>Installing <em>Zenderer</em> is quite trivial. All you need are the header files found in <code>Zenderer/include</code>, and all of the dependency libraries you can find in the <code>lib</code> directory of the project root. There is currently only support for Windows (<em>gasp</em>), due to the fact that I use Visual Studio and the Microsoft compiler for 95% of my C++ development. Thus, I can't guarantee any sort of cross-platform compatibility. But, this is obviously a potential TODO for when everything else has been taken care of.</p>
+<p>Installing <em>Zenderer</em> is quite trivial. All you need are the header files found in <code>Zenderer/include</code>, and all of the dependency libraries you can find in the <code>lib</code> directory of the project root. There is currently only support for Windows (<em>gasp</em>), due to the fact that I use Visual Studio and the Microsoft compiler for 95% of my C++ development. Thus, I can't guarantee any sort of cross-platform compatibility. But, this is obviously a potential TODO for when everything else has been taken care of. The only definite requirement for building <em>Zenderer</em> is a C++11-compatible compiler with a functional <code>&lt;regex&gt;</code> implementation.</p>
 <p>There are various dependencies for this engine. Luckily, they are all cross platform and are relatively easy to build from source. They are as follows:</p>
 <ul>
 <li>GLEW (OpenGL Extension Wrangler Library)</li>
@@ -124,7 +124,7 @@ Installation</h1>
 <li>libvorbis (OGG/Vorbis Audio Compression Algorithm)</li>
 </ul>
 <p>The headers for these files are located in the <code>Zenderer/External/</code> include path. By default, this path is added to the include search directories for the VS2012 project, so if you are using a different build system, be sure to do likewise.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Test cross-platform compatibility.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>Test cross-platform compatibility.</dd></dl>
 <h1><a class="anchor" id="prep"></a>
 Preprocessor Defines</h1>
 <p>There are several preprocessor directives that can be set to slightly modify the behavior of the engine at runtime. They are outlined below.</p>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -148,17 +148,17 @@ $(document).ready(function(){initNavTree('_log_8inl_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> CLog::SetFilename(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; fn)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> CLog::SetFilename(<span class="keyword">const</span> <a class="code" href="class_c_string.html">string_t</a>&amp; fn)</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    m_filename = fn;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; CLog::GetSystem()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">const</span> <a class="code" href="class_c_string.html">string_t</a>&amp; CLog::GetSystem()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> m_system;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> CLog::GetFilename()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="class_c_string.html">string_t</a> CLog::GetFilename()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> m_filename;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>

@@ -222,8 +222,7 @@ bool CScene::Render()
         CRenderTarget& One = m_lighting ? m_FBO2 : m_FBO1;
         CRenderTarget& Two = m_lighting ? m_FBO1 : m_FBO2;
 
-        auto i = m_allPPFX.begin(),
-             j = m_allPPFX.end();
+        auto i = m_allPPFX.begin(), j = m_allPPFX.end();
 
         for(size_t c = 0; i != j; ++i, ++c)
         {

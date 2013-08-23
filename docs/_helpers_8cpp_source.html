@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -135,13 +135,13 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> text;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="_helpers_8cpp.html#a5cf1868cee4ac9e791c21dafb8cd99dc">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a82b0a427c202f3d5fd7941d0d58d2f5c" title="Strips leading and trailing whitespace from a string (in-place). ">strip</a>(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text)</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="_helpers_8cpp.html#a5cf1868cee4ac9e791c21dafb8cd99dc">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#a82b0a427c202f3d5fd7941d0d58d2f5c" title="Strips leading and trailing whitespace from a string (in-place). ">strip</a>(<a class="code" href="class_c_string.html">string_t</a>&amp; text)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    text = text.substr(text.find_first_not_of(<span class="stringliteral">&quot; \t&quot;</span>),</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                       text.find_last_not_of (<span class="stringliteral">&quot; \t&quot;</span>));</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="_helpers_8cpp.html#a9f3bbb6e37795c9c5392ef3f36a458e7">   33</a></span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> <a class="code" href="namespacezen_1_1util.html#a82b0a427c202f3d5fd7941d0d58d2f5c" title="Strips leading and trailing whitespace from a string (in-place). ">strip</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text)</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="_helpers_8cpp.html#a9f3bbb6e37795c9c5392ef3f36a458e7">   33</a></span>&#160;<a class="code" href="class_c_string.html">string_t</a> <a class="code" href="namespacezen_1_1util.html#a82b0a427c202f3d5fd7941d0d58d2f5c" title="Strips leading and trailing whitespace from a string (in-place). ">strip</a>(<span class="keyword">const</span> <a class="code" href="class_c_string.html">string_t</a>&amp; text)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> text.substr(text.find_first_not_of(<span class="stringliteral">&quot; \t&quot;</span>),</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                       text.find_last_not_of (<span class="stringliteral">&quot; \t&quot;</span>));</div>
@@ -152,59 +152,42 @@ $(document).ready(function(){initNavTree('_helpers_8cpp_source.html','');});
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                  <span class="keyword">const</span> <span class="keywordtype">size_t</span> approx)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::vector&lt;string_t&gt; splitResults;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">size_t</span> last = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span>(approx) splitResults.resize(approx);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span>(approx) splitResults.resize(approx);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>( ; ; )</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">auto</span> i = text.begin(), j = text.end();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">auto</span> last = i;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>( ; i != j; )</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">size_t</span> index = text.find(delim, last);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">size_t</span> next  = index - 1;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span>(index != string_t::npos)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="comment">// Skip block of delimiters.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">while</span>(text[++index] == delim &amp;&amp; index &lt; text.length());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">// Block till end? Done.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span>(index &gt;= text.length()) <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="comment">// Find next one.</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            next = text.find(delim, index + 1);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="comment">// Add and repeat.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            splitResults.emplace_back(text.substr(index, next - index));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="comment">// Add everything that&#39;s left.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            splitResults.emplace_back(text.substr(last, index));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Start further in the string.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        last = next;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(!splitResults.empty());</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> splitResults;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff">   83</a></span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">util::toupper</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> result(str);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : result)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        i = <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">::toupper</a>(i);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4">   92</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">util::toupper</a>(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : str)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        i = <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">::toupper</a>(i);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span>(*i == delim)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            splitResults.emplace_back(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(last, i));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            last = ++i;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            ++i;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    splitResults.emplace_back(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>(last, j));</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(!splitResults.empty());</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> splitResults;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff">   66</a></span>&#160;<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">util::toupper</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> result(str);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : result)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        i = <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">::toupper</a>(i);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4">   75</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">util::toupper</a>(<a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : str)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        i = <a class="code" href="namespacezen_1_1util.html#abcd46d2b51e6e06f9d9c64e3d252c9ff" title="Converts an immutable string to its uppercase equivalent. ">::toupper</a>(i);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

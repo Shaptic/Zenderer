@@ -78,6 +78,7 @@ namespace gfx
         }
 
         /// @todo   Use Gaussian Blur vertex shaders.
+        /// @todo   Add logging for shader type in Release builds.
         bool Init();
         bool Destroy();
 

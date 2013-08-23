@@ -1,6 +1,6 @@
 var classzen_1_1util_1_1_c_settings =
 [
-    [ "CSettings", "classzen_1_1util_1_1_c_settings.html#afc603312b4f5a4506dd0b342db01f0ca", null ],
+    [ "CSettings", "classzen_1_1util_1_1_c_settings.html#ad772a4f72bc8f38791e746d1de451d95", null ],
     [ "~CSettings", "classzen_1_1util_1_1_c_settings.html#a2e529f0e906c1abb97f6aede2ae91292", null ],
     [ "Init", "classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550", null ],
     [ "Destroy", "classzen_1_1util_1_1_c_settings.html#ae08be94f7ac820aa5e61abb1d48c9adf", null ],

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.4.2-alpha</span>
+   &#160;<span id="projectnumber">2.10.8-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 7990 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('todo.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,21 +104,23 @@ $(document).ready(function(){initNavTree('todo.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000023"></a>page <a class="el" href="index.html">Main Page</a>  </dt>
+<dt><a class="anchor" id="_todo000025"></a>page <a class="el" href="index.html">Main Page</a>  </dt>
 <dd>Test cross-platform compatibility. </dd>
 <dt><a class="anchor" id="_todo000001"></a>Global <a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html#a42ee278bf92387e58908e744e35d89e0">zen::asset::CAssetManager::Create</a>  (const void *const owner=nullptr)</dt>
 <dd>Make this return a reference.  </dd>
 <dt><a class="anchor" id="_todo000006"></a>Class <a class="el" href="classzen_1_1evt_1_1_c_event_handler.html">zen::evt::CEventHandler</a>  </dt>
 <dd>Window events / callback. </dd>
 <dt><a class="anchor" id="_todo000008"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_effect.html#a50e90b0eca7a078c18d25bf910832674">zen::gfx::CEffect::Init</a>  ()</dt>
-<dd>Use Gaussian Blur vertex shaders.  </dd>
+<dd><p class="startdd">Use Gaussian Blur vertex shaders. </p>
+<p class="enddd">Add logging for shader type in Release builds.  </p>
+</dd>
 <dt><a class="anchor" id="_todo000015"></a>Class <a class="el" href="group___g_u_i.html">zen::gfx::CFont</a>  </dt>
 <dd><p class="startdd">Utilize a texture atlas instead of individual quads </p>
 <p class="enddd">Implement SDFF technique (<a href="https://forum.libcinder.org/topic/signed-distance-field-font-rendering">https://forum.libcinder.org/topic/signed-distance-field-font-rendering</a>) </p>
 </dd>
 <dt><a class="anchor" id="_todo000009"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_light.html">zen::gfx::CLight</a>  </dt>
 <dd>Investigate why the <code>scr_height</code> shader parameter is necessary.  </dd>
-<dt><a class="anchor" id="_todo000025"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">zen::gfx::CLight::SetPosition</a>  (const real_t x, const real_t y)</dt>
+<dt><a class="anchor" id="_todo000027"></a>Global <a class="el" href="classzen_1_1gfx_1_1_c_light.html#ae0e20c2400ebd02ba93d53aab025c6c4">zen::gfx::CLight::SetPosition</a>  (const real_t x, const real_t y)</dt>
 <dd>Figure out why the 200px offset is necessary.  </dd>
 <dt><a class="anchor" id="_todo000010"></a>Class <a class="el" href="classzen_1_1gfx_1_1_c_scene.html">zen::gfx::CScene</a>  </dt>
 <dd>Test post-processing. </dd>
@@ -140,19 +142,23 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <dd>Add documentation.  </dd>
 <dt><a class="anchor" id="_todo000005"></a>Class <a class="el" href="classzen_1_1gfxcore_1_1_c_vertex_array.html">zen::gfxcore::CVertexArray</a>  </dt>
 <dd>More documentation. </dd>
-<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">zen::math::matrix4x4_t::Shear</a>  (const math::vector_t &amp;Angles)</dt>
+<dt><a class="anchor" id="_todo000017"></a>Class <a class="el" href="classzen_1_1gui_1_1_c_menu.html">zen::gui::CMenu</a>  </dt>
+<dd>Document the API.  </dd>
+<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">zen::math::matrix4x4_t::Shear</a>  (const math::vector_t &amp;Angles)</dt>
 <dd>Add 3D shearing.  </dd>
-<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="structzen_1_1math_1_1_vector.html#a4c3f5ddb7f6cb13b8a46fa563baee493">zen::math::Vector&lt; T &gt;::distance</a>  (const Vector&lt; T &gt; &amp;A, const Vector&lt; U &gt; &amp;B, const bool do_sqrt=false)</dt>
+<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="structzen_1_1math_1_1_vector.html#a4c3f5ddb7f6cb13b8a46fa563baee493">zen::math::Vector&lt; T &gt;::distance</a>  (const Vector&lt; T &gt; &amp;A, const Vector&lt; U &gt; &amp;B, const bool do_sqrt=false)</dt>
 <dd>Investigate potential problems between a signed and unsigned <code>Vector&lt;T&gt;</code> or <code>Vector&lt;U&gt;</code>.  </dd>
-<dt><a class="anchor" id="_todo000018"></a>Class <a class="el" href="group___math.html">zen::math::vector_t</a>  </dt>
+<dt><a class="anchor" id="_todo000019"></a>Class <a class="el" href="group___math.html">zen::math::vector_t</a>  </dt>
 <dd>Add support for translation via matrices. </dd>
-<dt><a class="anchor" id="_todo000020"></a>Class <a class="el" href="classzen_1_1obj_1_1_c_entity.html">zen::obj::CEntity</a>  </dt>
+<dt><a class="anchor" id="_todo000021"></a>Class <a class="el" href="classzen_1_1net_1_1_c_socket.html">zen::net::CSocket</a>  </dt>
+<dd>Support for TCP, <code>connect()</code>, etc. </dd>
+<dt><a class="anchor" id="_todo000022"></a>Class <a class="el" href="classzen_1_1obj_1_1_c_entity.html">zen::obj::CEntity</a>  </dt>
 <dd>Allow for additional primitives not to stack up.  </dd>
-<dt><a class="anchor" id="_todo000021"></a>Global <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a670a1ae47b5e60e281382c6a5c21e53d">zen::obj::CEntity::Move</a>  (const math::vector_t &amp;Pos)</dt>
+<dt><a class="anchor" id="_todo000023"></a>Global <a class="el" href="classzen_1_1obj_1_1_c_entity.html#a670a1ae47b5e60e281382c6a5c21e53d">zen::obj::CEntity::Move</a>  (const math::vector_t &amp;Pos)</dt>
 <dd>Support a variety of primitive depths.  </dd>
-<dt><a class="anchor" id="_todo000024"></a>Global <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D::LoadFromFile</a>  (const string_t &amp;filename)</dt>
+<dt><a class="anchor" id="_todo000026"></a>Global <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D::LoadFromFile</a>  (const string_t &amp;filename)</dt>
 <dd>Use some standardized WAV loading library.  </dd>
-<dt><a class="anchor" id="_todo000022"></a>Class <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html">zen::util::CXMLParser</a>  </dt>
+<dt><a class="anchor" id="_todo000024"></a>Class <a class="el" href="classzen_1_1util_1_1_c_x_m_l_parser.html">zen::util::CXMLParser</a>  </dt>
 <dd>Fix XMLNode parent setting </dd>
 </dl>
 </div></div><!-- contents -->

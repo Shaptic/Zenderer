@@ -42,6 +42,26 @@ CDrawable::CDrawable(const CDrawable& Copy) :
         mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
 }
 
+CDrawable::CDrawable(CDrawable&& Copy) :
+    m_Assets(Copy.m_Assets),
+    mp_VAO(nullptr), m_Material(m_Assets),
+    mp_MVMatrix(Copy.mp_MVMatrix), m_offset(0),
+    m_internal(false)
+{
+    m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
+    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+
+    m_DrawData.vcount   = Copy.m_DrawData.vcount;
+    m_DrawData.icount   = Copy.m_DrawData.icount;
+    m_DrawData.Vertices = Copy.m_DrawData.Vertices;
+    m_DrawData.Indices  = Copy.m_DrawData.Indices;
+
+    Copy.m_DrawData.Vertices = nullptr;
+    Copy.m_DrawData.Indices  = nullptr;
+
+    ZEN_ASSERT(m_DrawData.vcount > 0 && m_DrawData.icount > 0);
+}
+
 CDrawable::~CDrawable()
 {
     if(m_internal) delete mp_VAO;

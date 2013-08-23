@@ -7,7 +7,7 @@ var classzen_1_1gui_1_1_c_button =
     [ "Prepare", "classzen_1_1gui_1_1_c_button.html#a4a314bae5681152c2e9d7e62c027c906", null ],
     [ "IsOver", "classzen_1_1gui_1_1_c_button.html#a50801c1e8b7daf027903b19718a07ac1", null ],
     [ "IsOver", "classzen_1_1gui_1_1_c_button.html#a2ee73b8473eb4476ea4204d1b06e0ac3", null ],
-    [ "SetActive", "classzen_1_1gui_1_1_c_button.html#a6f1a72400853322c40c7a81e510a0ea4", null ],
+    [ "SetActive", "classzen_1_1gui_1_1_c_button.html#a04ad5448b6513d860f75a1986c981490", null ],
     [ "SetDefault", "classzen_1_1gui_1_1_c_button.html#a63558b308cbae31f8e4f4e8d132021e4", null ],
     [ "SetFont", "classzen_1_1gui_1_1_c_button.html#a9cb7b22a6ee45b202b8c40106b4cdd2f", null ],
     [ "SetActiveColor", "classzen_1_1gui_1_1_c_button.html#aed4a01efb9936a0cf6faa90f63061124", null ],

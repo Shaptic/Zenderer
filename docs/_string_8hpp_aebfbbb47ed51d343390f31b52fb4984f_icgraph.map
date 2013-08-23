@@ -1,0 +1,17 @@
+<map id="now" name="now">
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee" title="Opens a file stream with a custom filename given in the ctor. " alt="" coords="113,216,244,243"/>
+<area shape="rect" id="node3" href="$classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream. " alt="" coords="99,267,258,293"/>
+<area shape="rect" id="node13" href="$classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae" title="Marks start time and returns it. " alt="" coords="523,339,648,381"/>
+<area shape="rect" id="node14" href="$classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd" title="Marks finish time and returns it. " alt="" coords="116,369,241,410"/>
+<area shape="rect" id="node15" href="$classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame&#45;rate. " alt="" coords="523,405,648,446"/>
+<area shape="rect" id="node16" href="$classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c" title="Returns the current clock time. " alt="" coords="116,486,241,527"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy(). " alt="" coords="307,267,459,293"/>
+<area shape="rect" id="node5" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. " alt="" coords="349,163,417,189"/>
+<area shape="rect" id="node12" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer. " alt="" coords="548,288,623,315"/>
+<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="759,313,817,340"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_window.html#a5a43bdacc8a996a71bfa0255796145e8" title="Initializes the subsystem. " alt="" coords="507,187,663,213"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1_c_window.html#a3339fcf4250c24f03448f1b8c51c2012" title="Enables fullscreen mode. " alt="" coords="516,5,655,46"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1_c_window.html#afd3587d5359dc9b8ac1adc0758f05a84" title="zen::gfx::CWindow::\lDisableFullscreen" alt="" coords="516,70,655,111"/>
+<area shape="rect" id="node9" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="763,263,813,289"/>
+<area shape="rect" id="node8" href="$namespacezen_1_1gfx.html#ab9130ea3e18d1f2b786c19700fe32ed8" title="zen::gfx::error_window" alt="" coords="713,187,863,213"/>
+</map>

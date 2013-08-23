@@ -157,3 +157,8 @@ const string_t& CShader::GetShaderLog() const
 {
     return m_shader_log;
 }
+
+void CShader::SetType(const GLenum shader_type)
+{
+    m_type = shader_type;
+}
