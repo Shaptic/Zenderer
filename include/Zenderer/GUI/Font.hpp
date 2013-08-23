@@ -27,7 +27,7 @@
 #include "freetype/freetype.h"
 #include "freetype/ftglyph.h"
 
-#include "Zenderer/Utilities/Log.hpp"
+#include "Zenderer/Utilities/Utilities.hpp"
 
 // Include necessary Zenderer API files for rendering bitmaps to entities.
 #include "Zenderer/CoreGraphics/VertexArray.hpp"

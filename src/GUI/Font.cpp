@@ -354,7 +354,8 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     gfxcore::CTexture* pTexture = mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     std::stringstream ss;
-    ss << "Size " << m_size << " texture bitmap for '" << c << '\'';
+    ss << "s" << m_size << " bitmap for '" << c << "' ("
+       << util::hash(bitmap.buffer, w*h*3) << ')';
     pTexture->SetFilename(ss.str());
 
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
