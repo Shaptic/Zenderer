@@ -210,8 +210,6 @@ void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
 
 bool CEntity::Offloaded() const
 {
-    if(mp_allPrims.empty()) return false;
-
     for(auto& i : mp_allPrims)
     {
         if(i->m_DrawData.Vertices != nullptr ||
@@ -237,10 +235,10 @@ bool CEntity::Collides(const math::vector_t& pos)
     return m_Box.collides(math::aabb_t(pos, math::vector_t(1, 1)));
 }
 
-void CEntity::SetDepth(uint16_t depth)
+void CEntity::SetDepth(uint8_t depth)
 {
     // Limit depth to 8-bit values (256).
-    clamp<uint16_t>(depth, 0U, 1U << 8);
+    clamp<uint8_t>(depth, 0U, 1U << 8);
     m_depth = depth;
     //m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
     //m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
@@ -285,6 +283,7 @@ void CEntity::Destroy()
     }
 
     mp_allPrims.clear();
+    mp_allPrims.shrink_to_fit();
 }
 
 bool CEntity::FileError(const string_t& filename,
