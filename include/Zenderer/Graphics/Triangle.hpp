@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/Graphics/Triangle.hpp - A drawable primitive with 4 vertices.
+ *  Zenderer/Graphics/Triangle.hpp - A drawable primitive with 3 vertices.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -49,7 +49,7 @@ namespace gfx
         }
 
         CTriangle(const CTriangle& Copy);
-        ~CTriangle();
+        ~CTriangle() {}
 
         virtual CDrawable& Create()
         {
@@ -74,22 +74,16 @@ namespace gfx
             return (*this);
         }
 
-        uint16_t GetW() const
-        {
-            return m_Size.x;
-        }
-
-        uint16_t GetH() const
-        {
-            return m_Size.y;
-        }
+        inline uint16_t GetW() const { return m_Size.x; }
+        inline uint16_t GetH() const { return m_Size.y; }
 
     private:
         void LoadVertexData()
         {
-            m_DrawData.Vertices[0].position = m_Verts[0];
-            m_DrawData.Vertices[1].position = m_Verts[1];
-            m_DrawData.Vertices[2].position = m_Verts[2];
+            for(uint8_t i = 0; i < m_DrawData.vcount; ++i)
+            {
+                m_DrawData.Vertices[i].position = m_Verts[i];
+            }
         }
 
         void LoadSize()
