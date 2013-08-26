@@ -48,7 +48,18 @@ namespace gfx
             this->LoadSize();
         }
 
-        CTriangle(const CTriangle& Copy);
+        CTriangle(const CTriangle& Copy)
+        {
+            this->operator=(Copy);
+        }
+        
+        CTriangle& operator=(const CTriangle& Copy)
+        {
+            std::copy(Copy.m_Verts.begin(), Copy.m_Verts.end(), m_Verts.begin());
+            this->LoadSize();
+            return *this;
+        }
+        
         ~CTriangle() {}
 
         virtual CDrawable& Create()
