@@ -168,52 +168,6 @@ bool CEntity::Optimize()
     return false;
 }
 
-void CEntity::Destroy()
-{
-    for(auto& i : mp_allPrims)
-    {
-        delete i;
-        i = nullptr;
-    }
-
-    mp_allPrims.clear();
-}
-
-bool CEntity::FileError(const string_t& filename,
-                        const string_t& line, const uint32_t line_no,
-                        const ErrorType& Err)
-{
-    m_Log << m_Log.SetMode(LogMode::ZEN_ERROR) << m_Log.SetSystem("Entity")
-          << "Error while parsing '" << filename << "' on line " << line_no
-          << ": " << line << "(";
-
-    switch(Err)
-    {
-    case ErrorType::BAD_PAIR:
-        m_Log << "bad key=value pair";
-        break;
-
-    case ErrorType::BAD_POSITION:
-        m_Log << "position must at least contain x,y coordinates";
-        break;
-
-    case ErrorType::BAD_MATERIAL:
-        m_Log << "failed to load material file";
-        break;
-
-    case ErrorType::NO_TEXTURE:
-        m_Log << "no texture specified for primitive";
-        break;
-
-    default:
-        m_Log << "unknown parsing error";
-        break;
-    }
-
-    m_Log << ")." << CLog::endl;
-    return false;
-}
-
 bool CEntity::Draw(bool is_bound /*= false*/)
 {
     if(!m_enabled) return false;
@@ -268,6 +222,21 @@ bool CEntity::Offloaded() const
     return true;
 }
 
+bool CEntity::Collides(const CEntity& Other)
+{
+    return m_Box.collides(Other.GetBox());
+}
+
+bool CEntity::Collides(const math::rect_t& other)
+{
+    return m_Box.collides(math::aabb_t(other));
+}
+
+bool CEntity::Collides(const math::vector_t& pos)
+{
+    return m_Box.collides(math::aabb_t(pos, math::vector_t(1, 1)));
+}
+
 void CEntity::SetDepth(uint16_t depth)
 {
     // Limit depth to 8-bit values (256).
@@ -305,4 +274,50 @@ std::vector<gfx::CQuad*>::const_iterator CEntity::cbegin() const
 std::vector<gfx::CQuad*>::const_iterator CEntity::cend() const
 {
     return mp_allPrims.cend();
+}
+
+void CEntity::Destroy()
+{
+    for(auto& i : mp_allPrims)
+    {
+        delete i;
+        i = nullptr;
+    }
+
+    mp_allPrims.clear();
+}
+
+bool CEntity::FileError(const string_t& filename,
+                        const string_t& line, const uint32_t line_no,
+                        const ErrorType& Err)
+{
+    m_Log << m_Log.SetMode(LogMode::ZEN_ERROR) << m_Log.SetSystem("Entity")
+          << "Error while parsing '" << filename << "' on line " << line_no
+          << ": " << line << "(";
+
+    switch(Err)
+    {
+    case ErrorType::BAD_PAIR:
+        m_Log << "bad key=value pair";
+        break;
+
+    case ErrorType::BAD_POSITION:
+        m_Log << "position must at least contain x,y coordinates";
+        break;
+
+    case ErrorType::BAD_MATERIAL:
+        m_Log << "failed to load material file";
+        break;
+
+    case ErrorType::NO_TEXTURE:
+        m_Log << "no texture specified for primitive";
+        break;
+
+    default:
+        m_Log << "unknown parsing error";
+        break;
+    }
+
+    m_Log << ")." << CLog::endl;
+    return false;
 }

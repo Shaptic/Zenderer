@@ -205,12 +205,17 @@ namespace obj
          * @warning The data will stay on the GPU, occupying precious video
          *          memory, until the gfxcore::CVertexArray is cleared.
          *
-         * @see     zen::gfxcore::CVertexArray::Clear()
+         * @see     gfxcore::CVertexArray::Clear()
          **/
         void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
 
         /// Checks if the entity has offloaded any vertex data to a GPU buffer.
         bool Offloaded() const;
+        
+        /// Checks collision with another entity.
+        bool Collides(const CEntity& Other);
+        bool Collides(const math::rect_t& other);   ///< @overload
+        bool Collides(const math::vector_t& Pos);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint16_t depth);

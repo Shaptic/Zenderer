@@ -1,5 +1,5 @@
 # Zenderer #
-v2.11.0-alpha  
+v2.12.0-alpha  
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
@@ -26,7 +26,7 @@ Visual Studio and the Microsoft compiler for 95% of my C++ development.
 Thus, I can't guarantee any sort of cross-platform compatibility. But,
 this is obviously a potential `todo` for when everything else has been taken
 care of. The only definite requirement for building *Zenderer* is a
- C++11-compatible compiler with a functional `<regex>` implementation.
+C++11-compatible compiler with a functional `<regex>` implementation.
 
 There are various binary dependencies for this engine. Luckily, they are all
 cross platform and are relatively easy to build from source. They are
