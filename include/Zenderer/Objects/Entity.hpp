@@ -155,7 +155,21 @@ namespace obj
 
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
-
+        
+        /**
+         * Places an object in the center of a window.
+         *  This is a common operation, especially for placing labels
+         *  and such on screens, so I've provided a simplistic wrapper for
+         *  the task.
+         *  It's essentially Move(Screen Width  / 2 - Width  / 2,
+         *                        Screen Height / 2 - Height / 2)
+         **/
+        inline void Center(const gfx::CWindow& Window)
+        {
+            this->Move(Window.GetWidth()  / 2 - this->GetW() / 2,
+                       Window.GetHeight() / 2 - this->GetH() / 2);
+        }
+        
         /**
          * Adjusts an entity's position based on some values.
          *
