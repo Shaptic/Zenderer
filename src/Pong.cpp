@@ -30,9 +30,9 @@ struct PongPacket
 
 typedef std::pair<string_t, string_t> addr_t;
 
-static const string_t PONG_HOST_PORT("2013");   ///< When hosting.
-static const string_t PONG_JOIN_PORT("2014");   ///< When joining.
-static const uint16_t MAX_PONG = sizeof(PongPacket) + 254;
+static const string_t PONG_HOST_PORT("2013");   // When hosting.
+static const string_t PONG_JOIN_PORT("2014");   // When joining.
+static const uint16_t MAX_PONG = sizeof(PongPacket)+254;
 static const uint16_t MIN_PONG = 9;
 
 util::CRandom<> RNG;
@@ -47,8 +47,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 #endif // ZEN_DEBUG_BUILD
 {
     if(!Init()) return 1;
-    util::CSettings Settings;
-    Settings.Init();
 
     asset::CAssetManager Assets; Assets.Init();
     gfx::CWindow Main(800, 600, "Networked Pong 2.0", Assets);
@@ -68,8 +66,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     obj::CEntity& Ball          = Field.AddEntity();
     gfx::CLight& BallLight      = Field.AddLight(gfx::LightType::ZEN_POINT);
 
-    gfx::CQuad Paddle(Assets, 8, 64);
-    Paddle.Create();
+    gfx::CQuad Paddle(Assets, 8, 64); Paddle.Create();
     Paddle.SetColor(color4f_t(1.0, 1.0, 1.0));
 
     LeftPaddle.AddPrimitive(Paddle);
@@ -79,6 +76,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     LeftPaddle.Move(0, Main.GetHeight() / 2 - LeftPaddle.GetH() / 2);
     RightPaddle.Move(Main.GetWidth() - RightPaddle.GetW(),
                      Main.GetHeight() / 2 - RightPaddle.GetH() / 2);
+    Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
     BallLight.Enable();
     BallLight.SetAttenuation(0.005, 0.01, 0.0);
@@ -87,12 +85,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     BallLight.SetPosition(Ball.GetPosition());
     BallLight.Disable();
 
-    util::CTimer Timer(60);
-    evt::event_t Evt;
-
     real_t dy = 0.0;
     math::vector_t ball_d = make_ball();
-    Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
     bool host = false, join = false;
 
@@ -108,36 +102,27 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     MainMenu.SetInitialButtonPosition(math::vector_t(64, 200));
     MainMenu.SetSpacing(32);
 
-    MainMenu.AddButton("Host a Game", [&host](size_t) {
-        host = true;
-    });
+    MainMenu.AddButton("Host a Game", [&host](size_t) { host = true; });
+    MainMenu.AddButton("Join a Game", [&join](size_t) { join = true; });
+    MainMenu.AddButton("Quit", [&Main](size_t)        { Main.Close();});
 
-    MainMenu.AddButton("Join a Game", [&join](size_t) {
-        join = true;
-    });
-
-    MainMenu.AddButton("Quit", [&Main](size_t) {
-        Main.Close();
-    });
-
+    util::CTimer Timer(60);
     evt::CEventHandler& Evts = evt::CEventHandler::GetInstance();
+    evt::event_t Evt;
     while(Main.IsOpen() && !(host || join))
     {
+        Timer.Start();
         Evts.PollEvents();
         while(Evts.PopEvent(Evt))
         {
-            Timer.Start();
             MainMenu.HandleEvent(Evt);
-            Timer.Delay();
         }
 
         Main.Clear();
         MainMenu.Update();
         Main.Update();
+        Timer.Delay();
     }
-
-    obj::CEntity& NetStatus = Field.AddEntity();
-    obj::CEntity& Score     = Field.AddEntity();
 
     addr_t Connection;
     net::CSocket Socket(net::SocketType::UDP);
@@ -147,22 +132,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     Font.LoadFromFile("assets/ttf/menu.ttf");
     Font.SetColor(color4f_t(1.0, 1.0, 0.0));
 
-    // Create a near-black background for the light to properly render.
-    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(),
-        Main.GetHeight());
-    pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
-    BG.AddPrimitive(*pQuad);
-    delete pQuad;
-
     if(join)
     {
-        if(!Socket.Init("", PONG_JOIN_PORT))
-        {
-            util::CLog& Log = util::CLog::GetEngineLog();
-            Log << Log.SetMode(util::LogMode::ZEN_ERROR)
-                << Log.SetSystem("Socket") << "Failed to initialize socket: "
-                << Socket.GetError() << '.' << util::CLog::endl;
-        }
+        if(!Socket.Init("", PONG_JOIN_PORT)) { return 1; }
         Socket.SetNonblocking(true);
 
         gui::CMenu HostList(Main, Assets);
@@ -175,7 +147,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         // Add a title to the menu.
         obj::CEntity& Title = HostList.AddEntity();
         HostList.RenderWithFont(Title, "Searching for hosts...");
-        Title.Move(10.0, 10.0);
+        Title.Move(64, 10);
 
         std::vector<addr_t> allHosts;
         int16_t host = -1;
@@ -188,6 +160,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         evt::CEventHandler& Evts = evt::CEventHandler::GetInstance();
         while(Main.IsOpen() && host == -1)
         {
+            Timer.Start();
             Evts.PollEvents();
             while(Evts.PopEvent(Evt))
             {
@@ -195,11 +168,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
             }
 
             // Receive client data.
-            string_t addr, port, data;
-            data = Socket.RecvFrom(MAX_PONG, addr, port);
-
-            // Size before parsing.
-            size_t b4 = allHosts.size();
+            string_t addr, port;
+            string_t data = Socket.RecvFrom(MAX_PONG, addr, port);
 
             // Parse if we can. If so, check if the packet type
             // indicates host availability. If so, make sure that
@@ -207,11 +177,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
             // so, add it to the list of allHosts and post a menu button
             // allowing for the user to choose it.
             if(parse_msg(data, response) &&
-                response.type == PacketType::HOST_AVAIL &&
-                std::find(allHosts.begin(), allHosts.end(),
-                    std::make_pair(addr, port)) == allHosts.end())
+               response.type == PacketType::HOST_AVAIL &&
+               std::find(allHosts.begin(), allHosts.end(),
+                         addr_t(addr, port)) == allHosts.end())
             {
-                allHosts.emplace_back(addr_t(std::make_pair(addr, port)));
+                allHosts.emplace_back(addr_t(addr, port));
                 HostList.AddButton(addr, [&host](size_t i) {
                     host = i;
                 });
@@ -220,6 +190,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
             Main.Clear();
             HostList.Update();
             Main.Update();
+            Timer.Delay();
         }
 
         // User chose a host?
@@ -234,9 +205,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
             Font.ClearString();
             Font << "Attempting to join " << allHosts[host].first << "...";
             Font.Render(Status);
-
-            Status.Move(Main.GetWidth()  / 2 - Status.GetW() / 2,
-                        Main.GetHeight() / 2 - Status.GetH() / 2);
+            Status.Center(Main);
 
             // By the time the user clicked the host, the host may already
             // have lost its HOST_AVAIL status, so we need to check it again.
@@ -409,21 +378,30 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         }
     }
 
+    obj::CEntity& NetStatus = Field.AddEntity();
+    obj::CEntity& Score     = Field.AddEntity();
+    Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
+    
     // Now we have established a connection to another peer (host / client
     // is now irrelevant, except for creating the new ball velocity).
     // Every frame we check for socket data, pinging the client every second,
     // and send our paddle position if it has changed.
     uint32_t frame = 0;
     uint32_t last  = 0;
-
+    
     // Track the scores of both players.
     math::Vector<uint16_t> Scores;
     Font.ClearString();
     Font << Scores.x << "    |    " << Scores.y;
     Font.Render(Score);
-
-    Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
-
+    
+    // Create a near-black background for the light to properly render.
+    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(),
+                                               Main.GetHeight());
+    pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
+    BG.AddPrimitive(*pQuad);
+    delete pQuad;
+    
     // Network status.
     bool losing = false, lost = false, kk = false;
     bool scored = false;
