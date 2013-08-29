@@ -146,11 +146,9 @@ namespace net
          * @see     SendAll()
          * @see     SocketType
          **/
-        int SendTo(const std::string& addr, const std::string& port,
-                   const std::string& data);
+        int SendTo(const string_t& addr, const string_t& port,
+                   const string_t& data);
 
-        /**
-         **/
         int SendBroadcast(const string_t& message, const string_t& port = "");
 
         bool Ping();
@@ -183,7 +181,7 @@ namespace net
 
     private:
         static string_t GetAddress(sockaddr_in& addr);
-        static in_addr GetAddress(const std::string& ip);
+        static in_addr GetAddress(const string_t& ip);
 
         static bool s_init;
         util::CLog& m_Log;
