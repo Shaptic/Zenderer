@@ -31,8 +31,8 @@ bool CAssetManager::Destroy()
 {
     if(this->IsInit())
     {
-        while(!mp_managerAssets.empty())
-            this->Delete(*mp_managerAssets.begin());
+        for(auto& i : mp_managerAssets)
+            delete i;
 
         mp_managerAssets.clear();
     }
@@ -59,7 +59,7 @@ bool CAssetManager::Delete(CAsset* const pAsset)
                 m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
                         << "Decreasing reference count for asset ("
                         << (*b)->GetFilename() << "): "
-                        << (*b)->m_refcount << '.' << util::CLog::endl;
+                        << (*b)->m_refcount << '.' << CLog::endl;
                 return false;
             }
 
