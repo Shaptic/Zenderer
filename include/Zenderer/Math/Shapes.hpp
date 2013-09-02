@@ -75,7 +75,7 @@ namespace math
             return !(tl.x > b.br.x || br.x < b.tl.x ||
                      tl.y > b.br.y || br.y < b.tl.y);
         }
-        
+
         /**
          * Detects collision with a triangle.
          *  This uses the separation of axis theorem (SAT) to perform
@@ -99,7 +99,7 @@ namespace math
         {
             math::vector_t halfsize((br - tl) * 0.5);
             math::vector_t center(tl + halfsize);
-            
+
             math::vector_t verts[3] = {
                 tri[0] - center,
                 tri[1] - center,
@@ -111,7 +111,7 @@ namespace math
                 verts[2] - verts[1],
                 verts[0] - verts[2]
             };
-            
+
             /*
              * Axis tests entail the following:
              *
@@ -126,58 +126,58 @@ namespace math
              *
              * if min > radius or max < -radius there is no collision
              */
-            
+
             // First axis test
-            
+
             real_t p1 = edges[0].y * verts[1].x - edges[0].x * verts[1].y;
             real_t p2 = edges[0].y * verts[2].x - edges[0].x * verts[2].y;
-            real_t r  = std::abs(edges[0].y) * halfsize.x + 
+            real_t r  = std::abs(edges[0].y) * halfsize.x +
                         std::abs(edges[0].x) * halfsize.y;
 
             real_t mn = 0.0, mx = 0.0;
-            if(p2 < p1) { mn = p2; mx = p1; } 
+            if(p2 < p1) { mn = p2; mx = p1; }
             else        { mn = p1; mx = p2; }
-            
+
             if(mn > r || mx < -r) return false;
-            
+
             // Second axis test
-            
+
             p1  = edges[1].y * verts[0].x - edges[1].x * verts[0].y;
             p2  = edges[1].y * verts[1].x - edges[1].x * verts[1].y;
-            r   = std::abs(edges[1].y) * halfsize.x + 
+            r   = std::abs(edges[1].y) * halfsize.x +
                   std::abs(edges[1].x) * halfsize.y;
 
-            if(p1 < p2) { mn = p1; mx = p2; } 
+            if(p1 < p2) { mn = p1; mx = p2; }
             else        { mn = p2; mx = p1; }
-            
+
             if(mn > r || mx < -r) return false;
 
             // Third axis test
 
             p1  = edges[2].y * verts[1].x - edges[2].x * verts[1].y;
             p2  = edges[2].y * verts[2].x - edges[2].x * verts[2].y;
-            r   = std::abs(edges[2].y) * halfsize.x + 
+            r   = std::abs(edges[2].y) * halfsize.x +
                   std::abs(edges[2].x) * halfsize.y;
 
-            if(p2 < p1) { mn = p2; mx = p1; } 
+            if(p2 < p1) { mn = p2; mx = p1; }
             else        { mn = p1; mx = p2; }
-            
+
             if(mn > r || mx < -r) return false;
 
             // min/max check
-            
+
             mn = mx = verts[0].x;
             mn = min<real_t>(min<real_t>(mn, verts[1].x), verts[2].x);
             mx = max<real_t>(max<real_t>(mx, verts[1].x), verts[2].x);
-            
+
             if(mn > halfsize.x || mx < -halfsize.x) return false;
-            
+
             mn = mx = verts[0].y;
             mn = min<real_t>(min<real_t>(mn, verts[1].y), verts[2].y);
             mx = max<real_t>(max<real_t>(mx, verts[1].y), verts[2].y);
-            
+
             if(mn > halfsize.y || mx < -halfsize.y) return false;
-            
+
             return true;
         }
 

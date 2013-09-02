@@ -211,4 +211,3 @@ in_addr CSocket::GetAddress(const string_t& ip)
 
     return s;
 }
-

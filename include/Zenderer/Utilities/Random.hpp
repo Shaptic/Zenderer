@@ -42,7 +42,7 @@ namespace util
         {
             m_RNG.seed(SEED == 0 ? time(nullptr) : SEED);
         }
-        
+
         /**
          * Generates a random integer from the range [`low`, `hi`).
          *
@@ -58,7 +58,7 @@ namespace util
             std::uniform_int_distribution<T> d(low, hi);
             return d(m_RNG);
         }
-        
+
         /**
          * Generates a random real number from the range [`low`, `hi`).
          *
@@ -74,7 +74,7 @@ namespace util
             std::uniform_real_distribution<T> d(low, hi);
             return d(m_RNG);
         }
-        
+
         /**
          * Chooses a random element in the given iterator range.
          *
@@ -95,7 +95,7 @@ namespace util
             std::advance(tmp, this->randint(0, d));
             return *tmp;
         }
-        
+
     private:
         RNG m_RNG;
     };
@@ -107,13 +107,13 @@ namespace util
 /**
  * @class zen::util::CRandom
  * @details
- *  This object provides a thin abstraction layer over the C++11 
- *  `<random>` implementation. It removes the cumbersome instantiation of 
+ *  This object provides a thin abstraction layer over the C++11
+ *  `<random>` implementation. It removes the cumbersome instantiation of
  *  unweildy templates. It also provides convenience member functions
  *  that allow for easily generating ranges of numbers, or choosing
  *  a random element of a container.
  *
- *  Here's the difference between creating a random integer in 
+ *  Here's the difference between creating a random integer in
  *  the range [1, 10) between this wrapper and the standard STL:
  *
  *  @code
@@ -176,7 +176,7 @@ namespace util
  *
  *  // Change a random element to 69:
  *  int& element = Generator.choice(lotsOfStuff.begin(),
- *                                 lotsOfStuff.end()); 
+ *                                 lotsOfStuff.end());
  *  element = 69;
  *  @endcode
  **/

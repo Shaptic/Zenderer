@@ -156,7 +156,7 @@ namespace obj
 
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
-        
+
         /**
          * Places an object in the center of a window.
          *  This is a common operation, especially for placing labels
@@ -170,7 +170,7 @@ namespace obj
             this->Move(Window.GetWidth()  / 2 - this->GetW() / 2,
                        Window.GetHeight() / 2 - this->GetH() / 2);
         }
-        
+
         /**
          * Adjusts an entity's position based on some values.
          *
@@ -226,7 +226,7 @@ namespace obj
 
         /// Checks if the entity has offloaded any vertex data to a GPU buffer.
         bool Offloaded() const;
-        
+
         /// Checks collision with another entity.
         bool Collides(const CEntity& Other);
         bool Collides(const math::rect_t& other);   ///< @overload
