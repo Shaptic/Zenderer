@@ -33,6 +33,7 @@
 
 #include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/Drawable.hpp"
+#include "Zenderer/Graphics/Window.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "Zenderer/Graphics/Quad.hpp"
 #include "Zenderer/Utilities/INIParser.hpp"
@@ -232,7 +233,7 @@ namespace obj
         bool Collides(const math::vector_t& Pos);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
-        void SetDepth(uint16_t depth);
+        void SetDepth(uint8_t depth);
 
         /// Retrieves an immutable reference to the transformation matrix.
         const math::matrix4x4_t& GetTransformation() const;

@@ -423,7 +423,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
             ));
 
             // After pinging, also do a sync just to maintain consistent state.
-            ss.str(std::string());
+            std::stringstream ss;
             ss << (is_start ? Main.GetWidth() - Ball.GetX() : Ball.GetX())
                << ';' << Ball.GetY() << ';'
                << (is_start ? -ball_d.x : ball_d.x) << ';' << ball_d.y;
