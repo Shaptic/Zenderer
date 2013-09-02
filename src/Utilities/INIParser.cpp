@@ -31,26 +31,7 @@ bool CINIParser::LoadFromFile(const string_t& filename)
         return false;
     }
 
-    string_t line;
-    size_t line_no = 0;
-
-    while(std::getline(in, line))
-    {
-        ++line_no;
-
-        util::stripl(line);
-        if(line.empty() || line[0] == '/' || line[0] == '<')
-            continue;
-
-        if(!this->ParseLine(line))
-        {
-            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                    << "Malformed line on line " << line_no
-                    << " of '" << filename << "'." << CLog::endl;
-        }
-    }
-
-    return (line_no > 0);
+    return this->LoadFromStream(in, 0, -1, filename.c_str());
 }
 
 bool CINIParser::LoadFromStream(std::ifstream& file,
@@ -67,7 +48,8 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
     // For debugging.
     size_t line_no = 0;
 
-    while(std::getline(file, line) && file.tellg() < finish)
+    while(std::getline(file, line) && (finish == std::streampos(-1) ||
+                                       file.tellg() < finish))
     {
         ++line_no;
 
@@ -88,7 +70,7 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
     }
 
     file.seekg(start, std::ios::beg);
-    return (!file.bad());
+    return line_no > 0;
 }
 
 void CINIParser::Reset()
