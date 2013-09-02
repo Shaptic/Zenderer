@@ -26,7 +26,6 @@
 #include <vector>
 
 #include "Zenderer/Core/Types.hpp"
-
 #include "Assert.hpp"
 
 namespace zen
@@ -124,9 +123,17 @@ namespace util
         // Initialize the hash to a 'random' value
         uint32_t h = seed ^ size;
 
-        // Mix 4 bytes at a time into the hash
         const unsigned char* data = (const unsigned char*)pdata;
 
+        if(!pdata)
+        {
+            h ^= h >> 13;
+            h *= m;
+            h ^= h >> 15;
+            return h;
+        }
+
+        // Mix 4 bytes at a time into the hash
         while(size >= 4)
         {
             uint32_t k = *(uint32_t*)data;

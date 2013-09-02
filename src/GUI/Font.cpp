@@ -186,15 +186,18 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
         char letter = (c > '~' || c < ' ') ? ' ' : c;
 
         // Shortcut to glyph data.
-        const glyph_t& gl = m_glyphData.find(letter)->second;
+        const auto it = m_glyphData.find(letter);
 
-        if(letter == ' ')
+        // If the character doesn't exist, we just skip it.
+        if(it == m_glyphData.end() || it->first == ' ')
         {
             // Increment position for the next glyph.
-            tmp_tx  += gl.advance;
-            Pos.x   += gl.advance;
+            tmp_tx  += m_glyphData.find(' ')->second.advance;
+            Pos.x   += m_glyphData.find(' ')->second.advance;
             continue;
         }
+
+        const glyph_t& gl = it->second;
 
         /*
          * [i]      : top left
@@ -275,11 +278,14 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
-        // Render each character (skip if unrenderable).
+        // Render each character (skip if unrenderable or no effect).
         if(text[i] > '~' || text[i] <= ' ') continue;
 
-        auto g = m_glyphData.find(text[i]);
-        g->second.texture->Bind();
+        const glyph_t& g = m_glyphData.find(text[i]) == m_glyphData.end()   ?
+                           m_glyphData.find('?')->second                    :
+                           m_glyphData.find(text[i])->second;
+
+        g.texture->Bind();
         GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
             (void*)(sizeof(gfxcore::index_t) * i * 6)));
     }
@@ -340,7 +346,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     if(w == 0 || h == 0)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << "Empty character bitmap for '" << c << '\'' << CLog::endl;
+                << "No character bitmap for '" << c << '\'' << CLog::endl;
     }
 
     // Create the OpenGL texture and store the FreeType bitmap
