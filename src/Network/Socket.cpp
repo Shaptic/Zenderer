@@ -114,8 +114,8 @@ string_t CSocket::RecvFrom(const size_t size, string_t& address,
     return ret;
 }
 
-int CSocket::SendTo(const std::string& addr, const std::string& port,
-                    const std::string& data)
+int CSocket::SendTo(const string_t& addr, const string_t& port,
+                    const string_t& data)
 {
     if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
 
@@ -198,7 +198,7 @@ string_t CSocket::GetAddress(sockaddr_in& addr)
 #endif // _WIN32
 }
 
-in_addr CSocket::GetAddress(const std::string& ip)
+in_addr CSocket::GetAddress(const string_t& ip)
 {
     in_addr s;
 
