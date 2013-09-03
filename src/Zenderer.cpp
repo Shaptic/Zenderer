@@ -52,8 +52,12 @@ bool zen::Init()
         Log << "SUCCESS." << util::CLog::endl;
     }
 
+    Log << "Initializing ";
+
 #ifdef _WIN32
-    Log << "Initializing Winsock: ";
+    Log << "WinSock: ";
+#else
+    Log << "socket API: ";
 #endif // _WIN32
     if(!net::CSocket::InitializeLibrary())
     {
@@ -93,10 +97,11 @@ void zen::Quit()
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
         << "Destroying OpenGL components." << CLog::endl;
 
-    for(auto it = zen::gfxcore::CGLSubsystem::sp_allGLSystems.rbegin();
-        it != zen::gfxcore::CGLSubsystem::sp_allGLSystems.rend(); ++it)
+    for(auto it  = zen::gfxcore::CGLSubsystem::sp_allGLSystems.rbegin();
+             it != zen::gfxcore::CGLSubsystem::sp_allGLSystems.rend();
+           ++it)
     {
-        auto* sys = *it;
+        auto& sys = *it;
         Log << Log.SetMode(LogMode::ZEN_INFO)
             << Log.SetSystem(sys->GetName())
             << "Destroying component." << CLog::endl;
@@ -111,15 +116,13 @@ void zen::Quit()
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
         << "Destroying components." << CLog::endl;
 
-    for(auto it = zen::CSubsystem::sp_allSystems.begin();
-        it != zen::CSubsystem::sp_allSystems.end(); ++it)
+    for(auto& i : zen::CSubsystem::sp_allSystems)
     {
-        auto sys = *it;
         Log << Log.SetMode(LogMode::ZEN_INFO)
-            << Log.SetSystem(sys->GetName())
+            << Log.SetSystem(i->GetName())
             << "Destroying component." << CLog::endl;
 
-        if(!sys->Destroy())
+        if(!i->Destroy())
         {
             Log.SetMode(LogMode::ZEN_ERROR);
             Log << "Failed to destroy component." << CLog::endl;
@@ -127,6 +130,5 @@ void zen::Quit()
     }
 
     glfwTerminate();
-
     Log.Destroy();
 }
