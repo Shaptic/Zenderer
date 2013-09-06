@@ -1,4 +1,5 @@
 *.log
+*.pyc
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
