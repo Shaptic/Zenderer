@@ -10,6 +10,7 @@ std::map<zShaderSet*, GLuint> zShaderSet::s_shaderPrograms;
 uint16_t zShaderSet::s_ID = 1;
 
 zShaderSet::zShaderSet(asset::zAssetManager& Assets) :
+    zGLSubsystem("ShaderSet"),
     m_AssetManager(Assets), m_Log(zLog::GetEngineLog()),
     mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
     m_error_str(""), m_refcount(0), m_ID(0)
@@ -206,7 +207,7 @@ bool zShaderSet::CreateShaderObject()
         "too many shader programs; material ID will not be unique");
 
     s_shaderPrograms[this] = m_program;
-    return true;
+    return m_init = true;
 }
 
 bool zShaderSet::Bind() const
@@ -236,6 +237,11 @@ bool zShaderSet::Unbind() const
 uint16_t zShaderSet::GetShaderObject() const
 {
     return m_program;
+}
+
+GLuint zShaderSet::GetObjectHandle() const
+{
+    return this->GetShaderObject();
 }
 
 GLint zShaderSet::GetUniformLocation(const string_t& name) const
@@ -276,10 +282,12 @@ const string_t& zShaderSet::GetLinkerLog() const
 
 bool zShaderSet::Destroy()
 {
+    if(!m_init) return false;
+
     this->DestroyFS();
     this->DestroyVS();
 
-    if(m_program > 0 && m_refcount-- <= 1)
+    if(m_program > 0 && --m_refcount == 0)
     {
         GL(glDeleteProgram(m_program));
         m_program = 0;
@@ -287,7 +295,7 @@ bool zShaderSet::Destroy()
 
     m_error_str = "";
     m_ID = 0;
-    return true;
+    return !(m_init = false);
 }
 
 bool zShaderSet::DestroyFS()

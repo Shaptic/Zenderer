@@ -37,8 +37,8 @@ namespace gfxcore
     using util::zLog;
     using util::LogMode;
 
-    /// A wrapper for a useable set of shaders (an OpenGL program).
-    class ZEN_API zShaderSet
+    /// A wrapper for a usable set of shaders (an OpenGL program).
+    class ZEN_API zShaderSet : public zGLSubsystem
     {
     public:
         zShaderSet(asset::zAssetManager& Assets);
@@ -137,6 +137,7 @@ namespace gfxcore
 
         /// Returns the shader program handle.
         uint16_t GetShaderObject() const;
+        GLuint GetObjectHandle() const;
 
         /// Returns the index of a shader uniform location in VRAM.
         GLint GetUniformLocation(const string_t& name) const;
@@ -154,6 +155,9 @@ namespace gfxcore
         uint16_t GetID() const { return m_ID; }
 
     private:
+        // To satisfy the gfxcore::zGLSubsystem requirements.
+        bool Init() { return m_init = true; }
+
         bool DestroyFS();
         bool DestroyVS();
 
