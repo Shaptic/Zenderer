@@ -95,6 +95,25 @@ void zen::Quit()
     gfxcore::zRenderer::GetDefaultEffect().Destroy();
 
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
+        << "Destroying components." << zLog::endl;
+
+    for(auto it  = zen::zSubsystem::sp_allSystems.rbegin();
+             it != zen::zSubsystem::sp_allSystems.rend();
+           ++it)
+    {
+        auto& i = *(*it);
+        Log << Log.SetMode(LogMode::ZEN_INFO)
+            << Log.SetSystem(i.GetName())
+            << "Destroying component." << zLog::endl;
+
+        if(!i.Destroy())
+        {
+            Log.SetMode(LogMode::ZEN_ERROR);
+            Log << "Failed to destroy component." << zLog::endl;
+        }
+    }
+
+    Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
         << "Destroying OpenGL components." << zLog::endl;
 
     for(auto it  = zen::gfxcore::zGLSubsystem::sp_allGLSystems.rbegin();
@@ -107,22 +126,6 @@ void zen::Quit()
             << "Destroying component." << zLog::endl;
 
         if(!sys->Destroy())
-        {
-            Log.SetMode(LogMode::ZEN_ERROR);
-            Log << "Failed to destroy component." << zLog::endl;
-        }
-    }
-
-    Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
-        << "Destroying components." << zLog::endl;
-
-    for(auto& i : zen::zSubsystem::sp_allSystems)
-    {
-        Log << Log.SetMode(LogMode::ZEN_INFO)
-            << Log.SetSystem(i->GetName())
-            << "Destroying component." << zLog::endl;
-
-        if(!i->Destroy())
         {
             Log.SetMode(LogMode::ZEN_ERROR);
             Log << "Failed to destroy component." << zLog::endl;
