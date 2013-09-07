@@ -1,31 +1,31 @@
 var group___engine =
 [
     [ "zen", "namespacezen.html", null ],
-    [ "CAllocator", "classzen_1_1_c_allocator.html", [
-      [ "~CAllocator", "classzen_1_1_c_allocator.html#a52121f1aff8fcd9af2e52cf9b3f52baf", null ],
-      [ "Init", "classzen_1_1_c_allocator.html#a373cf7aa19d780609ee1b5314a32bac8", null ],
-      [ "Destroy", "classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed", null ],
-      [ "operator()", "classzen_1_1_c_allocator.html#a25016081dc81bddb2ca9cc3cc1a9ece7", null ],
-      [ "operator[]", "classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31", null ],
-      [ "Free", "classzen_1_1_c_allocator.html#aa5d0e8e44055abcbd9beec44a968fb0d", null ],
-      [ "get", "classzen_1_1_c_allocator.html#a31a541d2a8b7dbc9b47e26cfc72beb89", null ],
-      [ "Get", "classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df", null ],
-      [ "ALLOC_SIZE", "classzen_1_1_c_allocator.html#a888a10d2aa124af39686f29992298aba", null ]
+    [ "zAllocator", "classzen_1_1z_allocator.html", [
+      [ "~zAllocator", "classzen_1_1z_allocator.html#aa5223b08dd213cb68e16952c1836edad", null ],
+      [ "Init", "classzen_1_1z_allocator.html#a313d1a9c0bd442aeb9c813d93f16961b", null ],
+      [ "Destroy", "classzen_1_1z_allocator.html#adf1bb685c681e5940217a78fb4715baf", null ],
+      [ "operator()", "classzen_1_1z_allocator.html#a25ce5f3985acda6e7e7470df945d6429", null ],
+      [ "operator[]", "classzen_1_1z_allocator.html#a6496980967ec538d485adb21b33f9721", null ],
+      [ "Free", "classzen_1_1z_allocator.html#a14c91b45b108fbfe04457d6a48602bfa", null ],
+      [ "get", "classzen_1_1z_allocator.html#a829c780ca192db07a2e536744a648add", null ],
+      [ "Get", "classzen_1_1z_allocator.html#a472973ee0cdbc2965245327333cdc43c", null ],
+      [ "ALLOC_SIZE", "classzen_1_1z_allocator.html#a98b12e300fbe3c845d140243e8ca7a55", null ]
     ] ],
-    [ "CSubsystem", "classzen_1_1_c_subsystem.html", [
-      [ "CSubsystem", "classzen_1_1_c_subsystem.html#a351f9cdcb901c389802776e50208e2fb", null ],
-      [ "~CSubsystem", "classzen_1_1_c_subsystem.html#ab1639d7b9cec3785d77373de2098de72", null ],
-      [ "Init", "classzen_1_1_c_subsystem.html#a5c72ec2b5c58ee70f346aec64eaf2dd8", null ],
-      [ "Destroy", "classzen_1_1_c_subsystem.html#a61ff56601d4de15c324b773b7c1ac948", null ],
-      [ "IsInit", "classzen_1_1_c_subsystem.html#afa992ecfe994d177d1bdb1f2b853f4ef", null ],
-      [ "SetLog", "classzen_1_1_c_subsystem.html#a9dd185770f7445ffe6be561c560f900c", null ],
-      [ "GetName", "classzen_1_1_c_subsystem.html#a5e6e45b22e0778efeb13cfbed6da7e79", null ],
-      [ "Init", "classzen_1_1_c_subsystem.html#af323567016cca9068aeba2a83022fcb1", null ],
-      [ "Quit", "classzen_1_1_c_subsystem.html#a74f4d827b92b51751e25d535ae968bb7", null ],
-      [ "sp_allSystems", "classzen_1_1_c_subsystem.html#a0242a2a5591cb035d3d1b2f1824422b8", null ],
-      [ "m_Log", "classzen_1_1_c_subsystem.html#a312b4647484ae7ca45e80a47eaa8775e", null ],
-      [ "m_name", "classzen_1_1_c_subsystem.html#a02f9f748324c01276de3702ee7d8c860", null ],
-      [ "m_init", "classzen_1_1_c_subsystem.html#a174902d70500501ea4a2a6ace376731b", null ]
+    [ "zSubsystem", "classzen_1_1z_subsystem.html", [
+      [ "zSubsystem", "classzen_1_1z_subsystem.html#a1d61ade906ed6c5636a40a4d6afb82bb", null ],
+      [ "~zSubsystem", "classzen_1_1z_subsystem.html#a0ccf886fad90f2c0ae1bca8881fbc4f2", null ],
+      [ "Init", "classzen_1_1z_subsystem.html#a68632ec7ceb68b04d2c286d75f837357", null ],
+      [ "Destroy", "classzen_1_1z_subsystem.html#a8805ef742b5e0bcf551d74c9bba6f7fc", null ],
+      [ "IsInit", "classzen_1_1z_subsystem.html#ae72732b27debb2c522a676e65099406d", null ],
+      [ "SetLog", "classzen_1_1z_subsystem.html#ad7382150f00b99910c5c9bb63a95e299", null ],
+      [ "GetName", "classzen_1_1z_subsystem.html#a37fecd9c622895cdb971bd41b9a0d37a", null ],
+      [ "Init", "classzen_1_1z_subsystem.html#af323567016cca9068aeba2a83022fcb1", null ],
+      [ "Quit", "classzen_1_1z_subsystem.html#a74f4d827b92b51751e25d535ae968bb7", null ],
+      [ "sp_allSystems", "classzen_1_1z_subsystem.html#ab1457378c77920c87e5ca3999854e988", null ],
+      [ "m_Log", "classzen_1_1z_subsystem.html#af4c790c2054cd36f2dbabeb5782a0f2a", null ],
+      [ "m_name", "classzen_1_1z_subsystem.html#a91a0f349b2b18bf1441d7694ea416451", null ],
+      [ "m_init", "classzen_1_1z_subsystem.html#a1a2a7e6f327b5be5ef169e9e217c1f1d", null ]
     ] ],
     [ "ZEN_API", "group___engine.html#gaffef067603b6232807ee3a9ecf32b475", null ]
 ];

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -126,7 +126,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8hpp_source.html','');}
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // AL</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifdef ZEN_DEBUG_BUILD</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define AL(f) f; zen::sfx::CAudioManager::alCheck(#f, __LINE__, __FILE__);</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define AL(f) f; zen::sfx::zAudioManager::alCheck(#f, __LINE__, __FILE__);</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="group___audio.html#ga1c4082c9be52c1ff9c9ea039b70e8caa">   49</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define AL(f) f;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // _DEBUG</span></div>
@@ -135,7 +135,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8hpp_source.html','');}
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">namespace </span>sfx</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html">   58</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API. ">CAudioManager</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html">   58</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html" title="A collection of static helper functions for the audio API. ">zAudioManager</a></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. ">Init</a>();</div>

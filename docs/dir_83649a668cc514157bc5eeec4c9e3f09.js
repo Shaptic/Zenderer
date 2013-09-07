@@ -8,7 +8,7 @@ var dir_83649a668cc514157bc5eeec4c9e3f09 =
     [ "Log.inl", "_log_8inl.html", null ],
     [ "Random.hpp", "_random_8hpp.html", null ],
     [ "Settings.hpp", "_settings_8hpp.html", [
-      [ "COption", "classzen_1_1util_1_1_c_option.html", "classzen_1_1util_1_1_c_option" ]
+      [ "zOption", "classzen_1_1util_1_1z_option.html", "classzen_1_1util_1_1z_option" ]
     ] ],
     [ "Timer.hpp", "_timer_8hpp.html", "_timer_8hpp" ],
     [ "Utilities.hpp", "_utilities_8hpp.html", null ],

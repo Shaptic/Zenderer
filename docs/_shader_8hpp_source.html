@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -127,15 +127,15 @@ $(document).ready(function(){initNavTree('_shader_8hpp_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>gfxcore</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects. ">CShader</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset. ">asset::CAsset</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1z_shader.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1z_shader.html" title="A wrapper for OpenGL shader objects. ">zShader</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1asset_1_1z_asset.html" title="Used throughout Zenderer to act as a managed asset. ">asset::zAsset</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects. ">CShader</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_shader.html" title="A wrapper for OpenGL shader objects. ">CShader</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1z_shader.html" title="A wrapper for OpenGL shader objects. ">zShader</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> ptr);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1z_shader.html" title="A wrapper for OpenGL shader objects. ">zShader</a>();</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; filename);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> CAsset* <span class="keyword">const</span> pCopyShader);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">bool</span> LoadFromExisting(<span class="keyword">const</span> zAsset* <span class="keyword">const</span> pCopyShader);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> LoadFromRaw(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; <span class="keywordtype">string</span>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>

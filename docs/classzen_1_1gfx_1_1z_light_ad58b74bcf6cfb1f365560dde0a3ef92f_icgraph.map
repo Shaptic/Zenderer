@@ -1,0 +1,8 @@
+<map id="zen::gfx::zLight::SetPosition" name="zen::gfx::zLight::SetPosition">
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249" title="zen::gfx::zLight::Init" alt="" coords="265,5,401,32"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_light.html#a38b96fe9cda9dd6249379b8acef96700" title="zen::gfx::zLight::Adjust" alt="" coords="255,56,411,83"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_light.html#afee76cb867656b3dc4bd18d95aec8385" title="zen::gfx::zLight::SetPosition" alt="" coords="240,107,427,133"/>
+<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="308,157,359,184"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_scene.html#a4d1093c4a1572676f2465decfcd61f10" title="Creates and adds a managed light instance to the scene. " alt="" coords="475,5,653,32"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="702,5,759,32"/>
+</map>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,17 +124,17 @@ $(document).ready(function(){initNavTree('_shader_set_8hpp_source.html','');});
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>gfxcore</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">using</span> util::CLog;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">using</span> util::zLog;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a>(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::CAssetManager</a>&amp; Assets);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a>(<a class="code" href="classzen_1_1asset_1_1z_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::zAssetManager</a>&amp; Assets);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        ~<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a>();</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a>&amp; Copy);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">CShaderSet</a>&amp; Copy);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a>&amp; Copy);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html" title="A wrapper for a useable set of shaders (an OpenGL program). ">zShaderSet</a>&amp; Copy);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; vs, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; fs);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
@@ -166,13 +166,13 @@ $(document).ready(function(){initNavTree('_shader_set_8hpp_source.html','');});
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; GetLinkerLog() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8ffa30edb76b0d902354599abcf29068">  154</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1_c_shader_set.html#a8ffa30edb76b0d902354599abcf29068" title="Returns program ID (unique for different shader sets). ">GetID</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ID; }</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#ae381f9f3ea68e72bacdfebca6fd07279">  154</a></span>&#160;        uint16_t <a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#ae381f9f3ea68e72bacdfebca6fd07279" title="Returns program ID (unique for different shader sets). ">GetID</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ID; }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordtype">bool</span> DestroyFS();</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordtype">bool</span> DestroyVS();</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">static</span> std::map&lt;CShaderSet*, GLuint&gt; s_shaderPrograms;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">static</span> std::map&lt;zShaderSet*, GLuint&gt; s_shaderPrograms;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keyword">static</span> uint16_t s_ID;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> ShowLoadError(</div>
@@ -186,21 +186,21 @@ $(document).ready(function(){initNavTree('_shader_set_8hpp_source.html','');});
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;ShaderSet&quot;</span>)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    &lt;&lt; error_stream.str() &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    &lt;&lt; error_stream.str() &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> ShowProgramError()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            m_Log   &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;ShaderSet&quot;</span>)</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;No shader program loaded.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;No shader program loaded.&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        }</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        asset::CAssetManager&amp;   m_AssetManager;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        util::CLog&amp;             m_Log;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        asset::zAssetManager&amp;   m_AssetManager;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        util::zLog&amp;             m_Log;</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        CShader* mp_VShader;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        CShader* mp_FShader;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        zShader* mp_VShader;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        zShader* mp_FShader;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <a class="code" href="class_c_string.html">string_t</a> m_error_str;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <a class="code" href="class_c_string.html">string_t</a> m_link_log;</div>

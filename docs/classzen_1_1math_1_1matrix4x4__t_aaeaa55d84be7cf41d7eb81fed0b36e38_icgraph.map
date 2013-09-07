@@ -1,8 +1,7 @@
 <map id="zen::math::matrix4x4_t::Projection2D" name="zen::math::matrix4x4_t::Projection2D">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture. " alt="" coords="200,63,363,105"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="413,5,555,46"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="661,71,718,97"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="411,121,557,148"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="606,121,773,148"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="664,172,715,199"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_render_target.html#ac33b26455487a4c2806149c992dd794b" title="Creates the render target with an attached texture. " alt="" coords="200,23,360,65"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="655,5,713,32"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_scene.html#a7786082bd291405b9db93956a5aa849e" title="Initializes internal graphical components. " alt="" coords="409,56,554,83"/>
+<area shape="rect" id="node5" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="603,56,765,83"/>
+<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="659,107,709,133"/>
 </map>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -424,12 +424,12 @@ Here is the caller graph for this function:</div>
     /                |               \
 </pre><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Angles</td><td><a class="el" href="structzen_1_1math_1_1_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">Vector</a> containing x, y, and z shear angles (in deg)</td></tr>
+    <tr><td class="paramname">Angles</td><td><a class="el" href="structzen_1_1math_1_1z_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">zVector</a> containing x, y, and z shear angles (in deg)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Only 2D shears are supported (X and Y directions). </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Add 3D shearing. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Add 3D shearing. </dd></dl>
 
 <p>Definition at line <a class="el" href="_matrix_8hpp_source.html#l00094">94</a> of file <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>.</p>
 
@@ -511,7 +511,7 @@ Here is the caller graph for this function:</div>
 <dl class="section note"><dt>Note</dt><dd>Only rotations on the 2D xy-plane are supported; this is rotation about the Z axis.</dd>
 <dd>
 Multiplying matrix transformations performs the operations in the reverse order in which they are multiplied.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structzen_1_1math_1_1_vector.html#a5f06dcabc6a62c04a8b82f11f0690ae8" title="Rotates the current vector using the rotation matrix. ">Vector::Rotate</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="structzen_1_1math_1_1z_vector.html#affdb455acc7582c5b526b4729a6367dd" title="Rotates the current vector using the rotation matrix. ">zVector::Rotate</a> </dd>
 <dd>
 <a href="http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf">http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf</a> </dd></dl>
 
@@ -599,7 +599,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_a082d67aac74477832c4c9165c2a62b3d_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_a082d67aac74477832c4c9165c2a62b3d_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_a082d67aac74477832c4c9165c2a62b3d_icgraph" id="classzen_1_1math_1_1matrix4x4__t_a082d67aac74477832c4c9165c2a62b3d_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect. " alt="" coords="210,5,337,46"/><area shape="rect" id="node3" href="classzen_1_1math_1_1matrix4x4__t.html#a4027c831e496ddff65875a47b0ebc71f" title="zen::math::matrix4x4\l_t::matrix4x4_t" alt="" coords="201,70,346,111"/><area shape="rect" id="node4" href="classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8" title="zen::math::matrix4x4\l_t::operator=" alt="" coords="201,135,346,177"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1z_effect.html#a2b0a051e1e98376b72db83400ed6b415" title="Modifies a matrix parameter in the effect. " alt="" coords="211,5,335,46"/><area shape="rect" id="node3" href="classzen_1_1math_1_1matrix4x4__t.html#a4027c831e496ddff65875a47b0ebc71f" title="zen::math::matrix4x4\l_t::matrix4x4_t" alt="" coords="201,70,346,111"/><area shape="rect" id="node4" href="classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8" title="zen::math::matrix4x4\l_t::operator=" alt="" coords="201,135,346,177"/></map>
 </div>
 </p>
 
@@ -666,7 +666,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph" id="classzen_1_1math_1_1matrix4x4__t_aaeaa55d84be7cf41d7eb81fed0b36e38_icgraph">
-<area shape="rect" id="node2" href="classzen_1_1gfx_1_1_c_render_target.html#a83b307e763f5bb9846675a28a7f1f0a0" title="Creates the render target with an attached texture. " alt="" coords="200,63,363,105"/><area shape="rect" id="node3" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="413,5,555,46"/><area shape="rect" id="node4" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="661,71,718,97"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284" title="Initializes internal graphical components. " alt="" coords="411,121,557,148"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="606,121,773,148"/><area shape="rect" id="node7" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="664,172,715,199"/></map>
+<area shape="rect" id="node2" href="classzen_1_1gfx_1_1z_render_target.html#ac33b26455487a4c2806149c992dd794b" title="Creates the render target with an attached texture. " alt="" coords="200,23,360,65"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="655,5,713,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1z_scene.html#a7786082bd291405b9db93956a5aa849e" title="Initializes internal graphical components. " alt="" coords="409,56,554,83"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="603,56,765,83"/><area shape="rect" id="node6" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="659,107,709,133"/></map>
 </div>
 </p>
 
@@ -700,7 +700,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph" id="classzen_1_1math_1_1matrix4x4__t_afd5ac2890e4956d80553a9539e20ea5a_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="951,98,1009,125"/><area shape="rect" id="node3" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd" title="zen::math::matrix4x4\l_t::GetIdentityMatrix" alt="" coords="211,65,357,107"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_scene.html#a637f4d8ba83dcb54ef7c73822b6903eb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="405,73,592,99"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. " alt="" coords="413,123,584,150"/><area shape="rect" id="node8" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures. " alt="" coords="641,225,847,251"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639" title="zen::gui::CMenu::Update" alt="" coords="661,174,827,201"/><area shape="rect" id="node7" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="955,174,1005,201"/><area shape="rect" id="node9" href="classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="897,225,1063,251"/></map>
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="943,98,1001,125"/><area shape="rect" id="node3" href="classzen_1_1math_1_1matrix4x4__t.html#a34e711ca24bb3b8e365934bc391a3dcd" title="zen::math::matrix4x4\l_t::GetIdentityMatrix" alt="" coords="211,66,357,107"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="405,73,589,100"/><area shape="rect" id="node5" href="classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="413,124,582,150"/><area shape="rect" id="node8" href="classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="637,225,843,252"/><area shape="rect" id="node6" href="classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="658,174,822,201"/><area shape="rect" id="node7" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="947,174,997,201"/><area shape="rect" id="node9" href="classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="891,225,1053,252"/></map>
 </div>
 </p>
 
@@ -734,7 +734,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph.png" border="0" usemap="#classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph" alt=""/></div>
 <map name="classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph" id="classzen_1_1math_1_1matrix4x4__t_a34e711ca24bb3b8e365934bc391a3dcd_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="746,107,803,133"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1_c_scene.html#a637f4d8ba83dcb54ef7c73822b6903eb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="200,5,387,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. " alt="" coords="208,107,379,133"/><area shape="rect" id="node7" href="classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures. " alt="" coords="435,208,642,235"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639" title="zen::gui::CMenu::Update" alt="" coords="455,157,622,184"/><area shape="rect" id="node6" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="749,157,800,184"/><area shape="rect" id="node8" href="classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="691,208,858,235"/></map>
+<area shape="rect" id="node2" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="738,107,795,133"/><area shape="rect" id="node3" href="classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="200,5,384,32"/><area shape="rect" id="node4" href="classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="207,107,377,133"/><area shape="rect" id="node7" href="classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="432,208,637,235"/><area shape="rect" id="node5" href="classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="453,157,617,184"/><area shape="rect" id="node6" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="741,157,792,184"/><area shape="rect" id="node8" href="classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="685,208,848,235"/></map>
 </div>
 </p>
 

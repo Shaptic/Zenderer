@@ -1,9 +1,7 @@
 <map id="Zenderer/include/Zenderer/Math/Math.hpp" name="Zenderer/include/Zenderer/Math/Math.hpp">
-<area shape="rect" id="node2" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="302,245,404,272"/>
-<area shape="rect" id="node8" href="$_vector_8hpp.html" title="Zenderer/Math/Vector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure. " alt="" coords="164,171,249,197"/>
-<area shape="rect" id="node11" href="$_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="187,96,269,123"/>
-<area shape="rect" id="node12" href="$_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures. " alt="" coords="344,96,435,123"/>
-<area shape="rect" id="node4" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="225,320,391,347"/>
-<area shape="rect" id="node7" href="$_math_core_8inl.html" title="MathCore.inl" alt="" coords="415,320,509,347"/>
-<area shape="rect" id="node10" href="$_vector_8inl.html" title="Vector.inl" alt="" coords="149,245,227,272"/>
+<area shape="rect" id="node2" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="121,171,223,197"/>
+<area shape="rect" id="node9" href="$_matrix_8hpp.html" title="Zenderer/Math/Matrix.hpp &#45; A 4x4 matrix class wrapper for handling various graphical math operations..." alt="" coords="324,96,407,123"/>
+<area shape="rect" id="node10" href="$_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures. " alt="" coords="209,96,300,123"/>
+<area shape="rect" id="node4" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="207,245,373,272"/>
+<area shape="rect" id="node7" href="$_math_core_8inl.html" title="MathCore.inl" alt="" coords="5,245,99,272"/>
 </map>

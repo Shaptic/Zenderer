@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -107,9 +107,9 @@ $(document).ready(function(){initNavTree('_polygons-example.html','');});
 Variety of Polgyons</h1>
 <h2><a class="anchor" id="quad"></a>
 Simple Quad</h2>
-<p>This can obviously be replicated through <a class="el" href="classzen_1_1gfx_1_1_c_quad.html" title="A four-sided quadrilateral primitive. ">zen::gfx::CQuad</a>, but is here for example's sake. We will compare the creation of the two.</p>
+<p>This can obviously be replicated through <a class="el" href="classzen_1_1gfx_1_1z_quad.html" title="A four-sided quadrilateral primitive. ">zen::gfx::zQuad</a>, but is here for example's sake. We will compare the creation of the two.</p>
 <div class="fragment"><div class="line"><span class="comment">// Assuming a manager, etc has already been defined prior.</span></div>
-<div class="line">gfx::CPolygon PolyQuad(Manager);</div>
+<div class="line">gfx::zPolygon PolyQuad(Manager);</div>
 <div class="line">PolyQuad.AddVertex(0,   0);</div>
 <div class="line">PolyQuad.AddVertex(32,  0);</div>
 <div class="line">PolyQuad.AddVertex(32,  32);</div>
@@ -118,7 +118,7 @@ Simple Quad</h2>
 <div class="line">PolyQuad.Create();</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Equivalent quad-creating code.</span></div>
-<div class="line">gfx::CQuad RealQuad(32, 32);</div>
+<div class="line">gfx::zQuad RealQuad(32, 32);</div>
 <div class="line">RealQuad.SetColor(color4f_t(1, 0, 0));</div>
 <div class="line">RealQuad.Create();</div>
 </div><!-- fragment --><p>The benefit, of course, of using the polygon interface vs. the quad interface is that it eliminates the requirement of being axis-aligned, thus not rotated and in a rectangular form. With the polygon, we can make rhombuses and other arbitrary four-sided shapes.</p>
@@ -126,7 +126,7 @@ Simple Quad</h2>
 Approximated Circle</h2>
 <p>Now we will create a circle, or an approximation there-of. It's impossible of course to create a perfect circle since it's composed of lines, but we approximate with 360 sides :)</p>
 <div class="fragment"><div class="line"><span class="comment">// Assuming a manager, etc has already been defined prior.</span></div>
-<div class="line">gfx::CPolygon Circle(Manager);</div>
+<div class="line">gfx::zPolygon Circle(Manager);</div>
 <div class="line"></div>
 <div class="line"><a name="a0"></a><a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> radius = 32;</div>
 <div class="line">Circle.AddVertex(32, 32);   <span class="comment">// Center of the circle</span></div>

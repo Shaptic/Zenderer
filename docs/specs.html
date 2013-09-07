@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -181,8 +181,8 @@ Example File</h3>
 <div class="line">  maxangle=225.0</div>
 <div class="line">&lt;/light&gt;</div>
 </div><!-- fragment --><p>The in-line entity multi-mesh creation featured in the example file would be equivalent to the following API code:</p>
-<div class="fragment"><div class="line">CQuad Q1, Q2;</div>
-<div class="line">CMaterial M1, M2;</div>
+<div class="fragment"><div class="line">zQuad Q1, Q2;</div>
+<div class="line">zMaterial M1, M2;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Set up the first primitive.</span></div>
 <div class="line">M1.LoadTextureFromFile(<span class="stringliteral">&quot;textures/grass.png&quot;</span>);</div>
@@ -201,7 +201,7 @@ Example File</h3>
 <div class="line">M2.LoadTextureFromFile(<span class="stringliteral">&quot;textures/dirt.png&quot;</span>);</div>
 <div class="line">Q2.AttachMaterial(M2);</div>
 <div class="line"></div>
-<div class="line"><a class="code" href="namespacezen_1_1obj.html#a4f7aade26095ce1df207ddc52b09d68b">CEntity</a> <a class="code" href="_keyboard_8hpp.html#aa57b8491d1d8fc1014dd54bcf83b130a">E</a>;</div>
+<div class="line"><a class="code" href="namespacezen_1_1obj.html#a3112ae30d7f3f81f60f61c3fa56a69f2">zEntity</a> <a class="code" href="_keyboard_8hpp.html#aa57b8491d1d8fc1014dd54bcf83b130a">E</a>;</div>
 <div class="line">E.AddPrimitive(Q1);</div>
 <div class="line">E.AddPrimitive(Q2);</div>
 <div class="line">E.Create();</div>
@@ -279,9 +279,9 @@ Specification</h2>
 <p>If overlapping values are used for <code>material</code> and the texture file, the file keys will be preferred over the material file. Thus if you specify <code>vshader</code>, <code>fshader</code>, <code>texture</code>, <em>and</em> <code>material</code>, the local files will be loaded, as opposed to the material file.</p>
 <p>If the shader files are left off, the default will be used (like for primitives). If the size is specified (<code>width</code>/<code>height</code>), <em>both</em> must be specified. Otherwise, the default values are used for both of them.</p>
 <p>The <code>primcount</code> option will allow for a tiny speed up in loading, but will only make a real difference if the entity contains dozens of primitives.</p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1_c_quad.html#aaea2ad21f738ee8119e381ef4820f408" title="Makes the vertices have non-zero y values. ">zen::gfx::CQuad::SetInverted()</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classzen_1_1gfx_1_1z_quad.html#a432e755f175068c7e354053a37ac2365" title="Makes the vertices have non-zero y values. ">zen::gfx::zQuad::SetInverted()</a> </dd>
 <dd>
-<a class="el" href="classzen_1_1gfx_1_1_c_quad.html#abb824d556d0a467d940a5734523b9333" title="Repeat texture or stretch to fit. ">zen::gfx::CQuad::SetRepeating()</a></dd></dl>
+<a class="el" href="classzen_1_1gfx_1_1z_quad.html#a2461053b411db584b9c3dd40364cdff2" title="Repeat texture or stretch to fit. ">zen::gfx::zQuad::SetRepeating()</a></dd></dl>
 <h3><a class="anchor" id="ZEntEx"></a>
 Example File</h3>
 <div class="fragment"><div class="line"><span class="comment">// This is an example ZenTity file with two</span></div>

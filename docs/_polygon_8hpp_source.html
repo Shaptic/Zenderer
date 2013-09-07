@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,15 +119,15 @@ $(document).ready(function(){initNavTree('_polygon_8hpp_source.html','');});
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_polygon.html">   32</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_polygon.html" title="An arbitrary n-vertex convex polygon. ">CPolygon</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfxcore_1_1_c_drawable.html" title="An abstract base class for all drawable primitives. ">gfxcore::CDrawable</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_polygon.html">   32</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1z_polygon.html" title="An arbitrary n-vertex convex polygon. ">zPolygon</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfxcore_1_1z_drawable.html" title="An abstract base class for all drawable primitives. ">gfxcore::zDrawable</a></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_polygon.html" title="An arbitrary n-vertex convex polygon. ">CPolygon</a>(<a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::CAssetManager</a>&amp; Assets);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_polygon.html" title="An arbitrary n-vertex convex polygon. ">CPolygon</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1z_polygon.html" title="An arbitrary n-vertex convex polygon. ">zPolygon</a>(<a class="code" href="classzen_1_1asset_1_1z_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::zAssetManager</a>&amp; Assets);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1z_polygon.html" title="An arbitrary n-vertex convex polygon. ">zPolygon</a>();</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> AddVertex(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Position);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        CDrawable&amp; Create();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        zDrawable&amp; Create();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> SetColor(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>

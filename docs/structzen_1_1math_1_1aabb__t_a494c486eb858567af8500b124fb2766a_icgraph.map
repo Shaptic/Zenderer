@@ -1,4 +1,5 @@
 <map id="zen::math::aabb_t::collides" name="zen::math::aabb_t::collides">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_button.html#a2ee73b8473eb4476ea4204d1b06e0ac3" title="zen::gui::CButton::\lIsOver" alt="" coords="189,5,320,46"/>
-<area shape="rect" id="node3" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="229,71,280,97"/>
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1z_button.html#aa25ea8a0af9a27611bdf76dbf27ec53d" title="zen::gui::zButton::\lIsOver" alt="" coords="190,5,319,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1z_entity.html#a00366ac7dabc87b32c44eb2c28824263" title="Checks collision with another entity. " alt="" coords="192,70,317,111"/>
+<area shape="rect" id="node4" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="229,136,280,163"/>
 </map>

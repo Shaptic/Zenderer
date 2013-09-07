@@ -10,5 +10,8 @@ var dir_581b39117fad9c901c881a5f767a7292 =
     [ "RenderTarget.hpp", "_render_target_8hpp.html", null ],
     [ "Scene.hpp", "_scene_8hpp.html", null ],
     [ "Scene.inl", "_scene_8inl.html", null ],
+    [ "Triangle.hpp", "_triangle_8hpp.html", [
+      [ "CTriangleQuad", "classzen_1_1gfx_1_1_c_triangle_quad.html", "classzen_1_1gfx_1_1_c_triangle_quad" ]
+    ] ],
     [ "Window.hpp", "_window_8hpp.html", "_window_8hpp" ]
 ];

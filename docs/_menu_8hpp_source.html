@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -127,22 +127,22 @@ $(document).ready(function(){initNavTree('_menu_8hpp_source.html','');});
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>gui</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_menu.html">   39</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gui_1_1_c_menu.html">CMenu</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html">   39</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gui_1_1z_menu.html">zMenu</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classzen_1_1gui_1_1_c_menu.html">CMenu</a>(<a class="code" href="classzen_1_1gfx_1_1_c_window.html" title="Creates a renderable OpenGL context. ">gfx::CWindow</a>&amp; Window, <a class="code" href="classzen_1_1asset_1_1_c_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::CAssetManager</a>&amp; Assets);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classzen_1_1gui_1_1z_menu.html">zMenu</a>(<a class="code" href="classzen_1_1gfx_1_1z_window.html" title="Creates a renderable OpenGL context. ">gfx::zWindow</a>&amp; Window, <a class="code" href="classzen_1_1asset_1_1z_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::zAssetManager</a>&amp; Assets);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1gui_1_1_c_menu.html">CMenu</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classzen_1_1gui_1_1z_menu.html">zMenu</a>();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> HandleEvent(<span class="keyword">const</span> <a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events. ">evt::event_t</a>&amp; Evt);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">virtual</span> uint16_t AddButton(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                   std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">size_t</span>)&gt; handler);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; AddEntity();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> RenderWithFont(<a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; Obj, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; AddEntity();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> RenderWithFont(<a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Obj, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> SetFont(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; filename, <span class="keyword">const</span> uint16_t size=18);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> SetButtonBackground(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>&amp; Bg);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> SetButtonBackground(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Bg);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> SetNormalButtonTextColor(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> SetActiveButtonTextColor(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> SetInitialButtonPosition(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos);</div>
@@ -150,14 +150,14 @@ $(document).ready(function(){initNavTree('_menu_8hpp_source.html','');});
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> SetSpacing(<span class="keyword">const</span> uint16_t vertical_spacing);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1_c_scene.html">gfx::CScene</a> m_Scene;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1_c_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::CEntity</a>* mp_Bg;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class. ">gui::CFont</a>* mp_Font;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1z_scene.html">gfx::zScene</a> m_Scene;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>* mp_Bg;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classzen_1_1gui_1_1z_font.html" title="A TrueType font wrapper class. ">gui::zFont</a>* mp_Font;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a> m_acolor, m_ncolor;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::vector&lt;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            std::pair&lt;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="classzen_1_1gui_1_1_c_button.html">CButton</a>*,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="classzen_1_1gui_1_1z_button.html">zButton</a>*,</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                std::function&lt;void(size_t)&gt;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            &gt;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        &gt; m_menuActions;</div>

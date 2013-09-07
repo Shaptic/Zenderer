@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -125,9 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac372965ce36455154d00fe05b6d25ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8f2bab0ba9424845c7a6dabade8d4a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#ad8f2bab0ba9424845c7a6dabade8d4a8">LoadFromFile</a> (const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> &amp;filename)</td></tr>
 <tr class="separator:ad8f2bab0ba9424845c7a6dabade8d4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac99e1f56b7dc051e8ad7573fb4eeeff5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5">Render</a> (<a class="el" href="classzen_1_1obj_1_1_c_entity.html">obj::CEntity</a> &amp;Ent, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> text=&quot;&quot;)</td></tr>
+<tr class="memitem:ac99e1f56b7dc051e8ad7573fb4eeeff5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5">Render</a> (obj::CEntity &amp;Ent, const <a class="el" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee">string_t</a> text=&quot;&quot;)</td></tr>
 <tr class="separator:ac99e1f56b7dc051e8ad7573fb4eeeff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a970da59591431c0edbff2d665037fb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a970da59591431c0edbff2d665037fb74">AttachManager</a> (<a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;Assets)</td></tr>
+<tr class="memitem:a970da59591431c0edbff2d665037fb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a970da59591431c0edbff2d665037fb74">AttachManager</a> (asset::CAssetManager &amp;Assets)</td></tr>
 <tr class="separator:a970da59591431c0edbff2d665037fb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2002aee613a3edc0014ebbe7fdc5bc42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#a2002aee613a3edc0014ebbe7fdc5bc42">SetColor</a> (const <a class="el" href="structzen_1_1color4f__t.html">color4f_t</a> &amp;Color)</td></tr>
 <tr class="memdesc:a2002aee613a3edc0014ebbe7fdc5bc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the font color.  <a href="#a2002aee613a3edc0014ebbe7fdc5bc42">More...</a><br/></td></tr>
@@ -138,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a790ac5ea3bc0f7b9e03ea77f797550d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The functionality of this class is identical to <a class="el" href="classzen_1_1gui_1_1_c_font.html" title="A TrueType font wrapper class. ">zen::gui::CFont</a>, but the internals are much different and the performance improvement for rendering to an entity is outstanding.</p>
+<div class="textblock"><p>The functionality of this class is identical to zen::gui::CFont, but the internals are much different and the performance improvement for rendering to an entity is outstanding.</p>
 <dl class="section note"><dt>Note</dt><dd>This class is fully experimental and untested. </dd></dl>
 
 <p>Definition at line <a class="el" href="_font_atlas_8hpp_source.html#l00034">34</a> of file <a class="el" href="_font_atlas_8hpp_source.html">FontAtlas.hpp</a>.</p>
@@ -195,7 +195,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool zen::gui::CFontAtlas::Render </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classzen_1_1obj_1_1_c_entity.html">obj::CEntity</a> &amp;&#160;</td>
+          <td class="paramtype">obj::CEntity &amp;&#160;</td>
           <td class="paramname"><em>Ent</em>, </td>
         </tr>
         <tr>
@@ -228,7 +228,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void zen::gui::CFontAtlas::AttachManager </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classzen_1_1asset_1_1_c_asset_manager.html">asset::CAssetManager</a> &amp;&#160;</td>
+          <td class="paramtype">asset::CAssetManager &amp;&#160;</td>
           <td class="paramname"><em>Assets</em>)</td><td></td>
           <td></td>
         </tr>

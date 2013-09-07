@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -185,13 +185,13 @@ $(document).ready(function(){initNavTree('_socket_8hpp_source.html','');});
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">  102</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">SocketType</a> { <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6bab136ef5f6a01d816991fe3cf7a6ac763">TCP</a>, <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6baf5ef036b4d8b630721e51fe23489fbc9">UDP</a>, <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6ba633d6abff0a3fc22404347728d195059">RAW</a> };</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classzen_1_1net_1_1_c_socket.html">  105</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1net_1_1_c_socket.html" title="A low-level socket wrapper. ">CSocket</a></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classzen_1_1net_1_1z_socket.html">  105</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1net_1_1z_socket.html" title="A low-level socket wrapper. ">zSocket</a></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classzen_1_1net_1_1_c_socket.html#aadda732a0df14e4b06d4386476b3c899">  108</a></span>&#160;        <a class="code" href="classzen_1_1net_1_1_c_socket.html#aadda732a0df14e4b06d4386476b3c899">CSocket</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">SocketType</a>&amp; Type) : m_Type(Type),</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            m_socket(-1), m_Log(util::CLog::GetEngineLog()) {}</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="classzen_1_1net_1_1z_socket.html#a84b237af94d765cc8cc150f48b4de853">  108</a></span>&#160;        <a class="code" href="classzen_1_1net_1_1z_socket.html#a84b237af94d765cc8cc150f48b4de853">zSocket</a>(<span class="keyword">const</span> <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">SocketType</a>&amp; Type) : m_Type(Type),</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            m_socket(-1), m_Log(util::zLog::GetEngineLog()) {}</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classzen_1_1net_1_1_c_socket.html#a83bd5bd7e19ba5ee120acd40a375b686">  111</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1net_1_1_c_socket.html#a83bd5bd7e19ba5ee120acd40a375b686">~CSocket</a>() { this-&gt;Destroy(); }</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classzen_1_1net_1_1z_socket.html#a6677fe8d1b9591753ff19934bca684cb">  111</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1net_1_1z_socket.html#a6677fe8d1b9591753ff19934bca684cb">~zSocket</a>() { this-&gt;Destroy(); }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> InitializeLibrary();</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
@@ -200,32 +200,32 @@ $(document).ready(function(){initNavTree('_socket_8hpp_source.html','');});
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> RecvFrom(<span class="keyword">const</span> <span class="keywordtype">size_t</span> size, <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; address, <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; port);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">int</span> SendTo(<span class="keyword">const</span> std::string&amp; addr, <span class="keyword">const</span> std::string&amp; port,</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                   <span class="keyword">const</span> std::string&amp; data);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">int</span> SendTo(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; addr, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; port,</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; data);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">int</span> SendBroadcast(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; message, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; port = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordtype">bool</span> Ping();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordtype">bool</span> SetSocketOption(<span class="keyword">const</span> <span class="keywordtype">int</span> type, <span class="keyword">const</span> <span class="keywordtype">int</span> option, <span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordtype">bool</span> SetNonblocking(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordtype">int</span> GetError() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> GetAddress(sockaddr_in&amp; addr);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keyword">static</span> in_addr GetAddress(<span class="keyword">const</span> std::string&amp; ip);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> s_init;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>&amp; m_Log;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">SocketType</a> m_Type;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordtype">int</span> m_socket;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    };</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif // ZENDERER__NETWORK__SOCKET_HPP</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">int</span> SendBroadcast(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; message, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; port = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">bool</span> Ping();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordtype">bool</span> SetSocketOption(<span class="keyword">const</span> <span class="keywordtype">int</span> type, <span class="keyword">const</span> <span class="keywordtype">int</span> option, <span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordtype">bool</span> SetNonblocking(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordtype">int</span> GetError() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keyword">static</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> GetAddress(sockaddr_in&amp; addr);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keyword">static</span> in_addr GetAddress(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; ip);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> s_init;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">util::zLog</a>&amp; m_Log;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <a class="code" href="namespacezen_1_1net.html#a15c79f474590b8e2bc0f5b34dbf99b6b">SocketType</a> m_Type;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordtype">int</span> m_socket;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    };</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;}</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif // ZENDERER__NETWORK__SOCKET_HPP</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

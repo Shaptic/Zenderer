@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,7 +120,7 @@ The `DrawBatch` structure</h2>
 <div class="line"><a name="a0"></a><a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a> indices[] = {0, 1, 2};</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// So indices[0] will draw triangle[0], and so on.</span></div>
-</div><!-- fragment --><p>To draw vertex data, you need vertices and indices. You can, of course, just specify 6 vertices to get a quad (two triangles), <em>or</em> you can specify 4 vertices and re-use two of them with indices (since they are shared). To get to the point, fill up the <code>DrawBatch</code> struct with your data, and then you can pass it on to the <code>CVertexArray</code> instance for offloading.</p>
+</div><!-- fragment --><p>To draw vertex data, you need vertices and indices. You can, of course, just specify 6 vertices to get a quad (two triangles), <em>or</em> you can specify 4 vertices and re-use two of them with indices (since they are shared). To get to the point, fill up the <code>DrawBatch</code> struct with your data, and then you can pass it on to the <code>zVertexArray</code> instance for offloading.</p>
 <div class="fragment"><div class="line"><span class="keyword">using namespace </span>zen::gfxcore;</div>
 <div class="line"><span class="keyword">using namespace </span>zen::math;</div>
 <div class="line"></div>
@@ -128,9 +128,9 @@ The `DrawBatch` structure</h2>
 <div class="line"><a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a>* indices = <span class="keyword">new</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a>[6];</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Create a 32x32 red quad.</span></div>
-<div class="line">vertices[1].<a name="a2"></a><a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position. ">position</a> = <a name="a3"></a><a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 0);</div>
-<div class="line">vertices[2].position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 32);</div>
-<div class="line">vertices[3].position = <a class="code" href="namespacezen_1_1math.html#ad13384e6c7da9a29b4e646f6988a825c" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(0, 32);</div>
+<div class="line">vertices[1].<a name="a2"></a><a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position. ">position</a> = <a name="a3"></a><a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 0);</div>
+<div class="line">vertices[2].position = <a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 32);</div>
+<div class="line">vertices[3].position = <a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(0, 32);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 4; ++i)</div>
 <div class="line">    vertices[i].color = <a name="_a4"></a><a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">zen::color4f_t</a>(1, 0, 0, 1);</div>
@@ -143,11 +143,11 @@ The `DrawBatch` structure</h2>
 <div class="line">indices[5] = 2;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// You can also skip the dynamic allocation for the indices</span></div>
-<div class="line"><span class="comment">// if you just want a quad and use zen::CQuad::GetIndexArray().</span></div>
-<div class="line"><span class="comment">// const index_t&amp; indices = zen::CQuad::GetIndexArray();</span></div>
+<div class="line"><span class="comment">// if you just want a quad and use zen::zQuad::GetIndexArray().</span></div>
+<div class="line"><span class="comment">// const index_t&amp; indices = zen::zQuad::GetIndexArray();</span></div>
 <div class="line"><span class="comment">// but then you must be careful not to delete[] them :)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a5"></a><a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a CVertexArray. ">DrawBatch</a> <a name="a6"></a><a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a> = {vertices, 4, indices, 6};</div>
+<div class="line"><a name="_a5"></a><a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a zVertexArray. ">DrawBatch</a> <a name="a6"></a><a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a> = {vertices, 4, indices, 6};</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// ... to be continued.</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="vao"></a>
@@ -156,7 +156,7 @@ Offloading to the GPU and Drawing</h2>
 <div class="fragment"><div class="line"><span class="comment">// ... continued from the previous section</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Create the GPU buffers</span></div>
-<div class="line">CVertexArray VAO();</div>
+<div class="line">zVertexArray VAO();</div>
 <div class="line">VAO.Init();</div>
 <div class="line">VAO.AddData(<a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a>);</div>
 <div class="line">VAO.Offload();</div>
@@ -167,7 +167,7 @@ Offloading to the GPU and Drawing</h2>
 <div class="line">vertices = indices = <span class="keyword">nullptr</span>;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Drawing can be done in a loop like so (assuming a window exists)</span></div>
-<div class="line">CRenderer::GetDefaultMaterial().Enable();</div>
+<div class="line">zRenderer::GetDefaultMaterial().Enable();</div>
 <div class="line"><span class="keywordflow">while</span>(Window.IsOpen())</div>
 <div class="line">{</div>
 <div class="line">    VAO.Draw();</div>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -122,13 +122,13 @@ $(document).ready(function(){initNavTree('_render_target_8hpp_source.html','');}
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations. ">CRenderTarget</a> : <a class="code" href="classzen_1_1gfxcore_1_1_c_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup. ">gfxcore::CGLSubsystem</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_render_target.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1z_render_target.html" title="Creates a target for all subsequent rendering operations. ">zRenderTarget</a> : <a class="code" href="classzen_1_1gfxcore_1_1z_g_l_subsystem.html" title="A wrapper for OpenGL objects with proper cleanup. ">gfxcore::zGLSubsystem</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">CRenderTarget</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions. ">math::rect_t</a>&amp; Dimensions);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#a534e225943c8387ba41403e841bdf232">CRenderTarget</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);  </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="namespacezen_1_1gfx.html#af57946b222f47ca89c92b313f45e382b">zRenderTarget</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions. ">math::rect_t</a>&amp; Dimensions);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="namespacezen_1_1gfx.html#af57946b222f47ca89c92b313f45e382b">zRenderTarget</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);  </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1_c_render_target.html" title="Creates a target for all subsequent rendering operations. ">CRenderTarget</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1z_render_target.html" title="Creates a target for all subsequent rendering operations. ">zRenderTarget</a>();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. ">Init</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
@@ -149,13 +149,13 @@ $(document).ready(function(){initNavTree('_render_target_8hpp_source.html','');}
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        GLuint GetTexture() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a20df8fedbc1bb60e134ea7e17018944a">   72</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a20df8fedbc1bb60e134ea7e17018944a">GetHeight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Viewport.x; }</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a32f74785727a099ea9ad847ad4755918">   73</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1_c_render_target.html#a32f74785727a099ea9ad847ad4755918">GetWidth</a>()<span class="keyword">  const </span>{ <span class="keywordflow">return</span> m_Viewport.y; }</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a304e658ab0f62d668313bbe9b5091b4e">   72</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a304e658ab0f62d668313bbe9b5091b4e">GetHeight</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Viewport.x; }</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a4a502b9d08550f6cf41f106b85880686">   73</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a4a502b9d08550f6cf41f106b85880686">GetWidth</a>()<span class="keyword">  const </span>{ <span class="keywordflow">return</span> m_Viewport.y; }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>&amp; m_Log;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">util::zLog</a>&amp; m_Log;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a> m_OldViewport, m_Viewport;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="structzen_1_1math_1_1z_vector.html">math::vectoru16_t</a> m_OldViewport, m_Viewport;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classzen_1_1math_1_1matrix4x4__t.html" title="4x4 matrix representation. ">math::matrix4x4_t</a> m_ProjMatrix, m_Main;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a> m_error_str;</div>

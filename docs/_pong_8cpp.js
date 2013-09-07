@@ -28,5 +28,5 @@ var _pong_8cpp =
     [ "PONG_JOIN_PORT", "_pong_8cpp.html#ab9ab1fa5032bb148b5dfc9d894be5d07", null ],
     [ "MAX_PONG", "_pong_8cpp.html#ae2d1697fd03b28bff8fb7a35ded43576", null ],
     [ "MIN_PONG", "_pong_8cpp.html#a820fea2a5356fb4906694179880791a4", null ],
-    [ "RNG", "_pong_8cpp.html#ad467dc1e955b2e1f787b0ab67de915f2", null ]
+    [ "RNG", "_pong_8cpp.html#a05b25dc9afee78bc28be5ed318874aee", null ]
 ];

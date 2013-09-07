@@ -1,0 +1,4 @@
+<map id="zen::gfxcore::zTexture::LoadFromExisting" name="zen::gfxcore::zTexture::LoadFromExisting">
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_material.html#a8e7c96881957a00cb2acbfbb60b0bf0b" title="zen::gfx::zMaterial\l::zMaterial" alt="" coords="226,5,355,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_material.html#ac77e0edd9c6d88159dea61fe382e912b" title="Loads a texture from an existing OpenGL handle. " alt="" coords="205,70,376,111"/>
+</map>

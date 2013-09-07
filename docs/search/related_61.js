@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cassetmanager',['CAssetManager',['../classzen_1_1sfx_1_1_c_audio2_d.html#a29506f8739fc077481fbd74a9d37b17f',1,'zen::sfx::CAudio2D']]]
+  ['zassetmanager',['zAssetManager',['../classzen_1_1sfx_1_1z_audio2_d.html#a47d16eabef217a9202e5f813e97f76de',1,'zen::sfx::zAudio2D']]]
 ];

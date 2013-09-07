@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,11 +113,11 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">util::zLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;CAllocator::CAllocator(<span class="keywordtype">size_t</span> initial <span class="comment">/*= (1 &lt;&lt; 16)*/</span>) :</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems. ">CSubsystem</a>(<span class="stringliteral">&quot;Allocator&quot;</span>),</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;zAllocator::zAllocator(<span class="keywordtype">size_t</span> initial <span class="comment">/*= (1 &lt;&lt; 16)*/</span>) :</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classzen_1_1z_subsystem.html" title="An abstract base class for all engine subsystems. ">zSubsystem</a>(<span class="stringliteral">&quot;Allocator&quot;</span>),</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    mp_head(nullptr),</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    mp_ptr(nullptr),</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_size(0)</div>
@@ -126,7 +126,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_size = this-&gt;Pad(initial);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#a373cf7aa19d780609ee1b5314a32bac8">   18</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1_c_allocator.html#a373cf7aa19d780609ee1b5314a32bac8" title="Initializes the subsystem. ">CAllocator::Init</a>()</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1z_allocator.html#a313d1a9c0bd442aeb9c813d93f16961b">   18</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1z_allocator.html#a313d1a9c0bd442aeb9c813d93f16961b" title="Initializes the subsystem. ">zAllocator::Init</a>()</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(m_init) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> (m_init = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1_c_allocator.html#a760166517ad454ecdedc086ebeb0ebed" title="Cleans up the subsystem completely. ">CAllocator::Destroy</a>()</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1z_allocator.html#adf1bb685c681e5940217a78fb4715baf">   32</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1z_allocator.html#adf1bb685c681e5940217a78fb4715baf" title="Cleans up the subsystem completely. ">zAllocator::Destroy</a>()</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span>(!m_init) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Allocator&quot;</span>)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot; byte memory leak found.&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        total += i;</div>
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#a25016081dc81bddb2ca9cc3cc1a9ece7">   55</a></span>&#160;<span class="keywordtype">void</span>* <a class="code" href="classzen_1_1_c_allocator.html#a25016081dc81bddb2ca9cc3cc1a9ece7" title="Allocates bytes of memory. ">CAllocator::operator()</a>(<span class="keywordtype">size_t</span> bytes)</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1z_allocator.html#a25ce5f3985acda6e7e7470df945d6429">   55</a></span>&#160;<span class="keywordtype">void</span>* <a class="code" href="classzen_1_1z_allocator.html#a25ce5f3985acda6e7e7470df945d6429" title="Allocates bytes of memory. ">zAllocator::operator()</a>(<span class="keywordtype">size_t</span> bytes)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    this-&gt;Pad(bytes);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span>* ptr = <span class="keyword">nullptr</span>;</div>
@@ -215,7 +215,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Allocator&quot;</span>)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                &lt;&lt; m_Log.SetMode(LogMode::ZEN_FATAL)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Out of memory.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Out of memory.&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
@@ -226,19 +226,19 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Allocator&quot;</span>)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag. ">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;Allocated &quot;</span> &lt;&lt; bytes &lt;&lt; <span class="stringliteral">&quot; bytes [0x&quot;</span> &lt;&lt; ptr</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;] (&quot;</span> &lt;&lt; alloc &lt;&lt; <span class="stringliteral">&quot; total).&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;] (&quot;</span> &lt;&lt; alloc &lt;&lt; <span class="stringliteral">&quot; total).&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif // _DEBUG</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span>    }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> ptr;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31">  125</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1_c_allocator.html#aeb79917663751a059c93dd4d863abc31" title="Frees ptr from memory. ">CAllocator::operator[]</a>(<span class="keywordtype">void</span>* ptr)</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classzen_1_1z_allocator.html#a6496980967ec538d485adb21b33f9721">  125</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1z_allocator.html#a6496980967ec538d485adb21b33f9721" title="Frees ptr from memory. ">zAllocator::operator[]</a>(<span class="keywordtype">void</span>* ptr)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> this-&gt;Free(ptr);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#aa5d0e8e44055abcbd9beec44a968fb0d">  130</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1_c_allocator.html#aa5d0e8e44055abcbd9beec44a968fb0d">CAllocator::Free</a>(<span class="keywordtype">void</span>* ptr)</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="classzen_1_1z_allocator.html#a14c91b45b108fbfe04457d6a48602bfa">  130</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classzen_1_1z_allocator.html#a14c91b45b108fbfe04457d6a48602bfa">zAllocator::Free</a>(<span class="keywordtype">void</span>* ptr)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">auto</span> i = m_blocks.begin(),</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;         j = m_blocks.end();</div>
@@ -287,7 +287,7 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            m_Log   &lt;&lt; m_Log.SetSystem(<span class="stringliteral">&quot;Allocator&quot;</span>)</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    &lt;&lt; m_Log.SetMode(<a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag. ">LogMode::ZEN_DEBUG</a>)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;Freed &quot;</span> &lt;&lt; freed &lt;&lt; <span class="stringliteral">&quot; bytes (&quot;</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    &lt;&lt; total_freed &lt;&lt; <span class="stringliteral">&quot; total).&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    &lt;&lt; total_freed &lt;&lt; <span class="stringliteral">&quot; total).&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#endif // _DEBUG</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor"></span>            <span class="comment">// Freed an even number of bytes</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">return</span> freed;</div>
@@ -300,10 +300,10 @@ $(document).ready(function(){initNavTree('_allocator_8cpp_source.html','');});
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="code" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df">  192</a></span>&#160;<a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests. ">CAllocator</a>&amp; <a class="code" href="classzen_1_1_c_allocator.html#ad45fdc86063b4b46644f9871936be9df" title="Singleton accessor. ">CAllocator::Get</a>()</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="code" href="classzen_1_1z_allocator.html#a472973ee0cdbc2965245327333cdc43c">  192</a></span>&#160;<a class="code" href="classzen_1_1z_allocator.html" title="An optional custom allocator for high-speed memory requests. ">zAllocator</a>&amp; <a class="code" href="classzen_1_1z_allocator.html#a472973ee0cdbc2965245327333cdc43c" title="Singleton accessor. ">zAllocator::Get</a>()</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">static</span> <a class="code" href="classzen_1_1_c_allocator.html" title="An optional custom allocator for high-speed memory requests. ">CAllocator</a> Alloc;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    Alloc.<a class="code" href="classzen_1_1_c_allocator.html#a373cf7aa19d780609ee1b5314a32bac8" title="Initializes the subsystem. ">Init</a>();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">static</span> <a class="code" href="classzen_1_1z_allocator.html" title="An optional custom allocator for high-speed memory requests. ">zAllocator</a> Alloc;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    Alloc.<a class="code" href="classzen_1_1z_allocator.html#a313d1a9c0bd442aeb9c813d93f16961b" title="Initializes the subsystem. ">Init</a>();</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">return</span> Alloc;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->

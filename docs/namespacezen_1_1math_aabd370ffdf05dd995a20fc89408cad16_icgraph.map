@@ -1,7 +1,8 @@
 <map id="zen::math::compf" name="zen::math::compf">
 <area shape="rect" id="node2" href="$classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115" title="Stretches the matrix by degree&#45;angles in different directions. " alt="" coords="177,5,322,46"/>
-<area shape="rect" id="node4" href="$structzen_1_1math_1_1_vector.html#af606b191be1e741359753b5b251b7943" title="zen::math::Vector::\loperator==" alt="" coords="182,70,317,111"/>
-<area shape="rect" id="node5" href="$group___objects.html#ga925e8bd382dc3a99ce61fd2b9635aaf0" title="Checks for collision between two AABB boxes. " alt="" coords="189,136,309,163"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="224,187,275,213"/>
+<area shape="rect" id="node4" href="$structzen_1_1math_1_1z_vector.html#a896d9b7ff98e840e2e7bba3ff0b734fe" title="zen::math::zVector\l::operator==" alt="" coords="183,70,316,111"/>
+<area shape="rect" id="node5" href="$structzen_1_1math_1_1z_vector.html#abe201e8065219b1747357e0ec0a472b9" title="Normalizes the current vector. " alt="" coords="183,135,316,177"/>
+<area shape="rect" id="node6" href="$group___objects.html#ga925e8bd382dc3a99ce61fd2b9635aaf0" title="Checks for collision between two AABB boxes. " alt="" coords="189,201,309,228"/>
+<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="224,252,275,279"/>
 <area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="371,12,429,39"/>
 </map>

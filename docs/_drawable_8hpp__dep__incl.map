@@ -1,8 +1,9 @@
 <map id="Zenderer/include/Zenderer/CoreGraphics/Drawable.hpp" name="Zenderer/include/Zenderer/CoreGraphics/Drawable.hpp">
 <area shape="rect" id="node2" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="40,97,211,138"/>
 <area shape="rect" id="node8" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices. " alt="" coords="276,97,447,138"/>
+<area shape="rect" id="node23" href="$_triangle_8hpp.html" title="Zenderer/Graphics/Triangle.hpp &#45; A drawable primitive with 3 vertices. " alt="" coords="521,97,692,138"/>
 <area shape="rect" id="node15" href="$_entity_8hpp.html" title="Zenderer/Objects/Entity.hpp &#45; A generic entity class wrapping drawable primitives, materials, and easy sprite&#45;like functionality together. " alt="" coords="503,187,673,229"/>
-<area shape="rect" id="node23" href="$_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="522,97,699,138"/>
+<area shape="rect" id="node24" href="$_drawable_8cpp.html" title="Zenderer/src/CoreGraphics\l/Drawable.cpp" alt="" coords="717,97,893,138"/>
 <area shape="rect" id="node3" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine. " alt="" coords="208,641,379,682"/>
 <area shape="rect" id="node7" href="$_polygon_8cpp.html" title="Zenderer/src/Graphics\l/Polygon.cpp" alt="" coords="50,187,200,229"/>
 <area shape="rect" id="node4" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="5,731,192,757"/>

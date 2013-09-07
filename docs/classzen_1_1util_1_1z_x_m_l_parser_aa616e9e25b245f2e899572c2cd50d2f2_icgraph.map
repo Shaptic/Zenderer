@@ -1,0 +1,5 @@
+<map id="zen::util::zXMLParser::ClearTree" name="zen::util::zXMLParser::ClearTree">
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1z_x_m_l_parser.html#a55b592eb1c780315294626605da3a603" title="Clears the internal XML tree. " alt="" coords="200,5,347,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1util_1_1z_x_m_l_parser.html#a2321daa3ee66d147209c094a87bb3f30" title="Loads and parses an XML file from disk. " alt="" coords="200,70,347,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1z_x_m_l_parser.html#a0b8ed96d2152a22feefd68cb98b7ba7d" title="Loads and parses XML data from a string. " alt="" coords="200,135,347,177"/>
+</map>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('_allocation-example.html','');});
 Memory Allocation</h1>
 <h2><a class="anchor" id="Warning"></a>
 Warning</h2>
-<p>This example is deprecated and <code>CAllocator</code> is not used in <em>Zenderer</em>.</p>
+<p>This example is deprecated and <code>zAllocator</code> is not used in <em>Zenderer</em>.</p>
 <div class="fragment"><div class="line"> <span class="comment">// Allocate char[4]</span></div>
 <div class="line"> <span class="keywordtype">char</span>* data0 = g_Alloc.get&lt;<span class="keywordtype">char</span>&gt;(4);</div>
 <div class="line"> <span class="keywordtype">char</span>* data1 = g_Alloc(<span class="keyword">sizeof</span>(<span class="keywordtype">char</span>) * 4);</div>
@@ -124,7 +124,7 @@ Warning</h2>
 <div class="line"> g_Alloc.Free(data0);</div>
 <div class="line"></div>
 <div class="line"> <span class="comment">// Have to call destructor manually.</span></div>
-<div class="line"> DynamicLight-&gt;~CLight();</div>
+<div class="line"> DynamicLight-&gt;~zLight();</div>
 <div class="line"> g_Alloc.Free(DynamicLight);</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->

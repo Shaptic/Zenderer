@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -126,35 +126,35 @@ $(document).ready(function(){initNavTree('_font_core_8hpp_source.html','');});
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span>gui</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library. ">CFontLibrary</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1_c_subsystem.html" title="An abstract base class for all engine subsystems. ">CSubsystem</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_font_library.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gui_1_1z_font_library.html" title="Initializes the core FreeType2 library. ">zFontLibrary</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1z_subsystem.html" title="An abstract base class for all engine subsystems. ">zSubsystem</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a53d1af8cabd84b8909269e2e40dad9bc">   45</a></span>&#160;        <a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a53d1af8cabd84b8909269e2e40dad9bc">~CFontLibrary</a>()</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_font_library.html#adaaa8ce960bc6317fc54d13916db049d">   45</a></span>&#160;        <a class="code" href="classzen_1_1gui_1_1z_font_library.html#adaaa8ce960bc6317fc54d13916db049d">~zFontLibrary</a>()</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            this-&gt;Destroy();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#ad84c7b87450289c90f94a2fe99c0e2a7">   63</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html#ad84c7b87450289c90f94a2fe99c0e2a7" title="Initializes the FreeType library. ">Init</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_font_library.html#a4842a6941f1680aaa49a6852c8b08d54">   63</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_font_library.html#a4842a6941f1680aaa49a6852c8b08d54" title="Initializes the FreeType library. ">Init</a>()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span>(m_init) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> (m_init = (FT_Init_FreeType(&amp;m_Library) == 0));</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a6a2ede7cf93ccfa9af2d29ea5d5fec18">   69</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a6a2ede7cf93ccfa9af2d29ea5d5fec18" title="Cleans up the subsystem completely. ">Destroy</a>()</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_font_library.html#af872be83093e8cff58e988a1514ea3d6">   69</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_font_library.html#af872be83093e8cff58e988a1514ea3d6" title="Cleans up the subsystem completely. ">Destroy</a>()</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span>(!m_init) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            FT_Done_FreeType(m_Library);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a6c34466bb119c5b24ce5ec28d329c059">   76</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library. ">CFontLibrary</a>&amp; <a class="code" href="classzen_1_1gui_1_1_c_font_library.html#a6c34466bb119c5b24ce5ec28d329c059">InitFreetype</a>()</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_font_library.html#a1cf14f5723c1975db84691ee7896b3be">   76</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1gui_1_1z_font_library.html" title="Initializes the core FreeType2 library. ">zFontLibrary</a>&amp; <a class="code" href="classzen_1_1gui_1_1z_font_library.html#a1cf14f5723c1975db84691ee7896b3be">InitFreetype</a>()</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">static</span> <a class="code" href="classzen_1_1gui_1_1_c_font_library.html" title="Initializes the core FreeType2 library. ">CFontLibrary</a> s_TTF;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            s_TTF.<a class="code" href="classzen_1_1gui_1_1_c_font_library.html#ad84c7b87450289c90f94a2fe99c0e2a7" title="Initializes the FreeType library. ">Init</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">static</span> <a class="code" href="classzen_1_1gui_1_1z_font_library.html" title="Initializes the core FreeType2 library. ">zFontLibrary</a> s_TTF;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            s_TTF.<a class="code" href="classzen_1_1gui_1_1z_font_library.html#a4842a6941f1680aaa49a6852c8b08d54" title="Initializes the FreeType library. ">Init</a>();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">return</span> s_TTF;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1_c_font_library.html#adec1abdc4f7e6a1b483d76e44b5514fd">   83</a></span>&#160;        <span class="keyword">const</span> FT_Library <a class="code" href="classzen_1_1gui_1_1_c_font_library.html#adec1abdc4f7e6a1b483d76e44b5514fd">GetLibrary</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_font_library.html#aeafc692f64655ec31a3b0dac69d74924">   83</a></span>&#160;        <span class="keyword">const</span> FT_Library <a class="code" href="classzen_1_1gui_1_1z_font_library.html#aeafc692f64655ec31a3b0dac69d74924">GetLibrary</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">        </span>{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> m_Library;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
@@ -165,9 +165,9 @@ $(document).ready(function(){initNavTree('_font_core_8hpp_source.html','');});
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html">   93</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="namespacezen_1_1gui.html#structzen_1_1gui_1_1glyph__t" title="A glyph structure used internally by the font API. ">glyph_t</a></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e">   95</a></span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1_c_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles. ">gfxcore::CTexture</a>*  <a class="code" href="namespacezen_1_1gui.html#aafb45b8b302142ee16ef216caf695d2e" title="Raw bitmap. ">texture</a>;    </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9">   96</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a>   <a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size. ">size</a>;       </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">   97</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1_vector.html">math::vectoru16_t</a>   <a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30" title="Position on baseline to render. ">position</a>;   </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#aed29f07df41992d628a9b1d4ce24e240">   95</a></span>&#160;        <a class="code" href="classzen_1_1gfxcore_1_1z_texture.html" title="Low-level texture asset abstraction over OpenGL texture handles. ">gfxcore::zTexture</a>*  <a class="code" href="namespacezen_1_1gui.html#aed29f07df41992d628a9b1d4ce24e240" title="Raw bitmap. ">texture</a>;    </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9">   96</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1z_vector.html">math::vectoru16_t</a>   <a class="code" href="namespacezen_1_1gui.html#a6f1ec31bf0a98959cf4e528857a158a9" title="Raw bitmap size. ">size</a>;       </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">   97</a></span>&#160;        <a class="code" href="structzen_1_1math_1_1z_vector.html">math::vectoru16_t</a>   <a class="code" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30" title="Position on baseline to render. ">position</a>;   </div>
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c">   98</a></span>&#160;        uint16_t            <a class="code" href="namespacezen_1_1gui.html#adca072fe1e3b3815436e8077d69a084c" title="Pixels until next character. ">advance</a>;    </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    };</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}   <span class="comment">// namespace gfx</span></div>

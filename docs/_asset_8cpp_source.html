@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,28 +113,28 @@ $(document).ready(function(){initNavTree('_asset_8cpp_source.html','');});
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">util::zLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset. ">asset::CAsset</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1asset_1_1z_asset.html" title="Used throughout Zenderer to act as a managed asset. ">asset::zAsset</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">size_t</span> CAsset::s_seed = 0x6915BAD;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">size_t</span> zAsset::s_seed = 0x6915BAD;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a7660ff0cc7af2aaf0bf4ea611bca29ce">   12</a></span>&#160;CAsset::CAsset(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) :</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Log(CLog::GetEngineLog()),</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1z_asset.html#a91086c0574501058da7d437667fce234">   12</a></span>&#160;zAsset::zAsset(<span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner) :</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    m_Log(zLog::GetEngineLog()),</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    mp_owner(owner), m_filename_hash(0), m_loaded(false),</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_refcount(0), m_id(util::<a class="code" href="namespacezen_1_1util.html#a3b73b2608dcb520f9cfc549406b602f1" title="Calculates a hash for some value. ">hash</a>(this, sizeof(<a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset. ">CAsset</a>), <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset. ">CAsset</a>::s_seed))</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_refcount(0), m_id(util::<a class="code" href="namespacezen_1_1util.html#a3b73b2608dcb520f9cfc549406b602f1" title="Calculates a hash for some value. ">hash</a>(this, sizeof(<a class="code" href="classzen_1_1asset_1_1z_asset.html" title="Used throughout Zenderer to act as a managed asset. ">zAsset</a>), <a class="code" href="classzen_1_1asset_1_1z_asset.html" title="Used throughout Zenderer to act as a managed asset. ">zAsset</a>::s_seed))</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#a34d3bc4ca78a32392f46b15e6f272ccc">   18</a></span>&#160;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a34d3bc4ca78a32392f46b15e6f272ccc" title="Logs some information. ">CAsset::~CAsset</a>() {}</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1z_asset.html#a63e5f41f65f468b3653ae4f5d1b82549">   18</a></span>&#160;<a class="code" href="classzen_1_1asset_1_1z_asset.html#a63e5f41f65f468b3653ae4f5d1b82549" title="Logs some information. ">zAsset::~zAsset</a>() {}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html#ad7628ec85ea3e8a6268acd18cb4ad40a" title="Copies an asset from another. ">CAsset::LoadFromExisting</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1_c_asset.html" title="Used throughout Zenderer to act as a managed asset. ">CAsset</a>* <span class="keyword">const</span> pCopy)</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classzen_1_1asset_1_1z_asset.html#a6703ae027cdc4826b63398aaafc37f98">   20</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1asset_1_1z_asset.html#a6703ae027cdc4826b63398aaafc37f98" title="Copies an asset from another. ">zAsset::LoadFromExisting</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1asset_1_1z_asset.html" title="Used throughout Zenderer to act as a managed asset. ">zAsset</a>* <span class="keyword">const</span> pCopy)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">m_error_str</a>     = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a23f68362f7596efb51f47de140e78575">m_error_str</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">m_filename</a>      = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a9c3eb60c3fdaa9d10748f56749e97c02">m_filename</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a> = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a698c93c320d6e0a21050652c6f616857">m_filename_hash</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classzen_1_1asset_1_1z_asset.html#aba3820dbeb2ddf015357e0f37dc67cfe">m_error_str</a>     = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1z_asset.html#aba3820dbeb2ddf015357e0f37dc67cfe">m_error_str</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classzen_1_1asset_1_1z_asset.html#a95767cd924f40d2a394ee8ae601bc2ff">m_filename</a>      = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1z_asset.html#a95767cd924f40d2a394ee8ae601bc2ff">m_filename</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classzen_1_1asset_1_1z_asset.html#a78718a7ad704d508d89651d8d30b5ba5">m_filename_hash</a> = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1z_asset.html#a78718a7ad704d508d89651d8d30b5ba5">m_filename_hash</a>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    mp_owner        = pCopy-&gt;mp_owner;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a>        = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1_c_asset.html#a2aabe67928ebf0afdbf3262b048863db">m_loaded</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="classzen_1_1asset_1_1z_asset.html#aa26e301f04cc7e32dffc1e044ac0a68e">m_loaded</a>        = pCopy-&gt;<a class="code" href="classzen_1_1asset_1_1z_asset.html#aa26e301f04cc7e32dffc1e044ac0a68e">m_loaded</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>

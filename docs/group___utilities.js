@@ -1,60 +1,60 @@
 var group___utilities =
 [
     [ "zen", "namespacezen.html", null ],
-    [ "CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html", [
-      [ "pair_t", "classzen_1_1util_1_1_c_i_n_i_parser.html#afeefbaa65dfdd868ba009c8a8531428c", null ],
-      [ "CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html#a20c84eda45d2687f2ff9c1c9269a5083", null ],
-      [ "~CINIParser", "classzen_1_1util_1_1_c_i_n_i_parser.html#a47316c05513638fd204ed6abd9aa0c06", null ],
-      [ "LoadFromFile", "classzen_1_1util_1_1_c_i_n_i_parser.html#ac145ac752bbd1b59ebfe0e861ca81ac8", null ],
-      [ "LoadFromStream", "classzen_1_1util_1_1_c_i_n_i_parser.html#ae4e9f633811f25ba63eff847cd232cae", null ],
-      [ "LoadFromStream", "classzen_1_1util_1_1_c_i_n_i_parser.html#aa4bf277e6c50fd30e2ccd91e36a8b135", null ],
-      [ "Reset", "classzen_1_1util_1_1_c_i_n_i_parser.html#af3b867e089ded53f3540e53a08236f5e", null ],
-      [ "Exists", "classzen_1_1util_1_1_c_i_n_i_parser.html#a3d2eb50f3d14625e6a400a736e5374de", null ],
-      [ "GetValue", "classzen_1_1util_1_1_c_i_n_i_parser.html#a77da4e38e36caf33478187327dcecd56", null ],
-      [ "GetValuei", "classzen_1_1util_1_1_c_i_n_i_parser.html#aef355b201c3c5efd3ada50f1f694ca9c", null ],
-      [ "GetValueb", "classzen_1_1util_1_1_c_i_n_i_parser.html#aea41451a7d888f37f556828cb4dc5535", null ],
-      [ "GetValuer", "classzen_1_1util_1_1_c_i_n_i_parser.html#ab8710e9bf49c30e6567434bc2f688c37", null ],
-      [ "GetValues", "group___utilities.html#gac57686358966190d7c29a88ff1c87429", null ],
-      [ "GetPairs", "classzen_1_1util_1_1_c_i_n_i_parser.html#a76bcd06c50e0356a80b3ee034123aadc", null ],
-      [ "GetPairs", "classzen_1_1util_1_1_c_i_n_i_parser.html#ab5ba9999369bf4454a64db8d45b5ee5e", null ],
-      [ "FindInFile", "classzen_1_1util_1_1_c_i_n_i_parser.html#a6dcd1b91f04642dbee87b4d7b4d9909f", null ]
+    [ "zParser", "classzen_1_1util_1_1z_parser.html", [
+      [ "pair_t", "classzen_1_1util_1_1z_parser.html#a48e432de333c176f0c7e03e9a4176ab4", null ],
+      [ "zParser", "classzen_1_1util_1_1z_parser.html#ad08e0a5ae52e2b50f97a96c20f8255b5", null ],
+      [ "~zParser", "classzen_1_1util_1_1z_parser.html#aad8df18b49a56162b8246c1d16e80850", null ],
+      [ "LoadFromFile", "classzen_1_1util_1_1z_parser.html#a047531e22d4a7c024082696156a15333", null ],
+      [ "LoadFromStream", "classzen_1_1util_1_1z_parser.html#a3b51640e20788ab80f4933daa552f5ef", null ],
+      [ "LoadFromStream", "classzen_1_1util_1_1z_parser.html#a9aa89d42ab16b1c8710d288b40a09cb8", null ],
+      [ "Reset", "classzen_1_1util_1_1z_parser.html#a5f14f8154d1d8897c8321cd95efb4712", null ],
+      [ "Exists", "classzen_1_1util_1_1z_parser.html#a27a93be5a64479860d5fde9f8f6cb82c", null ],
+      [ "GetValue", "classzen_1_1util_1_1z_parser.html#a4cc12b8caa1d10f343690d52a3401b4d", null ],
+      [ "GetValuei", "classzen_1_1util_1_1z_parser.html#aa3bdd2b75cd27817e05575f97fcbc3c3", null ],
+      [ "GetValueb", "classzen_1_1util_1_1z_parser.html#a825a37368ad1934d0f404b30d8b2e3b7", null ],
+      [ "GetValuer", "classzen_1_1util_1_1z_parser.html#ac748c90b60dc67b08654d856d83100c0", null ],
+      [ "GetValues", "group___utilities.html#ga9fc4b3731443f197e4e92b4fb6476cd9", null ],
+      [ "GetPairs", "classzen_1_1util_1_1z_parser.html#ab4e14060275feda05d93ccf3013e8355", null ],
+      [ "GetPairs", "classzen_1_1util_1_1z_parser.html#a3eceab5ef792727074250d87d7fdfed9", null ],
+      [ "FindInFile", "classzen_1_1util_1_1z_parser.html#afeb941072064e21ccf1231effb4631f8", null ]
     ] ],
-    [ "CLog", "classzen_1_1util_1_1_c_log.html", [
-      [ "CLog", "classzen_1_1util_1_1_c_log.html#a188d8bf9beb5f1faa7560ca028a8bf72", null ],
-      [ "CLog", "classzen_1_1util_1_1_c_log.html#a042b3f3980addc9561a3817c088e5922", null ],
-      [ "~CLog", "classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9", null ],
-      [ "operator=", "classzen_1_1util_1_1_c_log.html#a9707ea85c8bfc727f29c3d84952b4712", null ],
-      [ "operator<<", "classzen_1_1util_1_1_c_log.html#a4b47abac9f1cd45f5479be861290bfd6", null ],
-      [ "operator<<", "classzen_1_1util_1_1_c_log.html#a63ae1bf2dc31500af22930f7d5107622", null ],
-      [ "Init", "classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee", null ],
-      [ "Destroy", "classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f", null ],
-      [ "ToggleStdout", "classzen_1_1util_1_1_c_log.html#a354fc06ab4cb37b616f5322cf2b333e1", null ],
-      [ "SetMode", "classzen_1_1util_1_1_c_log.html#ab8ad1612d97e76c971f1e7d0515a65e2", null ],
-      [ "SetSystem", "classzen_1_1util_1_1_c_log.html#a62c2eea1199e38b7d9297100e7a315e7", null ],
-      [ "SetFilename", "classzen_1_1util_1_1_c_log.html#a49707ee9497536f02e61e1cbb5b5d96d", null ],
-      [ "GetSystem", "classzen_1_1util_1_1_c_log.html#aa650a945529f19cf99c00f2f4655ef5d", null ],
-      [ "GetFilename", "classzen_1_1util_1_1_c_log.html#a8ee810e8f130b41733c45c7e05686ce1", null ],
-      [ "IsInit", "classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa", null ],
-      [ "GetEngineLog", "classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d", null ],
-      [ "operator<<", "classzen_1_1util_1_1_c_log.html#ac55ffbfa047950ed902c1bf0fc2b3984", null ],
-      [ "operator<<", "classzen_1_1util_1_1_c_log.html#a2c3666878fd6cdc5a98088014438b3b5", null ],
-      [ "endl", "classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5", null ]
+    [ "zLog", "classzen_1_1util_1_1z_log.html", [
+      [ "zLog", "classzen_1_1util_1_1z_log.html#ab44028843087a1ff2105ad7ccfdb8409", null ],
+      [ "zLog", "classzen_1_1util_1_1z_log.html#a57ee1a07a746d1d6f3a5998b0e07a65c", null ],
+      [ "~zLog", "classzen_1_1util_1_1z_log.html#ae2f22c964c1677ee9c5d7a1133f0ed31", null ],
+      [ "operator=", "classzen_1_1util_1_1z_log.html#a028f25d9efc8a8e02130f592e15bb6ce", null ],
+      [ "operator<<", "classzen_1_1util_1_1z_log.html#a12e38fd9e1a78b9fc2bc9392a9a25ca1", null ],
+      [ "operator<<", "classzen_1_1util_1_1z_log.html#a8a13883fea5db4bb8502bd705ef951f9", null ],
+      [ "Init", "classzen_1_1util_1_1z_log.html#aec0de4bcec78c5a9d2135ae83a19ee7e", null ],
+      [ "Destroy", "classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18", null ],
+      [ "ToggleStdout", "classzen_1_1util_1_1z_log.html#aa63a3cda36919cd5de731484a519b3d9", null ],
+      [ "SetMode", "classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01", null ],
+      [ "SetSystem", "classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788", null ],
+      [ "SetFilename", "classzen_1_1util_1_1z_log.html#a5d6771fbef7425b8c39a58ceba171720", null ],
+      [ "GetSystem", "classzen_1_1util_1_1z_log.html#ad01cec0909f2f148bf9175cf39099d49", null ],
+      [ "GetFilename", "classzen_1_1util_1_1z_log.html#aaee9a40dab0f253880229699e6fb52a3", null ],
+      [ "IsInit", "classzen_1_1util_1_1z_log.html#a0e741f7919523907a62620025030cbc0", null ],
+      [ "GetEngineLog", "classzen_1_1util_1_1z_log.html#a050d764d3b818e2619b0e4880edf749e", null ],
+      [ "operator<<", "classzen_1_1util_1_1z_log.html#a49e66e4ad949e413113da41d06595d4b", null ],
+      [ "operator<<", "classzen_1_1util_1_1z_log.html#acdd648d5c98f46e464fac0ca17691dce", null ],
+      [ "endl", "classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad", null ]
     ] ],
-    [ "CRandom", "classzen_1_1util_1_1_c_random.html", [
-      [ "CRandom", "classzen_1_1util_1_1_c_random.html#acd802bc5062bf09f7d3b0eeaf8f1a063", null ],
-      [ "randint", "classzen_1_1util_1_1_c_random.html#a92b4339c98ace5aeb203223f2e8c118d", null ],
-      [ "randreal", "classzen_1_1util_1_1_c_random.html#a396d7a8cb15268ea620f2a731aec8480", null ],
-      [ "choice", "classzen_1_1util_1_1_c_random.html#a5f8ed379d9dc45e980612d56eaab16cb", null ]
+    [ "zRandom", "classzen_1_1util_1_1z_random.html", [
+      [ "zRandom", "classzen_1_1util_1_1z_random.html#a5398e997476543cd41a01c1d29993624", null ],
+      [ "randint", "classzen_1_1util_1_1z_random.html#a0d81392050f2797bc168a996dc96ffa1", null ],
+      [ "randreal", "classzen_1_1util_1_1z_random.html#af06addc9ff09b417b1c27daf4c0bd32c", null ],
+      [ "choice", "classzen_1_1util_1_1z_random.html#a16813c80703663f76e60930ee990882c", null ]
     ] ],
-    [ "CSettings", "classzen_1_1util_1_1_c_settings.html", [
-      [ "CSettings", "classzen_1_1util_1_1_c_settings.html#ad772a4f72bc8f38791e746d1de451d95", null ],
-      [ "~CSettings", "classzen_1_1util_1_1_c_settings.html#a2e529f0e906c1abb97f6aede2ae91292", null ],
-      [ "Init", "classzen_1_1util_1_1_c_settings.html#a176c1b3559faf249482c9bdaac1e0550", null ],
-      [ "Destroy", "classzen_1_1util_1_1_c_settings.html#ae08be94f7ac820aa5e61abb1d48c9adf", null ],
-      [ "operator[]", "classzen_1_1util_1_1_c_settings.html#a0e507b8fce649e8b4c1f1991b071c2b4", null ],
-      [ "begin", "classzen_1_1util_1_1_c_settings.html#a33261683fedb84d56ef9477247b89b4b", null ],
-      [ "end", "classzen_1_1util_1_1_c_settings.html#a96ded7256e50a61d5e38beddf66e9e16", null ],
-      [ "GetEngineInstance", "classzen_1_1util_1_1_c_settings.html#a9cec9f73af011cb99e0c1df142ba4e02", null ]
+    [ "zSettings", "classzen_1_1util_1_1z_settings.html", [
+      [ "zSettings", "classzen_1_1util_1_1z_settings.html#af5defdb74eea8b80cac830e18f60fe4f", null ],
+      [ "~zSettings", "classzen_1_1util_1_1z_settings.html#a22811083268407c465d634a6486822c7", null ],
+      [ "Init", "classzen_1_1util_1_1z_settings.html#a8b4359fc5175481fc9cdbf7d4d9354fd", null ],
+      [ "Destroy", "classzen_1_1util_1_1z_settings.html#a6ee494f4a51135d2bd9c38a43d8d4948", null ],
+      [ "operator[]", "classzen_1_1util_1_1z_settings.html#aea12a0ea2966b6418f22293b71d0659a", null ],
+      [ "begin", "classzen_1_1util_1_1z_settings.html#a52dd10754f1c3b9693349cc33e75dbfd", null ],
+      [ "end", "classzen_1_1util_1_1z_settings.html#a28b790da88827a5c218b15994e624d55", null ],
+      [ "GetEngineInstance", "classzen_1_1util_1_1z_settings.html#a080af76c26aaa76052cf8470e7aa9b45", null ]
     ] ],
     [ "CTimer", "classzen_1_1util_1_1_c_timer.html", [
       [ "clock_t", "classzen_1_1util_1_1_c_timer.html#acd485409b526a749c891de0f8892c726", null ],
@@ -70,21 +70,21 @@ var group___utilities =
       [ "GetTime", "classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c", null ],
       [ "SetFrameRate", "classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b", null ]
     ] ],
-    [ "CXMLParser", "classzen_1_1util_1_1_c_x_m_l_parser.html", [
-      [ "CXMLParser", "classzen_1_1util_1_1_c_x_m_l_parser.html#a57ef047bac46de34e6dc890b47559ec1", null ],
-      [ "~CXMLParser", "classzen_1_1util_1_1_c_x_m_l_parser.html#acfc41063166e5fd59c0daf944d24bd80", null ],
-      [ "LoadFromFile", "classzen_1_1util_1_1_c_x_m_l_parser.html#ad896719620c8ab6ce824fe19e192a73b", null ],
-      [ "LoadFromString", "classzen_1_1util_1_1_c_x_m_l_parser.html#a262f4856230b5925ea295b29e914c13b", null ],
-      [ "FindNode", "classzen_1_1util_1_1_c_x_m_l_parser.html#a1f08169cf0e30d1400a0254a466e5d6b", null ],
-      [ "FindNode", "classzen_1_1util_1_1_c_x_m_l_parser.html#ac240aa93c1fb7443ce870cc6326e8a11", null ],
-      [ "ClearTree", "classzen_1_1util_1_1_c_x_m_l_parser.html#a11f42bb42eae7ddf87ef5e850af79c45", null ],
-      [ "begin", "classzen_1_1util_1_1_c_x_m_l_parser.html#a5fcb27d270dd8270023b72dcbd6acfa9", null ],
-      [ "cbegin", "classzen_1_1util_1_1_c_x_m_l_parser.html#a516af4a893f4f80f8d4810f34f436098", null ],
-      [ "end", "classzen_1_1util_1_1_c_x_m_l_parser.html#aee5e135ff757bd44304b3335f11e9b69", null ],
-      [ "cend", "classzen_1_1util_1_1_c_x_m_l_parser.html#a2c72e5d19878a84dd42ee5345985e862", null ],
-      [ "ShowXMLError", "classzen_1_1util_1_1_c_x_m_l_parser.html#a9e33c13f8ab83cfe52cbc092418bb32f", null ]
+    [ "zXMLParser", "classzen_1_1util_1_1z_x_m_l_parser.html", [
+      [ "zXMLParser", "classzen_1_1util_1_1z_x_m_l_parser.html#aecdd34194e0e1174c7a9900e2f0aff96", null ],
+      [ "~zXMLParser", "classzen_1_1util_1_1z_x_m_l_parser.html#a55b592eb1c780315294626605da3a603", null ],
+      [ "LoadFromFile", "classzen_1_1util_1_1z_x_m_l_parser.html#a2321daa3ee66d147209c094a87bb3f30", null ],
+      [ "LoadFromString", "classzen_1_1util_1_1z_x_m_l_parser.html#a0b8ed96d2152a22feefd68cb98b7ba7d", null ],
+      [ "FindNode", "classzen_1_1util_1_1z_x_m_l_parser.html#a91b66a3e072b60493202aa25215c835d", null ],
+      [ "FindNode", "classzen_1_1util_1_1z_x_m_l_parser.html#a2c65c55e714ecafdc81893992d50d011", null ],
+      [ "ClearTree", "classzen_1_1util_1_1z_x_m_l_parser.html#aa616e9e25b245f2e899572c2cd50d2f2", null ],
+      [ "begin", "classzen_1_1util_1_1z_x_m_l_parser.html#a3226195dc25bf116f72216eed44b294d", null ],
+      [ "cbegin", "classzen_1_1util_1_1z_x_m_l_parser.html#af6e1877802a20308c2cccd137f58928e", null ],
+      [ "end", "classzen_1_1util_1_1z_x_m_l_parser.html#a9c0b31a07388637a385beacb8a43fee1", null ],
+      [ "cend", "classzen_1_1util_1_1z_x_m_l_parser.html#a739208d2e8591f83f325114f0ba008a9", null ],
+      [ "ShowXMLError", "classzen_1_1util_1_1z_x_m_l_parser.html#a2f98c13f5ea15dce2d2ec23fa461cd6f", null ]
     ] ],
     [ "ZEN_ASSERT", "group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d", null ],
     [ "ZEN_ASSERTM", "group___utilities.html#ga1e1f78e54ea26b905da8c3e236398836", null ],
-    [ "GetValues", "group___utilities.html#gac57686358966190d7c29a88ff1c87429", null ]
+    [ "GetValues", "group___utilities.html#ga9fc4b3731443f197e4e92b4fb6476cd9", null ]
 ];

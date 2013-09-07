@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,19 +108,19 @@ Usage</h1>
 <p>Here are some various usage scenarios: </p>
 <div class="fragment"><div class="line"><span class="comment">// Using proper line breaks.</span></div>
 <div class="line"><a name="_a0"></a><a class="code" href="class_c_string.html">string_t</a> name = <span class="stringliteral">&quot;halcyon&quot;</span>;</div>
-<div class="line">CLog Output(<span class="stringliteral">&quot;Output.log&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line">zLog Output(<span class="stringliteral">&quot;Output.log&quot;</span>, <span class="keyword">true</span>);</div>
 <div class="line">Output.Init();  <span class="comment">// Error checking obviously omitted.</span></div>
 <div class="line">Output.SetMode(<a name="a1"></a><a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>);</div>
 <div class="line"></div>
-<div class="line">Output &lt;&lt; <span class="stringliteral">&quot;Hi &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;, I&#39;m a log.&quot;</span> &lt;&lt; CLog::endl</div>
-<div class="line">       &lt;&lt; <span class="stringliteral">&quot;This is the second line.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line">Output &lt;&lt; <span class="stringliteral">&quot;Hi &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;, I&#39;m a log.&quot;</span> &lt;&lt; zLog::endl</div>
+<div class="line">       &lt;&lt; <span class="stringliteral">&quot;This is the second line.&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// This happens if you forget them, or do them by hand via \n:</span></div>
 <div class="line">Output.SetSystem(<span class="stringliteral">&quot;Example&quot;</span>);</div>
 <div class="line">Output.SetMode(<a name="a2"></a><a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag. ">LogMode::ZEN_DEBUG</a>) &lt;&lt; <span class="stringliteral">&quot;Random data\n&quot;</span>;</div>
 <div class="line">Output &lt;&lt; <span class="stringliteral">&quot;More data on the next line.&quot;</span>;</div>
 <div class="line">Output.SetMode(<a name="a3"></a><a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>) &lt;&lt; Output.SetSystem(<span class="stringliteral">&quot;Test&quot;</span>)</div>
-<div class="line">                                   &lt;&lt; <span class="stringliteral">&quot;And a third line.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line">                                   &lt;&lt; <span class="stringliteral">&quot;And a third line.&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line">Output.Destroy();</div>
 </div><!-- fragment --><p>The resulting output would look like this: </p>
 <pre>
@@ -128,7 +128,7 @@ Usage</h1>
  [INFO ]  Log -- This is the second line.
  [ERROR]  Test -- Random data
  More data on the next line.And a third line.
- </pre><p>As you can see, it's critical to stream <code>CLog::endl</code> when you've outputted a line for proper formatting. It <em>must</em> be called prior to switching modes or systems via <code>SetMode()</code> and <code>SetSystem()</code>, respectively. Otherwise, only the latest changes will actually be output.</p>
+ </pre><p>As you can see, it's critical to stream <code>zLog::endl</code> when you've outputted a line for proper formatting. It <em>must</em> be called prior to switching modes or systems via <code>SetMode()</code> and <code>SetSystem()</code>, respectively. Otherwise, only the latest changes will actually be output.</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

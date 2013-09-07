@@ -1,49 +1,49 @@
 var group___audio =
 [
     [ "zen", "namespacezen.html", null ],
-    [ "CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html", [
-      [ "ALData", "classzen_1_1sfx_1_1_c_audio2_d.html#structzen_1_1sfx_1_1_c_audio2_d_1_1_a_l_data", [
-        [ "buffers", "classzen_1_1sfx_1_1_c_audio2_d.html#a08e91bd1696222078b5e09a3870c9e67", null ],
-        [ "buffer_count", "classzen_1_1sfx_1_1_c_audio2_d.html#ab0685867edce5f42a7e0baa7b99536ba", null ],
-        [ "source", "classzen_1_1sfx_1_1_c_audio2_d.html#aa46e9553b93e6d587e3c5d08da388b1a", null ],
-        [ "volume", "classzen_1_1sfx_1_1_c_audio2_d.html#a5fd045f2ca9d936822c8030ac686e3c1", null ]
+    [ "zAudio2D", "classzen_1_1sfx_1_1z_audio2_d.html", [
+      [ "ALData", "classzen_1_1sfx_1_1z_audio2_d.html#structzen_1_1sfx_1_1z_audio2_d_1_1_a_l_data", [
+        [ "buffers", "classzen_1_1sfx_1_1z_audio2_d.html#a7c4845e05581f91360c48d3ace297ab9", null ],
+        [ "buffer_count", "classzen_1_1sfx_1_1z_audio2_d.html#a1129676aaf7cb9160f8dce0a5d5f0e89", null ],
+        [ "source", "classzen_1_1sfx_1_1z_audio2_d.html#a14c37fc4264d4519a1c7096f5a073689", null ],
+        [ "volume", "classzen_1_1sfx_1_1z_audio2_d.html#a9398f7e98175233a74315d8efe688268", null ]
       ] ],
-      [ "~CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html#a5dc7ca735e0d95c26f112cf483245540", null ],
-      [ "CAudio2D", "classzen_1_1sfx_1_1_c_audio2_d.html#ac9da50dd9b2bee52e7a7cf1460d4f115", null ],
-      [ "LoadFromFile", "classzen_1_1sfx_1_1_c_audio2_d.html#a9469bc653fea67fca82bf2f4b2e73819", null ],
-      [ "Play", "classzen_1_1sfx_1_1_c_audio2_d.html#a3b7e239fe6c2e676845fc385c4b7bab2", null ],
-      [ "Update", "classzen_1_1sfx_1_1_c_audio2_d.html#ab2f2dcf0135d07daf4ac735ee59daec5", null ],
-      [ "Ready", "classzen_1_1sfx_1_1_c_audio2_d.html#aa0e76601525a3d5605e731b1a6fdad9e", null ],
-      [ "UnloadSource", "classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72", null ],
-      [ "GetAudioState", "classzen_1_1sfx_1_1_c_audio2_d.html#aa7e21ad93cb2814a9519eb5f7513aa0e", null ],
-      [ "GetData", "classzen_1_1sfx_1_1_c_audio2_d.html#a6373463cc239cae7d71cc40140f633bb", null ],
-      [ "Destroy", "classzen_1_1sfx_1_1_c_audio2_d.html#a68df63abf75665546540e375a59b594a", null ],
-      [ "asset::CAssetManager", "classzen_1_1sfx_1_1_c_audio2_d.html#a29506f8739fc077481fbd74a9d37b17f", null ],
-      [ "m_AL", "classzen_1_1sfx_1_1_c_audio2_d.html#a7e26bbc52b6555e6fe116ebaf50cc527", null ],
-      [ "m_error_code", "classzen_1_1sfx_1_1_c_audio2_d.html#a93f482a8e975a9f6130f1366a70d702f", null ],
-      [ "m_loop", "classzen_1_1sfx_1_1_c_audio2_d.html#a4a83aad12f3ce5ca4156398153cedb62", null ]
+      [ "~zAudio2D", "classzen_1_1sfx_1_1z_audio2_d.html#aeb5a696b044c40ea7164c1cc314f1bdb", null ],
+      [ "zAudio2D", "classzen_1_1sfx_1_1z_audio2_d.html#aa0e6db902f3bb0cee70bc78ad75b6c98", null ],
+      [ "LoadFromFile", "classzen_1_1sfx_1_1z_audio2_d.html#a22e3a275687da414246c9cdcb419932f", null ],
+      [ "Play", "classzen_1_1sfx_1_1z_audio2_d.html#a3ea7b7d916c700b9e6310a1fd2a512d7", null ],
+      [ "Update", "classzen_1_1sfx_1_1z_audio2_d.html#a944f23ca58aa18393ddf978f40537e3f", null ],
+      [ "Ready", "classzen_1_1sfx_1_1z_audio2_d.html#a7229b0a9759f727d8dfa25731c57c061", null ],
+      [ "UnloadSource", "classzen_1_1sfx_1_1z_audio2_d.html#ad5dc85a324f74758b645b88b7b16e6de", null ],
+      [ "GetAudioState", "classzen_1_1sfx_1_1z_audio2_d.html#a834934f6e32fdc41031f4c3951946bb7", null ],
+      [ "GetData", "classzen_1_1sfx_1_1z_audio2_d.html#aa7693c34b8ee6c2a327d89ef6726c8fc", null ],
+      [ "Destroy", "classzen_1_1sfx_1_1z_audio2_d.html#a7b30509fac45a1da91df2a0c93b1d384", null ],
+      [ "asset::zAssetManager", "classzen_1_1sfx_1_1z_audio2_d.html#a47d16eabef217a9202e5f813e97f76de", null ],
+      [ "m_AL", "classzen_1_1sfx_1_1z_audio2_d.html#af1ad61a19c3daed6785c7d9357841cac", null ],
+      [ "m_error_code", "classzen_1_1sfx_1_1z_audio2_d.html#a71756fce35acff6a6eb9dabb04b778bf", null ],
+      [ "m_loop", "classzen_1_1sfx_1_1z_audio2_d.html#ab5ff35846f53d997d897f5ada9480443", null ]
     ] ],
-    [ "CAudioManager", "classzen_1_1sfx_1_1_c_audio_manager.html", [
-      [ "Init", "classzen_1_1sfx_1_1_c_audio_manager.html#a9ae7e2a83f5eba6f92adf07622eae4c8", null ],
-      [ "GetAvailableSourceIndex", "classzen_1_1sfx_1_1_c_audio_manager.html#aebc219ee89c86e8ed3fbd0684e1ced9f", null ],
-      [ "GetAvailableSource", "classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61", null ],
-      [ "CreateSource", "classzen_1_1sfx_1_1_c_audio_manager.html#a5c00dd3076e14440b4f6d5ee17cd5ea1", null ],
-      [ "FreeSource", "classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01", null ],
-      [ "alCheck", "classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d", null ],
-      [ "OGGError", "classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1", null ],
-      [ "IsInit", "classzen_1_1sfx_1_1_c_audio_manager.html#a0e37c14ea1008f7a514cbfc5b67a0914", null ]
+    [ "zAudioManager", "classzen_1_1sfx_1_1z_audio_manager.html", [
+      [ "Init", "classzen_1_1sfx_1_1z_audio_manager.html#a2e6a1754ece3f2040850e1cc7b4c223e", null ],
+      [ "GetAvailableSourceIndex", "classzen_1_1sfx_1_1z_audio_manager.html#a1df0c95c80475738adf845cec527232d", null ],
+      [ "GetAvailableSource", "classzen_1_1sfx_1_1z_audio_manager.html#aa2bf00dc3e6df2bfc8a506caef304aba", null ],
+      [ "CreateSource", "classzen_1_1sfx_1_1z_audio_manager.html#a56a129c3ae8b275fa812a0d03138465b", null ],
+      [ "FreeSource", "classzen_1_1sfx_1_1z_audio_manager.html#afb35c4dd5ffec61bad8117836f6898e6", null ],
+      [ "alCheck", "classzen_1_1sfx_1_1z_audio_manager.html#a8c2b3f4a8dd21f7c655150cbac4580ca", null ],
+      [ "OGGError", "classzen_1_1sfx_1_1z_audio_manager.html#a65b1b1bcfa2de827f28a635558ab5d21", null ],
+      [ "IsInit", "classzen_1_1sfx_1_1z_audio_manager.html#a388a772cf404a540c9f573acd3000497", null ]
     ] ],
-    [ "CMusic2D", "classzen_1_1sfx_1_1_c_music2_d.html", [
-      [ "~CMusic2D", "classzen_1_1sfx_1_1_c_music2_d.html#aa46b12dc8f5701b3e5bb8fa7667fbc5a", null ],
-      [ "LoadFromFile", "classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7", null ],
-      [ "Play", "classzen_1_1sfx_1_1_c_music2_d.html#a58fcd70bb15d3203b71ccc458014cf36", null ],
-      [ "Update", "classzen_1_1sfx_1_1_c_music2_d.html#aa2d07ee000b0dfeabc800f46f580b649", null ],
-      [ "Ready", "classzen_1_1sfx_1_1_c_music2_d.html#ad8453333272f08243b7fc9c0e49dd78b", null ]
+    [ "zMusic2D", "classzen_1_1sfx_1_1z_music2_d.html", [
+      [ "~zMusic2D", "classzen_1_1sfx_1_1z_music2_d.html#aeb70b24f9b8ecc7fac149e628ef1ef3a", null ],
+      [ "LoadFromFile", "classzen_1_1sfx_1_1z_music2_d.html#afe2b58376246241018bfc95d57234c8a", null ],
+      [ "Play", "classzen_1_1sfx_1_1z_music2_d.html#a17b63a4e572735c9cf100e2b64f5ad25", null ],
+      [ "Update", "classzen_1_1sfx_1_1z_music2_d.html#afcd5133c4f288f09aa7d2a8d58d67a5a", null ],
+      [ "Ready", "classzen_1_1sfx_1_1z_music2_d.html#a14da6de2c38e02388be022ca19e4e103", null ]
     ] ],
     [ "CSound2D", "classzen_1_1sfx_1_1_c_sound2_d.html", [
       [ "~CSound2D", "classzen_1_1sfx_1_1_c_sound2_d.html#af011d370d19170f5098097accc07b0b4", null ],
       [ "LoadFromFile", "classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503", null ],
-      [ "LoadFromExisting", "classzen_1_1sfx_1_1_c_sound2_d.html#a404c0f20fa40144238d5059e4eeca858", null ],
+      [ "LoadFromExisting", "classzen_1_1sfx_1_1_c_sound2_d.html#a6e886a1c0164a5b439a4aa43de5a6d3d", null ],
       [ "Play", "classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7", null ],
       [ "Update", "classzen_1_1sfx_1_1_c_sound2_d.html#a7feffeaf5e36a465db17e5e68c35148b", null ],
       [ "Ready", "classzen_1_1sfx_1_1_c_sound2_d.html#a473c6d5ae4d86c5ea06c7b1389786108", null ]

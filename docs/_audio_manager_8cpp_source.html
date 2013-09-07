@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,19 +113,19 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">util::zLog</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> util::LogMode;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html" title="A collection of static helper functions for the audio API. ">sfx::CAudioManager</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html" title="A collection of static helper functions for the audio API. ">sfx::zAudioManager</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;uint32_t    CAudioManager::s_available[256];</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span>        CAudioManager::s_init = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;uint32_t    zAudioManager::s_available[256];</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">bool</span>        zAudioManager::s_init = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a9ae7e2a83f5eba6f92adf07622eae4c8">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. ">CAudioManager::Init</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#a2e6a1754ece3f2040850e1cc7b4c223e">   13</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. ">zAudioManager::Init</a>()</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(!CAudioManager::IsInit())</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(!zAudioManager::IsInit())</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        memset(s_available, 0, CAudioManager::AVAILABLE_BUFFERS);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        memset(s_available, 0, zAudioManager::AVAILABLE_BUFFERS);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        alutInit(NULL, NULL);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span>(alutGetError() != ALUT_ERROR_NO_ERROR)</div>
@@ -140,7 +140,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> s_init;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#aebc219ee89c86e8ed3fbd0684e1ced9f">   32</a></span>&#160;<span class="keywordtype">int</span> CAudioManager::GetAvailableSourceIndex()</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#a1df0c95c80475738adf845cec527232d">   32</a></span>&#160;<span class="keywordtype">int</span> zAudioManager::GetAvailableSourceIndex()</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> uint16_t last = 0;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
@@ -168,24 +168,24 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#ab652bcb2955fb97b098f3790daa34f61">   60</a></span>&#160;<span class="keywordtype">int</span> CAudioManager::GetAvailableSource(<span class="keyword">const</span> uint16_t index)</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#aa2bf00dc3e6df2bfc8a506caef304aba">   60</a></span>&#160;<span class="keywordtype">int</span> zAudioManager::GetAvailableSource(<span class="keyword">const</span> uint16_t index)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(index &gt;= 0 &amp;&amp; index &lt; AVAILABLE_BUFFERS);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> s_available[index];</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a5c00dd3076e14440b4f6d5ee17cd5ea1">   67</a></span>&#160;ALuint CAudioManager::CreateSource()</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#a56a129c3ae8b275fa812a0d03138465b">   67</a></span>&#160;ALuint zAudioManager::CreateSource()</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    CLog&amp; g_EngineLog = CLog::GetEngineLog();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    zLog&amp; g_EngineLog = zLog::GetEngineLog();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> index = CAudioManager::GetAvailableSourceIndex();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> index = zAudioManager::GetAvailableSourceIndex();</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span>(index == -1)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        g_EngineLog &lt;&lt; g_EngineLog.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    &lt;&lt; g_EngineLog.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;OpenAL source limit reached.&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;OpenAL source limit reached.&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
@@ -193,7 +193,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> s_available[index];</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#aa8af6f0acd2111500659b038fb256e01">   85</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::FreeSource(ALuint src)</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#afb35c4dd5ffec61bad8117836f6898e6">   85</a></span>&#160;<span class="keywordtype">bool</span> zAudioManager::FreeSource(ALuint src)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span>(!src) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
@@ -210,7 +210,7 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a400e4194c5b8a08a72f8d00065f1eb2d">  102</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::alCheck(<span class="keyword">const</span> <span class="keywordtype">char</span>*     expr,</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#a8c2b3f4a8dd21f7c655150cbac4580ca">  102</a></span>&#160;<span class="keywordtype">bool</span> zAudioManager::alCheck(<span class="keyword">const</span> <span class="keywordtype">char</span>*     expr,</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                            <span class="keyword">const</span> uint32_t  line,</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">char</span>*     file)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
@@ -233,9 +233,9 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a99b8e3ee406f5571bce717ee2c30ecb1">  125</a></span>&#160;<span class="keywordtype">void</span> CAudioManager::OGGError(<span class="keyword">const</span> <span class="keywordtype">int</span> error_code)</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#a65b1b1bcfa2de827f28a635558ab5d21">  125</a></span>&#160;<span class="keywordtype">void</span> zAudioManager::OGGError(<span class="keyword">const</span> <span class="keywordtype">int</span> error_code)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    CLog&amp; g_EngineLog = CLog::GetEngineLog();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    zLog&amp; g_EngineLog = zLog::GetEngineLog();</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    g_EngineLog &lt;&lt; g_EngineLog.SetMode(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                &lt;&lt; g_EngineLog.SetSystem(<span class="stringliteral">&quot;Audio&quot;</span>)</div>
@@ -268,10 +268,10 @@ $(document).ready(function(){initNavTree('_audio_manager_8cpp_source.html','');}
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    g_EngineLog &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; CLog::endl;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    g_EngineLog &lt;&lt; <span class="stringliteral">&quot;).&quot;</span> &lt;&lt; zLog::endl;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1_c_audio_manager.html#a0e37c14ea1008f7a514cbfc5b67a0914">  163</a></span>&#160;<span class="keywordtype">bool</span> CAudioManager::IsInit()</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="classzen_1_1sfx_1_1z_audio_manager.html#a388a772cf404a540c9f573acd3000497">  163</a></span>&#160;<span class="keywordtype">bool</span> zAudioManager::IsInit()</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> s_init;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>

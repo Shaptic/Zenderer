@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,17 +112,17 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <a href="_log_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_log_8hpp.html" title="Zenderer/Utilities/Log.hpp - A suite for logging engine info to a file. ">Zenderer/Utilities/Log.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>zen;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">util::CLog</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">util::zLog</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Dat syntax...</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;CLog&amp;               <span class="comment">// Returns CLog</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;zLog&amp;               <span class="comment">// Returns zLog</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;(</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    CLog::*         <span class="comment">// Pointer to member function of CLog</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    CLog::endl      <span class="comment">// Named CLog::endl (thus initializing this static member)</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    zLog::*         <span class="comment">// Pointer to member function of zLog</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    zLog::endl      <span class="comment">// Named zLog::endl (thus initializing this static member)</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;)()                 <span class="comment">// No parameters for method</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; = &amp;CLog::Newline;  <span class="comment">// Assigned to the address of CLog::Newline</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; = &amp;zLog::Newline;  <span class="comment">// Assigned to the address of zLog::Newline</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;CLog::CLog(<span class="keyword">const</span> <a class="code" href="class_c_string.html">string_t</a>&amp; filename, <span class="keyword">const</span> <span class="keywordtype">bool</span> show_stdout) :</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;zLog::zLog(<span class="keyword">const</span> <a class="code" href="class_c_string.html">string_t</a>&amp; filename, <span class="keyword">const</span> <span class="keywordtype">bool</span> show_stdout) :</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    m_mode(LogMode::<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">ZEN_INFO</a>),</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    m_filename(filename),</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    m_system(<span class="stringliteral">&quot;Log&quot;</span>),</div>
@@ -130,15 +130,15 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    m_init(false)</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9">   22</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_log.html#a569ed11d9b2dcd2f57753b000beb67e9" title="This destructor does nothing but call Destroy(). ">CLog::~CLog</a>()</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#ae2f22c964c1677ee9c5d7a1133f0ed31">   22</a></span>&#160;<a class="code" href="classzen_1_1util_1_1z_log.html#ae2f22c964c1677ee9c5d7a1133f0ed31" title="This destructor does nothing but call Destroy(). ">zLog::~zLog</a>()</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream. ">Destroy</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;<a class="code" href="classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18" title="Writes out any leftover data and closes the file stream. ">Destroy</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee">   27</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1_c_log.html#a7bd03505f7785eca7040e913fe7831ee" title="Opens a file stream with a custom filename given in the ctor. ">CLog::Init</a>()</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#aec0de4bcec78c5a9d2135ae83a19ee7e">   27</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1z_log.html#aec0de4bcec78c5a9d2135ae83a19ee7e" title="Opens a file stream with a custom filename given in the ctor. ">zLog::Init</a>()</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Don&#39;t initialize again w/o a call to Destroy()</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa" title="Returns the sub-system initialization status. ">IsInit</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">if</span>(this-&gt;<a class="code" href="classzen_1_1util_1_1z_log.html#a0e741f7919523907a62620025030cbc0" title="Returns the sub-system initialization status. ">IsInit</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    m_log.open(m_filename);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span>(!m_log) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -152,10 +152,10 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> (m_init = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f">   44</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1_c_log.html#a9d4bca1291fd1bcd8e8d8161cb27a44f" title="Writes out any leftover data and closes the file stream. ">CLog::Destroy</a>()</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18">   44</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18" title="Writes out any leftover data and closes the file stream. ">zLog::Destroy</a>()</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Can&#39;t destroy if we haven&#39;t initialized.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa" title="Returns the sub-system initialization status. ">IsInit</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;<a class="code" href="classzen_1_1util_1_1z_log.html#a0e741f7919523907a62620025030cbc0" title="Returns the sub-system initialization status. ">IsInit</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    this-&gt;Newline();</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
@@ -164,16 +164,16 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    m_mode = <a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    m_system = <span class="stringliteral">&quot;Log&quot;</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    (*this) &lt;&lt; <span class="stringliteral">&quot;Log closed on &quot;</span> &lt;&lt; ctime(&amp;now) &lt;&lt; <a class="code" href="classzen_1_1util_1_1_c_log.html#a23776c20007d9bc4b02afad6eb9e74a5" title="Shortcut to the new line method pointer. ">CLog::endl</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    (*this) &lt;&lt; <span class="stringliteral">&quot;Log closed on &quot;</span> &lt;&lt; ctime(&amp;now) &lt;&lt; <a class="code" href="classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad" title="Shortcut to the new line method pointer. ">zLog::endl</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    m_log.close();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> !(m_init = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">CLog</a>&amp; CLog::Newline()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; zLog::Newline()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(m_str.str().empty() || !this-&gt;<a class="code" href="classzen_1_1util_1_1_c_log.html#a2df4b426c78dae048369de5783d668fa" title="Returns the sub-system initialization status. ">IsInit</a>()) <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span>(m_str.str().empty() || !this-&gt;<a class="code" href="classzen_1_1util_1_1z_log.html#a0e741f7919523907a62620025030cbc0" title="Returns the sub-system initialization status. ">IsInit</a>()) <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifndef ZEN_DEBUG_BUILD</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span>(m_mode == <a class="code" href="_log_8hpp.html#a1440131482f75f732766e96479be4b98" title="Only in builds with the ZEN_DEBUG_BUILD flag. ">util::LogMode::ZEN_DEBUG</a>) <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
@@ -201,7 +201,7 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="namespacezen.html#a182fe11beb45ed649d1c3ba21fc5eef2" title="A fall-back error handler with OS-specific implementation. ">error_fallback</a>(tmp.str().c_str(), <span class="stringliteral">&quot;Fatal Error&quot;</span>);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// If these aren&#39;t cleared, exit() calls ~CLog() which calls Destroy()</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// If these aren&#39;t cleared, exit() calls ~zLog() which calls Destroy()</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">// which calls Newline() so the message would be output twice.</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        m_log.flush();</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        m_str.str(std::string());</div>
@@ -214,14 +214,14 @@ $(document).ready(function(){initNavTree('_log_8cpp_source.html','');});
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;std::ostream&amp; <a class="code" href="_vector_8inl.html#ad007ede02e119f9ee8d41349da7929db">util::operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> CLog&amp; Log)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;std::ostream&amp; <a class="code" href="_vector_8inl.html#a918377331bb4fc4ddf8aef82e130b812">util::operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> zLog&amp; Log)</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> o;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d">  111</a></span>&#160;<a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">CLog</a>&amp; <a class="code" href="classzen_1_1util_1_1_c_log.html#a5c2426faf7a405cccd6d8e5e8427283d" title="Singleton access to the engine log. ">CLog::GetEngineLog</a>()</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#a050d764d3b818e2619b0e4880edf749e">  111</a></span>&#160;<a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; <a class="code" href="classzen_1_1util_1_1z_log.html#a050d764d3b818e2619b0e4880edf749e" title="Singleton access to the engine log. ">zLog::GetEngineLog</a>()</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">static</span> <a class="code" href="classzen_1_1util_1_1_c_log.html" title="Creates a special file stream to store logging information. ">CLog</a> Log(<span class="stringliteral">&quot;Zenderer.log&quot;</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">static</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a> Log(<span class="stringliteral">&quot;Zenderer.log&quot;</span>);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> Log;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->

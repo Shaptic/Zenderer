@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -104,13 +104,13 @@ $(document).ready(function(){initNavTree('_events-example.html','');});
 </div><!--header-->
 <div class="contents">
 <p>This is a very simple event loop that would output every printable character that a user hits during the duration of the program.</p>
-<div class="fragment"><div class="line"><a name="_a0"></a><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html">zen::evt::CEventHandler</a>&amp; Events = <a name="a1"></a><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#a604fccd27dc61f6071d4099547fbe680" title="Retrieves the singleton instance of the event handler. ">zen::evt::CEventHandler::GetInstance</a>();</div>
+<div class="fragment"><div class="line"><a name="_a0"></a><a class="code" href="classzen_1_1evt_1_1z_event_handler.html">zen::evt::zEventHandler</a>&amp; Events = <a name="a1"></a><a class="code" href="classzen_1_1evt_1_1z_event_handler.html#a4cf62909dfc2748816282abde1e4486a" title="Retrieves the singleton instance of the event handler. ">zen::evt::zEventHandler::GetInstance</a>();</div>
 <div class="line"><a name="_a2"></a><a class="code" href="structzen_1_1evt_1_1event__t.html" title="The event structure storing information about system events. ">zen::evt::event_t</a> Evt;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordflow">while</span>(Window.IsOpen())</div>
 <div class="line">{</div>
-<div class="line">    Events.<a name="a3"></a><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#aedcb2bd358877b73cc570b152dda9ff3" title="Registers all pending events into the interal stack. ">PollEvents</a>();    <span class="comment">// or zen::evt::CEventHandler::PollEvents();</span></div>
-<div class="line">    <span class="keywordflow">while</span>(Events.<a name="a4"></a><a class="code" href="classzen_1_1evt_1_1_c_event_handler.html#a0f768c22198232baecef88d67fc67380" title="Removes the latest event from the stack and stores it in the parameter. ">PopEvent</a>(Evt))</div>
+<div class="line">    Events.<a name="a3"></a><a class="code" href="classzen_1_1evt_1_1z_event_handler.html#a40db94c470b9c7408345cf68c3f5103d" title="Registers all pending events into the interal stack. ">PollEvents</a>();    <span class="comment">// or zen::evt::zEventHandler::PollEvents();</span></div>
+<div class="line">    <span class="keywordflow">while</span>(Events.<a name="a4"></a><a class="code" href="classzen_1_1evt_1_1z_event_handler.html#aa31fa6c30c9b57a2ac6ab1606ca02797" title="Removes the latest event from the stack and stores it in the parameter. ">PopEvent</a>(Evt))</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span>(Evt.<a name="a5"></a><a class="code" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">type</a> == <a name="a6"></a><a class="code" href="_event_8hpp.html#a6e813defe8bf1433afad874553aa3a15">zen::evt::EventType::PRINTABLE_KEY</a>)</div>
 <div class="line">        {</div>

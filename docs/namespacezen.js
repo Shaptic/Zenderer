@@ -11,8 +11,8 @@ var namespacezen =
     [ "net", "namespacezen_1_1net.html", "namespacezen_1_1net" ],
     [ "lua", "namespacezen_1_1lua.html", "namespacezen_1_1lua" ],
     [ "util", "namespacezen_1_1util.html", "namespacezen_1_1util" ],
-    [ "CAllocator", "classzen_1_1_c_allocator.html", "classzen_1_1_c_allocator" ],
-    [ "CSubsystem", "classzen_1_1_c_subsystem.html", "classzen_1_1_c_subsystem" ],
+    [ "zAllocator", "classzen_1_1z_allocator.html", "classzen_1_1z_allocator" ],
+    [ "zSubsystem", "classzen_1_1z_subsystem.html", "classzen_1_1z_subsystem" ],
     [ "color4f_t", "structzen_1_1color4f__t.html", "structzen_1_1color4f__t" ],
     [ "color3f_t", "structzen_1_1color3f__t.html", "structzen_1_1color3f__t" ],
     [ "glyph_t", "namespacezen.html#structzen_1_1glyph__t", "namespacezen_dup" ]

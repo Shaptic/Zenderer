@@ -8,5 +8,5 @@ var searchData=
   ['key_5ft',['key_t',['../structzen_1_1evt_1_1key__t.html',1,'zen::evt']]],
   ['key_5fup',['KEY_UP',['../_event_8hpp.html#a6751836cd9d1d69aea200ad778f73eb4',1,'Event.hpp']]],
   ['keyboard_2ehpp',['Keyboard.hpp',['../_keyboard_8hpp.html',1,'']]],
-  ['keyboardcallback',['KeyboardCallback',['../classzen_1_1evt_1_1_c_event_handler.html#a3e0b4a53daf0295d96be1437df1cb0c9',1,'zen::evt::CEventHandler']]]
+  ['keyboardcallback',['KeyboardCallback',['../classzen_1_1evt_1_1z_event_handler.html#a6cb2b8b4399c92ec09e82b30ec363158',1,'zen::evt::zEventHandler']]]
 ];

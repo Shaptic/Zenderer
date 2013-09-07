@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">2.10.8-alpha</span>
+   &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8785 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,34 +112,34 @@ $(document).ready(function(){initNavTree('_renderer_8inl_source.html','');});
 <a href="_renderer_8inl.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// We inline all of the short functions so the compiler can optimize</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// them if need be, since they are called quite often.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">const</span> gfx::CMaterial&amp; CRenderer::GetDefaultMaterial()</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">const</span> gfx::zMaterial&amp; zRenderer::GetDefaultMaterial()</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keywordflow">return</span> *s_DefaultMaterial;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;gfx::CEffect&amp; CRenderer::GetDefaultEffect()</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;gfx::zEffect&amp; zRenderer::GetDefaultEffect()</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">return</span> s_DefaultMaterial-&gt;GetEffect();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">const</span> gfxcore::CTexture&amp; CRenderer::GetDefaultTexture()</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">const</span> gfxcore::zTexture&amp; zRenderer::GetDefaultTexture()</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> s_DefaultMaterial-&gt;GetTexture();</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen_1_1math.html#a49d1232c008227e29042716937fb25cf" title="Forward declaration of a 4x4 matrix for use in 2D vector translation. ">math::matrix4x4_t</a>&amp; CRenderer::GetProjectionMatrix()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">const</span> <a class="code" href="namespacezen_1_1math.html#a49d1232c008227e29042716937fb25cf" title="Forward declaration of a 4x4 matrix for use in 2D vector translation. ">math::matrix4x4_t</a>&amp; zRenderer::GetProjectionMatrix()</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> s_ProjMatrix;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">bool</span> CRenderer::ResetMaterialState()</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">bool</span> zRenderer::ResetMaterialState()</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindTexture(GL_TEXTURE_2D, 0));</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glUseProgram(0));</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">bool</span> CRenderer::BlendOperation(<span class="keyword">const</span> BlendFunc&amp; Func)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">bool</span> zRenderer::BlendOperation(<span class="keyword">const</span> BlendFunc&amp; Func)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span>(s_LastBlend == Func) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
@@ -181,13 +181,13 @@ $(document).ready(function(){initNavTree('_renderer_8inl_source.html','');});
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">bool</span> CRenderer::EnableTexture(<span class="keyword">const</span> GLuint handle)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">bool</span> zRenderer::EnableTexture(<span class="keyword">const</span> GLuint handle)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="group___core_graphics.html#gadd7e49d426171a52326fe77251d93c3d">GL</a>(glBindTexture(GL_TEXTURE_2D, handle));</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">bool</span> CRenderer::ToggleWireframe()</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">bool</span> zRenderer::ToggleWireframe()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    s_wf = !s_wf;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span>(s_wf)</div>
@@ -202,12 +202,12 @@ $(document).ready(function(){initNavTree('_renderer_8inl_source.html','');});
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> s_wf;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">bool</span> CRenderer::DisableTexture()</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">bool</span> zRenderer::DisableTexture()</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> EnableTexture(0);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;CVertexArray&amp; CRenderer::GetFullscreenVBO()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;zVertexArray&amp; zRenderer::GetFullscreenVBO()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> s_FullscreenQuad;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>

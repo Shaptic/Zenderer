@@ -1,0 +1,4 @@
+<map id="zen::sfx::zAudio2D::GetAudioState" name="zen::sfx::zAudio2D::GetAudioState">
+<area shape="rect" id="node2" href="$classzen_1_1sfx_1_1z_music2_d.html#a17b63a4e572735c9cf100e2b64f5ad25" title="Plays the file (if loaded). " alt="" coords="189,5,323,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded). " alt="" coords="187,70,325,111"/>
+</map>

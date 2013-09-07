@@ -1,14 +1,14 @@
 var group___events =
 [
     [ "zen", "namespacezen.html", null ],
-    [ "CEventHandler", "classzen_1_1evt_1_1_c_event_handler.html", [
-      [ "~CEventHandler", "classzen_1_1evt_1_1_c_event_handler.html#a41b6924a33472d04cee2fe3e90cc6acc", null ],
-      [ "PollEvents", "classzen_1_1evt_1_1_c_event_handler.html#aedcb2bd358877b73cc570b152dda9ff3", null ],
-      [ "PopEvent", "classzen_1_1evt_1_1_c_event_handler.html#a0f768c22198232baecef88d67fc67380", null ],
-      [ "GetInstance", "classzen_1_1evt_1_1_c_event_handler.html#a604fccd27dc61f6071d4099547fbe680", null ],
-      [ "CharacterCallback", "classzen_1_1evt_1_1_c_event_handler.html#a25909c31ff2622cfdc20c1d9ea329794", null ],
-      [ "KeyboardCallback", "classzen_1_1evt_1_1_c_event_handler.html#a3e0b4a53daf0295d96be1437df1cb0c9", null ],
-      [ "MouseMotionCallback", "classzen_1_1evt_1_1_c_event_handler.html#a4557e6aab25904ba47f68c6ff0d5e52c", null ],
-      [ "MouseCallback", "classzen_1_1evt_1_1_c_event_handler.html#a39bd2b465b55b1aa00a268285e5d4d24", null ]
+    [ "zEventHandler", "classzen_1_1evt_1_1z_event_handler.html", [
+      [ "~zEventHandler", "classzen_1_1evt_1_1z_event_handler.html#a1f2dd5ae7a5554ebcd6effcfa6f5d543", null ],
+      [ "PollEvents", "classzen_1_1evt_1_1z_event_handler.html#a40db94c470b9c7408345cf68c3f5103d", null ],
+      [ "PopEvent", "classzen_1_1evt_1_1z_event_handler.html#aa31fa6c30c9b57a2ac6ab1606ca02797", null ],
+      [ "GetInstance", "classzen_1_1evt_1_1z_event_handler.html#a4cf62909dfc2748816282abde1e4486a", null ],
+      [ "CharacterCallback", "classzen_1_1evt_1_1z_event_handler.html#a906ec870ab93a4e262dc31a42c4e37f4", null ],
+      [ "KeyboardCallback", "classzen_1_1evt_1_1z_event_handler.html#a6cb2b8b4399c92ec09e82b30ec363158", null ],
+      [ "MouseMotionCallback", "classzen_1_1evt_1_1z_event_handler.html#a3eec43c5e924356f2026d0b65cbbad9c", null ],
+      [ "MouseCallback", "classzen_1_1evt_1_1z_event_handler.html#a103c0fb0c14f98b5f3f8b0799875892f", null ]
     ] ]
 ];
