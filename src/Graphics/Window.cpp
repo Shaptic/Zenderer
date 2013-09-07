@@ -88,6 +88,7 @@ bool zWindow::Init()
     glfwSetKeyCallback(mp_Window, evt::zEventHandler::KeyboardCallback);
     glfwSetMouseButtonCallback(mp_Window, evt::zEventHandler::MouseCallback);
     glfwSetCursorPosCallback(mp_Window, evt::zEventHandler::MouseMotionCallback);
+    glfwSetWindowCloseCallback(mp_Window, evt::zEventHandler::WindowCloseCallback);
 
     m_Log << "Initializing GLEW: ";
     glewExperimental = GL_TRUE;
@@ -119,6 +120,8 @@ bool zWindow::Destroy()
     if(!m_init) return true;
 
     delete gfxcore::zRenderer::s_DefaultMaterial;
+    for(auto& i : gfxcore::zGLSubsystem::sp_allGLSystems)
+        i->Destroy();
     m_Assets.Destroy();
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
@@ -186,6 +189,7 @@ bool zWindow::IsFullscreen() const
 
 void zWindow::Close() const
 {
+    evt::zEventHandler::WindowCloseCallback(mp_Window);
     glfwSetWindowShouldClose(mp_Window, true);
 }
 

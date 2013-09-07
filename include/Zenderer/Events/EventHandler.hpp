@@ -75,6 +75,9 @@ namespace evt
         /// OS-callback for mouse-click events.
         static void MouseCallback(GLFWwindow*, int button, int action, int mods);
 
+        /// OS-callback for window close events.
+        static void WindowCloseCallback(GLFWwindow*);
+
     private:
         zEventHandler() { s_Active.Reset(); }
         zEventHandler(const zEventHandler&);

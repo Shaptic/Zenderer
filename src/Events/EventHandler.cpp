@@ -84,3 +84,10 @@ void zEventHandler::CharacterCallback(GLFWwindow*, unsigned int c)
     s_evtList.push(s_Active);
     s_Active.Reset();
 }
+
+void zEventHandler::WindowCloseCallback(GLFWwindow* pWindow)
+{
+    s_Active.type = EventType::WINDOW_CLOSE;
+    s_evtList.push(s_Active);
+    s_Active.Reset();
+}
