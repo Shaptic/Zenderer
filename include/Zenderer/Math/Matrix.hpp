@@ -23,7 +23,7 @@
 #ifndef ZENDERER__MATH__MATRIX_HPP
 #define ZENDERER__MATH__MATRIX_HPP
 
-#include "zVector.hpp"
+#include "Vector.hpp"
 
 namespace zen
 {

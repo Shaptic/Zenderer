@@ -220,7 +220,7 @@ namespace math
                         const bool do_sqrt = false);
     };
 
-    #include "zVector.inl"
+    #include "Vector.inl"
 
     /// A shortcut for the default vector implementation in the engine.
     typedef zVector<real_t> vector_t;

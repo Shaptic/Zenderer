@@ -24,7 +24,7 @@
 #define ZENDERER__MATH__MATH_HPP
 
 #include "MathCore.hpp"
-#include "zVector.hpp"
+#include "Vector.hpp"
 #include "Matrix.hpp"
 #include "Shapes.hpp"
 

@@ -31,7 +31,7 @@
 
 #include "Zenderer/Core/Subsystem.hpp"
 #include "Zenderer/Utilities/Log.hpp"
-#include "Zenderer/Math/zVector.hpp"
+#include "Zenderer/Math/Vector.hpp"
 #include "Zenderer/Math/Matrix.hpp"
 
 #include "Zenderer/CoreGraphics/OpenGL.hpp"

@@ -24,7 +24,7 @@
 #define ZENDERER__EVENTS__MOUSE_HPP
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/zVector.hpp"
+#include "Zenderer/Math/Vector.hpp"
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 
 namespace zen

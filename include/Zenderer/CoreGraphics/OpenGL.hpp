@@ -33,7 +33,7 @@
 #include "GL/glfw3.h"
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/zVector.hpp"
+#include "Zenderer/Math/Vector.hpp"
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef GL
