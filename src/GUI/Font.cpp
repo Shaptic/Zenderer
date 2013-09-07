@@ -361,7 +361,7 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     std::stringstream ss;
     ss << 's' << m_size << " bitmap for '" << c
-       << "';" << util::string_hash(m_filename);
+       << "'; " << util::string_hash(m_filename);
     pTexture->SetFilename(ss.str());
 
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
