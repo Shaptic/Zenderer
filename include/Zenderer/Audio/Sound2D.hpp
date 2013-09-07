@@ -30,13 +30,13 @@ namespace zen
 namespace sfx
 {
     /// Sound effects (`.wav` files)
-    class ZEN_API CSound2D : public CAudio2D
+    class ZEN_API CSound2D : public zAudio2D
     {
     public:
         virtual ~CSound2D();
 
         bool LoadFromFile(const string_t& filename);
-        bool LoadFromExisting(const CAsset* const pCopy){ return true; }
+        bool LoadFromExisting(const zAsset* const pCopy){ return true; }
 
         /// Plays the sound effect no matter what (if loaded).
         void Play();
@@ -53,7 +53,7 @@ namespace sfx
         /// Always returns `true` if the file is loaded.
         inline bool Ready() const { return true; }
 
-        friend class ZEN_API asset::CAssetManager;
+        friend class ZEN_API asset::zAssetManager;
 
     private:
         CSound2D(const void* const owner = nullptr);
@@ -74,7 +74,7 @@ namespace sfx
  *  in your application, because of the uneccessary consumption
  *  of memory and disk space. A better alternative for long audio
  *  is the OGG-Vorbis (`.ogg`) format, loadable through the
- *  zen::sfx::CMusic2D class.
+ *  zen::sfx::zMusic2D class.
  **/
 
 /** @} **/

@@ -1,13 +1,13 @@
 #include "Zenderer/Audio/Audio2D.hpp"
 
 using namespace zen;
-using sfx::CAudio2D;
+using sfx::zAudio2D;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-CAudio2D::CAudio2D(const void* const owner) :
-    CAsset(owner), m_error_code(AL_NO_ERROR), m_loop(false)
+zAudio2D::zAudio2D(const void* const owner) :
+    zAsset(owner), m_error_code(AL_NO_ERROR), m_loop(false)
 {
     m_AL.buffers = new ALuint[1];
     m_AL.buffer_count = 1;
@@ -15,12 +15,12 @@ CAudio2D::CAudio2D(const void* const owner) :
     m_AL.source = 0;
 }
 
-CAudio2D::~CAudio2D()
+zAudio2D::~zAudio2D()
 {
     delete[] m_AL.buffers;
 }
 
-int CAudio2D::GetAudioState() const
+int zAudio2D::GetAudioState() const
 {
     if(m_AL.source == 0) return -1;
 
@@ -29,16 +29,16 @@ int CAudio2D::GetAudioState() const
     return state;
 }
 
-const void* const CAudio2D::GetData() const
+const void* const zAudio2D::GetData() const
 {
     return &m_AL;
 }
 
-void CAudio2D::UnloadSource()
+void zAudio2D::UnloadSource()
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Audio")
-            << "Unloading source (" << m_AL.source << ")." << CLog::endl;
+            << "Unloading source (" << m_AL.source << ")." << zLog::endl;
 
-    CAudioManager::FreeSource(m_AL.source);
+    zAudioManager::FreeSource(m_AL.source);
 }

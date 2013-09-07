@@ -31,14 +31,14 @@
 namespace zen
 {
     /// An abstract base class for all engine subsystems.
-    class ZEN_API CSubsystem
+    class ZEN_API zSubsystem
     {
     public:
         /// Sets subsystem to an uninitialized state.
-        CSubsystem(const string_t name = "Subsystem");
+        zSubsystem(const string_t name = "Subsystem");
 
         /// Destructor does absolutely nothing.
-        virtual ~CSubsystem();
+        virtual ~zSubsystem();
 
         /**
          * Initializes the subsystem.
@@ -60,7 +60,7 @@ namespace zen
         { return m_init; }
 
         /// Sets a custom output log.
-        inline void SetLog(util::CLog& Log)
+        inline void SetLog(util::zLog& Log)
         { m_Log = Log; }
 
         /// Retrieves the subsystem name.
@@ -72,12 +72,12 @@ namespace zen
 
     protected:
         /// No copying subsystems.
-        //CSubsystem(const CSubsystem&)            = delete;
-        //CSubsystem& operator=(const CSubsystem&) = delete;
+        //zSubsystem(const zSubsystem&)            = delete;
+        //zSubsystem& operator=(const zSubsystem&) = delete;
 
-        static std::vector<CSubsystem*> sp_allSystems;
+        static std::vector<zSubsystem*> sp_allSystems;
 
-        util::CLog& m_Log;
+        util::zLog& m_Log;
         string_t    m_name;
         bool        m_init;
     };
@@ -88,13 +88,13 @@ namespace zen
 // Subsystem specification.
 
 /**
- * @class zen::CSubsystem
+ * @class zen::zSubsystem
  *
  * @details
  *  A valid engine subsystem can be initialized and destroyed without
  *  relying on the con/destructor. This is intentional so that errors can
  *  be handled gracefully by the caller, or internally if need be. A
- *  subsystem can accept a custom log (zen::util::CLog), found in
+ *  subsystem can accept a custom log (zen::util::zLog), found in
  *  Utilities/Log.hpp, but should preferably just be the global engine log
  *  that is created on engine initialization. If a custom log stream is
  *  provided (via `SetLog()`), any output will theoretically be logged
@@ -110,7 +110,7 @@ namespace zen
  *  the constructor that the Init() method will use during actual
  *  initialization.
  *
- *  The CSubsystem constructor takes an optional string parameter that will
+ *  The zSubsystem constructor takes an optional string parameter that will
  *  give a name to the subsystem, which is useful for logging various
  *  actions later. This defaults to just "Subsystem".
  *
@@ -118,14 +118,14 @@ namespace zen
  *  @section bare_min A Bare Minimum Example
  *
  *  A valid subsystem could behave in a way similar to the example below.
- *  Let us assume that we have declared a derived class named `CRenderer`
+ *  Let us assume that we have declared a derived class named `zRenderer`
  *  that takes a parameter for initialization and only implements the bare
  *  minimum methods implemented, as we will show here:
  *
  *  @code
- *  CRenderer::CRenderer(const int a) : CSubsystem("Renderer"), m_a(a) {}
+ *  zRenderer::zRenderer(const int a) : zSubsystem("Renderer"), m_a(a) {}
  *
- *  bool CRenderer::Init()
+ *  bool zRenderer::Init()
  *  {
  *      if(m_a == 69)
  *          return (m_init = true);
@@ -135,7 +135,7 @@ namespace zen
  *      return (m_init = (m_a == 69));
  *  }
  *
- *  bool CRenderer::Destroy()
+ *  bool zRenderer::Destroy()
  *  {
  *      if(m_init)  return !(m_init = false);
  *      else        return false;

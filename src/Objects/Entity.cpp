@@ -2,35 +2,35 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using obj::CEntity;
+using obj::zEntity;
 
-CEntity::CEntity(asset::CAssetManager& Assets) :
-    m_Assets(Assets), m_Log(util::CLog::GetEngineLog()),
+zEntity::zEntity(asset::zAssetManager& Assets) :
+    m_Assets(Assets), m_Log(util::zLog::GetEngineLog()),
     m_MV(math::matrix4x4_t::GetIdentityMatrix()),
     m_sort(0), m_depth(1), m_inv(false), m_enabled(true)
 {
 }
 
-CEntity::~CEntity()
+zEntity::~zEntity()
 {
     this->Destroy();
 }
 
-bool CEntity::LoadFromFile(const string_t& filename)
+bool zEntity::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERT(!filename.empty());
 
-    util::CINIParser Parser;
+    util::zParser Parser;
     std::ifstream file(filename);
     std::string line;
     uint32_t line_no = 0;
 
     if(!file) return false;
 
-    gfx::CQuad*     pPrim = nullptr;
-    gfx::CMaterial* pMat  = nullptr;
+    gfx::zQuad*     pPrim = nullptr;
+    gfx::zMaterial* pMat  = nullptr;
 
     this->Destroy();
 
@@ -64,7 +64,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
                 pMat = nullptr;
             }
 
-            pPrim = new gfx::CQuad(m_Assets, 0, 0);
+            pPrim = new gfx::zQuad(m_Assets, 0, 0);
             const std::streampos start = file.tellg();
 
             // Find end of primitive block.
@@ -81,7 +81,7 @@ bool CEntity::LoadFromFile(const string_t& filename)
             // The material can be loaded from the filestream since we have
             // a texture=, vshader=, and fshader= (or just the texture) which
             // is a valid .zfx file format.
-            pMat = new gfx::CMaterial(m_Assets);
+            pMat = new gfx::zMaterial(m_Assets);
             if(Parser.Exists("material") && !pMat->LoadFromFile(Parser.GetValue("material")))
             {
                 delete pPrim; delete pMat;
@@ -118,14 +118,14 @@ bool CEntity::LoadFromFile(const string_t& filename)
     return true;
 }
 
-bool CEntity::LoadFromTexture(const string_t& filename)
+bool zEntity::LoadFromTexture(const string_t& filename)
 {
     this->Destroy();
 
-    gfx::CMaterial Mat(m_Assets);
+    gfx::zMaterial Mat(m_Assets);
     if(!Mat.LoadTextureFromFile(filename)) return false;
 
-    gfx::CQuad* pPrimitive = new gfx::CQuad(m_Assets,
+    gfx::zQuad* pPrimitive = new gfx::zQuad(m_Assets,
         Mat.GetTexture().GetWidth(),
         Mat.GetTexture().GetHeight());
 
@@ -141,12 +141,12 @@ bool CEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
-bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
+bool zEntity::AddPrimitive(const gfx::zQuad& Quad)
 {
     if(Quad.m_DrawData.icount == 0 || Quad.m_DrawData.vcount == 0) return false;
 
-    gfx::CQuad* pQuad = new gfx::CQuad(Quad);
-    pQuad->AttachMaterial(const_cast<gfx::CMaterial&>(Quad.GetMaterial()));
+    gfx::zQuad* pQuad = new gfx::zQuad(Quad);
+    pQuad->AttachMaterial(const_cast<gfx::zMaterial&>(Quad.GetMaterial()));
     pQuad->SetInverted(m_inv);
     pQuad->Create();
     pQuad->SetColor(Quad.m_DrawData.Vertices[0].color);
@@ -157,18 +157,18 @@ bool CEntity::AddPrimitive(const gfx::CQuad& Quad)
                             math::max<uint32_t>(this->GetH(), pQuad->GetH())));
 
     // Reset then set the material flag.
-    //m_sort &= 0xFFFFFFFF ^ gfxcore::CSorter::MATERIAL_FLAG;
-    //m_sort |= (pQuad->GetMaterial().GetID() << gfxcore::CSorter::MATERIAL_OFFSET);
+    //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;
+    //m_sort |= (pQuad->GetMaterial().GetID() << gfxcore::zSorter::MATERIAL_OFFSET);
     return true;
 }
 
-bool CEntity::Optimize()
+bool zEntity::Optimize()
 {
     ZEN_ASSERTM(false, "not implemented");
     return false;
 }
 
-bool CEntity::Draw(bool is_bound /*= false*/)
+bool zEntity::Draw(bool is_bound /*= false*/)
 {
     if(!m_enabled) return false;
 
@@ -178,12 +178,12 @@ bool CEntity::Draw(bool is_bound /*= false*/)
     return true;
 }
 
-void CEntity::Move(const math::vector_t& Pos)
+void zEntity::Move(const math::vector_t& Pos)
 {
     this->Move(Pos.x, Pos.y, Pos.z);
 }
 
-void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
+void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
     for(auto& i : mp_allPrims)
         i->Move(x, y, z);
@@ -192,23 +192,23 @@ void CEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
     m_Box = math::aabb_t(math::rect_t(x, y, this->GetW(), this->GetH()));
 }
 
-void CEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
+void zEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
 {
     this->Move(this->GetPosition() + math::vector_t(dx, dy, dz));
 }
 
-void CEntity::Adjust(const math::vector_t& delta)
+void zEntity::Adjust(const math::vector_t& delta)
 {
     this->Move(this->GetPosition() + delta);
 }
 
-void CEntity::Offload(gfxcore::CVertexArray& VAO, const bool keep /*= true*/)
+void zEntity::Offload(gfxcore::zVertexArray& VAO, const bool keep /*= true*/)
 {
     for(auto& i : mp_allPrims)
         i->LoadIntoVAO(VAO, keep);
 }
 
-bool CEntity::Offloaded() const
+bool zEntity::Offloaded() const
 {
     for(auto& i : mp_allPrims)
     {
@@ -220,61 +220,61 @@ bool CEntity::Offloaded() const
     return true;
 }
 
-bool CEntity::Collides(const CEntity& Other)
+bool zEntity::Collides(const zEntity& Other)
 {
     return m_Box.collides(Other.GetBox());
 }
 
-bool CEntity::Collides(const math::rect_t& other)
+bool zEntity::Collides(const math::rect_t& other)
 {
     return m_Box.collides(math::aabb_t(other));
 }
 
-bool CEntity::Collides(const math::vector_t& pos)
+bool zEntity::Collides(const math::vector_t& pos)
 {
     return m_Box.collides(math::aabb_t(pos, math::vector_t(1, 1)));
 }
 
-void CEntity::SetDepth(uint8_t depth)
+void zEntity::SetDepth(uint8_t depth)
 {
     // Limit depth to 8-bit values (256).
     clamp<uint8_t>(depth, 0U, 1U << 8);
     m_depth = depth;
-    //m_sort &= (0xFFFFFFFF ^ gfxcore::CSorter::DEPTH_FLAG);
-    //m_sort |= (depth << gfxcore::CSorter::DEPTH_OFFSET);
+    //m_sort &= (0xFFFFFFFF ^ gfxcore::zSorter::DEPTH_FLAG);
+    //m_sort |= (depth << gfxcore::zSorter::DEPTH_OFFSET);
 }
 
-const math::matrix4x4_t& CEntity::GetTransformation() const
+const math::matrix4x4_t& zEntity::GetTransformation() const
 {
     return m_MV;
 }
 
-math::vector_t CEntity::GetPosition() const
+math::vector_t zEntity::GetPosition() const
 {
     return math::vector_t(m_MV[0][3], m_MV[1][3], m_MV[2][3]);
 }
 
-const math::aabb_t& CEntity::GetBox() const
+const math::aabb_t& zEntity::GetBox() const
 {
     return m_Box;
 }
 
-uint32_t CEntity::GetSortFlag() const
+uint32_t zEntity::GetSortFlag() const
 {
     return m_sort;
 }
 
-std::vector<gfx::CQuad*>::const_iterator CEntity::cbegin() const
+std::vector<gfx::zQuad*>::const_iterator zEntity::cbegin() const
 {
     return mp_allPrims.cbegin();
 }
 
-std::vector<gfx::CQuad*>::const_iterator CEntity::cend() const
+std::vector<gfx::zQuad*>::const_iterator zEntity::cend() const
 {
     return mp_allPrims.cend();
 }
 
-void CEntity::Destroy()
+void zEntity::Destroy()
 {
     for(auto& i : mp_allPrims)
     {
@@ -286,7 +286,7 @@ void CEntity::Destroy()
     mp_allPrims.shrink_to_fit();
 }
 
-bool CEntity::FileError(const string_t& filename,
+bool zEntity::FileError(const string_t& filename,
                         const string_t& line, const uint32_t line_no,
                         const ErrorType& Err)
 {
@@ -317,6 +317,6 @@ bool CEntity::FileError(const string_t& filename,
         break;
     }
 
-    m_Log << ")." << CLog::endl;
+    m_Log << ")." << zLog::endl;
     return false;
 }

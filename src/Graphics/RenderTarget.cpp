@@ -2,30 +2,30 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gfx::CRenderTarget;
+using gfx::zRenderTarget;
 
-CRenderTarget::CRenderTarget(const math::rect_t& Dimensions) :
-    CGLSubsystem("RenderTarget"), m_Log(CLog::GetEngineLog()),
+zRenderTarget::zRenderTarget(const math::rect_t& Dimensions) :
+    zGLSubsystem("RenderTarget"), m_Log(zLog::GetEngineLog()),
     m_Viewport(Dimensions.w, Dimensions.h), m_fbo(0), m_texture(0),
     m_rbos(nullptr), m_rbo_count(0)
 {
 }
 
-CRenderTarget::CRenderTarget(const uint16_t w, const uint16_t h) :
-    CGLSubsystem("RenderTarget"), m_Log(CLog::GetEngineLog()),
+zRenderTarget::zRenderTarget(const uint16_t w, const uint16_t h) :
+    zGLSubsystem("RenderTarget"), m_Log(zLog::GetEngineLog()),
     m_Viewport(w, h), m_fbo(0), m_texture(0), m_rbos(nullptr), m_rbo_count(0)
 {
 }
 
-CRenderTarget::~CRenderTarget()
+zRenderTarget::~zRenderTarget()
 {
     this->Destroy();
     if(m_rbos != nullptr) delete[] m_rbos;
 }
 
-bool CRenderTarget::Init()
+bool zRenderTarget::Init()
 {
     if(m_init) this->Destroy();
 
@@ -59,21 +59,21 @@ bool CRenderTarget::Init()
         m_error_str = "The frame buffer set up did not complete.";
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("RenderTarget") << m_error_str
-                << " Error code: " << status << CLog::endl;
+                << " Error code: " << status << zLog::endl;
     }
 
     // Unbind our things.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glBindTexture(GL_TEXTURE_2D, 0));
 
-    m_Main = gfxcore::CRenderer::s_ProjMatrix;
+    m_Main = gfxcore::zRenderer::s_ProjMatrix;
     m_ProjMatrix = math::matrix4x4_t::Projection2D(
         m_Viewport.x, m_Viewport.y, 16, 1);
 
     return m_init = (status == GL_FRAMEBUFFER_COMPLETE);
 }
 
-bool CRenderTarget::Destroy()
+bool zRenderTarget::Destroy()
 {
     if(!m_init) return false;
 
@@ -88,32 +88,32 @@ bool CRenderTarget::Destroy()
     return true;
 }
 
-bool CRenderTarget::Bind() const
+bool zRenderTarget::Bind() const
 {
     // Bind the framebuffer and set our view port.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));
     GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));
-    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
+    gfxcore::zRenderer::s_ProjMatrix = m_ProjMatrix;
 
     return true;
 }
 
-bool CRenderTarget::Unbind() const
+bool zRenderTarget::Unbind() const
 {
     // Unbind the framebuffer and reset the view port.
-    gfxcore::CRenderer::s_ProjMatrix = m_Main;
+    gfxcore::zRenderer::s_ProjMatrix = m_Main;
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));
     return true;
 }
 
-bool CRenderTarget::BindTexture() const
+bool zRenderTarget::BindTexture() const
 {
     if(m_texture == 0) return false;
-    return gfxcore::CRenderer::EnableTexture(m_texture);
+    return gfxcore::zRenderer::EnableTexture(m_texture);
 }
 
-bool CRenderTarget::Clear(const color4f_t C)
+bool zRenderTarget::Clear(const color4f_t C)
 {
     GL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
     GL(glClearColor(C.r, C.g, C.b, C.a));
@@ -121,7 +121,7 @@ bool CRenderTarget::Clear(const color4f_t C)
     return true;
 }
 
-bool CRenderTarget::AttachDepthBuffer()
+bool zRenderTarget::AttachDepthBuffer()
 {
     // Create the depth buffer.
     if(!this->Bind()) return false;
@@ -141,7 +141,7 @@ bool CRenderTarget::AttachDepthBuffer()
         m_error_str = "The depth buffer could not be attached.";
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("RenderTarget") << m_error_str
-                << " Error code: " << status << CLog::endl;
+                << " Error code: " << status << zLog::endl;
     }
     else
     {
@@ -162,12 +162,12 @@ bool CRenderTarget::AttachDepthBuffer()
     return (this->Unbind() && status == GL_FRAMEBUFFER_COMPLETE);
 }
 
-GLuint CRenderTarget::GetObjectHandle() const
+GLuint zRenderTarget::GetObjectHandle() const
 {
     return m_fbo;
 }
 
-GLuint CRenderTarget::GetTexture() const
+GLuint zRenderTarget::GetTexture() const
 {
     return m_texture;
 }

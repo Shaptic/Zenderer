@@ -34,8 +34,8 @@ namespace zen
 namespace gfx
 {
     // Forward declarations.
-    class ZEN_API CWindow;
-    class ZEN_API CRenderTarget;
+    class ZEN_API zWindow;
+    class ZEN_API zRenderTarget;
 }
 
 namespace gfxcore
@@ -53,7 +53,7 @@ namespace gfxcore
     /// Abstracts away API-specific rendering operations.
     /// @todo   Add support for depth test toggling.
     /// @todo   Document class in detail.
-    class ZEN_API CRenderer
+    class ZEN_API zRenderer
     {
     public:
         /// Sets the blending mode for subsequent draw calls.
@@ -74,26 +74,26 @@ namespace gfxcore
         /// Disables any bound texture (also via `EnableTexture(0)`).
         inline static bool DisableTexture();
 
-        inline static const gfx::CMaterial&     GetDefaultMaterial();
-        inline static gfx::CEffect&             GetDefaultEffect();
-        inline static const gfxcore::CTexture&  GetDefaultTexture();
+        inline static const gfx::zMaterial&     GetDefaultMaterial();
+        inline static gfx::zEffect&             GetDefaultEffect();
+        inline static const gfxcore::zTexture&  GetDefaultTexture();
 
         inline static const math::matrix4x4_t&  GetProjectionMatrix();
-        inline static CVertexArray&             GetFullscreenVBO();
+        inline static zVertexArray&             GetFullscreenVBO();
 
-        friend class ZEN_API gfx::CWindow;          ///< Accesses material
-        friend class ZEN_API gfx::CRenderTarget;    ///< Accesses matrices
+        friend class ZEN_API gfx::zWindow;          ///< Accesses material
+        friend class ZEN_API gfx::zRenderTarget;    ///< Accesses matrices
 
     private:
-        explicit CRenderer();
-        ~CRenderer();
+        explicit zRenderer();
+        ~zRenderer();
 
-        /// Only to be called by `gfx::CWindow` ONCE.
-        static bool Init(asset::CAssetManager& Assets,
+        /// Only to be called by `gfx::zWindow` ONCE.
+        static bool Init(asset::zAssetManager& Assets,
                          const uint16_t w, const uint16_t h);
 
-        static CVertexArray         s_FullscreenQuad;
-        static gfx::CMaterial*      s_DefaultMaterial;
+        static zVertexArray         s_FullscreenQuad;
+        static gfx::zMaterial*      s_DefaultMaterial;
         static math::matrix4x4_t    s_ProjMatrix;
         static BlendFunc            s_LastBlend;
         static bool                 s_blend;

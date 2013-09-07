@@ -3,21 +3,21 @@
 using namespace zen;
 
 using util::LogMode;
-using util::CINIParser;
+using util::zParser;
 
-string_t CINIParser::s_empty("");
+string_t zParser::s_empty("");
 
-CINIParser::CINIParser() : m_Log(util::CLog::GetEngineLog())
+zParser::zParser() : m_Log(util::zLog::GetEngineLog())
 {
     m_pairs.clear();
 }
 
-CINIParser::~CINIParser()
+zParser::~zParser()
 {
     this->Reset();
 }
 
-bool CINIParser::LoadFromFile(const string_t& filename)
+bool zParser::LoadFromFile(const string_t& filename)
 {
     m_Log.SetSystem("Parser");
 
@@ -26,7 +26,7 @@ bool CINIParser::LoadFromFile(const string_t& filename)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Failed to open '" << filename << "'."
-                << CLog::endl;
+                << zLog::endl;
 
         return false;
     }
@@ -34,7 +34,7 @@ bool CINIParser::LoadFromFile(const string_t& filename)
     return this->LoadFromStream(in, 0, -1, filename.c_str());
 }
 
-bool CINIParser::LoadFromStream(std::ifstream& file,
+bool zParser::LoadFromStream(std::ifstream& file,
                              const std::streampos& start,
                              const std::streampos& finish,
                              const char* filename)
@@ -59,13 +59,13 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
 
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << "Parsing line " << line_no << " of '"
-                << filename << "': " << line << CLog::endl;
+                << filename << "': " << line << zLog::endl;
 
         if(!this->ParseLine(line))
         {
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << "Malformed line in file stream (" << filename
-                    << ")." << CLog::endl;
+                    << ")." << zLog::endl;
         }
     }
 
@@ -73,17 +73,17 @@ bool CINIParser::LoadFromStream(std::ifstream& file,
     return line_no > 0;
 }
 
-void CINIParser::Reset()
+void zParser::Reset()
 {
     m_pairs.clear();
 }
 
-bool CINIParser::Exists(const string_t& key) const
+bool zParser::Exists(const string_t& key) const
 {
     return (m_pairs.find(key) == m_pairs.end());
 }
 
-const string_t& CINIParser::GetValue(const string_t& key) const
+const string_t& zParser::GetValue(const string_t& key) const
 {
     auto find = m_pairs.find(key);
 
@@ -92,12 +92,12 @@ const string_t& CINIParser::GetValue(const string_t& key) const
     return find->second;
 }
 
-CINIParser::pair_t& CINIParser::GetPairs()
+zParser::pair_t& zParser::GetPairs()
 {
     return m_pairs;
 }
 
-std::streampos CINIParser::FindInFile(std::ifstream& stream,
+std::streampos zParser::FindInFile(std::ifstream& stream,
                                    const string_t& finder,
                                    const std::streampos& max_pos)
 {
@@ -121,7 +121,7 @@ std::streampos CINIParser::FindInFile(std::ifstream& stream,
     return std::streampos(-1);
 }
 
-bool CINIParser::ParseLine(const string_t& line)
+bool zParser::ParseLine(const string_t& line)
 {
     util::stripl(line);
     util::stript(line);

@@ -2,25 +2,25 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-using gfx::CEffect;
+using gfx::zEffect;
 using gfx::EffectType;
 
-CEffect::CEffect(const EffectType Type, asset::CAssetManager& Assets) :
-    CGLSubsystem("ShaderSet"),
-    m_Log(CLog::GetEngineLog()),
+zEffect::zEffect(const EffectType Type, asset::zAssetManager& Assets) :
+    zGLSubsystem("ShaderSet"),
+    m_Log(zLog::GetEngineLog()),
     m_Shader(Assets), m_type(Type)
 {
 }
 
-CEffect::~CEffect()
+zEffect::~zEffect()
 {
     this->Destroy();
 }
 
-bool CEffect::Init()
+bool zEffect::Init()
 {
     if(m_init) return true;
 
@@ -28,7 +28,7 @@ bool CEffect::Init()
     if(m_type == EffectType::ZEN_EFFECT_COUNT)
     {
         m_Log << m_Log.SetMode(LogMode::ZEN_ERROR) << m_Log.SetSystem("Effect")
-              << "ZEN_EFFECT_COUNT is not a valid effect." << CLog::endl;
+              << "ZEN_EFFECT_COUNT is not a valid effect." << zLog::endl;
         return (m_init = false);
     }
 
@@ -87,10 +87,10 @@ bool CEffect::Init()
 
     else if(m_type == EffectType::CUSTOM_EFFECT)
     {
-        // Custom effects are only loaded from files via `CMaterial` class.
+        // Custom effects are only loaded from files via `zMaterial` class.
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
                 << "Custom effects can only be loaded from .zfx files via the "
-                <<  "zen::gfx::CMaterial object." << CLog::endl;
+                <<  "zen::gfx::zMaterial object." << zLog::endl;
 
         return(m_init = false);
     }
@@ -100,7 +100,7 @@ bool CEffect::Init()
         // Fatal error because this shouldn't be possible.
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL) << m_Log.SetSystem("Effect")
                 << "Invalid effect type: " << static_cast<int16_t>(m_type)
-                << "." << CLog::endl;
+                << "." << zLog::endl;
 
         return (m_init = false);
     }
@@ -108,14 +108,14 @@ bool CEffect::Init()
     return (m_init = m_Shader.CreateShaderObject());
 }
 
-bool CEffect::Destroy()
+bool zEffect::Destroy()
 {
     // We keep the type to Init() again.
     m_Shader.Destroy();
     return !(m_init = m_Shader.GetShaderObject() != 0);
 }
 
-bool CEffect::SetParameter(const string_t& name,
+bool zEffect::SetParameter(const string_t& name,
                            const real_t* pValues,
                            const size_t count)
 {
@@ -137,14 +137,14 @@ bool CEffect::SetParameter(const string_t& name,
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Effect")
                 << "No appropriate parameter switch found for " << count
-                << " real values." << CLog::endl;
+                << " real values." << zLog::endl;
         return false;
     }
 
     return true;
 }
 
-bool CEffect::SetParameter(const string_t& name,
+bool zEffect::SetParameter(const string_t& name,
                            const int* pValues,
                            const size_t count)
 {
@@ -166,14 +166,14 @@ bool CEffect::SetParameter(const string_t& name,
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Effect")
                 << "No appropriate parameter switch found for " << count
-                << " integer values." << CLog::endl;
+                << " integer values." << zLog::endl;
         return false;
     }
 
     return true;
 }
 
-bool CEffect::SetParameter(const string_t& name,
+bool zEffect::SetParameter(const string_t& name,
                            const math::matrix4x4_t& Matrix)
 {
     ZEN_ASSERT(!name.empty());
@@ -185,7 +185,7 @@ bool CEffect::SetParameter(const string_t& name,
     return (loc != -1);
 }
 
-bool CEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
+bool zEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
 {
     ZEN_ASSERT(m_type == EffectType::CUSTOM_EFFECT);
 

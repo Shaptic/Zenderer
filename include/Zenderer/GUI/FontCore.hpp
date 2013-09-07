@@ -39,10 +39,10 @@ namespace zen
 namespace gui
 {
     /// Initializes the core FreeType2 library.
-    class ZEN_API CFontLibrary : public CSubsystem
+    class ZEN_API zFontLibrary : public zSubsystem
     {
     public:
-        ~CFontLibrary()
+        ~zFontLibrary()
         {
             this->Destroy();
         }
@@ -73,9 +73,9 @@ namespace gui
             return !(m_init = false);
         }
 
-        static CFontLibrary& InitFreetype()
+        static zFontLibrary& InitFreetype()
         {
-            static CFontLibrary s_TTF;
+            static zFontLibrary s_TTF;
             s_TTF.Init();
             return s_TTF;
         }
@@ -92,7 +92,7 @@ namespace gui
     /// A glyph structure used internally by the font API.
     struct glyph_t
     {
-        gfxcore::CTexture*  texture;    ///< Raw bitmap
+        gfxcore::zTexture*  texture;    ///< Raw bitmap
         math::vectoru16_t   size;       ///< Raw bitmap size
         math::vectoru16_t   position;   ///< Position on baseline to render
         uint16_t            advance;    ///< Pixels until next character
@@ -103,7 +103,7 @@ namespace gui
 #endif // ZENDERER__GUI__FONT_CORE_HPP
 
 /**
- * @class zen::gui::CFontLibrary
+ * @class zen::gui::zFontLibrary
  * @details
  *  This is a wrapper class around the FreeType API that is at the core
  *  of rendering text in @a Zenderer. It will initialize the library a

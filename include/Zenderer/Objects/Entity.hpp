@@ -20,7 +20,7 @@
  *  A group containing renderable objects with a variety of controllable
  *  options and features like animation and collision detection.
  *  These classes are a step above the simple primitive rendering scheme
- *  set up by the architecture in zen::gfxcore::CDrawable, and are the most
+ *  set up by the architecture in zen::gfxcore::zDrawable, and are the most
  *  likely to face direct user interaction through the application.
  *
  * @{
@@ -40,14 +40,14 @@
 
 namespace zen
 {
-namespace gfx { class ZEN_API CScene; }
-namespace gui { class ZEN_API CFont;  }
+namespace gfx { class ZEN_API zScene; }
+namespace gui { class ZEN_API zFont;  }
 
 /// A group of sprite-like objects that operate at a high level of abstraction.
 namespace obj
 {
     /// A base class for all "in-game" objects.
-    class ZEN_API CEntity
+    class ZEN_API zEntity
     {
     protected:
         // Internal error types.
@@ -60,8 +60,8 @@ namespace obj
         };
 
     public:
-        explicit CEntity(asset::CAssetManager& Assets);
-        virtual ~CEntity();
+        explicit zEntity(asset::zAssetManager& Assets);
+        virtual ~zEntity();
 
         /**
          * Creates an entity mesh from a file.
@@ -109,7 +109,7 @@ namespace obj
          *          primitive on top of one another, since there is no position
          *          specification on them.
          **/
-        bool AddPrimitive(const gfx::CQuad& Prim);
+        bool AddPrimitive(const gfx::zQuad& Prim);
 
         /**
          * Merges primitive data with shared materials.
@@ -126,7 +126,7 @@ namespace obj
         /**
          * Draws the entity on-screen.
          *  Since entities are just collections of one or more primitives, this
-         *  will simply call gfx::CQuad::Draw on each individual internal
+         *  will simply call gfx::zQuad::Draw on each individual internal
          *  primitive.
          *
          *  If `is_bound` is `true`, the draw call will only do drawing (go
@@ -165,7 +165,7 @@ namespace obj
          *  It's essentially Move(Screen Width  / 2 - Width  / 2,
          *                        Screen Height / 2 - Height / 2)
          **/
-        inline void Center(const gfx::CWindow& Window)
+        inline void Center(const gfx::zWindow& Window)
         {
             this->Move(Window.GetWidth()  / 2 - this->GetW() / 2,
                        Window.GetHeight() / 2 - this->GetH() / 2);
@@ -200,7 +200,7 @@ namespace obj
          *
          * @pre     Nothing has been loaded into the entity.
          *
-         * @see     zen::gfx::CQuad::SetInverted()
+         * @see     zen::gfx::zQuad::SetInverted()
          **/
         inline void Invert() { m_inv = true; }
 
@@ -218,17 +218,17 @@ namespace obj
          *          may cause problems.
          *
          * @warning The data will stay on the GPU, occupying precious video
-         *          memory, until the gfxcore::CVertexArray is cleared.
+         *          memory, until the gfxcore::zVertexArray is cleared.
          *
-         * @see     gfxcore::CVertexArray::Clear()
+         * @see     gfxcore::zVertexArray::Clear()
          **/
-        void Offload(gfxcore::CVertexArray& VAO, const bool keep = true);
+        void Offload(gfxcore::zVertexArray& VAO, const bool keep = true);
 
         /// Checks if the entity has offloaded any vertex data to a GPU buffer.
         bool Offloaded() const;
 
         /// Checks collision with another entity.
-        bool Collides(const CEntity& Other);
+        bool Collides(const zEntity& Other);
         bool Collides(const math::rect_t& other);   ///< @overload
         bool Collides(const math::vector_t& Pos);   ///< @overload
 
@@ -248,32 +248,32 @@ namespace obj
         uint32_t GetSortFlag() const;
 
         /// Returns an iterator to the start of the internal primitive list.
-        std::vector<gfx::CQuad*>::const_iterator cbegin() const;
+        std::vector<gfx::zQuad*>::const_iterator cbegin() const;
 
         /// Returns an iterator to the end of the internal primitive list.
-        std::vector<gfx::CQuad*>::const_iterator cend() const;
+        std::vector<gfx::zQuad*>::const_iterator cend() const;
 
         inline void Enable()  { m_enabled = true;  }
         inline void Disable() { m_enabled = false; }
 
-        friend class ZEN_API gui::CFont;
-        friend class ZEN_API gfx::CScene;
+        friend class ZEN_API gui::zFont;
+        friend class ZEN_API gfx::zScene;
 
     protected:
-        CEntity(const CEntity&);                // not implemented to
-        CEntity& operator=(const CEntity&);     // prevent compiler default
+        zEntity(const zEntity&);                // not implemented to
+        zEntity& operator=(const zEntity&);     // prevent compiler default
 
         void Destroy();
         bool FileError(const string_t& filename,
                        const string_t& line, const uint32_t line_no,
                        const ErrorType& Err = ErrorType::BAD_PAIR);
 
-        asset::CAssetManager&       m_Assets;
-        util::CLog&                 m_Log;
+        asset::zAssetManager&       m_Assets;
+        util::zLog&                 m_Log;
 
         math::matrix4x4_t           m_MV;
         math::aabb_t                m_Box;
-        std::vector<gfx::CQuad*>    mp_allPrims;
+        std::vector<gfx::zQuad*>    mp_allPrims;
         string_t                    m_filename;
         uint16_t                    m_depth;
         uint32_t                    m_sort;
@@ -285,12 +285,12 @@ namespace obj
 #endif // ZENDERER__OBJECTS__ENTITY_HPP
 
 /**
- * @class zen::obj::CEntity
+ * @class zen::obj::zEntity
  * @details
  *  These differ from generic primitives in the sense that they have a lot more
  *  functionality abstracted away, as well as additional functions like
  *  animation and physics reactions (in inheriting classes). They do use the
- *  zen::gfx::CQuad class at their core, but function at a much higher level.
+ *  zen::gfx::zQuad class at their core, but function at a much higher level.
  *
  *  They can also be loaded from files (see the spec) and can
  *  contain multiple primitive instances.

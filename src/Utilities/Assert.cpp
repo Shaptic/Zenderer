@@ -2,7 +2,7 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
 void util::runtime_assert(              const bool expression,
@@ -11,10 +11,10 @@ void util::runtime_assert(              const bool expression,
 {
     if(expression) return;
 
-    util::CLog& Log = util::CLog::GetEngineLog();
+    util::zLog& Log = util::zLog::GetEngineLog();
 
     // Flush old output (if any).
-    Log << CLog::endl;
+    Log << zLog::endl;
 
     // Set up proper logging types.
     Log.SetSystem("Assert");
@@ -23,7 +23,7 @@ void util::runtime_assert(              const bool expression,
     if(expression_str.empty() || file_name.empty())
     {
         Log.SetMode(LogMode::ZEN_ERROR);
-        Log << "Invalid assertion arguments." << CLog::endl;
+        Log << "Invalid assertion arguments." << zLog::endl;
         return;
     }
 
@@ -33,9 +33,9 @@ void util::runtime_assert(              const bool expression,
     Log << expression_str << " failed at line " << line_no
         << " of " << file_name;
     if(msg) Log << ": " << msg;
-    Log << CLog::endl;
+    Log << zLog::endl;
 
-    // util::CLog::Newline() should take care of this (since FATAL),
+    // util::zLog::Newline() should take care of this (since FATAL),
     // but just in case.
     exit(1);
 }

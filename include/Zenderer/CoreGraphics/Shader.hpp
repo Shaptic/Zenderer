@@ -38,16 +38,16 @@ namespace zen
 namespace gfxcore
 {
     /// A wrapper for OpenGL shader objects.
-    class ZEN_API CShader : public asset::CAsset
+    class ZEN_API zShader : public asset::zAsset
     {
     public:
-        CShader(const void* const ptr);
-        ~CShader();
+        zShader(const void* const ptr);
+        ~zShader();
 
         /**
          * Loads a shader from a file.
          *  The shader type is interpreted from the filename. Since this
-         *  is a sub-class of asset::CAsset, you cannot pass any extra
+         *  is a sub-class of asset::zAsset, you cannot pass any extra
          *  parameters to the object on creation.
          *  Filenames ending in `.vs` are interpreted to be vertex shaders,
          *  and those ending in `.fs` or `.ps` are interpreted to be fragment
@@ -61,7 +61,7 @@ namespace gfxcore
         bool LoadFromFile(const string_t& filename);
 
         /// @overload
-        bool LoadFromExisting(const CAsset* const pCopyShader);
+        bool LoadFromExisting(const zAsset* const pCopyShader);
 
         /// @overload
         bool LoadFromRaw(const string_t& string);
@@ -92,17 +92,17 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__SHADER_HPP
 
 /**
- * @class zen::gfxcore::CShader
+ * @class zen::gfxcore::zShader
  * @details
- *  This is a managed `zen::asset::CAsset` child class that automatically
+ *  This is a managed `zen::asset::zAsset` child class that automatically
  *  frees the OpenGL shader handle and prevents it from being loaded multiple
  *  times from a file.
- *  The reason this is an asset rather than a zen::gfxcore::CGLSubsystem
+ *  The reason this is an asset rather than a zen::gfxcore::zGLSubsystem
  *  is because it requires being loaded from a file rather than typical
  *  initialization (via `Init()`).
  *
  *  This class is primarily used internally, and users should not stray toward
- *  it, preferring zen::gfx::CEffect or at least zen::gfxcore::CShaderSet if
+ *  it, preferring zen::gfx::zEffect or at least zen::gfxcore::zShaderSet if
  *  they need something slightly lower-level.
  **/
 

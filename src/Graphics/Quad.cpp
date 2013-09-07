@@ -1,30 +1,30 @@
 #include "Zenderer/Graphics/Quad.hpp"
 
 using namespace zen;
-using gfx::CQuad;
+using gfx::zQuad;
 
-CQuad::CQuad(asset::CAssetManager& Mgr, const math::rect_t& Size) :
-    CDrawable(Mgr), m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
+zQuad::zQuad(asset::zAssetManager& Mgr, const math::rect_t& Size) :
+    zDrawable(Mgr), m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
 {}
 
-CQuad::CQuad(asset::CAssetManager& Mgr, const uint16_t w, const uint16_t h) :
-    CDrawable(Mgr), m_Size(w, h), m_inv(false), m_rep(false)
+zQuad::zQuad(asset::zAssetManager& Mgr, const uint16_t w, const uint16_t h) :
+    zDrawable(Mgr), m_Size(w, h), m_inv(false), m_rep(false)
 {}
 
-CQuad::CQuad(const CQuad& Copy) : CDrawable(Copy)
+zQuad::zQuad(const zQuad& Copy) : zDrawable(Copy)
 {
     m_Size = Copy.m_Size;
     m_inv = Copy.m_inv;
     m_rep = Copy.m_rep;
 }
 
-CQuad::~CQuad()
+zQuad::~zQuad()
 {
     if(m_DrawData.Vertices != nullptr) delete m_DrawData.Vertices;
     if(m_DrawData.Indices  != nullptr) delete m_DrawData.Indices;
 }
 
-gfxcore::CDrawable& CQuad::Create()
+gfxcore::zDrawable& zQuad::Create()
 {
     if(m_DrawData.Vertices == nullptr)
     {
@@ -59,12 +59,12 @@ gfxcore::CDrawable& CQuad::Create()
     return (*this);
 }
 
-void CQuad::Resize(const math::vectoru16_t& Size)
+void zQuad::Resize(const math::vectoru16_t& Size)
 {
     this->Resize(Size.x, Size.y);
 }
 
-void CQuad::Resize(const uint16_t w, const uint16_t h)
+void zQuad::Resize(const uint16_t w, const uint16_t h)
 {
     // Offload()'ed already.
     if(!this->IsModifiable()) return;
@@ -73,17 +73,17 @@ void CQuad::Resize(const uint16_t w, const uint16_t h)
     m_Size.y = h;
 }
 
-void CQuad::SetInverted(const bool flag)
+void zQuad::SetInverted(const bool flag)
 {
     m_inv = flag;
 }
 
-void CQuad::SetRepeating(const bool flag)
+void zQuad::SetRepeating(const bool flag)
 {
     m_rep = flag;
 }
 
-void CQuad::LoadRegularVertices()
+void zQuad::LoadRegularVertices()
 {
     m_DrawData.Vertices[0].position = math::vector_t();
     m_DrawData.Vertices[1].position = math::vector_t(m_Size.x, 0.0);
@@ -91,7 +91,7 @@ void CQuad::LoadRegularVertices()
     m_DrawData.Vertices[3].position = math::vector_t(0.0, m_Size.y);
 }
 
-void CQuad::LoadInvertedVertices()
+void zQuad::LoadInvertedVertices()
 {
     // We cast to int since -h and -w is invalid for unsigned integers.
     m_DrawData.Vertices[0].position = math::vector_t(0, 0);
@@ -100,7 +100,7 @@ void CQuad::LoadInvertedVertices()
     m_DrawData.Vertices[3].position = math::vector_t(m_Size.x, 0);
 }
 
-void CQuad::LoadRegularTC()
+void zQuad::LoadRegularTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
 
@@ -119,7 +119,7 @@ void CQuad::LoadRegularTC()
     m_DrawData.Vertices[3].tc = math::vector_t(0.0, 0.0);
 }
 
-void CQuad::LoadInvertedTC()
+void zQuad::LoadInvertedTC()
 {
     real_t tc_w = 1.0, tc_h = 1.0;
 

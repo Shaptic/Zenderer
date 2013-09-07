@@ -2,22 +2,22 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-using util::CXMLParser;
+using util::zXMLParser;
 
-CXMLParser::CXMLParser() : m_Log(CLog::GetEngineLog())
+zXMLParser::zXMLParser() : m_Log(zLog::GetEngineLog())
 {
     m_XMLTree.clear();
 }
 
-CXMLParser::~CXMLParser()
+zXMLParser::~zXMLParser()
 {
     this->ClearTree();
 }
 
-bool CXMLParser::LoadFromFile(const string_t& filename)
+bool zXMLParser::LoadFromFile(const string_t& filename)
 {
     std::ifstream file(filename);
 
@@ -26,7 +26,7 @@ bool CXMLParser::LoadFromFile(const string_t& filename)
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("XML Parser")
                 << "Failed to open '" << filename << "'."
-                << CLog::endl;
+                << zLog::endl;
 
         return false;
     }
@@ -36,13 +36,13 @@ bool CXMLParser::LoadFromFile(const string_t& filename)
     return (retval == 0);
 }
 
-bool CXMLParser::LoadFromString(const char** data)
+bool zXMLParser::LoadFromString(const char** data)
 {
     if(data != nullptr) this->ClearTree();
     return (this->ParseTree(data, 0, nullptr) == 0);
 }
 
-void CXMLParser::ClearTree()
+void zXMLParser::ClearTree()
 {
     auto i = m_XMLTree.begin();
 
@@ -55,20 +55,20 @@ void CXMLParser::ClearTree()
     m_XMLTree.clear();
 }
 
-void CXMLParser::ShowXMLError(const uint32_t line_no, const string_t& line,
+void zXMLParser::ShowXMLError(const uint32_t line_no, const string_t& line,
                               const string_t& reason)
 {
-    CLog& Log = CLog::GetEngineLog();
+    zLog& Log = zLog::GetEngineLog();
 
     Log << Log.SetMode(LogMode::ZEN_ERROR)
         << Log.SetSystem("XML Parser")
         << "Malformed XML on line " << line_no
         << ": " << line << " (" << reason << ") "
-        << CLog::endl;
+        << zLog::endl;
 }
 
-/// @see zen::asset::CAssetManager::Find
-const util::XMLNode* const CXMLParser::FindNode(const string_t& name) const
+/// @see zen::asset::zAssetManager::Find
+const util::XMLNode* const zXMLParser::FindNode(const string_t& name) const
 {
     // Fastest way to loop (see Zenderer docs).
     auto i = m_XMLTree.cbegin(), j = m_XMLTree.cend();
@@ -86,7 +86,7 @@ const util::XMLNode* const CXMLParser::FindNode(const string_t& name) const
 }
 
 // Identical to non-const.
-util::XMLNode* CXMLParser::FindNode(const string_t& name)
+util::XMLNode* zXMLParser::FindNode(const string_t& name)
 {
     // Fastest way to loop (see Zenderer docs).
     auto i = m_XMLTree.cbegin(), j = m_XMLTree.cend();
@@ -103,7 +103,7 @@ util::XMLNode* CXMLParser::FindNode(const string_t& name)
     return nullptr;
 }
 
-int CXMLParser::ParseTree(const char** str, const int index,
+int zXMLParser::ParseTree(const char** str, const int index,
                           util::XMLNode* parent)
 {
     int i = index;
@@ -125,7 +125,7 @@ int CXMLParser::ParseTree(const char** str, const int index,
     return -1;
 }
 
-int CXMLParser::ParseTree(std::ifstream& file, const int index,
+int zXMLParser::ParseTree(std::ifstream& file, const int index,
                           util::XMLNode* parent)
 {
     string_t line;
@@ -150,7 +150,7 @@ int CXMLParser::ParseTree(std::ifstream& file, const int index,
     return i;
 }
 
-int CXMLParser::CreateNode(const string_t& line,
+int zXMLParser::CreateNode(const string_t& line,
                            util::XMLNode* parent, int i,
                            std::function<int(const size_t,
                                              util::XMLNode*)> callback)

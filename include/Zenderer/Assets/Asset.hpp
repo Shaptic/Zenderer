@@ -41,11 +41,11 @@ namespace asset
     typedef uint32_t assetid_t;
 
     /// Used throughout @a Zenderer to act as a managed asset.
-    class ZEN_API CAsset
+    class ZEN_API zAsset
     {
     public:
         /// Logs some information.
-        virtual ~CAsset();
+        virtual ~zAsset();
 
         /**
          * Loads an asset from the disk.
@@ -59,14 +59,14 @@ namespace asset
          *  By default, this just copies all of the asset metadata over,
          *  excluding any implementation-specific data.
          *  It's recommended to overload this method, and then just call
-         *  CAsset::LoadFromExisting() again internally to ensure all
+         *  zAsset::LoadFromExisting() again internally to ensure all
          *  metadata is copied (if that's desired).
          *
          * @param   pCopy   Asset to create a copy from
          *
          * @return `true` if copied successfully, `false` otherwise.
          **/
-        virtual bool LoadFromExisting(const CAsset* const pCopy);
+        virtual bool LoadFromExisting(const zAsset* const pCopy);
 
         /**
          * Reloads oneself from whatever method it was loaded from originally.
@@ -81,7 +81,7 @@ namespace asset
          * @return  `true`  if the asset reloaded itself successfully,
          *          `false` otherwise.
          *
-         * @see     zen::gfx::CWindow::ToggleFullscreen()
+         * @see     zen::gfx::zWindow::ToggleFullscreen()
          **/
         virtual bool Reload(){ return false; }
 
@@ -112,22 +112,22 @@ namespace asset
         /// Overrides the asset filename.
         inline void SetFilename(const string_t& filename);
 
-        /// Only asset::CAssetManager can create CAsset instances.
-        friend class ZEN_API CAssetManager;
+        /// Only asset::zAssetManager can create zAsset instances.
+        friend class ZEN_API zAssetManager;
 
     protected:
-        /// Only asset::CAssetManager can create CAsset instances.
-        CAsset(const void* const owner = nullptr);
+        /// Only asset::zAssetManager can create zAsset instances.
+        zAsset(const void* const owner = nullptr);
 
         /// No copy or assignment of assets.
-        //CAsset(const CAsset& Disabled)            = delete;
-        //CAsset& operator=(const CAsset& Disabled) = delete;
+        //zAsset(const zAsset& Disabled)            = delete;
+        //zAsset& operator=(const zAsset& Disabled) = delete;
 
         virtual bool Destroy() = 0;
 
         static uint32_t s_seed;
 
-        util::CLog& m_Log;
+        util::zLog& m_Log;
 
         string_t    m_filename;
         string_t    m_error_str;
@@ -147,26 +147,26 @@ namespace asset
 #endif // ZENDERER__ASSETS__ASSET_HPP
 
 /**
- * @class zen::asset::CAsset
+ * @class zen::asset::zAsset
  * @details
  *  Assets can include audio files, shaders, or any other data that can
  *  be loaded from disk with a filename.
  *
  *  Inheriting classes are required to be able to successfully reload
  *  themselves if they have been given a filename originally. Thus it is
- *  recommended to store the filename given to CAsset::LoadFromFile()
+ *  recommended to store the filename given to zAsset::LoadFromFile()
  *  internally. In addition, comparisons between assets to check for
  *  equivalence is typically done by comparing the filename hash and the
- *  owner address. Thus, CAsset::LoadFromFile() should be sure to call
+ *  owner address. Thus, zAsset::LoadFromFile() should be sure to call
  *  util::string_hash and store the value internally in
- *  CAsset::m_filename_hash. By default, if this value is not stored the
+ *  zAsset::m_filename_hash. By default, if this value is not stored the
  *  base class will hash it on-the-fly, which obviously can be
  *  undesirable with successive calls.
  *
  *  Another requirement for all inheriting classes is the ability to
  *  load a copy of an asset from an existing asset using only existing
  *  virtual methods found in the base class. These will likely include
- *  CAsset::GetFilename() and CAsset::GetData().
+ *  zAsset::GetFilename() and zAsset::GetData().
  *
  *  All assets are assigned a (hopefully) unique ID at instantiation
  *  based on their address in memory. This ID can be used to find the

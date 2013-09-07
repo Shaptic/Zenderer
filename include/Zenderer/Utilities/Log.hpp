@@ -50,24 +50,24 @@ namespace util
     };
 
     /// Creates a special file stream to store logging information.
-    class ZEN_API CLog
+    class ZEN_API zLog
     {
     public:
         /**
          * Sets internal variables to a known state.
          *  This constructor does next to nothing. The filename that is
          *  passed will not be used to create a file until Init() is
-         *  called. It acts exactly like a zen::CSubsystem instance,
+         *  called. It acts exactly like a zen::zSubsystem instance,
          *  but cannot actually be one due to the fact that that class
          *  uses a log within it.
          *
          * @param   filename    Filename for output log
          * @param   show_stdout Output logged info to the screen?
          *
-         * @see     CLog::Init()
-         * @see     CLog::ToggleStdout()
+         * @see     zLog::Init()
+         * @see     zLog::ToggleStdout()
          **/
-        CLog(const string_t& filename, const bool show_stdout =
+        zLog(const string_t& filename, const bool show_stdout =
 #ifdef ZEN_DEBUG_BUILD
                 true);
 #else
@@ -77,60 +77,60 @@ namespace util
         // Deleting member functions is not implemented in VS2012.
 
         /// Copy constructor does not exist.
-        CLog(const CLog& Copy)/* = delete*/ {}
-        CLog& operator=(const CLog& Copy)/* = delete;*/ { return *this; }
+        zLog(const zLog& Copy)/* = delete*/ {}
+        zLog& operator=(const zLog& Copy)/* = delete;*/ { return *this; }
 
         /**
          * This destructor does nothing but call Destroy().
-         *  The zen::CSubsystem specification requires that the destructor
+         *  The zen::zSubsystem specification requires that the destructor
          *  only call Destroy(), and this behaves in a similar fashion.
          *
-         * @see     zen::CSubsystem::~CSubsystem()
+         * @see     zen::zSubsystem::~zSubsystem()
          **/
-        virtual ~CLog();
+        virtual ~zLog();
 
         /**
-         * Executes a CLog method in-stream.
-         *  This allows for chaining CLog method calls in `operator<<` with
+         * Executes a zLog method in-stream.
+         *  This allows for chaining zLog method calls in `operator<<` with
          *  the guarantee that they will be executed in the specified
          *  order.
          *  Thus, we can inline the new-line method call like so:
          *
-         *      Log << Log.SetSystem("Test") << "Data" << CLog::endl;
+         *      Log << Log.SetSystem("Test") << "Data" << zLog::endl;
          *
          *  And it will function identically.
          *
-         * @param   method  CLog method function
+         * @param   method  zLog method function
          *
          * @return  A reference to oneself, to allow for chaining.
          *
-         * @note    The passed method must return a CLog& instance, and must
+         * @note    The passed method must return a zLog& instance, and must
          *          take no parameters.
          *
-         * @note    This should only be called through the CLog::endl pointer.
+         * @note    This should only be called through the zLog::endl pointer.
          *
-         * @see     CLog::endl
+         * @see     zLog::endl
          **/
-        virtual inline CLog& operator<< (CLog& (CLog::*method)()); // Dat syntax
+        virtual inline zLog& operator<< (zLog& (zLog::*method)()); // Dat syntax
 
         /**
          * Logs given data.
          *  Due to its templated nature, and the versatility of
          *  `std::ostream`, almost anything can be passed as an argument.
          *  The given data is written to an `std::stringstream`, and is
-         *  only writted to the file when CLog::endl is called.
+         *  only writted to the file when zLog::endl is called.
          *
          * @param   data    Data to log
          *
          * @return  A reference to itself, to 'daisy-chain' statements.
          **/
         template<typename T>
-        CLog& operator<< (const T& data);
+        zLog& operator<< (const T& data);
 
         /**
          * Opens a file stream with a custom filename given in the ctor.
          *  This method accepts no parameters because it is intended to
-         *  behave similarly to zen::CSubsystem. Thus, any parameters to
+         *  behave similarly to zen::zSubsystem. Thus, any parameters to
          *  Init() are typically handled in the constructor.
          *
          * @return  `true`  if the file opened successfully, and
@@ -157,10 +157,10 @@ namespace util
         void ToggleStdout();
 
         /// Sets the output mode to something in util::LogMode.
-        virtual inline CLog& SetMode(const LogMode& Mode);
+        virtual inline zLog& SetMode(const LogMode& Mode);
 
         /// Sets the current logging subsystem.
-        virtual inline CLog& SetSystem(const string_t& sys);
+        virtual inline zLog& SetSystem(const string_t& sys);
 
         /// Sets the log filename for a call to Init() after Destroy().
         inline void SetFilename(const string_t& fn);
@@ -175,17 +175,17 @@ namespace util
         inline bool IsInit() const;
 
         /// Makes it possible to inline the `Set*()` methods.
-        friend std::ostream& operator<<(std::ostream& o, const CLog& Log);
+        friend std::ostream& operator<<(std::ostream& o, const zLog& Log);
 
         /// Singleton access to the engine log.
-        static CLog& GetEngineLog();
+        static zLog& GetEngineLog();
 
         /// Shortcut to the new line method pointer.
-        static CLog& (CLog::*endl)();
+        static zLog& (zLog::*endl)();
 
     private:
         /// Writes stream to the file and moves to the next line.
-        virtual CLog& Newline();
+        virtual zLog& Newline();
 
         std::stringstream   m_str;
         std::ofstream       m_log;
@@ -207,7 +207,7 @@ namespace util
 // Detailed documentation for the above class.
 
 /**
- * @class zen::util::CLog
+ * @class zen::util::zLog
  * @details
  *  If desirable, it can be inherited to provide a dummy logger to
  *  the engine for speed or whatever other reason.
@@ -238,21 +238,21 @@ namespace util
  *
  *  Logging works by calling SetMode(), which will be output for every
  *  subsequent line until SetMode() is called again. Newlines are not
- *  automatically detected, so you must force them via CLog::endl.
+ *  automatically detected, so you must force them via zLog::endl.
  *
  *  You should specify the subsystem that is doing the
  *  logging via SetSystem(), it will default to "Log".
  *
  *  You can directly stream SetMode() and SetSystem() as output, like so:
  *  @code
- *  using util::CLog;
+ *  using util::zLog;
  *  using util::LogMode;
  *
- *  CLog Output("Output.log", false);
+ *  zLog Output("Output.log", false);
  *  Output.Init();
  *
  *  Output << Output.SetMode(LogMode::ZEN_FATAL) <<
- *         << Output.SetSystem("Game")  << "Failure." << CLog:endl;
+ *         << Output.SetSystem("Game")  << "Failure." << zLog:endl;
  *
  *  Output.Destroy();
  *  @endcode
@@ -274,19 +274,19 @@ namespace util
  *  @code
  *  // Using proper line breaks.
  *  string_t name = "halcyon";
- *  CLog Output("Output.log", true);
+ *  zLog Output("Output.log", true);
  *  Output.Init();  // Error checking obviously omitted.
  *  Output.SetMode(LogMode::ZEN_INFO);
  *
- *  Output << "Hi " << name << ", I'm a log." << CLog::endl
- *         << "This is the second line." << CLog::endl;
+ *  Output << "Hi " << name << ", I'm a log." << zLog::endl
+ *         << "This is the second line." << zLog::endl;
  *
  *  // This happens if you forget them, or do them by hand via \n:
  *  Output.SetSystem("Example");
  *  Output.SetMode(LogMode::ZEN_DEBUG) << "Random data\n";
  *  Output << "More data on the next line.";
  *  Output.SetMode(LogMode::ZEN_ERROR) << Output.SetSystem("Test")
- *                                     << "And a third line." << CLog::endl;
+ *                                     << "And a third line." << zLog::endl;
  *  Output.Destroy();
  *  @endcode
  *
@@ -298,7 +298,7 @@ namespace util
  *  More data on the next line.And a third line.
  *  </pre>
  *
- *  As you can see, it's critical to stream `CLog::endl` when you've
+ *  As you can see, it's critical to stream `zLog::endl` when you've
  *  outputted a line for proper formatting. It *must* be called prior
  *  to switching modes or systems via `SetMode()` and `SetSystem()`,
  *  respectively. Otherwise, only the latest changes will actually be

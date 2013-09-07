@@ -30,10 +30,10 @@ namespace zen
 namespace sfx
 {
     /// Music files (`.ogg` files)
-    class ZEN_API CMusic2D : public CAudio2D
+    class ZEN_API zMusic2D : public zAudio2D
     {
     public:
-        virtual ~CMusic2D();
+        virtual ~zMusic2D();
 
         /// Loads an `.ogg` file from disk.
         bool LoadFromFile(const string_t& filename);
@@ -52,7 +52,7 @@ namespace sfx
         bool Ready() const;
 
     private:
-        CMusic2D();
+        zMusic2D();
 
         bool FillChunk(const uint32_t buffer);
 
@@ -76,7 +76,7 @@ namespace sfx
 #endif // ZENDERER__AUDIO__MUSIC_2D_HPP
 
 /**
- * @class zen::sfx::CMusic2D
+ * @class zen::sfx::zMusic2D
  * @details
  *  A managed asset that will stream large files in the Ogg-Vorbis (`.ogg`)
  *  file format. This format is not recommended for files smaller than 96kB,

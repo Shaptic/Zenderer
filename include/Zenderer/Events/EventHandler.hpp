@@ -38,10 +38,10 @@ namespace zen
 {
 namespace evt
 {
-    class ZEN_API CEventHandler
+    class ZEN_API zEventHandler
     {
     public:
-        ~CEventHandler();
+        ~zEventHandler();
 
         /// Registers all pending events into the interal stack.
         static bool PollEvents();
@@ -60,7 +60,7 @@ namespace evt
         bool PopEvent(event_t& Evt);
 
         /// Retrieves the singleton instance of the event handler.
-        static CEventHandler& GetInstance();
+        static zEventHandler& GetInstance();
 
         /// OS-callback for printable characters.
         static void CharacterCallback(GLFWwindow*, unsigned int c);
@@ -76,9 +76,9 @@ namespace evt
         static void MouseCallback(GLFWwindow*, int button, int action, int mods);
 
     private:
-        CEventHandler() { s_Active.Reset(); }
-        CEventHandler(const CEventHandler&);
-        CEventHandler& operator=(const CEventHandler&);
+        zEventHandler() { s_Active.Reset(); }
+        zEventHandler(const zEventHandler&);
+        zEventHandler& operator=(const zEventHandler&);
 
         static std::stack<event_t> s_evtList;
         static event_t s_Active;
@@ -89,7 +89,7 @@ namespace evt
 #endif // ZENDERER__EVENTS__EVENT_HANDLER_HPP
 
 /**
- * @class zen::evt::CEventHandler
+ * @class zen::evt::zEventHandler
  * @details
  *  This singleton class instance handles system-wide event occurences during
  *  the application's run-time. It does not *do* anything with these events,
@@ -103,12 +103,12 @@ namespace evt
  *  character that a user hits during the duration of the program.
  *
  *  @code
- *  zen::evt::CEventHandler& Events = zen::evt::CEventHandler::GetInstance();
+ *  zen::evt::zEventHandler& Events = zen::evt::zEventHandler::GetInstance();
  *  zen::evt::event_t Evt;
  *
  *  while(Window.IsOpen())
  *  {
- *      Events.PollEvents();    // or zen::evt::CEventHandler::PollEvents();
+ *      Events.PollEvents();    // or zen::evt::zEventHandler::PollEvents();
  *      while(Events.PopEvent(Evt))
  *      {
  *          if(Evt.type == zen::evt::EventType::PRINTABLE_KEY)

@@ -1,4 +1,4 @@
-CLog& CLog::operator<< (CLog& (CLog::*Fn)())
+zLog& zLog::operator<< (zLog& (zLog::*Fn)())
 {
     // Make sure we don't do extra work in release builds.
 #ifndef ZEN_DEBUG_BUILD
@@ -9,7 +9,7 @@ CLog& CLog::operator<< (CLog& (CLog::*Fn)())
 }
 
 template<typename T>
-CLog& CLog::operator<<(const T& data)
+zLog& zLog::operator<<(const T& data)
 {
     // Make sure we don't do extra work in release builds.
 #ifndef ZEN_DEBUG_BUILD
@@ -20,13 +20,13 @@ CLog& CLog::operator<<(const T& data)
     return (*this);
 }
 
-CLog& CLog::SetMode(const util::LogMode& Mode)
+zLog& zLog::SetMode(const util::LogMode& Mode)
 {
     m_mode = Mode;
     return (*this);
 }
 
-CLog& CLog::SetSystem(const string_t& sys)
+zLog& zLog::SetSystem(const string_t& sys)
 {
 // Make sure we don't do extra work in release builds.
 #ifndef ZEN_DEBUG_BUILD
@@ -37,22 +37,22 @@ CLog& CLog::SetSystem(const string_t& sys)
     return (*this);
 }
 
-void CLog::SetFilename(const string_t& fn)
+void zLog::SetFilename(const string_t& fn)
 {
     m_filename = fn;
 }
 
-const string_t& CLog::GetSystem() const
+const string_t& zLog::GetSystem() const
 {
     return m_system;
 }
 
-string_t CLog::GetFilename() const
+string_t zLog::GetFilename() const
 {
     return m_filename;
 }
 
-bool CLog::IsInit() const
+bool zLog::IsInit() const
 {
     return m_init;
 }

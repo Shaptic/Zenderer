@@ -39,11 +39,11 @@ namespace zen
 {
 namespace gfx
 {
-    class ZEN_API CScene : public CSubsystem
+    class ZEN_API zScene : public zSubsystem
     {
     public:
-        CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr);
-        ~CScene();
+        zScene(const uint16_t w, const uint16_t h, asset::zAssetManager& Mgr);
+        ~zScene();
 
         /// Initializes internal graphical components.
         bool Init();
@@ -58,7 +58,7 @@ namespace gfx
          *
          * @return  An unloaded entity instance.
          **/
-        obj::CEntity& AddEntity();
+        obj::zEntity& AddEntity();
 
         /**
          * Adds a managed primitive to the scene as an entity.
@@ -67,10 +67,10 @@ namespace gfx
          *  suggested approach is adding a raw managed entity via AddEntity(),
          *  and then loading it with primitives yourself.
          *
-         * @return  A `CEntity&` instance loaded with the given primitive.
+         * @return  A `zEntity&` instance loaded with the given primitive.
          **/
         template<typename T>
-        obj::CEntity& AddPrimitive();
+        obj::zEntity& AddPrimitive();
 
         /**
          * Creates and adds a managed light instance to the scene.
@@ -88,7 +88,7 @@ namespace gfx
          *
          * @todo    Fix window size
          **/
-        CLight& AddLight(const LightType& Type);
+        zLight& AddLight(const LightType& Type);
 
         /**
          * Adds an effect to be rendered on the whole scene.
@@ -106,9 +106,9 @@ namespace gfx
          *
          * @return  The effect instance
          *
-         * @see     gfx::CEffect::GetError()
+         * @see     gfx::zEffect::GetError()
          **/
-        CEffect& AddEffect(const EffectType& Type);
+        zEffect& AddEffect(const EffectType& Type);
 
         /**
          * Inserts an entity at a point in the draw queue.
@@ -120,7 +120,7 @@ namespace gfx
          *
          * @param   index   The index to insert an entity at
          *
-         * @return  A `CEntity&` instance with no data.
+         * @return  A `zEntity&` instance with no data.
          *
          * @warning The index must be in the range of the current list, or
          *          an entity will just be inserted at the end of the internal
@@ -131,7 +131,7 @@ namespace gfx
          * @see     GetEntityIndex()
          * @see     IsValidEntityIndex()
          **/
-        obj::CEntity& InsertEntity(const uint32_t index);
+        obj::zEntity& InsertEntity(const uint32_t index);
 
         /**
          * Removes an entity instance from the scene, if it exists.
@@ -142,7 +142,7 @@ namespace gfx
          *          `false` if it wasn't found or the index is out of range
          *                  (for the indexed overload, of course).
          **/
-        bool RemoveEntity(const obj::CEntity& Obj);
+        bool RemoveEntity(const obj::zEntity& Obj);
         bool RemoveEntity(const uint32_t index);    ///< @overload
 
         /// Deletes all scene data (lights, objects, effects, etc).
@@ -156,7 +156,7 @@ namespace gfx
         bool IsValidEntityIndex(int32_t i);
 
         /// Returns the queue index of a certain entity (or -1).
-        int32_t GetEntityIndex(const obj::CEntity& D);
+        int32_t GetEntityIndex(const obj::zEntity& D);
 
         /// Enables / disables scene lighting.
         void EnableLighting()  { m_lighting = true;  }
@@ -184,17 +184,17 @@ namespace gfx
         inline void SetSeeThrough(bool flag) { m_through = flag; }
 
     private:
-        util::CLog&             m_Log;
-        asset::CAssetManager&   m_Assets;
-        gfxcore::CVertexArray   m_Geometry;
-        gfx::CRenderTarget      m_FBO1, m_FBO2;
+        util::zLog&             m_Log;
+        asset::zAssetManager&   m_Assets;
+        gfxcore::zVertexArray   m_Geometry;
+        gfx::zRenderTarget      m_FBO1, m_FBO2;
 
         math::vector_t          m_Camera;
 
         // Lists of things that will be rendered.
-        std::list<CLight*>          m_allLights;
-        std::list<CEffect*>         m_allPPFX;
-        std::list<obj::CEntity*>    m_allEntities;
+        std::list<zLight*>          m_allLights;
+        std::list<zEffect*>         m_allPPFX;
+        std::list<obj::zEntity*>    m_allEntities;
 
         bool m_lighting, m_ppfx, m_through;
     };
@@ -206,7 +206,7 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__SCENE_HPP
 
 /**
- * @class zen::gfx::CScene
+ * @class zen::gfx::zScene
  * @details
  *  This high-level interface combines almost all components of @a Zenderer
  *  in an easy-to-use, abstracted way that provides versatility, efficiency,
@@ -230,9 +230,9 @@ namespace gfx
  *  // Assuming a asset::CAssetMananger instance has been defined above/
  *  // As well as a window with a valid context.
  *
- *  gfx::CScene Scene(Window.GetWidth(), Window.GetHeight(), Manager);
+ *  gfx::zScene Scene(Window.GetWidth(), Window.GetHeight(), Manager);
  *
- *  obj::CEntity& Entity = Scene.AddEntity();
+ *  obj::zEntity& Entity = Scene.AddEntity();
  *  Entity.LoadFromTexture(ZENDERER_TEXTURE_PATH"sample.png");
  *  Entity.Move(100, 100);
  *

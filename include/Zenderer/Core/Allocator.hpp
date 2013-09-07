@@ -30,10 +30,10 @@
 namespace zen
 {
     /// An optional custom allocator for high-speed memory requests.
-    class ZEN_API CAllocator : public CSubsystem
+    class ZEN_API zAllocator : public zSubsystem
     {
     public:
-        ~CAllocator(){}
+        ~zAllocator(){}
 
         bool Init();
         bool Destroy();
@@ -53,7 +53,7 @@ namespace zen
         }
 
         /// Singleton accessor.
-        static CAllocator& Get();
+        static zAllocator& Get();
 
         /// Default allocation size, in bytes.
         static const uint16_t ALLOC_SIZE = 4;
@@ -74,7 +74,7 @@ namespace zen
         }
 
         /// Pre-allocated block of memory.
-        CAllocator(const size_t initial = 1 << 16);
+        zAllocator(const size_t initial = 1 << 16);
 
         std::list<size_t> m_blocks;
 
@@ -89,7 +89,7 @@ namespace zen
 // Detailed doxygen docs.
 
 /**
- * @class zen::CAllocator
+ * @class zen::zAllocator
  * @details
  * Let us assume a memory structure like so:
  *
@@ -116,7 +116,7 @@ namespace zen
  * </pre>
  *
  * We pad the 9 bytes to 12 for alignment purposes (assuming a
- * `CAllocator::BLOCK_SIZE` of 4), and now our interal byte `list`
+ * `zAllocator::BLOCK_SIZE` of 4), and now our interal byte `list`
  * contains `{ 12, 35 }` because we have an occupied block of 12
  * bytes (even) followed by a free block of 35 bytes (odd).
  *
@@ -165,7 +165,7 @@ namespace zen
  *
  * @section Dynamic Memory Allocation
  * @subsection Warning
- *  This example is deprecated and `CAllocator` is not used in @a Zenderer.
+ *  This example is deprecated and `zAllocator` is not used in @a Zenderer.
  *
  * @code
  *  // Allocate char[4]
@@ -184,7 +184,7 @@ namespace zen
  *  g_Alloc.Free(data0);
  *
  *  // Have to call destructor manually.
- *  DynamicLight->~CLight();
+ *  DynamicLight->~zLight();
  *  g_Alloc.Free(DynamicLight);
  * @endcode
  *

@@ -1,6 +1,6 @@
 template<typename T>
 template<typename U>
-Vector<T>& Vector<T>::operator=(const Vector<U>& Copy)
+zVector<T>& zVector<T>::operator=(const zVector<U>& Copy)
 {
     x = Copy.x;
     y = Copy.y;
@@ -11,68 +11,68 @@ Vector<T>& Vector<T>::operator=(const Vector<U>& Copy)
 
 template<typename T>
 template<typename U>
-bool Vector<T>::operator==(const Vector<U>& Other) const
+bool zVector<T>::operator==(const zVector<U>& Other) const
 {
     return compf(x, Other.x) && compf(y, Other.y) && compf(z, Other.z);
 }
 
 template<typename T>
 template<typename U>
-bool Vector<T>::operator!=(const Vector<U>& Other) const
+bool zVector<T>::operator!=(const zVector<U>& Other) const
 {
     return !((*this) == Other);
 }
 
 template<typename T>
 template<typename U>
-Vector<T> Vector<T>::operator^(const Vector<U>& Other) const
+zVector<T> zVector<T>::operator^(const zVector<U>& Other) const
 {
-    return Vector<T>(y * Other.z - z * Other.y,
+    return zVector<T>(y * Other.z - z * Other.y,
                      x * Other.z - z * Other.x,
                      x * Other.y - y * Other.x);
 }
 
 template<typename T>
 template<typename U>
-real_t Vector<T>::operator*(const Vector<U>& Other) const
+real_t zVector<T>::operator*(const zVector<U>& Other) const
 {
     return x * Other.x + y * Other.y + z * Other.z;
 }
 
 template<typename T>
-Vector<T> Vector<T>::operator*(const real_t scalar) const
+zVector<T> zVector<T>::operator*(const real_t scalar) const
 {
-    return Vector<T>(x * scalar, y * scalar, z * scalar);
+    return zVector<T>(x * scalar, y * scalar, z * scalar);
 }
 
 template<typename T>
-Vector<T> Vector<T>::operator/(const real_t scalar) const
+zVector<T> zVector<T>::operator/(const real_t scalar) const
 {
     return (*this) * (1 / scalar);
 }
 
 template<typename T>
 template<typename U>
-Vector<T> Vector<T>::operator+(const Vector<U>& Other) const
+zVector<T> zVector<T>::operator+(const zVector<U>& Other) const
 {
-    return Vector<T>(x + Other.x, y + Other.y, z + Other.z);
+    return zVector<T>(x + Other.x, y + Other.y, z + Other.z);
 }
 
 template<typename T>
-Vector<T> Vector<T>::operator+(const real_t value) const
+zVector<T> zVector<T>::operator+(const real_t value) const
 {
-    return Vector<T>(x + value, y + value, z + value);
+    return zVector<T>(x + value, y + value, z + value);
 }
 
 template<typename T>
 template<typename U>
-Vector<T> Vector<T>::operator-(const Vector<U>& Other) const
+zVector<T> zVector<T>::operator-(const zVector<U>& Other) const
 {
-    return Vector<T>(x - Other.x, y - Other.y, z - Other.z);
+    return zVector<T>(x - Other.x, y - Other.y, z - Other.z);
 }
 
 template<typename T>
-void Vector<T>::Normalize()
+void zVector<T>::Normalize()
 {
     real_t mag = this->Magnitude();
 
@@ -85,7 +85,7 @@ void Vector<T>::Normalize()
 }
 
 template<typename T>
-void Vector<T>::Rotate(const real_t radians)
+void zVector<T>::Rotate(const real_t radians)
 {
     real_t c = cos(radians);
     real_t s = sin(radians);
@@ -97,26 +97,26 @@ void Vector<T>::Rotate(const real_t radians)
 
 template<typename T>
 template<typename U>
-real_t Vector<T>::Cross2D(const Vector<U>& Other) const
+real_t zVector<T>::Cross2D(const zVector<U>& Other) const
 {
     return ((*this) ^ Other).Magnitude();
 }
 
 template<typename T>
-Vector<T> Vector<T>::GetNormalized() const
+zVector<T> zVector<T>::GetNormalized() const
 {
     real_t mag = this->Magnitude();
-    return Vector<T>(x / mag, y / mag);
+    return zVector<T>(x / mag, y / mag);
 }
 
 template<typename T>
-real_t Vector<T>::Magnitude() const
+real_t zVector<T>::Magnitude() const
 {
     return sqrt((*this) * (*this));
 }
 
 template<typename U>
-std::ostream& operator<<(std::ostream& out, const Vector<U>& V)
+std::ostream& operator<<(std::ostream& out, const zVector<U>& V)
 {
     out.setf(std::ios::fixed, std::ios::floatfield);
     out.precision(2);
@@ -125,7 +125,7 @@ std::ostream& operator<<(std::ostream& out, const Vector<U>& V)
 }
 
 template<typename T, typename U> static
-real_t distance(const Vector<T>& A, const Vector<U>& B,
+real_t distance(const zVector<T>& A, const zVector<U>& B,
                 const bool do_sqrt)
 {
     // Just call the (x, y) version.

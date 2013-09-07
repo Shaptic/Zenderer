@@ -38,11 +38,11 @@ namespace zen
 namespace util
 {
     /// Parses files based on key=value1,...,valueN pairs, like in `.ini` files.
-    class ZEN_API CINIParser
+    class ZEN_API zParser
     {
     public:
-        CINIParser();
-        virtual ~CINIParser();
+        zParser();
+        virtual ~zParser();
 
         typedef std::map<string_t, string_t> pair_t;
 
@@ -164,7 +164,7 @@ namespace util
         // buffer when nothing is found in the 'const' version.
         static string_t s_empty;
 
-        CLog& m_Log;
+        zLog& m_Log;
         pair_t m_pairs;
     };
 
@@ -175,7 +175,7 @@ namespace util
 #endif // ZENDERER__UTILITIES__INI_PARSER_HPP
 
 /**
- * @class zen::util::CINIParser
+ * @class zen::util::zParser
  * @details
  *  This file parser defines a very generic type of parsing, since most
  *  files (meshes, levels) in @a Zenderer use a similar formatting.
@@ -202,7 +202,7 @@ namespace util
  **/
 
 /**
- * @fn zen::util::CINIParser::GetValues
+ * @fn zen::util::zParser::GetValues
  *
  * @example Parsing
  *  @section Usage
@@ -220,14 +220,14 @@ namespace util
  *  @endcode
  *
  *  And we want to retrieve the values after `values1` and
- *  `values2` separately, since zen::util::CINIParser::GetValue()
+ *  `values2` separately, since zen::util::zParser::GetValue()
  *  with `"values1"` as an argument would return
  *  `"stuff,morestuff,finalstuff"`. We can thus use
- *  zen::util::CINIParser::GetValues() to achieve the effect we
+ *  zen::util::zParser::GetValues() to achieve the effect we
  *  want, like so:
  *
  *  @code
- *      zen::util::CINIParser Parser;
+ *      zen::util::zParser Parser;
  *      Parser.LoadFromFile("example.txt");
  *
  *      // Delimited defaults to a comma (',') character

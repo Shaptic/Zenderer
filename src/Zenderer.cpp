@@ -1,55 +1,55 @@
 #include "Zenderer/Zenderer.hpp"
 
-using zen::util::CLog;
+using zen::util::zLog;
 using zen::util::LogMode;
 
-using zen::sfx::CAudioManager;
+using zen::sfx::zAudioManager;
 
 bool zen::Init()
 {
     // Seed random number generator.
     srand(time(nullptr));
 
-    if(!CLog::GetEngineLog().Init())
+    if(!zLog::GetEngineLog().Init())
         return false;
 
-    CLog& Log = CLog::GetEngineLog();
+    zLog& Log = zLog::GetEngineLog();
 
-    Log << CLog::endl;
+    Log << zLog::endl;
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
-        << "Initializing Zenderer." << CLog::endl;
+        << "Initializing Zenderer." << zLog::endl;
 
     Log << "Initializing GLFW: ";
     if(glfwInit() == GL_FALSE)
     {
-        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << zLog::endl;
         return false;
     }
     else
     {
-        Log << "SUCCESS." << CLog::endl;
+        Log << "SUCCESS." << zLog::endl;
     }
 
     Log << "Initializing OpenAL: ";
-    if(!CAudioManager::Init())
+    if(!zAudioManager::Init())
     {
-        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << zLog::endl;
         return false;
     }
     else
     {
-        Log << "SUCCESS." << util::CLog::endl;
+        Log << "SUCCESS." << util::zLog::endl;
     }
 
     Log << "Initializing FreeType: ";
-    if(!gui::CFontLibrary::InitFreetype().IsInit())
+    if(!gui::zFontLibrary::InitFreetype().IsInit())
     {
-        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << zLog::endl;
         return false;
     }
     else
     {
-        Log << "SUCCESS." << util::CLog::endl;
+        Log << "SUCCESS." << util::zLog::endl;
     }
 
     Log << "Initializing ";
@@ -59,29 +59,29 @@ bool zen::Init()
 #else
     Log << "socket API: ";
 #endif // _WIN32
-    if(!net::CSocket::InitializeLibrary())
+    if(!net::zSocket::InitializeLibrary())
     {
-        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << zLog::endl;
         return false;
     }
     else
     {
-        Log << "SUCCESS." << util::CLog::endl;
+        Log << "SUCCESS." << util::zLog::endl;
     }
 
-    for(auto& i : CSubsystem::sp_allSystems)
+    for(auto& i : zSubsystem::sp_allSystems)
     {
         Log << "Initializing global subsystem (" << i->GetName() << "): ";
         if(!i->Init())
         {
             i->Destroy();
             Log << Log.SetMode(LogMode::ZEN_FATAL) << "FAILED."
-                << CLog::endl;
+                << zLog::endl;
             return false;
         }
         else
         {
-            Log << "SUCCESS." << CLog::endl;
+            Log << "SUCCESS." << zLog::endl;
         }
     }
 
@@ -90,42 +90,42 @@ bool zen::Init()
 
 void zen::Quit()
 {
-    CLog& Log = CLog::GetEngineLog();
+    zLog& Log = zLog::GetEngineLog();
 
-    gfxcore::CRenderer::GetDefaultEffect().Destroy();
+    gfxcore::zRenderer::GetDefaultEffect().Destroy();
 
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
-        << "Destroying OpenGL components." << CLog::endl;
+        << "Destroying OpenGL components." << zLog::endl;
 
-    for(auto it  = zen::gfxcore::CGLSubsystem::sp_allGLSystems.rbegin();
-             it != zen::gfxcore::CGLSubsystem::sp_allGLSystems.rend();
+    for(auto it  = zen::gfxcore::zGLSubsystem::sp_allGLSystems.rbegin();
+             it != zen::gfxcore::zGLSubsystem::sp_allGLSystems.rend();
            ++it)
     {
         auto& sys = *it;
         Log << Log.SetMode(LogMode::ZEN_INFO)
             << Log.SetSystem(sys->GetName())
-            << "Destroying component." << CLog::endl;
+            << "Destroying component." << zLog::endl;
 
         if(!sys->Destroy())
         {
             Log.SetMode(LogMode::ZEN_ERROR);
-            Log << "Failed to destroy component." << CLog::endl;
+            Log << "Failed to destroy component." << zLog::endl;
         }
     }
 
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
-        << "Destroying components." << CLog::endl;
+        << "Destroying components." << zLog::endl;
 
-    for(auto& i : zen::CSubsystem::sp_allSystems)
+    for(auto& i : zen::zSubsystem::sp_allSystems)
     {
         Log << Log.SetMode(LogMode::ZEN_INFO)
             << Log.SetSystem(i->GetName())
-            << "Destroying component." << CLog::endl;
+            << "Destroying component." << zLog::endl;
 
         if(!i->Destroy())
         {
             Log.SetMode(LogMode::ZEN_ERROR);
-            Log << "Failed to destroy component." << CLog::endl;
+            Log << "Failed to destroy component." << zLog::endl;
         }
     }
 

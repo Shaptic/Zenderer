@@ -2,25 +2,25 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gfx::CMaterial;
+using gfx::zMaterial;
 
-CMaterial::CMaterial(asset::CAssetManager& Assets) :
+zMaterial::zMaterial(asset::zAssetManager& Assets) :
     m_Assets(Assets),
-    mp_Texture(&gfxcore::CTexture::GetDefaultTexture()),
-    m_Log(CLog::GetEngineLog()),
+    mp_Texture(&gfxcore::zTexture::GetDefaultTexture()),
+    m_Log(zLog::GetEngineLog()),
     m_Effect(EffectType::NO_EFFECT, Assets), m_ID(0)
 {
     m_Effect.Init();
     this->SetID();
 }
 
-CMaterial::CMaterial(const CMaterial& Copy) :
+zMaterial::zMaterial(const zMaterial& Copy) :
     m_Assets(Copy.m_Assets),
-    m_Log(CLog::GetEngineLog()),
+    m_Log(zLog::GetEngineLog()),
     m_Effect(Copy.m_Effect.GetType(), m_Assets),
-    mp_Texture(&gfxcore::CTexture::GetDefaultTexture())
+    mp_Texture(&gfxcore::zTexture::GetDefaultTexture())
 {
     m_Effect.Init();
 
@@ -31,16 +31,16 @@ CMaterial::CMaterial(const CMaterial& Copy) :
     this->SetID();
 }
 
-CMaterial::~CMaterial()
+zMaterial::~zMaterial()
 {
     this->Destroy();
 }
 
-bool CMaterial::LoadFromFile(const string_t& filename)
+bool zMaterial::LoadFromFile(const string_t& filename)
 {
     this->Destroy();
 
-    util::CINIParser Parser;
+    util::zParser Parser;
     Parser.LoadFromFile(filename);
 
     string_t
@@ -53,9 +53,9 @@ bool CMaterial::LoadFromFile(const string_t& filename)
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Material")
                 << "Invalid .zfx file: Does not contain one of the following:"
-                << CLog::endl << "\tVertex shader filename" << CLog::endl
-                << "\tFragment shader filename" << CLog::endl
-                << "\tTexture filename" << CLog::endl;
+                << zLog::endl << "\tVertex shader filename" << zLog::endl
+                << "\tFragment shader filename" << zLog::endl
+                << "\tTexture filename" << zLog::endl;
 
         return false;
     }
@@ -68,14 +68,14 @@ bool CMaterial::LoadFromFile(const string_t& filename)
     return ret;
 }
 
-bool CMaterial::LoadFromStream(std::ifstream& f,
+bool zMaterial::LoadFromStream(std::ifstream& f,
                                const std::streampos& start,
                                const std::streampos& end)
 {
     ZEN_ASSERT(f);
 
     f.seekg(start);
-    util::CINIParser Parser;
+    util::zParser Parser;
     Parser.LoadFromStream(f, start, end);
 
     bool valid = false;
@@ -95,9 +95,9 @@ bool CMaterial::LoadFromStream(std::ifstream& f,
     return valid && f;
 }
 
-bool CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
+bool zMaterial::LoadTexture(const gfxcore::zTexture& Texture)
 {
-    gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(
+    gfxcore::zTexture* tmp = m_Assets.Create<gfxcore::zTexture>(
         Texture.GetFilename(), Texture.GetOwner());
 
     if(tmp == nullptr)
@@ -108,7 +108,7 @@ bool CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
         // default before changing it.
         if(&Texture == &Texture.GetDefaultTexture())
         {
-            mp_Texture = const_cast<gfxcore::CTexture*>(&Texture);
+            mp_Texture = const_cast<gfxcore::zTexture*>(&Texture);
             return true;
         }
 
@@ -121,13 +121,13 @@ bool CMaterial::LoadTexture(const gfxcore::CTexture& Texture)
     return true;
 }
 
-bool CMaterial::LoadTextureFromFile(const string_t& filename)
+bool zMaterial::LoadTextureFromFile(const string_t& filename)
 {
-    gfxcore::CTexture* tmp = m_Assets.Create<gfxcore::CTexture>(filename);
+    gfxcore::zTexture* tmp = m_Assets.Create<gfxcore::zTexture>(filename);
     mp_Texture = tmp;
     if(mp_Texture == nullptr)
     {
-        mp_Texture = &gfxcore::CTexture::GetDefaultTexture();
+        mp_Texture = &gfxcore::zTexture::GetDefaultTexture();
         this->SetID();
         return false;
     }
@@ -135,14 +135,14 @@ bool CMaterial::LoadTextureFromFile(const string_t& filename)
     return true;
 }
 
-bool CMaterial::LoadTextureFromHandle(const GLuint handle)
+bool zMaterial::LoadTextureFromHandle(const GLuint handle)
 {
     bool ret = mp_Texture->LoadFromExisting(handle);
     this->SetID();
     return ret;
 }
 
-bool CMaterial::LoadEffect(const gfx::EffectType Type)
+bool zMaterial::LoadEffect(const gfx::EffectType Type)
 {
     bool ret = true;
     if(m_Effect.GetType() != Type)
@@ -156,7 +156,7 @@ bool CMaterial::LoadEffect(const gfx::EffectType Type)
     return ret;
 }
 
-bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
+bool zMaterial::Attach(gfx::zEffect& E, gfxcore::zTexture& T)
 {
     m_Effect = E;
     bool ret = mp_Texture->LoadFromExisting(&T);
@@ -164,55 +164,55 @@ bool CMaterial::Attach(gfx::CEffect& E, gfxcore::CTexture& T)
     return ret;
 }
 
-bool CMaterial::Enable() const
+bool zMaterial::Enable() const
 {
     return m_Effect.Enable() && mp_Texture->Bind();
 }
 
-bool CMaterial::EnableEffect() const
+bool zMaterial::EnableEffect() const
 {
     return m_Effect.Enable();
 }
 
-bool CMaterial::EnableTexture() const
+bool zMaterial::EnableTexture() const
 {
     return mp_Texture->Bind();
 }
 
-bool CMaterial::Disable() const
+bool zMaterial::Disable() const
 {
     return m_Effect.Disable() && mp_Texture->Unbind();
 }
 
-bool CMaterial::DisableEffect() const
+bool zMaterial::DisableEffect() const
 {
     return m_Effect.Disable();
 }
 
-bool CMaterial::DisableTexture() const
+bool zMaterial::DisableTexture() const
 {
     return mp_Texture->Unbind();
 }
 
-gfx::CEffect& CMaterial::GetEffect()
+gfx::zEffect& zMaterial::GetEffect()
 {
     return m_Effect;
 }
 
-const gfxcore::CTexture& CMaterial::GetTexture() const
+const gfxcore::zTexture& zMaterial::GetTexture() const
 {
     return *mp_Texture;
 }
 
-void CMaterial::Destroy()
+void zMaterial::Destroy()
 {
     m_Effect.Destroy();
-    if(mp_Texture != &gfxcore::CTexture::GetDefaultTexture())
+    if(mp_Texture != &gfxcore::zTexture::GetDefaultTexture())
         m_Assets.Delete(mp_Texture);
     this->SetID();
 }
 
-void CMaterial::SetID()
+void zMaterial::SetID()
 {
     m_ID = (mp_Texture->GetID() << 10) & m_Effect.GetID();
     ZEN_ASSERT(m_ID == 0);

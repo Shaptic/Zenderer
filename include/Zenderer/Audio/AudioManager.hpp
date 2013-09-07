@@ -44,7 +44,7 @@
 
 /// Automatic OpenAL call checking in debug builds.
 #ifdef ZEN_DEBUG_BUILD
-  #define AL(f) f; zen::sfx::CAudioManager::alCheck(#f, __LINE__, __FILE__);
+  #define AL(f) f; zen::sfx::zAudioManager::alCheck(#f, __LINE__, __FILE__);
 #else
   #define AL(f) f;
 #endif // _DEBUG
@@ -55,7 +55,7 @@ namespace zen
 namespace sfx
 {
     /// A collection of static helper functions for the audio API.
-    class ZEN_API CAudioManager
+    class ZEN_API zAudioManager
     {
     public:
         /// Initializes OpenAL.
@@ -118,7 +118,7 @@ namespace sfx
 #endif // ZENDERER__AUDIO__AUDIO_MANAGER_HPP
 
 /**
- * @class zen::sfx::CAudioManager
+ * @class zen::sfx::zAudioManager
  * @details
  *  This class provides a variety of `static` convenience functions for
  *  the various audio asset instance classes to use in order to find
@@ -137,19 +137,19 @@ namespace sfx
  *  and after a call to `alGenSources` it would be filled with some arbitrary
  *  data. So thus
  *
- *      CAudioManager::s_sources[0] = 12345
+ *      zAudioManager::s_sources[0] = 12345
  *
  *  Then, a subsequent call to `GetAvailableSource()` would return `1` and
  *  the process repeats. Now, let's say the first source is done playing an
- *  `.ogg` file and CMusic2D::FreeSource() is called. Now the first available
+ *  `.ogg` file and zMusic2D::FreeSource() is called. Now the first available
  *  source is `s_sources[0]`, but due to the nature of the source-finding
  *  algorithm, `GetAvailableSource()` will return `2`, because it first
  *  searches the index immediately following the last-used source before
  *  starting from the beginning. Hence (assuming `2` is then used):
  *
- *      CAudioManager::s_sources[0] = 0
- *      CAudioManager::s_sources[1] = 223344
- *      CAudioManager::s_sources[2] = 696969
+ *      zAudioManager::s_sources[0] = 0
+ *      zAudioManager::s_sources[1] = 223344
+ *      zAudioManager::s_sources[2] = 696969
  *
  **/
 

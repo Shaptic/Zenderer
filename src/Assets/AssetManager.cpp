@@ -3,31 +3,31 @@
 using namespace zen;
 using namespace asset;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-std::list<CAsset*> CAssetManager::sp_allAssets;
+std::list<zAsset*> zAssetManager::sp_allAssets;
 
-CAssetManager::CAssetManager() :
-    m_Log(CLog::GetEngineLog()),
-    CSubsystem("AssetMgr")
+zAssetManager::zAssetManager() :
+    m_Log(zLog::GetEngineLog()),
+    zSubsystem("AssetMgr")
 {
     mp_managerAssets.clear();
 }
 
-CAssetManager::~CAssetManager()
+zAssetManager::~zAssetManager()
 {
     this->Destroy();
 }
 
-bool CAssetManager::Init()
+bool zAssetManager::Init()
 {
     if(m_init) return false;
-    if(CAsset::s_seed == 0) CAsset::s_seed = rand() % RAND_MAX;
+    if(zAsset::s_seed == 0) zAsset::s_seed = rand() % RAND_MAX;
     return (m_init = true);
 }
 
-bool CAssetManager::Destroy()
+bool zAssetManager::Destroy()
 {
     if(this->IsInit())
     {
@@ -40,7 +40,7 @@ bool CAssetManager::Destroy()
     return !(m_init = false);
 }
 
-bool CAssetManager::Delete(CAsset* const pAsset)
+bool zAssetManager::Delete(zAsset* const pAsset)
 {
     ZEN_ASSERT(this->IsInit());
     if(pAsset == nullptr) return false;
@@ -59,19 +59,19 @@ bool CAssetManager::Delete(CAsset* const pAsset)
                 m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
                         << "Decreasing reference count for asset ("
                         << (*b)->GetFilename() << "): "
-                        << (*b)->m_refcount << '.' << CLog::endl;
+                        << (*b)->m_refcount << '.' << zLog::endl;
                 return false;
             }
 
             m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
                     << "Deleting asset: " << (*b)->GetAssetID()
-                    << " (" << (*b)->GetFilename() << ")." << CLog::endl;
+                    << " (" << (*b)->GetFilename() << ")." << zLog::endl;
 
             delete *b;
             mp_managerAssets.erase(b);
 
-            auto s = CAssetManager::sp_allAssets.begin(),
-                 t = CAssetManager::sp_allAssets.end();
+            auto s = zAssetManager::sp_allAssets.begin(),
+                 t = zAssetManager::sp_allAssets.end();
 
             // Remove from global storage
             for( ; s != t; )
@@ -96,7 +96,7 @@ bool CAssetManager::Delete(CAsset* const pAsset)
     return false;
 }
 
-bool CAssetManager::Delete(const uint32_t index)
+bool zAssetManager::Delete(const uint32_t index)
 {
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERTM(index < this->GetAssetCount() && index >= 0,
@@ -104,7 +104,7 @@ bool CAssetManager::Delete(const uint32_t index)
 
     if(this->GetAssetCount() == 0) return false;
 
-    std::list<CAsset*>::iterator it = mp_managerAssets.begin();
+    std::list<zAsset*>::iterator it = mp_managerAssets.begin();
     for(size_t i = 0; i < index; ++i, ++it);
 
     if(it != mp_managerAssets.end())
@@ -112,7 +112,7 @@ bool CAssetManager::Delete(const uint32_t index)
         m_Log   << m_Log.SetSystem("AssetMgr")
                 << m_Log.SetMode(LogMode::ZEN_INFO)
                 << "Deleting asset: " << (*it)->GetAssetID()
-                << '(' << (*it)->GetFilename() << ")." << CLog::endl;
+                << '(' << (*it)->GetFilename() << ")." << zLog::endl;
 
         mp_managerAssets.erase(it);
     }
@@ -120,7 +120,7 @@ bool CAssetManager::Delete(const uint32_t index)
     return true;
 }
 
-CAsset* CAssetManager::Find(const zen::string_t& filename,
+zAsset* zAssetManager::Find(const zen::string_t& filename,
                             const void* const owner) const
 {
     ZEN_ASSERT(this->IsInit());
@@ -128,7 +128,7 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("AssetMgr") << "Searching for '"
-            << filename << "':" << owner << "." << CLog::endl;
+            << filename << "':" << owner << "." << zLog::endl;
 
     uint32_t hash = util::string_hash(filename);
 
@@ -145,11 +145,11 @@ CAsset* CAssetManager::Find(const zen::string_t& filename,
     return nullptr;
 }
 
-CAsset* CAssetManager::Find(const assetid_t id) const
+zAsset* zAssetManager::Find(const assetid_t id) const
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("AssetMgr")
-            << "Searching for asset with ID " << id << '.' << CLog::endl;
+            << "Searching for asset with ID " << id << '.' << zLog::endl;
 
     for(auto b : mp_managerAssets)
     {
@@ -159,7 +159,7 @@ CAsset* CAssetManager::Find(const assetid_t id) const
     return nullptr;
 }
 
-uint32_t CAssetManager::GetGlobalAssetCount()
+uint32_t zAssetManager::GetGlobalAssetCount()
 {
-    return CAssetManager::sp_allAssets.size();
+    return zAssetManager::sp_allAssets.size();
 }

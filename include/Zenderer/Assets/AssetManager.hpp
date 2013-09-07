@@ -33,11 +33,11 @@ namespace zen
 namespace asset
 {
     /// Controls creation and proper mmeory management of assets.
-    class ZEN_API CAssetManager : public CSubsystem
+    class ZEN_API zAssetManager : public zSubsystem
     {
     public:
-        CAssetManager();
-        virtual ~CAssetManager();
+        zAssetManager();
+        virtual ~zAssetManager();
 
         /// Does nothing.
         bool Init();
@@ -47,7 +47,7 @@ namespace asset
 
         /**
          * Creates an asset from a filename.
-         *  Assets are set up on the zen::asset::CAsset base class, which
+         *  Assets are set up on the zen::asset::zAsset base class, which
          *  guarantees the ability to load from a file. That's what this
          *  method will do: load an asset from a file. Since assets may be
          *  identical but claimed by different parts of the engine, such as
@@ -57,7 +57,7 @@ namespace asset
          *  Assets created in different instances of this class are also
          *  considered to be completely separate.
          *
-         * @tparam  T           An asset::CAsset inheriting class type
+         * @tparam  T           An asset::zAsset inheriting class type
          * @param   filename    Filename to load asset from
          * @param   owner       Address of asset owner (optional=`nullptr`)
          *
@@ -73,7 +73,7 @@ namespace asset
 
         /**
          * Creates a raw managed asset instance (unloaded).
-         * @tparam  T           An asset::CAsset inheriting class type
+         * @tparam  T           An asset::zAsset inheriting class type
          * @param   owner   The asset's "owner" (optional=`nullptr`)
          * @todo    Make this return a reference.
          **/
@@ -86,14 +86,14 @@ namespace asset
          *  copy at a time, calling
          *
          *  @code
-         *      Create<gfx::CTexture>("test.tga");
+         *      Create<gfx::zTexture>("test.tga");
          *  @endcode
          *
          *  three times will give the same return value every time.
          *  Sometimes, though, it is desirable to have multiple copies of
          *  an asset, and this method will do so.
          *
-         * @tparam  T       A child class of asset::CAsset
+         * @tparam  T       A child class of asset::zAsset
          * @param   Copier  Assets to copy
          * @param   owner   Address of asset owner (optional=`nullptr`)
          *
@@ -101,7 +101,7 @@ namespace asset
          *          `nullptr` otherwise.
          *
          * @warning This relies on the `T` object to have implemented
-         *          CAsset::LoadFromExisting(), which is not guaranteed.
+         *          zAsset::LoadFromExisting(), which is not guaranteed.
          **/
         template<typename T>
         T* Recreate(const T* const Copier,
@@ -112,27 +112,27 @@ namespace asset
          * @param   pAsset  Asset to remove
          * @return  `true` if it was removed successfully, `false` otherwise.
          **/
-        bool Delete(CAsset* const pAsset);
+        bool Delete(zAsset* const pAsset);
 
-        /// @overload Delete(CAsset* const pAsset);
+        /// @overload Delete(zAsset* const pAsset);
         bool Delete(const uint32_t index);
 
         /// Finds an asset by filename, if it exists.
-        CAsset* Find(const string_t& filename,
+        zAsset* Find(const string_t& filename,
                      const void* const owner = nullptr) const;
 
         /// Finds an asset by ID, if it exists.
         /// @overload
-        CAsset* Find(const assetid_t id) const;
+        zAsset* Find(const assetid_t id) const;
 
         /// Returns the amount of assets this manager has.
         inline uint32_t GetAssetCount() const;
 
         /// Returns an iterator to the first asset.
-        inline std::list<CAsset*>::const_iterator cbegin();
+        inline std::list<zAsset*>::const_iterator cbegin();
 
         /// Returns an iterator to the end of the asset list.
-        inline std::list<CAsset*>::const_iterator cend();
+        inline std::list<zAsset*>::const_iterator cend();
 
         /// Returns the amount of total assets @a Zenderer is aware of.
         static uint32_t GetGlobalAssetCount();
@@ -142,10 +142,10 @@ namespace asset
         template<typename T>
         T* FinalizeAsset(const bool flag, T* pAsset);
 
-        static std::list<CAsset*> sp_allAssets;
+        static std::list<zAsset*> sp_allAssets;
 
-        util::CLog& m_Log;
-        std::list<CAsset*> mp_managerAssets;
+        util::zLog& m_Log;
+        std::list<zAsset*> mp_managerAssets;
     };
 
     #include "AssetManager.inl"
@@ -155,14 +155,14 @@ namespace asset
 #endif // ZENDERER__ASSETS__ASSET_MANAGER_HPP
 
 /**
- * @class zen::asset::CAssetManager
+ * @class zen::asset::zAssetManager
  * @details
  *  To be an asset instance supported by this manager, the
- *  object must inherit from zen::asset::CAsset.
+ *  object must inherit from zen::asset::zAsset.
  **/
 
 /**
- * @fn zen::asset::CAssetManager::Find()
+ * @fn zen::asset::zAssetManager::Find()
  * @details
  *  Technical details ahead:    \n
  *

@@ -1,17 +1,17 @@
 #include "Zenderer/Utilities/Log.hpp"
 
 using namespace zen;
-using util::CLog;
+using util::zLog;
 
 // Dat syntax...
-CLog&               // Returns CLog
+zLog&               // Returns zLog
 (
-    CLog::*         // Pointer to member function of CLog
-    CLog::endl      // Named CLog::endl (thus initializing this static member)
+    zLog::*         // Pointer to member function of zLog
+    zLog::endl      // Named zLog::endl (thus initializing this static member)
 )()                 // No parameters for method
- = &CLog::Newline;  // Assigned to the address of CLog::Newline
+ = &zLog::Newline;  // Assigned to the address of zLog::Newline
 
-CLog::CLog(const string_t& filename, const bool show_stdout) :
+zLog::zLog(const string_t& filename, const bool show_stdout) :
     m_mode(LogMode::ZEN_INFO),
     m_filename(filename),
     m_system("Log"),
@@ -19,12 +19,12 @@ CLog::CLog(const string_t& filename, const bool show_stdout) :
     m_init(false)
 {}
 
-CLog::~CLog()
+zLog::~zLog()
 {
     this->Destroy();
 }
 
-bool CLog::Init()
+bool zLog::Init()
 {
     // Don't initialize again w/o a call to Destroy()
     if(this->IsInit()) return false;
@@ -41,7 +41,7 @@ bool CLog::Init()
     return (m_init = true);
 }
 
-bool CLog::Destroy()
+bool zLog::Destroy()
 {
     // Can't destroy if we haven't initialized.
     if(!this->IsInit()) return false;
@@ -53,14 +53,14 @@ bool CLog::Destroy()
 
     m_mode = LogMode::ZEN_INFO;
     m_system = "Log";
-    (*this) << "Log closed on " << ctime(&now) << CLog::endl;
+    (*this) << "Log closed on " << ctime(&now) << zLog::endl;
 
     m_log.close();
 
     return !(m_init = false);
 }
 
-CLog& CLog::Newline()
+zLog& zLog::Newline()
 {
     if(m_str.str().empty() || !this->IsInit()) return (*this);
 
@@ -90,7 +90,7 @@ CLog& CLog::Newline()
     {
         error_fallback(tmp.str().c_str(), "Fatal Error");
 
-        // If these aren't cleared, exit() calls ~CLog() which calls Destroy()
+        // If these aren't cleared, exit() calls ~zLog() which calls Destroy()
         // which calls Newline() so the message would be output twice.
         m_log.flush();
         m_str.str(std::string());
@@ -103,13 +103,13 @@ CLog& CLog::Newline()
     return (*this);
 }
 
-std::ostream& util::operator<<(std::ostream& o, const CLog& Log)
+std::ostream& util::operator<<(std::ostream& o, const zLog& Log)
 {
     return o;
 }
 
-CLog& CLog::GetEngineLog()
+zLog& zLog::GetEngineLog()
 {
-    static CLog Log("Zenderer.log");
+    static zLog Log("Zenderer.log");
     return Log;
 }

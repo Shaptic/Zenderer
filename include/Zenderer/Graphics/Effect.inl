@@ -1,34 +1,34 @@
-bool CEffect::Enable() const
+bool zEffect::Enable() const
 {
     return this->Bind();
 }
 
-bool CEffect::Disable() const
+bool zEffect::Disable() const
 {
     return this->Unbind();
 }
 
-const string_t& CEffect::GetError() const
+const string_t& zEffect::GetError() const
 {
     return m_Shader.GetError();
 }
 
-void CEffect::SetType(const EffectType Type)
+void zEffect::SetType(const EffectType Type)
 {
     m_type = Type;
 }
 
-GLuint CEffect::GetObjectHandle() const
+GLuint zEffect::GetObjectHandle() const
 {
     return m_Shader.GetShaderObject();
 }
 
-bool CEffect::Bind() const
+bool zEffect::Bind() const
 {
     return m_Shader.Bind();
 }
 
-bool CEffect::Unbind() const
+bool zEffect::Unbind() const
 {
     return m_Shader.Unbind();
 }

@@ -2,8 +2,8 @@
 
 using namespace zen::gfxcore;
 
-CVertexArray::CVertexArray(const GLenum type) :
-    CGLSubsystem("Vertex Array"),
+zVertexArray::zVertexArray(const GLenum type) :
+    zGLSubsystem("Vertex Array"),
     m_icount(0), m_vcount(0),
     m_vao(0), m_vbo(0), m_ibo(0),
     m_type(type)
@@ -12,12 +12,12 @@ CVertexArray::CVertexArray(const GLenum type) :
     m_vaoVertices.clear();
 }
 
-CVertexArray::~CVertexArray()
+zVertexArray::~zVertexArray()
 {
     this->Destroy();
 }
 
-bool CVertexArray::Init()
+bool zVertexArray::Init()
 {
     if(m_init) this->Destroy();
 
@@ -35,7 +35,7 @@ bool CVertexArray::Init()
     return (m_init = true);
 }
 
-bool CVertexArray::Destroy()
+bool zVertexArray::Destroy()
 {
     if(!m_init) return true;
 
@@ -50,7 +50,7 @@ bool CVertexArray::Destroy()
     return !(m_init = false);
 }
 
-bool CVertexArray::Bind() const
+bool zVertexArray::Bind() const
 {
     if(!m_init) return false;
     GL(glBindVertexArray(m_vao));
@@ -59,14 +59,14 @@ bool CVertexArray::Bind() const
     return true;
 }
 
-bool CVertexArray::Unbind() const
+bool zVertexArray::Unbind() const
 {
     if(!m_init) return false;
     GL(glBindVertexArray(0));
     return true;
 }
 
-index_t CVertexArray::AddData(const DrawBatch& D)
+index_t zVertexArray::AddData(const DrawBatch& D)
 {
     ZEN_ASSERTM(D.vcount > 0, "no buffer vertices given");
     ZEN_ASSERTM(D.icount > 0, "no buffer indices given");
@@ -88,7 +88,7 @@ index_t CVertexArray::AddData(const DrawBatch& D)
 }
 
 /// @see    http://stackoverflow.com/questions/8923174/opengl-vao-best-practices
-bool CVertexArray::Offload()
+bool zVertexArray::Offload()
 {
     if(!this->Bind())       return false;
     if(this->Offloaded())   return false;
@@ -200,7 +200,7 @@ bool CVertexArray::Offload()
     return this->Unbind();
 }
 
-bool CVertexArray::Clear()
+bool zVertexArray::Clear()
 {
     if(!this->Bind()) return false;
     GL(glBufferData(GL_ARRAY_BUFFER, 0, nullptr, GL_STATIC_DRAW));
@@ -213,27 +213,27 @@ bool CVertexArray::Clear()
     return this->Unbind();
 }
 
-const vertex_t* const CVertexArray::GetVerticesFromGPU() const
+const vertex_t* const zVertexArray::GetVerticesFromGPU() const
 {
     return (vertex_t*)GL(glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY));
 }
 
-const index_t* const CVertexArray::GetIndicesFromGPU() const
+const index_t* const zVertexArray::GetIndicesFromGPU() const
 {
     return (index_t*)GL(glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, GL_READ_ONLY));
 }
 
-size_t CVertexArray::GetVertexCount() const
+size_t zVertexArray::GetVertexCount() const
 {
     return m_vcount;
 }
 
-size_t CVertexArray::GetIndexCount() const
+size_t zVertexArray::GetIndexCount() const
 {
     return m_icount;
 }
 
-bool CVertexArray::Offloaded() const
+bool zVertexArray::Offloaded() const
 {
     return (m_vaoIndices.empty() && m_vaoVertices.empty());
 }

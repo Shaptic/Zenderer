@@ -2,12 +2,12 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
 using sfx::CSound2D;
 
-CSound2D::CSound2D(const void* const owner) : CAudio2D(owner) {}
+CSound2D::CSound2D(const void* const owner) : zAudio2D(owner) {}
 
 CSound2D::~CSound2D()
 {
@@ -35,7 +35,7 @@ bool CSound2D::LoadFromFile(const string_t& filename)
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Audio")
                 << "Failed to load '"  << filename << "' ("
-                << m_error_str << ")." << CLog::endl;
+                << m_error_str << ")." << zLog::endl;
 
         return (m_loaded = false);
     }
@@ -50,7 +50,7 @@ void CSound2D::Play()
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("Audio")
-                << "No file loaded" << CLog::endl;
+                << "No file loaded" << zLog::endl;
 
         return;
     }
@@ -63,19 +63,19 @@ void CSound2D::Play()
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("Audio")
                 << "Already playing '" << m_filename << "'"
-                << CLog::endl;
+                << zLog::endl;
 
         return;
     }
 
     this->UnloadSource();
-    m_AL.source = CAudioManager::CreateSource();
+    m_AL.source = zAudioManager::CreateSource();
     if(!m_AL.source) return;
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Audio")
             << "Playing '" << m_filename << "' ("
-            << m_AL.source << ")" << CLog::endl;
+            << m_AL.source << ")" << zLog::endl;
 
     AL(alSourcei(m_AL.source, AL_BUFFER, m_AL.buffers[0]));
     AL(alSourcef(m_AL.source, AL_GAIN, m_AL.volume));

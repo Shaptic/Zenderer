@@ -33,7 +33,7 @@
 #include "GL/glfw3.h"
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/Vector.hpp"
+#include "Zenderer/Math/zVector.hpp"
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef GL
@@ -100,11 +100,11 @@ namespace gfxcore
     };
 
     /// A wrapper for OpenGL objects with proper cleanup.
-    class ZEN_API CGLSubsystem
+    class ZEN_API zGLSubsystem
     {
     public:
-        CGLSubsystem(const string_t name = "OpenGL");
-        virtual ~CGLSubsystem();
+        zGLSubsystem(const string_t name = "OpenGL");
+        virtual ~zGLSubsystem();
 
         virtual bool Init()     = 0;
         virtual bool Destroy()  = 0;
@@ -125,7 +125,7 @@ namespace gfxcore
         bool m_init;
 
     private:
-        static std::vector<CGLSubsystem*> sp_allGLSystems;
+        static std::vector<zGLSubsystem*> sp_allGLSystems;
 
         string_t m_name;
     };
@@ -147,9 +147,9 @@ namespace gfxcore
  **/
 
 /**
- * @class zen::gfxcore::CGLSubsystem
+ * @class zen::gfxcore::zGLSubsystem
  * @details
- *  Similar to zen::CSubsystem, this acts as a managed wrapper around
+ *  Similar to zen::zSubsystem, this acts as a managed wrapper around
  *  various OpenGL object instances. Anything registered with this as
  *  a base class will automatically be `Destroy()`-ed when the engine
  *  is quit.

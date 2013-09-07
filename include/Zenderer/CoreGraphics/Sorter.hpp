@@ -31,25 +31,25 @@ namespace zen
 namespace gfxcore
 {
     /// A collection of sort methods to optimize rendering.
-    class ZEN_API CSorter
+    class ZEN_API zSorter
     {
     public:
-        static inline const obj::CEntity*
-        SortByMaterial(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2)
+        static inline const obj::zEntity*
+        SortByMaterial(const obj::zEntity* pEnt1, const obj::zEntity* pEnt2)
         {
-            return CSorter::SortBy(pEnt1, pEnt2, MATERIAL_FLAG);
+            return zSorter::SortBy(pEnt1, pEnt2, MATERIAL_FLAG);
         }
 
-        static inline const obj::CEntity*
-        SortByDepth(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2)
+        static inline const obj::zEntity*
+        SortByDepth(const obj::zEntity* pEnt1, const obj::zEntity* pEnt2)
         {
-            return CSorter::SortBy(pEnt1, pEnt2, DEPTH_FLAG);
+            return zSorter::SortBy(pEnt1, pEnt2, DEPTH_FLAG);
         }
 
-        static inline const obj::CEntity*
-        SortByAlpha(const obj::CEntity* pEnt1, const obj::CEntity* pEnt2)
+        static inline const obj::zEntity*
+        SortByAlpha(const obj::zEntity* pEnt1, const obj::zEntity* pEnt2)
         {
-            return CSorter::SortBy(pEnt1, pEnt2, ALPHA_FLAG);
+            return zSorter::SortBy(pEnt1, pEnt2, ALPHA_FLAG);
         }
 
         static inline uint32_t
@@ -76,11 +76,11 @@ namespace gfxcore
 
     private:
         // Not implemented; purely static class.
-        CSorter(); ~CSorter();
+        zSorter(); ~zSorter();
 
-        static const obj::CEntity*
-        SortBy(const obj::CEntity* pEnt1,
-               const obj::CEntity* pEnt2,
+        static const obj::zEntity*
+        SortBy(const obj::zEntity* pEnt1,
+               const obj::zEntity* pEnt2,
                const uint32_t flag);
     };
 }   // namespace gfxcore
@@ -89,7 +89,7 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__SORTER_HPP
 
 /**
- * @class       zen::gfxcore::CSorter
+ * @class       zen::gfxcore::zSorter
  * @details
  *  This is a static class with no member functions, and contains
  *  tools to sort an entity by material, depth, and alpha value.

@@ -2,21 +2,21 @@
 
 using namespace zen::evt;
 
-std::stack<event_t> CEventHandler::s_evtList;
-event_t CEventHandler::s_Active;
+std::stack<event_t> zEventHandler::s_evtList;
+event_t zEventHandler::s_Active;
 
-CEventHandler::~CEventHandler()
+zEventHandler::~zEventHandler()
 {
     while(!s_evtList.empty()) s_evtList.pop();
 }
 
-bool CEventHandler::PollEvents()
+bool zEventHandler::PollEvents()
 {
     glfwPollEvents();
     return !s_evtList.empty();
 }
 
-bool CEventHandler::PopEvent(event_t& Evt)
+bool zEventHandler::PopEvent(event_t& Evt)
 {
     Evt.Reset();
     if(s_evtList.empty()) return false;
@@ -25,13 +25,13 @@ bool CEventHandler::PopEvent(event_t& Evt)
     return true;
 }
 
-CEventHandler& CEventHandler::GetInstance()
+zEventHandler& zEventHandler::GetInstance()
 {
-    static CEventHandler g_Events;
+    static zEventHandler g_Events;
     return g_Events;
 }
 
-void CEventHandler::KeyboardCallback(GLFWwindow*, int key, int scancode,
+void zEventHandler::KeyboardCallback(GLFWwindow*, int key, int scancode,
                                      int action, int mods)
 {
     s_Active.key.key    = static_cast<Key>(key);
@@ -46,7 +46,7 @@ void CEventHandler::KeyboardCallback(GLFWwindow*, int key, int scancode,
     s_Active.Reset();
 }
 
-void CEventHandler::MouseMotionCallback(GLFWwindow*, double x, double y)
+void zEventHandler::MouseMotionCallback(GLFWwindow*, double x, double y)
 {
     s_Active.mouse.position = math::vector_t(x, y);
     s_Active.mouse.button   = MouseButton::UNKNOWN;
@@ -57,7 +57,7 @@ void CEventHandler::MouseMotionCallback(GLFWwindow*, double x, double y)
     s_Active.Reset();
 }
 
-void CEventHandler::MouseCallback(GLFWwindow*, int button, int action, int mods)
+void zEventHandler::MouseCallback(GLFWwindow*, int button, int action, int mods)
 {
     s_Active.mouse.position = evt::GetMousePosition();
     s_Active.mouse.button   = static_cast<MouseButton>(button);
@@ -73,7 +73,7 @@ void CEventHandler::MouseCallback(GLFWwindow*, int button, int action, int mods)
     s_Active.Reset();
 }
 
-void CEventHandler::CharacterCallback(GLFWwindow*, unsigned int c)
+void zEventHandler::CharacterCallback(GLFWwindow*, unsigned int c)
 {
     s_Active.key.symbol = c;
     s_Active.key.key    = Key::UNKNOWN;

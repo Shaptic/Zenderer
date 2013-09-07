@@ -1,7 +1,7 @@
 #include "Zenderer/Zenderer.hpp"
 
 using namespace zen;
-using gfxcore::CRenderer;
+using gfxcore::zRenderer;
 
 #if defined(ZEN_API) && !defined(_DEBUG) && !defined(ZENDERER_EXPORTS)
   #pragma comment(lib, "Zenderer.lib")
@@ -10,8 +10,8 @@ using gfxcore::CRenderer;
 int main2(int argc, char* argv[])
 {
     Init();
-    asset::CAssetManager Manager; Manager.Init();
-    gfx::CWindow Window(800, 600, "Hello, Zenderer.", Manager);
+    asset::zAssetManager Manager; Manager.Init();
+    gfx::zWindow Window(800, 600, "Hello, Zenderer.", Manager);
 
     Window.Init();
 
@@ -19,8 +19,8 @@ int main2(int argc, char* argv[])
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 
-    gfx::CMaterial Sample(Manager);
-    gfx::CMaterial Grass(Manager);
+    gfx::zMaterial Sample(Manager);
+    gfx::zMaterial Grass(Manager);
 
     Sample.LoadTextureFromFile("sample.png");
     Grass.LoadTextureFromFile("grass.png");
@@ -28,11 +28,11 @@ int main2(int argc, char* argv[])
     // Create the vertex buffers we will be using (inefficient).
     // Recommended practice would be to combine into one buffer
     // to minimize state change.
-    gfxcore::CVertexArray Vao, FS, Gr;
+    gfxcore::zVertexArray Vao, FS, Gr;
     Vao.Init(); FS.Init(); Gr.Init();
 
     // Quad to easily store vertex data
-    gfx::CQuad Default(Manager,
+    gfx::zQuad Default(Manager,
                        Sample.GetTexture().GetWidth(),
                        Sample.GetTexture().GetHeight());
 
@@ -68,9 +68,9 @@ int main2(int argc, char* argv[])
     Window.ToggleVSYNC();
     util::CTimer Timer(60);
 
-    CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+    zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 
-    gfx::CLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
+    gfx::zLight L(Manager, gfx::LightType::ZEN_POINT, Window.GetHeight());
     L.Init();
     L.Enable();
     L.SetBrightness(0.5);
@@ -78,26 +78,26 @@ int main2(int argc, char* argv[])
     L.SetPosition(200, 100);
     L.Disable();
 
-    gfx::CRenderTarget RT(800, 600);
+    gfx::zRenderTarget RT(800, 600);
     RT.Init();
 
-    gfx::CEffect& DEffect = CRenderer::GetDefaultEffect();
+    gfx::zEffect& DEffect = zRenderer::GetDefaultEffect();
 
     real_t angle = 45.0, d = -5.5;
 
-    evt::CEventHandler& Evt = evt::CEventHandler::GetInstance();
+    evt::zEventHandler& Evt = evt::zEventHandler::GetInstance();
     evt::event_t event;
 
-    gfx::CQuad EntPrim(Manager, 111, 64);
+    gfx::zQuad EntPrim(Manager, 111, 64);
     EntPrim.AttachMaterial(Sample);
     EntPrim.SetInverted(true);
     EntPrim.Create();
 
-    gfx::CScene Scene(800, 600, Manager);
+    gfx::zScene Scene(800, 600, Manager);
     Scene.Init(); Scene.SetSeeThrough(true); //Scene.EnableLighting();
 
-    obj::CEntity& Ent = Scene.AddEntity();
-    gui::CFont* Font = Manager.Create<gui::CFont>();
+    obj::zEntity& Ent = Scene.AddEntity();
+    gui::zFont* Font = Manager.Create<gui::zFont>();
     Font->AttachManager(Manager);
     Font->SetSize(18);
     Font->SetColor(color4f_t(0.0, 0.0, 0.0));
@@ -106,13 +106,13 @@ int main2(int argc, char* argv[])
     Font->Render(Ent);
     Ent.Move(100, 69);
 
-    obj::CEntity& Bg = Scene.AddEntity();
+    obj::zEntity& Bg = Scene.AddEntity();
     Bg.LoadFromTexture("MockMenu.png");
 
-    obj::CEntity& Ent3 = Scene.AddEntity();
-    obj::CEntity& Ent2 = Scene.AddEntity();
-    gfx::CLight& L2 = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
-    gfx::CLight& L3 = Scene.AddLight(gfx::LightType::ZEN_POINT);
+    obj::zEntity& Ent3 = Scene.AddEntity();
+    obj::zEntity& Ent2 = Scene.AddEntity();
+    gfx::zLight& L2 = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
+    gfx::zLight& L3 = Scene.AddLight(gfx::LightType::ZEN_POINT);
     Font->Render(Ent2, "Hi");
     Ent2.Move(200, 200);
 
@@ -131,9 +131,9 @@ int main2(int argc, char* argv[])
     L3.SetColor(color3f_t(0.0, 1.0, 0.0));
     L3.Disable();
 
-    obj::CEntity& Grass1 = Scene.AddEntity();
-    obj::CEntity& Grass2 = Scene.AddEntity();
-    obj::CEntity& Grass3 = Scene.AddEntity();
+    obj::zEntity& Grass1 = Scene.AddEntity();
+    obj::zEntity& Grass2 = Scene.AddEntity();
+    obj::zEntity& Grass3 = Scene.AddEntity();
 
     Grass1.Invert();
     Grass2.Invert();
@@ -151,7 +151,7 @@ int main2(int argc, char* argv[])
     math::vector_t GrassDT(-1.2, 0.9, -0.5);
     math::vector_t mouse;
 
-    gfx::CPolygon P(Manager);
+    gfx::zPolygon P(Manager);
     P.AddVertex(math::vector_t(0,   450));
     P.AddVertex(math::vector_t(50,  425));
     P.AddVertex(math::vector_t(130, 415));
@@ -159,7 +159,7 @@ int main2(int argc, char* argv[])
     P.AddVertex(math::vector_t(290, Window.GetHeight()));
     P.AddVertex(math::vector_t(0,   Window.GetHeight()));
 
-    gfx::CPolygon P2(Manager);
+    gfx::zPolygon P2(Manager);
     P2.AddVertex(math::vector_t(290, 455));
     P2.AddVertex(math::vector_t(410, 445));
     P2.AddVertex(math::vector_t(530, 460));
@@ -167,7 +167,7 @@ int main2(int argc, char* argv[])
     P2.AddVertex(math::vector_t(550, Window.GetHeight()));
     P2.AddVertex(math::vector_t(0,   Window.GetHeight()));
 
-    /*gfx::CPolygon P3(Manager);
+    /*gfx::zPolygon P3(Manager);
     P3.AddVertex(math::vector_t(660, 470));
     P.AddVertex(math::vector_t(740, 430));
     P.AddVertex(math::vector_t(770, 375));
@@ -184,7 +184,7 @@ int main2(int argc, char* argv[])
     P2.Create();
     //P3.Create();
 
-    gui::CMenu MainMenu(Window, Manager);
+    gui::zMenu MainMenu(Window, Manager);
     MainMenu.SetFont("C:\\Windows\\Fonts\\segoeuil.ttf");
     MainMenu.SetNormalButtonTextColor(color4f_t(1, 0, 0, 1));
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
@@ -200,7 +200,7 @@ int main2(int argc, char* argv[])
     Scene.SetSeeThrough(false);
     Scene.EnablePostProcessing();
 
-    gfx::CEffect& GB = Scene.AddEffect(gfx::EffectType::GAUSSIAN_BLUR_H);
+    gfx::zEffect& GB = Scene.AddEffect(gfx::EffectType::GAUSSIAN_BLUR_H);
     real_t radius = 1.0 / 512;
     GB.Init();
     GB.Enable();
@@ -226,7 +226,7 @@ int main2(int argc, char* argv[])
                 break;
 
             case evt::EventType::PRINTABLE_KEY:
-                if(event.key.symbol == 'm') CRenderer::ToggleWireframe();
+                if(event.key.symbol == 'm') zRenderer::ToggleWireframe();
                 std::cout << "Printable: " << event.key.symbol << "\n";
                 break;
 
@@ -248,7 +248,7 @@ int main2(int argc, char* argv[])
         Sample.EnableTexture();
         DEffect.Enable();
 
-        DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
+        DEffect.SetParameter("proj", zRenderer::GetProjectionMatrix());
         DEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
 
         RT.Clear();
@@ -257,13 +257,13 @@ int main2(int argc, char* argv[])
 
         RT.BindTexture();
         DEffect.Enable();
-        DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
+        DEffect.SetParameter("proj", zRenderer::GetProjectionMatrix());
         FS.Draw();
 
         Sample.Enable();
         math::matrix4x4_t MV = math::matrix4x4_t::CreateIdentityMatrix();
         MV.Translate(math::vector_t(400, 100));
-        Sample.GetEffect().SetParameter("proj", CRenderer::GetProjectionMatrix());
+        Sample.GetEffect().SetParameter("proj", zRenderer::GetProjectionMatrix());
         Sample.GetEffect().SetParameter("mv", MV);
         Vao.Draw();
         Sample.Disable();
@@ -303,7 +303,7 @@ int main2(int argc, char* argv[])
             MV.Shear(math::vector_t(angle += d, 0.0));
             MV.Translate(math::vector_t(300, 300));
 
-            DEffect.SetParameter("proj", CRenderer::GetProjectionMatrix());
+            DEffect.SetParameter("proj", zRenderer::GetProjectionMatrix());
             DEffect.SetParameter("mv", MV);
 
             Gr.Draw();

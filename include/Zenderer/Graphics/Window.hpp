@@ -31,7 +31,7 @@
 
 #include "Zenderer/Core/Subsystem.hpp"
 #include "Zenderer/Utilities/Log.hpp"
-#include "Zenderer/Math/Vector.hpp"
+#include "Zenderer/Math/zVector.hpp"
 #include "Zenderer/Math/Matrix.hpp"
 
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
@@ -50,7 +50,7 @@ namespace gfx
     static const real_t ZENDERER_GL_VERSION = 3.3;
 
     /// Creates a renderable OpenGL context.
-    class ZEN_API CWindow : public CSubsystem
+    class ZEN_API zWindow : public zSubsystem
     {
     public:
         /**
@@ -63,7 +63,7 @@ namespace gfx
          *  By attaching a proper asset manager to the window, these can be
          *  reloaded on-the-fly when switching contexts.
          *
-         *  Since the asset base class (zen::asset::CAsset) stores a
+         *  Since the asset base class (zen::asset::zAsset) stores a
          *  filename, this can be used to reload the asset when necessary.
          *  Keep in mind that assets that were generated programmatically
          *  (such as various primitives) that do not depend on any files cannot
@@ -83,12 +83,12 @@ namespace gfx
          * @see     EnableFullscreen()
          * @see     DisableFullscreen()
          * @see     ToggleFullscreen()
-         * @see     zen::asset::CAsset
+         * @see     zen::asset::zAsset
          **/
-        CWindow(const uint16_t w, const uint16_t h,
-                const string_t& caption, asset::CAssetManager& Mgr,
+        zWindow(const uint16_t w, const uint16_t h,
+                const string_t& caption, asset::zAssetManager& Mgr,
                 const bool fullscreen = false);
-        ~CWindow();
+        ~zWindow();
 
         bool Init();
 
@@ -126,7 +126,7 @@ namespace gfx
          *  needed.
          *  If a manager was given via AttachAssetManager(), an attempt
          *  will be made to reload all of the assets it contains via the
-         *  zen::asset::CAsset::Reload method. The optional `loaded`
+         *  zen::asset::zAsset::Reload method. The optional `loaded`
          *  parameter will be set to the number of assets that were
          *  reloaded successfully, based on the return value of the method.
          *
@@ -172,16 +172,16 @@ namespace gfx
 
     private:
         // Prevent copying.
-        CWindow(const CWindow&);
-        CWindow& operator=(const CWindow&);
+        zWindow(const zWindow&);
+        zWindow& operator=(const zWindow&);
 
         uint32_t ReloadAssets();
 
         GLFWwindow*             mp_Window;
-        util::CLog&             m_Log;
-        asset::CAssetManager&   m_Assets;
+        util::zLog&             m_Log;
+        asset::zAssetManager&   m_Assets;
 
-        math::Vector<uint16_t>  m_Dimensions;
+        math::zVector<uint16_t>  m_Dimensions;
         math::matrix4x4_t       m_ProjMatrix;
         string_t                m_caption;
 
@@ -194,7 +194,7 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__WINDOW_HPP
 
 /**
- * @class zen::gfx::CWindow
+ * @class zen::gfx::zWindow
  * @details
  *  This is a wrapper for creating a core OpenGL context to draw to. There
  *  is no testing of multiple windows (and thus multiple engine instances)

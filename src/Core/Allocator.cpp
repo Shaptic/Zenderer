@@ -2,11 +2,11 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-CAllocator::CAllocator(size_t initial /*= (1 << 16)*/) :
-    CSubsystem("Allocator"),
+zAllocator::zAllocator(size_t initial /*= (1 << 16)*/) :
+    zSubsystem("Allocator"),
     mp_head(nullptr),
     mp_ptr(nullptr),
     m_size(0)
@@ -15,7 +15,7 @@ CAllocator::CAllocator(size_t initial /*= (1 << 16)*/) :
     m_size = this->Pad(initial);
 }
 
-bool CAllocator::Init()
+bool zAllocator::Init()
 {
     if(m_init) return true;
 
@@ -29,7 +29,7 @@ bool CAllocator::Init()
     return (m_init = true);
 }
 
-bool CAllocator::Destroy()
+bool zAllocator::Destroy()
 {
     if(!m_init) return false;
 
@@ -42,7 +42,7 @@ bool CAllocator::Destroy()
             m_Log   << m_Log.SetSystem("Allocator")
                     << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << i << " byte memory leak found."
-                    << CLog::endl;
+                    << zLog::endl;
         }
 
         total += i;
@@ -52,7 +52,7 @@ bool CAllocator::Destroy()
     return !(m_init = false);
 }
 
-void* CAllocator::operator()(size_t bytes)
+void* zAllocator::operator()(size_t bytes)
 {
     this->Pad(bytes);
     void* ptr = nullptr;
@@ -104,7 +104,7 @@ void* CAllocator::operator()(size_t bytes)
     {
         m_Log   << m_Log.SetSystem("Allocator")
                 << m_Log.SetMode(LogMode::ZEN_FATAL)
-                << "Out of memory." << CLog::endl;
+                << "Out of memory." << zLog::endl;
     }
     else
     {
@@ -115,19 +115,19 @@ void* CAllocator::operator()(size_t bytes)
         m_Log   << m_Log.SetSystem("Allocator")
                 << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << "Allocated " << bytes << " bytes [0x" << ptr
-                << "] (" << alloc << " total)." << CLog::endl;
+                << "] (" << alloc << " total)." << zLog::endl;
 #endif // _DEBUG
     }
 
     return ptr;
 }
 
-size_t CAllocator::operator[](void* ptr)
+size_t zAllocator::operator[](void* ptr)
 {
     return this->Free(ptr);
 }
 
-size_t CAllocator::Free(void* ptr)
+size_t zAllocator::Free(void* ptr)
 {
     auto i = m_blocks.begin(),
          j = m_blocks.end();
@@ -176,7 +176,7 @@ size_t CAllocator::Free(void* ptr)
             m_Log   << m_Log.SetSystem("Allocator")
                     << m_Log.SetMode(LogMode::ZEN_DEBUG)
                     << "Freed " << freed << " bytes ("
-                    << total_freed << " total)." << CLog::endl;
+                    << total_freed << " total)." << zLog::endl;
 #endif // _DEBUG
             // Freed an even number of bytes
             return freed;
@@ -189,9 +189,9 @@ size_t CAllocator::Free(void* ptr)
     return 0;
 }
 
-CAllocator& CAllocator::Get()
+zAllocator& zAllocator::Get()
 {
-    static CAllocator Alloc;
+    static zAllocator Alloc;
     Alloc.Init();
     return Alloc;
 }

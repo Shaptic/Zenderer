@@ -40,10 +40,10 @@ namespace zen
 namespace gui
 {
     /// A TrueType font wrapper class.
-    class ZEN_API CFont : public asset::CAsset
+    class ZEN_API zFont : public asset::zAsset
     {
     public:
-        ~CFont();
+        ~zFont();
 
         /**
          * Streams data for rendering as a string later.
@@ -56,7 +56,7 @@ namespace gui
          * @see     <a href="_fonts-examples.html">Font Examples</a>
          **/
         template<typename T> inline
-        CFont& operator<<(const T& data)
+        zFont& operator<<(const T& data)
         {
             m_str << data;
             return (*this);
@@ -68,7 +68,7 @@ namespace gui
          *  are loaded as bitmaps, then are turned into render-able
          *  textures in GPU memory. Their dimensions are stored for
          *  rendering later on.
-         *  Since this inherits from zen::asset::CAsset, it's
+         *  Since this inherits from zen::asset::zAsset, it's
          *  impossible to specify font size when using an asset manager
          *  and `Create<>()`'ing from a filename. Thus the recommended
          *  approach for this is `Create<>()`'ing without a filename
@@ -77,7 +77,7 @@ namespace gui
          *
          * @param   filename    Font filename
          *
-         * @pre     CFontLibrary::Init() must have been called.
+         * @pre     zFontLibrary::Init() must have been called.
          *
          * @return  `true`  if everything went smoothly,
          *          `false` otherwise.
@@ -89,14 +89,14 @@ namespace gui
         /**
          * Loads a font from an existing instance.
          *  There is no way (without enabling RTTI) to check if the given
-         *  parameter is indeed a valid CFont instance, therefore this is
+         *  parameter is indeed a valid zFont instance, therefore this is
          *  dependent on the user of this API.
          *  This creates a deep copy of internal glyph texture data and
          *  all relevant asset metadata.
          *
          * @param   pCopy   Font asset to copy from.
          **/
-        bool LoadFromExisting(const asset::CAsset* const pCopy)
+        bool LoadFromExisting(const asset::zAsset* const pCopy)
         {
             ZEN_ASSERTM(false, "not implemented");
             return false;
@@ -123,10 +123,10 @@ namespace gui
          *
          * @warning Any existing data in the entity is deleted.
          **/
-        bool Render(obj::CEntity& Ent, const string_t& text = "") const;
+        bool Render(obj::zEntity& Ent, const string_t& text = "") const;
 
         /// @overload
-        bool Render(gfxcore::CTexture& Texture, const string_t& text ="") const;
+        bool Render(gfxcore::zTexture& Texture, const string_t& text ="") const;
 
         /// Clears the internal string stream.
         void ClearString();
@@ -150,7 +150,7 @@ namespace gui
          *
          * @pre     The given manager must be initialized.
          **/
-        bool AttachManager(asset::CAssetManager& Assets);
+        bool AttachManager(asset::zAssetManager& Assets);
 
         /// Sets the font color.
         void SetColor(const color4f_t& Color);
@@ -165,11 +165,11 @@ namespace gui
         uint16_t GetTextHeight(const string_t& text) const;
         uint16_t GetLineHeight() const { return m_height; }
 
-        friend class ZEN_API asset::CAssetManager;
+        friend class ZEN_API asset::zAssetManager;
 
     private:
-        CFont(const void* const owner = nullptr);
-        CFont& operator=(const CFont& F);
+        zFont(const void* const owner = nullptr);
+        zFont& operator=(const zFont& F);
 
         bool Destroy();
         bool LoadGlyph(const char c, const uint16_t index);
@@ -180,8 +180,8 @@ namespace gui
                         gfxcore::vertex_t* verts,
                         gfxcore::index_t* inds);
 
-        asset::CAssetManager* mp_Assets;
-        static gfx::CEffect* s_FontFx;
+        asset::zAssetManager* mp_Assets;
+        static gfx::zEffect* s_FontFx;
         color4f_t m_Color;
         FT_Face m_FontFace;
 
@@ -198,15 +198,15 @@ namespace gui
 #endif // ZENDERER__CORE_GRAPHICS__FONT_HPP
 
 /**
- * @class zen::gfx::CFont
+ * @class zen::gfx::zFont
  * @details
  *  Fonts are unique assets that use the FreeType 2 to load TrueType (`.ttf`)
  *  fonts and render them in an OpenGL-compatible matter.
  *  They cannot be drawn directly to the screen, but instead will load
- *  themselves into obj::CEntity instances that can then be treated as
+ *  themselves into obj::zEntity instances that can then be treated as
  *  such.
  *
- * @note    It is absolutely essential that you call gui::CFont::AttachManager()
+ * @note    It is absolutely essential that you call gui::zFont::AttachManager()
  *          prior to loading any font instances, to ensure that the font
  *          textures can be created. This is a limitation of the asset API and
  *          may or may not change in the future.
@@ -226,7 +226,7 @@ namespace gui
  *  used when creating from an asset manager is 18.
  *
  *  @code
- *  gfxcore::CFont* Font = Assets.Create<gfxcore::CFont>();
+ *  gfxcore::zFont* Font = Assets.Create<gfxcore::zFont>();
  *
  *  // REQUIRED PRIOR TO LOADING!
  *  Font->AttachManager(Assets);
@@ -235,7 +235,7 @@ namespace gui
  *  Font->LoadFromFile("sample.ttf");
  *
  *  // Render a string to an entity
- *  obj::CEntity& Score = Scene.AddEntity();
+ *  obj::zEntity& Score = Scene.AddEntity();
  *  Font->Render(Score, "Score: 0");
  *
  *  // Move it to the top of the screen
@@ -246,7 +246,7 @@ namespace gui
  *  Score.SetDepth(69);
  *
  *  // Now it will be rendered in the scene whenever
- *  // gfx::CScene::Draw() is called.
+ *  // gfx::zScene::Draw() is called.
  *
  *  // Clean up, optional.
  *  Assets.Delete(Font);
@@ -254,25 +254,25 @@ namespace gui
  *
  * @subsection Rendering Without a Scene
  *  Since scenes are designed to manage entities independently, the
- *  `CFont::Render()` method cannot simply return a `obj::CEntity`
+ *  `zFont::Render()` method cannot simply return a `obj::zEntity`
  *  instance to the user, since then, when using a scene, it would
  *  not know if it was `delete`-able or not. Thus, even when not
- *  using a scene, fonts must be given an existing `obj::CEntity`
+ *  using a scene, fonts must be given an existing `obj::zEntity`
  *  instance to work on. This is demonstrated in the following
  *  example.
  *
  *  This example also demonstrates the technique for loading a font
  *  and specifying the size, since this cannot be done without a call
- *  to `CFont::Resize()` when using the manager.
+ *  to `zFont::Resize()` when using the manager.
  *
  *  @code
- *  gfxcore::CFont* Font = Assets.Create<gfxcore::CFont>();
+ *  gfxcore::zFont* Font = Assets.Create<gfxcore::zFont>();
  *  Font->AttachManager(Assets);
  *  Font->SetSize(8);
  *  Font->LoadFromFile("default.ttf");
  *
  *  // Render a string to an entity without using a scene.
- *  obj::CEntity Score;
+ *  obj::zEntity Score;
  *  Font->Render(Score, "Score: 0");
  *
  *  // Move it to the top of the screen
@@ -308,9 +308,9 @@ namespace gui
  *  demonstrated below.
  *
  *  @code
- *  obj::CEntity& Ent = m_Scene.AddEntity();
- *  gui::CFont* pFont = m_Assets.Create<gui::CFont>();
- *  gui::CFont& Font  = *pFont;
+ *  obj::zEntity& Ent = m_Scene.AddEntity();
+ *  gui::zFont* pFont = m_Assets.Create<gui::zFont>();
+ *  gui::zFont& Font  = *pFont;
  *  Font.Resize(22);
  *  Font.LoadFromFile("data/fonts/default.ttf");
  *

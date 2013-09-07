@@ -4,7 +4,7 @@ using std::chrono::duration_cast;
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 using util::CTimer;
 
@@ -47,9 +47,9 @@ util::time_t CTimer::Delay()
         std::this_thread::sleep_for(pause);
 
 #if defined(ZEN_SHOW_DELAY) && defined(ZEN_DEBUG_BUILD)
-        CLog& L = CLog::GetEngineLog();
+        zLog& L = zLog::GetEngineLog();
         L << L.SetMode(LogMode::ZEN_DEBUG) << L.SetSystem("Timer")
-          << "Delaying for " << pause.count() << "ms." << CLog::endl;
+          << "Delaying for " << pause.count() << "ms." << zLog::endl;
 #endif // ZEN_SHOW_DELAY
     }
 

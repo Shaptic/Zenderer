@@ -1,9 +1,9 @@
 #include "Zenderer/CoreGraphics/Drawable.hpp"
 
 using namespace zen;
-using gfxcore::CDrawable;
+using gfxcore::zDrawable;
 
-CDrawable::CDrawable(asset::CAssetManager& Assets) :
+zDrawable::zDrawable(asset::zAssetManager& Assets) :
     m_Assets(Assets), mp_VAO(nullptr), m_Material(Assets),
     mp_MVMatrix(nullptr), m_offset(0), m_internal(false)
 {
@@ -13,17 +13,17 @@ CDrawable::CDrawable(asset::CAssetManager& Assets) :
     m_DrawData.vcount   = 0;
 
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
-    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+    m_Material.LoadTexture(zRenderer::GetDefaultTexture());
 }
 
-CDrawable::CDrawable(const CDrawable& Copy) :
+zDrawable::zDrawable(const zDrawable& Copy) :
     m_Assets(Copy.m_Assets),
     mp_VAO(nullptr), m_Material(m_Assets),
     mp_MVMatrix(nullptr), m_offset(0),
     m_internal(false)
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
-    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+    m_Material.LoadTexture(zRenderer::GetDefaultTexture());
 
     m_DrawData.vcount   = Copy.m_DrawData.vcount;
     m_DrawData.icount   = Copy.m_DrawData.icount;
@@ -42,14 +42,14 @@ CDrawable::CDrawable(const CDrawable& Copy) :
         mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
 }
 
-CDrawable::CDrawable(CDrawable&& Copy) :
+zDrawable::zDrawable(zDrawable&& Copy) :
     m_Assets(Copy.m_Assets),
     mp_VAO(nullptr), m_Material(m_Assets),
     mp_MVMatrix(Copy.mp_MVMatrix), m_offset(0),
     m_internal(false)
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
-    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+    m_Material.LoadTexture(zRenderer::GetDefaultTexture());
 
     m_DrawData.vcount   = Copy.m_DrawData.vcount;
     m_DrawData.icount   = Copy.m_DrawData.icount;
@@ -62,34 +62,34 @@ CDrawable::CDrawable(CDrawable&& Copy) :
     ZEN_ASSERT(m_DrawData.vcount > 0 && m_DrawData.icount > 0);
 }
 
-CDrawable::~CDrawable()
+zDrawable::~zDrawable()
 {
     if(m_internal) delete mp_VAO;
 }
 
-void CDrawable::Move(const math::vector_t& Position)
+void zDrawable::Move(const math::vector_t& Position)
 {
     m_Position = Position;
 }
 
-void CDrawable::Move(const real_t x, const real_t y, const real_t z /*= 0.0*/)
+void zDrawable::Move(const real_t x, const real_t y, const real_t z /*= 0.0*/)
 {
     m_Position = math::vector_t(x, y, z);
 }
 
-void CDrawable::AttachMaterial(gfx::CMaterial& Material)
+void zDrawable::AttachMaterial(gfx::zMaterial& Material)
 {
     m_Material.LoadEffect(Material.GetEffect().GetType());
     m_Material.LoadTexture(Material.GetTexture());
 }
 
-void CDrawable::RemoveMaterial()
+void zDrawable::RemoveMaterial()
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
-    m_Material.LoadTexture(CRenderer::GetDefaultTexture());
+    m_Material.LoadTexture(zRenderer::GetDefaultTexture());
 }
 
-void CDrawable::SetColor(const color4f_t& Color)
+void zDrawable::SetColor(const color4f_t& Color)
 {
     for(size_t i = 0; i < m_DrawData.vcount; ++i)
     {
@@ -97,12 +97,12 @@ void CDrawable::SetColor(const color4f_t& Color)
     }
 }
 
-bool CDrawable::Draw(const bool is_bound /*= false*/)
+bool zDrawable::Draw(const bool is_bound /*= false*/)
 {
     if(mp_VAO == nullptr && !is_bound)
     {
         // Create a vertex array and load our data.
-        mp_VAO = new CVertexArray(GL_STATIC_DRAW);
+        mp_VAO = new zVertexArray(GL_STATIC_DRAW);
         mp_VAO->Init();
         m_offset = mp_VAO->AddData(m_DrawData);
         if(!mp_VAO->Offload()) return false;
@@ -111,7 +111,7 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         mp_MVMatrix = new math::matrix4x4_t(math::
                                 matrix4x4_t::GetIdentityMatrix());
 
-        // So we can differentiate between a VAO from a `CScene`
+        // So we can differentiate between a VAO from a `zScene`
         // and the one we made ourselves.
         m_internal = true;
     }
@@ -132,14 +132,14 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
         // Bind our material. If we haven't set one, the default will be used.
         // We need a default texture because otherwise the color would
         // always be black due to the way the shader works.
-        gfx::CEffect& Effect = m_Material.GetEffect();
+        gfx::zEffect& Effect = m_Material.GetEffect();
         m_Material.Enable();
 
         // All effects have these parameters in the vertex shader.
         if(!Effect.SetParameter("mv", *mp_MVMatrix) ||
-           !Effect.SetParameter("proj", CRenderer::GetProjectionMatrix()))
+           !Effect.SetParameter("proj", zRenderer::GetProjectionMatrix()))
         {
-            CRenderer::ResetMaterialState();
+            zRenderer::ResetMaterialState();
             return false;
         }
     }
@@ -148,11 +148,11 @@ bool CDrawable::Draw(const bool is_bound /*= false*/)
                       INDEX_TYPE, (void*)(sizeof(index_t) * m_offset)));
 
     return !is_bound ?
-        (CRenderer::ResetMaterialState() && mp_VAO->Unbind()) :
+        (zRenderer::ResetMaterialState() && mp_VAO->Unbind()) :
         true;
 }
 
-void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO, const bool keep)
+void zDrawable::LoadIntoVAO(gfxcore::zVertexArray& VAO, const bool keep)
 {
     if(m_DrawData.Vertices == nullptr ||
        m_DrawData.Indices  == nullptr) return;
@@ -169,7 +169,7 @@ void CDrawable::LoadIntoVAO(gfxcore::CVertexArray& VAO, const bool keep)
     }
 }
 
-bool CDrawable::IsModifiable() const
+bool zDrawable::IsModifiable() const
 {
     return (mp_VAO == nullptr || !mp_VAO->Offloaded());
 }

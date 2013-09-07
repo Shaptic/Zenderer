@@ -35,7 +35,7 @@ static const string_t PONG_JOIN_PORT("2014");   // When joining.
 static const uint16_t MAX_PONG = sizeof(PongPacket)+254;
 static const uint16_t MIN_PONG = 9;
 
-util::CRandom<> RNG;
+util::zRandom<> RNG;
 math::vector_t make_ball();
 bool parse_msg(const string_t& data, PongPacket& P);
 string_t build_packet(PacketType type, const string_t& data);
@@ -48,25 +48,25 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 {
     if(!Init()) return 1;
 
-    asset::CAssetManager Assets; Assets.Init();
-    gfx::CWindow Main(800, 600, "Networked Pong 2.0", Assets);
+    asset::zAssetManager Assets; Assets.Init();
+    gfx::zWindow Main(800, 600, "Networked Pong 2.0", Assets);
 
     Main.Init();
 
-    gfx::CScene Field(Main.GetWidth(), Main.GetHeight(), Assets);
+    gfx::zScene Field(Main.GetWidth(), Main.GetHeight(), Assets);
 
     Field.Init();
     Field.EnableLighting();
     Field.DisablePostProcessing();
     Field.SetSeeThrough(false);
 
-    obj::CEntity& BG            = Field.AddEntity();
-    obj::CEntity& LeftPaddle    = Field.AddEntity();
-    obj::CEntity& RightPaddle   = Field.AddEntity();
-    obj::CEntity& Ball          = Field.AddEntity();
-    gfx::CLight& BallLight      = Field.AddLight(gfx::LightType::ZEN_POINT);
+    obj::zEntity& BG            = Field.AddEntity();
+    obj::zEntity& LeftPaddle    = Field.AddEntity();
+    obj::zEntity& RightPaddle   = Field.AddEntity();
+    obj::zEntity& Ball          = Field.AddEntity();
+    gfx::zLight& BallLight      = Field.AddLight(gfx::LightType::ZEN_POINT);
 
-    gfx::CQuad Paddle(Assets, 8, 64); Paddle.Create();
+    gfx::zQuad Paddle(Assets, 8, 64); Paddle.Create();
     Paddle.SetColor(color4f_t(1.0, 1.0, 1.0));
 
     LeftPaddle.AddPrimitive(Paddle);
@@ -95,7 +95,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     bool is_start = false;
 
     // Main menu.
-    gui::CMenu MainMenu(Main, Assets);
+    gui::zMenu MainMenu(Main, Assets);
     MainMenu.SetFont("assets/ttf/menu.ttf", 24);
     MainMenu.SetNormalButtonTextColor(color4f_t(1, 1, 1));
     MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 1));
@@ -107,7 +107,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     MainMenu.AddButton("Quit", [&Main](size_t)        { Main.Close();});
 
     util::CTimer Timer(60);
-    evt::CEventHandler& Evts = evt::CEventHandler::GetInstance();
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
     while(Main.IsOpen() && !(host || join))
     {
@@ -125,9 +125,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     }
 
     addr_t Connection;
-    net::CSocket Socket(net::SocketType::UDP);
+    net::zSocket Socket(net::SocketType::UDP);
 
-    gui::CFont& Font = *Assets.Create<gui::CFont>();
+    gui::zFont& Font = *Assets.Create<gui::zFont>();
     Font.AttachManager(Assets);
     Font.LoadFromFile("assets/ttf/menu.ttf");
     Font.SetColor(color4f_t(1.0, 1.0, 0.0));
@@ -137,7 +137,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         if(!Socket.Init("", PONG_JOIN_PORT)) { return 1; }
         Socket.SetNonblocking(true);
 
-        gui::CMenu HostList(Main, Assets);
+        gui::zMenu HostList(Main, Assets);
         HostList.SetFont("assets/ttf/menu.ttf");
         HostList.SetNormalButtonTextColor(color4f_t(1, 1, 1));
         HostList.SetActiveButtonTextColor(color4f_t(0, 1, 1));
@@ -145,7 +145,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         HostList.SetSpacing(32);
 
         // Add a title to the menu.
-        obj::CEntity& Title = HostList.AddEntity();
+        obj::zEntity& Title = HostList.AddEntity();
         HostList.RenderWithFont(Title, "Searching for hosts...");
         Title.Move(64, 10);
 
@@ -157,7 +157,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         Socket.SendBroadcast(call, PONG_HOST_PORT);
 
         // Loop until the user chooses a host.
-        evt::CEventHandler& Evts = evt::CEventHandler::GetInstance();
+        evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
         while(Main.IsOpen() && host == -1)
         {
             Timer.Start();
@@ -196,11 +196,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         // User chose a host?
         if(host != -1)
         {
-            gfx::CScene Prelim(Main.GetWidth(), Main.GetHeight(), Assets);
+            gfx::zScene Prelim(Main.GetWidth(), Main.GetHeight(), Assets);
             Prelim.Init();
             Prelim.DisableLighting();
 
-            obj::CEntity& Status = Prelim.AddEntity();
+            obj::zEntity& Status = Prelim.AddEntity();
 
             Font.ClearString();
             Font << "Attempting to join " << allHosts[host].first << "...";
@@ -293,10 +293,10 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     {
         if(!Socket.Init("", PONG_HOST_PORT))
         {
-            util::CLog& Log = util::CLog::GetEngineLog();
+            util::zLog& Log = util::zLog::GetEngineLog();
             Log << Log.SetMode(util::LogMode::ZEN_ERROR)
                 << Log.SetSystem("Socket") << "Failed to initialize socket: "
-                << Socket.GetError() << '.' << util::CLog::endl;
+                << Socket.GetError() << '.' << util::zLog::endl;
         }
         Socket.SetNonblocking(true);
 
@@ -304,11 +304,11 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         // loop to differentiate between who defers ball velocity creation.
         is_start = true;
 
-        gfx::CScene Waiter(Main.GetWidth(), Main.GetHeight(), Assets);
+        gfx::zScene Waiter(Main.GetWidth(), Main.GetHeight(), Assets);
         Waiter.Init();
         Waiter.DisableLighting();
 
-        obj::CEntity& Status = Waiter.AddEntity();
+        obj::zEntity& Status = Waiter.AddEntity();
         Font.Render(Status, "Awaiting player...");
         Status.Move(Main.GetWidth()  / 2 - Status.GetW() / 2,
                     Main.GetHeight() / 2 - Status.GetH() / 2);
@@ -321,7 +321,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 
         while(Main.IsOpen())
         {
-            evt::CEventHandler::PollEvents();
+            evt::zEventHandler::PollEvents();
 
             // Temporary receiving data.
             PongPacket resp;
@@ -378,30 +378,30 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         }
     }
 
-    obj::CEntity& NetStatus = Field.AddEntity();
-    obj::CEntity& Score     = Field.AddEntity();
+    obj::zEntity& NetStatus = Field.AddEntity();
+    obj::zEntity& Score     = Field.AddEntity();
     Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
-    
+
     // Now we have established a connection to another peer (host / client
     // is now irrelevant, except for creating the new ball velocity).
     // Every frame we check for socket data, pinging the client every second,
     // and send our paddle position if it has changed.
     uint32_t frame = 0;
     uint32_t last  = 0;
-    
+
     // Track the scores of both players.
-    math::Vector<uint16_t> Scores;
+    math::zVector<uint16_t> Scores;
     Font.ClearString();
     Font << Scores.x << "    |    " << Scores.y;
     Font.Render(Score);
-    
+
     // Create a near-black background for the light to properly render.
-    gfx::CQuad* pQuad = new gfx::CQuad(Assets, Main.GetWidth(),
+    gfx::zQuad* pQuad = new gfx::zQuad(Assets, Main.GetWidth(),
                                                Main.GetHeight());
     pQuad->Create().SetColor(color4f_t(0.1, 0.1, 0.1, 1.0));
     BG.AddPrimitive(*pQuad);
     delete pQuad;
-    
+
     // Network status.
     bool losing = false, lost = false, kk = false;
     bool scored = false;
@@ -467,7 +467,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
                     Field.ToggleLighting();
 
                 else if(Evt.key.key == evt::Key::M)
-                    gfxcore::CRenderer::ToggleWireframe();
+                    gfxcore::zRenderer::ToggleWireframe();
 
                 else if(Evt.key.key == evt::Key::P)
                     Field.TogglePostProcessing();
@@ -676,7 +676,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 
 math::vector_t make_ball()
 {
-    math::Vector<int8_t> dirs(RNG.randint(-1, 1), RNG.randint(-1, 1));
+    math::zVector<int8_t> dirs(RNG.randint(-1, 1), RNG.randint(-1, 1));
     if(dirs.x == 0) dirs.x = -1;
     if(dirs.y == 0) dirs.y = -1;
 

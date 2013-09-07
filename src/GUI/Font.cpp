@@ -2,44 +2,44 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gui::CFont;
+using gui::zFont;
 
-gfx::CEffect* CFont::s_FontFx = nullptr;
+gfx::zEffect* zFont::s_FontFx = nullptr;
 
-CFont::CFont(const void* const owner) :
-    CAsset(owner), mp_Assets(nullptr),
+zFont::zFont(const void* const owner) :
+    zAsset(owner), mp_Assets(nullptr),
     m_Color(0.0, 0.0, 0.0, 1.0),
     m_size(18), m_height(0), m_stack(false)
 {}
 
-CFont::~CFont()
+zFont::~zFont()
 {
     this->Destroy();
 }
 
-bool CFont::LoadFromFile(const string_t& filename)
+bool zFont::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "Asset manager MUST be attached!");
     if(s_FontFx == nullptr)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Internal font rendering effect not loaded. "
-                << "Check the log for error details." << CLog::endl;
+                << "Check the log for error details." << zLog::endl;
         return (m_loaded = false);
     }
 
     // Logging.
     m_Log   << m_Log.SetMode(LogMode::ZEN_INFO) << m_Log.SetSystem("FreeType")
-            << "Loading font '" << filename << "'." << CLog::endl;
+            << "Loading font '" << filename << "'." << zLog::endl;
 
-    const gui::CFontLibrary& Lib = gui::CFontLibrary::InitFreetype();
+    const gui::zFontLibrary& Lib = gui::zFontLibrary::InitFreetype();
 
     if(!Lib.IsInit())
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
-                << "FreeType2 API is not initialized." << CLog::endl;
+                << "FreeType2 API is not initialized." << zLog::endl;
         return (m_loaded = false);
     }
 
@@ -49,7 +49,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     if(FT_New_Face(Lib.GetLibrary(), filename.c_str(), 0, &m_FontFace) != 0)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << "Failed to load '" << filename << "'." << CLog::endl;
+                << "Failed to load '" << filename << "'." << zLog::endl;
 
         return (m_loaded = false);
     }
@@ -61,7 +61,7 @@ bool CFont::LoadFromFile(const string_t& filename)
     if(FT_Set_Char_Size(m_FontFace, m_size << 6, m_size << 6, 96, 96) != 0)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << "Failed to set font size." << CLog::endl;
+                << "Failed to set font size." << zLog::endl;
         return (m_loaded = false);
     }
 
@@ -80,7 +80,7 @@ bool CFont::LoadFromFile(const string_t& filename)
         if(index == 0)
         {
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) << "Character '" << s
-                    << "' does not exist for this font." << CLog::endl;
+                    << "' does not exist for this font." << zLog::endl;
         }
 
         this->LoadGlyph(s, (!index) ? space : index);
@@ -92,29 +92,29 @@ bool CFont::LoadFromFile(const string_t& filename)
     return (m_loaded = FT_Done_Face(m_FontFace) == 0);
 }
 
-const void* const CFont::GetData() const
+const void* const zFont::GetData() const
 {
     return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
-bool CFont::Render(obj::CEntity& Ent,
+bool zFont::Render(obj::zEntity& Ent,
                    const string_t& to_render /*=""*/) const
 {
-    gfxcore::CTexture& Texture = *mp_Assets->Create<gfxcore::CTexture>();
+    gfxcore::zTexture& Texture = *mp_Assets->Create<gfxcore::zTexture>();
     if(!this->Render(Texture, to_render))
     {
         mp_Assets->Delete(&Texture);
         return false;
     }
 
-    gfx::CMaterial M(*mp_Assets);
+    gfx::zMaterial M(*mp_Assets);
     if(!M.LoadTexture(Texture))
     {
         mp_Assets->Delete(&Texture);
         return false;
     }
 
-    gfx::CQuad Q(*mp_Assets, Texture.GetWidth(), Texture.GetHeight());
+    gfx::zQuad Q(*mp_Assets, Texture.GetWidth(), Texture.GetHeight());
     Q.AttachMaterial(M);
     Q.Create();
     Q.SetColor(color4f_t());
@@ -124,7 +124,7 @@ bool CFont::Render(obj::CEntity& Ent,
     return true;
 }
 
-bool CFont::Render(gfxcore::CTexture& Texture,
+bool zFont::Render(gfxcore::zTexture& Texture,
                    const string_t& to_render /*=""*/) const
 {
 ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
@@ -133,7 +133,7 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     if(text.empty() || !m_loaded || s_FontFx == nullptr) return false;
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("FreeType")
-            << "Rendering text string '" << text << "'." << CLog::endl;
+            << "Rendering text string '" << text << "'." << zLog::endl;
 
     // 4 vertices for each character, and 6 indices for
     // each character.
@@ -152,7 +152,7 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     // any, we stop max()-ing the bearing.
     // Thus the (0, 0, 1) coordinate is the top of the line. Any subsequent
     // lines just add their height to the y coordinate and keep rendering.
-    math::Vector<int16_t> Pos;
+    math::zVector<int16_t> Pos;
 
     for(auto& i : text)
     {
@@ -247,8 +247,8 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     // Render all of the loaded data onto a texture,
     // then assign that texture to the entity.
     gfxcore::DrawBatch D;
-    gfxcore::CVertexArray VAO(GL_STATIC_DRAW);
-    gfx::CRenderTarget FBO(totals.x, totals.y);
+    gfxcore::zVertexArray VAO(GL_STATIC_DRAW);
+    gfx::zRenderTarget FBO(totals.x, totals.y);
 
     D.Vertices = verts;
     D.vcount   = vlen;
@@ -269,12 +269,12 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     FBO.Bind();
 
     s_FontFx->Enable();
-    s_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
+    s_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
 
-    bool blend = gfxcore::CRenderer::BlendOperation(
+    bool blend = gfxcore::zRenderer::BlendOperation(
         gfxcore::BlendFunc::IS_ENABLED);
 
-    gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+    gfxcore::zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 
     for(size_t i = 0, j = text.length(); i < j; ++i)
     {
@@ -291,11 +291,11 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     }
 
     FBO.Unbind();
-    gfxcore::CRenderer::ResetMaterialState();
+    gfxcore::zRenderer::ResetMaterialState();
 
     // Only disable blending if it wasn't enabled prior to calling
     // this method (checked above).
-    if(!blend) gfxcore::CRenderer::BlendOperation(
+    if(!blend) gfxcore::zRenderer::BlendOperation(
                           gfxcore::BlendFunc::DISABLE_BLEND);
 
     // Now the string has been rendered to the FBO texture, so all we need to
@@ -310,12 +310,12 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     return FBO.Destroy() && VAO.Destroy();
 }
 
-void CFont::ClearString()
+void zFont::ClearString()
 {
     m_str.str(std::string());
 }
 
-bool CFont::Destroy()
+bool zFont::Destroy()
 {
     m_size = 18;
     for(auto i : m_glyphData)
@@ -325,7 +325,7 @@ bool CFont::Destroy()
     return true;
 }
 
-bool CFont::LoadGlyph(const char c, const uint16_t index)
+bool zFont::LoadGlyph(const char c, const uint16_t index)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     FT_Glyph g;
@@ -346,7 +346,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     if(w == 0 || h == 0)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << "No character bitmap for '" << c << '\'' << CLog::endl;
+                << "No character bitmap for '" << c << '\'' << zLog::endl;
     }
 
     // Create the OpenGL texture and store the FreeType bitmap
@@ -357,7 +357,7 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 
-    gfxcore::CTexture* pTexture = mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
+    gfxcore::zTexture* pTexture = mp_Assets->Create<gfxcore::zTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     std::stringstream ss;
     ss << 's' << m_size << " bitmap for '" << c
@@ -369,8 +369,8 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     // Store the glyph internally.
     glyph_t glyph;
     glyph.texture   = pTexture;
-    glyph.size      = math::Vector<uint32_t>(w, h);
-    glyph.position  = math::Vector<int32_t>(slot->metrics.horiBearingX >> 6,
+    glyph.size      = math::zVector<uint32_t>(w, h);
+    glyph.position  = math::zVector<int32_t>(slot->metrics.horiBearingX >> 6,
                                             slot->metrics.horiBearingY >> 6);
     glyph.advance   = slot->advance.x >> 6;
     m_glyphData[c]  = glyph;
@@ -381,12 +381,12 @@ bool CFont::LoadGlyph(const char c, const uint16_t index)
     return true;
 }
 
-bool CFont::AttachManager(asset::CAssetManager& Assets)
+bool zFont::AttachManager(asset::zAssetManager& Assets)
 {
     mp_Assets = &Assets;
     if(s_FontFx == nullptr)
     {
-        s_FontFx = new gfx::CEffect(gfx::EffectType::SPRITESHEET, Assets);
+        s_FontFx = new gfx::zEffect(gfx::EffectType::SPRITESHEET, Assets);
         if(!s_FontFx->Init())
         {
             delete s_FontFx;
@@ -395,7 +395,7 @@ bool CFont::AttachManager(asset::CAssetManager& Assets)
         }
 
         s_FontFx->Enable();
-        s_FontFx->SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
+        s_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
         s_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
         s_FontFx->Disable();
     }
@@ -403,17 +403,17 @@ bool CFont::AttachManager(asset::CAssetManager& Assets)
     return true;
 }
 
-void CFont::SetColor(const color4f_t& Color)
+void zFont::SetColor(const color4f_t& Color)
 {
     m_Color = Color;
 }
 
-void CFont::SetStacking(const bool flag)
+void zFont::SetStacking(const bool flag)
 {
     m_stack = flag;
 }
 
-uint16_t CFont::GetTextWidth(const string_t& text) const
+uint16_t zFont::GetTextWidth(const string_t& text) const
 {
     if(text.empty()) return 0;
 
@@ -441,7 +441,7 @@ uint16_t CFont::GetTextWidth(const string_t& text) const
     return math::max<uint16_t>(w, tmp_w);
 }
 
-uint16_t CFont::GetTextHeight(const string_t& text) const
+uint16_t zFont::GetTextHeight(const string_t& text) const
 {
     if(text.empty()) return 0;
 

@@ -102,13 +102,13 @@ namespace net
     enum class SocketType { TCP, UDP, RAW };
 
     /// A low-level socket wrapper.
-    class ZEN_API CSocket
+    class ZEN_API zSocket
     {
     public:
-        CSocket(const SocketType& Type) : m_Type(Type),
-            m_socket(-1), m_Log(util::CLog::GetEngineLog()) {}
+        zSocket(const SocketType& Type) : m_Type(Type),
+            m_socket(-1), m_Log(util::zLog::GetEngineLog()) {}
 
-        virtual ~CSocket() { this->Destroy(); }
+        virtual ~zSocket() { this->Destroy(); }
 
         static bool InitializeLibrary();
 
@@ -184,7 +184,7 @@ namespace net
         static in_addr GetAddress(const string_t& ip);
 
         static bool s_init;
-        util::CLog& m_Log;
+        util::zLog& m_Log;
         SocketType m_Type;
         int m_socket;
     };
@@ -194,7 +194,7 @@ namespace net
 #endif // ZENDERER__NETWORK__SOCKET_HPP
 
 /**
- * @class   zen::net::CSocket
+ * @class   zen::net::zSocket
  * @details
  *  This API provides a low-level abstraction layer over a lot of unwieldy
  *  and OS-dependant socket I/O operations.
@@ -211,7 +211,7 @@ namespace net
  * #include "Zenderer/Network/Socket.hpp"
  * using namespace zen::net;
  *
- * CSocket Client(PacketType::UDP);
+ * zSocket Client(PacketType::UDP);
  * Client.Init("", "6969");
  * Client.SendTo("localhost", "7000", "Hello, Server!");
  * Client.Destroy();
@@ -222,7 +222,7 @@ namespace net
  * #include "Zenderer/Network/Socket.hpp"
  * using namespace zen::net;
  *
- * CSocket Server(PacketType::UDP);
+ * zSocket Server(PacketType::UDP);
  * Server.Init("", "7000");
  * zen::string_t addr, port;
  * zen::string_t data = Server.RecvFrom(1024, addr, port);

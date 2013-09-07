@@ -80,14 +80,14 @@ namespace util
 
     /// A minimalistic XML parser that expects near-perfection from the user.
     /// @todo   Fix XMLNode parent setting
-    class ZEN_API CXMLParser
+    class ZEN_API zXMLParser
     {
     public:
         /// Does nothing.
-        CXMLParser();
+        zXMLParser();
 
         /// Clears the internal XML tree.
-        ~CXMLParser();
+        ~zXMLParser();
 
         /// Loads and parses an XML file from disk.
         bool LoadFromFile(const string_t& filename);
@@ -137,25 +137,25 @@ namespace util
                        std::function<int(const size_t, XMLNode*)> callback);
 
         XMLList_t m_XMLTree;
-        CLog& m_Log;
+        zLog& m_Log;
     };
 
-    XMLList_t::iterator CXMLParser::begin()
+    XMLList_t::iterator zXMLParser::begin()
     {
         return m_XMLTree.begin();
     }
 
-    const XMLList_t::const_iterator CXMLParser::cbegin() const
+    const XMLList_t::const_iterator zXMLParser::cbegin() const
     {
         return m_XMLTree.cbegin();
     }
 
-    XMLList_t::iterator CXMLParser::end()
+    XMLList_t::iterator zXMLParser::end()
     {
         return m_XMLTree.end();
     }
 
-    const XMLList_t::const_iterator CXMLParser::cend() const
+    const XMLList_t::const_iterator zXMLParser::cend() const
     {
         return m_XMLTree.cend();
     }
@@ -165,7 +165,7 @@ namespace util
 // Detailed Doxygen documentation.
 
 /**
- * @class   zen::util::CXMLParser
+ * @class   zen::util::zXMLParser
  *
  * @details
  *  This parser is definitely not W3C compliant and will only accept

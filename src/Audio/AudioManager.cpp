@@ -2,19 +2,19 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-using sfx::CAudioManager;
+using sfx::zAudioManager;
 
-uint32_t    CAudioManager::s_available[256];
-bool        CAudioManager::s_init = false;
+uint32_t    zAudioManager::s_available[256];
+bool        zAudioManager::s_init = false;
 
-bool CAudioManager::Init()
+bool zAudioManager::Init()
 {
-    if(!CAudioManager::IsInit())
+    if(!zAudioManager::IsInit())
     {
-        memset(s_available, 0, CAudioManager::AVAILABLE_BUFFERS);
+        memset(s_available, 0, zAudioManager::AVAILABLE_BUFFERS);
 
         alutInit(NULL, NULL);
         if(alutGetError() != ALUT_ERROR_NO_ERROR)
@@ -29,7 +29,7 @@ bool CAudioManager::Init()
     return s_init;
 }
 
-int CAudioManager::GetAvailableSourceIndex()
+int zAudioManager::GetAvailableSourceIndex()
 {
     static uint16_t last = 0;
 
@@ -57,24 +57,24 @@ int CAudioManager::GetAvailableSourceIndex()
     return -1;
 }
 
-int CAudioManager::GetAvailableSource(const uint16_t index)
+int zAudioManager::GetAvailableSource(const uint16_t index)
 {
     ZEN_ASSERT(index >= 0 && index < AVAILABLE_BUFFERS);
 
     return s_available[index];
 }
 
-ALuint CAudioManager::CreateSource()
+ALuint zAudioManager::CreateSource()
 {
-    CLog& g_EngineLog = CLog::GetEngineLog();
+    zLog& g_EngineLog = zLog::GetEngineLog();
 
-    int index = CAudioManager::GetAvailableSourceIndex();
+    int index = zAudioManager::GetAvailableSourceIndex();
 
     if(index == -1)
     {
         g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
                     << g_EngineLog.SetSystem("Audio")
-                    << "OpenAL source limit reached." << CLog::endl;
+                    << "OpenAL source limit reached." << zLog::endl;
         return 0;
     }
 
@@ -82,7 +82,7 @@ ALuint CAudioManager::CreateSource()
     return s_available[index];
 }
 
-bool CAudioManager::FreeSource(ALuint src)
+bool zAudioManager::FreeSource(ALuint src)
 {
     if(!src) return true;
 
@@ -99,7 +99,7 @@ bool CAudioManager::FreeSource(ALuint src)
     return false;
 }
 
-bool CAudioManager::alCheck(const char*     expr,
+bool zAudioManager::alCheck(const char*     expr,
                             const uint32_t  line,
                             const char*     file)
 {
@@ -122,9 +122,9 @@ bool CAudioManager::alCheck(const char*     expr,
     return false;
 }
 
-void CAudioManager::OGGError(const int error_code)
+void zAudioManager::OGGError(const int error_code)
 {
-    CLog& g_EngineLog = CLog::GetEngineLog();
+    zLog& g_EngineLog = zLog::GetEngineLog();
 
     g_EngineLog << g_EngineLog.SetMode(LogMode::ZEN_ERROR)
                 << g_EngineLog.SetSystem("Audio")
@@ -157,10 +157,10 @@ void CAudioManager::OGGError(const int error_code)
         break;
     }
 
-    g_EngineLog << ")." << CLog::endl;
+    g_EngineLog << ")." << zLog::endl;
 }
 
-bool CAudioManager::IsInit()
+bool zAudioManager::IsInit()
 {
     return s_init;
 }

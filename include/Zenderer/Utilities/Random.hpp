@@ -35,10 +35,10 @@ namespace util
 {
     /// Facilitates simplification of random number generation.
     template<int SEED = 0, typename RNG = std::mt19937>
-    class ZEN_API CRandom
+    class ZEN_API zRandom
     {
     public:
-        CRandom()
+        zRandom()
         {
             m_RNG.seed(SEED == 0 ? time(nullptr) : SEED);
         }
@@ -105,7 +105,7 @@ namespace util
 #endif // ZENDERER__UTILITIES__RANDOM_HPP
 
 /**
- * @class zen::util::CRandom
+ * @class zen::util::zRandom
  * @details
  *  This object provides a thin abstraction layer over the C++11
  *  `<random>` implementation. It removes the cumbersome instantiation of
@@ -124,17 +124,17 @@ namespace util
  *  int r = Range(Mersenne);
  *
  *  // Zenderer
- *  util::CRandom<0, std::mt19937> Mersenne;
+ *  util::zRandom<0, std::mt19937> Mersenne;
  *  int r = Mersenne.randint(1, 10);
  *
  *  // Zenderer with defaults
- *  util::CRandom<> Mersenne;   // Uses std::mt19937 by default.
+ *  util::zRandom<> Mersenne;   // Uses std::mt19937 by default.
  *  int r = Mersenne.randint(1, 10);
  *  @endcode
  *
  *  As you can see, there are no longer complex template names and
  *  parameters to remember. There is merely the optional seed
- *  as the first parameter to util::CRandom, and the optional
+ *  as the first parameter to util::zRandom, and the optional
  *  random-number generating engine as the second parameter.
  *
  * @example Random
@@ -144,9 +144,9 @@ namespace util
  *  Preliminary code:
  *  @code
  *  #include "Zenderer/Utilities/Random.hpp"
- *  using zen::util::CRandom;
+ *  using zen::util::zRandom;
  *
- *  CRandom<> Generator;
+ *  zRandom<> Generator;
  *  @endcode
  *
  * @subsection int  Integers

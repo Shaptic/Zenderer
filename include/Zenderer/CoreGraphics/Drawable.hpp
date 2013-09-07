@@ -33,14 +33,14 @@
 
 namespace zen
 {
-namespace obj { class ZEN_API CEntity; }
+namespace obj { class ZEN_API zEntity; }
 namespace gfxcore
 {
     /// An abstract base class for all drawable primitives.
-    class ZEN_API CDrawable
+    class ZEN_API zDrawable
     {
     public:
-        CDrawable(asset::CAssetManager&);
+        zDrawable(asset::zAssetManager&);
 
         /**
          * Creates an instance from another instance.
@@ -57,19 +57,19 @@ namespace gfxcore
          *
          * @see     gfxcore::DrawBatch
          **/
-        CDrawable(const CDrawable& Copy);
-        CDrawable(CDrawable&& Copy);
+        zDrawable(const zDrawable& Copy);
+        zDrawable(zDrawable&& Copy);
 
         // These are disabled due to the asset manager reference
         // not able to being copied (dat wording).
-        //CDrawable& operator=(const CDrawable& Copy) = delete;
-        //CDrawable& operator=(CDrawable&& Copy) = delete;
+        //zDrawable& operator=(const zDrawable& Copy) = delete;
+        //zDrawable& operator=(zDrawable&& Copy) = delete;
 
-        virtual ~CDrawable();
+        virtual ~zDrawable();
 
         /// Creates initial vertex structure.
         /// @return Reference to itself for easy chaining.
-        virtual CDrawable& Create() = 0;
+        virtual zDrawable& Create() = 0;
 
         /**
          * Moves the drawable to a certain location.
@@ -82,7 +82,7 @@ namespace gfxcore
         void Move(const math::vector_t& Position);
 
         /// @overload
-        /// @todo   Make it work properly when `CQuad` is inverted.
+        /// @todo   Make it work properly when `zQuad` is inverted.
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
 
         /**
@@ -99,7 +99,7 @@ namespace gfxcore
          *
          * @note    I promise the given material won't be modified.
          **/
-        void AttachMaterial(gfx::CMaterial& Material);
+        void AttachMaterial(gfx::zMaterial& Material);
 
         /// Reverts to using the default material.
         void RemoveMaterial();
@@ -111,7 +111,7 @@ namespace gfxcore
          * Draws the primitive on-screen.
          *  This implements the technique described above. If there is no
          *  "owner" of the primitive (meaning no scene has set the internal
-         *  data), it will automatically create a CVertexArray instance,
+         *  data), it will automatically create a zVertexArray instance,
          *  a model-view matrix, and will use the default shader set.
          *  This data will be re-used time after time on subsequent Draw()
          *  calls, not recreated every time.
@@ -141,20 +141,20 @@ namespace gfxcore
          * @param   VAO         The vertex array to store data into
          * @param   preserve    Should we keep our local vertex data?
          **/
-        void LoadIntoVAO(gfxcore::CVertexArray& VAO,
+        void LoadIntoVAO(gfxcore::zVertexArray& VAO,
                          const bool preserve = true);
 
         /// For setting things implicitly.
-        friend class ZEN_API obj::CEntity;
+        friend class ZEN_API obj::zEntity;
 
     private:
-        asset::CAssetManager& m_Assets;
+        asset::zAssetManager& m_Assets;
         math::matrix4x4_t*  mp_MVMatrix;
-        CVertexArray*       mp_VAO;
+        zVertexArray*       mp_VAO;
         index_t             m_offset;
 
     protected:
-        gfx::CMaterial      m_Material;
+        gfx::zMaterial      m_Material;
         math::vector_t      m_Position;
         DrawBatch           m_DrawData;
         bool                m_internal;
@@ -165,14 +165,14 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__DRAWABLE_HPP
 
 /**
- * @class zen::gfxcore::CDrawable
+ * @class zen::gfxcore::zDrawable
  *
  * @details
  *  There are two ways to create renderable objects in @a Zenderer.
  *
- *  Firstly is through the `zen::gfx::CScene` class and its respective
+ *  Firstly is through the `zen::gfx::zScene` class and its respective
  *  `AddPrimitive()` or `AddEntity()` methods. This will attach an
- *  internal `zen::gfxcore::CVertexArray` object that stores scene
+ *  internal `zen::gfxcore::zVertexArray` object that stores scene
  *  geometry. The scene itself takes care of the actual drawing, but
  *  the user can still call the `Drawable::Draw()` method if they
  *  want to do it again, post-render.

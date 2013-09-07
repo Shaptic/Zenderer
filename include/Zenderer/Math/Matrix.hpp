@@ -23,7 +23,7 @@
 #ifndef ZENDERER__MATH__MATRIX_HPP
 #define ZENDERER__MATH__MATRIX_HPP
 
-#include "Vector.hpp"
+#include "zVector.hpp"
 
 namespace zen
 {
@@ -86,7 +86,7 @@ namespace math
          *           /               |              \
          *          /                |               \
          *
-         * @param   Angles  Vector containing x, y, and z shear angles (in deg)
+         * @param   Angles  zVector containing x, y, and z shear angles (in deg)
          *
          * @note    Only 2D shears are supported (X and Y directions).
          * @todo    Add 3D shearing.
@@ -147,7 +147,7 @@ namespace math
          * @note    Multiplying matrix transformations performs the operations
          *          in the reverse order in which they are multiplied.
          *
-         * @see     Vector::Rotate
+         * @see     zVector::Rotate
          * @see     http://people.cs.clemson.edu/~dhouse/courses/401/notes/affines-matrices.pdf
          **/
         inline void RotationZ(const real_t degrees)

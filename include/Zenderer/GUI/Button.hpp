@@ -30,12 +30,12 @@ namespace zen
 {
 namespace gui
 {
-    class ZEN_API CButton
+    class ZEN_API zButton
     {
     public:
-        CButton(gfx::CScene& MenuScene);
+        zButton(gfx::zScene& MenuScene);
 
-        ~CButton();
+        ~zButton();
 
         void Place(const math::vector_t& Pos);
         void Place(const real_t x, const real_t y);
@@ -48,17 +48,17 @@ namespace gui
         void SetActive();
         void SetDefault();
 
-        void SetFont(CFont& Font);
+        void SetFont(zFont& Font);
         void SetActiveColor(const color4f_t& active);
         void SetNormalColor(const color4f_t& normal);
-        void SetBackground(const obj::CEntity& Bg);
+        void SetBackground(const obj::zEntity& Bg);
 
     private:
-        gfx::CScene&    m_Scene;
-        obj::CEntity&   m_Active;
-        obj::CEntity&   m_Normal;
-        obj::CEntity*   mp_Current;
-        gui::CFont*     mp_Font;
+        gfx::zScene&    m_Scene;
+        obj::zEntity&   m_Active;
+        obj::zEntity&   m_Normal;
+        obj::zEntity*   mp_Current;
+        gui::zFont*     mp_Font;
 
         color4f_t m_acolor, m_ncolor;
     };
@@ -68,12 +68,12 @@ namespace gui
 #endif  // ZENDERER__GUI__BUTTON_HPP
 
 /**
- * @class zen::gui::CButton
+ * @class zen::gui::zButton
  * @details
  *  A wrapper for a menu button that allows for text to be easily
  *  rendered on top of a background, and to easily add effects when
  *  some sort of event occurs, like mouse-over.
- *  This is used internally by zen::gui::CMenu to easily create
+ *  This is used internally by zen::gui::zMenu to easily create
  *  dynamic and clean menus, and likely shouldn't really be touched
  *  on its own.
  **/

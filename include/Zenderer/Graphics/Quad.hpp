@@ -30,16 +30,16 @@ namespace zen
 namespace gfx
 {
     /// A four-sided quadrilateral primitive.
-    class ZEN_API CQuad : public gfxcore::CDrawable
+    class ZEN_API zQuad : public gfxcore::zDrawable
     {
     public:
-        CQuad(asset::CAssetManager&, const math::rect_t& Size);
-        CQuad(asset::CAssetManager&, const uint16_t w, const uint16_t h);
-        CQuad(const CQuad& Copy);
+        zQuad(asset::zAssetManager&, const math::rect_t& Size);
+        zQuad(asset::zAssetManager&, const uint16_t w, const uint16_t h);
+        zQuad(const zQuad& Copy);
 
-        ~CQuad();
+        ~zQuad();
 
-        virtual CDrawable& Create();
+        virtual zDrawable& Create();
 
         /**
          * Resizes the quad to a new dimension.
@@ -100,7 +100,7 @@ namespace gfx
 
         inline uint16_t GetW()                  const { return m_Size.x;    }
         inline uint16_t GetH()                  const { return m_Size.y;    }
-        inline const CMaterial& GetMaterial()   const { return m_Material;  }
+        inline const zMaterial& GetMaterial()   const { return m_Material;  }
 
     private:
         void LoadRegularVertices();     // Standard quad
@@ -108,7 +108,7 @@ namespace gfx
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
 
-        math::Vector<uint16_t> m_Size;
+        math::zVector<uint16_t> m_Size;
         bool m_inv, m_rep;
     };
 }   // namespace gfx
@@ -117,10 +117,10 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__QUAD_HPP
 
 /**
- * @class zen::gfx::CQuad
+ * @class zen::gfx::zQuad
  * @details
  *  Quads are the essential drawing primitive behind @a Zenderer. They are used
- *  internally by zen::obj::CEntity instances, which just attach materials to
+ *  internally by zen::obj::zEntity instances, which just attach materials to
  *  one or more of them and draw them on-screen using the standard
  *  implementation.
  **/

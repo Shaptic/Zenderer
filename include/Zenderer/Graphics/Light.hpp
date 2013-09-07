@@ -40,7 +40,7 @@ namespace gfx
     };
 
     /// Represents a light object acting on a graphical scene.
-    class ZEN_API CLight
+    class ZEN_API zLight
     {
     public:
         /**
@@ -53,11 +53,11 @@ namespace gfx
          * @param   Type        The light type you want
          * @param   window_h    The height of the OpenGL context
          **/
-        CLight(asset::CAssetManager& m_Assets,
+        zLight(asset::zAssetManager& m_Assets,
                const LightType& Type,
                const uint16_t window_h);
 
-        ~CLight();
+        ~zLight();
 
         bool Init();
         bool IsInit() const;
@@ -93,7 +93,7 @@ namespace gfx
 
         // We don't use the high-level effect to get more control
         // and minimize uniform parameter lookups.
-        gfxcore::CShaderSet m_Shader;
+        gfxcore::zShaderSet m_Shader;
 
         math::vector_t  m_Att, m_Position, m_Max, m_Min;
         color3f_t       m_Color;
@@ -116,14 +116,14 @@ namespace gfx
     };
 
     // Shortcut for light containers.
-    typedef std::vector<CLight*> LightSet_t;
+    typedef std::vector<zLight*> LightSet_t;
 }   // namespace gfx
 }   // namespace zen
 
 #endif // ZENDERER__GRAPHICS__LIGHT_HPP
 
 /**
- * @class zen::gfx::CLight
+ * @class zen::gfx::zLight
  * @details
  *  Each lighting type has its own special variables and parameters
  *  that can be modified and accessed. See the raw shader files to learn

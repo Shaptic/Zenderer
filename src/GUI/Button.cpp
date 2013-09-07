@@ -1,34 +1,34 @@
 #include "Zenderer/GUI/Button.hpp"
 
 using namespace zen;
-using gui::CButton;
+using gui::zButton;
 
-CButton::CButton(gfx::CScene& MenuScene) :
+zButton::zButton(gfx::zScene& MenuScene) :
     m_Scene(MenuScene), m_Active(m_Scene.AddEntity()),
     m_Normal(m_Scene.AddEntity()), mp_Current(&m_Normal),
     mp_Font(nullptr)
 {
 }
 
-CButton::~CButton()
+zButton::~zButton()
 {
     m_Scene.RemoveEntity(m_Active);
     m_Scene.RemoveEntity(m_Normal);
 }
 
-void CButton::Place(const math::vector_t& Pos)
+void zButton::Place(const math::vector_t& Pos)
 {
     m_Active.Move(Pos);
     m_Normal.Move(Pos);
 }
 
-void CButton::Place(const real_t x, const real_t y)
+void zButton::Place(const real_t x, const real_t y)
 {
     m_Active.Move(x, y);
     m_Normal.Move(x, y);
 }
 
-bool CButton::Prepare(const string_t& text)
+bool zButton::Prepare(const string_t& text)
 {
     if(mp_Font == nullptr && mp_Current == nullptr || text.empty()) return false;
 
@@ -39,20 +39,20 @@ bool CButton::Prepare(const string_t& text)
     return ret && mp_Font->Render(m_Active, text);
 }
 
-bool CButton::IsOver(const math::vector_t& Pos)
+bool zButton::IsOver(const math::vector_t& Pos)
 {
     return this->IsOver(math::aabb_t(
-        Pos, math::Vector<uint32_t>(2, 2))
+        Pos, math::zVector<uint32_t>(2, 2))
     );
 }
 
-bool CButton::IsOver(const math::aabb_t& Box)
+bool zButton::IsOver(const math::aabb_t& Box)
 {
     return (mp_Current != nullptr && mp_Font != nullptr &&
             mp_Current->GetBox().collides(Box));
 }
 
-void CButton::SetActive()
+void zButton::SetActive()
 {
     if(!mp_Font || mp_Current == &m_Active) return;
 
@@ -61,7 +61,7 @@ void CButton::SetActive()
     mp_Current->Enable();
 }
 
-void CButton::SetDefault()
+void zButton::SetDefault()
 {
     if(!mp_Font || mp_Current == &m_Normal) return;
 
@@ -70,23 +70,23 @@ void CButton::SetDefault()
     mp_Current->Enable();
 }
 
-void CButton::SetFont(gui::CFont& Font)
+void zButton::SetFont(gui::zFont& Font)
 {
     Font.SetStacking(true);
     mp_Font = &Font;
 }
 
-void CButton::SetActiveColor(const color4f_t& active)
+void zButton::SetActiveColor(const color4f_t& active)
 {
     m_acolor = active;
 }
 
-void CButton::SetNormalColor(const color4f_t& normal)
+void zButton::SetNormalColor(const color4f_t& normal)
 {
     m_ncolor = normal;
 }
 
-void CButton::SetBackground(const obj::CEntity& Bg)
+void zButton::SetBackground(const obj::zEntity& Bg)
 {
     auto i = Bg.cbegin(), j = Bg.cend();
     for( ; i != j; ++i)

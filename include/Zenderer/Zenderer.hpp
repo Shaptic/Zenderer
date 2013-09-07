@@ -274,8 +274,8 @@ namespace zen
  *      really cares about. The graphics component of @a Zenderer is set up
  *      on a scene basis. A scene is an object that contains a vertex
  *      buffer for geometry, a render target to draw to, lists of
- *      post-processing effects (see zen::gfx::CEffect for more), lists of
- *      lights (zen::gfx::CLight), and of course lists of drawable objects
+ *      post-processing effects (see zen::gfx::zEffect for more), lists of
+ *      lights (zen::gfx::zLight), and of course lists of drawable objects
  *      to render to the screen. Though viewing the raw source may be more
  *      beneficial than a textual explanation, the rendering process is
  *      outlined here.
@@ -393,8 +393,8 @@ namespace zen
  *  would be equivalent to the following API code:
  *
  *  @code
- *  CQuad Q1, Q2;
- *  CMaterial M1, M2;
+ *  zQuad Q1, Q2;
+ *  zMaterial M1, M2;
  *
  *  // Set up the first primitive.
  *  M1.LoadTextureFromFile("textures/grass.png");
@@ -413,7 +413,7 @@ namespace zen
  *  M2.LoadTextureFromFile("textures/dirt.png");
  *  Q2.AttachMaterial(M2);
  *
- *  CEntity E;
+ *  zEntity E;
  *  E.AddPrimitive(Q1);
  *  E.AddPrimitive(Q2);
  *  E.Create();
@@ -514,8 +514,8 @@ namespace zen
  *  The `primcount` option will allow for a tiny speed up in loading, but will
  *  only make a real difference if the entity contains dozens of primitives.
  *
- *  @see    zen::gfx::CQuad::SetInverted()
- *  @see    zen::gfx::CQuad::SetRepeating()
+ *  @see    zen::gfx::zQuad::SetInverted()
+ *  @see    zen::gfx::zQuad::SetRepeating()
  *
  *  @subsubsection  ZEntEx  Example File
  *  @code{.ini}

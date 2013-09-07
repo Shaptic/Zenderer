@@ -1,11 +1,11 @@
 #include "Zenderer/GUI/Menu.hpp"
 
 using namespace zen;
-using gui::CMenu;
+using gui::zMenu;
 
-CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
+zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets) :
     m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),
-    mp_Font(Assets.Create<gui::CFont>()),
+    mp_Font(Assets.Create<gui::zFont>()),
     mp_Bg(nullptr), m_spacing(0)
 {
     m_Scene.Init();
@@ -15,19 +15,19 @@ CMenu::CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets) :
     mp_Font->AttachManager(Assets);
 }
 
-CMenu::~CMenu()
+zMenu::~zMenu()
 {
     m_Scene.Destroy();
     for(auto& i : m_menuActions) delete i.first;
     m_menuActions.clear();
 }
 
-bool CMenu::HandleEvent(const evt::event_t& Evt)
+bool zMenu::HandleEvent(const evt::event_t& Evt)
 {
     if(Evt.type == evt::EventType::MOUSE_MOTION)
     {
         math::aabb_t MouseBox(Evt.mouse.position,
-            math::Vector<uint32_t>(2, 2));
+            math::zVector<uint32_t>(2, 2));
 
         for(auto& i : m_menuActions)
         {
@@ -47,7 +47,7 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
             Evt.mouse.button == evt::MouseButton::LEFT)
     {
         math::aabb_t MouseBox(Evt.mouse.position,
-            math::Vector<uint32_t>(2, 2));
+            math::zVector<uint32_t>(2, 2));
 
         size_t index = 0;
         for(auto& i : m_menuActions)
@@ -65,9 +65,9 @@ bool CMenu::HandleEvent(const evt::event_t& Evt)
     return false;
 }
 
-uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> handler)
+uint16_t zMenu::AddButton(const string_t& text, std::function<void(size_t)> handler)
 {
-    CButton* pNew = new CButton(m_Scene);
+    zButton* pNew = new zButton(m_Scene);
     pNew->SetFont(*mp_Font);
     pNew->SetActiveColor(m_acolor);
     pNew->SetNormalColor(m_ncolor);
@@ -87,22 +87,22 @@ uint16_t CMenu::AddButton(const string_t& text, std::function<void(size_t)> hand
     return m_menuActions.size() - 1;
 }
 
-obj::CEntity& CMenu::AddEntity()
+obj::zEntity& zMenu::AddEntity()
 {
     return m_Scene.AddEntity();
 }
 
-bool CMenu::RenderWithFont(obj::CEntity& Obj, const string_t& str)
+bool zMenu::RenderWithFont(obj::zEntity& Obj, const string_t& str)
 {
     return mp_Font->Render(Obj, str);
 }
 
-void CMenu::Update()
+void zMenu::Update()
 {
     m_Scene.Render();
 }
 
-bool CMenu::SetFont(const std::string& filename, const uint16_t size)
+bool zMenu::SetFont(const std::string& filename, const uint16_t size)
 {
     mp_Font->SetSize(size);
     bool ret = mp_Font->LoadFromFile(filename);
@@ -110,27 +110,27 @@ bool CMenu::SetFont(const std::string& filename, const uint16_t size)
     return ret;
 }
 
-void CMenu::SetButtonBackground(const obj::CEntity& Bg)
+void zMenu::SetButtonBackground(const obj::zEntity& Bg)
 {
     mp_Bg = &Bg;
 }
 
-void CMenu::SetNormalButtonTextColor(const color4f_t& Color)
+void zMenu::SetNormalButtonTextColor(const color4f_t& Color)
 {
     m_ncolor = Color;
 }
 
-void CMenu::SetActiveButtonTextColor(const color4f_t& Color)
+void zMenu::SetActiveButtonTextColor(const color4f_t& Color)
 {
     m_acolor = Color;
 }
 
-void CMenu::SetInitialButtonPosition(const math::vector_t& Pos)
+void zMenu::SetInitialButtonPosition(const math::vector_t& Pos)
 {
     m_Position = Pos;
 }
 
-void CMenu::SetSpacing(const uint16_t vertical_spacing)
+void zMenu::SetSpacing(const uint16_t vertical_spacing)
 {
     m_spacing = vertical_spacing;
 }

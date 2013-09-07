@@ -34,19 +34,19 @@ namespace zen
 {
 namespace gfxcore
 {
-    using util::CLog;
+    using util::zLog;
     using util::LogMode;
 
     /// A wrapper for a useable set of shaders (an OpenGL program).
-    class ZEN_API CShaderSet
+    class ZEN_API zShaderSet
     {
     public:
-        CShaderSet(asset::CAssetManager& Assets);
-        ~CShaderSet();
+        zShaderSet(asset::zAssetManager& Assets);
+        ~zShaderSet();
 
         /// Shallow-copy of internal shader objects.
-        CShaderSet(const CShaderSet& Copy);
-        CShaderSet& operator=(const CShaderSet& Copy);
+        zShaderSet(const zShaderSet& Copy);
+        zShaderSet& operator=(const zShaderSet& Copy);
 
         /**
          * Loads a set of shader assets from a file.
@@ -74,7 +74,7 @@ namespace gfxcore
          *  This only loads a shader. The extension on the file is
          *  irrelevant, because the filename will be dynamically modified
          *  in order to fit the specification for dynamic shader type
-         *  inferencing. See the docs for CShader for that.
+         *  inferencing. See the docs for zShader for that.
          *
          *  This method doesn't create a shader program, so a call to
          *  the relevant method is required (CreateShaderObject()).
@@ -97,7 +97,7 @@ namespace gfxcore
 
         /**
          * Loads a set of shader objects from a raw string.
-         * @copydetails zen::gfxcore::CShaderSet::LoadFromFile()
+         * @copydetails zen::gfxcore::zShaderSet::LoadFromFile()
          **/
         bool LoadFromStr(const string_t& vs, const string_t& fs);
 
@@ -158,7 +158,7 @@ namespace gfxcore
         bool DestroyVS();
 
         /// Manages duplication of shader programs.
-        static std::map<CShaderSet*, GLuint> s_shaderPrograms;
+        static std::map<zShaderSet*, GLuint> s_shaderPrograms;
         static uint16_t s_ID;
 
         inline void ShowLoadError(
@@ -172,21 +172,21 @@ namespace gfxcore
 
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << m_Log.SetSystem("ShaderSet")
-                    << error_stream.str() << CLog::endl;
+                    << error_stream.str() << zLog::endl;
         }
 
         inline void ShowProgramError() const
         {
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                     << m_Log.SetSystem("ShaderSet")
-                    << "No shader program loaded." << CLog::endl;
+                    << "No shader program loaded." << zLog::endl;
         }
 
-        asset::CAssetManager&   m_AssetManager;
-        util::CLog&             m_Log;
+        asset::zAssetManager&   m_AssetManager;
+        util::zLog&             m_Log;
 
-        CShader* mp_VShader;
-        CShader* mp_FShader;
+        zShader* mp_VShader;
+        zShader* mp_FShader;
 
         string_t m_error_str;
         string_t m_link_log;
@@ -200,7 +200,7 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__SHADER_SET_HPP
 
 /**
- * @class zen::gfxcore::CShaderSet
+ * @class zen::gfxcore::zShaderSet
  * @details
  *  This essentially a pair of shaders (vertex and fragment), in
  *  addition to some convenience methods allowing for access to

@@ -1,26 +1,26 @@
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 
 using namespace zen;
-using gfxcore::CRenderer;
+using gfxcore::zRenderer;
 
 // Despite the fact that it is guaranteed to exist, we define it as a pointer
 // because we do not know the asset manager instance that will be used in the
 // constructor, as that is determined by the user.
-gfx::CMaterial*         CRenderer::s_DefaultMaterial = nullptr;
+gfx::zMaterial*         zRenderer::s_DefaultMaterial = nullptr;
 
-gfxcore::CVertexArray   CRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
-gfxcore::BlendFunc      CRenderer::s_LastBlend = gfxcore::BlendFunc::DISABLE_BLEND;
-math::matrix4x4_t       CRenderer::s_ProjMatrix;
-bool                    CRenderer::s_blend = false;
-bool                    CRenderer::s_wf = false;
+gfxcore::zVertexArray   zRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
+gfxcore::BlendFunc      zRenderer::s_LastBlend = gfxcore::BlendFunc::DISABLE_BLEND;
+math::matrix4x4_t       zRenderer::s_ProjMatrix;
+bool                    zRenderer::s_blend = false;
+bool                    zRenderer::s_wf = false;
 
-bool CRenderer::Init(
-    asset::CAssetManager& Assets,
+bool zRenderer::Init(
+    asset::zAssetManager& Assets,
     const uint16_t w, const uint16_t h)
 {
     // Load the default effect.
-    s_DefaultMaterial = new gfx::CMaterial(Assets);
-    gfx::CEffect& E = s_DefaultMaterial->GetEffect();
+    s_DefaultMaterial = new gfx::zMaterial(Assets);
+    gfx::zEffect& E = s_DefaultMaterial->GetEffect();
     E.Enable();
     E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
     E.SetParameter("proj", s_ProjMatrix);

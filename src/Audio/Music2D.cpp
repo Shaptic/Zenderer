@@ -2,31 +2,31 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-using sfx::CMusic2D;
+using sfx::zMusic2D;
 
-CMusic2D::CMusic2D() : m_active(0),
+zMusic2D::zMusic2D() : m_active(0),
     m_ogg_buffer(nullptr),
     m_format(AL_FORMAT_STEREO16), m_freq(0)
 {
     if(m_AL.buffers) delete[] m_AL.buffers;
-    m_AL.buffers = new ALuint[CMusic2D::BUFFER_COUNT];
-    m_AL.buffer_count = CMusic2D::BUFFER_COUNT;
+    m_AL.buffers = new ALuint[zMusic2D::BUFFER_COUNT];
+    m_AL.buffer_count = zMusic2D::BUFFER_COUNT;
 
     ov_clear(&m_ogg);
 }
 
-CMusic2D::~CMusic2D()
+zMusic2D::~zMusic2D()
 {
     this->UnloadSource();
 }
 
-bool CMusic2D::LoadFromFile(const string_t& filename)
+bool zMusic2D::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERTM(!filename.empty(), "no filename");
-    ZEN_ASSERTM(CAudioManager::IsInit(), "OpenAL not initialized");
+    ZEN_ASSERTM(zAudioManager::IsInit(), "OpenAL not initialized");
 
     m_error_code = AL_NO_ERROR;
     m_error_str  = "No error";
@@ -38,7 +38,7 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
     }
 
     // Delete existing stream
-    for(size_t i = 0; i < CMusic2D::BUFFER_COUNT; ++i)
+    for(size_t i = 0; i < zMusic2D::BUFFER_COUNT; ++i)
     {
         if(m_AL.buffers[i])
         {
@@ -48,7 +48,7 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
     }
 
     // Reset to 0's
-    memset(m_AL.buffers, 0, CMusic2D::BUFFER_COUNT * sizeof(ALuint));
+    memset(m_AL.buffers, 0, zMusic2D::BUFFER_COUNT * sizeof(ALuint));
 
     // Open the OGG file.
     FILE* pFile = fopen(filename.c_str(), "rb");
@@ -57,7 +57,7 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Audio") << "Failed to open '"
-                << filename << "'." << CLog::endl;
+                << filename << "'." << zLog::endl;
     }
 
     // Validate proper .ogg format
@@ -68,7 +68,7 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
 
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Audio") << "'" << filename
-                << "' is not a valid .ogg file." << CLog::endl;
+                << "' is not a valid .ogg file." << zLog::endl;
 
         return (m_loaded = false);
     }
@@ -79,22 +79,22 @@ bool CMusic2D::LoadFromFile(const string_t& filename)
 
     m_freq = pInfo->rate;
 
-    AL(alGenBuffers(CMusic2D::BUFFER_COUNT, m_AL.buffers));
+    AL(alGenBuffers(zMusic2D::BUFFER_COUNT, m_AL.buffers));
 
-    for(size_t i = 0; i < CMusic2D::BUFFER_COUNT; ++i)
+    for(size_t i = 0; i < zMusic2D::BUFFER_COUNT; ++i)
         if(!this->FillChunk(m_AL.buffers[i])) return false;
 
     m_filename = filename;
     return (m_loaded = true);
 }
 
-void CMusic2D::Play()
+void zMusic2D::Play()
 {
     if(!this->IsLoaded())
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("Audio")
-                << "No file loaded" << CLog::endl;
+                << "No file loaded" << zLog::endl;
 
         return;
     }
@@ -106,24 +106,24 @@ void CMusic2D::Play()
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("Audio")
-                << "Already playing '" << m_filename << "'" << CLog::endl;
+                << "Already playing '" << m_filename << "'" << zLog::endl;
 
         return;
     }
 
-    m_AL.source = CAudioManager::CreateSource();
+    m_AL.source = zAudioManager::CreateSource();
     if(m_AL.source == -1) return;
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Audio") << "Playing '" << m_filename
-            << "' (" << m_AL.source << ")" << CLog::endl;
+            << "' (" << m_AL.source << ")" << zLog::endl;
 
     AL(alSourcef(m_AL.source, AL_GAIN, m_AL.volume));
-    AL(alSourceQueueBuffers(m_AL.source, CMusic2D::BUFFER_COUNT, m_AL.buffers));
+    AL(alSourceQueueBuffers(m_AL.source, zMusic2D::BUFFER_COUNT, m_AL.buffers));
     AL(alSourcePlay(m_AL.source));
 }
 
-void CMusic2D::Update()
+void zMusic2D::Update()
 {
     int processed;
 
@@ -145,25 +145,25 @@ void CMusic2D::Update()
     }
 }
 
-bool CMusic2D::Ready() const
+bool zMusic2D::Ready() const
 {
     int processed = 0;
     AL(alGetSourcei(m_AL.source, AL_BUFFERS_PROCESSED, &processed));
     return (processed > 0);
 }
 
-bool CMusic2D::FillChunk(const uint32_t buffer)
+bool zMusic2D::FillChunk(const uint32_t buffer)
 {
     uint16_t total = 0;
     int bits = 0;
 
     if(m_ogg_buffer) delete[] m_ogg_buffer;
-    m_ogg_buffer = new char[CMusic2D::READ_SIZE];
+    m_ogg_buffer = new char[zMusic2D::READ_SIZE];
 
-    while(total < CMusic2D::READ_SIZE)
+    while(total < zMusic2D::READ_SIZE)
     {
         int size = ov_read(&m_ogg, m_ogg_buffer + total,
-                           CMusic2D::READ_SIZE - total,
+                           zMusic2D::READ_SIZE - total,
                            /* little endian */ 0,
                            /* 16-bit        */ 2,
                            /* signed        */ 1,
@@ -177,7 +177,7 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
             delete[] m_ogg_buffer;
             m_ogg_buffer = nullptr;
 
-            CAudioManager::OGGError(size);
+            zAudioManager::OGGError(size);
             return false;
         }
 
@@ -192,7 +192,7 @@ bool CMusic2D::FillChunk(const uint32_t buffer)
 
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("OpenAL")
-                << "Reached end of audio file." << CLog::endl;
+                << "Reached end of audio file." << zLog::endl;
         return false;
     }
 

@@ -3,48 +3,48 @@
 using namespace zen;
 using namespace util;
 
-using gfx::CWindow;
+using gfx::zWindow;
 
 // Shortcut for Windows VSYNC toggling.
 typedef bool (APIENTRY* PFNWGLSWAPINTERVALFARPROC)(int);
 static PFNWGLSWAPINTERVALFARPROC wglSwapIntervalEXT = 0;
 
-CWindow::CWindow(const uint16_t     width,
+zWindow::zWindow(const uint16_t     width,
                  const uint16_t     height,
                  const string_t&    caption,
-                 asset::CAssetManager& Mgr,
+                 asset::zAssetManager& Mgr,
                  const bool         fullscreen) :
-    CSubsystem("Window"), m_Log(CLog::GetEngineLog()),
+    zSubsystem("Window"), m_Log(zLog::GetEngineLog()),
     m_Assets(Mgr), m_Dimensions(width, height),
     m_caption(caption), m_clearbits(GL_COLOR_BUFFER_BIT),
     m_fullscreen(fullscreen) {}
 
-CWindow::~CWindow()
+zWindow::~zWindow()
 {
     this->Destroy();
 }
 
-bool CWindow::Init()
+bool zWindow::Init()
 {
     if(m_init)
     {
         m_Log   << m_Log.SetSystem("Window")
                 << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Window is already initialized; destroy it first!"
-                << CLog::endl;
+                << zLog::endl;
         return false;
     }
 
     m_Log   << m_Log.SetSystem("Window")
             << m_Log.SetMode(LogMode::ZEN_INFO)
             << "Set up window (" << m_Dimensions.x << "x"
-            << m_Dimensions.y << "): " << m_caption << CLog::endl;
+            << m_Dimensions.y << "): " << m_caption << zLog::endl;
 
     uint16_t major = (int)ZENDERER_GL_VERSION;
     uint16_t minor = floor(((ZENDERER_GL_VERSION - major) * 10) + 0.5);
 
     m_Log   << "Minimum OpenGL version: " << major << "." << minor
-            << CLog::endl;
+            << zLog::endl;
 
     // Set up window to be version major.minor and core profile only.
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major);
@@ -67,7 +67,7 @@ bool CWindow::Init()
         m_Log   << m_Log.SetMode(LogMode::ZEN_FATAL)
                 << "Failed to create OpenGL window v" << major << '.' << minor
                 << " (fullscreen = " << (m_fullscreen ? "true" : "false")
-                << ")!" << CLog::endl;
+                << ")!" << zLog::endl;
 
         return false;
     }
@@ -75,7 +75,7 @@ bool CWindow::Init()
     {
         m_Log   << "Created OpenGL window v" << major << '.' << minor
                 << " (fullscreen = " << (m_fullscreen ? "true" : "false")
-                << ")." << CLog::endl;
+                << ")." << zLog::endl;
     }
 
     glfwMakeContextCurrent(mp_Window);
@@ -84,19 +84,19 @@ bool CWindow::Init()
         glfwSetInputMode(mp_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
     // Registers event callbacks with GLFW.
-    glfwSetCharCallback(mp_Window, evt::CEventHandler::CharacterCallback);
-    glfwSetKeyCallback(mp_Window, evt::CEventHandler::KeyboardCallback);
-    glfwSetMouseButtonCallback(mp_Window, evt::CEventHandler::MouseCallback);
-    glfwSetCursorPosCallback(mp_Window, evt::CEventHandler::MouseMotionCallback);
+    glfwSetCharCallback(mp_Window, evt::zEventHandler::CharacterCallback);
+    glfwSetKeyCallback(mp_Window, evt::zEventHandler::KeyboardCallback);
+    glfwSetMouseButtonCallback(mp_Window, evt::zEventHandler::MouseCallback);
+    glfwSetCursorPosCallback(mp_Window, evt::zEventHandler::MouseMotionCallback);
 
     m_Log << "Initializing GLEW: ";
     glewExperimental = GL_TRUE;
     if(glewInit() != GLEW_OK)
     {
-        m_Log << m_Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << CLog::endl;
+        m_Log << m_Log.SetMode(LogMode::ZEN_FATAL) << "FAILED." << zLog::endl;
         return false;
     }
-    else m_Log << "SUCCESS." << CLog::endl;
+    else m_Log << "SUCCESS." << zLog::endl;
 
     // Clears a weird error of glewInit() giving 1280 (invalid enumerant)
     /// @see https://www.opengl.org/wiki/OpenGL_Loading_Library#GLEW
@@ -108,49 +108,49 @@ bool CWindow::Init()
                                                    m_Dimensions.y,
                                                    16, 1);
 
-    gfxcore::CRenderer::s_ProjMatrix = m_ProjMatrix;
-    return (m_init = gfxcore::CRenderer::Init(m_Assets,
+    gfxcore::zRenderer::s_ProjMatrix = m_ProjMatrix;
+    return (m_init = gfxcore::zRenderer::Init(m_Assets,
                                               m_Dimensions.x,
                                               m_Dimensions.y));
 }
 
-bool CWindow::Destroy()
+bool zWindow::Destroy()
 {
     if(!m_init) return true;
 
-    delete gfxcore::CRenderer::s_DefaultMaterial;
+    delete gfxcore::zRenderer::s_DefaultMaterial;
     m_Assets.Destroy();
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
     return !(m_init = false);
 }
 
-bool CWindow::Clear()
+bool zWindow::Clear()
 {
     GL(glClear(m_clearbits));
     GL(glClearColor(0.f, 0.f, 0.f, 1.f));
     return true;
 }
 
-bool CWindow::Clear(const color4f_t& Color)
+bool zWindow::Clear(const color4f_t& Color)
 {
     GL(glClear(m_clearbits));
     GL(glClearColor(Color.r, Color.g, Color.b, Color.a));
     return true;
 }
 
-void CWindow::Update() const
+void zWindow::Update() const
 {
     if(this->IsInit()) glfwSwapBuffers(mp_Window);
 }
 
-bool CWindow::ToggleFullscreen(int* const loaded)
+bool zWindow::ToggleFullscreen(int* const loaded)
 {
     if(m_fullscreen) return this->DisableFullscreen(loaded);
     else             return this->EnableFullscreen(loaded);
 }
 
-bool CWindow::EnableFullscreen(int* const loaded)
+bool zWindow::EnableFullscreen(int* const loaded)
 {
     if(m_fullscreen) return true;
 
@@ -162,7 +162,7 @@ bool CWindow::EnableFullscreen(int* const loaded)
     return done == m_Assets.GetAssetCount();
 }
 
-bool CWindow::DisableFullscreen(int* const loaded)
+bool zWindow::DisableFullscreen(int* const loaded)
 {
     if(!m_fullscreen) return true;
 
@@ -174,35 +174,35 @@ bool CWindow::DisableFullscreen(int* const loaded)
     return done == m_Assets.GetAssetCount();
 }
 
-bool CWindow::IsOpen() const
+bool zWindow::IsOpen() const
 {
     return !glfwWindowShouldClose(mp_Window);
 }
 
-bool CWindow::IsFullscreen() const
+bool zWindow::IsFullscreen() const
 {
     return m_fullscreen;
 }
 
-void CWindow::Close() const
+void zWindow::Close() const
 {
     glfwSetWindowShouldClose(mp_Window, true);
 }
 
-math::vector_t CWindow::GetMousePosition() const
+math::vector_t zWindow::GetMousePosition() const
 {
     double x, y;
     glfwGetCursorPos(mp_Window, &x, &y);
     return math::vector_t(x, y);
 }
 
-bool CWindow::GetMouseState(const evt::MouseButton& Btn) const
+bool zWindow::GetMouseState(const evt::MouseButton& Btn) const
 {
     return glfwGetMouseButton(mp_Window, static_cast<int>(Btn)) == GLFW_PRESS;
 }
 
 /// @todo   Implement asset reloading from file.
-uint32_t CWindow::ReloadAssets()
+uint32_t zWindow::ReloadAssets()
 {
     this->Destroy();
     m_fullscreen = !m_fullscreen;
@@ -218,7 +218,7 @@ uint32_t CWindow::ReloadAssets()
     return done;
 }
 
-bool CWindow::ToggleVSYNC()
+bool zWindow::ToggleVSYNC()
 {
     static bool on = true;
 

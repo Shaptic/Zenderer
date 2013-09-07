@@ -1,5 +1,5 @@
 template<typename T>
-T* CAssetManager::Create(const string_t& filename, const void* const owner)
+T* zAssetManager::Create(const string_t& filename, const void* const owner)
 {
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERT(!filename.empty());
@@ -29,19 +29,19 @@ T* CAssetManager::Create(const string_t& filename, const void* const owner)
         ++pResult->m_refcount;
         m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
                 << m_Log.SetSystem("AssetMgr") << "Using existing asset for '"
-                << filename << "' ... " << util::CLog::endl;
+                << filename << "' ... " << util::zLog::endl;
         return pResult;
     }
 }
 
 template<typename T>
-T* CAssetManager::Create(const char* const filename, const void* const owner)
+T* zAssetManager::Create(const char* const filename, const void* const owner)
 {
     return this->Create<T>(string_t(filename), owner);
 }
 
 template<typename T>
-T* CAssetManager::Create(const void* const owner)
+T* zAssetManager::Create(const void* const owner)
 {
     ZEN_ASSERT(this->IsInit());
 
@@ -60,7 +60,7 @@ T* CAssetManager::Create(const void* const owner)
 }
 
 template<typename T>
-T* CAssetManager::Recreate(const T* const Copier, const void* const owner)
+T* zAssetManager::Recreate(const T* const Copier, const void* const owner)
 {
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetMgr") << "Copying '"
@@ -77,22 +77,22 @@ T* CAssetManager::Recreate(const T* const Copier, const void* const owner)
 }
 
 template<typename T>
-T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
+T* zAssetManager::FinalizeAsset(const bool success, T* pAsset)
 {
     if(success)
     {
-        m_Log << "Success. ID: " << pAsset->GetAssetID() << "." << util::CLog::endl;
+        m_Log << "Success. ID: " << pAsset->GetAssetID() << "." << util::zLog::endl;
 
         // Add to containers and return.
         ++pAsset->m_refcount;
-        CAssetManager::sp_allAssets.push_back(pAsset);
+        zAssetManager::sp_allAssets.push_back(pAsset);
         mp_managerAssets.push_back(pAsset);
         return pAsset;
     }
     else
     {
         m_Log   << m_Log.SetMode(util::LogMode::ZEN_ERROR)
-                << "Failure." << util::CLog::endl;
+                << "Failure." << util::zLog::endl;
 
         // Clean up on failure.
         delete pAsset;
@@ -100,17 +100,17 @@ T* CAssetManager::FinalizeAsset(const bool success, T* pAsset)
     }
 }
 
-uint32_t CAssetManager::GetAssetCount() const
+uint32_t zAssetManager::GetAssetCount() const
 {
     return mp_managerAssets.size();
 }
 
-std::list<CAsset*>::const_iterator CAssetManager::cbegin()
+std::list<zAsset*>::const_iterator zAssetManager::cbegin()
 {
     return mp_managerAssets.begin();
 }
 
-std::list<CAsset*>::const_iterator CAssetManager::cend()
+std::list<zAsset*>::const_iterator zAssetManager::cend()
 {
     return mp_managerAssets.end();
 }

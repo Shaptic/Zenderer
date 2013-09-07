@@ -29,11 +29,11 @@ namespace zen
 namespace gfx
 {
     /// An arbitrary n-vertex convex polygon.
-    class ZEN_API CPolygon : public gfxcore::CDrawable
+    class ZEN_API zPolygon : public gfxcore::zDrawable
     {
     public:
-        CPolygon(asset::CAssetManager& Assets);
-        ~CPolygon();
+        zPolygon(asset::zAssetManager& Assets);
+        ~zPolygon();
 
         /**
          * Adds a vertex to the polygon at the specified position.
@@ -50,7 +50,7 @@ namespace gfx
          * @post    No temporary vertices are stored until AddVertex()
          *          is called again.
          **/
-        CDrawable& Create();
+        zDrawable& Create();
 
         /// Sets the vertex color of the *temporary* buffer.
         void SetColor(const color4f_t& Color);
@@ -64,7 +64,7 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__POLYGON_HPP
 
 /**
- * @class zen::gfx::CPolygon
+ * @class zen::gfx::zPolygon
  * @details
  *  This is a class representing an arbitrary convex polygon that can
  *  accept any number of vertices. It does NOT work with concave polygons,
@@ -77,20 +77,20 @@ namespace gfx
  *  beginning from the first vertex added.
  *
  *  Polygons are created a little differently than pre-baked primitives
- *  such as gfx::CQuad, they store vertices in a temporary buffer until
+ *  such as gfx::zQuad, they store vertices in a temporary buffer until
  *  Create() is called. Thus calls to the various `Set*()` methods are
  *  overidden in order to use the temporary buffer rather than the true
- *  internal vertex buffer as specified by the base class gfxcore::CDrawable.
+ *  internal vertex buffer as specified by the base class gfxcore::zDrawable.
  *
  * @example Polygons
  * @section A Variety of Polgyons
  * @subsection quad Simple Quad
- *  This can obviously be replicated through zen::gfx::CQuad, but is here
+ *  This can obviously be replicated through zen::gfx::zQuad, but is here
  *  for example's sake. We will compare the creation of the two.
  *
  *  @code
  *  // Assuming a manager, etc has already been defined prior.
- *  gfx::CPolygon PolyQuad(Manager);
+ *  gfx::zPolygon PolyQuad(Manager);
  *  PolyQuad.AddVertex(0,   0);
  *  PolyQuad.AddVertex(32,  0);
  *  PolyQuad.AddVertex(32,  32);
@@ -99,7 +99,7 @@ namespace gfx
  *  PolyQuad.Create();
  *
  *  // Equivalent quad-creating code.
- *  gfx::CQuad RealQuad(32, 32);
+ *  gfx::zQuad RealQuad(32, 32);
  *  RealQuad.SetColor(color4f_t(1, 0, 0));
  *  RealQuad.Create();
  *  @endcode
@@ -116,7 +116,7 @@ namespace gfx
  *
  *  @code
  *  // Assuming a manager, etc has already been defined prior.
- *  gfx::CPolygon Circle(Manager);
+ *  gfx::zPolygon Circle(Manager);
  *
  *  real_t radius = 32;
  *  Circle.AddVertex(32, 32);   // Center of the circle

@@ -2,25 +2,25 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gfxcore::CShaderSet;
+using gfxcore::zShaderSet;
 
-std::map<CShaderSet*, GLuint> CShaderSet::s_shaderPrograms;
-uint16_t CShaderSet::s_ID = 1;
+std::map<zShaderSet*, GLuint> zShaderSet::s_shaderPrograms;
+uint16_t zShaderSet::s_ID = 1;
 
-CShaderSet::CShaderSet(asset::CAssetManager& Assets) :
-    m_AssetManager(Assets), m_Log(CLog::GetEngineLog()),
+zShaderSet::zShaderSet(asset::zAssetManager& Assets) :
+    m_AssetManager(Assets), m_Log(zLog::GetEngineLog()),
     mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
     m_error_str(""), m_refcount(0), m_ID(0)
 {}
 
-CShaderSet::~CShaderSet()
+zShaderSet::~zShaderSet()
 {
     this->Destroy();
 }
 
-CShaderSet::CShaderSet(const CShaderSet& Copy) :
+zShaderSet::zShaderSet(const zShaderSet& Copy) :
     m_Log(Copy.m_Log),
     m_AssetManager(Copy.m_AssetManager),
     mp_FShader(Copy.mp_FShader),
@@ -31,7 +31,7 @@ CShaderSet::CShaderSet(const CShaderSet& Copy) :
 {
 }
 
-CShaderSet& CShaderSet::operator=(const CShaderSet& Copy)
+zShaderSet& zShaderSet::operator=(const zShaderSet& Copy)
 {
     mp_FShader  = Copy.mp_FShader;
     mp_VShader  = Copy.mp_VShader;
@@ -42,13 +42,13 @@ CShaderSet& CShaderSet::operator=(const CShaderSet& Copy)
     return (*this);
 }
 
-bool CShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
+bool zShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
 {
     // Kill any existing shader programs.
     this->Destroy();
 
-    mp_FShader = m_AssetManager.Create<CShader>(vs);
-    mp_VShader = m_AssetManager.Create<CShader>(fs);
+    mp_FShader = m_AssetManager.Create<zShader>(vs);
+    mp_VShader = m_AssetManager.Create<zShader>(fs);
 
     if(mp_FShader == nullptr)
     {
@@ -65,11 +65,11 @@ bool CShaderSet::LoadFromFile(const string_t& vs, const string_t& fs)
     return this->CreateShaderObject();
 }
 
-bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
+bool zShaderSet::LoadVertexShaderFromFile(const string_t& filename)
 {
     this->DestroyVS();
 
-    mp_VShader = m_AssetManager.Create<CShader>(filename);
+    mp_VShader = m_AssetManager.Create<zShader>(filename);
     if(mp_VShader == nullptr)
     {
         this->ShowLoadError(filename, "vertex");
@@ -79,11 +79,11 @@ bool CShaderSet::LoadVertexShaderFromFile(const string_t& filename)
     return true;
 }
 
-bool CShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
+bool zShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
 {
     this->DestroyFS();
 
-    mp_FShader = m_AssetManager.Create<CShader>(filename);
+    mp_FShader = m_AssetManager.Create<zShader>(filename);
     if(mp_FShader == nullptr)
     {
         this->ShowLoadError(filename, "fragment");
@@ -93,25 +93,25 @@ bool CShaderSet::LoadFragmentShaderFromFile(const string_t& filename)
     return true;
 }
 
-bool CShaderSet::LoadVertexShaderFromStr(const string_t& str)
+bool zShaderSet::LoadVertexShaderFromStr(const string_t& str)
 {
     this->DestroyVS();
 
-    mp_VShader = m_AssetManager.Create<CShader>();
+    mp_VShader = m_AssetManager.Create<zShader>();
     mp_VShader->SetType(GL_VERTEX_SHADER);
     return mp_VShader->LoadFromRaw(str);
 }
 
-bool CShaderSet::LoadFragmentShaderFromStr(const string_t& str)
+bool zShaderSet::LoadFragmentShaderFromStr(const string_t& str)
 {
     this->DestroyFS();
 
-    mp_FShader = m_AssetManager.Create<CShader>();
+    mp_FShader = m_AssetManager.Create<zShader>();
     mp_FShader->SetType(GL_FRAGMENT_SHADER);
     return mp_FShader->LoadFromRaw(str);
 }
 
-bool CShaderSet::CreateShaderObject()
+bool zShaderSet::CreateShaderObject()
 {
     if(mp_FShader == nullptr || mp_VShader == nullptr)
     {
@@ -119,7 +119,7 @@ bool CShaderSet::CreateShaderObject()
 
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("ShaderSet")
-                << m_error_str << CLog::endl;
+                << m_error_str << zLog::endl;
 
         return false;
     }
@@ -127,7 +127,7 @@ bool CShaderSet::CreateShaderObject()
     // Test for existing shader program.
     for(auto& i : s_shaderPrograms)
     {
-        CShaderSet& SS = *(i.first);
+        zShaderSet& SS = *(i.first);
         if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
         {
             m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG)
@@ -135,7 +135,7 @@ bool CShaderSet::CreateShaderObject()
                   << "Found existing shader program for {'"
                   << mp_VShader->GetFilename() << "', '"
                   << mp_FShader->GetFilename() << "'}: " << SS.m_program
-                  << '.' << CLog::endl;
+                  << '.' << zLog::endl;
 
             // We have a match, so copy the shader program handle
             // instead of creating a new one. It may have errors, so we
@@ -179,7 +179,7 @@ bool CShaderSet::CreateShaderObject()
 
         m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
                 << m_Log.SetSystem("ShaderSet") << "Shader linker log: "
-                << m_link_log << CLog::endl;
+                << m_link_log << zLog::endl;
     }
 
     // Link failed?
@@ -192,7 +192,7 @@ bool CShaderSet::CreateShaderObject()
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("ShaderSet")
                 << "Failed to link shader objects to program: "
-                << m_error_str << "." << CLog::endl;
+                << m_error_str << "." << zLog::endl;
 
         this->Destroy();
         return false;
@@ -209,7 +209,7 @@ bool CShaderSet::CreateShaderObject()
     return true;
 }
 
-bool CShaderSet::Bind() const
+bool zShaderSet::Bind() const
 {
     if(m_program == 0)
     {
@@ -221,7 +221,7 @@ bool CShaderSet::Bind() const
     return true;
 }
 
-bool CShaderSet::Unbind() const
+bool zShaderSet::Unbind() const
 {
     if(m_program == 0)
     {
@@ -233,12 +233,12 @@ bool CShaderSet::Unbind() const
     return true;
 }
 
-uint16_t CShaderSet::GetShaderObject() const
+uint16_t zShaderSet::GetShaderObject() const
 {
     return m_program;
 }
 
-GLint CShaderSet::GetUniformLocation(const string_t& name) const
+GLint zShaderSet::GetUniformLocation(const string_t& name) const
 {
     if(m_program == 0)
     {
@@ -251,7 +251,7 @@ GLint CShaderSet::GetUniformLocation(const string_t& name) const
     return loc;
 }
 
-GLint CShaderSet::GetAttributeLocation(const string_t& name) const
+GLint zShaderSet::GetAttributeLocation(const string_t& name) const
 {
     if(m_program == 0)
     {
@@ -264,17 +264,17 @@ GLint CShaderSet::GetAttributeLocation(const string_t& name) const
     return loc;
 }
 
-const string_t& CShaderSet::GetError() const
+const string_t& zShaderSet::GetError() const
 {
     return m_error_str;
 }
 
-const string_t& CShaderSet::GetLinkerLog() const
+const string_t& zShaderSet::GetLinkerLog() const
 {
     return m_link_log;
 }
 
-bool CShaderSet::Destroy()
+bool zShaderSet::Destroy()
 {
     this->DestroyFS();
     this->DestroyVS();
@@ -290,7 +290,7 @@ bool CShaderSet::Destroy()
     return true;
 }
 
-bool CShaderSet::DestroyFS()
+bool zShaderSet::DestroyFS()
 {
     if(mp_FShader != nullptr)
     {
@@ -302,7 +302,7 @@ bool CShaderSet::DestroyFS()
     return false;
 }
 
-bool CShaderSet::DestroyVS()
+bool zShaderSet::DestroyVS()
 {
     if(mp_VShader != nullptr)
     {

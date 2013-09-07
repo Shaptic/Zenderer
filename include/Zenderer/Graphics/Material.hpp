@@ -33,14 +33,14 @@ namespace zen
 namespace gfx
 {
     /// Rendering data composed of a shader effect and a texture.
-    class ZEN_API CMaterial
+    class ZEN_API zMaterial
     {
     public:
-        CMaterial(asset::CAssetManager& Assets);
-        CMaterial(const CMaterial& Copy);
-        CMaterial operator=(const CMaterial& Copy);
+        zMaterial(asset::zAssetManager& Assets);
+        zMaterial(const zMaterial& Copy);
+        zMaterial operator=(const zMaterial& Copy);
 
-        ~CMaterial();
+        ~zMaterial();
 
         /**
          * Loads a material from a `.zfx` file.
@@ -63,14 +63,14 @@ namespace gfx
          * @return  `true` if a valid material was loaded, `false` otherwise.
          *
          * @see @ref ZMatSpec
-         * @see zen::util::CINIParser::LoadFromStream()
+         * @see zen::util::zParser::LoadFromStream()
          **/
         bool LoadFromStream(std::ifstream& stream,
                             const std::streampos& start = 0,
                             const std::streampos& end   = -1);
 
         /// Loads a texture from an existing one.
-        bool LoadTexture(const gfxcore::CTexture& Texture);
+        bool LoadTexture(const gfxcore::zTexture& Texture);
 
         /// Loads a texture from disk.
         bool LoadTextureFromFile(const string_t& filename);
@@ -82,10 +82,10 @@ namespace gfx
         bool LoadEffect(const EffectType Type);
 
         /// Attaches the given effect/texture to the material.
-        bool Attach(CEffect& E, gfxcore::CTexture& T);
+        bool Attach(zEffect& E, gfxcore::zTexture& T);
 
         /// Temporary `rvalue` references are not allowed.
-        bool Attach(CEffect&& E, gfxcore::CTexture&& T);
+        bool Attach(zEffect&& E, gfxcore::zTexture&& T);
 
         /// Enables the effect and texture for rendering.
         bool Enable() const;
@@ -97,18 +97,18 @@ namespace gfx
         bool DisableEffect() const;     ///< Disables only the effect.
         bool DisableTexture() const;    ///< Disables only the texture.
 
-        CEffect& GetEffect();
-        const gfxcore::CTexture& GetTexture() const;
+        zEffect& GetEffect();
+        const gfxcore::zTexture& GetTexture() const;
         uint16_t GetID() const { return m_ID; }
 
     private:
         void Destroy();
         void SetID();
 
-        asset::CAssetManager&   m_Assets;
-        util::CLog&             m_Log;
-        gfxcore::CTexture*      mp_Texture;
-        gfx::CEffect            m_Effect;
+        asset::zAssetManager&   m_Assets;
+        util::zLog&             m_Log;
+        gfxcore::zTexture*      mp_Texture;
+        gfx::zEffect            m_Effect;
         uint16_t                m_ID;
     };
 }   // namespace gfx
@@ -117,18 +117,18 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__MATERIAL_HPP
 
 /**
- * @class zen::gfx::CMaterial
+ * @class zen::gfx::zMaterial
  * @details
  *  A material is a combination of an effect (shaders) and a texture.
  *  It's used to specify what picture should be drawn on the screen, and
  *  how it should be drawn. There is a default instance of it in
- *  zen::gfxcore::CRenderer, and it is used for standard rendering to the
+ *  zen::gfxcore::zRenderer, and it is used for standard rendering to the
  *  screen, primarily for primitives.
  *
  *  The object will store a local copy of the default texture and effect,
  *  allowing for less pointer interactions and potential errors. This doesn't
  *  mean the default effect will be loaded multiple times, as the internal
- *  shaders are registered assets and asset::CAssetManager will take care
+ *  shaders are registered assets and asset::zAssetManager will take care
  *  of preventing copies.
  **/
 

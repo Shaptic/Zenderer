@@ -30,14 +30,14 @@
 
 namespace zen
 {
-namespace asset { class CAssetManager; }
+namespace asset { class zAssetManager; }
 namespace sfx
 {
     /// An abstract base class for audio objects.
-    class ZEN_API CAudio2D : public asset::CAsset
+    class ZEN_API zAudio2D : public asset::zAsset
     {
     public:
-        virtual ~CAudio2D();
+        virtual ~zAudio2D();
 
         /// Loads an audio file from disk.
         virtual bool LoadFromFile(const string_t& filename) = 0;
@@ -57,11 +57,11 @@ namespace sfx
         ALenum              GetAudioState() const;
         const void* const   GetData()       const;
 
-        friend class asset::CAssetManager;
+        friend class asset::zAssetManager;
 
     protected:
-        CAudio2D(const void* const owner = nullptr);
-        //CAudio2D(const CAudio2D&) = delete;
+        zAudio2D(const void* const owner = nullptr);
+        //zAudio2D(const zAudio2D&) = delete;
 
         bool Destroy() { this->UnloadSource(); return true; }
 
@@ -83,7 +83,7 @@ namespace sfx
 #endif // ZENDERER__AUDIO__AUDIO_2D_HPP
 
 /**
- * @class zen::sfx::CAudio2D
+ * @class zen::sfx::zAudio2D
  *
  * @details
  *  A managed audio asset object that acts as a unified base class

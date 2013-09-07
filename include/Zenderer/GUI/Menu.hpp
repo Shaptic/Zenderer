@@ -36,22 +36,22 @@ namespace zen
 {
 namespace gui
 {
-    class ZEN_API CMenu
+    class ZEN_API zMenu
     {
     public:
-        CMenu(gfx::CWindow& Window, asset::CAssetManager& Assets);
+        zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets);
 
-        virtual ~CMenu();
+        virtual ~zMenu();
 
         virtual bool HandleEvent(const evt::event_t& Evt);
         virtual uint16_t AddButton(const string_t& text,
                                    std::function<void(size_t)> handler);
-        virtual obj::CEntity& AddEntity();
-        virtual bool RenderWithFont(obj::CEntity& Obj, const string_t& str);
+        virtual obj::zEntity& AddEntity();
+        virtual bool RenderWithFont(obj::zEntity& Obj, const string_t& str);
         virtual void Update();
 
         bool SetFont(const string_t& filename, const uint16_t size=18);
-        void SetButtonBackground(const obj::CEntity& Bg);
+        void SetButtonBackground(const obj::zEntity& Bg);
         void SetNormalButtonTextColor(const color4f_t& Color);
         void SetActiveButtonTextColor(const color4f_t& Color);
         void SetInitialButtonPosition(const math::vector_t& Pos);
@@ -59,14 +59,14 @@ namespace gui
         void SetSpacing(const uint16_t vertical_spacing);
 
     private:
-        gfx::CScene m_Scene;
-        const obj::CEntity* mp_Bg;
-        gui::CFont* mp_Font;
+        gfx::zScene m_Scene;
+        const obj::zEntity* mp_Bg;
+        gui::zFont* mp_Font;
         color4f_t m_acolor, m_ncolor;
 
         std::vector<
             std::pair<
-                CButton*,
+                zButton*,
                 std::function<void(size_t)>
             >
         > m_menuActions;
@@ -80,7 +80,7 @@ namespace gui
 #endif  // ZENDERER__GUI__MENU_HPP
 
 /**
- * @class zen::gui::CMenu
+ * @class zen::gui::zMenu
  * @details
  *  A high-level wrapper that facilitates a simple method of creating
  *  fairly customizable and high-quality menus with custom buttons,

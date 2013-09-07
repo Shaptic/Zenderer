@@ -2,15 +2,15 @@
 
 using namespace zen::gfxcore;
 
-std::vector<CGLSubsystem*> CGLSubsystem::sp_allGLSystems;
+std::vector<zGLSubsystem*> zGLSubsystem::sp_allGLSystems;
 
-CGLSubsystem::CGLSubsystem(const zen::string_t name) :
+zGLSubsystem::zGLSubsystem(const zen::string_t name) :
     m_init(false), m_name(name)
 {
     sp_allGLSystems.push_back(this);
 }
 
-CGLSubsystem::~CGLSubsystem()
+zGLSubsystem::~zGLSubsystem()
 {
     for(auto i = sp_allGLSystems.begin(); i != sp_allGLSystems.end(); ++i)
     {

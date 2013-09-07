@@ -33,14 +33,14 @@ namespace zen
 namespace gfx
 {
     /// Creates a target for all subsequent rendering operations.
-    class ZEN_API CRenderTarget : gfxcore::CGLSubsystem
+    class ZEN_API zRenderTarget : gfxcore::zGLSubsystem
     {
     public:
         /// Creates a render target of the specified dimensions.
-        explicit CRenderTarget(const math::rect_t& Dimensions);
-        CRenderTarget(const uint16_t w, const uint16_t h);  ///< @overload
+        explicit zRenderTarget(const math::rect_t& Dimensions);
+        zRenderTarget(const uint16_t w, const uint16_t h);  ///< @overload
 
-        ~CRenderTarget();
+        ~zRenderTarget();
 
         /// Creates the render target with an attached texture.
         bool Init();
@@ -73,7 +73,7 @@ namespace gfx
         inline uint16_t GetWidth()  const { return m_Viewport.y; }
 
     private:
-        util::CLog& m_Log;
+        util::zLog& m_Log;
 
         math::vectoru16_t m_OldViewport, m_Viewport;
         math::matrix4x4_t m_ProjMatrix, m_Main;
@@ -90,13 +90,13 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__RENDER_TARGET_HPP
 
 /**
- * @class zen::gfx::CRenderTarget
+ * @class zen::gfx::zRenderTarget
  * @details
  *  Render targets are useful for rendering things off-screen,
  *  multi-pass rendering, and other useful routines for rendering
  *  things to a texture, and then using that texture for later
  *  operations.
- *  It's used extensively in the gfx::CScene API in order to
+ *  It's used extensively in the gfx::zScene API in order to
  *  provide post-processing effects and additive lighting effects.
  **/
 

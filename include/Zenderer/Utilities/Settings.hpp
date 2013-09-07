@@ -34,22 +34,22 @@ namespace zen
 {
 namespace util
 {
-    /// Used internally by CSettings to manage options of all types.
-    class ZEN_API COption
+    /// Used internally by zSettings to manage options of all types.
+    class ZEN_API zOption
     {
     public:
-        COption();
-        COption(const string_t& value);
-        COption(const COption& Opt);
+        zOption();
+        zOption(const string_t& value);
+        zOption(const zOption& Opt);
 
-        COption& operator=(const COption& Opt);     ///< Create from option
-        COption& operator=(const string_t& name);   ///< Create from string
-        COption& operator=(const char* name);       ///< Create from C-string
-        COption& operator=(const bool name);        ///< Create from bool
+        zOption& operator=(const zOption& Opt);     ///< Create from option
+        zOption& operator=(const string_t& name);   ///< Create from string
+        zOption& operator=(const char* name);       ///< Create from C-string
+        zOption& operator=(const bool name);        ///< Create from bool
 
         /// Create from numeric types.
         template<typename T>
-        inline COption& operator=(const T& name)
+        inline zOption& operator=(const T& name)
         {
             m_value = std::to_string(name);
             return (*this);
@@ -71,7 +71,7 @@ namespace util
         inline operator bool() const { return m_value != "0"; }
 
         /// Comparison to an option value.
-        bool operator==(const COption& value)   const;
+        bool operator==(const zOption& value)   const;
         bool operator==(const string_t& value)  const;  ///< @overload
         bool operator==(const bool value)       const;  ///< @overload
 
@@ -81,14 +81,14 @@ namespace util
 
         /// Outputting an option value
         friend std::ostream& operator<<(std::ostream& o,
-                                        const COption& Opt);
+                                        const zOption& Opt);
 
     private:
         string_t m_value;
     };
 
     /// An array-like wrapper for various settings.
-    class ZEN_API CSettings : public CSubsystem
+    class ZEN_API zSettings : public zSubsystem
     {
         typedef std::map<
 #ifdef ZEN_DEBUG_BUILD
@@ -96,11 +96,11 @@ namespace util
 #else
             uint32_t,
 #endif // ZEN_DEBUG_BUILD
-            COption> settings_t;
+            zOption> settings_t;
 
     public:
-        CSettings(const string_t& filename = "");
-        ~CSettings();
+        zSettings(const string_t& filename = "");
+        ~zSettings();
 
         bool Init();
         bool Destroy();
@@ -113,7 +113,7 @@ namespace util
          *  allow for a user to assign it immediately. This allows for
          *  the following:
          *  @code
-         *  CSettings g_EngineSettings;
+         *  zSettings g_EngineSettings;
          *
          *  // Assigns a new option "FRAME_RATE" to the value 60.
          *  g_EngineSettings["FRAME_RATE"] = 60;
@@ -126,14 +126,14 @@ namespace util
          *  @endcode
          *
          *  This is possible by overloading `operator=` in an abstracted
-         *  object COption that acts just like a normal type but can
+         *  object zOption that acts just like a normal type but can
          *  be assigned to an `int`, a `float`, a `bool`, or a `string_t`.
          *
          * @param   opt     Option to get value of
          *
          * @return  A mutable option value.
          **/
-        COption& operator[](const string_t& opt);
+        zOption& operator[](const string_t& opt);
 
         /// Starting iterator (for range-based `for()` loops).
         settings_t::iterator begin(){ return m_Options.begin(); }
@@ -141,14 +141,14 @@ namespace util
         /// Ending iterator (for range-based `for()` loops).
         settings_t::iterator end()  { return m_Options.end(); }
 
-        static inline CSettings& GetEngineInstance()
+        static inline zSettings& GetEngineInstance()
         {
-            static CSettings Engine;
+            static zSettings Engine;
             return Engine;
         }
 
     private:
-        CLog&       m_Log;
+        zLog&       m_Log;
         settings_t  m_Options;
         string_t    m_filename;
     };
@@ -158,7 +158,7 @@ namespace util
 #endif // ZENDERER__UTILITIES__SETTINGS_HPP
 
 /**
- * @class zen::util::CSettings
+ * @class zen::util::zSettings
  * @details
  *  This isn't used anywhere in the engine, but is present for user
  *  convenience in creating / passing around various in-game settings

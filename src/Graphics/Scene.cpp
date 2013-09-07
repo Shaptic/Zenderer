@@ -3,59 +3,59 @@
 using namespace zen;
 using namespace gfx;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gfxcore::CRenderer;
+using gfxcore::zRenderer;
 using gfxcore::BlendFunc;
 
-CScene::CScene(const uint16_t w, const uint16_t h, asset::CAssetManager& Mgr) :
-    CSubsystem("Scene"), m_Assets(Mgr),
-    m_Log(util::CLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
+zScene::zScene(const uint16_t w, const uint16_t h, asset::zAssetManager& Mgr) :
+    zSubsystem("Scene"), m_Assets(Mgr),
+    m_Log(util::zLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
     m_lighting(false), m_ppfx(false), m_through(false)
 {
 }
 
-CScene::~CScene()
+zScene::~zScene()
 {
     this->Destroy();
 }
 
-bool CScene::Init()
+bool zScene::Init()
 {
     return  m_Assets.IsInit()   && m_Geometry.Init() &&
             m_FBO1.Init()       && m_FBO2.Init();
 }
 
 /// @bug A crash occurs deleting entities.
-bool CScene::Destroy()
+bool zScene::Destroy()
 {
     return this->Clear()    && m_FBO1.Destroy() &&
            m_FBO2.Destroy() && m_Geometry.Destroy();
 }
 
-obj::CEntity& CScene::AddEntity()
+obj::zEntity& zScene::AddEntity()
 {
-    obj::CEntity* pNew = new obj::CEntity(m_Assets);
+    obj::zEntity* pNew = new obj::zEntity(m_Assets);
     m_allEntities.push_back(pNew);
     return *m_allEntities.back();
 }
 
-CLight& CScene::AddLight(const LightType& Type)
+zLight& zScene::AddLight(const LightType& Type)
 {
-    CLight* pNew = new CLight(m_Assets, Type, m_FBO1.GetHeight());
+    zLight* pNew = new zLight(m_Assets, Type, m_FBO1.GetHeight());
     pNew->Init();
     m_allLights.push_back(pNew);
     return *m_allLights.back();
 }
 
-CEffect& CScene::AddEffect(const EffectType& Type)
+zEffect& zScene::AddEffect(const EffectType& Type)
 {
-    CEffect* pNew = new CEffect(Type, m_Assets);
+    zEffect* pNew = new zEffect(Type, m_Assets);
     if(pNew->Init())
     {
         pNew->Enable();
         pNew->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-        pNew->SetParameter("proj", CRenderer::GetProjectionMatrix());
+        pNew->SetParameter("proj", zRenderer::GetProjectionMatrix());
         pNew->Disable();
     }
 
@@ -63,9 +63,9 @@ CEffect& CScene::AddEffect(const EffectType& Type)
     return *m_allPPFX.back();
 }
 
-obj::CEntity& CScene::InsertEntity(const uint32_t index)
+obj::zEntity& zScene::InsertEntity(const uint32_t index)
 {
-    obj::CEntity* pNew = new obj::CEntity(m_Assets);
+    obj::zEntity* pNew = new obj::zEntity(m_Assets);
     auto i = m_allEntities.begin();
     for(size_t j = 0, s = m_allEntities.size();
         j < s && j != index; ++j, ++i);
@@ -75,7 +75,7 @@ obj::CEntity& CScene::InsertEntity(const uint32_t index)
     return *pNew;
 }
 
-bool CScene::RemoveEntity(const obj::CEntity& Obj)
+bool zScene::RemoveEntity(const obj::zEntity& Obj)
 {
     auto i = m_allEntities.begin(),
          j = m_allEntities.end();
@@ -93,7 +93,7 @@ bool CScene::RemoveEntity(const obj::CEntity& Obj)
     return false;
 }
 
-bool CScene::RemoveEntity(const uint32_t index)
+bool zScene::RemoveEntity(const uint32_t index)
 {
     if(!this->IsValidEntityIndex(index)) return false;
 
@@ -106,7 +106,7 @@ bool CScene::RemoveEntity(const uint32_t index)
     return true;
 }
 
-bool CScene::Clear()
+bool zScene::Clear()
 {
     for(auto i : m_allEntities) delete i;
     for(auto i : m_allLights) delete i;
@@ -119,7 +119,7 @@ bool CScene::Clear()
     return m_Geometry.Clear();
 }
 
-bool CScene::Render()
+bool zScene::Render()
 {
     // Called every frame because there is no more appropriate
     // time to call it. Things won't be offloaded multiple times.
@@ -140,15 +140,15 @@ bool CScene::Render()
     m_FBO1.Bind(); m_FBO1.Clear(Clear);
 
     // Set the standard blending state.
-    bool blend = CRenderer::BlendOperation(BlendFunc::IS_ENABLED);
-    CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
+    bool blend = zRenderer::BlendOperation(BlendFunc::IS_ENABLED);
+    zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
     // All geometry is stored here.
     m_Geometry.Bind();
 
     // Prepare for primitive rendering.
-    const CMaterial& M = CRenderer::GetDefaultMaterial();
-    CEffect& E = const_cast<CMaterial&>(M).GetEffect();
+    const zMaterial& M = zRenderer::GetDefaultMaterial();
+    zEffect& E = const_cast<zMaterial&>(M).GetEffect();
     M.Enable();
 
     // Commence individual primitive rendering.
@@ -177,7 +177,7 @@ bool CScene::Render()
     M.Disable();
 
     // Shortcut reference.
-    gfxcore::CVertexArray& FS = CRenderer::GetFullscreenVBO();
+    gfxcore::zVertexArray& FS = zRenderer::GetFullscreenVBO();
 
     // Primitive rendering is complete.
     // Now, render lights with additive blending.
@@ -191,8 +191,8 @@ bool CScene::Render()
         // bind the FBO1 texture to render onto. The
         // final result ends up on the FBO2 texture.
         m_FBO2.Bind();
-        CRenderer::EnableTexture(final_texture);
-        CRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
+        zRenderer::EnableTexture(final_texture);
+        zRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
 
         for(auto& i : m_allLights)
         {
@@ -209,7 +209,7 @@ bool CScene::Render()
         }
 
         final_texture = m_FBO2.GetTexture();
-        CRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
+        zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
     }
 
     // Ping-pong post-processing effects.
@@ -219,8 +219,8 @@ bool CScene::Render()
     {
         // If there was lighting, the first texture is
         // the second FBO.
-        CRenderTarget& One = m_lighting ? m_FBO2 : m_FBO1;
-        CRenderTarget& Two = m_lighting ? m_FBO1 : m_FBO2;
+        zRenderTarget& One = m_lighting ? m_FBO2 : m_FBO1;
+        zRenderTarget& Two = m_lighting ? m_FBO1 : m_FBO2;
 
         auto i = m_allPPFX.begin(), j = m_allPPFX.end();
 
@@ -232,7 +232,7 @@ bool CScene::Render()
             else        One.Bind();
 
             FX->Enable();
-            CRenderer::EnableTexture(final_texture);
+            zRenderer::EnableTexture(final_texture);
             FS.Draw();
             FX->Disable();
 
@@ -246,25 +246,25 @@ bool CScene::Render()
     m_FBO1.Unbind();
 
     E.Enable();
-    CRenderer::EnableTexture(final_texture);
-    if(!m_through) CRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
+    zRenderer::EnableTexture(final_texture);
+    if(!m_through) zRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
     GL(glDisable(GL_DEPTH_TEST));
 
     // Make sure the right data is set.
     E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-    E.SetParameter("proj", CRenderer::GetProjectionMatrix());
+    E.SetParameter("proj", zRenderer::GetProjectionMatrix());
 
     FS.Draw();
 
-    CRenderer::EnableTexture(0);
-    CRenderer::ResetMaterialState();
+    zRenderer::EnableTexture(0);
+    zRenderer::ResetMaterialState();
 
-    if(!blend && m_through) CRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
+    if(!blend && m_through) zRenderer::BlendOperation(BlendFunc::DISABLE_BLEND);
 
     return true;
 }
 
-int32_t CScene::GetEntityIndex(const obj::CEntity& D)
+int32_t zScene::GetEntityIndex(const obj::zEntity& D)
 {
     int32_t index = -1;
     for(auto i : m_allEntities)
@@ -276,7 +276,7 @@ int32_t CScene::GetEntityIndex(const obj::CEntity& D)
     return index;
 }
 
-bool CScene::IsValidEntityIndex(int32_t i)
+bool zScene::IsValidEntityIndex(int32_t i)
 {
     return (i > 0 && i < m_allEntities.size());
 }

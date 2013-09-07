@@ -2,24 +2,24 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gfxcore::CTexture;
+using gfxcore::zTexture;
 
-CTexture CTexture::s_DefaultTexture;
-uint16_t CTexture::s_ID = 1;
+zTexture zTexture::s_DefaultTexture;
+uint16_t zTexture::s_ID = 1;
 
-CTexture::CTexture(const void* const owner) :
-    CAsset(owner), m_width(0), m_height(0), m_TextureID(0)
+zTexture::zTexture(const void* const owner) :
+    zAsset(owner), m_width(0), m_height(0), m_TextureID(0)
 {
 }
 
-CTexture::~CTexture()
+zTexture::~zTexture()
 {
     this->Destroy();
 }
 
-bool CTexture::LoadFromFile(const string_t& filename)
+bool zTexture::LoadFromFile(const string_t& filename)
 {
     if(m_loaded) this->Destroy();
 
@@ -38,7 +38,7 @@ bool CTexture::LoadFromFile(const string_t& filename)
 
         m_Log << m_Log.SetMode(util::LogMode::ZEN_ERROR)
               << m_Log.SetSystem("Texture") << m_error_str
-              << CLog::endl;
+              << zLog::endl;
 
         return (m_loaded = false);
     }
@@ -54,7 +54,7 @@ bool CTexture::LoadFromFile(const string_t& filename)
     return (m_loaded = true);
 }
 
-bool CTexture::LoadFromExisting(const CAsset* const pCopy)
+bool zTexture::LoadFromExisting(const zAsset* const pCopy)
 {
     if(pCopy == nullptr || !pCopy->IsLoaded() || this == pCopy) return false;
     if(m_loaded) this->Destroy();
@@ -62,8 +62,8 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
     const unsigned char* raw =
         static_cast<const unsigned char*>(pCopy->GetData());
 
-    const CTexture* const pCopyTexture =
-        static_cast<const CTexture* const>(pCopy);
+    const zTexture* const pCopyTexture =
+        static_cast<const zTexture* const>(pCopy);
 
     bool ret = this->LoadFromRaw(GL_RGBA8, GL_RGBA,
         pCopyTexture->m_width, pCopyTexture->m_height, raw);
@@ -79,7 +79,7 @@ bool CTexture::LoadFromExisting(const CAsset* const pCopy)
     return (m_loaded = ret);
 }
 
-bool CTexture::LoadFromExisting(const GLuint handle)
+bool zTexture::LoadFromExisting(const GLuint handle)
 {
     GLint w, h;
     GL(glBindTexture(GL_TEXTURE_2D, handle));
@@ -95,7 +95,7 @@ bool CTexture::LoadFromExisting(const GLuint handle)
     return m_loaded = ((m_texture = handle) != 0);
 }
 
-bool CTexture::CopyFromExisting(const GLuint handle)
+bool zTexture::CopyFromExisting(const GLuint handle)
 {
     if(handle == 0) return false;
 
@@ -112,7 +112,7 @@ bool CTexture::CopyFromExisting(const GLuint handle)
     return this->LoadFromRaw(GL_RGBA8, GL_RGBA, w, h, raw);
 }
 
-bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
+bool zTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
                            const uint16_t w, const uint16_t h,
                            const unsigned char* data)
 {
@@ -141,7 +141,7 @@ bool CTexture::LoadFromRaw(const GLenum iformat, const GLenum format,
     return (m_loaded = true);
 }
 
-const void* const CTexture::GetData() const
+const void* const zTexture::GetData() const
 {
     this->Bind();
 
@@ -153,21 +153,21 @@ const void* const CTexture::GetData() const
     return static_cast<const void* const>(raw);
 }
 
-bool CTexture::Bind() const
+bool zTexture::Bind() const
 {
     if(!m_loaded) return false;
     GL(glBindTexture(GL_TEXTURE_2D, m_texture));
     return true;
 }
 
-bool CTexture::Unbind() const
+bool zTexture::Unbind() const
 {
     if(!m_loaded) return false;
     GL(glBindTexture(GL_TEXTURE_2D, 0));
     return true;
 }
 
-CTexture& CTexture::GetDefaultTexture()
+zTexture& zTexture::GetDefaultTexture()
 {
     if(s_DefaultTexture.IsLoaded()) return s_DefaultTexture;
 
@@ -178,7 +178,7 @@ CTexture& CTexture::GetDefaultTexture()
     return s_DefaultTexture;
 }
 
-bool CTexture::Destroy()
+bool zTexture::Destroy()
 {
     if(m_loaded)
     {

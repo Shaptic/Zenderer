@@ -2,20 +2,20 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using gfxcore::CShader;
+using gfxcore::zShader;
 
-CShader::CShader(const void* const ptr) :
-    CAsset(ptr), m_object(0), m_type(GL_VERTEX_SHADER)
+zShader::zShader(const void* const ptr) :
+    zAsset(ptr), m_object(0), m_type(GL_VERTEX_SHADER)
 {}
 
-CShader::~CShader()
+zShader::~zShader()
 {
     this->Destroy();
 }
 
-bool CShader::LoadFromFile(const string_t& filename)
+bool zShader::LoadFromFile(const string_t& filename)
 {
     if(m_loaded) this->Destroy();
 
@@ -27,7 +27,7 @@ bool CShader::LoadFromFile(const string_t& filename)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Shader") << "Failed to open '"
-                << filename << "'." << CLog::endl;
+                << filename << "'." << zLog::endl;
 
         return false;
     }
@@ -51,13 +51,13 @@ bool CShader::LoadFromFile(const string_t& filename)
     return (m_loaded = true);
 }
 
-bool CShader::LoadFromExisting(const CAsset* const pCopyShader)
+bool zShader::LoadFromExisting(const zAsset* const pCopyShader)
 {
-    // The given parameter must must must be a CShader* instance
+    // The given parameter must must must be a zShader* instance
     // in actuality. There is no way to test for this.
 
-    const CShader* const pCopy =
-        static_cast<const CShader* const>(pCopyShader);
+    const zShader* const pCopy =
+        static_cast<const zShader* const>(pCopyShader);
 
     ZEN_ASSERT(pCopyShader != nullptr);
     ZEN_ASSERT(pCopy != nullptr);
@@ -65,10 +65,10 @@ bool CShader::LoadFromExisting(const CAsset* const pCopyShader)
     m_object = reinterpret_cast<decltype(m_object)>(pCopyShader->GetData());
     m_type = pCopy->m_type;
 
-    return CAsset::LoadFromExisting(pCopyShader);
+    return zAsset::LoadFromExisting(pCopyShader);
 }
 
-bool CShader::LoadFromRaw(const string_t& string)
+bool zShader::LoadFromRaw(const string_t& string)
 {
     ZEN_ASSERT(!string.empty());
 
@@ -105,7 +105,7 @@ bool CShader::LoadFromRaw(const string_t& string)
         buffer = nullptr;
 
         m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Shader")
-              << "Shader compilation log: " << m_shader_log << CLog::endl;
+              << "Shader compilation log: " << m_shader_log << zLog::endl;
     }
 
     // We have an error
@@ -118,7 +118,7 @@ bool CShader::LoadFromRaw(const string_t& string)
 
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << m_Log.SetSystem("Shader") << "Failed to compile shader: "
-                << m_error_str << CLog::endl;
+                << m_error_str << zLog::endl;
 
         return (m_loaded = false);
     }
@@ -130,7 +130,7 @@ bool CShader::LoadFromRaw(const string_t& string)
     return (m_loaded = true);
 }
 
-bool CShader::Destroy()
+bool zShader::Destroy()
 {
     if(m_object > 0)
     {
@@ -143,22 +143,22 @@ bool CShader::Destroy()
     return !(m_loaded = false);
 }
 
-const void* const CShader::GetData() const
+const void* const zShader::GetData() const
 {
     return reinterpret_cast<const void* const>(m_object);
 }
 
-GLuint CShader::GetShaderObject() const
+GLuint zShader::GetShaderObject() const
 {
     return m_object;
 }
 
-const string_t& CShader::GetShaderLog() const
+const string_t& zShader::GetShaderLog() const
 {
     return m_shader_log;
 }
 
-void CShader::SetType(const GLenum shader_type)
+void zShader::SetType(const GLenum shader_type)
 {
     m_type = shader_type;
 }

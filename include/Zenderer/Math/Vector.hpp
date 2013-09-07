@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/Math/Vector.hpp - A vector class representing a position
+ *  Zenderer/Math/zVector.hpp - A vector class representing a position
  *  in 3D (or 2D) space, fully supporting the mathematical operations
  *  typical of such a structure.
  *
@@ -39,32 +39,32 @@ namespace math
 
     /// Represents a point in 3D rectangular-coordinate space.
     template<typename T>
-    struct ZEN_API Vector
+    struct ZEN_API zVector
     {
         /// The publicly-accessible vector components.
         T x, y, z;
 
         /// Default constructor that moves the vector to the origin.
-        Vector() : x(0), y(0), z(1) {}
+        zVector() : x(0), y(0), z(1) {}
 
         /// Constructor for any coordinate space (defaults to 2D).
-        Vector(T x, T y, T z = 1) : x(x), y(y), z(z) {}
+        zVector(T x, T y, T z = 1) : x(x), y(y), z(z) {}
 
         /// Copies vector components from one to another.
         template<typename U>
-        Vector(const Vector<U>& C) : x(C.x), y(C.y), z(C.z) {}
+        zVector(const zVector<U>& C) : x(C.x), y(C.y), z(C.z) {}
 
         /// Assigns one vector to another.
         template<typename U> inline
-        Vector<T>& operator=(const Vector<U>& Copy);
+        zVector<T>& operator=(const zVector<U>& Copy);
 
         /// Compares two vectors for equivalence.
         template<typename U> inline
-        bool operator==(const Vector<U>& Other) const;
+        bool operator==(const zVector<U>& Other) const;
 
-        /// Opposite of Vector::operator==()
+        /// Opposite of zVector::operator==()
         template<typename U> inline
-        bool operator!=(const Vector<U>& Other) const;
+        bool operator!=(const zVector<U>& Other) const;
 
         // Begin mathematical vector operations.
 
@@ -78,7 +78,7 @@ namespace math
          * @return  A 3D vector normal to both vectors.
          **/
         template<typename U> inline
-        Vector<T> operator^(const Vector<U>& Other) const;
+        zVector<T> operator^(const zVector<U>& Other) const;
 
         /**
          * Calculates the dot product of two vectors.
@@ -99,21 +99,21 @@ namespace math
          * @return  The dot product as a scalar.
          **/
         template<typename U> inline
-        real_t operator*(const Vector<U>& Other) const;
+        real_t operator*(const zVector<U>& Other) const;
 
         /**
          * Multiplies each component by a scalar factor.
          * @param   scalar  The component scaling factor
          * @return  A 2D resultant vector.
          **/
-        inline Vector<T> operator*(const real_t scalar) const;
+        inline zVector<T> operator*(const real_t scalar) const;
 
         /**
          * Divides each component by a scalar factor.
          * @param   scalar  The component scaling factor
          * @return  A 2D resultant vector.
          **/
-        inline Vector<T> operator/(const real_t scalar) const;
+        inline zVector<T> operator/(const real_t scalar) const;
 
         /**
          * Adds a given vector to the current vector, returning the result.
@@ -121,14 +121,14 @@ namespace math
          * @return  A 2D resultant vector.
          **/
         template<typename U> inline
-        Vector<T> operator+(const Vector<U>& Other) const;
+        zVector<T> operator+(const zVector<U>& Other) const;
 
         /**
          * Adds a value to both components of the current vector.
          * @param   value   The value to add
          * @return  A 2D resultant vector.
          **/
-        inline Vector<T> operator+(const real_t value) const;
+        inline zVector<T> operator+(const real_t value) const;
 
         /**
          * Subtracts a given vector from the current vector, returning the result.
@@ -136,7 +136,7 @@ namespace math
          * @return  A 2D resultant vector.
          **/
         template<typename U> inline
-        Vector<T> operator-(const Vector<U>& Other) const;
+        zVector<T> operator-(const zVector<U>& Other) const;
 
         /**
          * Normalizes the current vector.
@@ -190,49 +190,49 @@ namespace math
          *  it's on the right (going c/w). This can also be done by
          *  examining the dot product.
          *
-         * @param   Other   Vector to test cross product on
+         * @param   Other   zVector to test cross product on
          *
          * @return  2D cross product (z-component of 3D cross).
          *
-         * @see     operator*(const Vector&)
+         * @see     operator*(const zVector&)
          **/
         template<typename U> inline
-        real_t Cross2D(const Vector<U>& Other) const;
+        real_t Cross2D(const zVector<U>& Other) const;
 
         /**
          * Returns a normalized version of the current vector.
-         * @see     Vector::Normalize()
+         * @see     zVector::Normalize()
          **/
-        inline Vector<T> GetNormalized() const;
+        inline zVector<T> GetNormalized() const;
 
         /// Outputs the vector in the form `<x, y, z>`
         template<typename U> friend
         std::ostream& operator<<(std::ostream& out,
-                                 const Vector<U>& Other);
+                                 const zVector<U>& Other);
 
         /**
          * Finds the distance between two points (optional `sqrt`).
          * @todo    Investigate potential problems between a signed
-         *          and unsigned `Vector<T>` or `Vector<U>`.
+         *          and unsigned `zVector<T>` or `zVector<U>`.
          **/
         template<typename T, typename U> static
-        real_t distance(const Vector<T>& A, const Vector<U>& B,
+        real_t distance(const zVector<T>& A, const zVector<U>& B,
                         const bool do_sqrt = false);
     };
 
-    #include "Vector.inl"
+    #include "zVector.inl"
 
     /// A shortcut for the default vector implementation in the engine.
-    typedef Vector<real_t> vector_t;
+    typedef zVector<real_t> vector_t;
 
     /// Floating-point vector shortcut.
-    typedef Vector<real_t> vectorf_t;
+    typedef zVector<real_t> vectorf_t;
 
     /// 16-bit unsigned integral vector shortcut.
-    typedef Vector<uint16_t> vectoru16_t;
+    typedef zVector<uint16_t> vectoru16_t;
 
     /// Standard 32-bit integral vector shortcut.
-    typedef Vector<int32_t> vectori_t;
+    typedef zVector<int32_t> vectori_t;
 }   // namespace math
 }   // namespace ic
 
@@ -251,11 +251,11 @@ namespace math
  *  operation. e.g.:
  *
  *  @code
- *  Vector<int> A(1, 2, 3);
- *  Vector<float> B(1.1, 2.2, 3.3);
+ *  zVector<int> A(1, 2, 3);
+ *  zVector<float> B(1.1, 2.2, 3.3);
  *
- *  Vector<float> C = A + B;    // INVALID!
- *  Vector<int>   C = A + B;    // VALID
+ *  zVector<float> C = A + B;    // INVALID!
+ *  zVector<int>   C = A + B;    // VALID
  *  @endcode
  *
  *  Thus if you need a higher level of precision, keep that vector

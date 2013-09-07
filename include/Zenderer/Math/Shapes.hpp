@@ -24,7 +24,7 @@
 
 #include "Zenderer/Core/Types.hpp"
 #include "MathCore.hpp"
-#include "Vector.hpp"
+#include "zVector.hpp"
 
 namespace zen
 {
@@ -63,7 +63,7 @@ namespace math
         aabb_t() {}
 
         aabb_t(const vector_t& Pos,
-               const Vector<uint32_t>& Size) :
+               const zVector<uint32_t>& Size) :
             tl(Pos), br(Pos + Size) {}
 
         aabb_t(const rect_t& Data) :

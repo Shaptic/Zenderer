@@ -1,13 +1,13 @@
 #include "Zenderer/Network/Socket.hpp"
 
 using namespace zen;
-using util::CLog;
+using util::zLog;
 using util::LogMode;
-using net::CSocket;
+using net::zSocket;
 
-bool CSocket::s_init = false;
+bool zSocket::s_init = false;
 
-bool CSocket::InitializeLibrary()
+bool zSocket::InitializeLibrary()
 {
     if(s_init) return true;
 
@@ -21,7 +21,7 @@ bool CSocket::InitializeLibrary()
     return (s_init = true);
 }
 
-bool CSocket::Init(const string_t& host, const string_t& port)
+bool zSocket::Init(const string_t& host, const string_t& port)
 {
     addrinfo hints;
     addrinfo* tmp;
@@ -67,7 +67,7 @@ bool CSocket::Init(const string_t& host, const string_t& port)
     return m_socket != -1;
 }
 
-bool CSocket::Destroy()
+bool zSocket::Destroy()
 {
     if(m_socket == -1) return false;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ bool CSocket::Destroy()
     return (m_socket = -1);
 }
 
-string_t CSocket::RecvFrom(const size_t size, string_t& address,
+string_t zSocket::RecvFrom(const size_t size, string_t& address,
                            string_t& port)
 {
     if(m_socket <= 0) return "";
@@ -96,7 +96,7 @@ string_t CSocket::RecvFrom(const size_t size, string_t& address,
         return string_t("");
     }
 
-    address = CSocket::GetAddress(addr);
+    address = zSocket::GetAddress(addr);
     std::stringstream ss;
     ss << ntohs(addr.sin_port);
     port = ss.str();
@@ -105,25 +105,25 @@ string_t CSocket::RecvFrom(const size_t size, string_t& address,
     delete[] buffer;
 
 #ifdef ZEN_DEBUG_BUILD
-    CLog& Log = CLog::GetEngineLog();
+    zLog& Log = zLog::GetEngineLog();
     Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
         << "Received '" << ret << "' from " << address << ':'
-        << port << '.' << CLog::endl;
+        << port << '.' << zLog::endl;
 #endif  // ZEN_DEBUG_BUILD
 
     return ret;
 }
 
-int CSocket::SendTo(const string_t& addr, const string_t& port,
+int zSocket::SendTo(const string_t& addr, const string_t& port,
                     const string_t& data)
 {
     if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
 
 #ifdef ZEN_DEBUG_BUILD
-    CLog& Log = CLog::GetEngineLog();
+    zLog& Log = zLog::GetEngineLog();
     Log << Log.SetMode(LogMode::ZEN_DEBUG) << Log.SetSystem("Network")
         << "Sending '" << data << "' to " << addr << ':' << port
-        << '.' << CLog::endl;
+        << '.' << zLog::endl;
 #endif  // ZEN_DEBUG_BUILD
 
     sockaddr_in sock;
@@ -134,13 +134,13 @@ int CSocket::SendTo(const string_t& addr, const string_t& port,
                  (sockaddr*)&sock, sizeof(sock));
 }
 
-int CSocket::SendBroadcast(const string_t& message, const string_t& port)
+int zSocket::SendBroadcast(const string_t& message, const string_t& port)
 {
     if(m_Type != SocketType::UDP)
     {
         m_Log << m_Log.SetSystem("Network")
               << m_Log.SetMode(LogMode::ZEN_ERROR)
-              << "Broadcasting is only for UDP packets." << CLog::endl;
+              << "Broadcasting is only for UDP packets." << zLog::endl;
         return -1;
     }
 
@@ -150,13 +150,13 @@ int CSocket::SendBroadcast(const string_t& message, const string_t& port)
     return b;
 }
 
-bool CSocket::Ping()
+bool zSocket::Ping()
 {
     ZEN_ASSERTM(false, "not implemented");
     return false;
 }
 
-bool CSocket::SetSocketOption(const int type, const int option,
+bool zSocket::SetSocketOption(const int type, const int option,
                               const bool flag)
 {
     if(m_socket < 0) return false;
@@ -164,7 +164,7 @@ bool CSocket::SetSocketOption(const int type, const int option,
     return setsockopt(m_socket, type, option, &set, sizeof set) == 0;
 }
 
-bool CSocket::SetNonblocking(const bool flag)
+bool zSocket::SetNonblocking(const bool flag)
 {
     if(m_socket < 0) return false;
 
@@ -177,7 +177,7 @@ bool CSocket::SetNonblocking(const bool flag)
 #endif
 }
 
-int CSocket::GetError() const
+int zSocket::GetError() const
 {
 #ifdef _WIN32
     return WSAGetLastError();
@@ -186,7 +186,7 @@ int CSocket::GetError() const
 #endif // _WIN32
 }
 
-string_t CSocket::GetAddress(sockaddr_in& addr)
+string_t zSocket::GetAddress(sockaddr_in& addr)
 {
     // We would like to support Windows XP and above.
 #ifdef _WIN32
@@ -198,7 +198,7 @@ string_t CSocket::GetAddress(sockaddr_in& addr)
 #endif // _WIN32
 }
 
-in_addr CSocket::GetAddress(const string_t& ip)
+in_addr zSocket::GetAddress(const string_t& ip)
 {
     in_addr s;
 

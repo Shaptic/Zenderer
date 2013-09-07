@@ -2,22 +2,22 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-using asset::CAsset;
+using asset::zAsset;
 
-size_t CAsset::s_seed = 0x6915BAD;
+size_t zAsset::s_seed = 0x6915BAD;
 
-CAsset::CAsset(const void* const owner) :
-    m_Log(CLog::GetEngineLog()),
+zAsset::zAsset(const void* const owner) :
+    m_Log(zLog::GetEngineLog()),
     mp_owner(owner), m_filename_hash(0), m_loaded(false),
-    m_refcount(0), m_id(util::hash(this, sizeof(CAsset), CAsset::s_seed))
+    m_refcount(0), m_id(util::hash(this, sizeof(zAsset), zAsset::s_seed))
 {}
 
-CAsset::~CAsset() {}
+zAsset::~zAsset() {}
 
-bool CAsset::LoadFromExisting(const CAsset* const pCopy)
+bool zAsset::LoadFromExisting(const zAsset* const pCopy)
 {
     m_error_str     = pCopy->m_error_str;
     m_filename      = pCopy->m_filename;

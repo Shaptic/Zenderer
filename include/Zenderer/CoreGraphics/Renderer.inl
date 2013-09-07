@@ -1,34 +1,34 @@
 // We inline all of the short functions so the compiler can optimize
 // them if need be, since they are called quite often.
 
-const gfx::CMaterial& CRenderer::GetDefaultMaterial()
+const gfx::zMaterial& zRenderer::GetDefaultMaterial()
 {
     return *s_DefaultMaterial;
 }
 
-gfx::CEffect& CRenderer::GetDefaultEffect()
+gfx::zEffect& zRenderer::GetDefaultEffect()
 {
     return s_DefaultMaterial->GetEffect();
 }
 
-const gfxcore::CTexture& CRenderer::GetDefaultTexture()
+const gfxcore::zTexture& zRenderer::GetDefaultTexture()
 {
     return s_DefaultMaterial->GetTexture();
 }
 
-const math::matrix4x4_t& CRenderer::GetProjectionMatrix()
+const math::matrix4x4_t& zRenderer::GetProjectionMatrix()
 {
     return s_ProjMatrix;
 }
 
-bool CRenderer::ResetMaterialState()
+bool zRenderer::ResetMaterialState()
 {
     GL(glBindTexture(GL_TEXTURE_2D, 0));
     GL(glUseProgram(0));
     return true;
 }
 
-bool CRenderer::BlendOperation(const BlendFunc& Func)
+bool zRenderer::BlendOperation(const BlendFunc& Func)
 {
     if(s_LastBlend == Func) return true;
 
@@ -70,13 +70,13 @@ bool CRenderer::BlendOperation(const BlendFunc& Func)
     return true;
 }
 
-bool CRenderer::EnableTexture(const GLuint handle)
+bool zRenderer::EnableTexture(const GLuint handle)
 {
     GL(glBindTexture(GL_TEXTURE_2D, handle));
     return true;
 }
 
-bool CRenderer::ToggleWireframe()
+bool zRenderer::ToggleWireframe()
 {
     s_wf = !s_wf;
     if(s_wf)
@@ -91,12 +91,12 @@ bool CRenderer::ToggleWireframe()
     return s_wf;
 }
 
-bool CRenderer::DisableTexture()
+bool zRenderer::DisableTexture()
 {
     return EnableTexture(0);
 }
 
-CVertexArray& CRenderer::GetFullscreenVBO()
+zVertexArray& zRenderer::GetFullscreenVBO()
 {
     return s_FullscreenQuad;
 }

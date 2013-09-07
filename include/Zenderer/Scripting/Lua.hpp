@@ -46,7 +46,7 @@ namespace lua
     typedef std::map<string_t, lua_CFunction> luaLibs_t;
 
     /// Wrapper for the core Lua interpreter.
-    class ZEN_API CLuaAPI : public CSubsystem
+    class ZEN_API zLua : public zSubsystem
     {
     public:
         /**
@@ -57,11 +57,11 @@ namespace lua
          *
          * @param   libraries   Libraries to use
          **/
-        CLuaAPI(const luaLibs_t& libraries) :
+        zLua(const luaLibs_t& libraries) :
             m_Libs(libraries), m_Lua(nullptr) {}
 
         /// Cleans up the interpreter instance.
-        ~CLuaAPI()
+        ~zLua()
         {
             this->Destroy();
         }
@@ -161,7 +161,7 @@ namespace lua
 #endif // ZENDERER__SCRIPTING__LUA_HPP
 
 /**
- * @class zen::lua::CLuaAPI
+ * @class zen::lua::zLua
  *
  * @details
  *  This class provides a simple convenience wrapper around the `lua_State`
@@ -281,7 +281,7 @@ namespace lua
  *  luaLibs_t libs;
  *  libs["base"] = luaopen_base;
  *
- *  lua::CLuaAPI Lua(libs);
+ *  lua::zLua Lua(libs);
  *  Lua.Init();
  *
  *  Dummy Object(24);

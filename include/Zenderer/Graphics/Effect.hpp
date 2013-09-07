@@ -36,7 +36,7 @@ namespace gfx
 {
     /**
      * Names a distribution of effect types.
-     *  See the table in the CEffect documentation for appropriate
+     *  See the table in the zEffect documentation for appropriate
      *  parameters for each of the effects.
      *
      * @note    `CUSTOM_EFFECT` is only used by the material wrapper.
@@ -56,20 +56,20 @@ namespace gfx
     };
 
     /// A high-level shader wrapper.
-    class ZEN_API CEffect : public gfxcore::CGLSubsystem
+    class ZEN_API zEffect : public gfxcore::zGLSubsystem
     {
     public:
-        CEffect(const EffectType Type, asset::CAssetManager& Assets);
-        ~CEffect();
+        zEffect(const EffectType Type, asset::zAssetManager& Assets);
+        ~zEffect();
 
         /// Shallow-copy the shader references and other metadata.
-        CEffect(const CEffect& Copy) : m_Log(Copy.m_Log),
+        zEffect(const zEffect& Copy) : m_Log(Copy.m_Log),
             m_Shader(Copy.m_Shader), m_type(Copy.m_type)
         {
             m_init = true;
         }
 
-        CEffect& operator=(const CEffect& Copy)
+        zEffect& operator=(const zEffect& Copy)
         {
             m_Shader= Copy.m_Shader;
             m_type  = Copy.m_type;
@@ -136,7 +136,7 @@ namespace gfx
         inline EffectType GetType() const { return m_type; }
         inline uint16_t GetID() const { return m_Shader.GetID(); }
         inline void SetType(const EffectType Type);
-        friend class ZEN_API CMaterial;
+        friend class ZEN_API zMaterial;
 
     private:
         // For the material to be able to load custom shaders.
@@ -145,9 +145,9 @@ namespace gfx
         inline bool Bind() const;
         inline bool Unbind() const;
 
-        util::CLog& m_Log;
+        util::zLog& m_Log;
 
-        gfxcore::CShaderSet m_Shader;
+        gfxcore::zShaderSet m_Shader;
         EffectType m_type;
     };
 
@@ -158,9 +158,9 @@ namespace gfx
 #endif  // ZENDERER__GRAPHICS__EFFECT_HPP
 
 /**
- * @class zen::gfx::CEffect
+ * @class zen::gfx::zEffect
  * @details
- *  This class is very similar to the gfxcore::CShaderSet class,
+ *  This class is very similar to the gfxcore::zShaderSet class,
  *  but creates a more user-friendly interface
  *
  * @htmlonly

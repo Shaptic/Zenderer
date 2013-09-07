@@ -1,28 +1,28 @@
 #include "Zenderer/Graphics/Polygon.hpp"
 
 using namespace zen;
-using gfx::CPolygon;
+using gfx::zPolygon;
 
-CPolygon::CPolygon(asset::CAssetManager& Assets) :
-    CDrawable(Assets)
+zPolygon::zPolygon(asset::zAssetManager& Assets) :
+    zDrawable(Assets)
 {
     m_Verts.clear();
 }
 
-CPolygon::~CPolygon()
+zPolygon::~zPolygon()
 {
     for(auto& i : m_Verts) delete i;
     m_Verts.clear();
 }
 
-void CPolygon::AddVertex(const math::vector_t& Position)
+void zPolygon::AddVertex(const math::vector_t& Position)
 {
     gfxcore::vertex_t* V = new gfxcore::vertex_t;
     V->position = Position;
     m_Verts.push_back(V);
 }
 
-gfxcore::CDrawable& CPolygon::Create()
+gfxcore::zDrawable& zPolygon::Create()
 {
     if(m_Verts.size() <= 2) return (*this);
 
@@ -56,7 +56,7 @@ gfxcore::CDrawable& CPolygon::Create()
     return (*this);
 }
 
-void CPolygon::SetColor(const color4f_t& Color)
+void zPolygon::SetColor(const color4f_t& Color)
 {
     for(auto& i : m_Verts) i->color = Color;
 }

@@ -2,85 +2,85 @@
 
 using namespace zen;
 
-using util::CLog;
+using util::zLog;
 using util::LogMode;
 
-using util::CSettings;
-using util::COption;
+using util::zSettings;
+using util::zOption;
 
 /****************************************************************
- *                     COption Definitions                      *
+ *                     zOption Definitions                      *
  ***************************************************************/
 
-COption::COption(){}
+zOption::zOption(){}
 
-COption::COption(const string_t& value) :
+zOption::zOption(const string_t& value) :
     m_value(value) {}
 
-COption::COption(const COption& Opt) :
+zOption::zOption(const zOption& Opt) :
     m_value(Opt.m_value) {}
 
-COption& COption::operator=(const COption& Opt)
+zOption& zOption::operator=(const zOption& Opt)
 {
     m_value = Opt.m_value;
     return (*this);
 }
 
-COption& COption::operator=(const string_t& name)
+zOption& zOption::operator=(const string_t& name)
 {
     m_value = name;
     return (*this);
 }
 
-COption& COption::operator=(const char* name)
+zOption& zOption::operator=(const char* name)
 {
     m_value = string_t(name);
     return (*this);
 }
 
-COption& COption::operator=(const bool name)
+zOption& zOption::operator=(const bool name)
 {
     m_value = name ? "1" : "0";
     return (*this);
 }
 
-bool COption::operator==(const COption& value) const
+bool zOption::operator==(const zOption& value) const
 {
     return (value.m_value == m_value);
 }
 
-bool COption::operator==(const string_t& value) const
+bool zOption::operator==(const string_t& value) const
 {
     return (value == m_value);
 }
 
-bool COption::operator==(const bool value) const
+bool zOption::operator==(const bool value) const
 {
     return value ? m_value != "0" : m_value == "0";
 }
 
 /// Outputting an option value
-std::ostream& util::operator<<(std::ostream& o, const COption& Opt)
+std::ostream& util::operator<<(std::ostream& o, const zOption& Opt)
 {
     return (o << Opt.m_value);
 }
 
 /***************************************************************
- *                      CSettings Definitions                  *
+ *                      zSettings Definitions                  *
  ***************************************************************/
 
-CSettings::CSettings(const string_t& filename) :
-    CSubsystem("Settings"), m_Log(CLog::GetEngineLog()),
+zSettings::zSettings(const string_t& filename) :
+    zSubsystem("Settings"), m_Log(zLog::GetEngineLog()),
     m_filename(filename)
 {}
 
-CSettings::~CSettings() {}
+zSettings::~zSettings() {}
 
-bool CSettings::Init()
+bool zSettings::Init()
 {
     if(m_filename.empty()) return (m_init = true);
 
-    util::CINIParser Parser;
+    util::zParser Parser;
     if(!Parser.LoadFromFile(m_filename))
         return (m_init = false);
 
@@ -101,13 +101,13 @@ bool CSettings::Init()
     return (m_init = true);
 }
 
-bool CSettings::Destroy()
+bool zSettings::Destroy()
 {
     m_Options.clear();
     return !(m_init = false);
 }
 
-COption& CSettings::operator[](const string_t& opt)
+zOption& zSettings::operator[](const string_t& opt)
 {
     // Search via hash with release builds.
 #ifndef ZEN_DEBUG_BUILD
@@ -117,14 +117,14 @@ COption& CSettings::operator[](const string_t& opt)
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Settings") << "Accessing option '"
-            << opt << "'." << CLog::endl;
+            << opt << "'." << zLog::endl;
 #endif // ZEN_DEBUG_BUILD
 
     auto iter = m_Options.find(hash);
     if(iter == m_Options.end())
     {
         // Create a new blank option and return it.
-        m_Options.emplace(std::make_pair(hash, COption()));
+        m_Options.emplace(std::make_pair(hash, zOption()));
         return m_Options[hash];
     }
 

@@ -49,7 +49,7 @@ namespace gfxcore
     /// Type of indices.
     static const GLenum INDEX_TYPE = GL_UNSIGNED_SHORT;
 
-    /// A collection of drawing data to pass to a CVertexArray.
+    /// A collection of drawing data to pass to a zVertexArray.
     struct DrawBatch
     {
         vertex_t*   Vertices;       ///< Vertex array
@@ -58,11 +58,11 @@ namespace gfxcore
     };
 
     /// A wrapper for OpenGL Vertex Array Objects.
-    class ZEN_API CVertexArray : public CGLSubsystem
+    class ZEN_API zVertexArray : public zGLSubsystem
     {
     public:
-        CVertexArray(const GLenum vao_type = GL_STATIC_DRAW);
-        ~CVertexArray();
+        zVertexArray(const GLenum vao_type = GL_STATIC_DRAW);
+        ~zVertexArray();
 
         bool Init();
         bool Destroy();
@@ -142,7 +142,7 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__VERTEXBUFFER_HPP
 
 /**
- * @class zen::gfxcore::CVertexArray
+ * @class zen::gfxcore::zVertexArray
  * @details
  *  This manages offloading raw, low-level draw data to the GPU for
  *  efficient access and local memory consumption. It's used internally
@@ -181,7 +181,7 @@ namespace gfxcore
  *  specify 6 vertices to get a quad (two triangles), *or* you can specify 4
  *  vertices and re-use two of them with indices (since they are shared). To get
  *  to the point, fill up the `DrawBatch` struct with your data, and then you can
- *  pass it on to the `CVertexArray` instance for offloading.
+ *  pass it on to the `zVertexArray` instance for offloading.
  *
  *  @code
  *  using namespace zen::gfxcore;
@@ -206,8 +206,8 @@ namespace gfxcore
  *  indices[5] = 2;
  *
  *  // You can also skip the dynamic allocation for the indices
- *  // if you just want a quad and use zen::CQuad::GetIndexArray().
- *  // const index_t& indices = zen::CQuad::GetIndexArray();
+ *  // if you just want a quad and use zen::zQuad::GetIndexArray().
+ *  // const index_t& indices = zen::zQuad::GetIndexArray();
  *  // but then you must be careful not to delete[] them :)
  *
  *  DrawBatch D = {vertices, 4, indices, 6};
@@ -222,7 +222,7 @@ namespace gfxcore
  *  // ... continued from the previous section
  *
  *  // Create the GPU buffers
- *  CVertexArray VAO();
+ *  zVertexArray VAO();
  *  VAO.Init();
  *  VAO.AddData(D);
  *  VAO.Offload();
@@ -233,7 +233,7 @@ namespace gfxcore
  *  vertices = indices = nullptr;
  *
  *  // Drawing can be done in a loop like so (assuming a window exists)
- *  CRenderer::GetDefaultMaterial().Enable();
+ *  zRenderer::GetDefaultMaterial().Enable();
  *  while(Window.IsOpen())
  *  {
  *      VAO.Draw();

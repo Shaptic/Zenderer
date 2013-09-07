@@ -39,13 +39,13 @@ namespace zen
 namespace gfxcore
 {
     /// Low-level texture asset abstraction over OpenGL texture handles.
-    class ZEN_API CTexture : public asset::CAsset
+    class ZEN_API zTexture : public asset::zAsset
     {
     public:
-        ~CTexture();
+        ~zTexture();
 
         bool LoadFromFile(const string_t& filename);
-        bool LoadFromExisting(const CAsset* const pCopy);
+        bool LoadFromExisting(const zAsset* const pCopy);
         bool LoadFromExisting(const GLuint handle);
         bool CopyFromExisting(const GLuint handle);
         bool LoadFromRaw(const GLenum iformat, const GLenum format,
@@ -63,15 +63,15 @@ namespace gfxcore
         /// Returns program ID (unique for different textures).
         uint16_t GetID() const { return m_TextureID; }
 
-        static CTexture& GetDefaultTexture();
+        static zTexture& GetDefaultTexture();
 
-        friend class ZEN_API asset::CAssetManager;
+        friend class ZEN_API asset::zAssetManager;
 
     private:
-        CTexture(const void* const owner = nullptr);
+        zTexture(const void* const owner = nullptr);
         bool Destroy();
 
-        static CTexture s_DefaultTexture;
+        static zTexture s_DefaultTexture;
         static uint16_t s_ID;
 
         GLuint m_texture;
@@ -84,7 +84,7 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__TEXTURE_HPP
 
 /**
- * @class zen::gfxcore::CTexture
+ * @class zen::gfxcore::zTexture
  *
  * @details
  *  @a Zenderer uses `stb_image.c`, a single-file light-weight C library,
