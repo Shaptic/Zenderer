@@ -50,6 +50,7 @@
 namespace zen
 {
     void ZEN_API Quit();
+    namespace gfx { class ZEN_API zWindow; }
 
 /**
  * Low level graphics layer.
@@ -120,6 +121,7 @@ namespace gfxcore
         { return m_name; }
 
         friend ZEN_API void zen::Quit();
+        friend gfx::zWindow;
 
     protected:
         bool m_init;
