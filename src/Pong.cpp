@@ -109,12 +109,19 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     util::CTimer Timer(60);
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
+
     while(Main.IsOpen() && !(host || join))
     {
         Timer.Start();
         Evts.PollEvents();
         while(Evts.PopEvent(Evt))
         {
+            if(Evt.type == evt::EventType::WINDOW_CLOSE)
+            {
+                Main.Close();
+                break;
+            }
+
             MainMenu.HandleEvent(Evt);
         }
 
