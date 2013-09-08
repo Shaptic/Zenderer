@@ -119,6 +119,7 @@ bool zWindow::Destroy()
 {
     if(!m_init) return true;
 
+    gfxcore::zRenderer::GetDefaultEffect().Destroy();
     delete gfxcore::zRenderer::s_DefaultMaterial;
     for(auto& i : gfxcore::zGLSubsystem::sp_allGLSystems)
         i->Destroy();

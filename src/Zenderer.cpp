@@ -92,8 +92,6 @@ void zen::Quit()
 {
     zLog& Log = zLog::GetEngineLog();
 
-    gfxcore::zRenderer::GetDefaultEffect().Destroy();
-
     Log << Log.SetMode(LogMode::ZEN_INFO) << Log.SetSystem("Zenderer")
         << "Destroying components." << zLog::endl;
 
