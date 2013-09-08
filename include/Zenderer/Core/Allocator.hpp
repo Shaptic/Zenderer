@@ -33,7 +33,7 @@ namespace zen
     class ZEN_API zAllocator : public zSubsystem
     {
     public:
-        ~zAllocator(){}
+        ~zAllocator();
 
         bool Init();
         bool Destroy();

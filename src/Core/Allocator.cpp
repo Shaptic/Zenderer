@@ -15,6 +15,11 @@ zAllocator::zAllocator(size_t initial /*= (1 << 16)*/) :
     m_size = this->Pad(initial);
 }
 
+zAllocator::~zAllocator()
+{
+    this->Destroy();
+}
+
 bool zAllocator::Init()
 {
     if(m_init) return true;
@@ -22,7 +27,7 @@ bool zAllocator::Init()
     mp_head = new char[m_size];
     mp_ptr  = mp_head;
 
-    memset(mp_head, '\0', m_size);
+    memset(mp_head, 0, m_size);
 
     m_blocks.push_back(m_size - 1);
 
