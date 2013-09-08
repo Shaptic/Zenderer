@@ -27,12 +27,6 @@
 #pragma comment(lib, "GLu32.lib")
 #pragma comment(lib, "GLEW32.lib")
 
-#ifdef _DEBUG
-  #pragma comment(lib, "GLFW3_DBG.lib")
-#else
-  #pragma comment(lib, "GLFW3.lib")
-#endif // _DEBUG
-
 // Link audio libraries
 #pragma comment(lib, "OpenAL32.lib")
 #pragma comment(lib, "alut.lib")
@@ -71,9 +65,6 @@
 #include "Math/Math.hpp"
 #include "Utilities/Utilities.hpp"
 
-// Custom memory allocator.
-//#include "Core/Allocator.hpp"
-
 // Assets
 #include "Assets/AssetManager.hpp"
 
@@ -97,6 +88,13 @@
 
 // Networking API.
 #include "Network/Socket.hpp"
+
+// Link debug-specific libraries.
+#ifdef ZEN_DEBUG_BUILD
+  #pragma comment(lib, "GLFW3_DBG.lib")
+#else
+  #pragma comment(lib, "GLFW3.lib")
+#endif // _DEBUG
 
 namespace zen
 {
