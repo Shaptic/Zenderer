@@ -60,3 +60,13 @@ void zPolygon::SetColor(const color4f_t& Color)
 {
     for(auto& i : m_Verts) i->color = Color;
 }
+
+void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
+{
+    if(m_DrawData.Indices != nullptr && m_DrawData.icount > 0)
+        delete[] m_DrawData;
+
+    m_DrawData.icount = Indices.size();
+    m_DrawData.Indices = new gfxcore::index_t[m_DrawData.icount];
+    std::copy(Indices.begin(), Indices.end(), m_DrawData.Indices);
+}

@@ -51,6 +51,16 @@ namespace gfx
          *          is called again.
          **/
         zDrawable& Create();
+        
+        /**
+         * Overrides default index creation for the added vertices.
+         *  Indices are considered valid if none of them are larger than
+         *  the number of vertices. This function does *not* check for that
+         *  in order to save speed.
+         *
+         * @param   Indices The indices to override defaults with
+         **/
+        void SetIndices(const std::vector<gfxcore::index_t>& Indices);
 
         /// Sets the vertex color of the *temporary* buffer.
         void SetColor(const color4f_t& Color);
