@@ -42,7 +42,13 @@ namespace lvl
         math::vector_t position;
         std::vector<string_t> whitelist;
         std::vector<string_t> blacklist;
-    }
+    };
+    
+    struct metalevel_t
+    {
+        string_t author;
+        string_t description;
+    };
 
     struct level_t
     {

@@ -65,12 +65,27 @@ namespace lvl
             
             level.valid = false;
             
+            // The spec. states that the first object tag within a level must
+            // be an entity, so we can safely parse everything prior to finding
+            // one and consider that to be the metadata.
+            Parser.LoadFromStreamUntil(file, "<entity>", 0, filename.c_str());
+            level.metadata.author = Parser.GetFirstResult("author");
+            level.metadata.description = Parser.GetFirstResult("description");
+            
+            // Back up so we see "<entity>" again for parsing in the loop.
+            file.seekg(-10, std::ios::cur);
+            
             // Find each block of data and parse it.
             std::vector<string_t> parts;
             while(std::getline(file, line))
             {
                 util::strip(line);
-                if(line.find("<entity>") == 0)
+                if(line.empty() || (line.size() >= 2 &&
+                                    line[0] == '/' &&
+                                    line[1] == '/'))
+                    continue;
+
+                else if(line.find("<entity>") == 0)
                 {
                     gfx::zPolygon Poly(m_Assets);
                     obj::zEntity& Latest = m_Scene.AddEntity();
