@@ -23,6 +23,11 @@
 #ifndef ZENDERER__UTILITIES__FILE_PARSER_HPP
 #define ZENDERER__UTILITIES__FILE_PARSER_HPP
 
+#include <vector>
+#include <fstream>
+#include <utility>
+#include <algorithm>
+
 #include "Zenderer/Core/Types.hpp"
 #include "Assert.hpp"
 
@@ -79,7 +84,7 @@ namespace util
          *                  a bad file stream, a bad range of positions, or
          *                  a fatal parsing error.
          **/
-        virtual bool LoadFromStream(std::ifstream& file,
+        virtual bool LoadFromStream(std::ifstream& infile,
                                     const std::streampos start = 0,
                                     const std::streampos end = -1,
                                     const char* const fname = nullptr)
@@ -138,7 +143,7 @@ namespace util
          *                  a bad file stream, a bad range of positions, or
          *                  a fatal parsing error.
          **/
-        virtual bool LoadFromStreamUntil(std::ifstream& file, 
+        virtual bool LoadFromStreamUntil(std::ifstream& infile, 
                                          const string_t& end,
                                          const std::streampos start = 0,
                                          const char* const filename = nullptr)
@@ -182,7 +187,7 @@ namespace util
          * @return  The matching value for the index if it's found,
          *          and the default string otherwise.
          **/
-        string_t PopResult(const string_t& index, string_t def = "") const
+        string_t PopResult(const string_t& index, string_t def = "")
         {
             for(auto i = m_results.begin(), 
                      j = m_results.end(); 
@@ -219,13 +224,13 @@ namespace util
         string_t GetFirstResult(const string_t& index, const string_t& def = "") const
         {
             auto it = std::find_if(m_results.begin(), m_results.end(),
-                [&index](const decltype(*m_results.begin())& result) -> bool
+                [&index](decltype(*m_results.cbegin())& result) -> bool
                 {
                     return result.first == index;
                 }
             );
             
-            return it == m_results.end() ? def : it.second;
+            return it == m_results.end() ? def : it->second;
         }
         
         /**
