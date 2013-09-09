@@ -42,11 +42,8 @@ namespace util
 
     public:
         zFileParser(){}
-        ~zFileParser()
-        {
-            m_results.clear();
-        }
-        
+        ~zFileParser();
+
         /**
          * Parses an entire file according to the format specification.
          *
@@ -57,13 +54,7 @@ namespace util
          *
          * @see     GetError()
          **/
-        virtual bool LoadFromFile(const string_t& filename)
-        {
-            ZEN_ASSERT(!filename.empty());
-            
-            std::ifstream infile(filename);
-            return this->LoadFromStream(infile, 0, 0, filename.c_str());
-        }
+        virtual bool LoadFromFile(const string_t& filename);
         
         /**
          * Parses a portion of a filestream.
@@ -90,38 +81,8 @@ namespace util
         virtual bool LoadFromStream(std::ifstream& infile,
                                     const std::streampos start = 0,
                                     const std::streampos end = -1,
-                                    const char* const fname = nullptr)
-        {
-            m_results.clear();
-            infile.seekg(start, std::ios::beg);
-            std::string line;
-            
-            if(!infile || (end != -1 && start >= end)) return false;
-            
-            while((end == std::streampos(-1) || infile.tellg() < end) && 
-                  std::getline(infile, line))
-            {
-                util::strip(line);
+                                    const char* const fname = nullptr);
 
-                // Skip empty lines, comments.
-                if(line.empty() ||
-                  (line.size() > 2 && line.substr(0, 2) == "//"))
-                    continue;
-                
-                std::size_t index = line.find('=');
-                if(index != std::string::npos)
-                {
-                    m_results.emplace_back(pair_t(
-                        line.substr(0, index),
-                        line.substr(index)
-                    ));
-                }
-            }
-            
-            infile.seekg(start, std::ios::beg);
-            return true;
-        }
-        
         /**
          * Parses a stream until reaching a sequence.
          *  This is useful to the internal @a Zenderer file loaders because
@@ -149,37 +110,7 @@ namespace util
         virtual bool LoadFromStreamUntil(std::ifstream& infile, 
                                          const string_t& end,
                                          const std::streampos start = 0,
-                                         const char* const filename = nullptr)
-        {
-            m_results.clear();
-            infile.seekg(start, std::ios::beg);
-            std::string line;
-            
-            if(!infile) return false;
-            
-            while(std::getline(infile, line) &&
-                  line.find(end) == std::string::npos)
-            {
-                util::strip(line);
-
-                // Skip empty lines, comments.
-                if(line.empty() ||
-                  (line.size() > 2 && line.substr(0, 2) == "//"))
-                    continue;
-                
-                std::size_t index = line.find('=');
-                if(index != std::string::npos)
-                {
-                    m_results.emplace_back(pair_t(
-                        line.substr(0, index),
-                        line.substr(index)
-                    ));
-                }
-            }
-            
-            infile.seekg(start, std::ios::beg);
-            return true;
-        }
+                                         const char* const filename = nullptr);
 
         /**
          * Pop a result off of the container and return it.
@@ -190,23 +121,7 @@ namespace util
          * @return  The matching value for the index if it's found,
          *          and the default string otherwise.
          **/
-        string_t PopResult(const string_t& index, string_t def = "")
-        {
-            for(auto i = m_results.begin(), 
-                     j = m_results.end(); 
-                     i != j; ++i)
-            {
-                auto it = *i;
-                if(it.first == index)
-                {
-                    def = it.second;
-                    m_results.erase(i);
-                    break;
-                }
-            }
-            
-            return def;
-        }
+        string_t PopResult(const string_t& index, string_t def = "");
         
         /// Checks if an index exists in the results.
         inline bool Exists(const string_t& index) const
@@ -224,17 +139,8 @@ namespace util
          *
          * @return  The first result matching `index`, and `def` otherwise.
          **/
-        string_t GetFirstResult(const string_t& index, const string_t& def = "") const
-        {
-            auto it = std::find_if(m_results.begin(), m_results.end(),
-                [&index](decltype(*m_results.cbegin())& result) -> bool
-                {
-                    return result.first == index;
-                }
-            );
-            
-            return it == m_results.end() ? def : it->second;
-        }
+        string_t GetFirstResult(const string_t& index,
+                                const string_t& def = "") const;
         
         /**
          * Retrieves all results for an index.
@@ -246,15 +152,7 @@ namespace util
          *
          * @return  A container with all results for the given `index`.
          **/
-        std::vector<string_t> GetResults(const string_t& index) const
-        {
-            std::vector<string_t> results;
-            for(auto& i : m_results)
-                if(index == i.first)
-                    results.push_back(i.second);
-
-            return results;
-        }
+        std::vector<string_t> GetResults(const string_t& index) const;
         
         /// Returns the total number of results for all index values.
         inline size_t GetResultCount() const { return m_results.size(); }
