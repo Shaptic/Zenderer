@@ -78,9 +78,12 @@ namespace gfx
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
 
+        void SetType(const LightType& Type);
+        
         real_t                  GetBrightness() const;
         const color3f_t&        GetColor()      const;
         const math::vector_t&   GetPosition()   const;
+        LightType               GetType()       const;
 
     private:
         // Default values

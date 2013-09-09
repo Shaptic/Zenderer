@@ -181,6 +181,11 @@ bool zLight::SetMinimumAngle(const real_t degrees)
     return true;
 }
 
+void zLight::SetType(const gfx::LightType& Type)
+{
+    m_type = Type;
+}
+
 zen::real_t zLight::GetBrightness() const
 {
     return m_brt;
@@ -194,4 +199,9 @@ const color3f_t& zLight::GetColor() const
 const math::vector_t& zLight::GetPosition() const
 {
     return m_Position;
+}
+
+gfx::LightType zLight::GetType() const
+{
+    return m_type;
 }
