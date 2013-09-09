@@ -41,8 +41,11 @@ namespace util
         typedef std::pair<string_t, string_t> pair_t;
 
     public:
-        zFileParser();
-        ~zFileParser();
+        zFileParser(){}
+        ~zFileParser()
+        {
+            m_results.clear();
+        }
         
         /**
          * Parses an entire file according to the format specification.
@@ -177,7 +180,7 @@ namespace util
             infile.seekg(start, std::ios::beg);
             return true;
         }
-        
+
         /**
          * Pop a result off of the container and return it.
          *
