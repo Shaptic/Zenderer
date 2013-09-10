@@ -17,7 +17,7 @@
  *  limitations under the License.
  *
  * @addtogroup Levels
- *  This group encompasses a high-level API suitable for easily loading, 
+ *  This group encompasses a high-level API suitable for easily loading,
  *  importing, and creating highly customizable levels in order to faciliate
  *  rapid development of game worlds.
  *
@@ -43,7 +43,7 @@ namespace lvl
         std::vector<string_t> whitelist;
         std::vector<string_t> blacklist;
     };
-    
+
     struct metalevel_t
     {
         string_t author;
