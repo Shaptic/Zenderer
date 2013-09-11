@@ -22,7 +22,10 @@
 #ifndef ZENDERER__MATH__SHAPES_HPP
 #define ZENDERER__MATH__SHAPES_HPP
 
+#include <vector>
+
 #include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Utilities/Assert.hpp"
 #include "MathCore.hpp"
 #include "Vector.hpp"
 
@@ -100,16 +103,16 @@ namespace math
          **/
         inline bool collides(const tri_t& tri)
         {
-            math::vector_t halfsize((br - tl) * 0.5);
-            math::vector_t center(tl + halfsize);
+            vector_t halfsize((br - tl) * 0.5);
+            vector_t center(tl + halfsize);
 
-            math::vector_t verts[3] = {
+            vector_t verts[3] = {
                 tri[0] - center,
                 tri[1] - center,
                 tri[2] - center
             };
 
-            math::vector_t edges[3] = {
+            vector_t edges[3] = {
                 verts[1] - verts[0],
                 verts[2] - verts[1],
                 verts[0] - verts[2]
@@ -184,13 +187,150 @@ namespace math
             return true;
         }
 
-        math::vector_t tl;      ///< Top-left point.
-        math::vector_t br;      ///< Bottom-right point.
+        vector_t tl;      ///< Top-left point.
+        vector_t br;      ///< Bottom-right point.
     };
     
     bool collides(const tri_t& A, const tri& b)
     {
+        ZEN_ASSERTM(false, "not implemented");
         return false;
+    }
+    
+    /// @return `true` if clockwise, `false` if counter-clockwise.
+    bool orientation(const std::vector<vector_t>& Polygon)
+    {
+        ZEN_ASSERTM(Polygon.size() >= 3, "not a polygon");
+        
+        uint16_t count = 0;
+        for(uint16_t i = 0; i < Polygon.size(); ++i)
+        {
+            uint16_t j = (i + 1 < Polygon.size()) ? i + 1 : 0;
+            uint16_t k = (i + 2 < Polygon.size()) ? i + 2 : 1;
+            real_t z = (Polygon[j].x - Polygon[i].x) * (Polygon[k].y - Polygon[j].y)
+                     - (Polygon[j].y - Polygon[i].y) * (Polygon[k].x - Polygon[j].x);
+            
+            count += (z > 0) ? 1 : -1;
+        }
+        
+        ZEN_ASSERTM(count != 0, "not a simple polygon");
+        return (count > 0);
+    }
+    
+    bool orientation(const tri_t& Tri)
+    {
+        return (Tri[1].x - Tri[0].x) * (Tri[2].y - Tri[0].y) -
+               (Tri[2].x - Tri[0].x) * (Tri[1].y - Tri[0].y);
+    }
+    
+    bool triangle_test(const vector_t& V, const tri_t& T)
+    {
+        real_t denom = (T[1].y - T[2].y) * (T[0].x - T[2].x)
+                     + (T[2].x - T[1].x) * (T[0].y - T[2].y);
+
+        // Avoid division by zero.
+        if(compf(denom, 0.0)) return true;
+        denom = 1.0 / denom;
+        
+        real_t alpha = denom * ((T[1].y - T[2].y) * (V.x - T[2].x) +
+                                (T[2].x - T[1].x) * (V.y - T[2].y));
+        if(alpha < 0) return false;
+     
+        real_t beta  = denom * ((T[2].y - T[0].y) * (V.x - T[2].x) +
+                                (T[0].x - T[2].x) * (V.y - T[2].y));
+
+        return (beta > 0 || alpha + beta >= 1);
+    }
+    
+    /**
+     * Triangulates a set of vertices into triples, which form triangles.
+     *
+     * @param   Polygon     A list of vertices forming a simple polygon
+     *
+     * @pre     `Polygon` must have at least 3 points in it.
+     *
+     * @return  A list of vertices that, when taken in triplets, form triangles.
+     *
+     * @see http://abitwise.blogspot.com/2013/09/triangulating-concave-and-convex.html
+     * @see http://gist.github.com/Ruskiy69/6526805
+     *
+     * @note    Algorithmic complexity: O(n^3)     
+     **/
+    std::vector<vector_t> triangulate(std::vector<vector_t> Polygon)
+    {
+        std::vector<uint16_t> reflex;
+        std::vector<vector_t> triangles;    
+        
+        // Determine entire polygon orientation
+        bool ort = orientation(Polygon);
+        
+        // We know there will be vertex_count - 2 triangles made.
+        triangles.reserve(Polygon.size() - 2);
+     
+        if(Polygon.size() == 3) return Polygon;
+        while(Polygon.size() >= 3)
+        {
+            reflex.clear();
+            int16_t eartip = -1, index = -1;
+            tri_t tri;
+
+            for(auto& i : Polygon)
+            {
+                ++index;
+                if(eartip >= 0) break;
+                
+                uint16_t p = (index > 0) ? index - 1 : Polygon.size() - 1;
+                uint16_t n = (index < Polygon.size()) ? index + 1 : 0;
+                
+                tri[0] = Polygon[p]; tri[1] = i; tri[2] = Polygon[n];
+                
+                if(orientation(tri) != ort)
+                {
+                    reflex.emplace_back(index);
+                    continue;
+                }
+                
+                bool ear = true;
+                for(auto& j : reflex)
+                {
+                    if(j == p || j == n) continue;
+                    if(triangle_test(Polygon[j], tri))
+                    {
+                        ear = false;
+                        break;
+                    }
+                }
+                
+                if(ear)
+                {
+                    auto j = Polygon.begin() + index + 1,
+                         k = Polygon.end();
+                     
+                    for( ; j != k; ++j)
+                    {
+                        auto& v = *j;
+                        if(&v == &Polygon[p] || &v == &Polygon[n]) continue;
+                        if(in_triangle(v, tri))
+                        {
+                            ear = false;
+                            break;
+                        }
+                    }
+                }
+                
+                if(ear) eartip = index;
+            }
+            
+            if(eartip < 0) break;
+            
+            // Create the triangulated piece.
+            for(const auto& i : tri) triangles.push_back(i);
+            
+            // Clip the ear from the polygon.
+            Polygon.erase(std::find(Polygon.begin(), Polygon.end(), tri[1]));
+        }
+        
+        return triangles;
     }
 
 }   // namespace math

@@ -72,7 +72,7 @@ namespace gfx
         uint16_t GetW() const;
         
         inline std::vector<math::vector_t> Triangulate() const
-        { return gfx::triangulate(m_Verts); }
+        { return math::triangulate(m_Verts); }
 
     private:
         std::vector<math::vector_t> m_Verts;
