@@ -162,8 +162,8 @@ namespace obj
          *  This is a common operation, especially for placing labels
          *  and such on screens, so I've provided a simplistic wrapper for
          *  the task.
-         *  It's essentially Move(Screen Width  / 2 - Width  / 2,
-         *                        Screen Height / 2 - Height / 2)
+         *
+         * @param   Window  Center the entity in this window
          **/
         inline void Center(const gfx::zWindow& Window)
         {

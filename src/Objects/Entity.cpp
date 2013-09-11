@@ -143,7 +143,7 @@ bool zEntity::LoadFromTexture(const string_t& filename)
 
 bool zEntity::AddPrimitive(const gfx::zQuad& Quad)
 {
-    if(Quad.m_DrawData.icount == 0 || Quad.m_DrawData.vcount == 0) return false;
+    if(!(Quad.m_DrawData.icount && Quad.m_DrawData.vcount)) return false;
 
     gfx::zQuad* pQuad = new gfx::zQuad(Quad);
     pQuad->AttachMaterial(const_cast<gfx::zMaterial&>(Quad.GetMaterial()));
