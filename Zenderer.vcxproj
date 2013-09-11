@@ -137,6 +137,8 @@
     <ClInclude Include="include\Zenderer\GUI\Font.hpp" />
     <ClInclude Include="include\Zenderer\GUI\FontCore.hpp" />
     <ClInclude Include="include\Zenderer\GUI\Menu.hpp" />
+    <ClInclude Include="include\Zenderer\Levels\Level.hpp" />
+    <ClInclude Include="include\Zenderer\Levels\LevelLoader.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />
@@ -147,6 +149,7 @@
     <ClInclude Include="include\Zenderer\Objects\Physics.hpp" />
     <ClInclude Include="include\Zenderer\Scripting\Lua.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Assert.hpp" />
+    <ClInclude Include="include\Zenderer\Utilities\FileParser.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Helpers.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp" />
     <ClInclude Include="include\Zenderer\Utilities\Log.hpp" />
@@ -197,6 +200,7 @@
     <ClCompile Include="src\Pong.cpp" />
     <ClCompile Include="src\stb_image.c" />
     <ClCompile Include="src\Utilities\Assert.cpp" />
+    <ClCompile Include="src\Utilities\FileParser.cpp" />
     <ClCompile Include="src\Utilities\Helpers.cpp" />
     <ClCompile Include="src\Utilities\INIParser.cpp" />
     <ClCompile Include="src\Utilities\Log.cpp" />

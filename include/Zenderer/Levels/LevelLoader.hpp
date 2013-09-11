@@ -22,6 +22,10 @@
 #ifndef ZENDERER__LEVELS__LEVEL_LOADER_HPP
 #define ZENDERER__LEVELS__LEVEL_LOADER_HPP
 
+#include "Zenderer/Assets/AssetManager.hpp"
+#include "Zenderer/Graphics/Polygon.hpp"
+#include "Zenderer/Graphics/Scene.hpp"
+#include "Zenderer/Utilities/Utilities.hpp"
 #include "Zenderer/Utilities/FileParser.hpp"
 #include "Level.hpp"
 
@@ -45,16 +49,16 @@ namespace lvl
             {
                 for(auto& j : i.lights)
                     ;//m_Scene.RemoveLight(j);
-                
+
                 for(auto& j : i.entities)
-                    m_Scene.RemoveEntity(j);
-                
+                    m_Scene.RemoveEntity(*j);
+
                 i.valid = false;
             }
-            
+
             m_levels.clear();
         }
-        
+
         /// @todo Error checking.
         virtual bool LoadFromFile(const string_t& filename)
         {
@@ -62,19 +66,19 @@ namespace lvl
             util::zFileParser Parser;
             level_t level;
             string_t line;
-            
+
             level.valid = false;
-            
+
             // The spec. states that the first object tag within a level must
             // be an entity, so we can safely parse everything prior to finding
             // one and consider that to be the metadata.
             Parser.LoadFromStreamUntil(file, "<entity>", 0, filename.c_str());
             level.metadata.author = Parser.GetFirstResult("author");
             level.metadata.description = Parser.GetFirstResult("description");
-            
+
             // Back up so we see "<entity>" again for parsing in the loop.
             file.seekg(-10, std::ios::cur);
-            
+
             // Find each block of data and parse it.
             std::vector<string_t> parts;
             while(std::getline(file, line))
@@ -92,11 +96,11 @@ namespace lvl
                     Parser.LoadFromStreamUntil(file, "</entity>", file.tellg(),
                                                filename.c_str());
 
-                    parts = util::split(Parser.GetResult("position", "0,0"), ',');
+                    parts = util::split(Parser.PopResult("position", "0,0"), ',');
 
-                    Latest.SetDepth(std::stoi(Parser.GetResult("depth", "1")));
+                    Latest.SetDepth(std::stoi(Parser.PopResult("depth", "1")));
                     Latest.Move(std::stod(parts[0]), std::stod(parts[1]));
-                    
+
                     string_t result;
                     do
                     {
@@ -104,49 +108,49 @@ namespace lvl
                         parts = util::split(result, ',');
                         Poly.AddVertex(math::vector_t(std::stod(parts[0]), std::stod(parts[1])));
                     } while(!result.empty());
-                    
-                    parts = util::split(Parser.GetResult("indices"));
+
+                    parts = util::split(Parser.PopResult("indices"), ',');
                     if(!parts.empty())
                     {
                         std::vector<gfxcore::index_t> indices(parts.size());
                         Poly.SetIndices(indices);
                     }
-                    
-                    result = Parser.GetResult("stretch");
-                    if(Parser::ResultToBool(result))
+
+                    result = Parser.PopResult("stretch");
+                    if(util::zFileParser::ResultToBool(result))
                     {
                         /// @todo
                     }
-                    
+
                     gfx::zMaterial M(m_Assets);
-                    result = Parser.GetResult("texture");
+                    result = Parser.PopResult("texture");
                     M.LoadTextureFromFile(result);
                     Poly.AttachMaterial(M);
-                    
-                    result = Parser.GetResult("attributes", "0x00");
+
+                    result = Parser.PopResult("attributes", "0x00");
                     uint8_t attr = this->ParseAttribute(result);
                     /// @todo
 
-                    m_entities.push_back(&Latest);
+                    level.entities.push_back(&Latest);
                 }
-                
+
                 /// @todo Differentiate between player and enemy spawns.
                 else if(line.find("<spawn") == 0)
                 {
                     spawn_t point;
                     Parser.LoadFromStreamUntil(file, "</spawn>",
                                                file.tellg(), filename.c_str());
-                    parts = util::split(Parser.GetResult("position"), ',');
+                    parts = util::split(Parser.PopResult("position"), ',');
                     point.position = math::vector_t(std::stod(parts[0]), std::stod(parts[1]));
-                    
-                    point.whitelist = util::split(Parser.GetResult("whitelist"), ',');
-                    point.blacklist = util::split(Parser.GetResult("blacklist"), ',');
+
+                    point.whitelist = util::split(Parser.PopResult("whitelist"), ',');
+                    point.blacklist = util::split(Parser.PopResult("blacklist"), ',');
                 }
-                
+
                 else if(line.find("<light type=\"") == 0)
                 {
                     using std::stod;
-                    
+
                     gfx::zLight& Light = m_Scene.AddLight(gfx::LightType::ZEN_AMBIENT);
 
                     size_t start = strlen("<light type=\"");
@@ -154,51 +158,52 @@ namespace lvl
                     string_t type = line.substr(start, end);
                     if(type == "POINT")
                     {
-                        Light.SetType(gfx::LightType::ZEN_POINT):
+                        Light.SetType(gfx::LightType::ZEN_POINT);
                     }
                     else if(type == "SPOT")
                     {
-                        Light.SetType(gfx::LightType::ZEN_SPOT);
+                        Light.SetType(gfx::LightType::ZEN_SPOTLIGHT);
                     }
-                    
+
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),
                                                filename.c_str());
 
-                    parts = util::split(Parser.GetResult("color"));
+                    parts = util::split(Parser.PopResult("color"), ',');
                     Light.SetColor(stod(parts[0]), stod(parts[1]), stod(parts[2]));
 
                     Light.SetBrightness(stod(
-                        Parser.GetResult("brightness", "0.01")));
+                        Parser.PopResult("brightness", "0.01")));
 
                     if(Light.GetType() != gfx::LightType::ZEN_AMBIENT)
                     {
-                        parts = util::split(Parser.GetResult("position"));
+                        parts = util::split(Parser.PopResult("position"), ',');
                         Light.SetPosition(stod(parts[0]), stod(parts[1]));
 
-                        parts = util::split(Parser.GetResult("attenuation"));
+                        parts = util::split(Parser.PopResult("attenuation"), ',');
                         Light.SetAttenuation(stod(parts[0]),
                                              stod(parts[1]),
                                              stod(parts[2]));
 
                         if(Light.GetType() == gfx::LightType::ZEN_SPOTLIGHT)
                         {
-                            Light.SetMaxAngle(stod(Parser.GetResult("maxangle")));
-                            Light.SetMinAngle(stod(Parser.GetResult("minangle")));
+                            Light.SetMaximumAngle(stod(Parser.PopResult("maxangle")));
+                            Light.SetMinimumAngle(stod(Parser.PopResult("minangle")));
                         }
                     }
                 }
-                
+
                 else
                 {
-                    m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("Level")
-                          << "Unrecognized line: " << line << util::zLog::endl;
+                    m_Log << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
+                          << m_Log.SetSystem("Level") << "Unrecognized line: "
+                          << line << util::zLog::endl;
                 }
             }
-            
+
             if(level.valid) m_levels.emplace_back(std::move(level));
             return level.valid;
         }
-        
+
         bool PopLevel(level_t& lvl)
         {
             if(m_levels.empty()) return false;
@@ -206,15 +211,18 @@ namespace lvl
             m_levels.erase(m_levels.begin());
             return true;
         }
-        
+
     private:
         uint8_t ParseAttribute(const string_t& hex)
         {
             return static_cast<uint8_t>(std::stoul(hex, nullptr, 16));
         }
-        
+
         std::vector<level_t> m_levels;
-    };     
+        util::zLog& m_Log;
+        gfx::zScene& m_Scene;
+        asset::zAssetManager& m_Assets;
+    };
 }
 }
 
