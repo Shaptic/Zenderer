@@ -156,7 +156,7 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
                             math::max<uint32_t>(this->GetW(), pPoly->GetW()),
                             math::max<uint32_t>(this->GetH(), pPoly->GetH())));
 
-    const auto triangles = gfxcore::triangulate(Polygon);
+    const auto triangles = Polygon.Triangulate();
     m_Triangulation.reserve(m_Triangulation.size() + triangles.size());
     std::move(triangles.begin(), triangles.end(), m_Triangulation.begin());
 
