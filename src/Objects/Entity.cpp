@@ -141,20 +141,24 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
-bool zEntity::AddPrimitive(const gfx::zQuad& Quad)
+bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
 {
-    if(!(Quad.m_DrawData.icount && Quad.m_DrawData.vcount)) return false;
+    if(!(Polygon.m_DrawData.icount && Polygon.m_DrawData.vcount)) return false;
 
-    gfx::zQuad* pQuad = new gfx::zQuad(Quad);
-    pQuad->AttachMaterial(const_cast<gfx::zMaterial&>(Quad.GetMaterial()));
-    pQuad->SetInverted(m_inv);
-    pQuad->Create();
-    pQuad->SetColor(Quad.m_DrawData.Vertices[0].color);
-    mp_allPrims.push_back(pQuad);
+    gfx::zPolygon* pPoly = new gfx::zPolygon(Polygon);
+    pPoly->AttachMaterial(const_cast<gfx::zMaterial&>(Quad.GetMaterial()));
+    //pPoly->SetInverted(m_inv);
+    pPoly->Create();
+    pPoly->SetColor(Polygon.m_DrawData.Vertices[0].color);
+    mp_allPrims.push_back(pPoly);
 
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
-                            math::max<uint32_t>(this->GetW(), pQuad->GetW()),
-                            math::max<uint32_t>(this->GetH(), pQuad->GetH())));
+                            math::max<uint32_t>(this->GetW(), pPoly->GetW()),
+                            math::max<uint32_t>(this->GetH(), pPoly->GetH())));
+
+    const auto triangles = gfxcore::triangulate(Polygon);
+    m_Triangulation.reserve(m_Triangulation.size() + triangles.size());
+    std::move(triangles.begin(), triangles.end(), m_Triangulation.begin());
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;

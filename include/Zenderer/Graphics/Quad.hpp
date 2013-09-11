@@ -108,7 +108,7 @@ namespace gfx
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
 
-        math::zVector<uint16_t> m_Size;
+        math::vectoru16_t m_Size;
         bool m_inv, m_rep;
     };
 }   // namespace gfx

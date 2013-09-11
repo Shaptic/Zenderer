@@ -184,6 +184,10 @@ namespace math
         math::vector_t tl;      ///< Top-left point.
         math::vector_t br;      ///< Bottom-right point.
     };
+    
+    /// A triangle representation.
+    typedef tri_t vector_t[3];
+
 }   // namespace math
 }   // namespace zen
 
