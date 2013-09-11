@@ -29,6 +29,7 @@
 #include <algorithm>
 
 #include "Zenderer/Core/Types.hpp"
+#include "Helpers.hpp"
 #include "Assert.hpp"
 
 namespace zen
@@ -55,13 +56,13 @@ namespace util
          * @see     GetError()
          **/
         virtual bool LoadFromFile(const string_t& filename);
-        
+
         /**
          * Parses a portion of a filestream.
          *  This method is made to parse chunks of a file at a time, in order
-         *  to avoid confusion of various pairs that may be related to a 
+         *  to avoid confusion of various pairs that may be related to a
          *  different part of the file.
-         *  You can provide optional starting and ending stream positions, 
+         *  You can provide optional starting and ending stream positions,
          *  which default to the beginning and end of the file, respectively.
          *
          * @param   file    File stream to parse on
@@ -87,7 +88,7 @@ namespace util
          * Parses a stream until reaching a sequence.
          *  This is useful to the internal @a Zenderer file loaders because
          *  it allows for the parser to return a chunk of results for an
-         *  XML-like block in the file. For example, upon reaching an 
+         *  XML-like block in the file. For example, upon reaching an
          *  &lt;enemy&gt; tag, you could do
          *  `LoadFromStreamUntil(stream, "&lt;/enemy&gt;", stream.tellg())`
          *  in order to capture all set parameters for that specific enemy
@@ -107,7 +108,7 @@ namespace util
          *                  a bad file stream, a bad range of positions, or
          *                  a fatal parsing error.
          **/
-        virtual bool LoadFromStreamUntil(std::ifstream& infile, 
+        virtual bool LoadFromStreamUntil(std::ifstream& infile,
                                          const string_t& end,
                                          const std::streampos start = 0,
                                          const char* const filename = nullptr);
@@ -122,13 +123,13 @@ namespace util
          *          and the default string otherwise.
          **/
         string_t PopResult(const string_t& index, string_t def = "");
-        
+
         /// Checks if an index exists in the results.
         inline bool Exists(const string_t& index) const
         {
             return !GetFirstResult(index).empty();
         }
-        
+
         /**
          * Retrieves the first result for an index.
          *  This will leave the result untouched, so multiple calls to this
@@ -141,7 +142,7 @@ namespace util
          **/
         string_t GetFirstResult(const string_t& index,
                                 const string_t& def = "") const;
-        
+
         /**
          * Retrieves all results for an index.
          *  This will leave the results untouched, so multiple calls to this
@@ -153,9 +154,15 @@ namespace util
          * @return  A container with all results for the given `index`.
          **/
         std::vector<string_t> GetResults(const string_t& index) const;
-        
+
         /// Returns the total number of results for all index values.
         inline size_t GetResultCount() const { return m_results.size(); }
+
+        static bool ResultToBool(string_t result)
+        {
+            util::toupper(result);
+            return (result == "1" || result == "TRUE");
+        }
 
     private:
         std::vector<pair_t> m_results;

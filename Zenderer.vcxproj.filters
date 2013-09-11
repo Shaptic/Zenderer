@@ -85,6 +85,12 @@
     <Filter Include="Source Files\Network">
       <UniqueIdentifier>{a4b4fc94-6797-4a7b-9649-7056f770b34c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Levels">
+      <UniqueIdentifier>{76bba7db-fe50-4255-ad7f-4d95adf05618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Levels">
+      <UniqueIdentifier>{ac4dbb22-8830-4e33-adc7-c53322601cd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Zenderer\Core\Types.hpp">
@@ -249,6 +255,15 @@
     <ClInclude Include="include\Zenderer\CoreGraphics\ShaderFiles.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Levels\Level.hpp">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Levels\LevelLoader.hpp">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Utilities\FileParser.hpp">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -388,6 +403,9 @@
     </ClCompile>
     <ClCompile Include="src\Network\Socket.cpp">
       <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utilities\FileParser.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

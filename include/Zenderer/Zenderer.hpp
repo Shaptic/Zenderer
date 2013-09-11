@@ -84,10 +84,12 @@
 #include "Audio/Music2D.hpp"
 #include "Audio/Sound2D.hpp"
 
-#include "Events/EventHandler.hpp"
-
 // Networking API.
 #include "Network/Socket.hpp"
+
+// Misc. APIs
+#include "Events/EventHandler.hpp"
+#include "Levels/LevelLoader.hpp"
 
 // Link debug-specific libraries.
 #ifdef ZEN_DEBUG_BUILD

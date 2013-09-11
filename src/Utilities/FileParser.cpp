@@ -1,5 +1,6 @@
 #include "Zenderer/Utilities/FileParser.hpp"
 
+using zen::string_t;
 using namespace zen::util;
 
 zFileParser::~zFileParser()
@@ -10,7 +11,7 @@ zFileParser::~zFileParser()
 bool zFileParser::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERT(!filename.empty());
-    
+
     std::ifstream infile(filename);
     return this->LoadFromStream(infile, 0, 0, filename.c_str());
 }
@@ -23,10 +24,10 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
     m_results.clear();
     infile.seekg(start, std::ios::beg);
     std::string line;
-    
-    if(!infile || (end != -1 && start >= end)) return false;
-    
-    while((end == std::streampos(-1) || infile.tellg() < end) && 
+
+    if(!infile || (end != std::streampos(-1) && start >= end)) return false;
+
+    while((end == std::streampos(-1) || infile.tellg() < end) &&
           std::getline(infile, line))
     {
         util::strip(line);
@@ -35,7 +36,7 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
         if(line.empty() ||
           (line.size() > 2 && line.substr(0, 2) == "//"))
             continue;
-        
+
         std::size_t index = line.find('=');
         if(index != std::string::npos)
         {
@@ -45,11 +46,11 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
             ));
         }
     }
-    
+
     infile.seekg(start, std::ios::beg);
     return true;
 }
-        
+
 bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
                                       const string_t& end,
                                       const std::streampos start,
@@ -58,9 +59,9 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
     m_results.clear();
     infile.seekg(start, std::ios::beg);
     std::string line;
-    
+
     if(!infile) return false;
-    
+
     while(std::getline(infile, line) &&
           line.find(end) == std::string::npos)
     {
@@ -70,7 +71,7 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
         if(line.empty() ||
           (line.size() > 2 && line.substr(0, 2) == "//"))
             continue;
-        
+
         std::size_t index = line.find('=');
         if(index != std::string::npos)
         {
@@ -80,15 +81,15 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
             ));
         }
     }
-    
+
     infile.seekg(start, std::ios::beg);
     return true;
 }
 
 string_t zFileParser::PopResult(const string_t& index, string_t def)
 {
-    for(auto i = m_results.begin(), 
-             j = m_results.end(); 
+    for(auto i = m_results.begin(),
+             j = m_results.end();
              i != j; ++i)
     {
         auto it = *i;
@@ -99,10 +100,10 @@ string_t zFileParser::PopResult(const string_t& index, string_t def)
             break;
         }
     }
-    
+
     return def;
 }
-        
+
 string_t zFileParser::GetFirstResult(const string_t& index,
                                      const string_t& def) const
 {
@@ -112,7 +113,7 @@ string_t zFileParser::GetFirstResult(const string_t& index,
             return result.first == index;
         }
     );
-    
+
     return it == m_results.end() ? def : it->second;
 }
 

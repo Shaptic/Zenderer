@@ -25,14 +25,14 @@ string_t util::stript(const string_t& text)
     return text;
 }
 
-void strip(string_t& text)
+void util::strip(string_t& text)
 {
     if(!text.empty())
         text = text.substr(text.find_first_not_of(" \t"),
                            text.find_last_not_of (" \t"));
 }
 
-string_t strip(const string_t& text)
+string_t util::strip(const string_t& text)
 {
     return !text.empty() ? text.substr(text.find_first_not_of(" \t"),
                                        text.find_last_not_of (" \t"))
