@@ -216,8 +216,7 @@ bool zEntity::Offloaded() const
 {
     for(auto& i : mp_allPrims)
     {
-        if(i->m_DrawData.Vertices != nullptr ||
-           i->m_DrawData.Indices  != nullptr)
+        if(!(i->m_DrawData.Vertices && i->m_DrawData.Indices))
             return false;
     }
 
