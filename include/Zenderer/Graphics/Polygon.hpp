@@ -64,6 +64,12 @@ namespace gfx
 
         /// Sets the vertex color of the *temporary* buffer.
         void SetColor(const color4f_t& Color);
+        
+        /// Calculates maximum height for the current vertices.
+        uint16_t GetH() const;
+        
+        /// Calculates maximum width for the current vertices.
+        uint16_t GetW() const;
 
     private:
         std::vector<gfxcore::vertex_t*> m_Verts;
@@ -132,7 +138,8 @@ namespace gfx
  *  Circle.AddVertex(32, 32);   // Center of the circle
  *  for(uint16_t i = 0; i < 360; ++i)
  *  {
- *      Circle.AddVertex(sin(i) * radius, cos(i) * radius);
+ *      Circle.AddVertex(sin(math::rad(i)) * radius,
+ *                       cos(math::rad(i)) * radius);
  *  }
  *
  *  Circle.Create();

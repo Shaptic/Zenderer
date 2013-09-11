@@ -84,3 +84,53 @@ void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
     m_DrawData.Indices = new gfxcore::index_t[m_DrawData.icount];
     std::copy(Indices.begin(), Indices.end(), m_DrawData.Indices);
 }
+
+uint16_t zPolygon::GetH() const
+{
+    if(!m_Verts.size() || !m_DrawData.vcount) return 0;
+    
+    vertex_t* start = m_Verts.size() == 0 ? m_DrawData.Vertices : &m_Verts[0];
+    
+    // Calculate lowest and highest y-values.
+    real_t low  = start.position.y;
+    real_t high = start.position.y;
+    
+    for(auto& i : m_Verts)
+    {
+        low  = math::min<real_t>(low, i.position.y);
+        high = math::max<real_t>(high, i.position.y);
+    }
+    
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+    {
+        low  = math::min<real_t>(low, m_DrawData.Vertices[i].position.y);
+        high = math::max<real_t>(high, m_DrawData.Vertices[i].position.y);
+    }
+    
+    return high - low;
+}
+
+uint16_t zPolygon::GetW() const
+{
+    if(!m_Verts.size() || !m_DrawData.vcount) return 0;
+    
+    vertex_t* start = m_Verts.size() == 0 ? m_DrawData.Vertices : &m_Verts[0];
+    
+    // Calculate lowest and highest x-values.
+    real_t left  = start.position.x;
+    real_t right = start.position.x;
+    
+    for(auto& i : m_Verts)
+    {
+        left  = math::min<real_t>(left,  i.position.x);
+        right = math::max<real_t>(right, i.position.x);
+    }
+    
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+    {
+        left  = math::min<real_t>(left,  m_DrawData.Vertices[i].position.x);
+        right = math::max<real_t>(right, m_DrawData.Vertices[i].position.x);
+    }
+    
+    return high - low;
+}
