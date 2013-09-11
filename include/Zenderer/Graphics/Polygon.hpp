@@ -70,9 +70,13 @@ namespace gfx
         
         /// Calculates maximum width for the current vertices.
         uint16_t GetW() const;
+        
+        inline std::vector<math::vector_t> Triangulate() const
+        { return gfx::triangulate(m_Verts); }
 
     private:
-        std::vector<gfxcore::vertex_t*> m_Verts;
+        std::vector<math::vector_t> m_Verts;
+        color4f_t m_Color;
     };
 }   // namespace gfx
 }   // namespace zen
