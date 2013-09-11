@@ -35,7 +35,7 @@
 #include "Zenderer/CoreGraphics/Drawable.hpp"
 #include "Zenderer/Graphics/Window.hpp"
 #include "Zenderer/Graphics/Material.hpp"
-#include "Zenderer/Graphics/Quad.hpp"
+#include "Zenderer/Graphics/Polygon.hpp"
 #include "Zenderer/Utilities/INIParser.hpp"
 
 namespace zen
@@ -98,9 +98,9 @@ namespace obj
          *  This will store a copy of the primitive locally, to prevent bad
          *  references occuring later. Thus it's advisable to `delete` heap
          *  memory when done here, or ensure that the given primitive will go
-         *  off the stack soon, to prevent uneccessary memory duplication.
+         *  off the stack soon, to prevent unnecessary memory duplication.
          *
-         * @param   Prim    A primitive with a non-default material attached
+         * @param   Prim    A primitive to make "high-level".
          *
          * @return  `true`  if the primitive loaded with a valid textre, and
          *          `false` otherwise.
@@ -109,7 +109,7 @@ namespace obj
          *          primitive on top of one another, since there is no position
          *          specification on them.
          **/
-        bool AddPrimitive(const gfx::zQuad& Prim);
+        bool AddPrimitive(const gfx::zPolygon& Prim);
 
         /**
          * Merges primitive data with shared materials.
@@ -248,10 +248,10 @@ namespace obj
         uint32_t GetSortFlag() const;
 
         /// Returns an iterator to the start of the internal primitive list.
-        std::vector<gfx::zQuad*>::const_iterator cbegin() const;
+        std::vector<gfx::zPolygon*>::const_iterator cbegin() const;
 
         /// Returns an iterator to the end of the internal primitive list.
-        std::vector<gfx::zQuad*>::const_iterator cend() const;
+        std::vector<gfx::zPolygon*>::const_iterator cend() const;
 
         inline void Enable()  { m_enabled = true;  }
         inline void Disable() { m_enabled = false; }
@@ -273,7 +273,7 @@ namespace obj
 
         math::matrix4x4_t           m_MV;
         math::aabb_t                m_Box;
-        std::vector<gfx::zQuad*>    mp_allPrims;
+        std::vector<gfx::zPolygon*> mp_allPrims;
         string_t                    m_filename;
         uint16_t                    m_depth;
         uint32_t                    m_sort;
