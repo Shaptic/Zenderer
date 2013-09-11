@@ -32,14 +32,14 @@ namespace zen
 namespace gfx
 {
     /// A basic three-vertex primitive.
-    class ZEN_API CTriangleQuad : public gfxcore::CDrawable
+    class ZEN_API zTriangleQuad : public gfxcore::zDrawable
     {
     public:
-        CTriangle(asset::CAssetManager& Mgr,
+        zTriangle(asset::CAssetManager& Mgr,
                   const math::vector_t& A,
                   const math::vector_t& B,
                   const math::vector_t& C) :
-            CDrawable(Mgr) /*, m_Verts({ A, B, C })*/
+            zDrawable(Mgr) /*, m_Verts({ A, B, C })*/
         {
             m_Verts[0] = A;
             m_Verts[1] = B;
@@ -48,21 +48,21 @@ namespace gfx
             this->LoadSize();
         }
 
-        CTriangle(const CTriangle& Copy)
+        zTriangle(const zTriangle& Copy)
         {
             this->operator=(Copy);
         }
         
-        CTriangle& operator=(const CTriangle& Copy)
+        zTriangle& operator=(const zTriangle& Copy)
         {
-            std::copy(Copy.m_Verts.begin(), Copy.m_Verts.end(), m_Verts.begin());
+            std::copy(Copy.m_Verts.begin(), Copy.m_Verts.end(), &m_Verts[0]);
             this->LoadSize();
             return *this;
         }
         
-        ~CTriangle() {}
+        ~zTriangle() {}
 
-        virtual CDrawable& Create()
+        virtual zDrawable& Create()
         {
             if(m_DrawData.Vertices == nullptr)
             {
@@ -91,10 +91,7 @@ namespace gfx
     private:
         void LoadVertexData()
         {
-            for(uint8_t i = 0; i < m_DrawData.vcount; ++i)
-            {
-                m_DrawData.Vertices[i].position = m_Verts[i];
-            }
+            std::copy(&m_Verts[0], &m_Verts[2], m_DrawData.Vertices);
         }
 
         void LoadSize()
@@ -119,8 +116,8 @@ namespace gfx
             m_Size.y = b - t;
         }
 
-        std::array<math::vector_t, 3>   m_Verts;
-        math::Vector<uint16_t>          m_Size;
+        math::tri_t         m_Verts;
+        math::vectoru16_t   m_Size;
     };
 }   // namespace gfx
 }   // namespace zen
@@ -128,13 +125,13 @@ namespace gfx
 #endif // ZENDERER__GRAPHICS__TRIANGLE_HPP
 
 /**
- * @class zen::gfx::CTriangle
+ * @class zen::gfx::zTriangle
  * @details
  *  Triangles are a low-level drawing primitive provided for convenience
  *  to users of @a Zenderer. They are not actually used in any part of the
  *  engine other than the triangulation module and collision detection.
  *
- * @see gfxcore::triangulate()
+ * @see gfx::triangulate()
  **/
 
 /** @} **/
