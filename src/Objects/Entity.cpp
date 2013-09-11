@@ -226,17 +226,29 @@ bool zEntity::Offloaded() const
 
 bool zEntity::Collides(const zEntity& Other)
 {
+    ZEN_ASSERTM(false, "not implemented");
+    if(!m_Box.collides(Other.m_Box)) return false;
+    for(auto& i : m_Triangulation)
+    {
+        ;
+    }
     return m_Box.collides(Other.GetBox());
 }
 
 bool zEntity::Collides(const math::rect_t& other)
 {
-    return m_Box.collides(math::aabb_t(other));
+    math::aabb_t r(other);
+    if(!r.collides(m_Box)) return false;
+    for(auto& i : m_Triangulation)
+    {
+        if(r.collides(i)) return true;
+    }
+    return false;
 }
 
 bool zEntity::Collides(const math::vector_t& pos)
 {
-    return m_Box.collides(math::aabb_t(pos, math::vector_t(1, 1)));
+    return this->Collides(math::rect_t(Pos.x, Pos.y, 1, 1));
 }
 
 void zEntity::SetDepth(uint8_t depth)

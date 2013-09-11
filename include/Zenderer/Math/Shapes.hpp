@@ -30,6 +30,9 @@ namespace zen
 {
 namespace math
 {
+    /// A triangle representation.
+    typedef tri_t vector_t[3];
+
     /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t
     {
@@ -95,7 +98,7 @@ namespace math
          *
          * @see http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/code/
          **/
-        inline bool collides(const vector_t tri[3])
+        inline bool collides(const tri_t& tri)
         {
             math::vector_t halfsize((br - tl) * 0.5);
             math::vector_t center(tl + halfsize);
@@ -185,8 +188,10 @@ namespace math
         math::vector_t br;      ///< Bottom-right point.
     };
     
-    /// A triangle representation.
-    typedef tri_t vector_t[3];
+    bool collides(const tri_t& A, const tri& b)
+    {
+        return false;
+    }
 
 }   // namespace math
 }   // namespace zen
