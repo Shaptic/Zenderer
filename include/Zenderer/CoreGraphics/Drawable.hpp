@@ -58,7 +58,7 @@ namespace gfxcore
          * @see     gfxcore::DrawBatch
          **/
         zDrawable(const zDrawable& Copy);
-        zDrawable(zDrawable&& Copy);
+        zDrawable(zDrawable&& Move);
 
         // These are disabled due to the asset manager reference
         // not able to being copied (dat wording).

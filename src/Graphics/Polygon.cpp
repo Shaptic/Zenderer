@@ -15,6 +15,20 @@ zPolygon::~zPolygon()
     m_Verts.clear();
 }
 
+zPolygon::zPolygon(const zPolygon& Copy) : zDrawable(Copy)
+{
+    m_Size = Copy.m_Size;
+    m_Verts.clear();
+    m_Verts.reserve(Copy.m_Verts.size());
+    std::copy(Copy.m_Verts.begin(), Copy.m_Verts.end(), m_Verts.begin());
+}
+
+zPolygon::zPolygon(const zPolygon&& Move) : zDrawable(Move)
+{
+    m_Size = Copy.m_Size;
+    m_Verts = std::move(Move.m_Verts);
+}
+
 void zPolygon::AddVertex(const math::vector_t& Position)
 {
     gfxcore::vertex_t* V = new gfxcore::vertex_t;
