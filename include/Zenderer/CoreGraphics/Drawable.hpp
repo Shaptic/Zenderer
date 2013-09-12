@@ -144,6 +144,8 @@ namespace gfxcore
         void LoadIntoVAO(gfxcore::zVertexArray& VAO,
                          const bool preserve = true);
 
+        const gfx::zMaterial& GetMaterial() const;
+
         /// For setting things implicitly.
         friend class ZEN_API obj::zEntity;
 
@@ -154,6 +156,8 @@ namespace gfxcore
         index_t             m_offset;
 
     protected:
+        virtual void MapTexCoords();
+
         gfx::zMaterial      m_Material;
         math::vector_t      m_Position;
         DrawBatch           m_DrawData;

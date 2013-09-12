@@ -173,3 +173,8 @@ bool zDrawable::IsModifiable() const
 {
     return (mp_VAO == nullptr || !mp_VAO->Offloaded());
 }
+
+const gfx::zMaterial& zDrawable::GetMaterial() const
+{
+    return m_Material;
+}
