@@ -151,6 +151,28 @@ int main2(int argc, char* argv[])
     math::vector_t GrassDT(-1.2, 0.9, -0.5);
     math::vector_t mouse;
 
+    obj::CPhysicsWorld World(math::vector_t(0.0, 9.81), 60);
+    World.Init();
+
+    obj::CBody Ground(World, Manager);
+    Ground.SetType(obj::BodyType::STATIC_BODY);
+    Ground.Move(0, 800);
+    Ground.Create();
+    //Body.SetSize_px(800, 10);
+    //or
+    //World.SetScale(0.01);
+    //Body.SetSize(8, 0.1);
+
+    obj::CBody Falling(World, Manager);
+    Falling.SetType(obj::BodyType::DYNAMIC_BODY);
+    Falling.Move(10, 0);
+    Falling.Create();
+    //Falling.SetSize_px(32, 32);
+    //obj::fixture_t Fixture;
+    //Fixture.density = 1.0;
+    //Fixture.friction = 0.3;
+    //Falling.AddFixture(Fixture);
+
     gfx::zPolygon P(Manager);
     P.AddVertex(math::vector_t(0,   450));
     P.AddVertex(math::vector_t(50,  425));
@@ -210,6 +232,8 @@ int main2(int argc, char* argv[])
     while(Window.IsOpen())
     {
         Timer.Start();
+
+        World.Update();
 
         // Handle events.
         Evt.PollEvents();
@@ -309,10 +333,10 @@ int main2(int argc, char* argv[])
             Gr.Draw();
             Grass.Disable();
         }
-
+        
+        PHYZ.Draw();
         P.Draw();
         P2.Draw();
-        //P3.Draw();
 
         Sound->Update();
         Window.Update();

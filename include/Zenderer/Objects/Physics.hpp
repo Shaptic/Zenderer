@@ -1,7 +1,6 @@
 /**
  * @file
- *  Zenderer/Objects/Physics.hpp - Defines the core-level physics structures
- *  that will be used for basic simulation of rigid body objects.
+ *  Zenderer/Objects/Physics.hpp - Integrates Box2D.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -23,63 +22,131 @@
 #ifndef ZENDERER__OBJECTS__PHYSICS_HPP
 #define ZENDERER__OBJECTS__PHYSICS_HPP
 
+#include <Box2D/Box2D.h>
+
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/Math.hpp"
+#include "Zenderer/Core/Subsystem.hpp"
+#include "Entity.hpp"
+
+#ifdef ZEN_DEBUG_BUILD
+  #pragma comment(lib, "Box2D_DBG.lib")
+#else
+  #pragma comment(lib, "Box2D.lib")
+#endif
 
 namespace zen
 {
 namespace obj
 {
-    /**
-     * An axis-aligned bounding box (AABB) representation.
-     *  This is used for basic quad collision detection throughout @a Zenderer
-     *  using the separation of axis theorem. The two components are defined
-     *  by the top-left and the bottom-right points of a standard, unrotated
-     *  quad.
-     *
-     * @see http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem
-     * @see http://gafferongames.com/game-physics/integration-basics/
-     **/
-    struct ZEN_API bbox_t
+    enum class BodyType : uint16_t
     {
-        math::vector_t m_Min;
-        math::vector_t m_Max;
+        STATIC_BODY,
+        DYNAMIC_BODY,
+        KINEMATIC_BODY
     };
 
-    /**
-     * A representation of a circle to provide an alternative collision
-     * in @a Zenderer for objects or sprites that don't play nicely with
-     * quads.
-     **/
-    struct ZEN_API circle_t
+    class ZEN_API CPhysicsWorld : public CSubsystem
     {
-        real_t          m_radius;
-        math::vector_t  m_Position;
+    public:
+        CPhysicsWorld(
+            const math::vector_t& gravity = math::vector_t(0.0, 9.81),
+            const uint16_t frame_rate = 60) :
+                CSubsystem("Phyzx"), m_World(nullptr),
+                m_Gravity(gravity.x, gravity.y),
+                m_ticks(1.0 / frame_rate) {}
+
+        ~CPhysicsWorld()
+        {
+            this->Destroy();
+        }
+
+        bool Init()
+        {
+            if(m_init) this->Destroy();
+
+            m_World = new b2World(m_Gravity);
+            m_init = true;
+        }
+
+        bool Destroy()
+        {
+            if(!m_init) return false;
+
+            delete m_World;
+            m_Gravity.x = 0.0;
+            m_Gravity.y = 0.0;
+
+            return !(m_init = false);
+        }
+
+        void Update()
+        {
+            m_World->Step(m_ticks, 4, 6);
+        }
+
+        void SetGravity(const math::vector_t& Gravity)
+        {
+            m_Gravity = b2Vec2(Gravity.x, Gravity.y);
+        }
+
+        b2World& GetWorld() const
+        {
+            return *m_World;
+        }
+
+        b2BodyDef& GetBody()
+        {
+            return m_Body;
+        }
+
+    private:
+        b2World*    m_World;
+        b2Vec2      m_Gravity;
+        b2BodyDef   m_Body;
+        real_t      m_ticks;
     };
 
-    struct material_t
+    class ZEN_API CBody : public CEntity
     {
-        real_t m_imass;     ///< Inverted mass value
+        CPhysicsWorld&  m_Phyz;
+        b2World&        m_World;
+        b2BodyDef*      mp_BodyDef;
+        b2Body*         mp_Body;
+
+    public:
+        CBody(CPhysicsWorld& World, asset::CAssetManager& Assets) :
+            CEntity(Assets), m_Phyz(World),
+            m_World(World.GetWorld()),
+            mp_BodyDef(nullptr) {}
+
+        void SetType(const BodyType& Type)
+        {
+            b2BodyDef& Def = m_Phyz.GetBody();
+
+            switch(Type)
+            {
+            case BodyType::STATIC_BODY:
+                Def.type = b2_staticBody;
+                break;
+
+            case BodyType::DYNAMIC_BODY:
+                Def.type = b2_dynamicBody;
+                break;
+
+            case BodyType::KINEMATIC_BODY:
+                Def.type = b2_kinematicBody;
+                break;
+            }
+
+            mp_BodyDef = &Def;
+        }
+
+        bool Create()
+        {
+            if(mp_BodyDef == nullptr) return false;
+            mp_Body = m_World.CreateBody(mp_BodyDef);
+        }
     };
-
-    /// Checks for collision between two AABB boxes.
-    /// @note   This algorithm doesn't work well with rotated boxes.
-    bool collides(const bbox_t& a, const bbox_t& b)
-    {
-        if(!math::compf(a.m_Max.z, b.m_Max.z)) return false;
-        if(a.m_Max.x < b.m_Min.x || a.m_Min.x > b.m_Max.x) return false;
-        if(a.m_Max.y < b.m_Min.y || a.m_Min.y > b.m_Max.y) return false;
-
-        return true;
-    }
-
-    /// @overload
-    bool collides(const circle_t& a, const circle_t& b)
-    {
-        real_t r = a.m_radius + b.m_radius;
-        r *= r;
-        return r < a.m_Position.distance(a.m_Position, b.m_Position, false);
-    }
 }   // namespace obj
 }   // namespace zen
 

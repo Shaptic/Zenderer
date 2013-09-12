@@ -71,11 +71,16 @@
 // Graphics API
 #include "Graphics/Window.hpp"
 #include "Graphics/Light.hpp"
+#include "GUI/Font.hpp"
 #include "Graphics/Scene.hpp"
 #include "GUI/Menu.hpp"
 
 // Object API
 #include "Objects/Entity.hpp"
+#include "Objects/Physics.hpp"
+
+// Assets
+#include "Assets/AssetManager.hpp"
 #include "Graphics/Quad.hpp"
 #include "Graphics/Polygon.hpp"
 
