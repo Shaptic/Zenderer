@@ -29,8 +29,8 @@ bool zEntity::LoadFromFile(const string_t& filename)
 
     if(!file) return false;
 
-    gfx::zQuad*     pPrim = nullptr;
-    gfx::zMaterial* pMat  = nullptr;
+    gfxcore::zDrawable* pPrim = nullptr;
+    gfx::zMaterial*     pMat  = nullptr;
 
     this->Destroy();
 
@@ -59,7 +59,7 @@ bool zEntity::LoadFromFile(const string_t& filename)
             // We've already loaded a primitive before.
             if(pPrim != nullptr)
             {
-                mp_allPrims.push_back(pPrim);
+                mp_allPrims.emplace_back(pPrim);
                 delete pMat;
                 pMat = nullptr;
             }
@@ -97,18 +97,21 @@ bool zEntity::LoadFromFile(const string_t& filename)
             }
 
             if(Parser.Exists("width") && Parser.Exists("height"))
-                pPrim->Resize(Parser.GetValuei("width"),
-                              Parser.GetValuei("height"));
+                static_cast<gfx::zQuad*>(pPrim)->Resize(
+                    Parser.GetValuei("width"), Parser.GetValuei("height"));
 
             else
-                pPrim->Resize(pMat->GetTexture().GetWidth(),
-                              pMat->GetTexture().GetHeight());
+                static_cast<gfx::zQuad*>(pPrim)->Resize(
+                    pMat->GetTexture().GetWidth(),
+                    pMat->GetTexture().GetHeight());
 
             if(Parser.Exists("invert"))
-                pPrim->SetInverted(Parser.GetValueb("invert"));
+                static_cast<gfx::zQuad*>(pPrim)->SetInverted(
+                    Parser.GetValueb("invert"));
 
             if(Parser.Exists("repeat"))
-                pPrim->SetRepeating(Parser.GetValueb("repeat"));
+                static_cast<gfx::zQuad*>(pPrim)->SetRepeating(
+                    Parser.GetValueb("repeat"));
 
             pPrim->AttachMaterial(*pMat);
         }
@@ -141,12 +144,12 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
-bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
+bool zEntity::AddPrimitive(const gfxcore::zDrawable& Polygon)
 {
     if(!(Polygon.m_DrawData.icount && Polygon.m_DrawData.vcount)) return false;
 
     gfx::zPolygon* pPoly = new gfx::zPolygon(Polygon);
-    pPoly->AttachMaterial(const_cast<gfx::zMaterial&>(Quad.GetMaterial()));
+    pPoly->AttachMaterial(const_cast<gfx::zMaterial&>(Polygon.GetMaterial()));
     //pPoly->SetInverted(m_inv);
     pPoly->Create();
     pPoly->SetColor(Polygon.m_DrawData.Vertices[0].color);
@@ -247,7 +250,7 @@ bool zEntity::Collides(const math::rect_t& other)
 
 bool zEntity::Collides(const math::vector_t& pos)
 {
-    return this->Collides(math::rect_t(Pos.x, Pos.y, 1, 1));
+    return this->Collides(math::rect_t(pos.x, pos.y, 1, 1));
 }
 
 void zEntity::SetDepth(uint8_t depth)
@@ -279,12 +282,12 @@ uint32_t zEntity::GetSortFlag() const
     return m_sort;
 }
 
-std::vector<gfx::zQuad*>::const_iterator zEntity::cbegin() const
+std::vector<gfxcore::zDrawable*>::const_iterator zEntity::cbegin() const
 {
     return mp_allPrims.cbegin();
 }
 
-std::vector<gfx::zQuad*>::const_iterator zEntity::cend() const
+std::vector<gfxcore::zDrawable*>::const_iterator zEntity::cend() const
 {
     return mp_allPrims.cend();
 }

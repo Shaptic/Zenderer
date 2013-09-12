@@ -35,6 +35,9 @@ namespace gfx
         zPolygon(asset::zAssetManager& Assets);
         ~zPolygon();
 
+        zPolygon(const zPolygon& Copy);
+        zPolygon(const zPolygon&& Move);
+
         /**
          * Adds a vertex to the polygon at the specified position.
          *  Vertices form triangles from the first vertex added, and thus
@@ -51,7 +54,7 @@ namespace gfx
          *          is called again.
          **/
         zDrawable& Create();
-        
+
         /**
          * Overrides default index creation for the added vertices.
          *  Indices are considered valid if none of them are larger than
@@ -64,13 +67,13 @@ namespace gfx
 
         /// Sets the vertex color of the *temporary* buffer.
         void SetColor(const color4f_t& Color);
-        
+
         /// Calculates maximum height for the current vertices.
         uint16_t GetH() const;
-        
+
         /// Calculates maximum width for the current vertices.
         uint16_t GetW() const;
-        
+
         inline std::vector<math::vector_t> Triangulate() const
         { return math::triangulate(m_Verts); }
 

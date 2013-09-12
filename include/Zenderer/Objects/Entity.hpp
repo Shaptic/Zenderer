@@ -36,6 +36,7 @@
 #include "Zenderer/Graphics/Window.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "Zenderer/Graphics/Polygon.hpp"
+#include "Zenderer/Graphics/Quad.hpp"
 #include "Zenderer/Utilities/INIParser.hpp"
 
 namespace zen
@@ -109,7 +110,7 @@ namespace obj
          *          primitive on top of one another, since there is no position
          *          specification on them.
          **/
-        bool AddPrimitive(const gfx::zPolygon& Prim);
+        bool AddPrimitive(const gfxcore::zDrawable& Prim);
 
         /**
          * Merges primitive data with shared materials.
@@ -248,10 +249,10 @@ namespace obj
         uint32_t GetSortFlag() const;
 
         /// Returns an iterator to the start of the internal primitive list.
-        std::vector<gfx::zPolygon*>::const_iterator cbegin() const;
+        std::vector<gfxcore::zDrawable*>::const_iterator cbegin() const;
 
         /// Returns an iterator to the end of the internal primitive list.
-        std::vector<gfx::zPolygon*>::const_iterator cend() const;
+        std::vector<gfxcore::zDrawable*>::const_iterator cend() const;
 
         inline void Enable()  { m_enabled = true;  }
         inline void Disable() { m_enabled = false; }
@@ -268,17 +269,17 @@ namespace obj
                        const string_t& line, const uint32_t line_no,
                        const ErrorType& Err = ErrorType::BAD_PAIR);
 
-        asset::zAssetManager&       m_Assets;
-        util::zLog&                 m_Log;
+        asset::zAssetManager&               m_Assets;
+        util::zLog&                         m_Log;
 
-        math::matrix4x4_t           m_MV;
-        math::aabb_t                m_Box;
-        std::vector<math::tri_t>    m_Triangulation;
-        std::vector<gfx::zPolygon*> mp_allPrims;
-        string_t                    m_filename;
-        uint16_t                    m_depth;
-        uint32_t                    m_sort;
-        bool                        m_inv, m_enabled;
+        math::matrix4x4_t                   m_MV;
+        math::aabb_t                        m_Box;
+        std::vector<math::tri_t>            m_Triangulation;
+        std::vector<gfxcore::zDrawable*>    mp_allPrims;
+        string_t                            m_filename;
+        uint16_t                            m_depth;
+        uint32_t                            m_sort;
+        bool                                m_inv, m_enabled;
     };
 }   // namespace gfxcore
 }   // namespace zen
