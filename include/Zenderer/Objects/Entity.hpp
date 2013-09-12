@@ -249,10 +249,10 @@ namespace obj
         uint32_t GetSortFlag() const;
 
         /// Returns an iterator to the start of the internal primitive list.
-        std::vector<gfxcore::zDrawable*>::const_iterator cbegin() const;
+        std::vector<gfxcore::zDrawable*>::const_iterator begin() const;
 
         /// Returns an iterator to the end of the internal primitive list.
-        std::vector<gfxcore::zDrawable*>::const_iterator cend() const;
+        std::vector<gfxcore::zDrawable*>::const_iterator end() const;
 
         inline void Enable()  { m_enabled = true;  }
         inline void Disable() { m_enabled = false; }

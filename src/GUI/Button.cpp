@@ -88,10 +88,9 @@ void zButton::SetNormalColor(const color4f_t& normal)
 
 void zButton::SetBackground(const obj::zEntity& Bg)
 {
-    auto i = Bg.cbegin(), j = Bg.cend();
-    for( ; i != j; ++i)
+    for(const auto& i : Bg)
     {
-        m_Active.AddPrimitive(**i);
-        m_Normal.AddPrimitive(**i);
+        m_Active.AddPrimitive(*i);
+        m_Normal.AddPrimitive(*i);
     }
 }

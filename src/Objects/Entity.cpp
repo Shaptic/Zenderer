@@ -282,12 +282,12 @@ uint32_t zEntity::GetSortFlag() const
     return m_sort;
 }
 
-std::vector<gfxcore::zDrawable*>::const_iterator zEntity::cbegin() const
+std::vector<gfxcore::zDrawable*>::const_iterator zEntity::begin() const
 {
     return mp_allPrims.cbegin();
 }
 
-std::vector<gfxcore::zDrawable*>::const_iterator zEntity::cend() const
+std::vector<gfxcore::zDrawable*>::const_iterator zEntity::end() const
 {
     return mp_allPrims.cend();
 }

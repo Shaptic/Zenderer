@@ -26,7 +26,6 @@ bool zScene::Init()
             m_FBO1.Init()       && m_FBO2.Init();
 }
 
-/// @bug A crash occurs deleting entities.
 bool zScene::Destroy()
 {
     return this->Clear()    && m_FBO1.Destroy() &&
@@ -163,11 +162,10 @@ bool zScene::Render()
         const math::matrix4x4_t& Tmp = i->GetTransformation();
         E.SetParameter("mv", Tmp);
 
-        auto a = i->cbegin(), b = i->cend();
-        for( ; a != b; ++a)
+        for(const auto& j : i)
         {
-            (*a)->GetMaterial().Enable();
-            (*a)->Draw(true);
+            j->GetMaterial().Enable();
+            j->Draw(true);
         }
 
         // Move back to original position.
