@@ -23,6 +23,7 @@
 #define ZENDERER__MATH__SHAPES_HPP
 
 #include <vector>
+#include <array>
 
 #include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Utilities/Assert.hpp"
@@ -34,7 +35,7 @@ namespace zen
 namespace math
 {
     /// A triangle representation.
-    typedef tri_t vector_t[3];
+    typedef std::array<vector_t, 3> tri_t;
 
     /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t
@@ -102,23 +103,23 @@ namespace math
         vector_t tl;      ///< Top-left point.
         vector_t br;      ///< Bottom-right point.
     };
-    
+
     static inline
-    bool collides(const tri_t& A, const tri& b)
+    bool collides(const tri_t& A, const tri_t& b)
     {
         ZEN_ASSERTM(false, "not implemented");
         return false;
     }
-    
+
     /**
      * Finds orientation of a given set of points, which form a polygon.
      * @param   Polygon     A set of points forming a simple polygon.
      * @return `true` if clockwise, `false` if counter-clockwise.
      * @see    http://debian.fmi.uni-sofia.bg/~sergei/cgsr/docs/clockwise.htm
-     **/ 
+     **/
     bool orientation(const std::vector<vector_t>& Polygon);
     bool orientation(const tri_t& Tri);     ///< @overload
-    
+
     /**
      * Tests if a point is contained with a triangle.
      *  This algorithm uses a formula for Barycentric coordinates.
@@ -131,7 +132,7 @@ namespace math
      * @see     http://stackoverflow.com/a/13301035
      **/
     bool triangle_test(const vector_t& V, const tri_t& T);
-    
+
     /**
      * Triangulates a set of vertices into triples, which form triangles.
      *
@@ -144,10 +145,9 @@ namespace math
      * @see http://abitwise.blogspot.com/2013/09/triangulating-concave-and-convex.html
      * @see http://gist.github.com/Ruskiy69/6526805
      *
-     * @note    Algorithmic complexity: O(n^3)     
+     * @note    Algorithmic complexity: O(n^3)
      **/
     std::vector<vector_t> triangulate(std::vector<vector_t> Polygon);
-
 }   // namespace math
 }   // namespace zen
 

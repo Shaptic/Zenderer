@@ -157,13 +157,13 @@ namespace gfx
 
         /// Returns the queue index of a certain entity (or -1).
         int32_t GetEntityIndex(const obj::zEntity& D);
-        
+
         /// Returns total scene width.
         inline uint16_t GetWidth() const { return m_FBO1.GetWidth(); }
-        
+
         /// Returns total scene height.
         inline uint16_t GetHeight() const { return m_FBO1.GetHeight(); }
-        
+
         /// Enables / disables scene lighting.
         void EnableLighting()  { m_lighting = true;  }
         void DisableLighting() { m_lighting = false; }
