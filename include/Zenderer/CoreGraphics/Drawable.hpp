@@ -36,133 +36,133 @@ namespace zen
 namespace obj { class ZEN_API zEntity; }
 namespace gfxcore
 {
-    /// An abstract base class for all drawable primitives.
-    class ZEN_API zDrawable
-    {
-    public:
-        zDrawable(asset::zAssetManager&);
-
-        /**
-         * Creates an instance from another instance.
-         *  This only copies internal vertex/index data, as well
-         *  as model-view matrix data (thus position). Material and
-         *  internal GPU buffer references are *NOT* copied. These
-         *  must be explicitly set later, be it with `Draw()` or
-         *  through a `friend` class or through `AttachMaterial`.
-         *
-         * @param   Copy    Primitive to copy draw data from
-         *
-         * @warning There can be no assignment of one primitive to another.
-         * @warning Material info is not transferred.
-         *
-         * @see     gfxcore::DrawBatch
-         **/
-        zDrawable(const zDrawable& Copy);
-        zDrawable(zDrawable&& Move);
-
-        // These are disabled due to the asset manager reference
-        // not able to being copied (dat wording).
-        //zDrawable& operator=(const zDrawable& Copy) = delete;
-        //zDrawable& operator=(zDrawable&& Copy) = delete;
-
-        virtual ~zDrawable();
-
-        /// Creates initial vertex structure.
-        /// @return Reference to itself for easy chaining.
-        virtual zDrawable& Create() = 0;
-
-        /**
-         * Moves the drawable to a certain location.
-         *  This doesn't rely on any vertex data, but rather uses
-         *  the model-view matrix to translate the object, thus
-         *  there is a default implementation.
-         *
-         * @param   Position    (x, y, z) coordinates where you want the object
-         **/
-        void Move(const math::vector_t& Position);
-
-        /// @overload
-        /// @todo   Make it work properly when `zQuad` is inverted.
-        void Move(const real_t x, const real_t y, const real_t z = 1.0);
-
-        /**
-         * Attaches a material to render on top of the primitive.
-         *  This really shouldn't be allowed on simple primitives, but it's
-         *  here if you need it. Keep in mind that this will override any
-         *  color settings you've made.
-         *  Likely this will only work well on quadrilateral primitives due
-         *  to difficulties setting texture coordinates on other shapes.
-         *
-         * @param   Material   The texture you want rendered
-         *
-         * @pre     Create() or Draw() haven't been called yet.
-         *
-         * @note    I promise the given material won't be modified.
-         **/
-        void AttachMaterial(gfx::zMaterial& Material);
-
-        /// Reverts to using the default material.
-        void RemoveMaterial();
-
-        /// Sets all vertices to have a given color value.
-        virtual void SetColor(const color4f_t& Color);
-
-        /**
-         * Draws the primitive on-screen.
-         *  This implements the technique described above. If there is no
-         *  "owner" of the primitive (meaning no scene has set the internal
-         *  data), it will automatically create a zVertexArray instance,
-         *  a model-view matrix, and will use the default shader set.
-         *  This data will be re-used time after time on subsequent Draw()
-         *  calls, not recreated every time.
-         *
-         * @param   is_bound    Have we bound things? (VAO, material, etc.)
-         *
-         * @return  `true` if drawing was successful, `false` otherwise.
-         **/
-        bool Draw(const bool is_bound = false);
-
-        /// Request to see if we can change the internal vertices or not.
-        bool IsModifiable() const;
-
-        inline const math::vector_t& GetPosition() const
-        { return m_Position; }
-
-        inline real_t GetX() const { return m_Position.x; }
-        inline real_t GetY() const { return m_Position.y; }
-
-        /**
-         * Shortcut to prevent loading simple objects manually.
-         *  This DOES NOT delete any internal vertex data unless
-         *  explicitly specified. Thus, this can be called multiple
-         *  times with various vertex settings to set up different
-         *  primitives in the given vertex array.
-         *
-         * @param   VAO         The vertex array to store data into
-         * @param   preserve    Should we keep our local vertex data?
-         **/
-        void LoadIntoVAO(gfxcore::zVertexArray& VAO,
-                         const bool preserve = true);
-
-        const gfx::zMaterial& GetMaterial() const;
-
-        /// For setting things implicitly.
-        friend class ZEN_API obj::zEntity;
-
-    private:
-        asset::zAssetManager& m_Assets;
-        math::matrix4x4_t*  mp_MVMatrix;
-        zVertexArray*       mp_VAO;
-        index_t             m_offset;
-
-    protected:
-        virtual void MapTexCoords();
-
-        gfx::zMaterial      m_Material;
-        math::vector_t      m_Position;
-        DrawBatch           m_DrawData;
-        bool                m_internal;
-    };
+//    /// An abstract base class for all drawable primitives.
+//    class ZEN_API zDrawable
+//    {
+//    public:
+//        zDrawable(asset::zAssetManager&);
+//
+//        /**
+//         * Creates an instance from another instance.
+//         *  This only copies internal vertex/index data, as well
+//         *  as model-view matrix data (thus position). Material and
+//         *  internal GPU buffer references are *NOT* copied. These
+//         *  must be explicitly set later, be it with `Draw()` or
+//         *  through a `friend` class or through `AttachMaterial`.
+//         *
+//         * @param   Copy    Primitive to copy draw data from
+//         *
+//         * @warning There can be no assignment of one primitive to another.
+//         * @warning Material info is not transferred.
+//         *
+//         * @see     gfxcore::DrawBatch
+//         **/
+//        zDrawable(const zDrawable& Copy);
+//        zDrawable(zDrawable&& Move);
+//
+//        // These are disabled due to the asset manager reference
+//        // not able to being copied (dat wording).
+//        //zDrawable& operator=(const zDrawable& Copy) = delete;
+//        //zDrawable& operator=(zDrawable&& Copy) = delete;
+//
+//        virtual ~zDrawable();
+//
+//        /// Creates initial vertex structure.
+//        /// @return Reference to itself for easy chaining.
+//        virtual zDrawable& Create() = 0;
+//
+//        /**
+//         * Moves the drawable to a certain location.
+//         *  This doesn't rely on any vertex data, but rather uses
+//         *  the model-view matrix to translate the object, thus
+//         *  there is a default implementation.
+//         *
+//         * @param   Position    (x, y, z) coordinates where you want the object
+//         **/
+//        void Move(const math::vector_t& Position);
+//
+//        /// @overload
+//        /// @todo   Make it work properly when `zQuad` is inverted.
+//        void Move(const real_t x, const real_t y, const real_t z = 1.0);
+//
+//        /**
+//         * Attaches a material to render on top of the primitive.
+//         *  This really shouldn't be allowed on simple primitives, but it's
+//         *  here if you need it. Keep in mind that this will override any
+//         *  color settings you've made.
+//         *  Likely this will only work well on quadrilateral primitives due
+//         *  to difficulties setting texture coordinates on other shapes.
+//         *
+//         * @param   Material   The texture you want rendered
+//         *
+//         * @pre     Create() or Draw() haven't been called yet.
+//         *
+//         * @note    I promise the given material won't be modified.
+//         **/
+//        void AttachMaterial(gfx::zMaterial& Material);
+//
+//        /// Reverts to using the default material.
+//        void RemoveMaterial();
+//
+//        /// Sets all vertices to have a given color value.
+//        virtual void SetColor(const color4f_t& Color);
+//
+//        /**
+//         * Draws the primitive on-screen.
+//         *  This implements the technique described above. If there is no
+//         *  "owner" of the primitive (meaning no scene has set the internal
+//         *  data), it will automatically create a zVertexArray instance,
+//         *  a model-view matrix, and will use the default shader set.
+//         *  This data will be re-used time after time on subsequent Draw()
+//         *  calls, not recreated every time.
+//         *
+//         * @param   is_bound    Have we bound things? (VAO, material, etc.)
+//         *
+//         * @return  `true` if drawing was successful, `false` otherwise.
+//         **/
+//        bool Draw(const bool is_bound = false);
+//
+//        /// Request to see if we can change the internal vertices or not.
+//        bool IsModifiable() const;
+//
+//        inline const math::vector_t& GetPosition() const
+//        { return m_Position; }
+//
+//        inline real_t GetX() const { return m_Position.x; }
+//        inline real_t GetY() const { return m_Position.y; }
+//
+//        /**
+//         * Shortcut to prevent loading simple objects manually.
+//         *  This DOES NOT delete any internal vertex data unless
+//         *  explicitly specified. Thus, this can be called multiple
+//         *  times with various vertex settings to set up different
+//         *  primitives in the given vertex array.
+//         *
+//         * @param   VAO         The vertex array to store data into
+//         * @param   preserve    Should we keep our local vertex data?
+//         **/
+//        void LoadIntoVAO(gfxcore::zVertexArray& VAO,
+//                         const bool preserve = true);
+//
+//        const gfx::zMaterial& GetMaterial() const;
+//
+//        /// For setting things implicitly.
+//        friend class ZEN_API obj::zEntity;
+//
+//    private:
+//        asset::zAssetManager& m_Assets;
+//        math::matrix4x4_t*  mp_MVMatrix;
+//        zVertexArray*       mp_VAO;
+//        index_t             m_offset;
+//
+//    protected:
+//        virtual void MapTexCoords();
+//
+//        gfx::zMaterial      m_Material;
+//        math::vector_t      m_Position;
+//        DrawBatch           m_DrawData;
+//        bool                m_internal;
+//    };
 }   // namespace gfxcore
 }   // namespace zen
 

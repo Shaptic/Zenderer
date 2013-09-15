@@ -22,21 +22,24 @@
 #ifndef ZENDERER__GRAPHICS__POLYGON_HPP
 #define ZENDERER__GRAPHICS__POLYGON_HPP
 
-#include "Zenderer/CoreGraphics/Drawable.hpp"
+#include "Zenderer/CoreGraphics/OpenGL.hpp"
+#include "Zenderer/CoreGraphics/Renderer.hpp"
+#include "Zenderer/Math/Shapes.hpp"
 
 namespace zen
 {
+namespace obj { class ZEN_API zEntity; }
 namespace gfx
 {
     /// An arbitrary n-vertex convex polygon.
-    class ZEN_API zPolygon : public gfxcore::zDrawable
+    class ZEN_API zPolygon// : public gfxcore::zDrawable
     {
     public:
-        zPolygon(asset::zAssetManager& Assets);
+        zPolygon(asset::zAssetManager& Assets, const size_t preload = 0);
         ~zPolygon();
 
         zPolygon(const zPolygon& Copy);
-        zPolygon(const zPolygon&& Move);
+        zPolygon(zPolygon&& Move);
 
         /**
          * Adds a vertex to the polygon at the specified position.
@@ -53,7 +56,70 @@ namespace gfx
          * @post    No temporary vertices are stored until AddVertex()
          *          is called again.
          **/
-        zDrawable& Create();
+        virtual zPolygon& Create();
+
+        /**
+         * Moves the drawable to a certain location.
+         *  This doesn't rely on any vertex data, but rather uses
+         *  the model-view matrix to translate the object, thus
+         *  there is a default implementation.
+         *
+         * @param   Position    (x, y, z) coordinates where you want the object
+         **/
+        virtual void Move(const math::vector_t& Position);
+
+        /// @overload
+        virtual void Move(const real_t x, const real_t y, const real_t z = 1.0);
+
+        /**
+         * Attaches a material to render on top of the primitive.
+         *  This really shouldn't be allowed on simple primitives, but it's
+         *  here if you need it. Keep in mind that this will override any
+         *  color settings you've made.
+         *  Likely this will only work well on quadrilateral primitives due
+         *  to difficulties setting texture coordinates on other shapes.
+         *
+         * @param   Material   The texture you want rendered
+         *
+         * @pre     Create() or Draw() haven't been called yet.
+         *
+         * @note    I promise the given material won't be modified.
+         **/
+        void AttachMaterial(gfx::zMaterial& Material);
+
+        /// Reverts to using the default material.
+        void RemoveMaterial();
+
+        /**
+         * Draws the primitive on-screen.
+         *  This implements the technique described above. If there is no
+         *  "owner" of the primitive (meaning no scene has set the internal
+         *  data), it will automatically create a zVertexArray instance,
+         *  a model-view matrix, and will use the default shader set.
+         *  This data will be re-used time after time on subsequent Draw()
+         *  calls, not recreated every time.
+         *
+         * @param   is_bound    Have we bound things? (VAO, material, etc.)
+         *
+         * @return  `true` if drawing was successful, `false` otherwise.
+         **/
+        bool Draw(const bool is_bound = false);
+
+        /**
+         * Shortcut to prevent loading simple objects manually.
+         *  This DOES NOT delete any internal vertex data unless
+         *  explicitly specified. Thus, this can be called multiple
+         *  times with various vertex settings to set up different
+         *  primitives in the given vertex array.
+         *
+         * @param   VAO         The vertex array to store data into
+         * @param   preserve    Should we keep our local vertex data?
+         **/
+        void LoadIntoVAO(gfxcore::zVertexArray& VAO,
+                         const bool preserve = true);
+
+        inline std::vector<math::vector_t> Triangulate() const
+        { return math::triangulate(m_Verts); }
 
         /**
          * Overrides default index creation for the added vertices.
@@ -68,18 +134,41 @@ namespace gfx
         /// Sets the vertex color of the *temporary* buffer.
         void SetColor(const color4f_t& Color);
 
+        inline const math::vector_t& GetPosition() const
+        { return m_Position; }
+
+        inline real_t GetX() const { return m_Position.x; }
+        inline real_t GetY() const { return m_Position.y; }
+
         /// Calculates maximum height for the current vertices.
         uint16_t GetH() const;
 
         /// Calculates maximum width for the current vertices.
         uint16_t GetW() const;
 
-        inline std::vector<math::vector_t> Triangulate() const
-        { return math::triangulate(m_Verts); }
+        /// Request to see if we can change the internal vertices or not.
+        bool IsModifiable() const;
+
+        const gfx::zMaterial& GetMaterial() const;
+
+        /// For setting things implicitly.
+        friend class ZEN_API obj::zEntity;
 
     private:
+        asset::zAssetManager&   m_Assets;
+        math::matrix4x4_t*      mp_MVMatrix;
+        gfxcore::zVertexArray*  mp_VAO;
+        gfxcore::index_t        m_offset;
+
+    protected:
+        virtual void MapTexCoords() { ZEN_ASSERTM(false, "not implemented"); }
+
         std::vector<math::vector_t> m_Verts;
-        color4f_t m_Color;
+        gfx::zMaterial      m_Material;
+        math::vector_t      m_Position;
+        gfxcore::DrawBatch  m_DrawData;
+        color4f_t           m_Color;
+        bool                m_internal;
     };
 }   // namespace gfx
 }   // namespace zen

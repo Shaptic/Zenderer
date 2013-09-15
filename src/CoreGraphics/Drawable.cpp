@@ -1,5 +1,5 @@
 #include "Zenderer/CoreGraphics/Drawable.hpp"
-
+/*
 using namespace zen;
 using gfxcore::zDrawable;
 
@@ -72,7 +72,7 @@ void zDrawable::Move(const math::vector_t& Position)
     m_Position = Position;
 }
 
-void zDrawable::Move(const real_t x, const real_t y, const real_t z /*= 0.0*/)
+void zDrawable::Move(const real_t x, const real_t y, const real_t z)
 {
     m_Position = math::vector_t(x, y, z);
 }
@@ -97,7 +97,7 @@ void zDrawable::SetColor(const color4f_t& Color)
     }
 }
 
-bool zDrawable::Draw(const bool is_bound /*= false*/)
+bool zDrawable::Draw(const bool is_bound)
 {
     if(mp_VAO == nullptr && !is_bound)
     {
@@ -178,3 +178,4 @@ const gfx::zMaterial& zDrawable::GetMaterial() const
 {
     return m_Material;
 }
+*/
