@@ -174,11 +174,11 @@ bool zEffect::SetParameter(const string_t& name,
 }
 
 bool zEffect::SetParameter(const string_t& name,
-                           const math::matrix4x4_t& Matrix)
+                           const math::matrix4x4_t& Matrix) const
 {
     ZEN_ASSERT(!name.empty());
 
-    if(!this->Init()) return false;
+    if(!m_init) return false;
 
     GLint loc = m_Shader.GetUniformLocation(name);
     GL(glUniformMatrix4fv(loc, 1, GL_TRUE, Matrix.GetPointer()));

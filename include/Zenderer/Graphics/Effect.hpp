@@ -116,6 +116,9 @@ namespace gfx
          *  The behavior of this method is identical to that of SetParameter(),
          *  but it modifies a matrix instead of a primitive type
          *  (`int`, `float`, ...)
+         *  This method is set as "const," due to the fact that it doesn't
+         *  change anything about the way the effect functions (currently),
+         *  and is merely there for instancing and projection purposes.
          *
          * @param   name    Name of matrix parameter
          * @param   Matrix  Matrix value to send to effect
@@ -126,7 +129,7 @@ namespace gfx
          * @overload
          **/
         bool SetParameter(const string_t& name,
-                          const math::matrix4x4_t& Matrix);
+                          const math::matrix4x4_t& Matrix) const;
 
         inline bool Enable() const;     ///< A more user-friendly alias for binding.
         inline bool Disable() const;    ///< A more user-friendly alias for unbinding.

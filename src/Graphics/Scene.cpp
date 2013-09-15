@@ -147,7 +147,7 @@ bool zScene::Render()
 
     // Prepare for primitive rendering.
     const zMaterial& M = zRenderer::GetDefaultMaterial();
-    zEffect& E = const_cast<zMaterial&>(M).GetEffect();
+    const zEffect& E = M.GetEffect();
     M.Enable();
 
     // Commence individual primitive rendering.

@@ -98,6 +98,7 @@ namespace gfx
         bool DisableTexture() const;    ///< Disables only the texture.
 
         zEffect& GetEffect();
+        const zEffect& GetEffect() const;
         const gfxcore::zTexture& GetTexture() const;
         uint16_t GetID() const { return m_ID; }
 

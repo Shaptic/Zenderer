@@ -6,7 +6,7 @@ const gfx::zMaterial& zRenderer::GetDefaultMaterial()
     return *s_DefaultMaterial;
 }
 
-gfx::zEffect& zRenderer::GetDefaultEffect()
+const gfx::zEffect& zRenderer::GetDefaultEffect()
 {
     return s_DefaultMaterial->GetEffect();
 }

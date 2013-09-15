@@ -173,12 +173,12 @@ bool zPolygon::Draw(const bool is_bound /*= false*/)
         // Bind our material. If we haven't set one, the default will be used.
         // We need a default texture because otherwise the color would
         // always be black due to the way the shader works.
-        gfx::zEffect& Effect = m_Material.GetEffect();
+        const gfx::zEffect& Effect = m_Material.GetEffect();
         m_Material.Enable();
 
         // All effects have these parameters in the vertex shader.
         if(!Effect.SetParameter("mv", *mp_MVMatrix) ||
-            !Effect.SetParameter("proj", zRenderer::GetProjectionMatrix()))
+           !Effect.SetParameter("proj", zRenderer::GetProjectionMatrix()))
         {
             zRenderer::ResetMaterialState();
             return false;

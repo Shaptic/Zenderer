@@ -75,7 +75,7 @@ namespace gfxcore
         inline static bool DisableTexture();
 
         inline static const gfx::zMaterial&     GetDefaultMaterial();
-        inline static gfx::zEffect&             GetDefaultEffect();
+        inline static const gfx::zEffect&       GetDefaultEffect();
         inline static const gfxcore::zTexture&  GetDefaultTexture();
 
         inline static const math::matrix4x4_t&  GetProjectionMatrix();

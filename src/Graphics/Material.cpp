@@ -199,6 +199,11 @@ gfx::zEffect& zMaterial::GetEffect()
     return m_Effect;
 }
 
+const gfx::zEffect& zMaterial::GetEffect() const
+{
+    return m_Effect;
+}
+
 const gfxcore::zTexture& zMaterial::GetTexture() const
 {
     return *mp_Texture;
