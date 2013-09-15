@@ -24,13 +24,14 @@
 
 #include "Zenderer/Math/Shapes.hpp"
 #include "Zenderer/CoreGraphics/Drawable.hpp"
+#include "Zenderer/Graphics/Polygon.hpp"
 
 namespace zen
 {
 namespace gfx
 {
     /// A four-sided quadrilateral primitive.
-    class ZEN_API zQuad : public gfxcore::zDrawable
+    class ZEN_API zQuad : public gfx::zPolygon
     {
     public:
         zQuad(asset::zAssetManager&, const math::rect_t& Size);
@@ -39,7 +40,11 @@ namespace gfx
 
         ~zQuad();
 
-        virtual zDrawable& Create();
+        virtual gfx::zPolygon& Create();
+
+        /// @todo   Make it work properly when `zQuad` is inverted.
+        //void Move(const real_t x, const real_t y, const real_t z = 1.0);
+        //void Move(const math::vector_t& Position);
 
         /**
          * Resizes the quad to a new dimension.
@@ -98,8 +103,8 @@ namespace gfx
          **/
         void SetRepeating(const bool flag);
 
-        inline uint16_t GetW()  const { return m_Size.x; }
-        inline uint16_t GetH()  const { return m_Size.y; }
+        inline uint16_t GetW() const { return m_Size.x; }
+        inline uint16_t GetH() const { return m_Size.y; }
 
     private:
         void LoadRegularVertices();     // Standard quad

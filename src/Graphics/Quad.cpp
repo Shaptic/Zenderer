@@ -4,14 +4,24 @@ using namespace zen;
 using gfx::zQuad;
 
 zQuad::zQuad(asset::zAssetManager& Mgr, const math::rect_t& Size) :
-    zDrawable(Mgr), m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
-{}
+    zPolygon(Mgr, 4), m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
+{
+    this->AddVertex(math::vector_t());
+    this->AddVertex(math::vector_t(Size.w, 0));
+    this->AddVertex(math::vector_t(Size.w, Size.h));
+    this->AddVertex(math::vector_t(0, Size.h));
+}
 
 zQuad::zQuad(asset::zAssetManager& Mgr, const uint16_t w, const uint16_t h) :
-    zDrawable(Mgr), m_Size(w, h), m_inv(false), m_rep(false)
-{}
+    zPolygon(Mgr, 4), m_Size(w, h), m_inv(false), m_rep(false)
+{
+    this->AddVertex(math::vector_t());
+    this->AddVertex(math::vector_t(w, 0));
+    this->AddVertex(math::vector_t(w, h));
+    this->AddVertex(math::vector_t(0, h));
+}
 
-zQuad::zQuad(const zQuad& Copy) : zDrawable(Copy)
+zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
 {
     m_Size = Copy.m_Size;
     m_inv = Copy.m_inv;
@@ -24,7 +34,7 @@ zQuad::~zQuad()
     if(m_DrawData.Indices  != nullptr) delete m_DrawData.Indices;
 }
 
-gfxcore::zDrawable& zQuad::Create()
+gfx::zPolygon& zQuad::Create()
 {
     if(m_DrawData.Vertices == nullptr)
     {
@@ -85,19 +95,17 @@ void zQuad::SetRepeating(const bool flag)
 
 void zQuad::LoadRegularVertices()
 {
-    m_DrawData.Vertices[0].position = math::vector_t();
-    m_DrawData.Vertices[1].position = math::vector_t(m_Size.x, 0.0);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.x, m_Size.y);
-    m_DrawData.Vertices[3].position = math::vector_t(0.0, m_Size.y);
+    for(uint8_t i = 0; i < 4; ++i)
+        m_DrawData.Vertices[i].position = m_Verts[i];
 }
 
 void zQuad::LoadInvertedVertices()
 {
     // We cast to int since -h and -w is invalid for unsigned integers.
-    m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-    m_DrawData.Vertices[1].position = math::vector_t(0, -(int)m_Size.y);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.x, -(int)m_Size.y);
-    m_DrawData.Vertices[3].position = math::vector_t(m_Size.x, 0);
+    m_DrawData.Vertices[0].position = math::vector_t(m_Verts[0].x,  m_Verts[0].y);
+    m_DrawData.Vertices[1].position = math::vector_t(m_Verts[1].x, -m_Verts[1].y);
+    m_DrawData.Vertices[2].position = math::vector_t(m_Verts[2].x, -m_Verts[2].y);
+    m_DrawData.Vertices[3].position = math::vector_t(m_Verts[3].x,  m_Verts[3].y);
 }
 
 void zQuad::LoadRegularTC()

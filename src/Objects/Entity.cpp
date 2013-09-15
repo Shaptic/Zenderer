@@ -29,8 +29,8 @@ bool zEntity::LoadFromFile(const string_t& filename)
 
     if(!file) return false;
 
-    gfxcore::zDrawable* pPrim = nullptr;
-    gfx::zMaterial*     pMat  = nullptr;
+    gfx::zPolygon*  pPrim = nullptr;
+    gfx::zMaterial* pMat  = nullptr;
 
     this->Destroy();
 
@@ -144,7 +144,7 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     return true;
 }
 
-bool zEntity::AddPrimitive(const gfxcore::zDrawable& Polygon)
+bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
 {
     if(!(Polygon.m_DrawData.icount && Polygon.m_DrawData.vcount)) return false;
 
@@ -161,7 +161,8 @@ bool zEntity::AddPrimitive(const gfxcore::zDrawable& Polygon)
 
     const auto triangles = Polygon.Triangulate();
     m_Triangulation.reserve(m_Triangulation.size() + triangles.size());
-    std::move(triangles.begin(), triangles.end(), m_Triangulation.begin());
+    for(auto& i : triangles)
+        m_Triangulation.push_back(std::move(i));
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;
@@ -232,6 +233,7 @@ bool zEntity::Collides(const zEntity& Other)
     if(!m_Box.collides(Other.m_Box)) return false;
     for(auto& i : m_Triangulation)
     {
+        /// @todo
         ;
     }
     return m_Box.collides(Other.GetBox());
@@ -241,9 +243,15 @@ bool zEntity::Collides(const math::rect_t& other)
 {
     math::aabb_t r(other);
     if(!r.collides(m_Box)) return false;
-    for(auto& i : m_Triangulation)
+    for(size_t i = 0; i < m_Triangulation.size(); i += 3)
     {
-        if(r.collides(i)) return true;
+        math::tri_t t = {
+            m_Triangulation[i],
+            m_Triangulation[i+1],
+            m_Triangulation[i+2]
+        };
+
+        if(r.collides(t)) return true;
     }
     return false;
 }
@@ -282,12 +290,12 @@ uint32_t zEntity::GetSortFlag() const
     return m_sort;
 }
 
-std::vector<gfxcore::zDrawable*>::const_iterator zEntity::begin() const
+std::vector<gfx::zPolygon*>::const_iterator zEntity::begin() const
 {
     return mp_allPrims.cbegin();
 }
 
-std::vector<gfxcore::zDrawable*>::const_iterator zEntity::end() const
+std::vector<gfx::zPolygon*>::const_iterator zEntity::end() const
 {
     return mp_allPrims.cend();
 }
