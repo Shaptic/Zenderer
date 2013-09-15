@@ -162,7 +162,7 @@ bool zScene::Render()
         const math::matrix4x4_t& Tmp = i->GetTransformation();
         E.SetParameter("mv", Tmp);
 
-        for(const auto& j : i)
+        for(const auto& j : *i)
         {
             j->GetMaterial().Enable();
             j->Draw(true);

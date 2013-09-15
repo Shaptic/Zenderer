@@ -30,6 +30,7 @@
 #define ZENDERER__OBJECTS__ENTITY_HPP
 
 #include <regex>
+#include <algorithm>
 
 #include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/Drawable.hpp"
