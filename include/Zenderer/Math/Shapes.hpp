@@ -98,7 +98,7 @@ namespace math
          *
          * @see http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/code/
          **/
-        inline bool collides(const tri_t& tri) const;
+        bool collides(const tri_t& tri) const;
 
         vector_t tl;      ///< Top-left point.
         vector_t br;      ///< Bottom-right point.

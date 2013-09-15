@@ -407,6 +407,9 @@
     <ClCompile Include="src\Utilities\FileParser.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="src\Math\Shapes.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">
