@@ -105,7 +105,18 @@ namespace math
         vector_t br;      ///< Bottom-right point.
     };
 
+    /**
+     * Detects collision between two triangles.
+     * @param   A   First triangle
+     * @param   B   Second triangle
+     * @return  `true` if they collide, `false` otherwise.
+     **/
     bool collides(const tri_t& A, const tri_t& b);
+    
+    /**
+     * @overload
+     * @see     http://stackoverflow.com/a/565282
+     **/
     bool collides(const line_t& a, const line_t& b);
 
     /**
