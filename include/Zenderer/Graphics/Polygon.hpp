@@ -32,7 +32,7 @@ namespace obj { class ZEN_API zEntity; }
 namespace gfx
 {
     /// An arbitrary n-vertex convex polygon.
-    class ZEN_API zPolygon// : public gfxcore::zDrawable
+    class ZEN_API zPolygon
     {
     public:
         zPolygon(asset::zAssetManager& Assets, const size_t preload = 0);
