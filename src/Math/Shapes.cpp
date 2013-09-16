@@ -5,8 +5,8 @@ using namespace math;
 
 bool aabb_t::collides(const aabb_t& b) const
 {
-    return !(tl.x > b.br.x) && !(br.x < b.tl.x) &&
-           !(tl.y > b.br.y) && !(br.y < b.tl.y);
+    return !(tl.x > b.br.x || br.x < b.tl.x ||
+             tl.y > b.br.y || br.y < b.tl.y);
 }
 
 bool aabb_t::collides(const tri_t& tri) const

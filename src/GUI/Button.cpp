@@ -41,7 +41,7 @@ bool zButton::Prepare(const string_t& text)
 
 bool zButton::IsOver(const math::vector_t& Pos)
 {
-    return this->IsOver(math::rect_t(Pos.x, Pos.y, 1, 1));
+    return this->IsOver(math::rect_t(Pos.x, Pos.y, 2, 2));
 }
 
 bool zButton::IsOver(const math::rect_t& Box)

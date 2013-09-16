@@ -193,8 +193,10 @@ void zEntity::Move(const math::vector_t& Pos)
 
 void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
-    for(auto& i : mp_allPrims)
-        i->Move(x, y, z);
+    math::vector_t d = math::vector_t(x, y, z) - this->GetPosition();
+
+    for(auto& i : mp_allPrims)      i->Move(x, y, z);
+    for(auto& i : m_Triangulation)  i = i + d;
 
     m_MV.Translate(math::vector_t(x, y, z));
     m_Box = math::aabb_t(math::rect_t(x, y, this->GetW(), this->GetH()));

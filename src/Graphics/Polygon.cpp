@@ -228,7 +228,7 @@ void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
 
 uint16_t zPolygon::GetH() const
 {
-    if(!m_Verts.size() || !m_DrawData.vcount) return 0;
+    if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 
     // Calculate lowest and highest y-values.
     real_t low, high;
@@ -245,7 +245,7 @@ uint16_t zPolygon::GetH() const
 
     for(size_t i = 0; i < m_DrawData.vcount; ++i)
     {
-        low  = math::min<real_t>(low, m_DrawData.Vertices[i].position.y);
+        low  = math::min<real_t>(low,  m_DrawData.Vertices[i].position.y);
         high = math::max<real_t>(high, m_DrawData.Vertices[i].position.y);
     }
 
@@ -254,7 +254,7 @@ uint16_t zPolygon::GetH() const
 
 uint16_t zPolygon::GetW() const
 {
-    if(!m_Verts.size() || !m_DrawData.vcount) return 0;
+    if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 
     // Calculate lowest and highest x-values.
     real_t left, right;
@@ -275,7 +275,7 @@ uint16_t zPolygon::GetW() const
         right = math::max<real_t>(right, m_DrawData.Vertices[i].position.x);
     }
 
-    return left - right;
+    return right - left;
 }
 
 bool zPolygon::IsModifiable() const
