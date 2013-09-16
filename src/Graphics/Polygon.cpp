@@ -130,7 +130,7 @@ zPolygon& zPolygon::Create()
     math::vector_t First(m_Verts[0]);
     for(size_t i = 0; i < m_Verts.size(); ++i)
     {
-        m_DrawData.Vertices[i].position = m_Verts[i];
+        m_DrawData.Vertices[i].position = std::move(m_Verts[i]);
         m_DrawData.Vertices[i].color    = m_Color;
     }
 
@@ -195,7 +195,7 @@ bool zPolygon::Draw(const bool is_bound /*= false*/)
 void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO, const bool keep)
 {
     if(m_DrawData.Vertices == nullptr ||
-        m_DrawData.Indices  == nullptr) return;
+       m_DrawData.Indices  == nullptr) return;
 
     gfxcore::index_t i = VAO.AddData(m_DrawData);
     if(!keep)

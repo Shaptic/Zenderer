@@ -118,7 +118,7 @@ namespace gfx
         void LoadIntoVAO(gfxcore::zVertexArray& VAO,
                          const bool preserve = true);
 
-        inline std::vector<math::vector_t> Triangulate() const
+        virtual inline std::vector<math::vector_t> Triangulate() const
         { return math::triangulate(m_Verts); }
 
         /**

@@ -56,6 +56,15 @@ namespace gfx
         /// @overload
         void Resize(const uint16_t w, const uint16_t h);
 
+        inline std::vector<math::vector_t> Triangulate() const
+        {
+            std::vector<math::vector_t> tris;
+            tris.reserve(6);
+            for(uint8_t i = 0; i < 6; ++i)
+                tris.push_back(m_DrawData.Vertices[m_DrawData.Indices[i]].position);
+            return tris;
+        }
+
         /**
          * Makes the vertices have non-zero y values.
          *  This is used (by me) to support skewing the upper vertices
@@ -112,7 +121,7 @@ namespace gfx
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
 
-        math::vectoru16_t m_Size;
+        math::zVector<int16_t> m_Size;
         bool m_inv, m_rep;
     };
 }   // namespace gfx
