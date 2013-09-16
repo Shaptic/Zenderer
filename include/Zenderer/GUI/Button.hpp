@@ -43,7 +43,7 @@ namespace gui
         bool Prepare(const string_t& text);
 
         bool IsOver(const math::vector_t& Pos);
-        bool IsOver(const math::aabb_t& Box);
+        bool IsOver(const math::rect_t& Box);
 
         void SetActive();
         void SetDefault();

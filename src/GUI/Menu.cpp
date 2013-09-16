@@ -26,12 +26,9 @@ bool zMenu::HandleEvent(const evt::event_t& Evt)
 {
     if(Evt.type == evt::EventType::MOUSE_MOTION)
     {
-        math::aabb_t MouseBox(Evt.mouse.position,
-            math::zVector<uint32_t>(2, 2));
-
         for(auto& i : m_menuActions)
         {
-            if(i.first->IsOver(MouseBox))
+            if(i.first->IsOver(Evt.mouse.position))
             {
                 i.first->SetActive();
                 break;
@@ -46,13 +43,10 @@ bool zMenu::HandleEvent(const evt::event_t& Evt)
     else if(Evt.type == evt::EventType::MOUSE_DOWN &&
             Evt.mouse.button == evt::MouseButton::LEFT)
     {
-        math::aabb_t MouseBox(Evt.mouse.position,
-            math::zVector<uint32_t>(2, 2));
-
         size_t index = 0;
         for(auto& i : m_menuActions)
         {
-            if(i.first->IsOver(MouseBox))
+            if(i.first->IsOver(Evt.mouse.position))
             {
                 i.second(index);
                 return true;

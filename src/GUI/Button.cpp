@@ -41,15 +41,12 @@ bool zButton::Prepare(const string_t& text)
 
 bool zButton::IsOver(const math::vector_t& Pos)
 {
-    return this->IsOver(math::aabb_t(
-        Pos, math::zVector<uint32_t>(2, 2))
-    );
+    return this->IsOver(math::rect_t(Pos.x, Pos.y, 1, 1));
 }
 
-bool zButton::IsOver(const math::aabb_t& Box)
+bool zButton::IsOver(const math::rect_t& Box)
 {
-    return (mp_Current != nullptr && mp_Font != nullptr &&
-            mp_Current->GetBox().collides(Box));
+    return (mp_Current && mp_Font && mp_Current->Collides(Box));
 }
 
 void zButton::SetActive()
