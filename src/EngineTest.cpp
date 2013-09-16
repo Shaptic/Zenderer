@@ -81,7 +81,7 @@ int main2(int argc, char* argv[])
     gfx::zRenderTarget RT(800, 600);
     RT.Init();
 
-    gfx::zEffect& DEffect = zRenderer::GetDefaultEffect();
+    const gfx::zEffect& DEffect = zRenderer::GetDefaultEffect();
 
     real_t angle = 45.0, d = -5.5;
 
@@ -227,6 +227,7 @@ int main2(int argc, char* argv[])
 
             case evt::EventType::PRINTABLE_KEY:
                 if(event.key.symbol == 'm') zRenderer::ToggleWireframe();
+                else if(event.key.symbol == 'l') Scene.ToggleLighting();
                 std::cout << "Printable: " << event.key.symbol << "\n";
                 break;
 

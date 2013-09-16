@@ -124,8 +124,6 @@ bool zScene::Render()
     // time to call it. Things won't be offloaded multiple times.
     for(auto& i : m_allEntities)
     {
-        // If any are offloaded, the rest probably are too.
-        if(i->Offloaded()) continue;
         i->Offload(m_Geometry, false);
     }
 
@@ -146,9 +144,7 @@ bool zScene::Render()
     m_Geometry.Bind();
 
     // Prepare for primitive rendering.
-    const zMaterial& M = zRenderer::GetDefaultMaterial();
-    const zEffect& E = M.GetEffect();
-    M.Enable();
+    const zEffect& E = zRenderer::GetDefaultEffect();
 
     // Commence individual primitive rendering.
     for(auto& i : m_allEntities)
@@ -160,19 +156,18 @@ bool zScene::Render()
 
         // Set the matrix for transformation.
         const math::matrix4x4_t& Tmp = i->GetTransformation();
-        E.SetParameter("mv", Tmp);
 
         for(const auto& j : *i)
         {
-            j->GetMaterial().Enable();
+            auto& M = j->GetMaterial();
+            M.Enable();
+            M.GetEffect().SetParameter("mv", Tmp);
             j->Draw(true);
         }
 
         // Move back to original position.
         i->Move(i->GetPosition() - m_Camera);
     }
-
-    M.Disable();
 
     // Shortcut reference.
     gfxcore::zVertexArray& FS = zRenderer::GetFullscreenVBO();
