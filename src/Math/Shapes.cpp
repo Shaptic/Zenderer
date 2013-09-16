@@ -5,8 +5,8 @@ using namespace math;
 
 bool aabb_t::collides(const aabb_t& b) const
 {
-    return !(tl.x > b.br.x || br.x < b.tl.x ||
-             tl.y > b.br.y || br.y < b.tl.y);
+    return !(tl.x > b.br.x) && !(br.x < b.tl.x) &&
+           !(tl.y > b.br.y) && !(br.y < b.tl.y);
 }
 
 bool aabb_t::collides(const tri_t& tri) const
@@ -214,4 +214,46 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
     }
 
     return triangles;
+}
+
+bool math::collides(const tri_t& A, const tri_t& B)
+{
+    vector_t aseg[3] = {
+        A[1] - A[0], A[2] - A[1], A[2] - A[0]
+    };
+
+    vector_t bseg[3] = {
+        B[1] - B[0], B[2] - B[1], B[2] - B[0]
+    };
+
+    for(uint8_t i = 0; i < 3; ++i)
+    {
+        for(uint8_t j = 0; j < 3; ++j)
+        {
+            line_t l1 = { aseg[i], aseg[i % 3] };
+            line_t l2 = { bseg[i], bseg[i % 3] };
+
+            if(math::collides(l1, l2)) return true;
+        }
+    }
+
+    return false;
+}
+
+/// @see http://stackoverflow.com/a/565282
+bool math::collides(const line_t& a, const line_t& b)
+{
+    // A = P -> P + R
+    // B = Q -> Q + S
+    vector_t r = a[1] - a[0];
+    vector_t s = b[1] - b[0];
+    vector_t z = b[0] - a[0];
+
+    real_t d = (r ^ s).Magnitude();
+    if(compf(d, 0.0)) return false;
+
+    real_t t = z.Cross2D(s) / d;
+    real_t u = z.Cross2D(r) / d;
+
+    return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
 }

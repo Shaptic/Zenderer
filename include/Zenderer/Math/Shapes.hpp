@@ -36,6 +36,7 @@ namespace math
 {
     /// A triangle representation.
     typedef std::array<vector_t, 3> tri_t;
+    typedef std::array<vector_t, 2> line_t;
 
     /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t
@@ -104,12 +105,8 @@ namespace math
         vector_t br;      ///< Bottom-right point.
     };
 
-    static inline
-    bool collides(const tri_t& A, const tri_t& b)
-    {
-        ZEN_ASSERTM(false, "not implemented");
-        return false;
-    }
+    bool collides(const tri_t& A, const tri_t& b);
+    bool collides(const line_t& a, const line_t& b);
 
     /**
      * Finds orientation of a given set of points, which form a polygon.

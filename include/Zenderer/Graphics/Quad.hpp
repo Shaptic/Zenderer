@@ -61,7 +61,9 @@ namespace gfx
             std::vector<math::vector_t> tris;
             tris.reserve(6);
             for(uint8_t i = 0; i < 6; ++i)
-                tris.push_back(m_DrawData.Vertices[m_DrawData.Indices[i]].position);
+                tris.push_back(
+                    m_DrawData.Vertices[m_DrawData.Indices[i]].position);
+
             return tris;
         }
 
