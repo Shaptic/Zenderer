@@ -130,6 +130,7 @@ void zen::Quit()
         }
     }
 
+    alutExit();
     glfwTerminate();
     Log.Destroy();
 }
