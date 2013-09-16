@@ -141,6 +141,8 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
                                       pPrimitive->GetW(),
                                       pPrimitive->GetH()));
+
+    m_Triangulation = Polygon.Triangulate();
     return true;
 }
 
@@ -159,10 +161,7 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
                             math::max<uint32_t>(this->GetW(), pPoly->GetW()),
                             math::max<uint32_t>(this->GetH(), pPoly->GetH())));
 
-    const auto triangles = Polygon.Triangulate();
-    m_Triangulation.reserve(m_Triangulation.size() + triangles.size());
-    for(auto& i : triangles)
-        m_Triangulation.push_back(std::move(i));
+    m_Triangulation = Polygon.Triangulate();
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;

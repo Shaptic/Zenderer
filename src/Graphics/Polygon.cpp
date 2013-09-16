@@ -68,15 +68,16 @@ zPolygon::zPolygon(zPolygon&& Move) :
 
     Move.m_DrawData.Vertices = nullptr;
     Move.m_DrawData.Indices  = nullptr;
+    Move.mp_MVMatrix         = nullptr;
 
     ZEN_ASSERT(m_DrawData.vcount > 0 && m_DrawData.icount > 0);
-
     m_Verts = std::move(Move.m_Verts);
 }
 
 zPolygon::~zPolygon()
 {
-    if(m_internal) delete mp_VAO;
+    if(m_internal)  delete mp_VAO;
+    if(mp_MVMatrix) delete mp_MVMatrix;
     m_Verts.clear();
 }
 
