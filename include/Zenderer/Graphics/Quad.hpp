@@ -23,7 +23,6 @@
 #define ZENDERER__GRAPHICS__QUAD_HPP
 
 #include "Zenderer/Math/Shapes.hpp"
-#include "Zenderer/CoreGraphics/Drawable.hpp"
 #include "Zenderer/Graphics/Polygon.hpp"
 
 namespace zen
