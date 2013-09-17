@@ -386,7 +386,7 @@ bool zFont::AttachManager(asset::zAssetManager& Assets)
     mp_Assets = &Assets;
     if(s_FontFx == nullptr)
     {
-        s_FontFx = new gfx::zEffect(gfx::EffectType::SPRITESHEET, Assets);
+        s_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, Assets);
         if(!s_FontFx->Init())
         {
             delete s_FontFx;

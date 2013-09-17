@@ -54,7 +54,11 @@ bool zEffect::Init()
 
     else if(m_type == EffectType::SPRITESHEET)
         m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"SpriteSheet.fs");
+            ZENDERER_SHADER_PATH"Spritesheet.fs");
+
+    else if(m_type == EffectType::ZFONT)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+        ZENDERER_SHADER_PATH"zFont.fs");
 
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(

@@ -50,6 +50,7 @@ namespace gfx
         GAUSSIAN_BLUR_V,    ///< A vertical Gaussian blur effect
         GRAYSCALE,          ///< Makes the target grayscale
         SPRITESHEET,        ///< Render texture atlases using offsets
+        ZFONT,              ///< Special effect for rendering TrueType fonts
         FADE,               ///< Fades the target in/out
         RIPPLE,             ///< Creates a centered ripple effect
         ZEN_EFFECT_COUNT    ///< Total amount of effects
