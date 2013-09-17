@@ -436,9 +436,6 @@
     <None Include="data\shaders\AmbientLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="data\shaders\Animate.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="data\shaders\Default.fs">
       <Filter>Shaders</Filter>
     </None>
@@ -476,5 +473,8 @@
       <Filter>Header Files\Graphics</Filter>
     </None>
     <None Include="README.md" />
+    <None Include="data\shaders\zFont.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
