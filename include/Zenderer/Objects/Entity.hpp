@@ -80,7 +80,7 @@ namespace obj
          *
          * @see     The entity file specification page [here](index.html)
          **/
-        bool LoadFromFile(const string_t& filename);
+        virtual bool LoadFromFile(const string_t& filename);
 
         /**
          * Creates an entity from a texture file.
@@ -93,7 +93,7 @@ namespace obj
          *          `false` otherwise. There is no retrievable error, but
          *                  something appropriate will be logged.
          **/
-        bool LoadFromTexture(const string_t& filename);
+        virtual bool LoadFromTexture(const string_t& filename);
 
         /**
          * Creates an entity from an existing primitive, or adds it.
@@ -111,7 +111,7 @@ namespace obj
          *          primitive on top of one another, since there is no position
          *          specification on them.
          **/
-        bool AddPrimitive(const gfx::zPolygon& Prim);
+        virtual bool AddPrimitive(const gfx::zPolygon& Prim);
 
         /**
          * Merges primitive data with shared materials.
@@ -142,7 +142,10 @@ namespace obj
          *
          *
          **/
-        bool Draw(bool is_bound = false);
+        virtual bool Draw(bool is_bound = false);
+
+        /// Purely for inheritance compatibility.
+        virtual bool Update() {}
 
         /**
          * Moves the entity to the specified position.
