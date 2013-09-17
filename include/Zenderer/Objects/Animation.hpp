@@ -74,6 +74,7 @@ namespace obj
         bool Update()
         {
             if(++m_now < m_rate) return false;
+            if(++m_current > m_framecount) m_current = 0;
 
             real_t start[] = { m_current * m_texc, m_current };
 
