@@ -127,7 +127,7 @@ bool zEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(pValues != nullptr);
     ZEN_ASSERT(count > 0);
 
-    if(!this->Init()) return false;
+    if(!m_init) return false;
 
     GLint loc = m_Shader.GetUniformLocation(name);
     if(loc == -1) return false;
@@ -156,7 +156,7 @@ bool zEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(pValues != nullptr);
     ZEN_ASSERT(count > 0);
 
-    if(!this->Init()) return false;
+    if(!m_init) return false;
 
     GLint loc = m_Shader.GetUniformLocation(name);
     if(loc == -1) return false;
