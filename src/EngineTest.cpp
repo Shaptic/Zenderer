@@ -7,7 +7,7 @@ using gfxcore::zRenderer;
   #pragma comment(lib, "Zenderer.lib")
 #endif // ZEN_API
 
-int main2(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
     Init();
     asset::zAssetManager Manager; Manager.Init();
@@ -200,12 +200,20 @@ int main2(int argc, char* argv[])
     Scene.SetSeeThrough(false);
     Scene.EnablePostProcessing();
 
+    /*
     gfx::zEffect& GB = Scene.AddEffect(gfx::EffectType::GAUSSIAN_BLUR_H);
     real_t radius = 1.0 / 512;
     GB.Init();
     GB.Enable();
     GB.SetParameter("radius", &radius);
     GB.Disable();
+    */
+
+    obj::zAnimation& Anim = Scene.AddAnimation();
+    Anim.SetKeyframeCount(4);
+    Anim.SetKeyframeRate(120);
+    Anim.SetKeyframeSize(math::vectoru16_t(24, 52));
+    Anim.LoadFromTexture("hero_walk.png");
 
     while(Window.IsOpen())
     {
@@ -290,7 +298,7 @@ int main2(int argc, char* argv[])
 
         Scene.Render();
 
-        MainMenu.Update();
+        //MainMenu.Update();
         if(mm_ret == 3) Window.Close();
 
         {

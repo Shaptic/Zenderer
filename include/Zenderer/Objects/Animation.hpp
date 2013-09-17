@@ -43,31 +43,57 @@ namespace obj
 
         bool LoadFromTexture(const string_t& filename)
         {
-            return m_Material.LoadTextureFromFile(filename);
+            gfx::zQuad* pQ = new gfx::zQuad(m_Assets, 0, 0);
+            bool ret = m_Material.LoadTextureFromFile(filename);
+            if(ret)
+            {
+                pQ->Resize(m_Material.GetTexture().GetWidth(),
+                           m_Material.GetTexture().GetHeight());
+                pQ->AttachMaterial(m_Material);
+                pQ->Create();
+                mp_allPrims.push_back(pQ);
+
+                m_texc = 1.0 / (pQ->GetW() / m_Size.x);
+
+                gfx::zEffect& e = m_Material.GetEffect();
+                e.Enable();
+                e.SetParameter("tc_offset", &m_texc, 1);
+                e.Disable();
+            }
+            else
+            {
+                delete pQ;
+            }
+
+            return ret;
         }
 
-        bool LoadFromFile(const string_t& filename)  { ZEN_ASSERTM(false, "no."); }
-        bool AddPrimitive(const gfx::zPolygon& Prim) { ZEN_ASSERTM(false, "no."); }
-        bool Draw(bool is_bound = false);
+        bool LoadFromFile(const string_t& filename)  { ZEN_ASSERTM(false, "no."); return false; }
+        bool AddPrimitive(const gfx::zPolygon& Prim) { ZEN_ASSERTM(false, "no."); return false; }
+        //bool Draw(bool is_bound = false);
         bool Update()
         {
             if(++m_now < m_rate) return false;
 
-            real_t one = 1.0 / m_Material.GetTexture().GetWidth();
-            float offset[2] = { one * (m_current - 1), 0.0 };
+            real_t start[] = { m_current * m_texc, m_current };
 
-            gfx::zEffect& e = m_Material.GetEffect();
+            gfx::zEffect& e = const_cast<gfx::zMaterial&>(
+                mp_allPrims.front()->GetMaterial()).GetEffect();
             e.Enable();
-            e.SetParameter("offset", offset, 2);
+            e.SetParameter("tc_start", start, 2);
             e.Disable();
+
+            return true;
         }
 
-        void SetKeyframeCount(const uint16_t frames);
-        void SetKeyframeSize(const math::vectoru16_t& Size);
-        void SetKeyframeRate(const uint16_t rate);
+        void SetKeyframeCount(const uint16_t frames) { m_framecount = frames; }
+        void SetKeyframeSize(const math::vectoru16_t& Size) { m_Size = Size; }
+        void SetKeyframeRate(const uint16_t rate) { m_rate = rate; }
 
     private:
         gfx::zMaterial m_Material;
+        math::vectoru16_t m_Size;
+        real_t m_texc;
         uint16_t m_framecount, m_now, m_rate;
         uint16_t m_current;
     };
