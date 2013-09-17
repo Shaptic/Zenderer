@@ -27,13 +27,14 @@
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/CoreGraphics/Sorter.hpp"
 
+#include "Zenderer/Objects/Entity.hpp"
+#include "Zenderer/Objects/Animation.hpp"
+
 #include "Window.hpp"
 #include "RenderTarget.hpp"
 #include "Effect.hpp"
 #include "Light.hpp"
 #include "Quad.hpp"
-
-#include "Zenderer/Objects/Entity.hpp"
 
 namespace zen
 {
@@ -59,6 +60,14 @@ namespace gfx
          * @return  An unloaded entity instance.
          **/
         obj::zEntity& AddEntity();
+
+        /// Adds an unloaded, managed animation to the scene.
+        inline obj::zAnimation& AddAnimation()
+        {
+            obj::zAnimation* pNew = new obj::zAnimation(m_Assets);
+            m_allEntities.push_back(pNew);
+            return static_cast<obj::zAnimation&>(*m_allEntities.back());
+        }
 
         /**
          * Adds a managed primitive to the scene as an entity.
