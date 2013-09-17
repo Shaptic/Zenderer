@@ -144,7 +144,7 @@ namespace obj
         virtual bool Draw(bool is_bound = false);
 
         /// Purely for inheritance compatibility.
-        virtual bool Update() {}
+        virtual bool Update() { return false; }
 
         /**
          * Moves the entity to the specified position.

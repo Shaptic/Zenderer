@@ -177,9 +177,6 @@
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\CoreGraphics\Drawable.hpp">
-      <Filter>Header Files\CoreGraphics</Filter>
-    </ClInclude>
     <ClInclude Include="include\Zenderer\CoreGraphics\Renderer.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
     </ClInclude>
@@ -263,6 +260,9 @@
     </ClInclude>
     <ClInclude Include="include\Zenderer\Utilities\FileParser.hpp">
       <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Objects\Animation.hpp">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -355,9 +355,6 @@
     </ClCompile>
     <ClCompile Include="src\Graphics\RenderTarget.cpp">
       <Filter>Source Files\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CoreGraphics\Drawable.cpp">
-      <Filter>Source Files\CoreGraphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\Quad.cpp">
       <Filter>Source Files\Graphics</Filter>

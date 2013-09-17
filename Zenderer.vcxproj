@@ -108,7 +108,6 @@
     <ClInclude Include="include\Zenderer\Audio\AudioManager.hpp" />
     <ClInclude Include="include\Zenderer\Audio\Music2D.hpp" />
     <ClInclude Include="include\Zenderer\Audio\Sound2D.hpp" />
-    <ClInclude Include="include\Zenderer\CoreGraphics\Drawable.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\OpenGL.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Renderer.hpp" />
     <ClInclude Include="include\Zenderer\CoreGraphics\Shader.hpp" />
@@ -145,6 +144,7 @@
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp" />
     <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
     <ClInclude Include="include\Zenderer\Network\Socket.hpp" />
+    <ClInclude Include="include\Zenderer\Objects\Animation.hpp" />
     <ClInclude Include="include\Zenderer\Objects\Entity.hpp" />
     <ClInclude Include="include\Zenderer\Objects\Physics.hpp" />
     <ClInclude Include="include\Zenderer\Scripting\Lua.hpp" />
@@ -167,7 +167,6 @@
     <ClCompile Include="src\Audio\AudioManager.cpp" />
     <ClCompile Include="src\Audio\Music2D.cpp" />
     <ClCompile Include="src\Audio\Sound2D.cpp" />
-    <ClCompile Include="src\CoreGraphics\Drawable.cpp" />
     <ClCompile Include="src\CoreGraphics\OpenGL.cpp" />
     <ClCompile Include="src\CoreGraphics\Renderer.cpp" />
     <ClCompile Include="src\CoreGraphics\Shader.cpp" />

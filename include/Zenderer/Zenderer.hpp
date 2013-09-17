@@ -76,8 +76,8 @@
 
 // Object API
 #include "Objects/Entity.hpp"
+#include "Objects/Animation.hpp"
 #include "Graphics/Quad.hpp"
-#include "Graphics/Polygon.hpp"
 
 // Audio API
 #include "Audio/AudioManager.hpp"
