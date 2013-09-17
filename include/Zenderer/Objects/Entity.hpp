@@ -33,7 +33,6 @@
 #include <algorithm>
 
 #include "Zenderer/Math/Math.hpp"
-#include "Zenderer/CoreGraphics/Drawable.hpp"
 #include "Zenderer/Graphics/Window.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "Zenderer/Graphics/Polygon.hpp"
