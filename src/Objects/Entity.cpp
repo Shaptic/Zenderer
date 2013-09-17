@@ -142,7 +142,7 @@ bool zEntity::LoadFromTexture(const string_t& filename)
                                       pPrimitive->GetW(),
                                       pPrimitive->GetH()));
 
-    m_Triangulation = Polygon.Triangulate();
+    m_Triangulation = pPrimitive->Triangulate();
     return true;
 }
 
