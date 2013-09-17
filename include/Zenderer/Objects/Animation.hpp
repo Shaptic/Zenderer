@@ -32,7 +32,8 @@ namespace obj
     {
     public:
         zAnimation(asset::zAssetManager& Assets) :
-            zEntity(Assets), m_Material(Assets), m_current(0)
+            zEntity(Assets), m_Material(Assets), m_current(0),
+            m_texc(0.0), m_rate(0), m_now(0)
         {
             m_Material.LoadEffect(gfx::EffectType::SPRITESHEET);
         }
@@ -47,15 +48,14 @@ namespace obj
             bool ret = m_Material.LoadTextureFromFile(filename);
             if(ret)
             {
-                pQ->Resize(m_Material.GetTexture().GetWidth(),
-                           m_Material.GetTexture().GetHeight());
+                pQ->Resize(m_Size.x, m_Material.GetTexture().GetHeight());
                 pQ->AttachMaterial(m_Material);
                 pQ->Create();
                 mp_allPrims.push_back(pQ);
 
-                m_texc = 1.0 / (pQ->GetW() / m_Size.x);
+                m_texc = m_Material.GetTexture().GetWidth() / m_Size.x;
 
-                gfx::zEffect& e = m_Material.GetEffect();
+                gfx::zEffect& e = const_cast<gfx::zEffect&>(pQ->GetMaterial().GetEffect());
                 e.Enable();
                 e.SetParameter("tc_offset", &m_texc, 1);
                 e.Disable();
@@ -70,13 +70,13 @@ namespace obj
 
         bool LoadFromFile(const string_t& filename)  { ZEN_ASSERTM(false, "no."); return false; }
         bool AddPrimitive(const gfx::zPolygon& Prim) { ZEN_ASSERTM(false, "no."); return false; }
-        //bool Draw(bool is_bound = false);
+
         bool Update()
         {
             if(++m_now < m_rate) return false;
-            if(++m_current > m_framecount) m_current = 0;
+            if(++m_current >= m_framecount) m_current = 0;
 
-            real_t start[] = { m_current * m_texc, m_current };
+            real_t start[] = { m_current * m_texc, 0.0 };
 
             gfx::zEffect& e = const_cast<gfx::zMaterial&>(
                 mp_allPrims.front()->GetMaterial()).GetEffect();

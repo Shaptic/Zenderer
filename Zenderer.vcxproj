@@ -221,7 +221,7 @@
     <None Include="data\shaders\PointLight.fs" />
     <None Include="data\shaders\Ripple.fs" />
     <None Include="data\shaders\SpotLight.fs" />
-    <None Include="data\shaders\SpriteSheet.fs" />
+    <None Include="data\shaders\Spritesheet.fs" />
     <None Include="data\shaders\zFont.fs" />
     <None Include="include\Zenderer\Assets\Asset.inl" />
     <None Include="include\Zenderer\Assets\AssetManager.inl" />
