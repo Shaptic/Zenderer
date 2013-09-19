@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
 
     obj::zAnimation& Anim = Scene.AddAnimation();
     Anim.SetKeyframeCount(4);
-    Anim.SetKeyframeRate(30);
+    Anim.SetKeyframeRate(7);
     Anim.SetKeyframeSize(math::vectoru16_t(24, 52));
     Anim.LoadFromTexture("hero_walk.png");
 

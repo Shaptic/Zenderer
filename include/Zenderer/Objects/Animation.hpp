@@ -32,10 +32,9 @@ namespace obj
     {
     public:
         zAnimation(asset::zAssetManager& Assets) :
-            zEntity(Assets), m_Material(Assets), m_current(0),
+            zEntity(Assets), m_current(0),
             m_texc(0.0), m_rate(0), m_now(0)
         {
-            m_Material.LoadEffect(gfx::EffectType::SPRITESHEET);
         }
 
         ~zAnimation()
@@ -44,20 +43,25 @@ namespace obj
 
         bool LoadFromTexture(const string_t& filename)
         {
+            gfx::zMaterial TmpMaterial(m_Assets);
             gfx::zQuad* pQ = new gfx::zQuad(m_Assets, 0, 0);
-            bool ret = m_Material.LoadTextureFromFile(filename);
+
+            bool ret = TmpMaterial.LoadEffect(gfx::EffectType::SPRITESHEET) &&
+                       TmpMaterial.LoadTextureFromFile(filename);
+
             if(ret)
             {
-                pQ->Resize(m_Size.x, m_Material.GetTexture().GetHeight());
-                pQ->AttachMaterial(m_Material);
+                pQ->Resize(m_Size.x, TmpMaterial.GetTexture().GetHeight());
+                pQ->AttachMaterial(TmpMaterial);
                 pQ->Create();
                 mp_allPrims.push_back(pQ);
 
-                m_texc = m_Material.GetTexture().GetWidth() / m_Size.x;
+                m_texc = 1.0 / (TmpMaterial.GetTexture().GetWidth() / m_Size.x);
 
                 gfx::zEffect& e = const_cast<gfx::zEffect&>(pQ->GetMaterial().GetEffect());
                 e.Enable();
                 e.SetParameter("tc_offset", &m_texc, 1);
+                e.SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
                 e.Disable();
             }
             else
@@ -83,6 +87,7 @@ namespace obj
             e.Enable();
             e.SetParameter("tc_start", start, 2);
             e.Disable();
+            m_now = 0;
 
             return true;
         }
@@ -92,7 +97,6 @@ namespace obj
         void SetKeyframeRate(const uint16_t rate) { m_rate = rate; }
 
     private:
-        gfx::zMaterial m_Material;
         math::vectoru16_t m_Size;
         real_t m_texc;
         uint16_t m_framecount, m_now, m_rate;
