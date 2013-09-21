@@ -7,6 +7,5 @@ var searchData=
   ['findnode',['FindNode',['../classzen_1_1util_1_1z_x_m_l_parser.html#a91b66a3e072b60493202aa25215c835d',1,'zen::util::zXMLParser::FindNode(const string_t &amp;name) const '],['../classzen_1_1util_1_1z_x_m_l_parser.html#a2c65c55e714ecafdc81893992d50d011',1,'zen::util::zXMLParser::FindNode(const string_t &amp;name)']]],
   ['finish',['Finish',['../classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd',1,'zen::util::CTimer']]],
   ['free',['Free',['../classzen_1_1z_allocator.html#a14c91b45b108fbfe04457d6a48602bfa',1,'zen::zAllocator']]],
-  ['freesource',['FreeSource',['../classzen_1_1sfx_1_1z_audio_manager.html#afb35c4dd5ffec61bad8117836f6898e6',1,'zen::sfx::zAudioManager']]],
-  ['front',['front',['../class_c_string.html#a45c2be61775b7b022ebcff899d81b3f0',1,'CString']]]
+  ['freesource',['FreeSource',['../classzen_1_1sfx_1_1z_audio_manager.html#afb35c4dd5ffec61bad8117836f6898e6',1,'zen::sfx::zAudioManager']]]
 ];

@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_quad_8hpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,13 +114,13 @@ $(document).ready(function(){initNavTree('_quad_8hpp_source.html','');});
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ZENDERER__GRAPHICS__QUAD_HPP</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp - Defines various shape structures. ">Zenderer/Math/Shapes.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_drawable_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp - An abstract base class for drawing primitives. ">Zenderer/CoreGraphics/Drawable.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp - A vertex-agnostic convex primitive. ">Zenderer/Graphics/Polygon.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>zen</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>gfx</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1z_quad.html" title="A four-sided quadrilateral primitive. ">zQuad</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfxcore_1_1z_drawable.html" title="An abstract base class for all drawable primitives. ">gfxcore::zDrawable</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___engine.html#gaffef067603b6232807ee3a9ecf32b475" title="The engine can be built as a DLL, then linked with the generated .lib. ">ZEN_API</a> <a class="code" href="classzen_1_1gfx_1_1z_quad.html" title="A four-sided quadrilateral primitive. ">zQuad</a> : <span class="keyword">public</span> <a class="code" href="classzen_1_1gfx_1_1z_polygon.html" title="An arbitrary n-vertex convex polygon. ">gfx::zPolygon</a></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classzen_1_1gfx_1_1z_quad.html" title="A four-sided quadrilateral primitive. ">zQuad</a>(<a class="code" href="classzen_1_1asset_1_1z_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::zAssetManager</a>&amp;, <span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions. ">math::rect_t</a>&amp; Size);</div>
@@ -129,34 +129,47 @@ $(document).ready(function(){initNavTree('_quad_8hpp_source.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        ~<a class="code" href="classzen_1_1gfx_1_1z_quad.html" title="A four-sided quadrilateral primitive. ">zQuad</a>();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> zDrawable&amp; Create();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1gfx_1_1z_polygon.html" title="An arbitrary n-vertex convex polygon. ">gfx::zPolygon</a>&amp; Create();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> Resize(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1z_vector.html">math::vectoru16_t</a>&amp; Size);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> Resize(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> SetInverted(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> SetRepeating(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html#acc347e557995ba6daf0f6d74b6fdb74d">  101</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1z_quad.html#acc347e557995ba6daf0f6d74b6fdb74d">GetW</a>()<span class="keyword">                  const </span>{ <span class="keywordflow">return</span> m_Size.x;    }</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html#aee862c801b1d9d88f26c95508574a024">  102</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1z_quad.html#aee862c801b1d9d88f26c95508574a024">GetH</a>()<span class="keyword">                  const </span>{ <span class="keywordflow">return</span> m_Size.y;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html#a570d736f6b0d5035dc05180fbcf6d90f">  103</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classzen_1_1gfx_1_1z_material.html" title="Rendering data composed of a shader effect and a texture. ">zMaterial</a>&amp; <a class="code" href="classzen_1_1gfx_1_1z_quad.html#a570d736f6b0d5035dc05180fbcf6d90f">GetMaterial</a>()<span class="keyword">   const </span>{ <span class="keywordflow">return</span> m_Material;  }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> LoadRegularVertices();     <span class="comment">// Standard quad</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> LoadInvertedVertices();    <span class="comment">// Inverted quad using -y instead of 0</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> LoadRegularTC();           <span class="comment">// Tex-coords to match standard quad</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> LoadInvertedTC();          <span class="comment">// Tex-coords to match inverted quad</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="structzen_1_1math_1_1z_vector.html">math::zVector&lt;uint16_t&gt;</a> m_Size;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">bool</span> m_inv, m_rep;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    };</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}   <span class="comment">// namespace zen</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__QUAD_HPP</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//void Move(const real_t x, const real_t y, const real_t z = 1.0);</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="comment">//void Move(const math::vector_t&amp; Position);</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> Resize(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1z_vector.html">math::vectoru16_t</a>&amp; Size);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> Resize(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html#a5970d083f4026dc6ac70bb2220cd9486">   58</a></span>&#160;        <span class="keyword">inline</span> std::vector&lt;math::vector_t&gt; <a class="code" href="classzen_1_1gfx_1_1z_quad.html#a5970d083f4026dc6ac70bb2220cd9486">Triangulate</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            std::vector&lt;math::vector_t&gt; tris;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            tris.reserve(6);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">for</span>(uint8_t i = 0; i &lt; 6; ++i)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                tris.push_back(</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    m_DrawData.Vertices[m_DrawData.Indices[i]].position);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> tris;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> SetInverted(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">void</span> SetRepeating(<span class="keyword">const</span> <span class="keywordtype">bool</span> flag);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html#acc347e557995ba6daf0f6d74b6fdb74d">  116</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1z_quad.html#acc347e557995ba6daf0f6d74b6fdb74d">GetW</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Size.x; }</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_quad.html#aee862c801b1d9d88f26c95508574a024">  117</a></span>&#160;        <span class="keyword">inline</span> uint16_t <a class="code" href="classzen_1_1gfx_1_1z_quad.html#aee862c801b1d9d88f26c95508574a024">GetH</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_Size.y; }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordtype">void</span> LoadRegularVertices();     <span class="comment">// Standard quad</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">void</span> LoadInvertedVertices();    <span class="comment">// Inverted quad using -y instead of 0</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">void</span> LoadRegularTC();           <span class="comment">// Tex-coords to match standard quad</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordtype">void</span> LoadInvertedTC();          <span class="comment">// Tex-coords to match inverted quad</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="structzen_1_1math_1_1z_vector.html">math::zVector&lt;int16_t&gt;</a> m_Size;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">bool</span> m_inv, m_rep;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    };</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}   <span class="comment">// namespace zen</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#endif // ZENDERER__GRAPHICS__QUAD_HPP</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

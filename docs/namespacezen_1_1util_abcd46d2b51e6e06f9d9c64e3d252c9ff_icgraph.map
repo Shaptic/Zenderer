@@ -1,3 +1,5 @@
 <map id="zen::util::toupper" name="zen::util::toupper">
-<area shape="rect" id="node2" href="$namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place). " alt="" coords="174,5,293,32"/>
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1z_file_parser.html#a7c4a7903e417cd09b31fae28c95310b8" title="zen::util::zFileParser\l::ResultToBool" alt="" coords="174,5,317,46"/>
+<area shape="rect" id="node4" href="$namespacezen_1_1util.html#a787ffd776fdb8470f900a21d71c85af4" title="Converts a string to its uppercase equivalent (in&#45;place). " alt="" coords="186,71,305,97"/>
+<area shape="rect" id="node3" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="366,5,511,46"/>
 </map>

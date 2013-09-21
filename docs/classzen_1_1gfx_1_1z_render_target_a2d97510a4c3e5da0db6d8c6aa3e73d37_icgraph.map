@@ -1,11 +1,11 @@
 <map id="zen::gfx::zRenderTarget::Destroy" name="zen::gfx::zRenderTarget::Destroy">
 <area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_render_target.html#a0d1ef1c8404c58ad7c12a63b9194674e" title="zen::gfx::zRenderTarget\l::~zRenderTarget" alt="" coords="220,5,380,46"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_render_target.html#ac33b26455487a4c2806149c992dd794b" title="Creates the render target with an attached texture. " alt="" coords="220,70,380,111"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800" title="zen::gfx::zScene::Destroy" alt="" coords="213,136,387,163"/>
-<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="706,27,763,53"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800" title="Cleans up the subsystem completely. " alt="" coords="213,136,387,163"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="709,27,760,53"/>
 <area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_scene.html#a7786082bd291405b9db93956a5aa849e" title="Initializes internal graphical components. " alt="" coords="447,77,593,104"/>
 <area shape="rect" id="node6" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="653,77,816,104"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="709,128,760,155"/>
+<area shape="rect" id="node7" href="$_pong_8cpp.html#a0e663f52efbc8593793d628b4259ce9b" title="main2" alt="" coords="706,128,763,155"/>
 <area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_scene.html#a3a24abd92b700d27e4f07ecfbdcaae2f" title="zen::gfx::zScene::\l~zScene" alt="" coords="456,129,584,170"/>
 <area shape="rect" id="node10" href="$classzen_1_1gui_1_1z_menu.html#a086c4f2f64c7a8ee522e30810cd96bcd" title="zen::gui::zMenu::~zMenu" alt="" coords="435,195,605,221"/>
 </map>

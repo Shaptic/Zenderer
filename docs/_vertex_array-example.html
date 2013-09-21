@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('_vertex_array-example.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,12 +128,12 @@ The `DrawBatch` structure</h2>
 <div class="line"><a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a>* indices = <span class="keyword">new</span> <a class="code" href="namespacezen_1_1gfxcore.html#a3ceaac2530cd950ed97a4bb6f2e42c5e" title="Shortcut for easy modification. ">index_t</a>[6];</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Create a 32x32 red quad.</span></div>
-<div class="line">vertices[1].<a name="a2"></a><a class="code" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a" title="Vertex position. ">position</a> = <a name="a3"></a><a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 0);</div>
+<div class="line">vertices[1].position = <a name="a2"></a><a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 0);</div>
 <div class="line">vertices[2].position = <a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(32, 32);</div>
 <div class="line">vertices[3].position = <a class="code" href="namespacezen_1_1math.html#a2edf3f8ab2a1e912d6d3f896b56117b6" title="A shortcut for the default vector implementation in the engine. ">vector_t</a>(0, 32);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 4; ++i)</div>
-<div class="line">    vertices[i].color = <a name="_a4"></a><a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">zen::color4f_t</a>(1, 0, 0, 1);</div>
+<div class="line">    vertices[i].color = <a name="_a3"></a><a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">zen::color4f_t</a>(1, 0, 0, 1);</div>
 <div class="line"></div>
 <div class="line">indices[0] = 0;</div>
 <div class="line">indices[1] = 1;</div>
@@ -147,7 +147,7 @@ The `DrawBatch` structure</h2>
 <div class="line"><span class="comment">// const index_t&amp; indices = zen::zQuad::GetIndexArray();</span></div>
 <div class="line"><span class="comment">// but then you must be careful not to delete[] them :)</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a5"></a><a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a zVertexArray. ">DrawBatch</a> <a name="a6"></a><a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a> = {vertices, 4, indices, 6};</div>
+<div class="line"><a name="_a4"></a><a class="code" href="namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch" title="A collection of drawing data to pass to a zVertexArray. ">DrawBatch</a> <a name="a5"></a><a class="code" href="_keyboard_8hpp.html#a350bfcb1e3cfb28ddff48ce525d4f139">D</a> = {vertices, 4, indices, 6};</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// ... to be continued.</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="vao"></a>

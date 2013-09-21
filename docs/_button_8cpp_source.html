@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_button_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -152,60 +152,56 @@ $(document).ready(function(){initNavTree('_button_8cpp_source.html','');});
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">   42</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">zButton::IsOver</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">IsOver</a>(<a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a>(</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        Pos, <a class="code" href="structzen_1_1math_1_1z_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">math::zVector&lt;uint32_t&gt;</a>(2, 2))</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#aa25ea8a0af9a27611bdf76dbf27ec53d">   49</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">zButton::IsOver</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a>&amp; Box)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> (mp_Current != <span class="keyword">nullptr</span> &amp;&amp; mp_Font != <span class="keyword">nullptr</span> &amp;&amp;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a0d08f234b8a4481c4aa776d965812931">GetBox</a>().<a class="code" href="structzen_1_1math_1_1aabb__t.html#a494c486eb858567af8500b124fb2766a" title="Detects collision with another AABB. ">collides</a>(Box));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a2c06c3e46c1f1cc9fea8d4dceac117cc">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a2c06c3e46c1f1cc9fea8d4dceac117cc">zButton::SetActive</a>()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(!mp_Font || mp_Current == &amp;m_Active) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a2cba45d96f6b9f7e2b42d12acbf1353a">Disable</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    mp_Current = &amp;m_Active;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a707b60029a9a9cbe59981022a8b8110b">Enable</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a5652cc6a2b8ff9ea9a365260a8eb0898">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a5652cc6a2b8ff9ea9a365260a8eb0898">zButton::SetDefault</a>()</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span>(!mp_Font || mp_Current == &amp;m_Normal) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a2cba45d96f6b9f7e2b42d12acbf1353a">Disable</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    mp_Current = &amp;m_Normal;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a707b60029a9a9cbe59981022a8b8110b">Enable</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#ab4be21f09c996b8c247c24c3c1611443">   73</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#ab4be21f09c996b8c247c24c3c1611443">zButton::SetFont</a>(<a class="code" href="classzen_1_1gui_1_1z_font.html" title="A TrueType font wrapper class. ">gui::zFont</a>&amp; Font)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Font.<a class="code" href="classzen_1_1gui_1_1z_font.html#a75c0aba3263ef5c4e305a1a821c5142b" title="Enables / Disables rendering on top of existing entity data. ">SetStacking</a>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    mp_Font = &amp;Font;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#aec51e4c4215268466e6c49b06d33cd86">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#aec51e4c4215268466e6c49b06d33cd86">zButton::SetActiveColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; active)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    m_acolor = active;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#adfab2e4573c0b91323b9461b09574eaa">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#adfab2e4573c0b91323b9461b09574eaa">zButton::SetNormalColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; normal)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    m_ncolor = normal;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39">   89</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39">zButton::SetBackground</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Bg)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">auto</span> i = Bg.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a50ad4eb5890e556c00ccfcdb842728dd" title="Returns an iterator to the start of the internal primitive list. ">cbegin</a>(), j = Bg.<a class="code" href="classzen_1_1obj_1_1z_entity.html#ac8615d19c6198846a0c5f13c6685f887" title="Returns an iterator to the end of the internal primitive list. ">cend</a>();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">for</span>( ; i != j; ++i)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        m_Active.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a4eba0f2720768a511208cd4f5375ba20" title="Creates an entity from an existing primitive, or adds it. ">AddPrimitive</a>(**i);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        m_Normal.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a4eba0f2720768a511208cd4f5375ba20" title="Creates an entity from an existing primitive, or adds it. ">AddPrimitive</a>(**i);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">IsOver</a>(<a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions. ">math::rect_t</a>(Pos.x, Pos.y, 2, 2));</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a9459ec702c9ea16899626e34a01ed9d1">   47</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">zButton::IsOver</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions. ">math::rect_t</a>&amp; Box)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> (mp_Current &amp;&amp; mp_Font &amp;&amp; mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a00366ac7dabc87b32c44eb2c28824263" title="Checks collision with another entity. ">Collides</a>(Box));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a2c06c3e46c1f1cc9fea8d4dceac117cc">   52</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a2c06c3e46c1f1cc9fea8d4dceac117cc">zButton::SetActive</a>()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(!mp_Font || mp_Current == &amp;m_Active) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a2cba45d96f6b9f7e2b42d12acbf1353a">Disable</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    mp_Current = &amp;m_Active;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a707b60029a9a9cbe59981022a8b8110b">Enable</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a5652cc6a2b8ff9ea9a365260a8eb0898">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a5652cc6a2b8ff9ea9a365260a8eb0898">zButton::SetDefault</a>()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span>(!mp_Font || mp_Current == &amp;m_Normal) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a2cba45d96f6b9f7e2b42d12acbf1353a">Disable</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    mp_Current = &amp;m_Normal;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    mp_Current-&gt;<a class="code" href="classzen_1_1obj_1_1z_entity.html#a707b60029a9a9cbe59981022a8b8110b">Enable</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#ab4be21f09c996b8c247c24c3c1611443">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#ab4be21f09c996b8c247c24c3c1611443">zButton::SetFont</a>(<a class="code" href="classzen_1_1gui_1_1z_font.html" title="A TrueType font wrapper class. ">gui::zFont</a>&amp; Font)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    Font.<a class="code" href="classzen_1_1gui_1_1z_font.html#a75c0aba3263ef5c4e305a1a821c5142b" title="Enables / Disables rendering on top of existing entity data. ">SetStacking</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    mp_Font = &amp;Font;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#aec51e4c4215268466e6c49b06d33cd86">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#aec51e4c4215268466e6c49b06d33cd86">zButton::SetActiveColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; active)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    m_acolor = active;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#adfab2e4573c0b91323b9461b09574eaa">   81</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#adfab2e4573c0b91323b9461b09574eaa">zButton::SetNormalColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; normal)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    m_ncolor = normal;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39">zButton::SetBackground</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Bg)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : Bg)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        m_Active.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. ">AddPrimitive</a>(*i);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        m_Normal.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. ">AddPrimitive</a>(*i);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

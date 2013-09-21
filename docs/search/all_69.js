@@ -27,8 +27,8 @@ var searchData=
   ['isfullscreen',['IsFullscreen',['../classzen_1_1gfx_1_1z_window.html#afc51d4cfd5d173b332591c1237a15014',1,'zen::gfx::zWindow']]],
   ['isinit',['IsInit',['../classzen_1_1sfx_1_1z_audio_manager.html#a388a772cf404a540c9f573acd3000497',1,'zen::sfx::zAudioManager::IsInit()'],['../classzen_1_1z_subsystem.html#ae72732b27debb2c522a676e65099406d',1,'zen::zSubsystem::IsInit()'],['../classzen_1_1gfxcore_1_1z_g_l_subsystem.html#a88c6b9ac3426ca3d6a544507fdaf8088',1,'zen::gfxcore::zGLSubsystem::IsInit()'],['../classzen_1_1gfx_1_1z_light.html#acb07ba0dc7cfbaed1bd9e868f1bedec3',1,'zen::gfx::zLight::IsInit()'],['../classzen_1_1util_1_1z_log.html#a0e741f7919523907a62620025030cbc0',1,'zen::util::zLog::IsInit()']]],
   ['isloaded',['IsLoaded',['../classzen_1_1asset_1_1z_asset.html#a23948cdca1812c8fc2bed8a5bf3067e2',1,'zen::asset::zAsset']]],
-  ['ismodifiable',['IsModifiable',['../classzen_1_1gfxcore_1_1z_drawable.html#a1c49a956725f8eb413d3dad97fe72947',1,'zen::gfxcore::zDrawable']]],
+  ['ismodifiable',['IsModifiable',['../classzen_1_1gfx_1_1z_polygon.html#ad957c880eed742790fb244ddf42c54d6',1,'zen::gfx::zPolygon']]],
   ['isopen',['IsOpen',['../classzen_1_1gfx_1_1z_window.html#abcb441d17f9b7bd2f3d1ce72c6e8d356',1,'zen::gfx::zWindow']]],
-  ['isover',['IsOver',['../classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8',1,'zen::gui::zButton::IsOver(const math::vector_t &amp;Pos)'],['../classzen_1_1gui_1_1z_button.html#aa25ea8a0af9a27611bdf76dbf27ec53d',1,'zen::gui::zButton::IsOver(const math::aabb_t &amp;Box)']]],
+  ['isover',['IsOver',['../classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8',1,'zen::gui::zButton::IsOver(const math::vector_t &amp;Pos)'],['../classzen_1_1gui_1_1z_button.html#a9459ec702c9ea16899626e34a01ed9d1',1,'zen::gui::zButton::IsOver(const math::rect_t &amp;Box)']]],
   ['isvalidentityindex',['IsValidEntityIndex',['../classzen_1_1gfx_1_1z_scene.html#ad38c58aba5fc0fd4c5d6db43a6befa6b',1,'zen::gfx::zScene']]]
 ];

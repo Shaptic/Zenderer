@@ -1,5 +1,11 @@
 <map id="Zenderer/include/Zenderer/Math/Shapes.hpp" name="Zenderer/include/Zenderer/Math/Shapes.hpp">
-<area shape="rect" id="node2" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="5,171,171,197"/>
-<area shape="rect" id="node5" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="162,96,264,123"/>
-<area shape="rect" id="node7" href="$_math_core_8inl.html" title="MathCore.inl" alt="" coords="279,171,373,197"/>
+<area shape="rect" id="node4" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="760,261,926,288"/>
+<area shape="rect" id="node7" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime. " alt="" coords="665,97,783,138"/>
+<area shape="rect" id="node16" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="912,187,1014,213"/>
+<area shape="rect" id="node19" href="$_vector_8hpp.html" title="Zenderer/Math/zVector.hpp &#45; A vector class representing a position in 3D (or 2D) space, fully supporting the mathematical operations typical of such a structure. " alt="" coords="983,104,1068,131"/>
+<area shape="rect" id="node10" href="$_log_8hpp.html" title="Zenderer/Utilities/Log.hpp &#45; A suite for logging engine info to a file. " alt="" coords="478,187,546,213"/>
+<area shape="rect" id="node13" href="$_error_handling_8hpp.html" title="Zenderer/Core/ErrorHandling.hpp &#45; Last&#45;resort error handling. " alt="" coords="166,261,376,288"/>
+<area shape="rect" id="node15" href="$_log_8inl.html" title="Log.inl" alt="" coords="401,261,460,288"/>
+<area shape="rect" id="node18" href="$_math_core_8inl.html" title="MathCore.inl" alt="" coords="950,261,1044,288"/>
+<area shape="rect" id="node21" href="$_vector_8inl.html" title="Vector.inl" alt="" coords="1090,187,1167,213"/>
 </map>

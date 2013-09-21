@@ -1,7 +1,7 @@
 <map id="zen::Init" name="zen::Init">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="326,10,383,37"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="329,10,380,37"/>
 <area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_window.html#a5f087fafc6f8367d16913cfe06b83199" title="Initializes the subsystem. " alt="" coords="123,35,277,62"/>
 <area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_window.html#a689d967f3f24ff0a45d8cbce5ae41090" title="Enables fullscreen mode. " alt="" coords="131,87,269,128"/>
 <area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_window.html#a4e18b63bbfc80abe615292e1e5eea72a" title="zen::gfx::zWindow::\lDisableFullscreen" alt="" coords="131,152,269,193"/>
-<area shape="rect" id="node4" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="329,126,380,153"/>
+<area shape="rect" id="node4" href="$_pong_8cpp.html#a0e663f52efbc8593793d628b4259ce9b" title="main2" alt="" coords="326,126,383,153"/>
 </map>

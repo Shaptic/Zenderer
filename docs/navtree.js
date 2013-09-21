@@ -34,7 +34,6 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Todo List", "todo.html", null ],
-    [ "Bug List", "bug.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespace Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -75,11 +74,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_allocation-example.html",
-"_math_core_8hpp.html#a632cc061a47530a2c87e7a283b6c93ef",
-"_zenderer_8hpp.html#ae86875e1420651025bb26cc9132d34b4",
-"classzen_1_1gfxcore_1_1z_drawable.html#ac8fa89f7a3b499190bb5c1b418b1b472",
-"classzen_1_1obj_1_1z_entity.html#acaf234556b4960422bc2a6882667767e",
-"functions_vars.html"
+"_math_core_8hpp.html",
+"_x_m_l_parser_8hpp.html#acc81bb1b24b5f77e257ed0df7e08403d",
+"classzen_1_1gfxcore_1_1z_renderer.html#a6e2d08809b5a7d6960928fd13a157016",
+"classzen_1_1obj_1_1z_entity.html#aef3735a1a52ed956672a61be5314dba7",
+"functions_func_0x70.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

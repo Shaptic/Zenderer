@@ -14,10 +14,10 @@ var searchData=
   ['source_5fip',['source_ip',['../namespacezen_1_1net.html#ab28cf748d5848ea8a84e2155a28bbd6c',1,'zen::net::IPHeader']]],
   ['sp_5fallsystems',['sp_allSystems',['../classzen_1_1z_subsystem.html#ab1457378c77920c87e5ca3999854e988',1,'zen::zSubsystem']]],
   ['space',['SPACE',['../_keyboard_8hpp.html#ae75d7b4459e07dec5aa9999730a43a38',1,'Keyboard.hpp']]],
+  ['spawnpoints',['spawnpoints',['../namespacezen_1_1lvl.html#a20532f985031396ba3bb0fbdd8b6deac',1,'zen::lvl::level_t']]],
   ['spotlight_5ffs',['SPOTLIGHT_FS',['../namespacezen_1_1gfxcore.html#af8ce3e1316dac320f1343725fdf5ff3a',1,'zen::gfxcore']]],
   ['spritesheet',['SPRITESHEET',['../_effect_8hpp.html#a631dd1ea3fafc5d8921a10b3df5c619f',1,'Effect.hpp']]],
   ['spritesheet_5ffs',['SPRITESHEET_FS',['../namespacezen_1_1gfxcore.html#af50f9933a4d218ec9060099e6793bd7c',1,'zen::gfxcore']]],
-  ['sso_5fsize',['SSO_SIZE',['../_string_8hpp.html#ae65620b309a2337a2ded9572139cc584',1,'String.hpp']]],
   ['stamp',['stamp',['../_pong_8cpp.html#ac0c8980c0a2f69266305e18f72fa6901',1,'PongPacket']]],
   ['standard_5fblend',['STANDARD_BLEND',['../_renderer_8hpp.html#a118561bac353cc035ab749d911916b4b',1,'Renderer.hpp']]],
   ['symbol',['symbol',['../structzen_1_1evt_1_1key__t.html#a4a76a9336e640961f601badab565332e',1,'zen::evt::key_t']]]

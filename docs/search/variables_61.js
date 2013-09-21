@@ -7,7 +7,7 @@ var searchData=
   ['alpha_5fflag',['ALPHA_FLAG',['../classzen_1_1gfxcore_1_1z_sorter.html#aa6d7b320637ab1301d82e23df033d5c3',1,'zen::gfxcore::zSorter']]],
   ['alpha_5foffset',['ALPHA_OFFSET',['../classzen_1_1gfxcore_1_1z_sorter.html#ae77042d5eeb3582252fcc9d4018336ea',1,'zen::gfxcore::zSorter']]],
   ['ambientlight_5ffs',['AMBIENTLIGHT_FS',['../namespacezen_1_1gfxcore.html#a0e89f93b32effac93e4b9349629c45e8',1,'zen::gfxcore']]],
-  ['animate_5ffs',['ANIMATE_FS',['../namespacezen_1_1gfxcore.html#ad6dd2f2a209255e37ab1fe123eb5e125',1,'zen::gfxcore']]],
   ['apostrophe',['APOSTROPHE',['../_keyboard_8hpp.html#ad2166d2430b6d938adb193a08e2cd27b',1,'Keyboard.hpp']]],
-  ['atlasmap',['AtlasMap',['../namespacezen.html#a228add7a169dde8410527d10e2ab7b31',1,'zen::glyph_t']]]
+  ['atlasmap',['AtlasMap',['../namespacezen.html#a228add7a169dde8410527d10e2ab7b31',1,'zen::glyph_t']]],
+  ['author',['author',['../namespacezen_1_1lvl.html#a13d0fd7c54ce90543b9ef634500fceaf',1,'zen::lvl::metalevel_t']]]
 ];

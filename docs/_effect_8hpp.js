@@ -6,6 +6,7 @@ var _effect_8hpp =
     [ "GAUSSIAN_BLUR_V", "_effect_8hpp.html#a91f3c395fd8700af42fbcf7020f7e159", null ],
     [ "GRAYSCALE", "_effect_8hpp.html#acfc17ee54296caaf8b57003b3a7f8642", null ],
     [ "SPRITESHEET", "_effect_8hpp.html#a631dd1ea3fafc5d8921a10b3df5c619f", null ],
+    [ "ZFONT", "_effect_8hpp.html#aa379cf6969ed838e641d6af457fba888", null ],
     [ "FADE", "_effect_8hpp.html#a178ea3baffde6f1f9d27c8b309042aa0", null ],
     [ "RIPPLE", "_effect_8hpp.html#a27fd418db9771d2ff024e978ef158a3e", null ]
 ];
