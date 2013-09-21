@@ -264,8 +264,8 @@ namespace obj
         friend class ZEN_API gfx::zScene;
 
     protected:
-        zEntity(const zEntity&);                // not implemented to
-        zEntity& operator=(const zEntity&);     // prevent compiler default
+        //zEntity(const zEntity&)                 // not implemented to
+        //zEntity& operator=(const zEntity&)      // prevent compiler default
 
         void Destroy();
         bool FileError(const string_t& filename,
