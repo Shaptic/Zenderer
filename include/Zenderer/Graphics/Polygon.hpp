@@ -131,7 +131,7 @@ namespace gfx
          **/
         void SetIndices(const std::vector<gfxcore::index_t>& Indices);
 
-        /// Sets the vertex color of the *temporary* buffer.
+        /// Sets the vertex color of the created vertices.
         void SetColor(const color4f_t& Color);
 
         inline const math::vector_t& GetPosition() const
