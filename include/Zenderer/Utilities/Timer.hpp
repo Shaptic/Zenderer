@@ -39,7 +39,7 @@ namespace util
     typedef uint32_t time_t;
 
     /// A high-precision timer class for controlling frame rates.
-    class ZEN_API CTimer
+    class ZEN_API zTimer
     {
     public:
         /// Shortcut for the type of clock we are using
@@ -52,8 +52,8 @@ namespace util
         typedef std::chrono::milliseconds precision_t;
 
         /// Constructs a timer with a custom frame rate.
-        CTimer(const uint16_t frames = 60);
-        virtual ~CTimer();
+        zTimer(const uint16_t frames = 60);
+        virtual ~zTimer();
 
         virtual time_t Start();     ///< Marks start time and returns it.
         virtual time_t Finish();    ///< Marks finish time and returns it.
@@ -73,7 +73,7 @@ namespace util
          *
          *  @code
          *  // Cap at 24 frames per second.
-         *  CTimer m_Timer(24);
+         *  zTimer m_Timer(24);
          *
          *  while(m_Window.IsOpen())
          *  {
@@ -111,7 +111,7 @@ namespace util
 #endif // ZENDERER__UTILITIES__TIMER_HPP
 
 /**
- * @class zen::util::CTimer
+ * @class zen::util::zTimer
  * @details
  *  This class provides fairly generic timing functionality,
  *  with the ability to start, stop, measure, and delay for

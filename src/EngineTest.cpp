@@ -66,7 +66,7 @@ int main(int argc, char* argv[])
     Default.Create();
 
     Window.ToggleVSYNC();
-    util::CTimer Timer(60);
+    util::zTimer Timer(60);
 
     zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 

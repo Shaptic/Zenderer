@@ -6,37 +6,37 @@ using namespace zen;
 
 using util::zLog;
 using util::LogMode;
-using util::CTimer;
+using util::zTimer;
 
-CTimer::CTimer(const uint16_t frames) :
+zTimer::zTimer(const uint16_t frames) :
     m_fps(frames), m_delta(1000.0 / frames) {}
 
-CTimer::~CTimer(){}
+zTimer::~zTimer(){}
 
-util::time_t CTimer::Start()
+util::time_t zTimer::Start()
 {
     m_start = clock_t::now();
     return duration_cast<precision_t>(m_start.time_since_epoch()).count();
 }
 
-util::time_t CTimer::Finish()
+util::time_t zTimer::Finish()
 {
     m_end = clock_t::now();
     return duration_cast<precision_t>(m_end.time_since_epoch()).count();
 }
 
-util::time_t CTimer::Elapsed()
+util::time_t zTimer::Elapsed()
 {
     return duration_cast<precision_t>(m_end - m_start).count();
 }
 
 /// Sleeps the current thread (defaults to milliseconds).
-void CTimer::Sleep(const util::time_t ticks)
+void zTimer::Sleep(const util::time_t ticks)
 {
     std::this_thread::sleep_for(precision_t(ticks));
 }
 
-util::time_t CTimer::Delay()
+util::time_t zTimer::Delay()
 {
     // Convert the time difference to milliseconds.
     time_t ms = duration_cast<precision_t>(clock_t::now() - m_start).count();
@@ -56,13 +56,13 @@ util::time_t CTimer::Delay()
     return ms;
 }
 
-util::time_t CTimer::GetTime() const
+util::time_t zTimer::GetTime() const
 {
     return duration_cast<precision_t>(
         clock_t::now().time_since_epoch()).count();
 }
 
-void CTimer::SetFrameRate(const uint16_t fps)
+void zTimer::SetFrameRate(const uint16_t fps)
 {
     m_fps = fps;
 
