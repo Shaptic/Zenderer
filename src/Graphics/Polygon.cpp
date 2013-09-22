@@ -12,7 +12,7 @@ zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
 {
     m_DrawData.Vertices = nullptr;
     m_DrawData.Indices  = nullptr;
-    m_DrawData.icount   = m_DrawData.vcount   = 0;
+    m_DrawData.icount   = m_DrawData.vcount = 0;
 
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());
@@ -76,6 +76,8 @@ zPolygon::zPolygon(zPolygon&& Move) :
 
 zPolygon::~zPolygon()
 {
+    if(m_DrawData.vcount != 0) delete m_DrawData.Vertices;
+    if(m_DrawData.icount != 0) delete m_DrawData.Indices;
     if(m_internal)  delete mp_VAO;
     if(mp_MVMatrix) delete mp_MVMatrix;
     m_Verts.clear();
@@ -111,7 +113,7 @@ void zPolygon::AddVertex(const math::vector_t& Position)
 zPolygon& zPolygon::Create()
 {
     if(m_Verts.size() <= 2) return (*this);
-    if(m_DrawData.Indices == nullptr)
+    if(m_DrawData.Indices == nullptr || m_DrawData.icount == 0)
     {
         uint16_t tris = (m_Verts.size() - 2) * 3;
         gfxcore::index_t* indices = new gfxcore::index_t[tris];

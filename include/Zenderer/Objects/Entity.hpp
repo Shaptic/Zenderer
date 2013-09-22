@@ -97,13 +97,13 @@ namespace obj
         /**
          * Creates an entity from an existing primitive, or adds it.
          *  This will store a copy of the primitive locally, to prevent bad
-         *  references occuring later. Thus it's advisable to `delete` heap
+         *  references occurring later. Thus it's advisable to `delete` heap
          *  memory when done here, or ensure that the given primitive will go
          *  off the stack soon, to prevent unnecessary memory duplication.
          *
          * @param   Prim    A primitive to make "high-level".
          *
-         * @return  `true`  if the primitive loaded with a valid textre, and
+         * @return  `true`  if the primitive loaded with a valid texture, and
          *          `false` otherwise.
          *
          * @note    Currently, multiple calls to this method will stack

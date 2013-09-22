@@ -120,7 +120,7 @@ bool zFont::Render(obj::zEntity& Ent,
     Q.SetColor(color4f_t());
 
     if(!m_stack) Ent.Destroy();
-    Ent.AddPrimitive(Q);
+    Ent.AddPrimitive(std::move(Q));
     return true;
 }
 

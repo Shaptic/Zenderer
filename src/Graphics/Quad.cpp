@@ -22,8 +22,6 @@ zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
 
 zQuad::~zQuad()
 {
-    if(m_DrawData.Vertices != nullptr) delete m_DrawData.Vertices;
-    if(m_DrawData.Indices  != nullptr) delete m_DrawData.Indices;
 }
 
 gfx::zPolygon& zQuad::Create()
