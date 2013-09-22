@@ -112,7 +112,7 @@ namespace math
      * @return  `true` if they collide, `false` otherwise.
      **/
     bool collides(const tri_t& A, const tri_t& b);
-    
+
     /**
      * @overload
      * @see     http://stackoverflow.com/a/565282
@@ -120,13 +120,11 @@ namespace math
     bool collides(const line_t& a, const line_t& b);
 
     /**
-     * Finds orientation of a given set of points, which form a polygon.
-     * @param   Polygon     A set of points forming a simple polygon.
+     * Finds orientation of a given set of points.
+     * @param   Triangle    A set of points forming a triangle.
      * @return `true` if clockwise, `false` if counter-clockwise.
-     * @see    http://debian.fmi.uni-sofia.bg/~sergei/cgsr/docs/clockwise.htm
      **/
-    bool orientation(const std::vector<vector_t>& Polygon);
-    bool orientation(const tri_t& Tri);     ///< @overload
+    bool orientation(const tri_t& Tri);
 
     /**
      * Tests if a point is contained with a triangle.

@@ -136,25 +136,6 @@ bool math::collides(const line_t& a, const line_t& b)
     return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
 }
 
-bool math::orientation(const std::vector<vector_t>& Polygon)
-{
-    ZEN_ASSERTM(Polygon.size() >= 3, "not a polygon");
-
-    uint16_t count = 0;
-    for(uint16_t i = 0; i < Polygon.size(); ++i)
-    {
-        uint16_t j = (i + 1 < Polygon.size()) ? i + 1 : 0;
-        uint16_t k = (i + 2 < Polygon.size()) ? i + 2 : 1;
-        real_t z = (Polygon[j].x - Polygon[i].x) * (Polygon[k].y - Polygon[j].y)
-                 - (Polygon[j].y - Polygon[i].y) * (Polygon[k].x - Polygon[j].x);
-
-        count += (z > 0) ? 1 : -1;
-    }
-
-    ZEN_ASSERTM(count != 0, "not a simple polygon");
-    return (count < 0);
-}
-
 bool math::orientation(const tri_t& Tri)
 {
     return (Tri[1].x - Tri[0].x) * (Tri[2].y - Tri[0].y) -
@@ -185,13 +166,32 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
     std::vector<uint16_t> reflex;
     std::vector<vector_t> triangles;
 
-    // Determine entire polygon orientation
-    bool ort = orientation(Polygon);
+    if(Polygon.size() <= 3) return Polygon;
+
+    // Determine polygon's orientation via top-left-most vertex.
+    vector_t left = Polygon[0];
+    size_t index = 0;
+    for(size_t i = 0; i < Polygon.size(); ++i)
+    {
+        if(Polygon[i].x < left.x ||
+          (compf(Polygon[i].x, left.x) && Polygon[i].y < left.y))
+        {
+            index = i;
+            left = Polygon[i];
+        }
+    }
+
+    tri_t tri = {
+        Polygon[(index > 0) ? index - 1 : Polygon.size() - 1],
+        Polygon[index],
+        Polygon[(index < Polygon.size()) ? index + 1 : 0]
+    };
+
+    bool ccw = orientation(tri);
 
     // We know there will be vertex_count - 2 triangles made.
     triangles.reserve(Polygon.size() - 2);
 
-    if(Polygon.size() == 3) return Polygon;
     while(Polygon.size() >= 3)
     {
         reflex.clear();
@@ -208,7 +208,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
 
             tri[0] = Polygon[p]; tri[1] = i; tri[2] = Polygon[n];
 
-            if(orientation(tri) != ort)
+            if(orientation(tri) != ccw)
             {
                 reflex.emplace_back(index);
                 continue;
@@ -233,7 +233,10 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
                 for( ; j != k; ++j)
                 {
                     auto& v = *j;
-                    if(&v == &Polygon[p] || &v == &Polygon[n]) continue;
+                    if(&v == &Polygon[p] ||
+                       &v == &Polygon[n] ||
+                       &v == &Polygon[index]) continue;
+
                     if(triangle_test(v, tri))
                     {
                         ear = false;
