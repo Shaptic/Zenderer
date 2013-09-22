@@ -196,6 +196,7 @@
     <ClCompile Include="src\Math\MathCore.cpp" />
     <ClCompile Include="src\Math\Shapes.cpp" />
     <ClCompile Include="src\Network\Socket.cpp" />
+    <ClCompile Include="src\Objects\Animation.cpp" />
     <ClCompile Include="src\Objects\Entity.cpp" />
     <ClCompile Include="src\Pong.cpp" />
     <ClCompile Include="src\stb_image.c" />
