@@ -111,22 +111,25 @@ void zPolygon::AddVertex(const math::vector_t& Position)
 zPolygon& zPolygon::Create()
 {
     if(m_Verts.size() <= 2) return (*this);
-
-    uint16_t tris = (m_Verts.size() - 2) * 3;
-    gfxcore::index_t* indices = new gfxcore::index_t[tris];
-
-    for(uint16_t i = 0; i < tris; i += 3)
+    if(m_DrawData.Indices == nullptr)
     {
-        uint16_t x = i / 3;
-        indices[i] = 0;
-        indices[i+1] = x + 1;
-        indices[i+2] = x + 2;
+        uint16_t tris = (m_Verts.size() - 2) * 3;
+        gfxcore::index_t* indices = new gfxcore::index_t[tris];
+
+        for(uint16_t i = 0; i < tris; i += 3)
+        {
+            uint16_t x = i / 3;
+            indices[i] = 0;
+            indices[i+1] = x + 1;
+            indices[i+2] = x + 2;
+        }
+
+        m_DrawData.Indices  = indices;
+        m_DrawData.icount   = tris;
     }
 
     m_DrawData.Vertices = new gfxcore::vertex_t[m_Verts.size()];
     m_DrawData.vcount   = m_Verts.size();
-    m_DrawData.Indices  = indices;
-    m_DrawData.icount   = tris;
 
     math::vector_t First(m_Verts[0]);
     for(size_t i = 0; i < m_Verts.size(); ++i)
