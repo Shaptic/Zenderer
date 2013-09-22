@@ -119,7 +119,18 @@ namespace gfx
                          const bool preserve = true);
 
         virtual inline std::vector<math::vector_t> Triangulate() const
-        { return math::triangulate(m_Verts); }
+        {
+            if(m_Verts.empty())
+            {
+                std::vector<math::vector_t> tmp;
+                tmp.reserve(m_DrawData.vcount);
+                for(size_t i = 0; i < m_DrawData.vcount; ++i)
+                    tmp.push_back(m_DrawData.Vertices[i].position);
+
+                return math::triangulate(tmp);
+            }
+            return math::triangulate(m_Verts);
+        }
 
         /**
          * Overrides default index creation for the added vertices.
