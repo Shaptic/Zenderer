@@ -230,20 +230,17 @@ bool zEntity::Offloaded() const
 
 bool zEntity::Collides(const zEntity& Other)
 {
-    ZEN_ASSERTM(false, "not implemented");
-    if(!m_Box.collides(Other.m_Box)) return false;
-    for(auto& i : m_Triangulation)
-    {
-        /// @todo
-        ;
-    }
-    return m_Box.collides(Other.GetBox());
+    return this->Collides(Other.m_Box);
 }
 
 bool zEntity::Collides(const math::rect_t& other)
 {
-    math::aabb_t r(other);
-    if(!r.collides(m_Box)) return false;
+    return this->Collides(math::aabb_t(other));
+}
+
+bool zEntity::Collides(const math::aabb_t& other)
+{
+    if(!m_Box.collides(other)) return false;
     for(size_t i = 0; i < m_Triangulation.size(); i += 3)
     {
         math::tri_t t = {
@@ -252,14 +249,10 @@ bool zEntity::Collides(const math::rect_t& other)
             m_Triangulation[i+2]
         };
 
-        if(r.collides(t)) return true;
+        if(other.collides(t)) return true;
     }
-    return false;
-}
 
-bool zEntity::Collides(const math::aabb_t& other)
-{
-    return m_Box.collides(other);
+    return false;
 }
 
 bool zEntity::Collides(const math::vector_t& pos)
