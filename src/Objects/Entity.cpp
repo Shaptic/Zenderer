@@ -257,6 +257,11 @@ bool zEntity::Collides(const math::rect_t& other)
     return false;
 }
 
+bool zEntity::Collides(const math::aabb_t& other)
+{
+    return m_Box.collides(other);
+}
+
 bool zEntity::Collides(const math::vector_t& pos)
 {
     return this->Collides(math::rect_t(pos.x, pos.y, 1, 1));

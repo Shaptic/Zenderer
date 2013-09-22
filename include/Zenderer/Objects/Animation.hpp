@@ -63,6 +63,10 @@ namespace obj
                 e.SetParameter("tc_offset", &m_texc, 1);
                 e.SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
                 e.Disable();
+
+                m_Box = math::aabb_t(math::rect_t(
+                            this->GetX(), this->GetY(),
+                            m_Size.x, m_Size.y));
             }
             else
             {
