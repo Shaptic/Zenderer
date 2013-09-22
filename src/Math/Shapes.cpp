@@ -204,7 +204,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
             if(eartip >= 0) break;
 
             uint16_t p = (index > 0) ? index - 1 : Polygon.size() - 1;
-            uint16_t n = (index < Polygon.size()) ? index + 1 : 0;
+            uint16_t n = (index + 1 < Polygon.size()) ? index + 1 : 0;
 
             tri[0] = Polygon[p]; tri[1] = i; tri[2] = Polygon[n];
 
