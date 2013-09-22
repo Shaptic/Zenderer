@@ -232,10 +232,10 @@ namespace obj
         bool Offloaded() const;
 
         /// Checks collision with another entity.
-        bool Collides(const zEntity& Other);
-        bool Collides(const math::rect_t& other);   ///< @overload
-        bool Collides(const math::aabb_t& other);   ///< @overload
-        bool Collides(const math::vector_t& Pos);   ///< @overload
+        bool Collides(const zEntity& Other, math::tri_t* poi = nullptr);
+        bool Collides(const math::rect_t& other, math::tri_t* poi = nullptr);   ///< @overload
+        bool Collides(const math::aabb_t& other, math::tri_t* poi = nullptr);   ///< @overload
+        bool Collides(const math::vector_t& Pos, math::tri_t* poi = nullptr);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint8_t depth);

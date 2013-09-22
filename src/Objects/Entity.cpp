@@ -228,17 +228,17 @@ bool zEntity::Offloaded() const
     return true;
 }
 
-bool zEntity::Collides(const zEntity& Other)
+bool zEntity::Collides(const zEntity& Other, math::tri_t* poi)
 {
-    return this->Collides(Other.m_Box);
+    return this->Collides(Other.m_Box, poi);
 }
 
-bool zEntity::Collides(const math::rect_t& other)
+bool zEntity::Collides(const math::rect_t& other, math::tri_t* poi)
 {
-    return this->Collides(math::aabb_t(other));
+    return this->Collides(math::aabb_t(other), poi);
 }
 
-bool zEntity::Collides(const math::aabb_t& other)
+bool zEntity::Collides(const math::aabb_t& other, math::tri_t* poi)
 {
     if(!m_Box.collides(other)) return false;
     for(size_t i = 0; i < m_Triangulation.size(); i += 3)
@@ -249,15 +249,19 @@ bool zEntity::Collides(const math::aabb_t& other)
             m_Triangulation[i+2]
         };
 
-        if(other.collides(t)) return true;
+        if(other.collides(t))
+        {
+            if(poi != nullptr) *poi = t;
+            return true;
+        }
     }
 
     return false;
 }
 
-bool zEntity::Collides(const math::vector_t& pos)
+bool zEntity::Collides(const math::vector_t& pos, math::tri_t* poi)
 {
-    return this->Collides(math::rect_t(pos.x, pos.y, 1, 1));
+    return this->Collides(math::rect_t(pos.x, pos.y, 1, 1), poi);
 }
 
 void zEntity::SetDepth(uint8_t depth)
