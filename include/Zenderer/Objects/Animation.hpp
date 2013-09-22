@@ -64,9 +64,9 @@ namespace obj
                 e.SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
                 e.Disable();
 
-                m_Box = math::aabb_t(math::rect_t(
-                            this->GetX(), this->GetY(),
-                            m_Size.x, m_Size.y));
+                m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
+                                                  m_Size.x, m_Size.y));
+                m_Triangulation = pQ->Triangulate();
             }
             else
             {
