@@ -184,7 +184,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
     tri_t tri = {
         Polygon[(index > 0) ? index - 1 : Polygon.size() - 1],
         Polygon[index],
-        Polygon[(index < Polygon.size()) ? index + 1 : 0]
+        Polygon[(index + 1 < Polygon.size()) ? index + 1 : 0]
     };
 
     bool ccw = orientation(tri);
