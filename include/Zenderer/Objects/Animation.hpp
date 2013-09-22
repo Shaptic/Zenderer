@@ -33,7 +33,7 @@ namespace obj
     public:
         zAnimation(asset::zAssetManager& Assets) :
             zEntity(Assets), m_current(0),
-            m_texc(0.0), m_rate(0), m_now(0)
+            m_texc(0.0), m_rate(0), m_now(0), m_stop(false)
         {
         }
 
@@ -77,18 +77,10 @@ namespace obj
 
         bool Update()
         {
-            if(++m_now < m_rate) return false;
+            if(m_stop || ++m_now < m_rate) return false;
             if(++m_current >= m_framecount) m_current = 0;
-
-            real_t start[] = { m_current * m_texc, 0.0 };
-
-            gfx::zEffect& e = const_cast<gfx::zMaterial&>(
-                mp_allPrims.front()->GetMaterial()).GetEffect();
-            e.Enable();
-            e.SetParameter("tc_start", start, 2);
-            e.Disable();
+            this->SwitchFrame(m_current);
             m_now = 0;
-
             return true;
         }
 
@@ -96,11 +88,36 @@ namespace obj
         void SetKeyframeSize(const math::vectoru16_t& Size) { m_Size = Size; }
         void SetKeyframeRate(const uint16_t rate) { m_rate = rate; }
 
+        void StopAnimation(const int16_t frame = -1)
+        {
+            this->SwitchFrame(frame < 0 ? m_current : frame);
+            m_stop = true;
+        }
+
+        void StartAnimation(const int16_t frame = -1)
+        {
+            this->SwitchFrame(frame < 0 ? m_current : frame);
+            m_stop = false;
+        }
+
     private:
+        void SwitchFrame(const uint16_t frame)
+        {
+            m_current = frame;
+            real_t start[] = { m_current * m_texc, 0.0 };
+
+            gfx::zEffect& e = const_cast<gfx::zMaterial&>(
+                mp_allPrims.front()->GetMaterial()).GetEffect();
+            e.Enable();
+            e.SetParameter("tc_start", start, 2);
+            e.Disable();
+        }
+
         math::vectoru16_t m_Size;
         real_t m_texc;
         uint16_t m_framecount, m_now, m_rate;
         uint16_t m_current;
+        bool m_stop;
     };
 }   // namespace obj
 }   // namespace zen
