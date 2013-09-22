@@ -22,6 +22,8 @@
 #ifndef ZENDERER__OBJECTS__ANIMATION_HPP
 #define ZENDERER__OBJECTS__ANIMATION_HPP
 
+#include <functional>
+
 #include "Entity.hpp"
 
 namespace zen
@@ -33,7 +35,8 @@ namespace obj
     public:
         zAnimation(asset::zAssetManager& Assets) :
             zEntity(Assets), m_current(0),
-            m_texc(0.0), m_rate(0), m_now(0), m_stop(false)
+            m_texc(0.0), m_rate(0), m_now(0), m_stop(false),
+            m_maxloops(0), m_loops(0)
         {
         }
 
@@ -82,7 +85,15 @@ namespace obj
         bool Update()
         {
             if(m_stop || ++m_now < m_rate) return false;
-            if(++m_current >= m_framecount) m_current = 0;
+            if(++m_current >= m_framecount) { ++m_loops; m_current = 0; }
+            if(m_maxloops > 0 && m_loops >= m_maxloops)
+            {
+                this->StopAnimation(0);
+                m_maxloops = 0;
+                if(m_callback) m_callback();
+                return false;
+            }
+
             this->SwitchFrame(m_current);
             m_now = 0;
             return true;
@@ -104,6 +115,18 @@ namespace obj
             m_stop = false;
         }
 
+        void PlayAnimation(const uint32_t loops = 1)
+        {
+            this->StartAnimation(0);
+            m_maxloops  = loops;
+            m_loops     = 0;
+        }
+
+        void OnFinish(std::function<void()> callback)
+        {
+            m_callback = std::move(callback);
+        }
+
     private:
         void SwitchFrame(const uint16_t frame)
         {
@@ -117,10 +140,11 @@ namespace obj
             e.Disable();
         }
 
+        std::function<void()> m_callback;
         math::vectoru16_t m_Size;
         real_t m_texc;
         uint16_t m_framecount, m_now, m_rate;
-        uint16_t m_current;
+        uint16_t m_current, m_maxloops, m_loops;
         bool m_stop;
     };
 }   // namespace obj

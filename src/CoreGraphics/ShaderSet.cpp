@@ -19,6 +19,7 @@ zShaderSet::zShaderSet(asset::zAssetManager& Assets) :
 zShaderSet::~zShaderSet()
 {
     this->Destroy();
+    ZEN_ASSERTM(m_program == 0 && !m_init, "didn't free GL program!");
 }
 
 zShaderSet::zShaderSet(const zShaderSet& Copy) :
@@ -129,7 +130,9 @@ bool zShaderSet::CreateShaderObject()
     for(auto& i : s_shaderPrograms)
     {
         zShaderSet& SS = *(i.first);
-        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
+        if(SS.mp_VShader == mp_VShader &&
+           SS.mp_FShader == mp_FShader &&
+           SS.m_program  != 0)
         {
             m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG)
                   << m_Log.SetSystem("ShaderSet")
