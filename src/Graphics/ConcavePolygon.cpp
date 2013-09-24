@@ -1,13 +1,10 @@
 #include "Zenderer/Graphics/Polygon.hpp"
 
 using namespace zen;
-using gfxcore::zRenderer;
-using gfxcore::index_t;
-
 using gfx::zConcavePolygon;
 
-template<typename InputIt> inline
-int find_index_of(InputIt begin, InputIt end, decltype(*InputIt)& elem)
+template<typename InputIt, typename T> inline
+size_t find_index_of(InputIt begin, InputIt end, const T& elem)
 {
     size_t index = 0;
     for(InputIt i = begin, j = end; i != j; ++i, ++index)
@@ -15,7 +12,7 @@ int find_index_of(InputIt begin, InputIt end, decltype(*InputIt)& elem)
         if(*i == elem) return index;
     }
     
-    return -1;
+    return static_cast<size_t>(-1);
 }
 
 zConcavePolygon::zConcavePolygon(asset::zAssetManager& Assets,
@@ -38,6 +35,7 @@ zPolygon& zConcavePolygon::Create()
     
     if(m_DrawData.Indices != nullptr || m_DrawData.icount > 0) 
         delete[] m_DrawData.Indices;
+
     gfxcore::index_t* indices = new gfxcore::index_t[count];
 
     for(auto& i : tris)

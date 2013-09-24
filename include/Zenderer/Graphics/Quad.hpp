@@ -57,7 +57,7 @@ namespace gfx
         
         virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr)
         {
-            const math::rect_t us(m_Position.x, m_Position.y, m_Size.x, m_Size.y);
+            const math::aabb_t us(m_BoundingBox);
             
             for(size_t i = 0; i < Other.m_Tris; ++i)
             {
@@ -69,16 +69,12 @@ namespace gfx
         
         bool Collides(const zQuad& Other, math::vector_t* poi = nullptr)
         {
-            const math::rect_t us  (this->GetX(), this->GetY(), this->GetW(), this->GetH());
-            const math::rect_t them(Other.GetX(), Other.GetY(), Other.GetW(), Other.GetH());
-            
-            return us.collides(them);
+            return math::aabb_t(m_BoundingBox).collides(math::aabb_t(Other.m_BoundingBox));
         }
         
         bool Collides(const math::aabb_t& other)
         {
-            return other.collides(math::rect_t(this->GetX(), this->GetY(),
-                                               this->GetW(), this->GetH()));
+            return other.collides(m_BoundingBox);
         }
 
         /**
@@ -128,16 +124,12 @@ namespace gfx
          **/
         void SetRepeating(const bool flag);
 
-        inline uint16_t GetW() const { return m_Size.x; }
-        inline uint16_t GetH() const { return m_Size.y; }
-
     private:
         void LoadRegularVertices();     // Standard quad
         void LoadInvertedVertices();    // Inverted quad using -y instead of 0
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
 
-        math::zVector<int16_t> m_Size;
         bool m_inv, m_rep;
     };
 }   // namespace gfx

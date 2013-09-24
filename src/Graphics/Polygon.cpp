@@ -85,12 +85,14 @@ zPolygon::~zPolygon()
 
 void zPolygon::Move(const math::vector_t& Position)
 {
-    m_Position = Position;
+    m_BoundingBox.x = Position.x;
+    m_BoundingBox.y = Position.y;
 }
 
-void zPolygon::Move(const real_t x, const real_t y, const real_t z /*= 0.0*/)
+void zPolygon::Move(const real_t x, const real_t y)
 {
-    m_Position = math::vector_t(x, y, z);
+    m_BoundingBox.x = x;
+    m_BoundingBox.y = y;
 }
 
 void zPolygon::AttachMaterial(gfx::zMaterial& Material)
@@ -138,6 +140,29 @@ zPolygon& zPolygon::Create()
         m_DrawData.Vertices[i].position = std::move(m_Verts[i]);
         m_DrawData.Vertices[i].color    = m_Color;
     }
+    
+    // Calculate lowest and highest y-values.
+    real_t low, high;
+    low = high = m_Verts[0].y;
+
+    for(auto& i : m_Verts)
+    {
+        low  = math::min<real_t>(low, i.y);
+        high = math::max<real_t>(high, i.y);
+    }
+
+    m_BoundingBox.h = (high - low);
+    
+    // Calculate lowest and highest x-values.
+    low = high = m_Verts[0].x;
+
+    for(auto& i : m_Verts)
+    {
+        low  = math::min<real_t>(low,  i.x);
+        high = math::max<real_t>(high, i.x);
+    }
+    
+    m_BoundingBox.w = (right - left);
 
     m_Tris = math::triangulate(m_Verts);
     m_Verts.clear();
@@ -215,6 +240,30 @@ void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO, const bool keep)
     }
 }
 
+bool zPolygon::Collides(const zPolygon& Other, math::vector_t* poi)
+{
+    for(size_t i = 0; i < m_Tris.size(); ++i)
+    {
+        for(size_t j = 0; j < Other.m_Tris.size(); ++j)
+        {
+            if(math::collides(m_Tris[i], Other.m_Tris[j], poi))
+                return true;
+        }
+    }
+    
+    return false;
+}
+
+bool zPolygon::Collides(const math::aabb_t& other)
+{
+    for(size_t i = 0; i < m_Tris.size(); ++i)
+    {
+        if(math::collides(m_Tris[i], other)) return true;
+    }
+    
+    return false;
+}
+
 void zPolygon::SetColor(const color4f_t& Color)
 {
     m_Color = Color;
@@ -232,7 +281,7 @@ void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
     std::copy(Indices.begin(), Indices.end(), m_DrawData.Indices);
 }
 
-uint16_t zPolygon::GetH() const
+uint16_t zPolygon::CalcH() const
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 
@@ -255,10 +304,10 @@ uint16_t zPolygon::GetH() const
         high = math::max<real_t>(high, m_DrawData.Vertices[i].position.y);
     }
 
-    return high - low;
+    return (m_BoundingBox.h = (high - low));
 }
 
-uint16_t zPolygon::GetW() const
+uint16_t zPolygon::CalcW() const
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 
@@ -281,7 +330,7 @@ uint16_t zPolygon::GetW() const
         right = math::max<real_t>(right, m_DrawData.Vertices[i].position.x);
     }
 
-    return right - left;
+    return (m_BoundingBox.w = (right - left));
 }
 
 bool zPolygon::IsModifiable() const
