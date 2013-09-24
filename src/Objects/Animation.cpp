@@ -42,7 +42,6 @@ bool zAnimation::LoadFromTexture(const string_t& filename)
         // For collision.
         m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
                                           m_Size.x, m_Size.y));
-        m_Triangulation = std::move(pQ->Triangulate());
     }
 
     return ret;

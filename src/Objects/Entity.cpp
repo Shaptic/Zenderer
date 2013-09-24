@@ -141,8 +141,6 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
                                       pPrimitive->GetW(),
                                       pPrimitive->GetH()));
-
-    m_Triangulation = pPrimitive->Triangulate();
     return true;
 }
 
@@ -160,8 +158,6 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
                             math::max<uint32_t>(this->GetW(), pPoly->GetW()),
                             math::max<uint32_t>(this->GetH(), pPoly->GetH())));
-
-    m_Triangulation = Polygon.Triangulate();
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;
@@ -228,38 +224,35 @@ bool zEntity::Offloaded() const
     return true;
 }
 
-bool zEntity::Collides(const zEntity& Other, math::tri_t* poi)
+bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
 {
-    return this->Collides(Other.m_Box, poi);
+    if(!m_Box.collides(Other.m_Box)) return false;
+    for(auto& i : mp_allPrims)
+    {
+        for(auto& j : mp_allPrims)
+            if(i.Collides(j, poi)) return true;
+    }
+    
+    return false;
 }
 
-bool zEntity::Collides(const math::rect_t& other, math::tri_t* poi)
+bool zEntity::Collides(const math::rect_t& other)
 {
     return this->Collides(math::aabb_t(other), poi);
 }
 
-bool zEntity::Collides(const math::aabb_t& other, math::tri_t* poi)
+bool zEntity::Collides(const math::aabb_t& other)
 {
     if(!m_Box.collides(other)) return false;
-    for(size_t i = 0; i < m_Triangulation.size(); i += 3)
+    for(auto& i : mp_allPrims)
     {
-        math::tri_t t = {
-            m_Triangulation[i],
-            m_Triangulation[i+1],
-            m_Triangulation[i+2]
-        };
-
-        if(other.collides(t))
-        {
-            if(poi != nullptr) *poi = t;
-            return true;
-        }
+        if(i->Collides(other)) return true;
     }
-
+    
     return false;
 }
 
-bool zEntity::Collides(const math::vector_t& pos, math::tri_t* poi)
+bool zEntity::Collides(const math::vector_t& pos)
 {
     return this->Collides(math::rect_t(pos.x, pos.y, 1, 1), poi);
 }
