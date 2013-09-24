@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/CoreGraphics/Drawable.hpp - A vertex-agnostic convex primitive.
+ *  Zenderer/CoreGraphics/Polygon.hpp - A vertex-agnostic convex primitive.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

@@ -133,7 +133,6 @@ zPolygon& zPolygon::Create()
     m_DrawData.Vertices = new gfxcore::vertex_t[m_Verts.size()];
     m_DrawData.vcount   = m_Verts.size();
 
-    math::vector_t First(m_Verts[0]);
     for(size_t i = 0; i < m_Verts.size(); ++i)
     {
         m_DrawData.Vertices[i].position = std::move(m_Verts[i]);
