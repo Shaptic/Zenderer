@@ -140,6 +140,7 @@ zPolygon& zPolygon::Create()
         m_DrawData.Vertices[i].color    = m_Color;
     }
 
+    m_Tris = math::triangulate(m_Verts);
     m_Verts.clear();
     return (*this);
 }

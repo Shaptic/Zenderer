@@ -118,20 +118,32 @@ namespace gfx
         void LoadIntoVAO(gfxcore::zVertexArray& VAO,
                          const bool preserve = true);
 
-        virtual inline std::vector<math::vector_t> Triangulate() const
+        inline std::vector<math::vector_t> Triangulate() const { return m_Tris; }
+
+        virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr)
         {
-            if(m_Verts.empty())
+            for(size_t i = 0; i < m_Tris.size(); ++i)
             {
-                std::vector<math::vector_t> tmp;
-                tmp.reserve(m_DrawData.vcount);
-                for(size_t i = 0; i < m_DrawData.vcount; ++i)
-                    tmp.push_back(m_DrawData.Vertices[i].position);
-
-                return math::triangulate(tmp);
+                for(size_t j = 0; j < Other.m_Tris.size(); ++j)
+                {
+                    if(math::collides(m_Tris[i], Other.m_Tris[j], poi))
+                        return true;
+                }
             }
-            return math::triangulate(m_Verts);
+            
+            return false;
         }
-
+        
+        virtual bool Collides(const math::aabb_t& other)
+        {
+            for(size_t i = 0; i < m_Tris.size(); ++i)
+            {
+                if(math::collides(m_Tris[i], other)) return true;
+            }
+            
+            return false;
+        }
+        
         /**
          * Overrides default index creation for the added vertices.
          *  Indices are considered valid if none of them are larger than
@@ -174,7 +186,7 @@ namespace gfx
     protected:
         virtual void MapTexCoords() { ZEN_ASSERTM(false, "not implemented"); }
 
-        std::vector<math::vector_t> m_Verts;
+        std::vector<math::vector_t> m_Verts, m_Tris;
         gfx::zMaterial      m_Material;
         math::vector_t      m_Position;
         gfxcore::DrawBatch  m_DrawData;

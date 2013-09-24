@@ -54,16 +54,31 @@ namespace gfx
 
         /// @overload
         void Resize(const uint16_t w, const uint16_t h);
-
-        inline std::vector<math::vector_t> Triangulate() const
+        
+        virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr)
         {
-            std::vector<math::vector_t> tris;
-            tris.reserve(6);
-            for(uint8_t i = 0; i < m_DrawData.icount; ++i)
-                tris.push_back(
-                    m_DrawData.Vertices[m_DrawData.Indices[i]].position);
-
-            return tris;
+            const math::rect_t us(m_Position.x, m_Position.y, m_Size.x, m_Size.y);
+            
+            for(size_t i = 0; i < Other.m_Tris; ++i)
+            {
+                if(us.collides(tris[i])) return true;
+            }
+            
+            return false;
+        }
+        
+        bool Collides(const zQuad& Other, math::vector_t* poi = nullptr)
+        {
+            const math::rect_t us  (this->GetX(), this->GetY(), this->GetW(), this->GetH());
+            const math::rect_t them(Other.GetX(), Other.GetY(), Other.GetW(), Other.GetH());
+            
+            return us.collides(them);
+        }
+        
+        bool Collides(const math::aabb_t& other)
+        {
+            return other.collides(math::rect_t(this->GetX(), this->GetY(),
+                                               this->GetW(), this->GetH()));
         }
 
         /**

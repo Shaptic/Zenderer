@@ -55,6 +55,10 @@ gfx::zPolygon& zQuad::Create()
     m_DrawData.Indices[3] = 3;
     m_DrawData.Indices[4] = 1;
     m_DrawData.Indices[5] = 2;
+    
+    m_Tris.reserve(m_DrawData.icount);
+    for(uint8_t i = 0; i < m_DrawData.icount; ++i)
+        m_Tris.push_back(m_DrawData.Vertices[m_DrawData.Indices[i]].position);
 
     return (*this);
 }
