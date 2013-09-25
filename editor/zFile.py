@@ -33,10 +33,11 @@ class Exporter:
         f.flush()
 
     @staticmethod
-    def ExportPolygon(f, p):
+    def ExportPolygon(f, p, i=None):
         final  = '<entity>\n'
         final += '    vertex='
         final += '\n    vertex='.join('%d,%d' % (int(v[0]), int(v[1])) for v in p)
+        if i: final += '\n    indices=%s\n' % (','.join([str(x) for x in i]))
         final += '\n</entity>\n\n'
         f.write(final)
         f.flush()

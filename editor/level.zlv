@@ -1,0 +1,10 @@
+<entity>
+    vertex=184,217
+    vertex=475,93
+    vertex=657,127
+    vertex=697,334
+    vertex=288,461
+indices=0,1,2,3,4
+
+</entity>
+

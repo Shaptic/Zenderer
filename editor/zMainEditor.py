@@ -12,6 +12,8 @@ from zLight     import *
 from zGUI       import *
 from zFile      import Exporter
 
+import zGeometry as geometry
+
 __version__ = '0.0.1-dev'
 __author__ = 'George Kudrayvtsev'
 
@@ -38,6 +40,7 @@ class Main:
         self.entities = []
         self.lights   = []
         self.verts    = []
+        self.indices  = []
         self.polys    = []
 
         self.BaseEntity = None
@@ -78,7 +81,7 @@ class Main:
                     elif evt.button == 1:
                         self._Evt_AddObject(evt.pos)
                     
-                    elif evt.button == 2 and self.BaseEntity.on:
+                    elif evt.button == 2 and self.BaseEntity and self.BaseEntity.on:
                         self.BaseEntity.on = False
                         self.BaseEntity.Move(evt.pos)
                         self.BaseEntity.end = evt.pos
@@ -165,7 +168,9 @@ class Main:
         with open(filename, 'w') as f:
             for e in self.entities: Exporter.ExportEntity(f, e)
             for l in self.lights:   Exporter.ExportLight(f, l)
-            for p in self.polys:    Exporter.ExportPolygon(f, p)
+
+            for i in xrange(len(self.polys)):
+                Exporter.ExportPolygon(f, self.polys[i], self.indices[i])
 
     def _Evt_AddObject(self, pos):
         if self.ObjVar.get() == 1 and self.EntityList.get():
@@ -198,8 +203,21 @@ class Main:
         ent = self._GetEntityAt(pos)
         lit = self._GetLightAt(pos)
         
-        if self.ObjVar.get() == 4 and self.verts:
-            self.polys.append(self.verts)
+        if self.ObjVar.get() == 4 and len(self.verts) > 2:
+            tmpverts = []
+            tmpinds  = []
+            
+            if geometry.is_concave(self.verts):
+                self.verts = geometry.triangulate(self.verts)
+                print self.verts
+                for v in self.verts:    
+                    if v not in tmpverts:
+                        tmpverts.append(v)
+                        tmpinds.append(tmpverts.index(v))
+
+            else: tmpverts = self.verts
+            self.indices.append(tmpinds)
+            self.polys.append(tmpverts)
             self.verts = []
             
         elif self.ObjVar.get() == 2 and lit:
