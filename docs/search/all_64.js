@@ -6,7 +6,7 @@ var searchData=
   ['default_5fsize',['DEFAULT_SIZE',['../namespacezen_1_1net.html#a4bdae0e6c878054092dd6763ed62c267ada3de17abedf3e4b466a9d361ad96b6a',1,'zen::net']]],
   ['default_5fvs',['DEFAULT_VS',['../namespacezen_1_1gfxcore.html#a699df2af44ee54653c08eaa3abe57e05',1,'zen::gfxcore']]],
   ['deg',['deg',['../namespacezen_1_1math.html#a35800854cfb92a44975ba964344e5315',1,'zen::math']]],
-  ['delay',['Delay',['../classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455',1,'zen::util::CTimer']]],
+  ['delay',['Delay',['../classzen_1_1util_1_1z_timer.html#a1decc1f95613e9eca50d52e4add8bd0e',1,'zen::util::zTimer']]],
   ['delete',['Delete',['../classzen_1_1asset_1_1z_asset_manager.html#ad791ccc91a922bd82bf6a011feee3ed7',1,'zen::asset::zAssetManager::Delete(zAsset *const pAsset)'],['../classzen_1_1asset_1_1z_asset_manager.html#a22d456e27fd7935ded55dabe08cc9da4',1,'zen::asset::zAssetManager::Delete(const uint32_t index)'],['../_keyboard_8hpp.html#a3e47f8299bc76c4d34ff9af446029fb2',1,'DELETE():&#160;Keyboard.hpp']]],
   ['depth_5fflag',['DEPTH_FLAG',['../classzen_1_1gfxcore_1_1z_sorter.html#a9cff850503c4dec3a20d638f74afdb59',1,'zen::gfxcore::zSorter']]],
   ['depth_5foffset',['DEPTH_OFFSET',['../classzen_1_1gfxcore_1_1z_sorter.html#a5bc121dbb39f10d7fe0d8e39ae3219c1',1,'zen::gfxcore::zSorter']]],

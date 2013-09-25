@@ -1,13 +1,15 @@
 <map id="Zenderer/include/Zenderer/Objects/Animation.hpp" name="Zenderer/include/Zenderer/Objects/Animation.hpp">
-<area shape="rect" id="node2" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="476,97,647,138"/>
+<area shape="rect" id="node2" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="477,97,648,138"/>
 <area shape="rect" id="node5" href="$_zenderer_8hpp.html" title="Zenderer/Zenderer.hpp &#45; Includes the user&#45;exposed portions of the engine. " alt="" coords="477,369,648,410"/>
+<area shape="rect" id="node14" href="$_animation_8cpp.html" title="Zenderer/src/Objects\l/Animation.cpp" alt="" coords="870,97,1012,138"/>
 <area shape="rect" id="node3" href="$_button_8hpp.html" title="Zenderer/GUI/Button.hpp &#45; A wrapper for easily creating roll&#45;over button effects. ..." alt="" coords="213,187,384,229"/>
 <area shape="rect" id="node4" href="$_menu_8hpp.html" title="Zenderer/GUI/Menu.hpp &#45; A high&#45;level menu creating interface. " alt="" coords="11,278,181,319"/>
-<area shape="rect" id="node11" href="$_level_loader_8hpp.html" title="Zenderer/Levels/LevelLoader.hpp &#45; A loader for Zenderer level files. " alt="" coords="416,278,587,319"/>
-<area shape="rect" id="node12" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="643,187,793,229"/>
-<area shape="rect" id="node10" href="$_button_8cpp.html" title="Zenderer/src/GUI/Button.cpp" alt="" coords="205,285,392,312"/>
-<area shape="rect" id="node9" href="$_menu_8cpp.html" title="Zenderer/src/GUI/Menu.cpp" alt="" coords="5,376,187,403"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="274,459,461,485"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html" title="Zenderer/src/Pong.cpp" alt="" coords="486,459,639,485"/>
-<area shape="rect" id="node8" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="664,459,837,485"/>
+<area shape="rect" id="node12" href="$_level_loader_8hpp.html" title="Zenderer/Levels/LevelLoader.hpp &#45; A loader for Zenderer level files. " alt="" coords="416,278,587,319"/>
+<area shape="rect" id="node13" href="$_scene_8cpp.html" title="Zenderer/src/Graphics\l/Scene.cpp" alt="" coords="643,187,793,229"/>
+<area shape="rect" id="node11" href="$_button_8cpp.html" title="Zenderer/src/GUI/Button.cpp" alt="" coords="205,285,392,312"/>
+<area shape="rect" id="node10" href="$_menu_8cpp.html" title="Zenderer/src/GUI/Menu.cpp" alt="" coords="5,376,187,403"/>
+<area shape="rect" id="node6" href="$_collision_test_8cpp.html" title="Zenderer/src/CollisionTest.cpp" alt="" coords="149,459,347,485"/>
+<area shape="rect" id="node7" href="$_engine_test_8cpp.html" title="Zenderer/src/EngineTest.cpp" alt="" coords="371,459,559,485"/>
+<area shape="rect" id="node8" href="$_pong_8cpp.html" title="Zenderer/src/Pong.cpp" alt="" coords="583,459,736,485"/>
+<area shape="rect" id="node9" href="$_zenderer_8cpp.html" title="Zenderer/src/Zenderer.cpp" alt="" coords="761,459,935,485"/>
 </map>

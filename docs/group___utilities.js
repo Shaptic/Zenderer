@@ -56,19 +56,19 @@ var group___utilities =
       [ "end", "classzen_1_1util_1_1z_settings.html#a28b790da88827a5c218b15994e624d55", null ],
       [ "GetEngineInstance", "classzen_1_1util_1_1z_settings.html#a080af76c26aaa76052cf8470e7aa9b45", null ]
     ] ],
-    [ "CTimer", "classzen_1_1util_1_1_c_timer.html", [
-      [ "clock_t", "classzen_1_1util_1_1_c_timer.html#acd485409b526a749c891de0f8892c726", null ],
-      [ "timepoint_t", "classzen_1_1util_1_1_c_timer.html#a1086782663f0546069ea00ccaf574f82", null ],
-      [ "precision_t", "classzen_1_1util_1_1_c_timer.html#a076b03defe2c3d8a1aa446bdba623d66", null ],
-      [ "CTimer", "classzen_1_1util_1_1_c_timer.html#a78be4602778472362818d4ecfde4449b", null ],
-      [ "~CTimer", "classzen_1_1util_1_1_c_timer.html#afd3f6595928cd20f7faaece75f017733", null ],
-      [ "Start", "classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae", null ],
-      [ "Finish", "classzen_1_1util_1_1_c_timer.html#a447ec747ffd9f0f9f5b882d765e0c0bd", null ],
-      [ "Elapsed", "classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001", null ],
-      [ "Sleep", "classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6", null ],
-      [ "Delay", "classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455", null ],
-      [ "GetTime", "classzen_1_1util_1_1_c_timer.html#a85b9f93a8630235c6b6b476289dad35c", null ],
-      [ "SetFrameRate", "classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b", null ]
+    [ "zTimer", "classzen_1_1util_1_1z_timer.html", [
+      [ "clock_t", "classzen_1_1util_1_1z_timer.html#aec134ada7a1f2624620fabd81e60c535", null ],
+      [ "timepoint_t", "classzen_1_1util_1_1z_timer.html#a18a3865f80b70c2082db75af0c9a30db", null ],
+      [ "precision_t", "classzen_1_1util_1_1z_timer.html#a8cb1ad0a4f9743bc39100fde9dce9994", null ],
+      [ "zTimer", "classzen_1_1util_1_1z_timer.html#a4f5de3f4d5c0b9995b2cd5f7cf52c845", null ],
+      [ "~zTimer", "classzen_1_1util_1_1z_timer.html#ae5c8151d9812ce784883438f27686517", null ],
+      [ "Start", "classzen_1_1util_1_1z_timer.html#a61a93b2e2de84029d98c67cc9f737ba9", null ],
+      [ "Finish", "classzen_1_1util_1_1z_timer.html#aa258586890c6edca84ec9a6c9488e4c2", null ],
+      [ "Elapsed", "classzen_1_1util_1_1z_timer.html#ae5a591dfbe0919b117b003761c62b676", null ],
+      [ "Sleep", "classzen_1_1util_1_1z_timer.html#a391c975d03981bb7607e28db36720eec", null ],
+      [ "Delay", "classzen_1_1util_1_1z_timer.html#a1decc1f95613e9eca50d52e4add8bd0e", null ],
+      [ "GetTime", "classzen_1_1util_1_1z_timer.html#a9365bf6eb4b4ab7d2caa8e5604a95b9f", null ],
+      [ "SetFrameRate", "classzen_1_1util_1_1z_timer.html#a16ae82c520a4e872a25c64036df458d2", null ]
     ] ],
     [ "zXMLParser", "classzen_1_1util_1_1z_x_m_l_parser.html", [
       [ "zXMLParser", "classzen_1_1util_1_1z_x_m_l_parser.html#aecdd34194e0e1174c7a9900e2f0aff96", null ],

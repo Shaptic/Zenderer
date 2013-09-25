@@ -1,5 +1,5 @@
 <map id="Zenderer/src/Graphics/Polygon.cpp" name="Zenderer/src/Graphics/Polygon.cpp">
-<area shape="rect" id="node2" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="1941,96,2144,123"/>
+<area shape="rect" id="node2" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Polygon.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="1941,96,2144,123"/>
 <area shape="rect" id="node3" href="$_open_g_l_8hpp.html" title="Zenderer/CoreGraphics/OpenGL.hpp &#45; Includes necessary OpenGL&#45;related headers and defines convenience ..." alt="" coords="1773,593,1928,634"/>
 <area shape="rect" id="node25" href="$_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="1965,171,2120,213"/>
 <area shape="rect" id="node49" href="$_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures. " alt="" coords="2363,683,2541,709"/>

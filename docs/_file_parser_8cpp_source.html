@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('_file_parser_8cpp_source.html','');});
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="group___utilities.html#ga83fdcb1a9374c0bed0888f80afdc998d">ZEN_ASSERT</a>(!filename.empty());</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::ifstream infile(filename);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1util_1_1z_file_parser.html#adeb9b19a83a1a6c2827a036318d9c209" title="Parses a portion of a filestream. ">LoadFromStream</a>(infile, 0, 0, filename.c_str());</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classzen_1_1util_1_1z_file_parser.html#adeb9b19a83a1a6c2827a036318d9c209" title="Parses a portion of a filestream. ">LoadFromStream</a>(infile, 0, -1, filename.c_str());</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_file_parser.html#adeb9b19a83a1a6c2827a036318d9c209">   19</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1util_1_1z_file_parser.html#adeb9b19a83a1a6c2827a036318d9c209" title="Parses a portion of a filestream. ">zFileParser::LoadFromStream</a>(std::ifstream&amp; infile,</div>
@@ -153,7 +153,7 @@ $(document).ready(function(){initNavTree('_file_parser_8cpp_source.html','');});
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            m_results.emplace_back(pair_t(</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                line.substr(0, index),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                line.substr(index)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                line.substr(index + 1)</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            ));</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>

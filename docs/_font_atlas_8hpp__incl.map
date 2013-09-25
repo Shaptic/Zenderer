@@ -26,7 +26,7 @@
 <area shape="rect" id="node41" href="$_asset_manager_8hpp.html" title="Zenderer/Assets/AssetManager.hpp &#45; A container for all in&#45;engine assets like shaders, textures, and audio files. " alt="" coords="1211,600,1441,627"/>
 <area shape="rect" id="node42" href="$_effect_8hpp.html" title="Zenderer/Graphics/Effect.hpp &#45; A high&#45;level shader wrapper intended to be used by the user..." alt="" coords="1447,509,1527,536"/>
 <area shape="rect" id="node47" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1503,253,1705,280"/>
-<area shape="rect" id="node49" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="1075,253,1279,280"/>
+<area shape="rect" id="node49" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Polygon.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="1075,253,1279,280"/>
 <area shape="rect" id="node50" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices. " alt="" coords="1381,171,1568,197"/>
 <area shape="rect" id="node48" href="$_event_handler_8hpp.html" title="Zenderer/Events/EventHandler.hpp &#45; Defines an event&#45;handling singleton object that stores and process..." alt="" coords="1231,344,1451,371"/>
 </map>

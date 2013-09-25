@@ -27,6 +27,6 @@
 <area shape="rect" id="node43" href="$_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="1608,493,1811,520"/>
 <area shape="rect" id="node44" href="$_texture_8hpp.html" title="Zenderer/CoreGraphics/Texture.hpp &#45; A low&#45;level texture asset wrapper around OpenGL textures..." alt="" coords="845,577,1000,618"/>
 <area shape="rect" id="node47" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1771,312,1973,339"/>
-<area shape="rect" id="node48" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="2195,312,2399,339"/>
+<area shape="rect" id="node48" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Polygon.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="2195,312,2399,339"/>
 <area shape="rect" id="node49" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices. " alt="" coords="2435,229,2623,256"/>
 </map>

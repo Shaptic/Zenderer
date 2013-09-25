@@ -10,5 +10,5 @@ var searchData=
   ['translate',['Translate',['../classzen_1_1math_1_1matrix4x4__t.html#a08a41a4a908e13a44872da95b3421fdf',1,'zen::math::matrix4x4_t::Translate()'],['../structzen_1_1math_1_1z_vector.html#a2430d98889cbd1cb518b25b18ec9717e',1,'zen::math::zVector::Translate()']]],
   ['translateadj',['TranslateAdj',['../classzen_1_1math_1_1matrix4x4__t.html#a8490c81757977f33c6e4482e8b6a70e2',1,'zen::math::matrix4x4_t']]],
   ['triangle_5ftest',['triangle_test',['../namespacezen_1_1math.html#a1d4ffb053acae9b90121f0d9658680f0',1,'zen::math']]],
-  ['triangulate',['Triangulate',['../classzen_1_1gfx_1_1z_polygon.html#a6f684f3158b5ab347dbc28db162e9f83',1,'zen::gfx::zPolygon::Triangulate()'],['../classzen_1_1gfx_1_1z_quad.html#a5970d083f4026dc6ac70bb2220cd9486',1,'zen::gfx::zQuad::Triangulate()'],['../namespacezen_1_1math.html#a4f3d40ee0b2ca5a5ea75006260d1dede',1,'zen::math::triangulate()']]]
+  ['triangulate',['triangulate',['../namespacezen_1_1math.html#a4f3d40ee0b2ca5a5ea75006260d1dede',1,'zen::math']]]
 ];

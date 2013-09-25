@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -227,11 +227,11 @@ $(document).ready(function(){initNavTree('_font_8cpp_source.html','');});
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="classzen_1_1gfx_1_1z_quad.html" title="A four-sided quadrilateral primitive. ">gfx::zQuad</a> <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>(*mp_Assets, Texture.<a class="code" href="classzen_1_1gfxcore_1_1z_texture.html#a23cb398f680bd7dd2f4a7451207469e5">GetWidth</a>(), Texture.<a class="code" href="classzen_1_1gfxcore_1_1z_texture.html#a91e86e33c712961c54016b06505bf9c5">GetHeight</a>());</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>.AttachMaterial(<a class="code" href="_keyboard_8hpp.html#aad05f78187c942f9dd521605fa81f1ba">M</a>);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>.Create();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>.SetColor(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>());</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>.SetColor(<a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>());</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>.Create();</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span>(!m_stack) Ent.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a14fa187a69a6c5dba0199d6fdbef8cdb">Destroy</a>();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    Ent.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. ">AddPrimitive</a>(<a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    Ent.<a class="code" href="classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. ">AddPrimitive</a>(std::move(<a class="code" href="_keyboard_8hpp.html#a7e56035a736d269ad670f312496a0846">Q</a>));</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
@@ -263,7 +263,7 @@ $(document).ready(function(){initNavTree('_font_8cpp_source.html','');});
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">// any, we stop max()-ing the bearing.</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">// Thus the (0, 0, 1) coordinate is the top of the line. Any subsequent</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">// lines just add their height to the y coordinate and keep rendering.</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="structzen_1_1math_1_1z_vector.html">math::zVector&lt;int16_t&gt;</a> Pos;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="structzen_1_1math_1_1z_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">math::zVector&lt;int16_t&gt;</a> Pos;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : text)</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    {</div>

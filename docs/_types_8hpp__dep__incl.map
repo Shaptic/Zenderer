@@ -37,7 +37,7 @@
 <area shape="rect" id="node11" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="1648,822,1819,863"/>
 <area shape="rect" id="node9" href="$_scene_8hpp.html" title="Zenderer/Graphics/Scene.hpp &#45; A high&#45;level graphics rendering interface intended to abstract away all..." alt="" coords="925,913,1096,954"/>
 <area shape="rect" id="node6" href="$_renderer_8hpp.html" title="Zenderer/CoreGraphics/Renderer.hpp &#45; A low&#45;level class to take care of rendering state and other grap..." alt="" coords="917,731,1104,773"/>
-<area shape="rect" id="node7" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="320,822,491,863"/>
+<area shape="rect" id="node7" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Polygon.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="320,822,491,863"/>
 <area shape="rect" id="node8" href="$_render_target_8hpp.html" title="Zenderer/Graphics/RenderTarget.hpp &#45; An object wrapper for OpenGL frame buffer objects. " alt="" coords="1048,822,1232,863"/>
 <area shape="rect" id="node14" href="$_music2_d_8hpp.html" title="Zenderer/Audio/Music2D.hpp &#45; Long .ogg files used for music, dialogue, etc. " alt="" coords="2732,641,2903,682"/>
 <area shape="rect" id="node15" href="$_sound2_d_8hpp.html" title="Zenderer/Audio/Sound2D.hpp &#45; Short .wav file sound effects used in&#45;game. " alt="" coords="2548,731,2719,773"/>

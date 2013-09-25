@@ -1,0 +1,4 @@
+<map id="zen::obj::zEntity::Collides" name="zen::obj::zEntity::Collides">
+<area shape="rect" id="node2" href="$classzen_1_1gui_1_1z_button.html#a9459ec702c9ea16899626e34a01ed9d1" title="zen::gui::zButton::\lIsOver" alt="" coords="179,5,309,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1z_entity.html#a0fabb7a8eb2c7e4b060fd121dfcbc6ad" title="zen::obj::zEntity::\lCollides" alt="" coords="181,70,307,111"/>
+</map>

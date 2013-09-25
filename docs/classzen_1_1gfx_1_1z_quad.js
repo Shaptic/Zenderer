@@ -7,9 +7,9 @@ var classzen_1_1gfx_1_1z_quad =
     [ "Create", "classzen_1_1gfx_1_1z_quad.html#a8eaf715d98a3a11a202ad73f0f7e356d", null ],
     [ "Resize", "classzen_1_1gfx_1_1z_quad.html#aa18ef578cfc4552effe995fa42e7ce59", null ],
     [ "Resize", "classzen_1_1gfx_1_1z_quad.html#aecfed1edd9f86fdd22522ac869cae5a2", null ],
-    [ "Triangulate", "classzen_1_1gfx_1_1z_quad.html#a5970d083f4026dc6ac70bb2220cd9486", null ],
+    [ "Collides", "classzen_1_1gfx_1_1z_quad.html#a5eb84d8851c72de252ee06a302d45e07", null ],
+    [ "Collides", "classzen_1_1gfx_1_1z_quad.html#ab47b202f4549acb2c691fad8199d45e7", null ],
+    [ "Collides", "classzen_1_1gfx_1_1z_quad.html#a61f0d5bdb408ece67889b5c735e97c04", null ],
     [ "SetInverted", "classzen_1_1gfx_1_1z_quad.html#a432e755f175068c7e354053a37ac2365", null ],
-    [ "SetRepeating", "classzen_1_1gfx_1_1z_quad.html#a2461053b411db584b9c3dd40364cdff2", null ],
-    [ "GetW", "classzen_1_1gfx_1_1z_quad.html#acc347e557995ba6daf0f6d74b6fdb74d", null ],
-    [ "GetH", "classzen_1_1gfx_1_1z_quad.html#aee862c801b1d9d88f26c95508574a024", null ]
+    [ "SetRepeating", "classzen_1_1gfx_1_1z_quad.html#a2461053b411db584b9c3dd40364cdff2", null ]
 ];

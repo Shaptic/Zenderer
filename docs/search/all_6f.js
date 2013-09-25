@@ -6,6 +6,7 @@ var searchData=
   ['offloaded',['Offloaded',['../classzen_1_1gfxcore_1_1z_vertex_array.html#af2a2172d019cdbf8318e4c95fa545065',1,'zen::gfxcore::zVertexArray::Offloaded()'],['../classzen_1_1obj_1_1z_entity.html#a3c201ca568e29bb36c93d19339670e45',1,'zen::obj::zEntity::Offloaded()']]],
   ['oggerror',['OGGError',['../classzen_1_1sfx_1_1z_audio_manager.html#a65b1b1bcfa2de827f28a635558ab5d21',1,'zen::sfx::zAudioManager']]],
   ['one',['ONE',['../_keyboard_8hpp.html#a2cb8470634cc90a55800ee95f967eade',1,'Keyboard.hpp']]],
+  ['onfinish',['OnFinish',['../classzen_1_1obj_1_1z_animation.html#a7d3ef5c8303886c20ab2c38e161e35ed',1,'zen::obj::zAnimation']]],
   ['opengl_2ecpp',['OpenGL.cpp',['../_open_g_l_8cpp.html',1,'']]],
   ['opengl_2ehpp',['OpenGL.hpp',['../_open_g_l_8hpp.html',1,'']]],
   ['operator_20bool',['operator bool',['../classzen_1_1util_1_1z_option.html#aad86a95f462e1c43bd0a8b3495bcc889',1,'zen::util::zOption']]],
@@ -27,5 +28,5 @@ var searchData=
   ['operator_5e',['operator^',['../structzen_1_1math_1_1z_vector.html#ab3ff19238545227d422d4dc61bac1747',1,'zen::math::zVector::operator^(const zVector&lt; U &gt; &amp;Other) const '],['../structzen_1_1math_1_1z_vector.html#a7989864d3fe4478b117f90cab0e34249',1,'zen::math::zVector::operator^(const zVector&lt; U &gt; &amp;Other) const ']]],
   ['optimize',['Optimize',['../classzen_1_1obj_1_1z_entity.html#a0a27bfedc1899ec3909f69d7061f7a7f',1,'zen::obj::zEntity']]],
   ['options',['options',['../namespacezen_1_1util.html#a37be06342d2b8e2b9143908d5a3d141f',1,'zen::util::XMLNode']]],
-  ['orientation',['orientation',['../namespacezen_1_1math.html#a5a67238f55df8bebfac6b3ab4d2713d9',1,'zen::math::orientation(const std::vector&lt; vector_t &gt; &amp;Polygon)'],['../namespacezen_1_1math.html#a64218c752dcff51bfa84fbe3d3b52d66',1,'zen::math::orientation(const tri_t &amp;Tri)']]]
+  ['orientation',['orientation',['../namespacezen_1_1math.html#a64218c752dcff51bfa84fbe3d3b52d66',1,'zen::math']]]
 ];

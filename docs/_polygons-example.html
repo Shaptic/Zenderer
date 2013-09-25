@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -126,14 +126,14 @@ Simple Quad</h2>
 Approximated Circle</h2>
 <p>Now we will create a circle, or an approximation there-of. It's impossible of course to create a perfect circle since it's composed of lines, but we approximate with 360 sides :)</p>
 <div class="fragment"><div class="line"><span class="comment">// Assuming a manager, etc has already been defined prior.</span></div>
-<div class="line">gfx::zPolygon Circle(Manager);</div>
+<div class="line">gfx::zPolygon Circle(Manager, 360);</div>
 <div class="line"></div>
 <div class="line"><a name="a0"></a><a class="code" href="namespacezen.html#a5d32de474b003f05ae63578b15865826" title="Specifies whether the engine should use &#39;double&#39; (64-bit) or &#39;real_t&#39; (32-bit) values for real_t numb...">real_t</a> radius = 32;</div>
 <div class="line">Circle.AddVertex(32, 32);   <span class="comment">// Center of the circle</span></div>
 <div class="line"><span class="keywordflow">for</span>(uint16_t i = 0; i &lt; 360; ++i)</div>
 <div class="line">{</div>
-<div class="line">    Circle.AddVertex(sin(<a name="a1"></a><a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(i)) * radius,</div>
-<div class="line">                     cos(<a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(i)) * radius);</div>
+<div class="line">    Circle.AddVertex(std::sin(<a name="a1"></a><a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(i)) * radius,</div>
+<div class="line">                     std::cos(<a class="code" href="namespacezen_1_1math.html#aba6f634f9ccda1de3a28e4e8f86f3da2" title="Converts degrees to radians. ">math::rad</a>(i)) * radius);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">Circle.Create();</div>

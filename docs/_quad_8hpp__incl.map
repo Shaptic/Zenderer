@@ -1,6 +1,6 @@
 <map id="Zenderer/include/Zenderer/Graphics/Quad.hpp" name="Zenderer/include/Zenderer/Graphics/Quad.hpp">
 <area shape="rect" id="node2" href="$_shapes_8hpp.html" title="Zenderer/Math/Shapes.hpp &#45; Defines various shape structures. " alt="" coords="267,683,445,709"/>
-<area shape="rect" id="node23" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="451,96,655,123"/>
+<area shape="rect" id="node23" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Polygon.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="451,96,655,123"/>
 <area shape="rect" id="node5" href="$_types_8hpp.html" title="Zenderer/Core/Types.hpp &#45; Defines standard types used extensively throughout almost every part of the..." alt="" coords="1015,923,1181,949"/>
 <area shape="rect" id="node8" href="$_assert_8hpp.html" title="Zenderer/Utilities/Assert.hpp &#45; A debug utility for verifying program state at runtime. " alt="" coords="1618,758,1736,799"/>
 <area shape="rect" id="node17" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="13,848,115,875"/>

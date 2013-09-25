@@ -5,7 +5,7 @@ var searchData=
   ['effect_2ehpp',['Effect.hpp',['../_effect_8hpp.html',1,'']]],
   ['effect_2einl',['Effect.inl',['../_effect_8inl.html',1,'']]],
   ['eight',['EIGHT',['../_keyboard_8hpp.html#a1562f79a436bcc552b7861b4c770ae72',1,'Keyboard.hpp']]],
-  ['elapsed',['Elapsed',['../classzen_1_1util_1_1_c_timer.html#a345aba9628d5327f118830cff5952001',1,'zen::util::CTimer']]],
+  ['elapsed',['Elapsed',['../classzen_1_1util_1_1z_timer.html#ae5a591dfbe0919b117b003761c62b676',1,'zen::util::zTimer']]],
   ['enable',['Enable',['../classzen_1_1gfx_1_1z_effect.html#a43daea858e13c760de4f0c0af715d880',1,'zen::gfx::zEffect::Enable()'],['../classzen_1_1gfx_1_1z_light.html#a6ceaf85f16dd8bed926f1555a36cdb6b',1,'zen::gfx::zLight::Enable()'],['../classzen_1_1gfx_1_1z_material.html#a8f82d5c3f189e6493b322b43f0fba50c',1,'zen::gfx::zMaterial::Enable()'],['../classzen_1_1obj_1_1z_entity.html#a707b60029a9a9cbe59981022a8b8110b',1,'zen::obj::zEntity::Enable()']]],
   ['enable_5fblend',['ENABLE_BLEND',['../_renderer_8hpp.html#ad3b02d075dc8217d2862581ba94b7ea2',1,'Renderer.hpp']]],
   ['enableeffect',['EnableEffect',['../classzen_1_1gfx_1_1z_material.html#afcc38d69492914de07023fdeb680cfa9',1,'zen::gfx::zMaterial']]],

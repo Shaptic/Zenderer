@@ -8,7 +8,6 @@ var hierarchy =
     [ "zen::obj::circle_t", "group___objects.html#structzen_1_1obj_1_1circle__t", null ],
     [ "zen::color3f_t", "structzen_1_1color3f__t.html", null ],
     [ "zen::color4f_t", "structzen_1_1color4f__t.html", null ],
-    [ "zen::util::CTimer", "classzen_1_1util_1_1_c_timer.html", null ],
     [ "zen::gfxcore::DrawBatch", "namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1_draw_batch", null ],
     [ "zen::evt::event_t", "structzen_1_1evt_1_1event__t.html", null ],
     [ "zen::glyph_t", "namespacezen.html#structzen_1_1glyph__t", null ],
@@ -58,6 +57,7 @@ var hierarchy =
     [ "zen::util::zOption", "classzen_1_1util_1_1z_option.html", null ],
     [ "zen::util::zParser", "classzen_1_1util_1_1z_parser.html", null ],
     [ "zen::gfx::zPolygon", "classzen_1_1gfx_1_1z_polygon.html", [
+      [ "zen::gfx::zConcavePolygon", "classzen_1_1gfx_1_1z_concave_polygon.html", null ],
       [ "zen::gfx::zQuad", "classzen_1_1gfx_1_1z_quad.html", null ]
     ] ],
     [ "zen::util::zRandom< SEED, RNG >", "classzen_1_1util_1_1z_random.html", null ],
@@ -73,8 +73,8 @@ var hierarchy =
       [ "zen::util::zSettings", "classzen_1_1util_1_1z_settings.html", null ],
       [ "zen::zAllocator", "classzen_1_1z_allocator.html", null ]
     ] ],
+    [ "zen::util::zTimer", "classzen_1_1util_1_1z_timer.html", null ],
     [ "zen::math::zVector< T >", "structzen_1_1math_1_1z_vector.html", null ],
-    [ "zen::math::zVector< int16_t >", "structzen_1_1math_1_1z_vector.html", null ],
     [ "zen::math::zVector< real_t >", "structzen_1_1math_1_1z_vector.html", null ],
     [ "zen::math::zVector< uint16_t >", "structzen_1_1math_1_1z_vector.html", null ],
     [ "zen::util::zXMLParser", "classzen_1_1util_1_1z_x_m_l_parser.html", null ]

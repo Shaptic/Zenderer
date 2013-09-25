@@ -2,7 +2,7 @@
 <area shape="rect" id="node4" href="$_math_8hpp.html" title="Zenderer/Math/Math.hpp &#45; Includes all of the various math definitions and defines useful functions..." alt="" coords="144,419,307,445"/>
 <area shape="rect" id="node25" href="$_window_8hpp.html" title="Zenderer/Graphics/Window.hpp &#45; An OpenGL context wrapper that the engine performs operations on..." alt="" coords="739,171,941,197"/>
 <area shape="rect" id="node36" href="$_material_8hpp.html" title="Zenderer/Graphics/Material.hpp &#45; Defines a material structure for rendering different images and effe..." alt="" coords="1589,336,1792,363"/>
-<area shape="rect" id="node49" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Drawable.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="966,171,1169,197"/>
+<area shape="rect" id="node49" href="$_polygon_8hpp.html" title="Zenderer/CoreGraphics/Polygon.hpp &#45; A vertex&#45;agnostic convex primitive. " alt="" coords="966,171,1169,197"/>
 <area shape="rect" id="node50" href="$_quad_8hpp.html" title="Zenderer/Graphics/Quad.hpp &#45; A drawable primitive with 4 vertices. " alt="" coords="614,96,801,123"/>
 <area shape="rect" id="node33" href="$_i_n_i_parser_8hpp.html" title="Zenderer/Utilities/INIParser.hpp &#45; A key=value pair file parser used throughout Zenderer to load vari..." alt="" coords="2026,593,2144,634"/>
 <area shape="rect" id="node5" href="$_math_core_8hpp.html" title="Zenderer/Math/MathCore.hpp &#45; Defines various functions that are used throughout the rest of the math ..." alt="" coords="339,683,441,709"/>

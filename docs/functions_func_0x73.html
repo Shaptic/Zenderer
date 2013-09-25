@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9147 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -200,7 +200,7 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 , <a class="el" href="classzen_1_1gui_1_1z_menu.html#a453ad6ebe7f7c78f32e8d532f926998f">zen::gui::zMenu</a>
 </li>
 <li>SetFrameRate()
-: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a8db939f6b0856914f6ddc9555fe7c88b">zen::util::CTimer</a>
+: <a class="el" href="classzen_1_1util_1_1z_timer.html#a16ae82c520a4e872a25c64036df458d2">zen::util::zTimer</a>
 </li>
 <li>SetIndices()
 : <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#ae812840875c700f99062aa1c34fe9a4f">zen::gfx::zPolygon</a>
@@ -212,13 +212,13 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1z_quad.html#a432e755f175068c7e354053a37ac2365">zen::gfx::zQuad</a>
 </li>
 <li>SetKeyframeCount()
-: <a class="el" href="classzen_1_1obj_1_1z_animation.html#afa91f2a5f74c681f522026ec1b5cd40f">zen::obj::zAnimation</a>
+: <a class="el" href="classzen_1_1obj_1_1z_animation.html#af9f2e332f17dbe5bddd6e507549c6dd7">zen::obj::zAnimation</a>
 </li>
 <li>SetKeyframeRate()
-: <a class="el" href="classzen_1_1obj_1_1z_animation.html#a4ae9c02d6e87549c5227c0d9f9dc3e14">zen::obj::zAnimation</a>
+: <a class="el" href="classzen_1_1obj_1_1z_animation.html#a7622374cda2d6d88bc9e2bcfafb7275b">zen::obj::zAnimation</a>
 </li>
 <li>SetKeyframeSize()
-: <a class="el" href="classzen_1_1obj_1_1z_animation.html#a8ee90d4451d23727d77c8cba9c465e88">zen::obj::zAnimation</a>
+: <a class="el" href="classzen_1_1obj_1_1z_animation.html#a45db59d983ba8e5ff681fe2757f901bc">zen::obj::zAnimation</a>
 </li>
 <li>SetLog()
 : <a class="el" href="classzen_1_1z_subsystem.html#ad7382150f00b99910c5c9bb63a95e299">zen::zSubsystem</a>
@@ -275,19 +275,19 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 : <a class="el" href="classzen_1_1gui_1_1z_menu.html#a22b8915957cea48a95c31f6e300319c4">zen::gui::zMenu</a>
 </li>
 <li>SetType()
-: <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#a29e6b2e65239a7ad8e36524ebd81c6d2">zen::gfxcore::zShader</a>
-, <a class="el" href="classzen_1_1gfx_1_1z_effect.html#a5b23e013a9af07ffc5c4d6d28d442b86">zen::gfx::zEffect</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_effect.html#a5b23e013a9af07ffc5c4d6d28d442b86">zen::gfx::zEffect</a>
 , <a class="el" href="classzen_1_1gfx_1_1z_light.html#ac6dfc7af8d9c157fce58d2fbbc460f11">zen::gfx::zLight</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#a29e6b2e65239a7ad8e36524ebd81c6d2">zen::gfxcore::zShader</a>
 </li>
 <li>Shear()
-: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">zen::math::matrix4x4_t</a>
-, <a class="el" href="classzen_1_1obj_1_1z_entity.html#a1e482bcc7d010db11da731eb4ae913ea">zen::obj::zEntity</a>
+: <a class="el" href="classzen_1_1obj_1_1z_entity.html#a1e482bcc7d010db11da731eb4ae913ea">zen::obj::zEntity</a>
+, <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a4ea7a579fa5b9f8ef1481c11f8c1d115">zen::math::matrix4x4_t</a>
 </li>
 <li>ShowXMLError()
 : <a class="el" href="classzen_1_1util_1_1z_x_m_l_parser.html#a2f98c13f5ea15dce2d2ec23fa461cd6f">zen::util::zXMLParser</a>
 </li>
 <li>Sleep()
-: <a class="el" href="classzen_1_1util_1_1_c_timer.html#a1c2e04ea1b00c02788f693267a3e46f6">zen::util::CTimer</a>
+: <a class="el" href="classzen_1_1util_1_1z_timer.html#a391c975d03981bb7607e28db36720eec">zen::util::zTimer</a>
 </li>
 <li>SortByAlpha()
 : <a class="el" href="classzen_1_1gfxcore_1_1z_sorter.html#a5cc3a9635c975bfa71032bf3f17a12ac">zen::gfxcore::zSorter</a>
@@ -299,7 +299,10 @@ $(document).ready(function(){initNavTree('functions_func_0x73.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1z_sorter.html#a7a7d0670ece3749a90584d7bdceb44e6">zen::gfxcore::zSorter</a>
 </li>
 <li>Start()
-: <a class="el" href="classzen_1_1util_1_1_c_timer.html#aa7ec276af3862a205dac144d964720ae">zen::util::CTimer</a>
+: <a class="el" href="classzen_1_1util_1_1z_timer.html#a61a93b2e2de84029d98c67cc9f737ba9">zen::util::zTimer</a>
+</li>
+<li>StopAnimation()
+: <a class="el" href="classzen_1_1obj_1_1z_animation.html#ab0c8efb8cbd5959143235c46671a2f86">zen::obj::zAnimation</a>
 </li>
 </ul>
 </div><!-- contents -->
