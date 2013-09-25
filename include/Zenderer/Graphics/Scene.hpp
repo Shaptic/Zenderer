@@ -40,6 +40,7 @@ namespace zen
 {
 namespace gfx
 {
+    /// A high-level rendering wrapper allowing for special effects and lighting.
     class ZEN_API zScene : public zSubsystem
     {
     public:
