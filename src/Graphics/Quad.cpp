@@ -44,6 +44,9 @@ gfx::zPolygon& zQuad::Create()
         this->LoadInvertedTC();
     }
 
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+        m_DrawData.Vertices[i].color = m_Color;
+
     if(m_DrawData.Indices == nullptr)
     {
         m_DrawData.Indices = new gfxcore::index_t[6];

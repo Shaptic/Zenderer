@@ -86,7 +86,8 @@ zPolygon::~zPolygon()
 
 void zPolygon::Move(const math::vector_t& Position)
 {
-    math::vector_t d = math::vector_t(m_BoundingBox.x, m_BoundingBox.y) - Position;
+    math::vector_t d = Position - math::vector_t(m_BoundingBox.x,
+                                                 m_BoundingBox.y);
 
     m_BoundingBox.x = Position.x;
     m_BoundingBox.y = Position.y;
@@ -96,8 +97,8 @@ void zPolygon::Move(const math::vector_t& Position)
 
 void zPolygon::Move(const real_t x, const real_t y)
 {
-    math::vector_t d = math::vector_t(m_BoundingBox.x, m_BoundingBox.y) -
-                       math::vector_t(x, y);
+    math::vector_t d = math::vector_t(x, y) - math::vector_t(m_BoundingBox.x,
+                                                             m_BoundingBox.y);
 
     m_BoundingBox.x = x;
     m_BoundingBox.y = y;

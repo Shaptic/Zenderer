@@ -22,6 +22,10 @@ int main()
     P2.Create();
     P2.Move(100, 100);
 
+    gfx::zQuad Q1(Mgr, 128, 128);
+    Q1.SetColor(color4f_t(0, 0, 1));
+    Q1.Create();
+
     evt::event_t E;
     while(Win.IsOpen())
     {
@@ -30,16 +34,16 @@ int main()
         {
             if(E.type == evt::EventType::MOUSE_MOTION)
             {
-                math::vector_t d = P1.GetPosition() - E.mouse.position;
-                P1.Move(E.mouse.position);
+                Q1.Move(E.mouse.position);
             }
         }
 
-        std::cout << P1.Collides(P2) << std::endl;
+        std::cout << P1.Collides(Q1) << std::endl;
 
         Win.Clear();
         P2.Draw();
         P1.Draw();
+        Q1.Draw();
         Win.Update();
     }
 
