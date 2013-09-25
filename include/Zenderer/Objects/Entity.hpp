@@ -232,10 +232,10 @@ namespace obj
         bool Offloaded() const;
 
         /// Checks collision with another entity.
-        bool Collides(const zEntity& Other, math::tri_t* poi = nullptr);
-        bool Collides(const math::rect_t& other, math::tri_t* poi = nullptr);   ///< @overload
-        bool Collides(const math::aabb_t& other, math::tri_t* poi = nullptr);   ///< @overload
-        bool Collides(const math::vector_t& Pos, math::tri_t* poi = nullptr);   ///< @overload
+        bool Collides(const zEntity& Other, math::vector_t* poi = nullptr);
+        bool Collides(const math::rect_t& other, math::vector_t* poi = nullptr);   ///< @overload
+        bool Collides(const math::aabb_t& other, math::vector_t* poi = nullptr);   ///< @overload
+        bool Collides(const math::vector_t& Pos, math::vector_t* poi = nullptr);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint8_t depth);
@@ -278,6 +278,7 @@ namespace obj
 
         math::matrix4x4_t           m_MV;
         math::aabb_t                m_Box;
+        math::rect_t                m_PolyBB;
         std::vector<math::vector_t> m_Triangulation;
         std::vector<gfx::zPolygon*> mp_allPrims;
         string_t                    m_filename;
