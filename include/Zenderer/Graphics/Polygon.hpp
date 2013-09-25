@@ -195,8 +195,8 @@ namespace gfx
             if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
 
             int16_t left = m_Verts.empty() ?
-                            m_DrawData.Vertices[0].position.x :
-                            m_Verts[0].x;
+                           m_DrawData.Vertices[0].position.x :
+                           m_Verts[0].x;
 
             for(auto& i : m_Verts) left = math::min<int>(left, i.x);
             std::for_each(m_DrawData.Vertices,

@@ -129,13 +129,13 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     if(!Mat.LoadTextureFromFile(filename)) return false;
 
     gfx::zQuad* pPrimitive = new gfx::zQuad(m_Assets,
-        Mat.GetTexture().GetWidth(),
-        Mat.GetTexture().GetHeight());
+                                            Mat.GetTexture().GetWidth(),
+                                            Mat.GetTexture().GetHeight());
 
     pPrimitive->AttachMaterial(Mat);
     pPrimitive->SetInverted(m_inv);
-    pPrimitive->Create();
     pPrimitive->SetColor(color4f_t(1, 1, 1, 1));
+    pPrimitive->Create();
 
     mp_allPrims.push_back(pPrimitive);
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
@@ -146,7 +146,9 @@ bool zEntity::LoadFromTexture(const string_t& filename)
 
 bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
 {
-    if(!(Polygon.m_DrawData.icount && Polygon.m_DrawData.vcount)) return false;
+    if(Polygon.m_DrawData.icount == 0 &&
+       Polygon.m_DrawData.vcount == 0 &&
+       Polygon.m_Verts.empty()) return false;
 
     gfx::zPolygon* pPoly = new gfx::zPolygon(Polygon);
     pPoly->AttachMaterial(const_cast<gfx::zMaterial&>(Polygon.GetMaterial()));
@@ -195,8 +197,7 @@ void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
     m_depth = z;
     math::vector_t d = math::vector_t(x, y, z) - this->GetPosition();
 
-    for(auto& i : mp_allPrims)      i->Move(x, y);
-    for(auto& i : m_Triangulation)  i = i + d;
+    for(auto& i : mp_allPrims) i->Move(x, y);
 
     m_MV.Translate(math::vector_t(x, y, z));
     m_Box = math::aabb_t(math::rect_t(x + m_PolyBB.x, y + m_PolyBB.y,
