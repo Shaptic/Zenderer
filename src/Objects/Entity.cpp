@@ -157,9 +157,13 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     pPoly->Create();
     mp_allPrims.push_back(pPoly);
 
-    m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
-                            math::max<uint32_t>(this->GetW(), pPoly->GetW()),
-                            math::max<uint32_t>(this->GetH(), pPoly->GetH())));
+    m_PolyBB = math::rect_t(pPoly->GetLeftPoint(), pPoly->GetLowPoint(),
+                            pPoly->GetW(), pPoly->GetH());
+
+    m_Box = math::aabb_t(math::rect_t(this->GetX() + m_PolyBB.x,
+                                      this->GetY() + m_PolyBB.y,
+                            math::max<uint32_t>(this->GetW(), m_PolyBB.w),
+                            math::max<uint32_t>(this->GetH(), m_PolyBB.h)));
 
     m_Triangulation = Polygon.Triangulate();
 
@@ -198,7 +202,8 @@ void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
     for(auto& i : m_Triangulation)  i = i + d;
 
     m_MV.Translate(math::vector_t(x, y, z));
-    m_Box = math::aabb_t(math::rect_t(x, y, this->GetW(), this->GetH()));
+    m_Box = math::aabb_t(math::rect_t(x + m_PolyBB.x, y + m_PolyBB.y,
+                                      this->GetW(), this->GetH()));
 }
 
 void zEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
@@ -228,19 +233,41 @@ bool zEntity::Offloaded() const
     return true;
 }
 
-bool zEntity::Collides(const zEntity& Other, math::tri_t* poi)
+bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
 {
-    return this->Collides(Other.m_Box, poi);
+    if(Other.m_Box.collides(m_Box)) return false;
+    for(size_t i = 0; i < m_Triangulation.size(); i += 3)
+    {
+        math::tri_t t1 = {
+            m_Triangulation[i],
+            m_Triangulation[i+1],
+            m_Triangulation[i+2]
+        };
+
+        for(size_t j = 0; j < Other.m_Triangulation.size(); j += 3)
+        {
+            math::tri_t t2 = {
+                m_Triangulation[j],
+                m_Triangulation[j+1],
+                m_Triangulation[j+2]
+            };
+
+            if(math::collides(t1, t2, poi)) return true;
+        }
+    }
+
+    return false;
 }
 
-bool zEntity::Collides(const math::rect_t& other, math::tri_t* poi)
+bool zEntity::Collides(const math::rect_t& other, math::vector_t* poi)
 {
     return this->Collides(math::aabb_t(other), poi);
 }
 
-bool zEntity::Collides(const math::aabb_t& other, math::tri_t* poi)
+bool zEntity::Collides(const math::aabb_t& other, math::vector_t* poi)
 {
     if(!m_Box.collides(other)) return false;
+
     for(size_t i = 0; i < m_Triangulation.size(); i += 3)
     {
         math::tri_t t = {
@@ -249,17 +276,13 @@ bool zEntity::Collides(const math::aabb_t& other, math::tri_t* poi)
             m_Triangulation[i+2]
         };
 
-        if(other.collides(t))
-        {
-            if(poi != nullptr) *poi = t;
-            return true;
-        }
+        if(other.collides(t)) return true;
     }
 
     return false;
 }
 
-bool zEntity::Collides(const math::vector_t& pos, math::tri_t* poi)
+bool zEntity::Collides(const math::vector_t& pos, math::vector_t* poi)
 {
     return this->Collides(math::rect_t(pos.x, pos.y, 1, 1), poi);
 }
