@@ -7,7 +7,7 @@ using gfxcore::zRenderer;
   #pragma comment(lib, "Zenderer.lib")
 #endif // ZEN_API
 
-int main(int argc, char* argv[])
+int main2(int argc, char* argv[])
 {
     Init();
     asset::zAssetManager Manager; Manager.Init();
