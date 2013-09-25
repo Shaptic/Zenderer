@@ -155,9 +155,13 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     pPoly->Create();
     mp_allPrims.push_back(pPoly);
 
-    m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
-                            math::max<uint32_t>(this->GetW(), pPoly->GetW()),
-                            math::max<uint32_t>(this->GetH(), pPoly->GetH())));
+    m_PolyBB = math::rect_t(pPoly->GetLeftPoint(), pPoly->GetLowPoint(),
+                            pPoly->GetW(), pPoly->GetH());
+
+    m_Box = math::aabb_t(math::rect_t(this->GetX() + m_PolyBB.x,
+                                      this->GetY() + m_PolyBB.y,
+                            math::max<uint32_t>(this->GetW(), m_PolyBB.w),
+                            math::max<uint32_t>(this->GetH(), m_PolyBB.h)));
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;
@@ -194,7 +198,8 @@ void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
     for(auto& i : m_Triangulation)  i = i + d;
 
     m_MV.Translate(math::vector_t(x, y, z));
-    m_Box = math::aabb_t(math::rect_t(x, y, this->GetW(), this->GetH()));
+    m_Box = math::aabb_t(math::rect_t(x + m_PolyBB.x, y + m_PolyBB.y,
+                                      this->GetW(), this->GetH()));
 }
 
 void zEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)

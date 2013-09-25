@@ -109,15 +109,16 @@ namespace math
      * Detects collision between two triangles.
      * @param   A   First triangle
      * @param   B   Second triangle
+     * @param   pt  The exact point of intersection (optional)
      * @return  `true` if they collide, `false` otherwise.
      **/
-    bool collides(const tri_t& A, const tri_t& b);
+    bool collides(const tri_t& A, const tri_t& b, vector_t* pt = nullptr);
 
     /**
      * @overload
      * @see     http://stackoverflow.com/a/565282
      **/
-    bool collides(const line_t& a, const line_t& b);
+    bool collides(const line_t& a, const line_t& b, vector_t* pt = nullptr);
 
     /**
      * Finds orientation of a given set of points.

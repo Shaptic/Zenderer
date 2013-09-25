@@ -278,6 +278,7 @@ namespace obj
 
         math::matrix4x4_t           m_MV;
         math::aabb_t                m_Box;
+        math::rect_t                m_PolyBB;
         std::vector<math::vector_t> m_Triangulation;
         std::vector<gfx::zPolygon*> mp_allPrims;
         string_t                    m_filename;

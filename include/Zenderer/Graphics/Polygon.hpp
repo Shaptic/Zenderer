@@ -169,6 +169,44 @@ namespace gfx
         /// Calculates width for the current vertices.
         uint16_t CalcW() const;
 
+        int GetLowPoint() const
+        {
+            if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
+
+            int low = m_Verts.empty() ?
+                      m_DrawData.Vertices[0].position.y :
+                      m_Verts[0].y;
+
+            for(auto& i : m_Verts) low = math::min<int>(low, i.y);
+            std::for_each(m_DrawData.Vertices,
+                          m_DrawData.Vertices + m_DrawData.vcount,
+                          [&low](const gfxcore::vertex_t& v) {
+                              low = math::min<int>(low, v.position.y);
+                          }
+            );
+
+            return low;
+        }
+
+        int GetLeftPoint() const
+        {
+            if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
+
+            int16_t left = m_Verts.empty() ?
+                            m_DrawData.Vertices[0].position.x :
+                            m_Verts[0].x;
+
+            for(auto& i : m_Verts) left = math::min<int>(left, i.x);
+            std::for_each(m_DrawData.Vertices,
+                          m_DrawData.Vertices + m_DrawData.vcount,
+                          [&left](const gfxcore::vertex_t& v) {
+                              left = math::min<int>(left, v.position.x);
+                          }
+            );
+
+            return left;
+        }
+
         /// Request to see if we can change the internal vertices or not.
         bool IsModifiable() const;
 
