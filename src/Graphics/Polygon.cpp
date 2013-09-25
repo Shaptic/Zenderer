@@ -25,7 +25,7 @@ zPolygon::zPolygon(const zPolygon& Copy) :
     m_Assets(Copy.m_Assets),
     mp_VAO(nullptr), m_Material(m_Assets),
     mp_MVMatrix(nullptr), m_offset(0),
-    m_internal(false)
+    m_internal(false), m_BoundingBox(Copy.m_BoundingBox)
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());

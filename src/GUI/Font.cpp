@@ -116,8 +116,8 @@ bool zFont::Render(obj::zEntity& Ent,
 
     gfx::zQuad Q(*mp_Assets, Texture.GetWidth(), Texture.GetHeight());
     Q.AttachMaterial(M);
-    Q.Create();
     Q.SetColor(color4f_t());
+    Q.Create();
 
     if(!m_stack) Ent.Destroy();
     Ent.AddPrimitive(std::move(Q));
