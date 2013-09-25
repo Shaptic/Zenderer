@@ -55,9 +55,9 @@ def is_concave(vertices):
         two = (next[0] - curr[0], next[1] - curr[1])
         nml = (one[1], -one[0])
         
-        mag = ((nml[0]*nml[0] + nml[1]*nml[1]) ** -.5) \
-              ((two[0]*two[0] + two[1]*two[1]) ** -.5)
-          
+        mag = math.sqrt(nml[0]*nml[0] + nml[1]*nml[1]) * \
+              math.sqrt(two[0]*two[0] + two[1]*two[1])
+
         ang = math.acos((nml[0] * two[0] + nml[1] * two[1]) / mag);
         print (ang * 180 / math.pi)
         if (ang * 180.0 / math.pi) > 90.0: return True

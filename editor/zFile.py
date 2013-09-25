@@ -28,6 +28,11 @@ class Exporter:
         final += '    position=%d,%d\n' % (int(l.start[0]), int(l.start[1]))
         final += '    attenuation=%s\n' % (make2f(l.details['attenuation']))
         final += '    brightness=%0.2f\n' % (float(l.details['brightness']))
+        
+        if l.details['type'].upper() == 'SPOT':
+            final += 'maxangle=%0.2f\n' % float(l.details['maxangle'])
+            final += 'minangle=%0.2f\n' % float(l.details['minangle'])
+            
         final += '</light>\n\n'
         f.write(final)
         f.flush()
