@@ -54,24 +54,30 @@ namespace gfx
 
         /// @overload
         void Resize(const uint16_t w, const uint16_t h);
-        
+
         virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr)
         {
             const math::aabb_t us(m_BoundingBox);
-            
-            for(size_t i = 0; i < Other.m_Tris; ++i)
+
+            for(size_t i = 0; i < Other.GetTriangulation().size(); i += 3)
             {
-                if(us.collides(tris[i])) return true;
+                math::tri_t t = {
+                    Other.GetTriangulation()[i],
+                    Other.GetTriangulation()[i+1],
+                    Other.GetTriangulation()[i+2]
+                };
+
+                if(us.collides(t)) return true;
             }
-            
+
             return false;
         }
-        
+
         bool Collides(const zQuad& Other, math::vector_t* poi = nullptr)
         {
             return math::aabb_t(m_BoundingBox).collides(math::aabb_t(Other.m_BoundingBox));
         }
-        
+
         bool Collides(const math::aabb_t& other)
         {
             return other.collides(m_BoundingBox);

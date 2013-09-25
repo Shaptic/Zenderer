@@ -192,9 +192,10 @@ void zEntity::Move(const math::vector_t& Pos)
 
 void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
+    m_depth = z;
     math::vector_t d = math::vector_t(x, y, z) - this->GetPosition();
 
-    for(auto& i : mp_allPrims)      i->Move(x, y, z);
+    for(auto& i : mp_allPrims)      i->Move(x, y);
     for(auto& i : m_Triangulation)  i = i + d;
 
     m_MV.Translate(math::vector_t(x, y, z));
@@ -235,15 +236,15 @@ bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
     for(auto& i : mp_allPrims)
     {
         for(auto& j : mp_allPrims)
-            if(i.Collides(j, poi)) return true;
+            if(i->Collides(*j, poi)) return true;
     }
-    
+
     return false;
 }
 
 bool zEntity::Collides(const math::rect_t& other)
 {
-    return this->Collides(math::aabb_t(other), poi);
+    return this->Collides(math::aabb_t(other));
 }
 
 bool zEntity::Collides(const math::aabb_t& other)
@@ -253,13 +254,13 @@ bool zEntity::Collides(const math::aabb_t& other)
     {
         if(i->Collides(other)) return true;
     }
-    
+
     return false;
 }
 
 bool zEntity::Collides(const math::vector_t& pos)
 {
-    return this->Collides(math::rect_t(pos.x, pos.y, 1, 1), poi);
+    return this->Collides(math::rect_t(pos.x, pos.y, 1, 1));
 }
 
 void zEntity::SetDepth(uint8_t depth)

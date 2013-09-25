@@ -233,9 +233,9 @@ namespace obj
 
         /// Checks collision with another entity.
         bool Collides(const zEntity& Other, math::vector_t* poi = nullptr);
-        bool Collides(const math::rect_t& other)    ///< @overload
-        bool Collides(const math::aabb_t& other)    ///< @overload
-        bool Collides(const math::vector_t& Pos)    ///< @overload
+        bool Collides(const math::rect_t& other);   ///< @overload
+        bool Collides(const math::aabb_t& other);   ///< @overload
+        bool Collides(const math::vector_t& Pos);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(uint8_t depth);

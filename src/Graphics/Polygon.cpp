@@ -46,17 +46,19 @@ zPolygon::zPolygon(const zPolygon& Copy) :
     if(Copy.mp_MVMatrix != nullptr)
         mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
 
-    m_Verts.clear();
     m_Verts.reserve(Copy.m_Verts.size());
-    for(auto i : Copy.m_Verts)
-        m_Verts.emplace_back(i);
+    for(auto i : Copy.m_Verts) m_Verts.emplace_back(i);
+
+    m_Tris.reserve(Copy.m_Tris.size());
+    for(auto i : Copy.m_Tris) m_Tris.emplace_back(i);
 }
 
 zPolygon::zPolygon(zPolygon&& Move) :
     m_Assets(Move.m_Assets),
     mp_VAO(nullptr), m_Material(m_Assets),
     mp_MVMatrix(Move.mp_MVMatrix), m_offset(0),
-    m_internal(false)
+    m_internal(false), m_Verts(Move.m_Verts),
+    m_Tris(Move.m_Tris)
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());
@@ -71,7 +73,6 @@ zPolygon::zPolygon(zPolygon&& Move) :
     Move.mp_MVMatrix         = nullptr;
 
     ZEN_ASSERT(m_DrawData.vcount > 0 && m_DrawData.icount > 0);
-    m_Verts = std::move(Move.m_Verts);
 }
 
 zPolygon::~zPolygon()
@@ -85,14 +86,23 @@ zPolygon::~zPolygon()
 
 void zPolygon::Move(const math::vector_t& Position)
 {
+    math::vector_t d = math::vector_t(m_BoundingBox.x, m_BoundingBox.y) - Position;
+
     m_BoundingBox.x = Position.x;
     m_BoundingBox.y = Position.y;
+
+    for(auto& i : m_Tris) i = i + d;
 }
 
 void zPolygon::Move(const real_t x, const real_t y)
 {
+    math::vector_t d = math::vector_t(m_BoundingBox.x, m_BoundingBox.y) -
+                       math::vector_t(x, y);
+
     m_BoundingBox.x = x;
     m_BoundingBox.y = y;
+
+    for(auto& i : m_Tris) i = i + d;
 }
 
 void zPolygon::AttachMaterial(gfx::zMaterial& Material)
@@ -140,7 +150,7 @@ zPolygon& zPolygon::Create()
         m_DrawData.Vertices[i].position = std::move(m_Verts[i]);
         m_DrawData.Vertices[i].color    = m_Color;
     }
-    
+
     // Calculate lowest and highest y-values.
     real_t low, high;
     low = high = m_Verts[0].y;
@@ -152,7 +162,7 @@ zPolygon& zPolygon::Create()
     }
 
     m_BoundingBox.h = (high - low);
-    
+
     // Calculate lowest and highest x-values.
     low = high = m_Verts[0].x;
 
@@ -161,8 +171,8 @@ zPolygon& zPolygon::Create()
         low  = math::min<real_t>(low,  i.x);
         high = math::max<real_t>(high, i.x);
     }
-    
-    m_BoundingBox.w = (right - left);
+
+    m_BoundingBox.w = (high - low);
 
     m_Tris = math::triangulate(m_Verts);
     m_Verts.clear();
@@ -197,8 +207,8 @@ bool zPolygon::Draw(const bool is_bound /*= false*/)
         // Insert our coordinates to transform in the shader.
         // Ignore the Z coordinate because that's only used for depth
         // sorting internally anyway and has no effect on visuals.
-        (*mp_MVMatrix)[0][3] = m_Position.x;
-        (*mp_MVMatrix)[1][3] = m_Position.y;
+        (*mp_MVMatrix)[0][3] = m_BoundingBox.x;
+        (*mp_MVMatrix)[1][3] = m_BoundingBox.y;
         //(*mp_MVMatrix)[2][3] = m_Position.z;
 
         // Bind our material. If we haven't set one, the default will be used.
@@ -242,25 +252,42 @@ void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO, const bool keep)
 
 bool zPolygon::Collides(const zPolygon& Other, math::vector_t* poi)
 {
-    for(size_t i = 0; i < m_Tris.size(); ++i)
+    for(size_t i = 0; i < m_Tris.size(); i += 3)
     {
-        for(size_t j = 0; j < Other.m_Tris.size(); ++j)
+        for(size_t j = 0; j < Other.m_Tris.size(); j += 3)
         {
-            if(math::collides(m_Tris[i], Other.m_Tris[j], poi))
-                return true;
+            math::tri_t t1 = {
+                m_Tris[i],
+                m_Tris[i+1],
+                m_Tris[i+2]
+            };
+
+            math::tri_t t2 = {
+                Other.m_Tris[j],
+                Other.m_Tris[j+1],
+                Other.m_Tris[j+2]
+            };
+
+            if(math::collides(t1, t2, poi)) return true;
         }
     }
-    
+
     return false;
 }
 
 bool zPolygon::Collides(const math::aabb_t& other)
 {
-    for(size_t i = 0; i < m_Tris.size(); ++i)
+    for(size_t i = 0; i < m_Tris.size(); i += 3)
     {
-        if(math::collides(m_Tris[i], other)) return true;
+        math::tri_t t = {
+            m_Tris[i],
+            m_Tris[i+1],
+            m_Tris[i+2]
+        };
+
+        if(other.collides(t)) return true;
     }
-    
+
     return false;
 }
 
@@ -281,7 +308,7 @@ void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
     std::copy(Indices.begin(), Indices.end(), m_DrawData.Indices);
 }
 
-uint16_t zPolygon::CalcH() const
+uint16_t zPolygon::CalcH()
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 
@@ -307,7 +334,7 @@ uint16_t zPolygon::CalcH() const
     return (m_BoundingBox.h = (high - low));
 }
 
-uint16_t zPolygon::CalcW() const
+uint16_t zPolygon::CalcW()
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 

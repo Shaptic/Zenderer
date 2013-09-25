@@ -64,12 +64,12 @@ namespace gfx
          *  the model-view matrix to translate the object, thus
          *  there is a default implementation.
          *
-         * @param   Position    (x, y, z) coordinates where you want the object
+         * @param   Position    (x, y) coordinates where you want the object
          **/
         virtual void Move(const math::vector_t& Position);
 
         /// @overload
-        virtual void Move(const real_t x, const real_t y, const real_t z = 1.0);
+        virtual void Move(const real_t x, const real_t y);
 
         /**
          * Attaches a material to render on top of the primitive.
@@ -119,7 +119,7 @@ namespace gfx
                          const bool preserve = true);
 
         /**
-         * Attempts collision detection with another polygon. 
+         * Attempts collision detection with another polygon.
          *  This function is O(n^2), so its preferable to do a generic bounding
          *  box collision detection prior to this.
          *
@@ -131,7 +131,7 @@ namespace gfx
          **/
         virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr);
         virtual bool Collides(const math::aabb_t& other);   ///< @overload
-        
+
         /**
          * Overrides default index creation for the added vertices.
          *  Indices are considered valid if none of them are larger than
@@ -145,12 +145,12 @@ namespace gfx
         /// Sets the vertex color of the created vertices.
         void SetColor(const color4f_t& Color);
 
-        inline std::vector<math::vector_t>
+        inline const std::vector<math::vector_t>&
         GetTriangulation() const { return m_Tris; }
-        
+
         inline math::vector_t GetPosition() const
         { return math::vector_t(m_BoundingBox.x, m_BoundingBox.y); }
-        
+
         inline const math::rect_t&
         GetBoundingBox() const { return m_BoundingBox; }
 
@@ -162,12 +162,14 @@ namespace gfx
 
         /// Gets preset width for the current vertices.
         inline uint16_t GetW() const { return m_BoundingBox.w; }
-        
+
         /// Calculates maximum height for the current vertices.
-        uint16_t CalcH() const;
+        /// Caches it for retrieval via GetH().
+        uint16_t CalcH();
 
         /// Calculates width for the current vertices.
-        uint16_t CalcW() const;
+        /// Caches it for retrieval via GetW().
+        uint16_t CalcW();
 
         int GetLowPoint() const
         {
@@ -251,7 +253,7 @@ namespace gfx
  *
  *  Polygons present the basis for inheriting classes that provide pre-baked
  *  vertex configurations, such as gfx::zQuad. Vertices are stored in a
- *  temporary buffer until Create() is called. 
+ *  temporary buffer until Create() is called.
  *
  * @example Polygons
  * @section A Variety of Polgyons

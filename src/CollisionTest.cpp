@@ -22,11 +22,6 @@ int main()
     P2.Create();
     P2.Move(100, 100);
 
-    auto tri1 = P1.Triangulate();
-    auto tri2 = P2.Triangulate();
-
-    for(auto& i : tri2) i = i + math::vector_t(100, 100);
-
     evt::event_t E;
     while(Win.IsOpen())
     {
@@ -37,17 +32,10 @@ int main()
             {
                 math::vector_t d = P1.GetPosition() - E.mouse.position;
                 P1.Move(E.mouse.position);
-                for(auto& i : tri1) i = i - d;
             }
         }
 
-        math::tri_t a = { tri1[0], tri1[2], tri1[2] };
-        math::tri_t b = { tri2[0], tri2[2], tri2[2] };
-
-        for(auto i : a) std::cout << i << ' ';
-        for(auto i : b) std::cout << i << ' ';
-
-        std::cout << math::collides(a, b) << std::endl;
+        std::cout << P1.Collides(P2) << std::endl;
 
         Win.Clear();
         P2.Draw();
