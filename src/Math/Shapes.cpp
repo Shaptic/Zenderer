@@ -159,7 +159,7 @@ bool math::triangle_test(const vector_t& V, const tri_t& T)
                  + (T[2].x - T[1].x) * (T[0].y - T[2].y);
 
     // Avoid division by zero.
-    if(compf(denom, 0.0)) return true;
+    if(compf(denom, 0.0)) return false;
     denom = 1.0 / denom;
 
     real_t alpha = denom * ((T[1].y - T[2].y) * (V.x - T[2].x) +
@@ -169,19 +169,16 @@ bool math::triangle_test(const vector_t& V, const tri_t& T)
     real_t beta  = denom * ((T[2].y - T[0].y) * (V.x - T[2].x) +
                             (T[0].x - T[2].x) * (V.y - T[2].y));
 
-    return (beta > 0 || alpha + beta >= 1);
+    return (beta > 0 && alpha + beta >= 1);
 }
 
 std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
 {
-    std::vector<uint16_t> reflex;
-    std::vector<vector_t> triangles;
-
     if(Polygon.size() <= 3) return Polygon;
 
     // Determine polygon's orientation via top-left-most vertex.
-    vector_t left = Polygon[0];
     size_t index = 0;
+    vector_t left = Polygon[index];
     for(size_t i = 0; i < Polygon.size(); ++i)
     {
         if(Polygon[i].x < left.x ||
@@ -199,6 +196,9 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
     };
 
     bool ccw = orientation(tri);
+
+    std::vector<uint16_t> reflex;
+    std::vector<vector_t> triangles;
 
     // We know there will be vertex_count - 2 triangles made.
     triangles.reserve(Polygon.size() - 2);
@@ -238,7 +238,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
 
             if(ear)
             {
-                auto j = Polygon.begin() + index + 1,
+                auto j = Polygon.begin() + index + 2,
                      k = Polygon.end();
 
                 for( ; j != k; ++j)
@@ -262,7 +262,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
         if(eartip < 0) break;
 
         // Create the triangulated piece.
-        for(const auto& i : tri) triangles.push_back(i);
+        for(const auto& i : tri) triangles.emplace_back(std::move(i));
 
         // Clip the ear from the polygon.
         Polygon.erase(std::find(Polygon.begin(), Polygon.end(), tri[1]));
