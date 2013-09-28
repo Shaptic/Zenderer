@@ -264,6 +264,9 @@
     <ClInclude Include="include\Zenderer\Objects\Animation.hpp">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\ConcavePolygon.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -412,6 +415,9 @@
     </ClCompile>
     <ClCompile Include="src\CollisionTest.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\ConcavePolygon.cpp">
+      <Filter>Source Files\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

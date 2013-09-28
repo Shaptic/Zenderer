@@ -124,6 +124,7 @@
     <ClInclude Include="include\Zenderer\Events\EventHandler.hpp" />
     <ClInclude Include="include\Zenderer\Events\Keyboard.hpp" />
     <ClInclude Include="include\Zenderer\Events\Mouse.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\ConcavePolygon.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Material.hpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Events\EventHandler.cpp" />
     <ClCompile Include="src\Events\Mouse.cpp" />
+    <ClCompile Include="src\Graphics\ConcavePolygon.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Light.cpp" />
     <ClCompile Include="src\Graphics\Material.cpp" />
