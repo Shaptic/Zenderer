@@ -238,7 +238,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
 
             if(ear)
             {
-                auto j = Polygon.begin() + index + 2,
+                auto j = Polygon.begin() + index + 1,
                      k = Polygon.end();
 
                 for( ; j != k; ++j)
