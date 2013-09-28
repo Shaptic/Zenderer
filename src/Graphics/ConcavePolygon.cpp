@@ -52,9 +52,11 @@ gfx::zPolygon& zConcavePolygon::Create()
         }
     }
 
+    m_BoundingBox.h = this->CalcH();
+    m_BoundingBox.w = this->CalcW();
+
     m_DrawData.Indices  = indices;
     m_DrawData.icount   = m_Tris.size();
-
     m_DrawData.Vertices = new gfxcore::vertex_t[verts.size()];
     m_DrawData.vcount   = verts.size();
 

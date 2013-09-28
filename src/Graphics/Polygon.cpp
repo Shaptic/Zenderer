@@ -152,31 +152,13 @@ zPolygon& zPolygon::Create()
         m_DrawData.Vertices[i].color    = m_Color;
     }
 
-    // Calculate lowest and highest y-values.
-    real_t low, high;
-    low = high = m_Verts[0].y;
-
-    for(auto& i : m_Verts)
-    {
-        low  = math::min<real_t>(low, i.y);
-        high = math::max<real_t>(high, i.y);
-    }
-
-    m_BoundingBox.h = (high - low);
-
-    // Calculate lowest and highest x-values.
-    low = high = m_Verts[0].x;
-
-    for(auto& i : m_Verts)
-    {
-        low  = math::min<real_t>(low,  i.x);
-        high = math::max<real_t>(high, i.x);
-    }
-
-    m_BoundingBox.w = (high - low);
-
     m_Tris = math::triangulate(m_Verts);
     m_Verts.clear();
+
+    // Calculate lowest and highest x/y-values.
+    m_BoundingBox.h = this->CalcH();
+    m_BoundingBox.w = this->CalcW();
+
     return (*this);
 }
 
