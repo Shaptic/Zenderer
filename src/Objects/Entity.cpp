@@ -157,13 +157,16 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     pPoly->Create();
     mp_allPrims.push_back(pPoly);
 
-    m_PolyBB = math::rect_t(pPoly->GetLeftPoint(), pPoly->GetLowPoint(),
-                            pPoly->GetW(), pPoly->GetH());
+    m_PolyBB = math::rect_t(
+        math::max<uint16_t>(pPoly->GetX(), m_PolyBB.x),
+        math::max<uint16_t>(pPoly->GetY(), m_PolyBB.y),
+        math::max<uint16_t>(pPoly->GetW(), m_PolyBB.w),
+        math::max<uint16_t>(pPoly->GetH(), m_PolyBB.h)
+    );
 
     m_Box = math::aabb_t(math::rect_t(this->GetX() + m_PolyBB.x,
                                       this->GetY() + m_PolyBB.y,
-                            math::max<uint32_t>(this->GetW(), m_PolyBB.w),
-                            math::max<uint32_t>(this->GetH(), m_PolyBB.h)));
+                                      m_PolyBB.w, m_PolyBB.h));
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;
@@ -236,7 +239,7 @@ bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
     if(!m_Box.collides(Other.m_Box)) return false;
     for(auto& i : mp_allPrims)
     {
-        for(auto& j : mp_allPrims)
+        for(auto& j : Other.mp_allPrims)
             if(i->Collides(*j, poi)) return true;
     }
 
