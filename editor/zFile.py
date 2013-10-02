@@ -30,8 +30,8 @@ class Exporter:
         final += '    brightness=%0.2f\n' % (float(l.details['brightness']))
         
         if l.details['type'].upper() == 'SPOT':
-            final += 'maxangle=%0.2f\n' % float(l.details['maxangle'])
-            final += 'minangle=%0.2f\n' % float(l.details['minangle'])
+            final += '    maxangle=%0.2f\n' % float(l.details['maxangle'])
+            final += '    minangle=%0.2f\n' % float(l.details['minangle'])
             
         final += '</light>\n\n'
         f.write(final)

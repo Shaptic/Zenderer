@@ -42,6 +42,7 @@ class Main:
         self.verts    = []
         self.indices  = []
         self.polys    = []
+        self.origin   = (0, 0)
 
         self.BaseEntity = None
         self.BaseLight  = None
@@ -85,9 +86,12 @@ class Main:
                         self.BaseEntity.on = False
                         self.BaseEntity.Move(evt.pos)
                         self.BaseEntity.end = evt.pos
-                
+
                 elif evt.type == pygame.KEYDOWN:
                     if evt.key == pygame.K_f: self.PyGame.focus()
+
+            if pygame.mouse.get_focused():
+                self._Evt_HandlePanning(pygame.mouse.get_pos())
 
             self.screen.fill((0, 0, 0))
             fn = self.EntityList.get()
@@ -113,6 +117,14 @@ class Main:
                 if not self.BaseLight: self.BaseLight = Light()
                 self.BaseLight.Move(pygame.mouse.get_pos())
                 self.BaseLight.Update(self.screen)
+                
+            pygame.draw.line(self.screen, (255, 255, 0),
+                (self.origin[0] - 24, self.origin[1]), 
+                (self.origin[0] + 24, self.origin[1]))
+            
+            pygame.draw.line(self.screen, (255, 255, 0),
+                (self.origin[0], self.origin[1] - 24), 
+                (self.origin[0], self.origin[1] + 24))
 
             pygame.display.update()
             self.window.update()
@@ -166,11 +178,28 @@ class Main:
             title='Export Level As...', parent=self.window)
 
         with open(filename, 'w') as f:
-            for e in self.entities: Exporter.ExportEntity(f, e)
-            for l in self.lights:   Exporter.ExportLight(f, l)
+            for e in self.entities:
+                e.Move((e.start[0] - self.origin[0], e.start[1] - self.origin[1]))
+                Exporter.ExportEntity(f, e)
+                e.Move((e.start[0] + self.origin[0], e.start[1] + self.origin[1]))
+
+            for l in self.lights:
+                l.Move((l.start[0] - self.origin[0], l.start[1] - self.origin[1]))
+                Exporter.ExportLight(f, l)
+                l.Move((l.start[0] + self.origin[0], l.start[1] + self.origin[1]))
 
             for i in xrange(len(self.polys)):
+                self.polys[i] = [(
+                    v[0] - self.origin[0],
+                    v[1] - self.origin[1]) for v in self.polys[i]
+                ]
+
                 Exporter.ExportPolygon(f, self.polys[i], self.indices[i])
+                
+                self.polys[i] = [(
+                    v[0] + self.origin[0],
+                    v[1] + self.origin[1]) for v in self.polys[i]
+                ]
 
     def _Evt_AddObject(self, pos):
         if self.ObjVar.get() == 1 and self.EntityList.get():
@@ -255,7 +284,26 @@ class Main:
         return l
 
     def _DelObj(self, objs, ref): objs.remove(ref)
+    
+    def _Evt_HandlePanning(self, pos):
+        dx = 0
+        dy = 0
+
+        if pos[0] < 20:     dx =  2
+        elif pos[0] > 780:  dx = -2
+
+        if pos[1] < 20:     dy =  2
+        elif pos[1] > 580:  dy = -2
         
+        all_objects = self.entities + self.lights
+        for o in all_objects: o.Move((o.start[0] + dx, o.start[1] + dy))
+        
+        self.verts  = [(v[0] + dx, v[1] + dy) for v in self.verts]
+        self.origin = (self.origin[0] + dx, self.origin[1] + dy)
+
+        for p in self.polys:
+            self.polys[self.polys.index(p)] = [(v[0] + dx, v[1] + dy) for v in p]
+
 if __name__ == '__main__':
     Editor = Main()
     Editor.Run()
