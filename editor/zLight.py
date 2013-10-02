@@ -27,7 +27,7 @@ def color2hex(c):
 class LightPropertyWindow(zGUI.PropertyWindow):
     def __init__(self, light, parent):
         apply(zGUI.PropertyWindow.__init__, (self, parent, light))
-        
+
         self.TypeVar    = tk.StringVar()
         self.ColorVar   = tk.StringVar()
         self.BrtVar     = tk.StringVar()
@@ -67,9 +67,9 @@ class LightPropertyWindow(zGUI.PropertyWindow):
         self.Bright.grid( row=5, column=1, sticky='w')
         self.MaxAng.grid( row=6, column=1, sticky='w')
         self.MinAng.grid( row=7, column=1, sticky='w')
-        
+
         self.Color.config(bg=color2hex(self.ColorVar.get()))
-        
+
     def Exit(self):
         self.applied.details['type'] = self.TypeVar.get()
         self.applied.details['color'] = self.ColorVar.get()

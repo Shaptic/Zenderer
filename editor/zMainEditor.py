@@ -23,20 +23,20 @@ class Main:
     def __init__(self):
         self.quit = False
         self.window = tk.Tk()
-        
+
         self.window.geometry('1000x600')
         self.window.title('Zenderer Level Editor')
         self.window.protocol('WM_DELETE_WINDOW', self.Exit)
 
         self._Setup()
-        
+
         # Enable the Pygame window as the Tkinter frame
         os.environ["SDL_WINDOWID"] = str(self.PyGame.winfo_id())
         os.environ["SDL_WINDOWDRIVER"] = "windib"
 
         pygame.display.init()
         self.screen = pygame.display.set_mode((800, 600), pygame.NOFRAME, 32)
-        
+
         self.entities = []
         self.lights   = []
         self.verts    = []
@@ -46,7 +46,7 @@ class Main:
 
         self.BaseEntity = None
         self.BaseLight  = None
-        
+
         # Populate entity list by recursively searching for images
         # in the directory provided by the settings module.
         for root, dirs, files in os.walk(os.getcwd()):
@@ -62,7 +62,7 @@ class Main:
         file.add_command(label='Export...', command=self._Export)
         file.add_separator()
         file.add_command(label='Quit', command=self.Exit)
-        
+
         main = tk.Menu()
         main.add_cascade(menu=file, label='File')
         self.window.config(menu=main)
@@ -72,7 +72,7 @@ class Main:
             for evt in pygame.event.get():
                 if evt.type == pygame.QUIT: self.Exit()
                 elif evt.type == pygame.MOUSEBUTTONDOWN:
-                
+
                     ent = self._GetEntityAt(evt.pos)
                     lit = self._GetLightAt(evt.pos)
 
@@ -81,7 +81,7 @@ class Main:
 
                     elif evt.button == 1:
                         self._Evt_AddObject(evt.pos)
-                    
+
                     elif evt.button == 2 and self.BaseEntity and self.BaseEntity.on:
                         self.BaseEntity.on = False
                         self.BaseEntity.Move(evt.pos)
@@ -95,7 +95,7 @@ class Main:
 
             self.screen.fill((0, 0, 0))
             fn = self.EntityList.get()
-            
+
             for e in self.entities: e.Update(self.screen)
             for l in self.lights:   l.Update(self.screen)
             for x in xrange(1, len(self.verts)):
@@ -117,13 +117,13 @@ class Main:
                 if not self.BaseLight: self.BaseLight = Light()
                 self.BaseLight.Move(pygame.mouse.get_pos())
                 self.BaseLight.Update(self.screen)
-                
+
             pygame.draw.line(self.screen, (255, 255, 0),
-                (self.origin[0] - 24, self.origin[1]), 
+                (self.origin[0] - 24, self.origin[1]),
                 (self.origin[0] + 24, self.origin[1]))
-            
+
             pygame.draw.line(self.screen, (255, 255, 0),
-                (self.origin[0], self.origin[1] - 24), 
+                (self.origin[0], self.origin[1] - 24),
                 (self.origin[0], self.origin[1] + 24))
 
             pygame.display.update()
@@ -136,7 +136,7 @@ class Main:
         self.SideBar    = tk.Frame(width=200, height=600)
         self.PyGame.grid( row=0, column=0)
         self.SideBar.grid(row=0, column=1, padx='10')
-        
+
         tk.Label(self.SideBar, text='Editing Mode:').grid(row=0, column=0)
         self.ObjVar     = tk.IntVar()
         self.EntityRad  = ttk.Radiobutton(self.SideBar, text='Entities',
@@ -148,13 +148,13 @@ class Main:
         self.VertRad    = ttk.Radiobutton(self.SideBar, text='Vertices',
                                           variable=self.ObjVar, value=4)
         self.EntityList = ttk.Combobox(self.SideBar, state='readonly')
-        
+
         self.EntityRad.grid(column=0, row=1, sticky='ew')
         self.LightRad.grid(column=0, row=2, sticky='ew')
         self.SpawnRad.grid(column=0, row=3, sticky='ew')
         self.VertRad.grid(column=0, row=4, sticky='ew')
         self.EntityList.grid(column=0, row=5, pady=10)
-        
+
         self.EntityMenu = ContextMenu(self.PyGame, tearoff=0)
         self.EntityMenu.add_command(label='Delete Object',
                                     command=lambda: self._DelObj(
@@ -174,7 +174,7 @@ class Main:
             defaultextension='.zlv',
             filetypes=[('Zenderer Level files', '*.zlv'),
                        ('All Files', '.*')],
-            initialfile='level.zlv', 
+            initialfile='level.zlv',
             title='Export Level As...', parent=self.window)
 
         with open(filename, 'w') as f:
@@ -195,7 +195,7 @@ class Main:
                 ]
 
                 Exporter.ExportPolygon(f, self.polys[i], self.indices[i])
-                
+
                 self.polys[i] = [(
                     v[0] + self.origin[0],
                     v[1] + self.origin[1]) for v in self.polys[i]
@@ -214,7 +214,7 @@ class Main:
             self.entities[-1].end = self.BaseEntity.end
             self.BaseEntity.start = self.BaseEntity.end = pos
             print self.entities[-1].start, self.entities[-1].end
-        
+
         elif self.ObjVar.get() == 2:
             self.lights.append(Light())
             self.lights[-1].Move(pos)
@@ -228,18 +228,18 @@ class Main:
     def _Evt_ShowContextMenu(self, pos):
         wx = self.PyGame.winfo_rootx()
         wy = self.PyGame.winfo_rooty()
-        
+
         ent = self._GetEntityAt(pos)
         lit = self._GetLightAt(pos)
-        
+
         if self.ObjVar.get() == 4 and len(self.verts) > 2:
             tmpverts = []
             tmpinds  = []
-            
+
             if geometry.is_concave(self.verts):
                 self.verts = geometry.triangulate(self.verts)
                 print self.verts
-                for v in self.verts:    
+                for v in self.verts:
                     if v not in tmpverts:
                         tmpverts.append(v)
                         tmpinds.append(tmpverts.index(v))
@@ -248,7 +248,7 @@ class Main:
             self.indices.append(tmpinds)
             self.polys.append(tmpverts)
             self.verts = []
-            
+
         elif self.ObjVar.get() == 2 and lit:
             self.LightMenu.post(pos[0] + wx, pos[1] + wy)
             self.LightMenu.registered = lit
@@ -262,7 +262,7 @@ class Main:
 
     def _Evt_ShowLightProp(self):
         LightPropertyWindow(self.LightMenu.registered, self.window)
-    
+
     def _GetEntityAt(self, pos):
         self.entities.reverse()
         for e in self.entities:
@@ -284,7 +284,7 @@ class Main:
         return l
 
     def _DelObj(self, objs, ref): objs.remove(ref)
-    
+
     def _Evt_HandlePanning(self, pos):
         dx = 0
         dy = 0
@@ -294,10 +294,10 @@ class Main:
 
         if pos[1] < 20:     dy =  2
         elif pos[1] > 580:  dy = -2
-        
+
         all_objects = self.entities + self.lights
         for o in all_objects: o.Move((o.start[0] + dx, o.start[1] + dy))
-        
+
         self.verts  = [(v[0] + dx, v[1] + dy) for v in self.verts]
         self.origin = (self.origin[0] + dx, self.origin[1] + dy)
 

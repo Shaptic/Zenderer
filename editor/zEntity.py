@@ -14,7 +14,7 @@ DEFAULT_ENTITY = {
 class EntityPropertyWindow(zGUI.PropertyWindow):
     def __init__(self, ent, parent, **kw):
         apply(zGUI.PropertyWindow.__init__, (self, parent, ent))
-        
+
         self.StretchVar = tk.StringVar()
         self.TextureVar = tk.StringVar()
 
@@ -26,7 +26,7 @@ class EntityPropertyWindow(zGUI.PropertyWindow):
 
         self.Stretch.grid(row=0, column=0)
         self.Texture.grid(row=1, column=1)
-        
+
         self.StretchVar.set(ent.details['stretch'])
         self.TextureVar.set(ent.details['texture'] \
                          if ent.details['texture'] else ent.filename)
@@ -43,7 +43,7 @@ class Entity:
         self.end = tuple(self.start)
         self.details = dict(DEFAULT_ENTITY)
         self.on = False
-    
+
     def Load(self, filename=None, surface=None):
         assert not(filename and surface), 'not both'
         self.surface = pygame.image.load(filename) if filename else surface
@@ -56,7 +56,7 @@ class Entity:
             max(abs(self.end[0] - self.start[0]), self.surface.get_width()),
             max(abs(self.end[1] - self.start[1]), self.surface.get_height())
         ).colliderect(rect)
-        
+
     def Move(self, pos):
         self.end = (self.end[0] + (pos[0] - self.start[0]),
                     self.end[1] + (pos[1] - self.start[1]))
@@ -69,11 +69,11 @@ class Entity:
     def Stop(self, pos):
         self.end = pos
         self.on = False
-        
+
     def Update(self, scr):
         if self.surface:
             d = (self.surface.get_width(), self.surface.get_height())
-            
+
             # Calculate how many should be rendered.
             count_x = abs(self.start[0] - self.end[0]) / d[0]
             count_y = abs(self.start[1] - self.end[1]) / d[1]
