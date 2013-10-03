@@ -235,7 +235,6 @@ class Main:
         data = Importer(self.entities, self.lights, self.spawns, self.polys)
         data.LoadFromFile(filename)
         self.origin = (0, 0)
-        print [(e.start, e.end) for e in self.entities]
 
     def _Evt_AddObject(self, pos):
         if self.ObjVar.get() == 1 and self.EntityList.get():
@@ -279,7 +278,6 @@ class Main:
 
             if geometry.is_concave(self.verts):
                 self.verts = geometry.triangulate(self.verts)
-                print self.verts
                 for v in self.verts:
                     if v not in tmpverts:
                         tmpverts.append(v)

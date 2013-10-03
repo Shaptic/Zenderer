@@ -1,4 +1,4 @@
-from zLight     import *
+from zLight import *
 
 class Exporter:
     @staticmethod
