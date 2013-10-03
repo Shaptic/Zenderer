@@ -129,11 +129,13 @@ namespace lvl
                     result = Parser.PopResult("texture");
                     M.LoadTextureFromFile(result);
                     Poly.AttachMaterial(std::move(M));
+                    Poly.Create(false);
 
                     result = Parser.PopResult("attributes", "0x00");
                     uint8_t attr = this->ParseAttribute(result);
                     /// @todo
 
+                    Latest.AddPrimitive(std::move(Poly));
                     level.entities.emplace_back(&Latest);
                 }
 
