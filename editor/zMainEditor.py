@@ -9,6 +9,7 @@ import pygame
 
 from zEntity    import *
 from zLight     import *
+from zSpawn     import *
 from zGUI       import *
 from zFile      import Exporter
 
@@ -39,6 +40,7 @@ class Main:
 
         self.entities = []
         self.lights   = []
+        self.spawns   = []
         self.verts    = []
         self.indices  = []
         self.polys    = []
@@ -73,8 +75,8 @@ class Main:
                 if evt.type == pygame.QUIT: self.Exit()
                 elif evt.type == pygame.MOUSEBUTTONDOWN:
 
-                    ent = self._GetEntityAt(evt.pos)
-                    lit = self._GetLightAt(evt.pos)
+                    ent = self._GetObjAt(self.entities, evt.pos)
+                    lit = self._GetObjAt(self.lights,   evt.pos)
 
                     if evt.button == 3:
                         self._Evt_ShowContextMenu(evt.pos)
@@ -97,12 +99,15 @@ class Main:
             fn = self.EntityList.get()
 
             for e in self.entities: e.Update(self.screen)
-            for l in self.lights:   l.Update(self.screen)
+
+            for p in self.polys:
+                pygame.draw.polygon(self.screen, (255, 255, 255), p)
             for x in xrange(1, len(self.verts)):
                 pygame.draw.line(self.screen, (255, 255, 255),
                                  self.verts[x], self.verts[x-1])
-            for p in self.polys:
-                pygame.draw.polygon(self.screen, (255, 255, 255), p)
+
+            for l in self.lights: l.Update(self.screen)
+            for s in self.spawns: s.Update(self.screen)
 
             if self.ObjVar.get() == 1 and fn:
                 mp = pygame.mouse.get_pos()
@@ -134,40 +139,45 @@ class Main:
     def _Setup(self):
         self.PyGame     = tk.Frame(width=800, height=600)
         self.SideBar    = tk.Frame(width=200, height=600)
-        self.PyGame.grid( row=0, column=0)
-        self.SideBar.grid(row=0, column=1, padx='10')
+        PlaceWidget(self.PyGame,  0, 0)
+        PlaceWidget(self.SideBar, 0, 1, px=10)
 
-        tk.Label(self.SideBar, text='Editing Mode:').grid(row=0, column=0)
-        self.ObjVar     = tk.IntVar()
-        self.EntityRad  = ttk.Radiobutton(self.SideBar, text='Entities',
-                                          variable=self.ObjVar, value=1)
-        self.LightRad   = ttk.Radiobutton(self.SideBar, text='Lights',
-                                          variable=self.ObjVar, value=2)
-        self.SpawnRad   = ttk.Radiobutton(self.SideBar, text='Spawn Points',
-                                          variable=self.ObjVar, value=3)
-        self.VertRad    = ttk.Radiobutton(self.SideBar, text='Vertices',
-                                          variable=self.ObjVar, value=4)
+        PlaceWidget(tk.Label(self.SideBar, text='Editing Mode:'), 0, 0)
+
+        self.ObjVar     = MakeVar('1', tk.IntVar)
+        self.EntityRad  = MakeRadioBtn(self.SideBar, 'Entity',      self.ObjVar, 1)
+        self.LightRad   = MakeRadioBtn(self.SideBar, 'Lights',      self.ObjVar, 2)
+        self.SpawnRad   = MakeRadioBtn(self.SideBar, 'Spawn Points',self.ObjVar, 3)
+        self.VertRad    = MakeRadioBtn(self.SideBar, 'Vertices',    self.ObjVar, 4)
+
         self.EntityList = ttk.Combobox(self.SideBar, state='readonly')
 
-        self.EntityRad.grid(column=0, row=1, sticky='ew')
-        self.LightRad.grid(column=0, row=2, sticky='ew')
-        self.SpawnRad.grid(column=0, row=3, sticky='ew')
-        self.VertRad.grid(column=0, row=4, sticky='ew')
-        self.EntityList.grid(column=0, row=5, pady=10)
+        PlaceWidget(self.EntityRad,  1, 0, 'ew')
+        PlaceWidget(self.VertRad,    2, 0, 'ew')
+        PlaceWidget(self.LightRad,   3, 0, 'ew')
+        PlaceWidget(self.SpawnRad,   4, 0, 'ew')
+        PlaceWidget(self.EntityList, 5, 0, py=10)
 
         self.EntityMenu = ContextMenu(self.PyGame, tearoff=0)
         self.EntityMenu.add_command(label='Delete Object',
                                     command=lambda: self._DelObj(
-            self.entities, self._GetEntityAt(pygame.mouse.get_pos())))
+            self.entities, self._GetObjAt(self.entities, pygame.mouse.get_pos())))
         self.EntityMenu.add_command(label='Properties',
                                     command=self._Evt_ShowEntProp)
 
         self.LightMenu = ContextMenu(self.PyGame, tearoff=0)
         self.LightMenu.add_command(label='Delete Light',
                                     command=lambda: self._DelObj(
-            self.lights, self._GetLightAt(pygame.mouse.get_pos())))
+            self.lights, self._GetObjAt(self.lights, pygame.mouse.get_pos())))
         self.LightMenu.add_command(label='Properties',
                                     command=self._Evt_ShowLightProp)
+
+        self.SpawnMenu = ContextMenu(self.PyGame, tearoff=0)
+        self.SpawnMenu.add_command(label='Delete Spawn',
+                                    command=lambda: self._DelObj(
+            self.spawns, self._GetObjAt(self.spawns, pygame.mouse.get_pos())))
+        self.SpawnMenu.add_command(label='Properties',
+                                    command=self._Evt_ShowSpawnProp)
 
     def _Export(self):
         filename = tkfile.asksaveasfilename(
@@ -187,6 +197,11 @@ class Main:
                 l.Move((l.start[0] - self.origin[0], l.start[1] - self.origin[1]))
                 Exporter.ExportLight(f, l)
                 l.Move((l.start[0] + self.origin[0], l.start[1] + self.origin[1]))
+
+            for s in self.spawns:
+                s.Move((s.start[0] - self.origin[0], s.start[1] - self.origin[1]))
+                Exporter.ExportSpawn(f, s)
+                s.Move((s.start[0] + self.origin[0], s.start[1] + self.origin[1]))
 
             for i in xrange(len(self.polys)):
                 self.polys[i] = [(
@@ -219,6 +234,10 @@ class Main:
             self.lights.append(Light())
             self.lights[-1].Move(pos)
 
+        elif self.ObjVar.get() == 3:
+            self.spawns.append(Spawn())
+            self.spawns[-1].Move(pos)
+
         elif self.ObjVar.get() == 4:
             self.verts.append(pos)
 
@@ -229,8 +248,9 @@ class Main:
         wx = self.PyGame.winfo_rootx()
         wy = self.PyGame.winfo_rooty()
 
-        ent = self._GetEntityAt(pos)
-        lit = self._GetLightAt(pos)
+        ent = self._GetObjAt(self.entities, pos)
+        lit = self._GetObjAt(self.lights,   pos)
+        spn = self._GetObjAt(self.spawns,   pos)
 
         if self.ObjVar.get() == 4 and len(self.verts) > 2:
             tmpverts = []
@@ -253,6 +273,10 @@ class Main:
             self.LightMenu.post(pos[0] + wx, pos[1] + wy)
             self.LightMenu.registered = lit
 
+        elif self.ObjVar.get() == 3 and spn:
+            self.SpawnMenu.post(pos[0] + wx, pos[1] + wy)
+            self.SpawnMenu.registered = spn
+
         elif ent:
             self.EntityMenu.post(pos[0] + wx, pos[1] + wy)
             self.EntityMenu.registered = ent
@@ -263,25 +287,17 @@ class Main:
     def _Evt_ShowLightProp(self):
         LightPropertyWindow(self.LightMenu.registered, self.window)
 
-    def _GetEntityAt(self, pos):
-        self.entities.reverse()
-        for e in self.entities:
-            if e.Collides(pygame.Rect(pos[0], pos[1], 1, 1)):
-                break
-        else:
-            e = None
-        self.entities.reverse()
-        return e
+    def _Evt_ShowSpawnProp(self):
+        SpawnPropertyWindow(self.SpawnMenu.registered, self.window)
 
-    def _GetLightAt(self, pos):
-        self.lights.reverse()
-        for l in self.lights:
-            if l.Collides(pygame.Rect(pos[0], pos[1], 1, 1)):
-                break
+    def _GetObjAt(self, objs, pos):
+        objs.reverse()
+        for o in objs:
+            if o.Collides(pygame.Rect(pos[0], pos[1], 1, 1)): break
         else:
-            l = None
-        self.lights.reverse()
-        return l
+            o = None
+        objs.reverse()
+        return o
 
     def _DelObj(self, objs, ref): objs.remove(ref)
 
@@ -295,7 +311,7 @@ class Main:
         if pos[1] < 20:     dy =  2
         elif pos[1] > 580:  dy = -2
 
-        all_objects = self.entities + self.lights
+        all_objects = self.entities + self.lights + self.spawns
         for o in all_objects: o.Move((o.start[0] + dx, o.start[1] + dy))
 
         self.verts  = [(v[0] + dx, v[1] + dy) for v in self.verts]

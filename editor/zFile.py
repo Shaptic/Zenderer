@@ -46,3 +46,15 @@ class Exporter:
         final += '\n</entity>\n\n'
         f.write(final)
         f.flush()
+
+    @staticmethod
+    def ExportSpawn(f, s):
+        final  = '<spawn type="%s">\n' % s.details['type'].upper()
+        final += '    position=%0.2f,%0.2f\n' % (s.start[0], s.start[1])
+        if s.details['whitelist']:
+            final += '    whitelist=%s\n' % s.details['whitelist']
+        if s.details['blacklist']:
+            final += '    blacklist=%s\n' % s.details['blacklist']
+        final += '</spawn>\n\n'
+        f.write(final)
+        f.flush()

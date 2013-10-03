@@ -1,4 +1,17 @@
 import Tkinter as tk
+import ttk
+
+def PlaceWidget(Widget, r, c, s='', px=0, py=0, **kwargs):
+    Widget.grid(row=r, column=c, sticky=s, padx=px, pady=py, **kwargs)
+
+def MakeRadioBtn(parent, text, variable, value, command=None):
+    return ttk.Radiobutton(parent, text=text, command=command,
+                           variable=variable, value=value)
+
+def MakeVar(contents=None, type=tk.StringVar):
+    v = type()
+    if contents: v.set(contents)
+    return v
 
 class ContextMenu(tk.Menu):
     def __init__(self, parent, **kw):
@@ -7,10 +20,8 @@ class ContextMenu(tk.Menu):
         self.registered = None
 
     def add_checkbutton(self, **kw):
-        v = tk.IntVar()
-        v.set(0)
-        self.vars.append(v)
-        kw["variable"] = v
+        self.vars.append(MakeVar(0, tk.IntVar))
+        kw["variable"] = self.vars[-1]
         tk.Menu.add_checkbutton(self, **kw)
         return len(self.vars) - 1
 

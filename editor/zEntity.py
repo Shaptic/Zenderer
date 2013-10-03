@@ -2,7 +2,7 @@ import Tkinter as tk
 import ttk
 import pygame
 
-import zGUI
+from zGUI import *
 
 DEFAULT_ENTITY = {
     'stretch':  'false',
@@ -11,25 +11,23 @@ DEFAULT_ENTITY = {
     'texture': ''
 }
 
-class EntityPropertyWindow(zGUI.PropertyWindow):
+class EntityPropertyWindow(PropertyWindow):
     def __init__(self, ent, parent, **kw):
-        apply(zGUI.PropertyWindow.__init__, (self, parent, ent))
+        apply(PropertyWindow.__init__, (self, parent, ent))
 
-        self.StretchVar = tk.StringVar()
-        self.TextureVar = tk.StringVar()
+        self.StretchVar = MakeVar(ent.details['stretch'])
+        self.TextureVar = MakeVar(
+            ent.details['texture'] if ent.details['texture'] else ent.filename
+        )
 
         self.Stretch = ttk.Checkbutton(self, text='Stretch Texture',
                                        variable=self.StretchVar,
                                        onvalue='true', offvalue='false')
         self.Texture = ttk.Entry(self, textvariable=self.TextureVar)
-        ttk.Label(self, text='Texture').grid(row=1, column=0)
 
-        self.Stretch.grid(row=0, column=0)
-        self.Texture.grid(row=1, column=1)
-
-        self.StretchVar.set(ent.details['stretch'])
-        self.TextureVar.set(ent.details['texture'] \
-                         if ent.details['texture'] else ent.filename)
+        PlaceWidget(ttk.Label(self, text='Texture'), 1, 0)
+        PlaceWidget(self.Stretch, 0, 0)
+        PlaceWidget(self.Texture, 1, 1)
 
     def Exit(self):
         self.applied.details['stretch'] = self.StretchVar.get()
@@ -48,6 +46,7 @@ class Entity:
         assert not(filename and surface), 'not both'
         self.surface = pygame.image.load(filename) if filename else surface
         self.filename = filename if filename else ''
+        self.details['filename'] = self.filename
         return self
 
     def Collides(self, rect):

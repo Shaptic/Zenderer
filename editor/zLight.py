@@ -4,19 +4,7 @@ import ttk
 import pygame
 
 from zEntity import *
-import zGUI
-
-def PlaceWidget(Widget, r, c, s='', px=0, py=0, **kwargs):
-    Widget.grid(row=r, column=c, sticky=s, padx=px, pady=py, **kwargs)
-
-def MakeRadioBtn(parent, text, command, variable, value):
-    return ttk.Radiobutton(parent, text=text, command=command,
-                           variable=variable, value=value)
-
-def MakeVar(contents=None, type=tk.StringVar):
-    v = type()
-    if contents: v.set(contents)
-    return v
+from zGUI    import *
 
 DEFAULT_LIGHT = {
     'type':         'POINT',
@@ -36,9 +24,9 @@ def color2hex(c):
         for x in c.split(',')
     ])
 
-class LightPropertyWindow(zGUI.PropertyWindow):
+class LightPropertyWindow(PropertyWindow):
     def __init__(self, light, parent):
-        apply(zGUI.PropertyWindow.__init__, (self, parent, light))
+        apply(PropertyWindow.__init__, (self, parent, light))
 
         self.TypeVar    = MakeVar(light.details['type'].upper())
         self.ColorVar   = MakeVar(light.details['color'])
@@ -52,9 +40,9 @@ class LightPropertyWindow(zGUI.PropertyWindow):
 
         self.TypeVar.trace('w', self._Evt_LightType)
 
-        self.Point  = MakeRadioBtn(self, 'Point',       None, self.TypeVar, 'POINT')
-        self.Spot   = MakeRadioBtn(self, 'Spotlight',   None, self.TypeVar, 'SPOT')
-        self.Ambient= MakeRadioBtn(self, 'Ambient',     None, self.TypeVar, 'AMBIENT')
+        self.Point  = MakeRadioBtn(self, 'Point',       self.TypeVar, 'POINT')
+        self.Spot   = MakeRadioBtn(self, 'Spotlight',   self.TypeVar, 'SPOT')
+        self.Ambient= MakeRadioBtn(self, 'Ambient',     self.TypeVar, 'AMBIENT')
 
         self.Bright = tk.Entry(self, textvariable=self.BrtVar)
         self.MaxAng = tk.Entry(self, textvariable=self.MaxAngVar, state=tk.DISABLED)
