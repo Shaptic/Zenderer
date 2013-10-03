@@ -87,12 +87,7 @@ class LightPropertyWindow(PropertyWindow):
             self.applied.details['minangle'] = \
                 0.0 if not self.MinAngVar.get() else self.MinAngVar.get()
 
-        surf = pygame.Surface((self.applied.surface.get_width(),
-                               self.applied.surface.get_height()))
-        surf.blit(pygame.image.load('light.png'), (0, 0))
-        surf.fill(stoc(self.applied.details['color']))
-        self.applied.surface = surf
-
+        self.applied.SetColor(stoc(self.applied.details['color']))
         self.destroy()
 
     def _Evt_ChooseColor(self, evt=None):

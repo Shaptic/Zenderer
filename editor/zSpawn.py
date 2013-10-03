@@ -46,22 +46,22 @@ class SpawnPropertyWindow(PropertyWindow):
         self.applied.details['blacklist'] = self.BLVar.get()
         self.applied.details['whitelist'] = self.WLVar.get()
 
-        color = (255, 0, 0) if self.TypeVar.get() == 'ENEMY' else (0, 0, 255)
-        surf = pygame.Surface((32, 32))
-        surf.fill(color)
-        self.applied.Load(surface=surf)
+        self.applied.SetColor(None, self.applied.details['type'])
         self.destroy()
 
 class Spawn(Entity):
     def __init__(self, d=DEFAULT_SPAWN):
         apply(Entity.__init__, (self, ))
         self.details = dict(d)
+        self.SetColor(None, d['type'])
 
-        color = (255, 0, 0)
-        if d['type'] == 'PLAYER':
-            color = (0, 0, 255)
-        elif d['type'] == 'ITEM':
-            color = (0, 255, 0)
+    def SetColor(self, color, type=None):
+        if type:
+            color = (255, 0, 0)
+            if type == 'PLAYER':
+                color = (0, 0, 255)
+            elif type == 'ITEM':
+                color = (0, 255, 0)
 
         surf = pygame.Surface((32, 32))
         surf.fill(color)

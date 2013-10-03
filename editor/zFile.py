@@ -171,6 +171,7 @@ class Importer:
                     line = line.strip()
 
                     if line.strip() == '</spawn>':
+                        spn.SetColor(None, spn.details['type'])
                         self.spawns.append(spn)
                         break
 

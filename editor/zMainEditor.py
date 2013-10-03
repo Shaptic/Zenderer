@@ -340,6 +340,18 @@ class Main:
 
         for p in self.polys:
             self.polys[self.polys.index(p)] = [(v[0] + dx, v[1] + dy) for v in p]
+        
+        if self.BaseEntity:
+            self.BaseEntity.Move((
+                self.BaseEntity.start[0] + dx,
+                self.BaseEntity.start[1] + dy
+            ))
+
+        if self.BaseLight:
+            self.BaseLight.Move((
+                self.BaseLight.start[0] + dx, 
+                self.BaseLight.start[1] + dy
+            ))
 
 if __name__ == '__main__':
     Editor = Main()
