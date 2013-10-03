@@ -11,7 +11,7 @@ from zEntity    import *
 from zLight     import *
 from zSpawn     import *
 from zGUI       import *
-from zFile      import Exporter
+from zFile      import Exporter, Importer
 
 import zGeometry as geometry
 
@@ -60,7 +60,7 @@ class Main:
 
         # Set up menus.
         file = tk.Menu(tearoff=0)
-        file.add_command(label='Import...')
+        file.add_command(label='Import...', command=self._Import)
         file.add_command(label='Export...', command=self._Export)
         file.add_separator()
         file.add_command(label='Quit', command=self.Exit)
@@ -187,6 +187,7 @@ class Main:
             initialfile='level.zlv',
             title='Export Level As...', parent=self.window)
 
+        if not filename: return
         with open(filename, 'w') as f:
             for e in self.entities:
                 e.Move((e.start[0] - self.origin[0], e.start[1] - self.origin[1]))
@@ -215,6 +216,26 @@ class Main:
                     v[0] + self.origin[0],
                     v[1] + self.origin[1]) for v in self.polys[i]
                 ]
+
+    def _Import(self):
+        filename = tkfile.askopenfilename(
+            defaultextension='.zlv',
+            filetypes=[('Zenderer Level files', '*.zlv'),
+                       ('All Files', '.*')],
+            title='Import Level...', parent=self.window)
+
+        if not filename: return
+
+        self.entities   = []
+        self.lights     = []
+        self.spawns     = []
+        self.polys      = []
+        self.verts      = []
+
+        data = Importer(self.entities, self.lights, self.spawns, self.polys)
+        data.LoadFromFile(filename)
+        self.origin = (0, 0)
+        print [(e.start, e.end) for e in self.entities]
 
     def _Evt_AddObject(self, pos):
         if self.ObjVar.get() == 1 and self.EntityList.get():

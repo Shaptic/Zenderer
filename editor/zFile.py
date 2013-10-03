@@ -1,4 +1,4 @@
-from zLight import make2f
+from zLight     import *
 
 class Exporter:
     @staticmethod
@@ -50,7 +50,7 @@ class Exporter:
     @staticmethod
     def ExportSpawn(f, s):
         final  = '<spawn type="%s">\n' % s.details['type'].upper()
-        final += '    position=%0.2f,%0.2f\n' % (s.start[0], s.start[1])
+        final += '    position=%d,%d\n' % (s.start[0], s.start[1])
         if s.details['whitelist']:
             final += '    whitelist=%s\n' % s.details['whitelist']
         if s.details['blacklist']:
@@ -58,3 +58,130 @@ class Exporter:
         final += '</spawn>\n\n'
         f.write(final)
         f.flush()
+
+import re
+from zEntity    import *
+from zSpawn     import *
+
+class Importer:
+    def __init__(self, ents, lights, spawns, verts):
+        self.ents   = ents
+        self.lights = lights
+        self.spawns = spawns
+        self.verts  = verts
+    
+    def LoadFromFile(self, filename):
+        f = open(filename, 'r')
+        while True:
+            line = f.readline()
+            if not line: break
+            line = line.strip()
+            
+            if line.find('<entity') == 0:
+                verts= []
+                ent = Entity()
+
+                # We are beginning a block either of an entity or
+                # of an arbitrary vertex polygon. We differentiate by
+                # whether it has a texture or not, and how many
+                # vertices it has.
+                while True:
+                    line = f.readline()
+                    if not line: break
+                    line = line.strip()
+                    
+                    if line.strip() == '</entity>':
+                        if len(verts) > 4 and not ent.filename:
+                            self.verts.append(verts)
+                            break
+
+                        else:
+                            if verts:
+                                ent.end = (verts[2][0] + ent.start[0],
+                                           verts[2][1] + ent.start[1])
+
+                            self.ents.append(ent)
+                            break
+
+                    if not line or line[0] == '/': continue
+
+                    elif line.find('depth=') == 0:
+                        ent.details['depth'] = line.split('=')[1]
+
+                    elif line.find('position=') == 0:
+                        parts = line.split('=')[1].split(',')
+                        ent.Move([int(i) for i in parts])
+
+                    elif line.find('vertex=') == 0:
+                        parts = line.split('=')[1].split(',')
+                        verts.append((int(parts[0]), int(parts[1])))
+
+                    elif line.find('stretch=') == 0:
+                        ent.details['stretch'] = line.split('=')[1]
+
+                    elif line.find('texture=') == 0:
+                        ent.Load(filename=line.split('=')[1])
+
+            elif line.find('<light') == 0:
+                lit = Light()
+                lit.details['type'] = re.match('<light type="([A-Z]+)">',
+                                               line, re.IGNORECASE).groups()[0]
+
+                # We are beginning a light.
+                while True:
+                    line = f.readline()
+                    if not line: break
+                    line = line.strip()
+                    
+                    if line.strip() == '</light>':
+                        self.lights.append(lit)
+                        break
+
+                    if not line or line[0] == '/': continue
+
+                    elif line.find('color=') == 0:
+                        lit.details['color'] = line.split('=')[1]
+                        lit.SetColor(stoc(lit.details['color']))
+
+                    elif line.find('attenuation=') == 0:
+                        lit.details['attenuation'] = line.split('=')[1]
+
+                    elif line.find('brightness=') == 0:
+                        lit.details['brightness'] = line.split('=')[1]
+
+                    elif line.find('maxangle=') == 0:
+                        lit.details['maxangle'] = line.split('=')[1]
+
+                    elif line.find('minangle=') == 0:
+                        lit.details['minangle'] = line.split('=')[1]
+
+                    elif line.find('position=') == 0:
+                        parts = line.split('=')[1].split(',')
+                        lit.Move([int(i) for i in parts])
+
+            elif line.find('<spawn') == 0:
+                spn = Spawn()
+                spn.details['type'] = re.match('<spawn type="([A-Z]+)">',
+                                               line, re.IGNORECASE).groups()[0]
+
+                # We are beginning a spawn point block.
+                while True:
+                    line = f.readline()
+                    if not line: break
+                    line = line.strip()
+
+                    if line.strip() == '</spawn>':
+                        self.spawns.append(spn)
+                        break
+
+                    if not line or line[0] == '/': continue
+
+                    elif line.find('whitelist=') == 0:
+                        spn.details['whitelist'] = line.split('=')[1]
+
+                    elif line.find('blacklist=') == 0:
+                        spn.details['blacklist'] = line.split('=')[1]
+
+                    elif line.find('position=') == 0:
+                        parts = line.split('=')[1].split(',')
+                        spn.Move([int(i) for i in parts])

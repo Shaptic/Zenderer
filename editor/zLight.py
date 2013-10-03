@@ -24,6 +24,9 @@ def color2hex(c):
         for x in c.split(',')
     ])
 
+def stoc(s):
+    return tuple([min(float(f)*255, 255) for f in s.split(',')])
+
 class LightPropertyWindow(PropertyWindow):
     def __init__(self, light, parent):
         apply(PropertyWindow.__init__, (self, parent, light))
@@ -84,12 +87,12 @@ class LightPropertyWindow(PropertyWindow):
             self.applied.details['minangle'] = \
                 0.0 if not self.MinAngVar.get() else self.MinAngVar.get()
 
-        color = [min(float(x) * 255, 255) for x in self.ColorVar.get().split(',')]
         surf = pygame.Surface((self.applied.surface.get_width(),
                                self.applied.surface.get_height()))
-        surf.fill(tuple(color))
         surf.blit(pygame.image.load('light.png'), (0, 0))
+        surf.fill(stoc(self.applied.details['color']))
         self.applied.surface = surf
+
         self.destroy()
 
     def _Evt_ChooseColor(self, evt=None):
@@ -115,8 +118,11 @@ class Light(Entity):
         apply(Entity.__init__, (self, ))
         self.details = dict(d)
         self.Load(filename='light.png')
+        self.SetColor(stoc(d['color']))
+
+    def SetColor(self, color):
         surf = pygame.Surface((self.surface.get_width(),
                                self.surface.get_height()))
-        surf.fill((255, 255, 255))
-        surf.blit(self.surface, (0, 0))
+        surf.fill(color)
+        surf.blit(pygame.image.load('light.png'), (0, 0))
         self.surface = surf

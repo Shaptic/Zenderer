@@ -41,12 +41,13 @@ class Entity:
         self.end = tuple(self.start)
         self.details = dict(DEFAULT_ENTITY)
         self.on = False
+        self.filename = ''
 
     def Load(self, filename=None, surface=None):
         assert not(filename and surface), 'not both'
         self.surface = pygame.image.load(filename) if filename else surface
         self.filename = filename if filename else ''
-        self.details['filename'] = self.filename
+        self.details['texture'] = self.filename
         return self
 
     def Collides(self, rect):
