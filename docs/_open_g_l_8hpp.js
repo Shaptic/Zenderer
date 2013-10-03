@@ -7,5 +7,6 @@ var _open_g_l_8hpp =
     ] ],
     [ "GL", "_open_g_l_8hpp.html#gadd7e49d426171a52326fe77251d93c3d", null ],
     [ "Quit", "_open_g_l_8hpp.html#aca306dcb6040ec015324d8487c031048", null ],
-    [ "glCheck", "_open_g_l_8hpp.html#ae4533b6d5c7873ea5ba0de62ad7af968", null ]
+    [ "glCheck", "_open_g_l_8hpp.html#ae4533b6d5c7873ea5ba0de62ad7af968", null ],
+    [ "zWindow", "_open_g_l_8hpp.html#a1ee6203f6dcaf82e7862fc378795a2a7", null ]
 ];

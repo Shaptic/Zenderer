@@ -177,9 +177,6 @@
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\CoreGraphics\Drawable.hpp">
-      <Filter>Header Files\CoreGraphics</Filter>
-    </ClInclude>
     <ClInclude Include="include\Zenderer\CoreGraphics\Renderer.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
     </ClInclude>
@@ -263,6 +260,12 @@
     </ClInclude>
     <ClInclude Include="include\Zenderer\Utilities\FileParser.hpp">
       <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Objects\Animation.hpp">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\ConcavePolygon.hpp">
+      <Filter>Header Files\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -356,9 +359,6 @@
     <ClCompile Include="src\Graphics\RenderTarget.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\CoreGraphics\Drawable.cpp">
-      <Filter>Source Files\CoreGraphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\Graphics\Quad.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
@@ -410,6 +410,15 @@
     <ClCompile Include="src\Math\Shapes.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\Objects\Animation.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\ConcavePolygon.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="include\Zenderer\Utilities\Log.inl">
@@ -437,9 +446,6 @@
       <Filter>Header Files\CoreGraphics</Filter>
     </None>
     <None Include="data\shaders\AmbientLight.fs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="data\shaders\Animate.fs">
       <Filter>Shaders</Filter>
     </None>
     <None Include="data\shaders\Default.fs">
@@ -472,12 +478,15 @@
     <None Include="data\shaders\SpotLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="data\shaders\SpriteSheet.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="include\Zenderer\Graphics\Scene.inl">
       <Filter>Header Files\Graphics</Filter>
     </None>
     <None Include="README.md" />
+    <None Include="data\shaders\zFont.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="data\shaders\Spritesheet.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

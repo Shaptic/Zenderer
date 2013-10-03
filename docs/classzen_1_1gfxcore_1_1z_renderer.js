@@ -7,7 +7,7 @@ var classzen_1_1gfxcore_1_1z_renderer =
     [ "DisableBlending", "classzen_1_1gfxcore_1_1z_renderer.html#a8ae353b9c38d1b0bcd00305057abc207", null ],
     [ "DisableTexture", "classzen_1_1gfxcore_1_1z_renderer.html#a6e2d08809b5a7d6960928fd13a157016", null ],
     [ "GetDefaultMaterial", "classzen_1_1gfxcore_1_1z_renderer.html#a58b8c1622c0d33fd14a6d804a923ab7a", null ],
-    [ "GetDefaultEffect", "classzen_1_1gfxcore_1_1z_renderer.html#a53499adca89a3cbab27d14bbbc84de36", null ],
+    [ "GetDefaultEffect", "classzen_1_1gfxcore_1_1z_renderer.html#abe646457f1ab24a1587af85fa78c8052", null ],
     [ "GetDefaultTexture", "classzen_1_1gfxcore_1_1z_renderer.html#aded5bbe605b3fe49ae5ee7ff6df12ec7", null ],
     [ "GetProjectionMatrix", "classzen_1_1gfxcore_1_1z_renderer.html#a1e101eb52b27cb1f4d37a30f1bce6c14", null ],
     [ "GetFullscreenVBO", "classzen_1_1gfxcore_1_1z_renderer.html#a7feee5cf06be7397e1aae9035921a791", null ]

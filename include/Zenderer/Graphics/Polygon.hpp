@@ -1,6 +1,6 @@
 /**
  * @file
- *  Zenderer/CoreGraphics/Drawable.hpp - A vertex-agnostic convex primitive.
+ *  Zenderer/CoreGraphics/Polygon.hpp - A vertex-agnostic convex primitive.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -32,7 +32,7 @@ namespace obj { class ZEN_API zEntity; }
 namespace gfx
 {
     /// An arbitrary n-vertex convex polygon.
-    class ZEN_API zPolygon// : public gfxcore::zDrawable
+    class ZEN_API zPolygon
     {
     public:
         zPolygon(asset::zAssetManager& Assets, const size_t preload = 0);
@@ -52,11 +52,23 @@ namespace gfx
 
         /**
          * Creates the polygon from the internally stored vertices.
+         *  If `do_triangulation` is set to `false`, the internal
+         *  triangulation storage will simply default to the contents
+         *  of the current temporary vertices.
+         *  This comes in handy if, for example, you wish to directly
+         *  implement a concave polygon (without using zConcavePolygon).
+         *  In this case, you would set custom indices, then Create() the
+         *  polygon without triangulation, since the vertices you've given
+         *  would already form triangles.
+         *  This type of processing is used by zen::lvl::zLevelLoader.
+         *
+         * @param   do_triangulation    Should we triangulate?
+         *
          * @pre     >= 3 vertices have been added to the polygon.
          * @post    No temporary vertices are stored until AddVertex()
          *          is called again.
          **/
-        virtual zPolygon& Create();
+        virtual zPolygon& Create(const bool do_triangulation = true);
 
         /**
          * Moves the drawable to a certain location.
@@ -64,12 +76,12 @@ namespace gfx
          *  the model-view matrix to translate the object, thus
          *  there is a default implementation.
          *
-         * @param   Position    (x, y, z) coordinates where you want the object
+         * @param   Position    (x, y) coordinates where you want the object
          **/
         virtual void Move(const math::vector_t& Position);
 
         /// @overload
-        virtual void Move(const real_t x, const real_t y, const real_t z = 1.0);
+        virtual void Move(const real_t x, const real_t y);
 
         /**
          * Attaches a material to render on top of the primitive.
@@ -118,8 +130,19 @@ namespace gfx
         void LoadIntoVAO(gfxcore::zVertexArray& VAO,
                          const bool preserve = true);
 
-        virtual inline std::vector<math::vector_t> Triangulate() const
-        { return math::triangulate(m_Verts); }
+        /**
+         * Attempts collision detection with another polygon.
+         *  This function is O(n^2), so its preferable to do a generic bounding
+         *  box collision detection prior to this.
+         *
+         * @param   Other   Polygon to check collision with
+         * @param   poi     Optional point of impact specifier.
+         *
+         * @return  `true`  if this polygon collides with the given parameter,
+         *          `false` otherwise.
+         **/
+        virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr);
+        virtual bool Collides(const math::aabb_t& other);   ///< @overload
 
         /**
          * Overrides default index creation for the added vertices.
@@ -131,20 +154,72 @@ namespace gfx
          **/
         void SetIndices(const std::vector<gfxcore::index_t>& Indices);
 
-        /// Sets the vertex color of the *temporary* buffer.
+        /// Sets the vertex color of the created vertices.
         void SetColor(const color4f_t& Color);
 
-        inline const math::vector_t& GetPosition() const
-        { return m_Position; }
+        inline const std::vector<math::vector_t>&
+        GetTriangulation() const { return m_Tris; }
 
-        inline real_t GetX() const { return m_Position.x; }
-        inline real_t GetY() const { return m_Position.y; }
+        inline math::vector_t GetPosition() const
+        { return math::vector_t(m_BoundingBox.x, m_BoundingBox.y); }
+
+        inline const math::rect_t&
+        GetBoundingBox() const { return m_BoundingBox; }
+
+        inline real_t GetX() const { return m_BoundingBox.x; }
+        inline real_t GetY() const { return m_BoundingBox.y; }
+
+        /// Gets preset maximum height for the current vertices.
+        inline uint16_t GetH() const { return m_BoundingBox.h; }
+
+        /// Gets preset width for the current vertices.
+        inline uint16_t GetW() const { return m_BoundingBox.w; }
 
         /// Calculates maximum height for the current vertices.
-        uint16_t GetH() const;
+        /// Caches it for retrieval via GetH().
+        uint16_t CalcH();
 
-        /// Calculates maximum width for the current vertices.
-        uint16_t GetW() const;
+        /// Calculates width for the current vertices.
+        /// Caches it for retrieval via GetW().
+        uint16_t CalcW();
+
+        int GetLowPoint() const
+        {
+            if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
+
+            int low = m_Verts.empty() ?
+                      m_DrawData.Vertices[0].position.y :
+                      m_Verts[0].y;
+
+            for(auto& i : m_Verts) low = math::min<int>(low, i.y);
+            std::for_each(m_DrawData.Vertices,
+                          m_DrawData.Vertices + m_DrawData.vcount,
+                          [&low](const gfxcore::vertex_t& v) {
+                              low = math::min<int>(low, v.position.y);
+                          }
+            );
+
+            return low;
+        }
+
+        int GetLeftPoint() const
+        {
+            if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
+
+            int16_t left = m_Verts.empty() ?
+                           m_DrawData.Vertices[0].position.x :
+                           m_Verts[0].x;
+
+            for(auto& i : m_Verts) left = math::min<int>(left, i.x);
+            std::for_each(m_DrawData.Vertices,
+                          m_DrawData.Vertices + m_DrawData.vcount,
+                          [&left](const gfxcore::vertex_t& v) {
+                              left = math::min<int>(left, v.position.x);
+                          }
+            );
+
+            return left;
+        }
 
         /// Request to see if we can change the internal vertices or not.
         bool IsModifiable() const;
@@ -163,9 +238,9 @@ namespace gfx
     protected:
         virtual void MapTexCoords() { ZEN_ASSERTM(false, "not implemented"); }
 
-        std::vector<math::vector_t> m_Verts;
+        std::vector<math::vector_t> m_Verts, m_Tris;
         gfx::zMaterial      m_Material;
-        math::vector_t      m_Position;
+        math::rect_t        m_BoundingBox;
         gfxcore::DrawBatch  m_DrawData;
         color4f_t           m_Color;
         bool                m_internal;
@@ -188,11 +263,9 @@ namespace gfx
  *  The polygon is generated by drawing triangles to each individual vertex,
  *  beginning from the first vertex added.
  *
- *  Polygons are created a little differently than pre-baked primitives
- *  such as gfx::zQuad, they store vertices in a temporary buffer until
- *  Create() is called. Thus calls to the various `Set*()` methods are
- *  overidden in order to use the temporary buffer rather than the true
- *  internal vertex buffer as specified by the base class gfxcore::zDrawable.
+ *  Polygons present the basis for inheriting classes that provide pre-baked
+ *  vertex configurations, such as gfx::zQuad. Vertices are stored in a
+ *  temporary buffer until Create() is called.
  *
  * @example Polygons
  * @section A Variety of Polgyons
@@ -228,14 +301,14 @@ namespace gfx
  *
  *  @code
  *  // Assuming a manager, etc has already been defined prior.
- *  gfx::zPolygon Circle(Manager);
+ *  gfx::zPolygon Circle(Manager, 360);
  *
  *  real_t radius = 32;
  *  Circle.AddVertex(32, 32);   // Center of the circle
  *  for(uint16_t i = 0; i < 360; ++i)
  *  {
- *      Circle.AddVertex(sin(math::rad(i)) * radius,
- *                       cos(math::rad(i)) * radius);
+ *      Circle.AddVertex(std::sin(math::rad(i)) * radius,
+ *                       std::cos(math::rad(i)) * radius);
  *  }
  *
  *  Circle.Create();

@@ -5,9 +5,5 @@ var searchData=
   ['circle_5ft',['circle_t',['../group___objects.html#structzen_1_1obj_1_1circle__t',1,'zen::obj']]],
   ['color3f_5ft',['color3f_t',['../structzen_1_1color3f__t.html',1,'zen']]],
   ['color4f_5ft',['color4f_t',['../structzen_1_1color4f__t.html',1,'zen']]],
-  ['csound2d',['CSound2D',['../classzen_1_1sfx_1_1_c_sound2_d.html',1,'zen::sfx']]],
-  ['cstring',['CString',['../class_c_string.html',1,'']]],
-  ['ctimer',['CTimer',['../classzen_1_1util_1_1_c_timer.html',1,'zen::util']]],
-  ['ctriangle',['CTriangle',['../group___graphics.html#classzen_1_1gfx_1_1_c_triangle',1,'zen::gfx']]],
-  ['ctrianglequad',['CTriangleQuad',['../classzen_1_1gfx_1_1_c_triangle_quad.html',1,'zen::gfx']]]
+  ['csound2d',['CSound2D',['../classzen_1_1sfx_1_1_c_sound2_d.html',1,'zen::sfx']]]
 ];

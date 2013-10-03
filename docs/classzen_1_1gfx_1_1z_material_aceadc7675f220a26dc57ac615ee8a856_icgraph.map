@@ -1,7 +1,9 @@
 <map id="zen::gfx::zMaterial::LoadTextureFromFile" name="zen::gfx::zMaterial::LoadTextureFromFile">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="418,75,475,101"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116" title="Loads a material from an existing file stream. " alt="" coords="205,5,336,46"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="208,122,333,163"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="384,5,509,46"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="421,129,472,156"/>
+<area shape="rect" id="node2" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="206,5,351,46"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="434,136,491,163"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116" title="Loads a material from an existing file stream. " alt="" coords="213,253,344,294"/>
+<area shape="rect" id="node6" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="208,70,349,111"/>
+<area shape="rect" id="node7" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="216,187,341,229"/>
+<area shape="rect" id="node5" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="400,253,525,294"/>
+<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="437,195,488,221"/>
 </map>

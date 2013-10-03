@@ -1,5 +1,4 @@
 <map id="zen::math::matrix4x4_t::GetPointer" name="zen::math::matrix4x4_t::GetPointer">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_effect.html#a2b0a051e1e98376b72db83400ed6b415" title="Modifies a matrix parameter in the effect. " alt="" coords="211,5,335,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1math_1_1matrix4x4__t.html#a4027c831e496ddff65875a47b0ebc71f" title="zen::math::matrix4x4\l_t::matrix4x4_t" alt="" coords="201,70,346,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8" title="zen::math::matrix4x4\l_t::operator=" alt="" coords="201,135,346,177"/>
+<area shape="rect" id="node2" href="$classzen_1_1math_1_1matrix4x4__t.html#a4027c831e496ddff65875a47b0ebc71f" title="zen::math::matrix4x4\l_t::matrix4x4_t" alt="" coords="201,5,346,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1math_1_1matrix4x4__t.html#a848aaf5e29a378fe3681e9b0930a73e8" title="zen::math::matrix4x4\l_t::operator=" alt="" coords="201,70,346,111"/>
 </map>

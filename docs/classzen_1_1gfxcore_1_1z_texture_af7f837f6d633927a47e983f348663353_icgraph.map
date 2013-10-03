@@ -1,10 +1,8 @@
 <map id="zen::gfxcore::zTexture::Bind" name="zen::gfxcore::zTexture::Bind">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_texture.html#ab23bea9b2f2e6a20286e3f766084ccf2" title="Returns raw asset data (usually for reloading). " alt="" coords="206,57,357,98"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_material.html#a8f82d5c3f189e6493b322b43f0fba50c" title="Enables the effect and texture for rendering. " alt="" coords="217,122,346,163"/>
-<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_material.html#a6f9b1d7c2df944e3dfa0a70fa3982e7f" title="Enables only the texture. " alt="" coords="426,225,555,266"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1z_drawable.html#af86c4a6f7fcc2d95b937623e56400828" title="Draws the primitive on&#45;screen. " alt="" coords="626,107,787,149"/>
-<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="838,115,895,141"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="406,56,575,83"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="625,5,789,32"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="841,5,892,32"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_texture.html#ab23bea9b2f2e6a20286e3f766084ccf2" title="Returns raw asset data (usually for reloading). " alt="" coords="206,5,357,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_material.html#a8f82d5c3f189e6493b322b43f0fba50c" title="Enables the effect and texture for rendering. " alt="" coords="217,70,346,111"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1z_material.html#a6f9b1d7c2df944e3dfa0a70fa3982e7f" title="Enables only the texture. " alt="" coords="406,129,535,170"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="585,77,642,104"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="405,11,536,53"/>
+<area shape="rect" id="node6" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="585,19,642,45"/>
 </map>

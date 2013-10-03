@@ -6,5 +6,6 @@ var searchData=
   ['left_5fbracket',['LEFT_BRACKET',['../_keyboard_8hpp.html#aa195467e8348bfa0a81d0d52729f8589',1,'Keyboard.hpp']]],
   ['left_5fcontrol',['LEFT_CONTROL',['../_keyboard_8hpp.html#ad65ff8b937d27c52405e6fd160531f43',1,'Keyboard.hpp']]],
   ['left_5fshift',['LEFT_SHIFT',['../_keyboard_8hpp.html#a17f544e0be80f6f423d4365e10c0e305',1,'Keyboard.hpp']]],
-  ['left_5fsuper',['LEFT_SUPER',['../_keyboard_8hpp.html#a3b015542a847d2fc3b9ee501073538df',1,'Keyboard.hpp']]]
+  ['left_5fsuper',['LEFT_SUPER',['../_keyboard_8hpp.html#a3b015542a847d2fc3b9ee501073538df',1,'Keyboard.hpp']]],
+  ['lights',['lights',['../namespacezen_1_1lvl.html#a777909f1dafd68efe38e99e32c20cc39',1,'zen::lvl::level_t']]]
 ];

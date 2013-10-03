@@ -53,31 +53,11 @@ namespace gfxcore
         "}\n"
     );
 
-    /// Created from data/shaders/Animate.fs.
-    static const string_t ANIMATE_FS = string_t(
-        "#version 330 core\n"
-
-        "uniform sampler2D   texture;\n"
-        "uniform float       tc_offset;\n"
-        "uniform vec2        tc_start;\n"
-
-        "smooth  in  vec2 fs_texc;\n"
-        "smooth  in  vec4 fs_color;\n"
-        "        out vec4 out_color;\n"
-
-        "void main()\n"
-        "{\n"
-        "    vec2 coord= vec2(tc_start.s + (fs_texc.s * tc_offset), tc_start.t + fs_texc.t);\n"
-        "    out_color = texture2D(texture, coord) * fs_color;\n"
-        "}\n"
-    );
-
     /// Created from data/shaders/Default.fs.
     static const string_t DEFAULT_FS = string_t(
         "#version 330 core\n"
 
         "uniform sampler2D   texture;\n"
-        "uniform vec2        tc_offset;\n"
 
         "smooth  in  vec2 fs_texc;\n"
         "smooth  in  vec4 fs_color;\n"
@@ -85,7 +65,7 @@ namespace gfxcore
 
         "void main()\n"
         "{\n"
-        "    out_color = texture2D(texture, fs_texc + tc_offset) * fs_color;\n"
+        "    out_color = texture2D(texture, fs_texc) * fs_color;\n"
         "}\n"
     );
 
@@ -355,6 +335,25 @@ namespace gfxcore
         "#version 330 core\n"
 
         "uniform sampler2D   texture;\n"
+        "uniform float       tc_offset;\n"
+        "uniform vec2        tc_start;\n"
+
+        "smooth  in  vec2 fs_texc;\n"
+        "smooth  in  vec4 fs_color;\n"
+        "        out vec4 out_color;\n"
+
+        "void main()\n"
+        "{\n"
+        "    vec2 coord= vec2(tc_start.s + (fs_texc.s * tc_offset), tc_start.t + fs_texc.t);\n"
+        "    out_color = texture2D(texture, coord) * fs_color;\n"
+        "}\n"
+    );
+
+    /// Created from data/shaders/zFont.fs.
+    static const string_t ZFONT_FS = string_t(
+        "#version 330 core\n"
+
+        "uniform sampler2D   texture;\n"
 
         "smooth  in  vec2    fs_texc;\n"
         "smooth  in  vec4    fs_color;\n"
@@ -365,10 +364,10 @@ namespace gfxcore
         "void main()\n"
         "{\n"
         "    out_color = texture2D(texture, fs_texc).rrrr * fs_color;\n"
-        "    //+ normalize(offset));\n"
         "}\n"
 
     );
+
 }
 }
 

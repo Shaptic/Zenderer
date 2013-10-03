@@ -28,8 +28,8 @@ template<typename U>
 zVector<T> zVector<T>::operator^(const zVector<U>& Other) const
 {
     return zVector<T>(y * Other.z - z * Other.y,
-                     x * Other.z - z * Other.x,
-                     x * Other.y - y * Other.x);
+                      x * Other.z - z * Other.x,
+                      x * Other.y - y * Other.x);
 }
 
 template<typename T>
@@ -99,7 +99,7 @@ template<typename T>
 template<typename U>
 real_t zVector<T>::Cross2D(const zVector<U>& Other) const
 {
-    return ((*this) ^ Other).Magnitude();
+    return x * Other.y - y * Other.x;
 }
 
 template<typename T>

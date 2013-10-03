@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_socket_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -309,15 +309,15 @@ $(document).ready(function(){initNavTree('_socket_8cpp_source.html','');});
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif // _WIN32</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span>}</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;in_addr zSocket::GetAddress(<span class="keyword">const</span> <a class="code" href="class_c_string.html">string_t</a>&amp; ip)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;in_addr zSocket::GetAddress(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; ip)</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;{</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    in_addr s;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">// We would like to support Windows XP and above.</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span>    s.S_un.S_addr = inet_addr(ip.<a class="code" href="class_c_string.html#a9e03007e643391b723caa2ea86f7b39a">c_str</a>());</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span>    s.S_un.S_addr = inet_addr(ip.c_str());</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor"></span>    inet_pton(AF_INET, ip.<a class="code" href="class_c_string.html#a9e03007e643391b723caa2ea86f7b39a">c_str</a>(), &amp;s);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor"></span>    inet_pton(AF_INET, ip.c_str(), &amp;s);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif // _WIN32</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">return</span> s;</div>

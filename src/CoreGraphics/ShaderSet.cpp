@@ -19,6 +19,7 @@ zShaderSet::zShaderSet(asset::zAssetManager& Assets) :
 zShaderSet::~zShaderSet()
 {
     this->Destroy();
+    ZEN_ASSERTM(m_program == 0 && !m_init, "didn't free GL program!");
 }
 
 zShaderSet::zShaderSet(const zShaderSet& Copy) :
@@ -122,14 +123,16 @@ bool zShaderSet::CreateShaderObject()
                 << m_Log.SetSystem("ShaderSet")
                 << m_error_str << zLog::endl;
 
-        return false;
+        return (m_init = false);
     }
 
     // Test for existing shader program.
     for(auto& i : s_shaderPrograms)
     {
         zShaderSet& SS = *(i.first);
-        if(SS.mp_VShader == mp_VShader && SS.mp_FShader == mp_FShader)
+        if(SS.mp_VShader == mp_VShader &&
+           SS.mp_FShader == mp_FShader &&
+           SS.m_program  != 0)
         {
             m_Log << m_Log.SetMode(LogMode::ZEN_DEBUG)
                   << m_Log.SetSystem("ShaderSet")
@@ -146,7 +149,7 @@ bool zShaderSet::CreateShaderObject()
             m_link_log  = SS.m_link_log;
             m_ID        = SS.m_ID;
             m_refcount  = ++SS.m_refcount;
-            return m_error_str.empty();
+            return (m_init = m_error_str.empty());
         }
     }
 
@@ -196,7 +199,7 @@ bool zShaderSet::CreateShaderObject()
                 << m_error_str << "." << zLog::endl;
 
         this->Destroy();
-        return false;
+        return (m_init = false);
     }
 
     // Add ourselves to the internal program storage.
@@ -207,7 +210,7 @@ bool zShaderSet::CreateShaderObject()
         "too many shader programs; material ID will not be unique");
 
     s_shaderPrograms[this] = m_program;
-    return m_init = true;
+    return (m_init = true);
 }
 
 bool zShaderSet::Bind() const
@@ -290,11 +293,10 @@ bool zShaderSet::Destroy()
     if(m_program > 0 && --m_refcount == 0)
     {
         GL(glDeleteProgram(m_program));
-        m_program = 0;
     }
 
     m_error_str = "";
-    m_ID = 0;
+    m_ID = m_program = 0;
     return !(m_init = false);
 }
 

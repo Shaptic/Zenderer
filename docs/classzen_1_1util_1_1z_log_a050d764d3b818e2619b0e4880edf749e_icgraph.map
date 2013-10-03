@@ -1,7 +1,7 @@
 <map id="zen::util::zLog::GetEngineLog" name="zen::util::zLog::GetEngineLog">
 <area shape="rect" id="node2" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="501,129,552,156"/>
 <area shape="rect" id="node3" href="$namespacezen_1_1util.html#a247f8f4778343e66719940c46b26ad31" title="Executes a verification of an expression, crashing on error. " alt="" coords="262,59,381,101"/>
-<area shape="rect" id="node6" href="$classzen_1_1util_1_1_c_timer.html#a1c09eaf22a2d5738fd31620a9eecd455" title="Delays the current thread appropriately to maintain frame&#45;rate. " alt="" coords="259,177,384,218"/>
+<area shape="rect" id="node6" href="$classzen_1_1util_1_1z_timer.html#a1decc1f95613e9eca50d52e4add8bd0e" title="Delays the current thread appropriately to maintain frame&#45;rate. " alt="" coords="260,177,383,218"/>
 <area shape="rect" id="node8" href="$classzen_1_1util_1_1z_x_m_l_parser.html#a2f98c13f5ea15dce2d2ec23fa461cd6f" title="Outputs an XML error. " alt="" coords="248,242,395,283"/>
 <area shape="rect" id="node4" href="$namespacezen_1_1gfxcore.html#ae4533b6d5c7873ea5ba0de62ad7af968" title="Checks the validity of an OpenGL call. " alt="" coords="453,71,601,97"/>
 <area shape="rect" id="node5" href="$classzen_1_1sfx_1_1z_audio_manager.html#a8c2b3f4a8dd21f7c655150cbac4580ca" title="Checks the validity of an OpenAL call. " alt="" coords="443,5,610,46"/>

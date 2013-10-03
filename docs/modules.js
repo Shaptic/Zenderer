@@ -7,6 +7,7 @@ var modules =
     [ "Events", "group___events.html", "group___events" ],
     [ "GUI", "group___g_u_i.html", "group___g_u_i" ],
     [ "Graphics", "group___graphics.html", "group___graphics" ],
+    [ "Levels", "group___levels.html", "group___levels" ],
     [ "Math", "group___math.html", "group___math" ],
     [ "Network", "group___network.html", "group___network" ],
     [ "Objects", "group___objects.html", "group___objects" ],

@@ -1,6 +1,9 @@
 var dir_83649a668cc514157bc5eeec4c9e3f09 =
 [
     [ "Assert.hpp", "_assert_8hpp.html", "_assert_8hpp" ],
+    [ "FileParser.hpp", "_file_parser_8hpp.html", [
+      [ "zFileParser", "classzen_1_1util_1_1z_file_parser.html", "classzen_1_1util_1_1z_file_parser" ]
+    ] ],
     [ "Helpers.hpp", "_helpers_8hpp.html", "_helpers_8hpp" ],
     [ "INIParser.hpp", "_i_n_i_parser_8hpp.html", null ],
     [ "INIParser.inl", "_i_n_i_parser_8inl.html", null ],

@@ -15,6 +15,7 @@ var classzen_1_1gfxcore_1_1z_shader_set =
     [ "Unbind", "classzen_1_1gfxcore_1_1z_shader_set.html#aa3fd70014f9bbfd301e09200c51767cd", null ],
     [ "Destroy", "classzen_1_1gfxcore_1_1z_shader_set.html#a16fff3cf9f0b95c199a7c77366cc71c5", null ],
     [ "GetShaderObject", "classzen_1_1gfxcore_1_1z_shader_set.html#a39366b27ad5cd50ae38c7f12a952707a", null ],
+    [ "GetObjectHandle", "classzen_1_1gfxcore_1_1z_shader_set.html#a7218cd365dba15a5f3cb51fad54d9b1b", null ],
     [ "GetUniformLocation", "classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d", null ],
     [ "GetAttributeLocation", "classzen_1_1gfxcore_1_1z_shader_set.html#a879d5932afd48a20138bd556b9778521", null ],
     [ "GetError", "classzen_1_1gfxcore_1_1z_shader_set.html#aff3e355880dc961045b865c2d6ab45cf", null ],

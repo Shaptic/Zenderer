@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -203,46 +203,48 @@ $(document).ready(function(){initNavTree('_zenderer_8cpp_source.html','');});
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; Log = zLog::GetEngineLog();</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    gfxcore::zRenderer::GetDefaultEffect().Destroy();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Destroying OpenGL components.&quot;</span> &lt;&lt; zLog::endl;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it  = zen::gfxcore::zGLSubsystem::sp_allGLSystems.rbegin();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;             it != zen::gfxcore::zGLSubsystem::sp_allGLSystems.rend();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;           ++it)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">auto</span>&amp; sys = *it;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(sys-&gt;GetName())</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroying component.&quot;</span> &lt;&lt; zLog::endl;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span>(!sys-&gt;Destroy())</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            Log &lt;&lt; <span class="stringliteral">&quot;Failed to destroy component.&quot;</span> &lt;&lt; zLog::endl;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Destroying components.&quot;</span> &lt;&lt; zLog::endl;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : <a class="code" href="classzen_1_1z_subsystem.html#ab1457378c77920c87e5ca3999854e988" title="No copying subsystems. ">zen::zSubsystem::sp_allSystems</a>)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Destroying components.&quot;</span> &lt;&lt; zLog::endl;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it  = <a class="code" href="classzen_1_1z_subsystem.html#ab1457378c77920c87e5ca3999854e988" title="No copying subsystems. ">zen::zSubsystem::sp_allSystems</a>.rbegin();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;             it != <a class="code" href="classzen_1_1z_subsystem.html#ab1457378c77920c87e5ca3999854e988" title="No copying subsystems. ">zen::zSubsystem::sp_allSystems</a>.rend();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;           ++it)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">auto</span>&amp; i = *(*it);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(i.GetName())</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroying component.&quot;</span> &lt;&lt; zLog::endl;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">if</span>(!i.Destroy())</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            Log &lt;&lt; <span class="stringliteral">&quot;Failed to destroy component.&quot;</span> &lt;&lt; zLog::endl;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>) &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(<span class="stringliteral">&quot;Zenderer&quot;</span>)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;Destroying OpenGL components.&quot;</span> &lt;&lt; zLog::endl;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it  = zen::gfxcore::zGLSubsystem::sp_allGLSystems.rbegin();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;             it != zen::gfxcore::zGLSubsystem::sp_allGLSystems.rend();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;           ++it)</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(i-&gt;GetName())</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroying component.&quot;</span> &lt;&lt; zLog::endl;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">if</span>(!i-&gt;Destroy())</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            Log &lt;&lt; <span class="stringliteral">&quot;Failed to destroy component.&quot;</span> &lt;&lt; zLog::endl;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    glfwTerminate();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18" title="Writes out any leftover data and closes the file stream. ">Destroy</a>();</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">auto</span>&amp; sys = *it;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        Log &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#a465f647e5347c6255cb2355528f55ad2" title="Standard message. ">LogMode::ZEN_INFO</a>)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            &lt;&lt; Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a53d91446f6f763d4b29b1178e6ad6788" title="Sets the current logging subsystem. ">SetSystem</a>(sys-&gt;GetName())</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;Destroying component.&quot;</span> &lt;&lt; zLog::endl;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">if</span>(!sys-&gt;Destroy())</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2f3a062395707bdfbba36866ec3ead01" title="Sets the output mode to something in util::LogMode. ">SetMode</a>(<a class="code" href="_log_8hpp.html#aa0bacf4652d1d93c93180f75dde7de26" title="Worrisome but handleable error. ">LogMode::ZEN_ERROR</a>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            Log &lt;&lt; <span class="stringliteral">&quot;Failed to destroy component.&quot;</span> &lt;&lt; zLog::endl;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    alutExit();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    glfwTerminate();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    Log.<a class="code" href="classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18" title="Writes out any leftover data and closes the file stream. ">Destroy</a>();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

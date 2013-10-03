@@ -20,12 +20,12 @@ var _pong_8cpp =
       [ "STATUS", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155a5f241c8c8f985b3c51e05d39cf030f4c", null ],
       [ "SYNC", "_pong_8cpp.html#aa1f26ef805cf5ea1018bce70631ab155a274ccef15a21e829d03293a6fd1974f3", null ]
     ] ],
+    [ "PONG_HOST_PORT", "_pong_8cpp.html#a232e48cb66000f2afe8774ea9c30b480", null ],
+    [ "PONG_JOIN_PORT", "_pong_8cpp.html#a6f341495c32e1c9c4cca59d84b85a94c", null ],
     [ "make_ball", "_pong_8cpp.html#a98a1b5ac138d1987c46cd622078b22a1", null ],
     [ "parse_msg", "_pong_8cpp.html#a637c70a19336d9c6a75c3b3891e2b334", null ],
     [ "build_packet", "_pong_8cpp.html#a5b10b66252707bc1a2af033fedb13daa", null ],
     [ "main", "_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ],
-    [ "PONG_HOST_PORT", "_pong_8cpp.html#abeee84cdae4ac2b1bcb89a2dd429908d", null ],
-    [ "PONG_JOIN_PORT", "_pong_8cpp.html#ab9ab1fa5032bb148b5dfc9d894be5d07", null ],
     [ "MAX_PONG", "_pong_8cpp.html#ae2d1697fd03b28bff8fb7a35ded43576", null ],
     [ "MIN_PONG", "_pong_8cpp.html#a820fea2a5356fb4906694179880791a4", null ],
     [ "RNG", "_pong_8cpp.html#a05b25dc9afee78bc28be5ed318874aee", null ]

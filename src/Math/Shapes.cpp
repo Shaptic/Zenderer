@@ -95,64 +95,56 @@ bool aabb_t::collides(const tri_t& tri) const
     return true;
 }
 
-bool math::collides(const tri_t& A, const tri_t& B)
+bool math::collides(const tri_t& A, const tri_t& B, vector_t* pt)
 {
-    vector_t aseg[3] = {
-        A[1] - A[0], A[2] - A[1], A[2] - A[0]
+    line_t aseg[3] = {
+        { A[0], A[1] },
+        { A[1], A[2] },
+        { A[0], A[2] }
     };
 
-    vector_t bseg[3] = {
-        B[1] - B[0], B[2] - B[1], B[2] - B[0]
+    line_t bseg[3] = {
+        { B[0], B[1] },
+        { B[1], B[2] },
+        { B[0], B[2] }
     };
 
     for(uint8_t i = 0; i < 3; ++i)
     {
         for(uint8_t j = 0; j < 3; ++j)
         {
-            line_t l1 = { aseg[i], aseg[i % 3] };
-            line_t l2 = { bseg[i], bseg[i % 3] };
-
-            if(math::collides(l1, l2)) return true;
+            if(math::collides(aseg[i], bseg[j], pt)) return true;
         }
     }
 
     return false;
 }
 
-bool math::collides(const line_t& a, const line_t& b)
+bool math::collides(const line_t& a, const line_t& b, vector_t* pt)
 {
-    // A = P -> P + R
-    // B = Q -> Q + S
-    vector_t r = a[1] - a[0];
-    vector_t s = b[1] - b[0];
-    vector_t z = b[0] - a[0];
+    // A = Q -> Q + S
+    // B = P -> P + R
+    vector_t r = b[1] - b[0];
+    vector_t s = a[1] - a[0];
+    vector_t z = a[0] - b[0];
 
-    real_t d = (r ^ s).Magnitude();
-    if(compf(d, 0.0)) return false;
+    real_t zxr = z.Cross2D(r);
 
-    real_t t = z.Cross2D(s) / d;
-    real_t u = z.Cross2D(r) / d;
-
-    return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
-}
-
-bool math::orientation(const std::vector<vector_t>& Polygon)
-{
-    ZEN_ASSERTM(Polygon.size() >= 3, "not a polygon");
-
-    uint16_t count = 0;
-    for(uint16_t i = 0; i < Polygon.size(); ++i)
+    // Co-linear. Check for overlap.
+    if(compf(zxr, 0.0))
     {
-        uint16_t j = (i + 1 < Polygon.size()) ? i + 1 : 0;
-        uint16_t k = (i + 2 < Polygon.size()) ? i + 2 : 1;
-        real_t z = (Polygon[j].x - Polygon[i].x) * (Polygon[k].y - Polygon[j].y)
-                 - (Polygon[j].y - Polygon[i].y) * (Polygon[k].x - Polygon[j].x);
-
-        count += (z > 0) ? 1 : -1;
+        return ((b[0].x - a[0].x < 0 != b[0].x - a[1].x < 0) ||
+                (b[0].y - a[0].y < 0 != b[0].y - a[1].y < 0));
     }
 
-    ZEN_ASSERTM(count != 0, "not a simple polygon");
-    return (count < 0);
+    real_t d = r.Cross2D(s);
+    if(compf(d, 0.0)) return false;     // Parallel lines.
+
+    real_t t = z.Cross2D(s) / d;
+    real_t u = zxr / d;
+
+    if(pt != nullptr) *pt = b[0] + (r * t);
+    return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
 }
 
 bool math::orientation(const tri_t& Tri)
@@ -167,7 +159,7 @@ bool math::triangle_test(const vector_t& V, const tri_t& T)
                  + (T[2].x - T[1].x) * (T[0].y - T[2].y);
 
     // Avoid division by zero.
-    if(compf(denom, 0.0)) return true;
+    if(compf(denom, 0.0)) return false;
     denom = 1.0 / denom;
 
     real_t alpha = denom * ((T[1].y - T[2].y) * (V.x - T[2].x) +
@@ -177,21 +169,40 @@ bool math::triangle_test(const vector_t& V, const tri_t& T)
     real_t beta  = denom * ((T[2].y - T[0].y) * (V.x - T[2].x) +
                             (T[0].x - T[2].x) * (V.y - T[2].y));
 
-    return (beta > 0 || alpha + beta >= 1);
+    return (beta > 0 && alpha + beta >= 1);
 }
 
 std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
 {
+    if(Polygon.size() <= 3) return Polygon;
+
+    // Determine polygon's orientation via top-left-most vertex.
+    size_t index = 0;
+    vector_t left = Polygon[index];
+    for(size_t i = 0; i < Polygon.size(); ++i)
+    {
+        if(Polygon[i].x < left.x ||
+          (compf(Polygon[i].x, left.x) && Polygon[i].y < left.y))
+        {
+            index = i;
+            left = Polygon[i];
+        }
+    }
+
+    tri_t tri = {
+        Polygon[(index > 0) ? index - 1 : Polygon.size() - 1],
+        Polygon[index],
+        Polygon[(index + 1 < Polygon.size()) ? index + 1 : 0]
+    };
+
+    bool ccw = orientation(tri);
+
     std::vector<uint16_t> reflex;
     std::vector<vector_t> triangles;
-
-    // Determine entire polygon orientation
-    bool ort = orientation(Polygon);
 
     // We know there will be vertex_count - 2 triangles made.
     triangles.reserve(Polygon.size() - 2);
 
-    if(Polygon.size() == 3) return Polygon;
     while(Polygon.size() >= 3)
     {
         reflex.clear();
@@ -204,11 +215,11 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
             if(eartip >= 0) break;
 
             uint16_t p = (index > 0) ? index - 1 : Polygon.size() - 1;
-            uint16_t n = (index < Polygon.size()) ? index + 1 : 0;
+            uint16_t n = (index + 1 < Polygon.size()) ? index + 1 : 0;
 
             tri[0] = Polygon[p]; tri[1] = i; tri[2] = Polygon[n];
 
-            if(orientation(tri) != ort)
+            if(orientation(tri) != ccw)
             {
                 reflex.emplace_back(index);
                 continue;
@@ -233,7 +244,10 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
                 for( ; j != k; ++j)
                 {
                     auto& v = *j;
-                    if(&v == &Polygon[p] || &v == &Polygon[n]) continue;
+                    if(&v == &Polygon[p] ||
+                       &v == &Polygon[n] ||
+                       &v == &Polygon[index]) continue;
+
                     if(triangle_test(v, tri))
                     {
                         ear = false;
@@ -248,7 +262,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
         if(eartip < 0) break;
 
         // Create the triangulated piece.
-        for(const auto& i : tri) triangles.push_back(i);
+        for(const auto& i : tri) triangles.emplace_back(std::move(i));
 
         // Clip the ear from the polygon.
         Polygon.erase(std::find(Polygon.begin(), Polygon.end(), tri[1]));

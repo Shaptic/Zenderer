@@ -1,10 +1,11 @@
 <map id="zen::gfxcore::zVertexArray::Offloaded" name="zen::gfxcore::zVertexArray::Offloaded">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_drawable.html#a1c49a956725f8eb413d3dad97fe72947" title="Request to see if we can change the internal vertices or not. " alt="" coords="241,7,402,49"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1z_vertex_array.html#a034bba15bf34566d6f45358ca78d91c5" title="Offloads local vertex data to the GPU. " alt="" coords="233,90,410,131"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_quad.html#aecfed1edd9f86fdd22522ac869cae5a2" title="zen::gfx::zQuad::Resize" alt="" coords="463,5,625,32"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1z_drawable.html#af86c4a6f7fcc2d95b937623e56400828" title="Draws the primitive on&#45;screen. " alt="" coords="679,41,841,82"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="891,132,949,159"/>
-<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="459,157,629,184"/>
-<area shape="rect" id="node8" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="678,208,842,235"/>
-<area shape="rect" id="node9" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="895,208,945,235"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_vertex_array.html#a034bba15bf34566d6f45358ca78d91c5" title="Offloads local vertex data to the GPU. " alt="" coords="233,62,410,103"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_polygon.html#ad957c880eed742790fb244ddf42c54d6" title="Request to see if we can change the internal vertices or not. " alt="" coords="256,141,387,182"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="731,56,789,83"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="479,107,609,149"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="459,5,629,32"/>
+<area shape="rect" id="node5" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="731,115,789,141"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="678,5,842,32"/>
+<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="891,5,941,32"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_quad.html#aecfed1edd9f86fdd22522ac869cae5a2" title="zen::gfx::zQuad::Resize" alt="" coords="463,173,625,200"/>
 </map>

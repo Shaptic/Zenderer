@@ -7,5 +7,6 @@ var classzen_1_1evt_1_1z_event_handler =
     [ "CharacterCallback", "classzen_1_1evt_1_1z_event_handler.html#a906ec870ab93a4e262dc31a42c4e37f4", null ],
     [ "KeyboardCallback", "classzen_1_1evt_1_1z_event_handler.html#a6cb2b8b4399c92ec09e82b30ec363158", null ],
     [ "MouseMotionCallback", "classzen_1_1evt_1_1z_event_handler.html#a3eec43c5e924356f2026d0b65cbbad9c", null ],
-    [ "MouseCallback", "classzen_1_1evt_1_1z_event_handler.html#a103c0fb0c14f98b5f3f8b0799875892f", null ]
+    [ "MouseCallback", "classzen_1_1evt_1_1z_event_handler.html#a103c0fb0c14f98b5f3f8b0799875892f", null ],
+    [ "WindowCloseCallback", "classzen_1_1evt_1_1z_event_handler.html#af1d2cf0a6e08e88986c88cf5ecabd613", null ]
 ];

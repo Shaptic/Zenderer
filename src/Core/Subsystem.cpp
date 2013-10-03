@@ -25,4 +25,8 @@ zSubsystem::~zSubsystem()
             << "Destroyed component." << zLog::endl;
 
     m_init = false;
+
+    sp_allSystems.erase(
+        std::find(sp_allSystems.begin(), sp_allSystems.end(), this)
+    );
 }

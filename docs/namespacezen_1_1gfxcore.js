@@ -1,6 +1,5 @@
 var namespacezen_1_1gfxcore =
 [
-    [ "zDrawable", "classzen_1_1gfxcore_1_1z_drawable.html", "classzen_1_1gfxcore_1_1z_drawable" ],
     [ "vertex_t", "namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t", "namespacezen_1_1gfxcore_dup" ],
     [ "zGLSubsystem", "classzen_1_1gfxcore_1_1z_g_l_subsystem.html", "classzen_1_1gfxcore_1_1z_g_l_subsystem" ],
     [ "zRenderer", "classzen_1_1gfxcore_1_1z_renderer.html", "classzen_1_1gfxcore_1_1z_renderer" ],

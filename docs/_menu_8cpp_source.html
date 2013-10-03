@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a086c4f2f64c7a8ee522e30810cd96bcd">   18</a></span>&#160;<a class="code" href="classzen_1_1gui_1_1z_menu.html#a086c4f2f64c7a8ee522e30810cd96bcd">zMenu::~zMenu</a>()</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800">Destroy</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800" title="Cleans up the subsystem completely. ">Destroy</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions) <span class="keyword">delete</span> i.first;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_menuActions.clear();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
@@ -137,114 +137,108 @@ $(document).ready(function(){initNavTree('_menu_8cpp_source.html','');});
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span>(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">type</a> == <a class="code" href="_event_8hpp.html#a71268aba539dd623daf02e3b77ca897f">evt::EventType::MOUSE_MOTION</a>)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a> MouseBox(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <a class="code" href="structzen_1_1math_1_1z_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">math::zVector&lt;uint32_t&gt;</a>(2, 2));</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span>(i.first-&gt;IsOver(MouseBox))</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                i.first-&gt;SetActive();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                i.first-&gt;SetDefault();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">type</a> == <a class="code" href="_event_8hpp.html#a00db59374eee4266a54a0cfdb600f3da">evt::EventType::MOUSE_DOWN</a> &amp;&amp;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520" title="Event location. ">button</a> == <a class="code" href="_keyboard_8hpp.html#a2349c85ca7362adcde4c67fbd81a4432">evt::MouseButton::LEFT</a>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="structzen_1_1math_1_1aabb__t.html" title="Represents an axis-aligned bounding box. ">math::aabb_t</a> MouseBox(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="structzen_1_1math_1_1z_vector.html" title="Represents a point in 3D rectangular-coordinate space. ">math::zVector&lt;uint32_t&gt;</a>(2, 2));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">size_t</span> index = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span>(i.first-&gt;IsOver(MouseBox))</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                i.second(index);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            ++index;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c">   68</a></span>&#160;uint16_t <a class="code" href="classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c">zMenu::AddButton</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">size_t</span>)&gt; handler)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classzen_1_1gui_1_1z_button.html">zButton</a>* pNew = <span class="keyword">new</span> <a class="code" href="classzen_1_1gui_1_1z_button.html">zButton</a>(m_Scene);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#ab4be21f09c996b8c247c24c3c1611443">SetFont</a>(*mp_Font);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#aec51e4c4215268466e6c49b06d33cd86">SetActiveColor</a>(m_acolor);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#adfab2e4573c0b91323b9461b09574eaa">SetNormalColor</a>(m_ncolor);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span>(i.first-&gt;IsOver(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>))</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                i.first-&gt;SetActive();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                i.first-&gt;SetDefault();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">type</a> == <a class="code" href="_event_8hpp.html#a00db59374eee4266a54a0cfdb600f3da">evt::EventType::MOUSE_DOWN</a> &amp;&amp;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#aa839bcf70e59bca6dc4fe0952e52d520" title="Event location. ">button</a> == <a class="code" href="_keyboard_8hpp.html#a2349c85ca7362adcde4c67fbd81a4432">evt::MouseButton::LEFT</a>)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">size_t</span> index = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : m_menuActions)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span>(i.first-&gt;IsOver(Evt.<a class="code" href="structzen_1_1evt_1_1event__t.html#acbe83d53881a0128caf597b353770cca">mouse</a>.<a class="code" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">position</a>))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                i.second(index);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            ++index;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c">   62</a></span>&#160;uint16_t <a class="code" href="classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c">zMenu::AddButton</a>(<span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; text, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">size_t</span>)&gt; handler)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classzen_1_1gui_1_1z_button.html">zButton</a>* pNew = <span class="keyword">new</span> <a class="code" href="classzen_1_1gui_1_1z_button.html">zButton</a>(m_Scene);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#ab4be21f09c996b8c247c24c3c1611443">SetFont</a>(*mp_Font);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#aec51e4c4215268466e6c49b06d33cd86">SetActiveColor</a>(m_acolor);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#adfab2e4573c0b91323b9461b09574eaa">SetNormalColor</a>(m_ncolor);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span>(mp_Bg != <span class="keyword">nullptr</span>) pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39">SetBackground</a>(*mp_Bg);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#af82c10df023cbfda8b404a0f3d6fcbb3">Prepare</a>(text);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a7241adecac3cf81a29df42e870850399">Place</a>(m_Position);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a5652cc6a2b8ff9ea9a365260a8eb0898">SetDefault</a>();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(mp_Bg != <span class="keyword">nullptr</span>) pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39">SetBackground</a>(*mp_Bg);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    m_Position.y += m_spacing;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#af82c10df023cbfda8b404a0f3d6fcbb3">Prepare</a>(text);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a7241adecac3cf81a29df42e870850399">Place</a>(m_Position);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    pNew-&gt;<a class="code" href="classzen_1_1gui_1_1z_button.html#a5652cc6a2b8ff9ea9a365260a8eb0898">SetDefault</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// Credit where credit is due:</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// @Griwes for this optimization.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    m_menuActions.emplace_back(std::make_pair(pNew, std::move(handler)));</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    m_Position.y += m_spacing;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Credit where credit is due:</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// @Griwes for this optimization.</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    m_menuActions.emplace_back(std::make_pair(pNew, std::move(handler)));</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> m_menuActions.size() - 1;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a7be1c48eef079485c50eab0ede493fad">   90</a></span>&#160;<a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; <a class="code" href="classzen_1_1gui_1_1z_menu.html#a7be1c48eef079485c50eab0ede493fad">zMenu::AddEntity</a>()</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> m_Scene.<a class="code" href="classzen_1_1gfx_1_1z_scene.html#a1bbf433276d81e44483178df55a48843" title="Adds an unloaded, managed entity to the scene. ">AddEntity</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a91f65e62cff6b72a1c49a821cac4e91b">   95</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a91f65e62cff6b72a1c49a821cac4e91b">zMenu::RenderWithFont</a>(<a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Obj, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a7727aa647d1a37a921cc0b03c20079f9" title="Stores render data in the provided for easy rendering. ">Render</a>(Obj, str);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302">  100</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302">zMenu::Update</a>()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. ">Render</a>();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a453ad6ebe7f7c78f32e8d532f926998f">  105</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a453ad6ebe7f7c78f32e8d532f926998f">zMenu::SetFont</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a3ab8b4e8391ba35b398935bb727ab5f2" title="Sets the font size. ">SetSize</a>(size);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> ret = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a2ff0c9cff415a035b0e38855d7c25cc5" title="Loads a TrueType font from disk. ">LoadFromFile</a>(filename);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    m_spacing = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a5aa68ad2c5f6d57b8cfca1d6fcc5db5e">GetLineHeight</a>();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a65aaa3ba87a307ec7e6283a748781a9a">  113</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a65aaa3ba87a307ec7e6283a748781a9a">zMenu::SetButtonBackground</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Bg)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    mp_Bg = &amp;Bg;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#ad003fe5a5f45d0d54f6d82d15aeb56f9">  118</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#ad003fe5a5f45d0d54f6d82d15aeb56f9">zMenu::SetNormalButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    m_ncolor = Color;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a86695ae0ba374986d191973d36ecfe52">  123</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a86695ae0ba374986d191973d36ecfe52">zMenu::SetActiveButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    m_acolor = Color;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#aa592f2f62c9de613ebba8398272b7738">  128</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#aa592f2f62c9de613ebba8398272b7738">zMenu::SetInitialButtonPosition</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    m_Position = Pos;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a883d3e718cd0bc184a6c54e1654f4728">  133</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a883d3e718cd0bc184a6c54e1654f4728">zMenu::SetSpacing</a>(<span class="keyword">const</span> uint16_t vertical_spacing)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    m_spacing = vertical_spacing;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> m_menuActions.size() - 1;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a7be1c48eef079485c50eab0ede493fad">   84</a></span>&#160;<a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; <a class="code" href="classzen_1_1gui_1_1z_menu.html#a7be1c48eef079485c50eab0ede493fad">zMenu::AddEntity</a>()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> m_Scene.<a class="code" href="classzen_1_1gfx_1_1z_scene.html#a1bbf433276d81e44483178df55a48843" title="Adds an unloaded, managed entity to the scene. ">AddEntity</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a91f65e62cff6b72a1c49a821cac4e91b">   89</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a91f65e62cff6b72a1c49a821cac4e91b">zMenu::RenderWithFont</a>(<a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Obj, <span class="keyword">const</span> <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>&amp; str)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a7727aa647d1a37a921cc0b03c20079f9" title="Stores render data in the provided for easy rendering. ">Render</a>(Obj, str);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302">zMenu::Update</a>()</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    m_Scene.<a class="code" href="classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. ">Render</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a453ad6ebe7f7c78f32e8d532f926998f">   99</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a453ad6ebe7f7c78f32e8d532f926998f">zMenu::SetFont</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a3ab8b4e8391ba35b398935bb727ab5f2" title="Sets the font size. ">SetSize</a>(size);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">bool</span> ret = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a2ff0c9cff415a035b0e38855d7c25cc5" title="Loads a TrueType font from disk. ">LoadFromFile</a>(filename);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    m_spacing = mp_Font-&gt;<a class="code" href="classzen_1_1gui_1_1z_font.html#a5aa68ad2c5f6d57b8cfca1d6fcc5db5e">GetLineHeight</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a65aaa3ba87a307ec7e6283a748781a9a">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a65aaa3ba87a307ec7e6283a748781a9a">zMenu::SetButtonBackground</a>(<span class="keyword">const</span> <a class="code" href="classzen_1_1obj_1_1z_entity.html" title="A base class for all &quot;in-game&quot; objects. ">obj::zEntity</a>&amp; Bg)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    mp_Bg = &amp;Bg;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#ad003fe5a5f45d0d54f6d82d15aeb56f9">  112</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#ad003fe5a5f45d0d54f6d82d15aeb56f9">zMenu::SetNormalButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    m_ncolor = Color;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a86695ae0ba374986d191973d36ecfe52">  117</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a86695ae0ba374986d191973d36ecfe52">zMenu::SetActiveButtonTextColor</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1color4f__t.html" title="A 32-bit floating point color component (RGBA). ">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    m_acolor = Color;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#aa592f2f62c9de613ebba8398272b7738">  122</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#aa592f2f62c9de613ebba8398272b7738">zMenu::SetInitialButtonPosition</a>(<span class="keyword">const</span> <a class="code" href="group___math.html#classzen_1_1math_1_1vector__t">math::vector_t</a>&amp; Pos)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    m_Position = Pos;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classzen_1_1gui_1_1z_menu.html#a883d3e718cd0bc184a6c54e1654f4728">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classzen_1_1gui_1_1z_menu.html#a883d3e718cd0bc184a6c54e1654f4728">zMenu::SetSpacing</a>(<span class="keyword">const</span> uint16_t vertical_spacing)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    m_spacing = vertical_spacing;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

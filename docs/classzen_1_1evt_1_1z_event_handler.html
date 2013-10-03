@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('classzen_1_1evt_1_1z_event_handler.htm
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -145,10 +145,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a103c0fb0c14f98b5f3f8b0799875892f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1evt_1_1z_event_handler.html#a103c0fb0c14f98b5f3f8b0799875892f">MouseCallback</a> (GLFWwindow *, int button, int action, int mods)</td></tr>
 <tr class="memdesc:a103c0fb0c14f98b5f3f8b0799875892f"><td class="mdescLeft">&#160;</td><td class="mdescRight">OS-callback for mouse-click events.  <a href="#a103c0fb0c14f98b5f3f8b0799875892f">More...</a><br/></td></tr>
 <tr class="separator:a103c0fb0c14f98b5f3f8b0799875892f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d2cf0a6e08e88986c88cf5ecabd613"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzen_1_1evt_1_1z_event_handler.html#af1d2cf0a6e08e88986c88cf5ecabd613">WindowCloseCallback</a> (GLFWwindow *)</td></tr>
+<tr class="memdesc:af1d2cf0a6e08e88986c88cf5ecabd613"><td class="mdescLeft">&#160;</td><td class="mdescRight">OS-callback for window close events.  <a href="#af1d2cf0a6e08e88986c88cf5ecabd613">More...</a><br/></td></tr>
+<tr class="separator:af1d2cf0a6e08e88986c88cf5ecabd613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This singleton class instance handles system-wide event occurences during the application's run-time. It does not <em>do</em> anything with these events, merely providing the user with an interface to poll them and handle them as they see fit.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Window events / callback.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Window events / callback.</dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_events-example.html#_a0">Events</a>.</dd>
 </dl>
 <p>Definition at line <a class="el" href="_event_handler_8hpp_source.html#l00041">41</a> of file <a class="el" href="_event_handler_8hpp_source.html">EventHandler.hpp</a>.</p>
@@ -200,7 +203,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1evt_1_1z_event_handler_a40db94c470b9c7408345cf68c3f5103d_icgraph.png" border="0" usemap="#classzen_1_1evt_1_1z_event_handler_a40db94c470b9c7408345cf68c3f5103d_icgraph" alt=""/></div>
 <map name="classzen_1_1evt_1_1z_event_handler_a40db94c470b9c7408345cf68c3f5103d_icgraph" id="classzen_1_1evt_1_1z_event_handler_a40db94c470b9c7408345cf68c3f5103d_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="214,5,271,32"/><area shape="rect" id="node3" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="217,56,268,83"/></map>
+<area shape="rect" id="node2" href="_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="214,5,271,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="214,56,271,83"/><area shape="rect" id="node4" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="217,107,268,133"/></map>
 </div>
 </p>
 
@@ -271,7 +274,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classzen_1_1evt_1_1z_event_handler_a4cf62909dfc2748816282abde1e4486a_icgraph.png" border="0" usemap="#classzen_1_1evt_1_1z_event_handler_a4cf62909dfc2748816282abde1e4486a_icgraph" alt=""/></div>
 <map name="classzen_1_1evt_1_1z_event_handler_a4cf62909dfc2748816282abde1e4486a_icgraph" id="classzen_1_1evt_1_1z_event_handler_a4cf62909dfc2748816282abde1e4486a_icgraph">
-<area shape="rect" id="node2" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="214,5,271,32"/><area shape="rect" id="node3" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="217,56,268,83"/></map>
+<area shape="rect" id="node2" href="_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="214,5,271,32"/><area shape="rect" id="node3" href="_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="214,56,271,83"/><area shape="rect" id="node4" href="_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="217,107,268,133"/></map>
 </div>
 </p>
 
@@ -454,6 +457,32 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="_event_handler_8cpp_source.html#l00060">60</a> of file <a class="el" href="_event_handler_8cpp_source.html">EventHandler.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af1d2cf0a6e08e88986c88cf5ecabd613"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zEventHandler::WindowCloseCallback </td>
+          <td>(</td>
+          <td class="paramtype">GLFWwindow *&#160;</td>
+          <td class="paramname"><em>pWindow</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_event_handler_8cpp_source.html#l00088">88</a> of file <a class="el" href="_event_handler_8cpp_source.html">EventHandler.cpp</a>.</p>
 
 </div>
 </div>

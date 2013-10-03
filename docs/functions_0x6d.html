@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -155,14 +155,20 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_Assets
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a64b8d1b956f87aff6cb05ad012107fe0">zen::obj::zEntity</a>
 </li>
+<li>m_BoundingBox
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#ae7dd5ab3b431f88608ecdeb397b30726">zen::gfx::zPolygon</a>
+</li>
 <li>m_Box
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a3939c963059737469174625b5ef38248">zen::obj::zEntity</a>
+</li>
+<li>m_Color
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a628b8c9b7ac1e7813faebe12c1a1b6db">zen::gfx::zPolygon</a>
 </li>
 <li>m_depth
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a32d257c18d288407f015d4694fbf8fd1">zen::obj::zEntity</a>
 </li>
 <li>m_DrawData
-: <a class="el" href="classzen_1_1gfxcore_1_1z_drawable.html#a2e73b23b9fb405e67ade68ed96590064">zen::gfxcore::zDrawable</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a38b0280a87655f4d99e5168cc9feadd1">zen::gfx::zPolygon</a>
 </li>
 <li>m_enabled
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a4a54332aed144c626327fd1e4bb658bb">zen::obj::zEntity</a>
@@ -184,11 +190,11 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="group___objects.html#gadd5fad4ba953ede084f71bac6aedaa71">zen::obj::material_t</a>
 </li>
 <li>m_init
-: <a class="el" href="classzen_1_1z_subsystem.html#a1a2a7e6f327b5be5ef169e9e217c1f1d">zen::zSubsystem</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1z_g_l_subsystem.html#a0306ce08139a0abb8d4167a1f9ecc1fd">zen::gfxcore::zGLSubsystem</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1z_g_l_subsystem.html#a0306ce08139a0abb8d4167a1f9ecc1fd">zen::gfxcore::zGLSubsystem</a>
+, <a class="el" href="classzen_1_1z_subsystem.html#a1a2a7e6f327b5be5ef169e9e217c1f1d">zen::zSubsystem</a>
 </li>
 <li>m_internal
-: <a class="el" href="classzen_1_1gfxcore_1_1z_drawable.html#a4fd6f8dcec4c5a2ff2fcc3b249750791">zen::gfxcore::zDrawable</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a6db564afe02fd3c10079cf3003d2bfd5">zen::gfx::zPolygon</a>
 </li>
 <li>m_inv
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a1c125e6e0c1b2ff3f49ae0149af8557a">zen::obj::zEntity</a>
@@ -205,7 +211,7 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1sfx_1_1z_audio2_d.html#ab5ff35846f53d997d897f5ada9480443">zen::sfx::zAudio2D</a>
 </li>
 <li>m_Material
-: <a class="el" href="classzen_1_1gfxcore_1_1z_drawable.html#ac8fa89f7a3b499190bb5c1b418b1b472">zen::gfxcore::zDrawable</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a9b180bef3c8c36a7a17ec057f0bb3d2a">zen::gfx::zPolygon</a>
 </li>
 <li>m_Max
 : <a class="el" href="group___objects.html#ga3623283095e9780bb2d04872ba70b972">zen::obj::bbox_t</a>
@@ -219,9 +225,11 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_name
 : <a class="el" href="classzen_1_1z_subsystem.html#a91a0f349b2b18bf1441d7694ea416451">zen::zSubsystem</a>
 </li>
+<li>m_PolyBB
+: <a class="el" href="classzen_1_1obj_1_1z_entity.html#a449dec82dda90aa7a6dfc40efbcd65a9">zen::obj::zEntity</a>
+</li>
 <li>m_Position
-: <a class="el" href="classzen_1_1gfxcore_1_1z_drawable.html#a6492eccf5d6e6e73c0ed660aab10b501">zen::gfxcore::zDrawable</a>
-, <a class="el" href="group___objects.html#ga4c09246cff275551ea63fd24ea89fc01">zen::obj::circle_t</a>
+: <a class="el" href="group___objects.html#ga4c09246cff275551ea63fd24ea89fc01">zen::obj::circle_t</a>
 </li>
 <li>m_radius
 : <a class="el" href="group___objects.html#gaeccc93d696d0f1e0b5c7aa73e51caf3a">zen::obj::circle_t</a>
@@ -229,8 +237,17 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 <li>m_sort
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a9e2f50d4f740bafa9a232b931ea52ad5">zen::obj::zEntity</a>
 </li>
+<li>m_Tris
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a026724ee199a2350542cda402d981a25">zen::gfx::zPolygon</a>
+</li>
+<li>m_Verts
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a25865c535603d9bb9e3b39dbd60e1612">zen::gfx::zPolygon</a>
+</li>
 <li>Magnitude()
 : <a class="el" href="structzen_1_1math_1_1z_vector.html#ac9ca9cc5adb430ec34306df49e0ff17c">zen::math::zVector&lt; T &gt;</a>
+</li>
+<li>MapTexCoords()
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#aa2df331795d72f7554bba150831c332a">zen::gfx::zPolygon</a>
 </li>
 <li>MATERIAL_FLAG
 : <a class="el" href="classzen_1_1gfxcore_1_1z_sorter.html#a10563908ed887f4e3799b4adfd96dc2f">zen::gfxcore::zSorter</a>
@@ -239,7 +256,10 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1z_sorter.html#a0ad33f4d2e160295591806c28edceabf">zen::gfxcore::zSorter</a>
 </li>
 <li>matrix4x4_t()
-: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a890e3e9d00dc7fdeac1584b1a927034a">zen::math::matrix4x4_t</a>
+: <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a04011aa970ede9e04b3f95825fe02ff0">zen::math::matrix4x4_t</a>
+</li>
+<li>metadata
+: <a class="el" href="namespacezen_1_1lvl.html#ab468f1c84927f9cff5a72f8b8f9fba2a">zen::lvl::level_t</a>
 </li>
 <li>mods
 : <a class="el" href="structzen_1_1evt_1_1mouse__t.html#ab42526a61c7d44b79d5541ad70cd320f">zen::evt::mouse_t</a>
@@ -258,11 +278,13 @@ $(document).ready(function(){initNavTree('functions_0x6d.html','');});
 : <a class="el" href="classzen_1_1evt_1_1z_event_handler.html#a3eec43c5e924356f2026d0b65cbbad9c">zen::evt::zEventHandler</a>
 </li>
 <li>Move()
-: <a class="el" href="classzen_1_1gfxcore_1_1z_drawable.html#acd6561638456140378e498fed541ac06">zen::gfxcore::zDrawable</a>
+: <a class="el" href="classzen_1_1obj_1_1z_entity.html#a19f6d5563c71ef3fb51e44f33fe830a7">zen::obj::zEntity</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a40ae71e4df1b6fe15500d1367d749193">zen::gfx::zPolygon</a>
 , <a class="el" href="classzen_1_1obj_1_1z_entity.html#a590c5e0bf98f75a137f537a74181ab54">zen::obj::zEntity</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a631f77c20d84f47ebebe768a405b5bf3">zen::gfx::zPolygon</a>
 </li>
 <li>mp_allPrims
-: <a class="el" href="classzen_1_1obj_1_1z_entity.html#af610da451263c96e2c7fb1464386beab">zen::obj::zEntity</a>
+: <a class="el" href="classzen_1_1obj_1_1z_entity.html#a4d107b01ae3550171b060fcd44237f3f">zen::obj::zEntity</a>
 </li>
 </ul>
 </div><!-- contents -->

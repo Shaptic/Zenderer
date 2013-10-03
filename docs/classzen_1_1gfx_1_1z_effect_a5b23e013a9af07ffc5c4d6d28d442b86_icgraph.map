@@ -1,16 +1,18 @@
 <map id="zen::gfx::zEffect::SetType" name="zen::gfx::zEffect::SetType">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_material.html#a4bc7f7cf0e7d5b50a2b6c3bb16a50d5a" title="Loads a material from a .zfx file. " alt="" coords="179,6,309,47"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_material.html#a4cbfde3e3944b735e9e67a4b55fe7594" title="Loads an effect from disk. " alt="" coords="179,101,309,142"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="568,13,693,54"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfxcore_1_1z_drawable.html#a41960f6e8b86064d748284b35e710cc0" title="Creates an instance from another instance. " alt="" coords="358,166,519,207"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfxcore_1_1z_drawable.html#a5af80cce1b8b0efd053fce6a30584824" title="Attaches a material to render on top of the primitive. " alt="" coords="358,101,519,142"/>
-<area shape="rect" id="node14" href="$classzen_1_1gfxcore_1_1z_drawable.html#a8bd37f91fbde1aa9a27bb5f3daabfa93" title="Reverts to using the default material. " alt="" coords="358,231,519,273"/>
-<area shape="rect" id="node15" href="$classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116" title="Loads a material from an existing file stream. " alt="" coords="373,35,504,77"/>
-<area shape="rect" id="node7" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="1222,148,1279,175"/>
-<area shape="rect" id="node8" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="1019,141,1144,182"/>
-<area shape="rect" id="node10" href="$classzen_1_1obj_1_1z_entity.html#a4eba0f2720768a511208cd4f5375ba20" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="568,206,693,247"/>
-<area shape="rect" id="node9" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1225,228,1276,255"/>
-<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="741,180,941,207"/>
-<area shape="rect" id="node12" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="777,231,906,273"/>
-<area shape="rect" id="node13" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="989,228,1173,255"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_material.html#a4bc7f7cf0e7d5b50a2b6c3bb16a50d5a" title="Loads a material from a .zfx file. " alt="" coords="179,5,309,47"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_material.html#a4cbfde3e3944b735e9e67a4b55fe7594" title="Loads an effect from disk. " alt="" coords="179,132,309,173"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="547,97,672,139"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116" title="Loads a material from an existing file stream. " alt="" coords="357,97,488,139"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_polygon.html#a671a04f2358287c3d03d5f296bf5077b" title="zen::gfx::zPolygon\l::zPolygon" alt="" coords="357,32,488,73"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1z_polygon.html#a679c54a2052d619caea511cdc1ce4e80" title="Attaches a material to render on top of the primitive. " alt="" coords="357,280,488,321"/>
+<area shape="rect" id="node17" href="$classzen_1_1gfx_1_1z_polygon.html#a1e58cf0134e0693790713f7791f2d736" title="Reverts to using the default material. " alt="" coords="357,163,488,204"/>
+<area shape="rect" id="node10" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="539,192,680,233"/>
+<area shape="rect" id="node8" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="537,309,682,351"/>
+<area shape="rect" id="node9" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="1211,317,1269,343"/>
+<area shape="rect" id="node11" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="1008,368,1133,409"/>
+<area shape="rect" id="node13" href="$classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="547,452,672,493"/>
+<area shape="rect" id="node12" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1215,459,1265,486"/>
+<area shape="rect" id="node14" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="731,426,931,453"/>
+<area shape="rect" id="node15" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="766,477,895,519"/>
+<area shape="rect" id="node16" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="979,459,1163,486"/>
 </map>

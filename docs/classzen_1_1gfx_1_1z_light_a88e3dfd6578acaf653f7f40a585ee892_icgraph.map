@@ -1,7 +1,8 @@
 <map id="zen::gfx::zLight::SetColor" name="zen::gfx::zLight::SetColor">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="670,9,727,36"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249" title="zen::gfx::zLight::Init" alt="" coords="241,35,377,61"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_light.html#adb22c549ade469685f1d5be629467ec5" title="zen::gfx::zLight::SetColor" alt="" coords="225,85,394,112"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="284,136,335,163"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_scene.html#a4d1093c4a1572676f2465decfcd61f10" title="Creates and adds a managed light instance to the scene. " alt="" coords="443,35,621,61"/>
+<area shape="rect" id="node2" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="237,5,382,46"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="670,96,727,123"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249" title="zen::gfx::zLight::Init" alt="" coords="241,121,377,148"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_light.html#adb22c549ade469685f1d5be629467ec5" title="zen::gfx::zLight::SetColor" alt="" coords="225,172,394,199"/>
+<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="284,223,335,249"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_scene.html#a4d1093c4a1572676f2465decfcd61f10" title="Creates and adds a managed light instance to the scene. " alt="" coords="443,121,621,148"/>
 </map>

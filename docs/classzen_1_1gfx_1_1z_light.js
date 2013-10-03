@@ -16,7 +16,9 @@ var classzen_1_1gfx_1_1z_light =
     [ "SetPosition", "classzen_1_1gfx_1_1z_light.html#afee76cb867656b3dc4bd18d95aec8385", null ],
     [ "SetMaximumAngle", "classzen_1_1gfx_1_1z_light.html#ad0c225879baccdb81db9206d0350d269", null ],
     [ "SetMinimumAngle", "classzen_1_1gfx_1_1z_light.html#a2bb6a384afd9f987ae7cbefca7bd4206", null ],
+    [ "SetType", "classzen_1_1gfx_1_1z_light.html#ac6dfc7af8d9c157fce58d2fbbc460f11", null ],
     [ "GetBrightness", "classzen_1_1gfx_1_1z_light.html#a3792b645ca3d8ec286d810d9f96b339b", null ],
     [ "GetColor", "classzen_1_1gfx_1_1z_light.html#a71984e9ca8dd2dc36f5572fffb954d80", null ],
-    [ "GetPosition", "classzen_1_1gfx_1_1z_light.html#aa9ada375f64ef1578b9be6962d0f650a", null ]
+    [ "GetPosition", "classzen_1_1gfx_1_1z_light.html#aa9ada375f64ef1578b9be6962d0f650a", null ],
+    [ "GetType", "classzen_1_1gfx_1_1z_light.html#ad378e8b65a3977cfd292441e3a31b783", null ]
 ];

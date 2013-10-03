@@ -39,7 +39,9 @@ namespace gfx
 
         ~zQuad();
 
-        virtual gfx::zPolygon& Create();
+        /// @copydoc    gfx::zPolygon::Create()
+        /// @warning    This method ignores the `triangulate` parameter.
+        gfx::zPolygon& Create(const bool triangluate = true);
 
         /// @todo   Make it work properly when `zQuad` is inverted.
         //void Move(const real_t x, const real_t y, const real_t z = 1.0);
@@ -55,15 +57,32 @@ namespace gfx
         /// @overload
         void Resize(const uint16_t w, const uint16_t h);
 
-        inline std::vector<math::vector_t> Triangulate() const
+        virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr)
         {
-            std::vector<math::vector_t> tris;
-            tris.reserve(6);
-            for(uint8_t i = 0; i < 6; ++i)
-                tris.push_back(
-                    m_DrawData.Vertices[m_DrawData.Indices[i]].position);
+            const math::aabb_t us(m_BoundingBox);
 
-            return tris;
+            for(size_t i = 0; i < Other.GetTriangulation().size(); i += 3)
+            {
+                math::tri_t t = {
+                    Other.GetTriangulation()[i],
+                    Other.GetTriangulation()[i+1],
+                    Other.GetTriangulation()[i+2]
+                };
+
+                if(us.collides(t)) return true;
+            }
+
+            return false;
+        }
+
+        bool Collides(const zQuad& Other, math::vector_t* poi = nullptr)
+        {
+            return math::aabb_t(m_BoundingBox).collides(math::aabb_t(Other.m_BoundingBox));
+        }
+
+        bool Collides(const math::aabb_t& other)
+        {
+            return other.collides(m_BoundingBox);
         }
 
         /**
@@ -113,16 +132,12 @@ namespace gfx
          **/
         void SetRepeating(const bool flag);
 
-        inline uint16_t GetW() const { return m_Size.x; }
-        inline uint16_t GetH() const { return m_Size.y; }
-
     private:
         void LoadRegularVertices();     // Standard quad
         void LoadInvertedVertices();    // Inverted quad using -y instead of 0
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
 
-        math::zVector<int16_t> m_Size;
         bool m_inv, m_rep;
     };
 }   // namespace gfx

@@ -4,26 +4,25 @@ using namespace zen;
 using gfx::zQuad;
 
 zQuad::zQuad(asset::zAssetManager& Mgr, const math::rect_t& Size) :
-    zPolygon(Mgr), m_Size(Size.w, Size.h), m_inv(false), m_rep(false)
+    zPolygon(Mgr), m_inv(false), m_rep(false)
 {
+    m_BoundingBox = Size;
 }
 
 zQuad::zQuad(asset::zAssetManager& Mgr, const uint16_t w, const uint16_t h) :
-    zPolygon(Mgr), m_Size(w, h), m_inv(false), m_rep(false)
+    zPolygon(Mgr), m_inv(false), m_rep(false)
 {
+    m_BoundingBox = math::rect_t(0, 0, w, h);
 }
 
 zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
 {
-    m_Size = Copy.m_Size;
     m_inv = Copy.m_inv;
     m_rep = Copy.m_rep;
 }
 
 zQuad::~zQuad()
 {
-    if(m_DrawData.Vertices != nullptr) delete m_DrawData.Vertices;
-    if(m_DrawData.Indices  != nullptr) delete m_DrawData.Indices;
 }
 
 gfx::zPolygon& zQuad::Create()
@@ -45,6 +44,9 @@ gfx::zPolygon& zQuad::Create()
         this->LoadInvertedTC();
     }
 
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+        m_DrawData.Vertices[i].color = m_Color;
+
     if(m_DrawData.Indices == nullptr)
     {
         m_DrawData.Indices = new gfxcore::index_t[6];
@@ -57,6 +59,10 @@ gfx::zPolygon& zQuad::Create()
     m_DrawData.Indices[3] = 3;
     m_DrawData.Indices[4] = 1;
     m_DrawData.Indices[5] = 2;
+
+    m_Tris.reserve(m_DrawData.icount);
+    for(uint8_t i = 0; i < m_DrawData.icount; ++i)
+        m_Tris.push_back(m_DrawData.Vertices[m_DrawData.Indices[i]].position);
 
     return (*this);
 }
@@ -71,8 +77,8 @@ void zQuad::Resize(const uint16_t w, const uint16_t h)
     // Offload()'ed already.
     if(!this->IsModifiable()) return;
 
-    m_Size.x = w;
-    m_Size.y = h;
+    m_BoundingBox.w = w;
+    m_BoundingBox.h = h;
 }
 
 void zQuad::SetInverted(const bool flag)
@@ -88,17 +94,17 @@ void zQuad::SetRepeating(const bool flag)
 void zQuad::LoadRegularVertices()
 {
     m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-    m_DrawData.Vertices[1].position = math::vector_t(m_Size.x, 0);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.x, m_Size.y);
-    m_DrawData.Vertices[3].position = math::vector_t(0, m_Size.y);
+    m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w, 0);
+    m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w, m_BoundingBox.h);
+    m_DrawData.Vertices[3].position = math::vector_t(0, m_BoundingBox.h);
 }
 
 void zQuad::LoadInvertedVertices()
 {
     m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-    m_DrawData.Vertices[1].position = math::vector_t(0, -m_Size.y);
-    m_DrawData.Vertices[2].position = math::vector_t(m_Size.x, -m_Size.y);
-    m_DrawData.Vertices[3].position = math::vector_t(m_Size.x, 0);
+    m_DrawData.Vertices[1].position = math::vector_t(0, -m_BoundingBox.h);
+    m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w, -m_BoundingBox.h);
+    m_DrawData.Vertices[3].position = math::vector_t(m_BoundingBox.w, 0);
 }
 
 void zQuad::LoadRegularTC()
@@ -110,8 +116,8 @@ void zQuad::LoadRegularTC()
         uint16_t w = m_Material.GetTexture().GetWidth();
         uint16_t h = m_Material.GetTexture().GetHeight();
 
-        tc_w = m_Size.x / real_t(w);
-        tc_h = m_Size.y / real_t(h);
+        tc_w = m_BoundingBox.w / real_t(w);
+        tc_h = m_BoundingBox.h / real_t(h);
     }
 
     m_DrawData.Vertices[0].tc = math::vector_t(0.0, tc_h);
@@ -129,8 +135,8 @@ void zQuad::LoadInvertedTC()
         uint16_t w = m_Material.GetTexture().GetWidth();
         uint16_t h = m_Material.GetTexture().GetHeight();
 
-        tc_w = m_Size.x / real_t(w);
-        tc_h = m_Size.y / real_t(h);
+        tc_w = m_BoundingBox.w / real_t(w);
+        tc_h = m_BoundingBox.h / real_t(h);
     }
 
     m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);

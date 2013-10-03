@@ -116,11 +116,11 @@ bool zFont::Render(obj::zEntity& Ent,
 
     gfx::zQuad Q(*mp_Assets, Texture.GetWidth(), Texture.GetHeight());
     Q.AttachMaterial(M);
-    Q.Create();
     Q.SetColor(color4f_t());
+    Q.Create();
 
     if(!m_stack) Ent.Destroy();
-    Ent.AddPrimitive(Q);
+    Ent.AddPrimitive(std::move(Q));
     return true;
 }
 
@@ -386,7 +386,7 @@ bool zFont::AttachManager(asset::zAssetManager& Assets)
     mp_Assets = &Assets;
     if(s_FontFx == nullptr)
     {
-        s_FontFx = new gfx::zEffect(gfx::EffectType::SPRITESHEET, Assets);
+        s_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, Assets);
         if(!s_FontFx->Init())
         {
             delete s_FontFx;

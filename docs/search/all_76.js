@@ -1,6 +1,7 @@
 var searchData=
 [
   ['v',['V',['../_keyboard_8hpp.html#ac0055fa4cdc19a2690bfee3643413a7d',1,'Keyboard.hpp']]],
+  ['valid',['valid',['../namespacezen_1_1lvl.html#ab19c575a197ebaa8853515c925605461',1,'zen::lvl::level_t']]],
   ['vbo_5foffset',['VBO_OFFSET',['../group___core_graphics.html#ga7359d9b6b9dfd56a112725d085aa2f53',1,'VertexArray.hpp']]],
   ['vcount',['vcount',['../namespacezen_1_1gfxcore.html#ae97bf3356acd7fef63a4b99257a6aa58',1,'zen::gfxcore::DrawBatch']]],
   ['vector_2ehpp',['Vector.hpp',['../_vector_8hpp.html',1,'']]],

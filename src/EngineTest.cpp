@@ -66,7 +66,7 @@ int main2(int argc, char* argv[])
     Default.Create();
 
     Window.ToggleVSYNC();
-    util::CTimer Timer(60);
+    util::zTimer Timer(60);
 
     zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 
@@ -200,12 +200,20 @@ int main2(int argc, char* argv[])
     Scene.SetSeeThrough(false);
     Scene.EnablePostProcessing();
 
+    /*
     gfx::zEffect& GB = Scene.AddEffect(gfx::EffectType::GAUSSIAN_BLUR_H);
     real_t radius = 1.0 / 512;
     GB.Init();
     GB.Enable();
     GB.SetParameter("radius", &radius);
     GB.Disable();
+    */
+
+    obj::zAnimation& Anim = Scene.AddAnimation();
+    Anim.SetKeyframeCount(4);
+    Anim.SetKeyframeRate(7);
+    Anim.SetKeyframeSize(math::vectoru16_t(24, 52));
+    Anim.LoadFromTexture("hero_walk.png");
 
     while(Window.IsOpen())
     {
@@ -290,7 +298,7 @@ int main2(int argc, char* argv[])
 
         Scene.Render();
 
-        MainMenu.Update();
+        //MainMenu.Update();
         if(mm_ret == 3) Window.Close();
 
         {

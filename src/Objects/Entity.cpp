@@ -129,39 +129,44 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     if(!Mat.LoadTextureFromFile(filename)) return false;
 
     gfx::zQuad* pPrimitive = new gfx::zQuad(m_Assets,
-        Mat.GetTexture().GetWidth(),
-        Mat.GetTexture().GetHeight());
+                                            Mat.GetTexture().GetWidth(),
+                                            Mat.GetTexture().GetHeight());
 
     pPrimitive->AttachMaterial(Mat);
     pPrimitive->SetInverted(m_inv);
-    pPrimitive->Create();
     pPrimitive->SetColor(color4f_t(1, 1, 1, 1));
+    pPrimitive->Create();
 
     mp_allPrims.push_back(pPrimitive);
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
                                       pPrimitive->GetW(),
                                       pPrimitive->GetH()));
-
-    m_Triangulation = Polygon.Triangulate();
     return true;
 }
 
 bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
 {
-    if(!(Polygon.m_DrawData.icount && Polygon.m_DrawData.vcount)) return false;
+    if(Polygon.m_DrawData.icount == 0 &&
+       Polygon.m_DrawData.vcount == 0 &&
+       Polygon.m_Verts.empty()) return false;
 
     gfx::zPolygon* pPoly = new gfx::zPolygon(Polygon);
     pPoly->AttachMaterial(const_cast<gfx::zMaterial&>(Polygon.GetMaterial()));
     //pPoly->SetInverted(m_inv);
+    pPoly->SetColor(Polygon.m_Color);
     pPoly->Create();
-    pPoly->SetColor(Polygon.m_DrawData.Vertices[0].color);
     mp_allPrims.push_back(pPoly);
 
-    m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
-                            math::max<uint32_t>(this->GetW(), pPoly->GetW()),
-                            math::max<uint32_t>(this->GetH(), pPoly->GetH())));
+    m_PolyBB = math::rect_t(
+        math::max<uint16_t>(pPoly->GetX(), m_PolyBB.x),
+        math::max<uint16_t>(pPoly->GetY(), m_PolyBB.y),
+        math::max<uint16_t>(pPoly->GetW(), m_PolyBB.w),
+        math::max<uint16_t>(pPoly->GetH(), m_PolyBB.h)
+    );
 
-    m_Triangulation = Polygon.Triangulate();
+    m_Box = math::aabb_t(math::rect_t(this->GetX() + m_PolyBB.x,
+                                      this->GetY() + m_PolyBB.y,
+                                      m_PolyBB.w, m_PolyBB.h));
 
     // Reset then set the material flag.
     //m_sort &= 0xFFFFFFFF ^ gfxcore::zSorter::MATERIAL_FLAG;
@@ -192,13 +197,14 @@ void zEntity::Move(const math::vector_t& Pos)
 
 void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
+    m_depth = z;
     math::vector_t d = math::vector_t(x, y, z) - this->GetPosition();
 
-    for(auto& i : mp_allPrims)      i->Move(x, y, z);
-    for(auto& i : m_Triangulation)  i = i + d;
+    for(auto& i : mp_allPrims) i->Move(x, y);
 
     m_MV.Translate(math::vector_t(x, y, z));
-    m_Box = math::aabb_t(math::rect_t(x, y, this->GetW(), this->GetH()));
+    m_Box = math::aabb_t(math::rect_t(x + m_PolyBB.x, y + m_PolyBB.y,
+                                      this->GetW(), this->GetH()));
 }
 
 void zEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
@@ -228,32 +234,31 @@ bool zEntity::Offloaded() const
     return true;
 }
 
-bool zEntity::Collides(const zEntity& Other)
+bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
 {
-    ZEN_ASSERTM(false, "not implemented");
     if(!m_Box.collides(Other.m_Box)) return false;
-    for(auto& i : m_Triangulation)
+    for(auto& i : mp_allPrims)
     {
-        /// @todo
-        ;
+        for(auto& j : Other.mp_allPrims)
+            if(i->Collides(*j, poi)) return true;
     }
-    return m_Box.collides(Other.GetBox());
+
+    return false;
 }
 
 bool zEntity::Collides(const math::rect_t& other)
 {
-    math::aabb_t r(other);
-    if(!r.collides(m_Box)) return false;
-    for(size_t i = 0; i < m_Triangulation.size(); i += 3)
-    {
-        math::tri_t t = {
-            m_Triangulation[i],
-            m_Triangulation[i+1],
-            m_Triangulation[i+2]
-        };
+    return this->Collides(math::aabb_t(other));
+}
 
-        if(r.collides(t)) return true;
+bool zEntity::Collides(const math::aabb_t& other)
+{
+    if(!m_Box.collides(other)) return false;
+    for(auto& i : mp_allPrims)
+    {
+        if(i->Collides(other)) return true;
     }
+
     return false;
 }
 

@@ -1,7 +1,5 @@
 <map id="zen::gfx::zMaterial::Enable" name="zen::gfx::zMaterial::Enable">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_drawable.html#af86c4a6f7fcc2d95b937623e56400828" title="Draws the primitive on&#45;screen. " alt="" coords="405,5,566,46"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="617,96,674,123"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="185,121,354,148"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="403,172,567,199"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="620,172,671,199"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="363,5,421,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="184,53,315,94"/>
+<area shape="rect" id="node4" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="363,60,421,87"/>
 </map>

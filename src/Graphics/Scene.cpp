@@ -149,6 +149,7 @@ bool zScene::Render()
     // Commence individual primitive rendering.
     for(auto& i : m_allEntities)
     {
+        i->Update();
         if(!i->m_enabled) continue;
 
         // Adjust for the camera.

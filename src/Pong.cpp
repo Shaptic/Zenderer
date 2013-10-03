@@ -106,7 +106,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     MainMenu.AddButton("Join a Game", [&join](size_t) { join = true; });
     MainMenu.AddButton("Quit", [&Main](size_t)        { Main.Close();});
 
-    util::CTimer Timer(60);
+    util::zTimer Timer(60);
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
 

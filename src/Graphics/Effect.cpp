@@ -54,7 +54,11 @@ bool zEffect::Init()
 
     else if(m_type == EffectType::SPRITESHEET)
         m_init = m_Shader.LoadFragmentShaderFromFile(
-            ZENDERER_SHADER_PATH"SpriteSheet.fs");
+            ZENDERER_SHADER_PATH"Spritesheet.fs");
+
+    else if(m_type == EffectType::ZFONT)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+        ZENDERER_SHADER_PATH"zFont.fs");
 
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(
@@ -112,7 +116,7 @@ bool zEffect::Destroy()
 {
     // We keep the type to Init() again.
     m_Shader.Destroy();
-    return !(m_init = m_Shader.GetShaderObject() != 0);
+    return !(m_init = (m_Shader.GetShaderObject() != 0));
 }
 
 bool zEffect::SetParameter(const string_t& name,
@@ -123,7 +127,7 @@ bool zEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(pValues != nullptr);
     ZEN_ASSERT(count > 0);
 
-    if(!this->Init()) return false;
+    if(!m_init) return false;
 
     GLint loc = m_Shader.GetUniformLocation(name);
     if(loc == -1) return false;
@@ -152,7 +156,7 @@ bool zEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(pValues != nullptr);
     ZEN_ASSERT(count > 0);
 
-    if(!this->Init()) return false;
+    if(!m_init) return false;
 
     GLint loc = m_Shader.GetUniformLocation(name);
     if(loc == -1) return false;

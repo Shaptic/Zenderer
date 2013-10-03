@@ -32,7 +32,7 @@
    <div id="projectname">Zenderer Engine
    &#160;<span id="projectnumber">3.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 8924 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('functions_0x6c.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -149,6 +149,9 @@ $(document).ready(function(){initNavTree('functions_0x6c.html','');});
 <div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>lights
+: <a class="el" href="namespacezen_1_1lvl.html#a777909f1dafd68efe38e99e32c20cc39">zen::lvl::level_t</a>
+</li>
 <li>LoadEffect()
 : <a class="el" href="classzen_1_1gfx_1_1z_material.html#a4cbfde3e3944b735e9e67a4b55fe7594">zen::gfx::zMaterial</a>
 </li>
@@ -162,26 +165,29 @@ $(document).ready(function(){initNavTree('functions_0x6c.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1z_shader_set.html#a33ee836f28cee358478ced7e55b568f6">zen::gfxcore::zShaderSet</a>
 </li>
 <li>LoadFromExisting()
-: <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#a888ea1cbeade5689510a325283da8cbb">zen::gfxcore::zTexture</a>
-, <a class="el" href="classzen_1_1asset_1_1z_asset.html#a6703ae027cdc4826b63398aaafc37f98">zen::asset::zAsset</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#ae4e1a50bfaea334b99bfa26cee8c33a5">zen::gfxcore::zShader</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#a888ea1cbeade5689510a325283da8cbb">zen::gfxcore::zTexture</a>
 , <a class="el" href="classzen_1_1gui_1_1z_font.html#a2f9507a44dfa2664a9c3b4aad6ee2f33">zen::gui::zFont</a>
+, <a class="el" href="classzen_1_1asset_1_1z_asset.html#a6703ae027cdc4826b63398aaafc37f98">zen::asset::zAsset</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a6e886a1c0164a5b439a4aa43de5a6d3d">zen::sfx::CSound2D</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#ae4e1a50bfaea334b99bfa26cee8c33a5">zen::gfxcore::zShader</a>
 </li>
 <li>LoadFromFile()
-: <a class="el" href="classzen_1_1gfxcore_1_1z_shader_set.html#a5d423c6aa3ea56a99d8b6957ac2a888e">zen::gfxcore::zShaderSet</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#a2a86ee7e7602b7d29c0556f9b7212fde">zen::gfxcore::zShader</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1z_shader_set.html#a5d423c6aa3ea56a99d8b6957ac2a888e">zen::gfxcore::zShaderSet</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#ab13cf970986b01c8ec336ee6482de664">zen::gfxcore::zTexture</a>
 , <a class="el" href="classzen_1_1gfx_1_1z_material.html#a4bc7f7cf0e7d5b50a2b6c3bb16a50d5a">zen::gfx::zMaterial</a>
 , <a class="el" href="classzen_1_1gui_1_1z_font.html#a2ff0c9cff415a035b0e38855d7c25cc5">zen::gui::zFont</a>
 , <a class="el" href="classzen_1_1gui_1_1_c_font_atlas.html#ad8f2bab0ba9424845c7a6dabade8d4a8">zen::gui::CFontAtlas</a>
+, <a class="el" href="classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59">zen::lvl::zLevelLoader</a>
 , <a class="el" href="classzen_1_1util_1_1z_x_m_l_parser.html#a2321daa3ee66d147209c094a87bb3f30">zen::util::zXMLParser</a>
-, <a class="el" href="classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b">zen::obj::zEntity</a>
-, <a class="el" href="classzen_1_1asset_1_1z_asset.html#a6648910c3da736572071300ddac7dae2">zen::asset::zAsset</a>
 , <a class="el" href="classzen_1_1util_1_1z_parser.html#a047531e22d4a7c024082696156a15333">zen::util::zParser</a>
+, <a class="el" href="classzen_1_1obj_1_1z_animation.html#adcba40fcbe415c8fc02eeebdc63f63ff">zen::obj::zAnimation</a>
+, <a class="el" href="classzen_1_1asset_1_1z_asset.html#a6648910c3da736572071300ddac7dae2">zen::asset::zAsset</a>
+, <a class="el" href="classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b">zen::obj::zEntity</a>
+, <a class="el" href="classzen_1_1util_1_1z_file_parser.html#a4125da033c5afa59c8987fa74e0b0d60">zen::util::zFileParser</a>
 , <a class="el" href="classzen_1_1sfx_1_1z_audio2_d.html#a22e3a275687da414246c9cdcb419932f">zen::sfx::zAudio2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1z_music2_d.html#afe2b58376246241018bfc95d57234c8a">zen::sfx::zMusic2D</a>
 , <a class="el" href="classzen_1_1sfx_1_1_c_sound2_d.html#a1ddd9fd90ee82b85d46a6d21bd09a503">zen::sfx::CSound2D</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#a2a86ee7e7602b7d29c0556f9b7212fde">zen::gfxcore::zShader</a>
 </li>
 <li>LoadFromRaw()
 : <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#a34ce25f6efa6199e516aa7114f0f7c6c">zen::gfxcore::zTexture</a>
@@ -191,18 +197,23 @@ $(document).ready(function(){initNavTree('functions_0x6c.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1z_shader_set.html#ab57defd932dfa4192221fcea6bbf25ed">zen::gfxcore::zShaderSet</a>
 </li>
 <li>LoadFromStream()
-: <a class="el" href="classzen_1_1util_1_1z_parser.html#a9aa89d42ab16b1c8710d288b40a09cb8">zen::util::zParser</a>
-, <a class="el" href="classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116">zen::gfx::zMaterial</a>
+: <a class="el" href="classzen_1_1util_1_1z_file_parser.html#adeb9b19a83a1a6c2827a036318d9c209">zen::util::zFileParser</a>
 , <a class="el" href="classzen_1_1util_1_1z_parser.html#a3b51640e20788ab80f4933daa552f5ef">zen::util::zParser</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116">zen::gfx::zMaterial</a>
+, <a class="el" href="classzen_1_1util_1_1z_parser.html#a9aa89d42ab16b1c8710d288b40a09cb8">zen::util::zParser</a>
+</li>
+<li>LoadFromStreamUntil()
+: <a class="el" href="classzen_1_1util_1_1z_file_parser.html#a6ca2fe02ff85919a2c76dfb4445fc62d">zen::util::zFileParser</a>
 </li>
 <li>LoadFromString()
 : <a class="el" href="classzen_1_1util_1_1z_x_m_l_parser.html#a0b8ed96d2152a22feefd68cb98b7ba7d">zen::util::zXMLParser</a>
 </li>
 <li>LoadFromTexture()
-: <a class="el" href="classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68">zen::obj::zEntity</a>
+: <a class="el" href="classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a">zen::obj::zAnimation</a>
+, <a class="el" href="classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68">zen::obj::zEntity</a>
 </li>
 <li>LoadIntoVAO()
-: <a class="el" href="classzen_1_1gfxcore_1_1z_drawable.html#a41d0c179a69414be9d180abf91763eed">zen::gfxcore::zDrawable</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a8477362b059957c20edb7dfe4ff04fd9">zen::gfx::zPolygon</a>
 </li>
 <li>LoadTexture()
 : <a class="el" href="classzen_1_1gfx_1_1z_material.html#ad2efdd2bd417020f5044d40a81cd7db2">zen::gfx::zMaterial</a>

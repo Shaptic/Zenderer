@@ -13,7 +13,7 @@ bool zFileParser::LoadFromFile(const string_t& filename)
     ZEN_ASSERT(!filename.empty());
 
     std::ifstream infile(filename);
-    return this->LoadFromStream(infile, 0, 0, filename.c_str());
+    return this->LoadFromStream(infile, 0, -1, filename.c_str());
 }
 
 bool zFileParser::LoadFromStream(std::ifstream& infile,
@@ -42,7 +42,7 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
         {
             m_results.emplace_back(pair_t(
                 line.substr(0, index),
-                line.substr(index)
+                line.substr(index + 1)
             ));
         }
     }

@@ -33,7 +33,6 @@
 #include <algorithm>
 
 #include "Zenderer/Math/Math.hpp"
-#include "Zenderer/CoreGraphics/Drawable.hpp"
 #include "Zenderer/Graphics/Window.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "Zenderer/Graphics/Polygon.hpp"
@@ -80,7 +79,7 @@ namespace obj
          *
          * @see     The entity file specification page [here](index.html)
          **/
-        bool LoadFromFile(const string_t& filename);
+        virtual bool LoadFromFile(const string_t& filename);
 
         /**
          * Creates an entity from a texture file.
@@ -93,25 +92,25 @@ namespace obj
          *          `false` otherwise. There is no retrievable error, but
          *                  something appropriate will be logged.
          **/
-        bool LoadFromTexture(const string_t& filename);
+        virtual bool LoadFromTexture(const string_t& filename);
 
         /**
          * Creates an entity from an existing primitive, or adds it.
          *  This will store a copy of the primitive locally, to prevent bad
-         *  references occuring later. Thus it's advisable to `delete` heap
+         *  references occurring later. Thus it's advisable to `delete` heap
          *  memory when done here, or ensure that the given primitive will go
          *  off the stack soon, to prevent unnecessary memory duplication.
          *
          * @param   Prim    A primitive to make "high-level".
          *
-         * @return  `true`  if the primitive loaded with a valid textre, and
+         * @return  `true`  if the primitive loaded with a valid texture, and
          *          `false` otherwise.
          *
          * @note    Currently, multiple calls to this method will stack
          *          primitive on top of one another, since there is no position
          *          specification on them.
          **/
-        bool AddPrimitive(const gfx::zPolygon& Prim);
+        virtual bool AddPrimitive(const gfx::zPolygon& Prim);
 
         /**
          * Merges primitive data with shared materials.
@@ -142,7 +141,10 @@ namespace obj
          *
          *
          **/
-        bool Draw(bool is_bound = false);
+        virtual bool Draw(bool is_bound = false);
+
+        /// Purely for inheritance compatibility.
+        virtual bool Update() { return false; }
 
         /**
          * Moves the entity to the specified position.
@@ -230,8 +232,9 @@ namespace obj
         bool Offloaded() const;
 
         /// Checks collision with another entity.
-        bool Collides(const zEntity& Other);
+        bool Collides(const zEntity& Other, math::vector_t* poi = nullptr);
         bool Collides(const math::rect_t& other);   ///< @overload
+        bool Collides(const math::aabb_t& other);   ///< @overload
         bool Collides(const math::vector_t& Pos);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
@@ -262,8 +265,8 @@ namespace obj
         friend class ZEN_API gfx::zScene;
 
     protected:
-        zEntity(const zEntity&);                // not implemented to
-        zEntity& operator=(const zEntity&);     // prevent compiler default
+        //zEntity(const zEntity&)                 // not implemented to
+        //zEntity& operator=(const zEntity&)      // prevent compiler default
 
         void Destroy();
         bool FileError(const string_t& filename,
@@ -275,7 +278,7 @@ namespace obj
 
         math::matrix4x4_t           m_MV;
         math::aabb_t                m_Box;
-        std::vector<math::vector_t> m_Triangulation;
+        math::rect_t                m_PolyBB;
         std::vector<gfx::zPolygon*> mp_allPrims;
         string_t                    m_filename;
         uint16_t                    m_depth;
