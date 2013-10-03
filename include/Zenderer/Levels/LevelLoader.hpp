@@ -22,6 +22,8 @@
 #ifndef ZENDERER__LEVELS__LEVEL_LOADER_HPP
 #define ZENDERER__LEVELS__LEVEL_LOADER_HPP
 
+#include <regex>
+
 #include "Zenderer/Assets/AssetManager.hpp"
 #include "Zenderer/Graphics/Polygon.hpp"
 #include "Zenderer/Graphics/Scene.hpp"
@@ -62,6 +64,9 @@ namespace lvl
         /// @todo Error checking.
         virtual bool LoadFromFile(const string_t& filename)
         {
+            using std::stoi;
+            using std::stod;
+
             std::ifstream file(filename);
             util::zFileParser Parser;
             level_t level;
@@ -84,12 +89,10 @@ namespace lvl
             while(std::getline(file, line))
             {
                 util::strip(line);
-                if(line.empty() || (line.size() >= 2 &&
-                                    line[0] == '/' &&
-                                    line[1] == '/'))
+                if(line.empty() || (line.size() >= 2 && line.substr(0, 2) == '//'))
                     continue;
 
-                else if(line.find("<entity>") == 0)
+                else if(line.find("<entity") == 0)
                 {
                     gfx::zPolygon Poly(m_Assets);
                     obj::zEntity& Latest = m_Scene.AddEntity();
@@ -98,15 +101,15 @@ namespace lvl
 
                     parts = util::split(Parser.PopResult("position", "0,0"), ',');
 
-                    Latest.SetDepth(std::stoi(Parser.PopResult("depth", "1")));
-                    Latest.Move(std::stod(parts[0]), std::stod(parts[1]));
+                    Latest.SetDepth(stoi(Parser.PopResult("depth", "1")));
+                    Latest.Move(stod(parts[0]), stod(parts[1]));
 
                     string_t result;
                     do
                     {
                         result = Parser.PopResult("vertex");
                         parts = util::split(result, ',');
-                        Poly.AddVertex(math::vector_t(std::stod(parts[0]), std::stod(parts[1])));
+                        Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1])));
                     } while(!result.empty());
                     
                     parts = util::split(Parser.PopResult("indices"), ',');
@@ -125,23 +128,37 @@ namespace lvl
                     gfx::zMaterial M(m_Assets);
                     result = Parser.PopResult("texture");
                     M.LoadTextureFromFile(result);
-                    Poly.AttachMaterial(M);
+                    Poly.AttachMaterial(std::move(M));
 
                     result = Parser.PopResult("attributes", "0x00");
                     uint8_t attr = this->ParseAttribute(result);
                     /// @todo
 
-                    level.entities.push_back(&Latest);
+                    level.entities.emplace_back(&Latest);
                 }
 
                 /// @todo Differentiate between player and enemy spawns.
                 else if(line.find("<spawn") == 0)
                 {
+                    std::ssmatch type;
+                    if(!std::regex_match(line, std::regex("<spawn type=\"([A-Z]+)\">"),
+                                         std::regex_constants::icase, type))
+                    {
+                        /// @todo
+                        return;
+                    }
+                    
                     spawn_t point;
+                    point.type == SpawnType::ENEMY_SPAWN;
+
+                    if      (type[0] == "PLAYER") point.type = SpawnType::PLAYER_SPAWN;
+                    else if (type[0] == "ITEM")   point.type = SpawnType::ITEM_SPAWN;
+                    
                     Parser.LoadFromStreamUntil(file, "</spawn>",
                                                file.tellg(), filename.c_str());
+
                     parts = util::split(Parser.PopResult("position"), ',');
-                    point.position = math::vector_t(std::stod(parts[0]), std::stod(parts[1]));
+                    point.position = math::vector_t(stod(parts[0]), stod(parts[1]));
 
                     point.whitelist = util::split(Parser.PopResult("whitelist"), ',');
                     point.blacklist = util::split(Parser.PopResult("blacklist"), ',');
@@ -149,21 +166,20 @@ namespace lvl
 
                 else if(line.find("<light type=\"") == 0)
                 {
-                    using std::stod;
-
-                    gfx::zLight& Light = m_Scene.AddLight(gfx::LightType::ZEN_AMBIENT);
-
-                    size_t start = strlen("<light type=\"");
-                    size_t end = line.length() - start - strlen(">");
-                    string_t type = line.substr(start, end);
-                    if(type == "POINT")
+                    std::ssmatch type;
+                    if(!std::regex_match(line, std::regex("<spawn type=\"([A-Z]+)\">"),
+                                         std::regex_constants::icase, type))
                     {
-                        Light.SetType(gfx::LightType::ZEN_POINT);
+                        /// @todo
+                        return;
                     }
-                    else if(type == "SPOT")
-                    {
-                        Light.SetType(gfx::LightType::ZEN_SPOTLIGHT);
-                    }
+                    
+                    gfx::LightType lType = gfx::LightType::ZEN_AMBIENT;
+                    else if (type[0] == "POINT")    lType = gfx::LightType::ZEN_POINT;
+                    else if (type[0] == "SPOT")     lType = gfx::LightType::ZEN_SPOTLIGHT;
+                    
+                    gfx::zLight& Light = m_Scene.AddLight(lType);
+                    Light.Init();
 
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),
                                                filename.c_str());

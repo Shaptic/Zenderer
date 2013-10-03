@@ -37,6 +37,13 @@ namespace zen
 {
 namespace lvl
 {
+    enum class SPAWN_TYPE
+    {
+        PLAYER_SPAWN,
+        ENEMY_SPAWN,
+        ITEM_SPAWN
+    };
+    
     struct spawn_t
     {
         math::vector_t position;
