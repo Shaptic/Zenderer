@@ -58,7 +58,7 @@ namespace util
         virtual bool LoadFromFile(const string_t& filename);
 
         /**
-         * Parses a portion of a filestream.
+         * Parses a portion of a file stream.
          *  This method is made to parse chunks of a file at a time, in order
          *  to avoid confusion of various pairs that may be related to a
          *  different part of the file.
@@ -69,6 +69,7 @@ namespace util
          * @param   start   Stream position in the file to begin parsing
          * @param   end     Stream position in the file to end parsing
          * @param   fname   Filename of the stream, if applicable
+         * @param   skip    Should we not return to the `start` of the stream?
          *
          * @post    The internal file result storage is filled with parsed
          *          data. Regardless of whether or not there was an error,
@@ -82,7 +83,8 @@ namespace util
         virtual bool LoadFromStream(std::ifstream& infile,
                                     const std::streampos start = 0,
                                     const std::streampos end = -1,
-                                    const char* const fname = nullptr);
+                                    const char* const fname = nullptr,
+                                    const bool skip = false);
 
         /**
          * Parses a stream until reaching a sequence.
@@ -98,6 +100,7 @@ namespace util
          * @param   end     String sequence to quit parsing on if found
          * @param   start   Stream position in the file to start parsing
          * @param   fname   Filename of the stream, if applicable
+         * @param   skip    Should we not return to the `start` of the stream?
          *
          * @post    The internal file result storage is filled with parsed
          *          data. Regardless of whether or not there was an error,
@@ -111,7 +114,8 @@ namespace util
         virtual bool LoadFromStreamUntil(std::ifstream& infile,
                                          const string_t& end,
                                          const std::streampos start = 0,
-                                         const char* const filename = nullptr);
+                                         const char* const filename = nullptr,
+                                         const bool skip = false);
 
         /**
          * Pop a result off of the container and return it.

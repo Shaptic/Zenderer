@@ -82,7 +82,7 @@ namespace lvl
             level.metadata.description = Parser.GetFirstResult("description");
 
             // Back up so we see "<entity>" again for parsing in the loop.
-            file.seekg(-10, std::ios::cur);
+            //file.seekg(-10, std::ios::cur);
 
             // Find each block of data and parse it.
             std::vector<string_t> parts;
@@ -97,20 +97,20 @@ namespace lvl
                     gfx::zPolygon Poly(m_Assets);
                     obj::zEntity& Latest = m_Scene.AddEntity();
                     Parser.LoadFromStreamUntil(file, "</entity>", file.tellg(),
-                                               filename.c_str());
+                                               filename.c_str(), true);
 
                     parts = util::split(Parser.PopResult("position", "0,0"), ',');
 
                     Latest.SetDepth(stoi(Parser.PopResult("depth", "1")));
                     Latest.Move(stod(parts[0]), stod(parts[1]));
 
-                    string_t result;
-                    do
+                    string_t result = Parser.PopResult("vertex");
+                    while(!result.empty())
                     {
-                        result = Parser.PopResult("vertex");
                         parts = util::split(result, ',');
                         Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1])));
-                    } while(!result.empty());
+                        result = Parser.PopResult("vertex");
+                    }
 
                     parts = util::split(Parser.PopResult("indices"), ',');
                     if(!parts.empty())
@@ -157,8 +157,8 @@ namespace lvl
                     if      (type[0] == "PLAYER") point.type = SpawnType::PLAYER_SPAWN;
                     else if (type[0] == "ITEM")   point.type = SpawnType::ITEM_SPAWN;
 
-                    Parser.LoadFromStreamUntil(file, "</spawn>",
-                                               file.tellg(), filename.c_str());
+                    Parser.LoadFromStreamUntil(file, "</spawn>", file.tellg(),
+                                               filename.c_str(), true);
 
                     parts = util::split(Parser.PopResult("position"), ',');
                     point.position = math::vector_t(stod(parts[0]), stod(parts[1]));
@@ -186,7 +186,7 @@ namespace lvl
                     Light.Init();
 
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),
-                                               filename.c_str());
+                                               filename.c_str(), true);
 
                     parts = util::split(Parser.PopResult("color"), ',');
                     Light.SetColor(stod(parts[0]), stod(parts[1]), stod(parts[2]));

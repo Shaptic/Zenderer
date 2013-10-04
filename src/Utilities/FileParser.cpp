@@ -19,7 +19,8 @@ bool zFileParser::LoadFromFile(const string_t& filename)
 bool zFileParser::LoadFromStream(std::ifstream& infile,
                                  const std::streampos start,
                                  const std::streampos end,
-                                 const char* const fname)
+                                 const char* const fname,
+                                 const bool skip)
 {
     m_results.clear();
     infile.seekg(start, std::ios::beg);
@@ -47,14 +48,15 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
         }
     }
 
-    infile.seekg(start, std::ios::beg);
+    if(!skip) infile.seekg(start, std::ios::beg);
     return true;
 }
 
 bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
                                       const string_t& end,
                                       const std::streampos start,
-                                      const char* const filename)
+                                      const char* const filename,
+                                      const bool skip)
 {
     m_results.clear();
     infile.seekg(start, std::ios::beg);
@@ -82,7 +84,7 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
         }
     }
 
-    infile.seekg(start, std::ios::beg);
+    if(!skip) infile.seekg(start, std::ios::beg);
     return true;
 }
 
