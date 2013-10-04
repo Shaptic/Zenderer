@@ -25,7 +25,7 @@ zQuad::~zQuad()
 {
 }
 
-gfx::zPolygon& zQuad::Create()
+gfx::zPolygon& zQuad::Create(const bool triangulate)
 {
     if(m_DrawData.Vertices == nullptr)
     {

@@ -89,7 +89,7 @@ namespace lvl
             while(std::getline(file, line))
             {
                 util::strip(line);
-                if(line.empty() || (line.size() >= 2 && line.substr(0, 2) == '//'))
+                if(line.empty() || (line.size() >= 2 && line.substr(0, 2) == "//"))
                     continue;
 
                 else if(line.find("<entity") == 0)
@@ -111,7 +111,7 @@ namespace lvl
                         parts = util::split(result, ',');
                         Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1])));
                     } while(!result.empty());
-                    
+
                     parts = util::split(Parser.PopResult("indices"), ',');
                     if(!parts.empty())
                     {
@@ -142,20 +142,21 @@ namespace lvl
                 /// @todo Differentiate between player and enemy spawns.
                 else if(line.find("<spawn") == 0)
                 {
-                    std::ssmatch type;
-                    if(!std::regex_match(line, std::regex("<spawn type=\"([A-Z]+)\">"),
-                                         std::regex_constants::icase, type))
+                    std::smatch type;
+                    if(!std::regex_match(line, type,
+                                         std::regex("<spawn type=\"([A-Z]+)\">",
+                                            std::regex_constants::icase)))
                     {
                         /// @todo
-                        return;
+                        return false;
                     }
-                    
+
                     spawn_t point;
-                    point.type == SpawnType::ENEMY_SPAWN;
+                    point.type = SpawnType::ENEMY_SPAWN;
 
                     if      (type[0] == "PLAYER") point.type = SpawnType::PLAYER_SPAWN;
                     else if (type[0] == "ITEM")   point.type = SpawnType::ITEM_SPAWN;
-                    
+
                     Parser.LoadFromStreamUntil(file, "</spawn>",
                                                file.tellg(), filename.c_str());
 
@@ -168,18 +169,19 @@ namespace lvl
 
                 else if(line.find("<light type=\"") == 0)
                 {
-                    std::ssmatch type;
-                    if(!std::regex_match(line, std::regex("<spawn type=\"([A-Z]+)\">"),
-                                         std::regex_constants::icase, type))
+                    std::smatch type;
+                    if(!std::regex_match(line, type,
+                                         std::regex("<spawn type=\"([A-Z]+)\">",
+                                            std::regex_constants::icase)))
                     {
                         /// @todo
-                        return;
+                        return false;
                     }
-                    
+
                     gfx::LightType lType = gfx::LightType::ZEN_AMBIENT;
-                    else if (type[0] == "POINT")    lType = gfx::LightType::ZEN_POINT;
-                    else if (type[0] == "SPOT")     lType = gfx::LightType::ZEN_SPOTLIGHT;
-                    
+                    if (type[0] == "POINT")     lType = gfx::LightType::ZEN_POINT;
+                    else if (type[0] == "SPOT") lType = gfx::LightType::ZEN_SPOTLIGHT;
+
                     gfx::zLight& Light = m_Scene.AddLight(lType);
                     Light.Init();
 
