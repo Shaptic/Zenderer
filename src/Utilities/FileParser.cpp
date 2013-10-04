@@ -77,7 +77,7 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
         {
             m_results.emplace_back(pair_t(
                 line.substr(0, index),
-                line.substr(index)
+                line.substr(index + 1)
             ));
         }
     }
