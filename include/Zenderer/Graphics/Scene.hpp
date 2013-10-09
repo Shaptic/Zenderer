@@ -155,6 +155,39 @@ namespace gfx
         bool RemoveEntity(const obj::zEntity& Obj);
         bool RemoveEntity(const uint32_t index);    ///< @overload
 
+        /**
+         * Puts an entity in a different drawing order position.
+         *  If the index is out of range of the scene entity list,
+         *  the entity is inserted at the end.
+         *
+         * @param   Ent     Entity to move
+         * @param   index   New entity position
+         *
+         * @return  `true`  if the entity was moved to a valid index,
+         *          `false` if the entity doesn't exist in the scene.
+         **/
+        bool ShiftEntity(obj::zEntity& Obj, const uint32_t index)
+        {
+            if(!this->IsValidEntityIndex(index)) return false;
+            auto i = m_allEntities.begin(),
+                 j = m_allEntities.end();
+
+            for( ; i != j; ++i)
+            {
+                if(*i == &Obj)
+                {
+                    m_allEntities.erase(i);
+                    break;
+                }
+            }
+            if(i == j) return false;
+
+            auto tmp = m_allEntities.begin();
+            std::advance(tmp, index);
+            m_allEntities.insert(tmp, &Obj);
+            return true;
+        }
+
         /// Deletes all scene data (lights, objects, effects, etc).
         bool Clear();
 

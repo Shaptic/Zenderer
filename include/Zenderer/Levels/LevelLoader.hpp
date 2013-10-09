@@ -70,6 +70,15 @@ namespace lvl
             using std::stod;
 
             std::ifstream file(filename);
+            if(!file)
+            {
+                util::zLog& Log = util::zLog::GetEngineLog();
+                Log << Log.SetMode(util::LogMode::ZEN_ERROR)
+                    << Log.SetSystem("Level")
+                    << "Failed to open level: '" << filename << "'."
+                    << util::zLog::endl;
+            }
+
             util::zFileParser Parser;
             level_t level;
             string_t line;
@@ -152,9 +161,14 @@ namespace lvl
                     }
                 }
 
-                /// @todo Differentiate between player and enemy spawns.
                 else if(line.find("<spawn") == 0)
                 {
+                    // G++ doesn't have regex support for C++11 yet.
+#ifdef __GNUC__
+                    size_t start    = line.find('"');
+                    size_t end      = line.find('"', start+1);
+                    const string_t t= line.substr(start+1, end - start - 1);
+#else
                     std::smatch type;
                     if(!std::regex_match(line, type,
                                          std::regex("<spawn type=\"([A-Z]+)\">",
@@ -163,12 +177,14 @@ namespace lvl
                         /// @todo
                         return false;
                     }
+                    const string_t& t = tyep[0];
+#endif // __GNUC__
 
                     spawn_t point;
                     point.type = SpawnType::ENEMY_SPAWN;
 
-                    if      (type[0] == "PLAYER") point.type = SpawnType::PLAYER_SPAWN;
-                    else if (type[0] == "ITEM")   point.type = SpawnType::ITEM_SPAWN;
+                    if      (t == "PLAYER") point.type = SpawnType::PLAYER_SPAWN;
+                    else if (t == "ITEM")   point.type = SpawnType::ITEM_SPAWN;
 
                     Parser.LoadFromStreamUntil(file, "</spawn>", file.tellg(),
                                                filename.c_str(), true);
@@ -178,10 +194,16 @@ namespace lvl
 
                     point.whitelist = util::split(Parser.PopResult("whitelist"), ',');
                     point.blacklist = util::split(Parser.PopResult("blacklist"), ',');
+                    level.spawnpoints.emplace_back(std::move(point));
                 }
 
                 else if(line.find("<light type=\"") == 0)
                 {
+#ifdef __GNUC__
+                    size_t start  = line.find('"');
+                    size_t end    = line.find('"', start+1);
+                    string_t t    = line.substr(start+1, end - start - 1);
+#else
                     std::smatch type;
                     if(!std::regex_match(line, type,
                                          std::regex("<spawn type=\"([A-Z]+)\">",
@@ -190,10 +212,12 @@ namespace lvl
                         /// @todo
                         return false;
                     }
+                    const string_t& t = tyep[0];
+#endif // __GNUC__
 
                     gfx::LightType lType = gfx::LightType::ZEN_AMBIENT;
-                    if (type[0] == "POINT")     lType = gfx::LightType::ZEN_POINT;
-                    else if (type[0] == "SPOT") lType = gfx::LightType::ZEN_SPOTLIGHT;
+                         if (t == "POINT")  lType = gfx::LightType::ZEN_POINT;
+                    else if (t == "SPOT")   lType = gfx::LightType::ZEN_SPOTLIGHT;
 
                     gfx::zLight& Light = m_Scene.AddLight(lType);
                     Light.Init();
@@ -202,7 +226,7 @@ namespace lvl
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),
                                                filename.c_str(), true);
 
-                    parts = util::split(Parser.PopResult("color"), ',');
+                    parts = util::split(Parser.PopResult("color", "1,1,1"), ',');
                     Light.SetColor(stod(parts[0]), stod(parts[1]), stod(parts[2]));
 
                     Light.SetBrightness(stod(
@@ -236,6 +260,7 @@ namespace lvl
                 }
             }
 
+            level.valid = (!level.entities.empty() || !level.lights.empty());
             if(level.valid) m_levels.emplace_back(std::move(level));
             return level.valid;
         }
