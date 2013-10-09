@@ -33,7 +33,7 @@ namespace evt
 #endif // DELETE
 
     /// Keyboard key enumerations.
-    enum class ZEN_API Key
+    enum class ZEN_API Key : int16_t
     {
         // Punctuation
         UNKNOWN     = -1,

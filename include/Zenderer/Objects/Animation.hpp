@@ -67,7 +67,7 @@ namespace obj
          * @see OnFinish()
          **/
         void PlayAnimation(const uint32_t loops = 0);
-        
+
         /**
          * Freeze the animation at a certain frame.
          *  This will stop animating the object, and will stop on the current
@@ -79,7 +79,7 @@ namespace obj
          * @param   frame   Frame to stop on, -1 means stop on current.
          **/
         void StopAnimation(const int16_t frame = -1);
-        
+
         /**
          * Update the current animation frame if the set frame time has passed.
          *  This method relies on a per-frame rate being set for the object.
@@ -112,13 +112,15 @@ namespace obj
 
         /// Configures the number of sprites in a given spritesheet.
         void SetKeyframeCount(const uint16_t frames);
-        
+
         /// Configures the dimensions of a single frame.
         void SetKeyframeSize(const uint16_t w, const uint16_t h);
         void SetKeyframeSize(const math::vectoru16_t& Size);    /// @overload
-        
+
         /// Configures the time, in frames, before showing the next keyframe.
         void SetKeyframeRate(const uint16_t rate);
+
+        inline bool Playing() const { return !m_stop; }
 
     private:
         void SwitchFrame(const uint16_t frame);
