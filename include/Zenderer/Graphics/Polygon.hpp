@@ -156,6 +156,8 @@ namespace gfx
 
         /// Sets the vertex color of the created vertices.
         void SetColor(const color4f_t& Color);
+        void SetColor(const real_t r, const real_t g,
+                      const real_t b, const real_t a = 1.0); ///< @overload
 
         inline const std::vector<math::vector_t>&
         GetTriangulation() const { return m_Tris; }

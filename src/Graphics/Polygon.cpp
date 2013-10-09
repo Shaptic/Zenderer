@@ -281,6 +281,18 @@ void zPolygon::SetColor(const color4f_t& Color)
         m_DrawData.Vertices[i].color = Color;
 }
 
+void zPolygon::SetColor(const real_t r, const real_t g,
+                        const real_t b, const real_t a)
+{
+    this->SetColor(color4f_t(r, g, b, a));
+}
+
+{
+    m_Color = Color;
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+        m_DrawData.Vertices[i].color = Color;
+}
+
 void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
 {
     if(m_DrawData.Indices != nullptr && m_DrawData.icount > 0)
