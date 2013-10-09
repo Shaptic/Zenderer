@@ -44,7 +44,7 @@
 #if defined(__GNUC__)       || \
     defined(__MINGW32__)    || \
     defined(__MINGW64__)
-  #error "Zenderer must be compiled with C++11 regex support."
+  #warning "Non-regex string parsing has not been tested thoroughly..."
 #elif                           \
     !(                          \
         defined(WIN32)      ||  \
@@ -52,7 +52,7 @@
         defined(__WIN32__)  ||  \
         defined(__WINDOWS__)    \
     )
-  #warning "Zenderer has only been tested on Windows using Visual Studio..."
+  #warning "Zenderer has only been tested on Windows using MinGW and Visual Studio..."
 #else
   /// Use a uniform macro for Windows builds.
   #ifndef _WIN32
