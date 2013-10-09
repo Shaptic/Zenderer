@@ -238,7 +238,7 @@ namespace obj
         bool Collides(const math::vector_t& Pos);   ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
-        void SetDepth(uint8_t depth);
+        void SetDepth(const uint8_t depth);
 
         /// Retrieves an immutable reference to the transformation matrix.
         const math::matrix4x4_t& GetTransformation() const;

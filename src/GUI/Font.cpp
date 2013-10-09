@@ -408,6 +408,13 @@ void zFont::SetColor(const color4f_t& Color)
     m_Color = Color;
 }
 
+void zFont::SetColor(const real_t r, const real_t g, const real_t b)
+{
+    m_Color.r = r;
+    m_Color.g = g;
+    m_Color.b = b;
+}
+
 void zFont::SetStacking(const bool flag)
 {
     m_stack = flag;

@@ -154,6 +154,7 @@ namespace gui
 
         /// Sets the font color.
         void SetColor(const color4f_t& Color);
+        void SetColor(const real_t r, const real_t g, const real_t b); ///< @overload
 
         /// Sets the font size.
         void SetSize(const uint16_t size) { m_size = size; }
@@ -186,7 +187,7 @@ namespace gui
         FT_Face m_FontFace;
 
         std::map<char, glyph_t> m_glyphData;
-        std::stringstream m_str;
+        std::istringstream m_str;
 
         uint16_t m_size;
         uint16_t m_height;
