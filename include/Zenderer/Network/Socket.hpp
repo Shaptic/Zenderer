@@ -34,6 +34,7 @@
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef _WIN32
+  #define _WIN32_WINNT 0x501
   #include <thread>
   #include <WinSock2.h>
   #include <WS2TCPIP.h>

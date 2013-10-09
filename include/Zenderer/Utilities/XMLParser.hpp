@@ -20,6 +20,7 @@
  **/
 
 #include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Math/Math.hpp"
 
 #include "Log.hpp"
 #include "Assert.hpp"

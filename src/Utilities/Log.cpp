@@ -103,11 +103,6 @@ zLog& zLog::Newline()
     return (*this);
 }
 
-std::ostream& util::operator<<(std::ostream& o, const zLog& Log)
-{
-    return o;
-}
-
 zLog& zLog::GetEngineLog()
 {
     static zLog Log("Zenderer.log");

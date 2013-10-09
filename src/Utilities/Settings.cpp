@@ -124,8 +124,12 @@ zOption& zSettings::operator[](const string_t& opt)
     if(iter == m_Options.end())
     {
         // Create a new blank option and return it.
-        m_Options.emplace(std::make_pair(hash, zOption()));
+#ifndef __GNUC__
+        return m_Options.emplace(hash, zOption);
+#else
+        m_Options[hash] = zOption();
         return m_Options[hash];
+#endif
     }
 
     return iter->second;

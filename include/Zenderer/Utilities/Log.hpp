@@ -175,7 +175,8 @@ namespace util
         inline bool IsInit() const;
 
         /// Makes it possible to inline the `Set*()` methods.
-        friend std::ostream& operator<<(std::ostream& o, const zLog& Log);
+        friend inline std::ostream&
+        operator<<(std::ostream& o, const zLog& Log) { return o; }
 
         /// Singleton access to the engine log.
         static zLog& GetEngineLog();
