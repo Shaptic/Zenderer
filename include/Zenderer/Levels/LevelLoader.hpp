@@ -137,6 +137,11 @@ namespace lvl
 
                     Latest.AddPrimitive(std::move(Poly));
                     level.entities.emplace_back(&Latest);
+                    
+                    if(attr & AttributeType::PHYSICAL)
+                    {
+                        level.physical.emplace_back(&Latest);
+                    }
                 }
 
                 /// @todo Differentiate between player and enemy spawns.
@@ -184,6 +189,7 @@ namespace lvl
 
                     gfx::zLight& Light = m_Scene.AddLight(lType);
                     Light.Init();
+                    Light.Enable();
 
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),
                                                filename.c_str(), true);
@@ -210,6 +216,8 @@ namespace lvl
                             Light.SetMinimumAngle(stod(Parser.PopResult("minangle")));
                         }
                     }
+                    
+                    Light.Disable();
                 }
 
                 else

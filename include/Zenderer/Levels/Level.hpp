@@ -63,6 +63,7 @@ namespace lvl
         metalevel_t                 metadata;
         std::vector<spawn_t>        spawnpoints;
         std::vector<obj::zEntity*>  entities;
+        std::vector<obj::zEntity*>  physical;
         std::vector<gfx::zLight*>   lights;
         bool                        valid;
     };
