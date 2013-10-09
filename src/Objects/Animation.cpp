@@ -84,7 +84,13 @@ void zAnimation::SetKeyframeCount(const uint16_t frames)
 
 void zAnimation::SetKeyframeSize(const math::vectoru16_t& Size)
 {
-    m_Size = Size;
+    this->SetKeyframeSize(Size.x, Size.y);
+}
+
+void zAnimation::SetKeyframeSize(const uint16_t w, const uint16_t h)
+{
+    m_Size.x = w;
+    m_Size.y = h;
 }
 
 void zAnimation::SetKeyframeRate(const uint16_t rate)
