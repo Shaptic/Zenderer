@@ -121,6 +121,9 @@ class Importer:
 
                     elif line.find('texture=') == 0:
                         ent.Load(filename=line.split('=')[1])
+                    
+                    elif line.find('attributes=') == 0:
+                        ent.details['attributes'] = line.split('=')[1]
 
             elif line.find('<light') == 0:
                 lit = Light()

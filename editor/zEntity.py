@@ -11,25 +11,35 @@ DEFAULT_ENTITY = {
     'texture': ''
 }
 
+ATTR = {
+    'PHYSICAL': 0x01,
+    'ANIMABLE': 0x02
+}
+
 class EntityPropertyWindow(PropertyWindow):
     def __init__(self, ent, parent, **kw):
         apply(PropertyWindow.__init__, (self, parent, ent))
 
+        self.CollideVar = MakeVar(int(ent.details['attributes'], 16) & ATTR['PHYSICAL'], tk.IntVar)
         self.StretchVar = MakeVar(ent.details['stretch'])
         self.TextureVar = MakeVar(
             ent.details['texture'] if ent.details['texture'] else ent.filename
         )
 
-        self.Stretch = ttk.Checkbutton(self, text='Stretch Texture',
-                                       variable=self.StretchVar,
+        self.Collide = ttk.Checkbutton(self, variable=self.CollideVar)
+        self.Stretch = ttk.Checkbutton(self, variable=self.StretchVar,
                                        onvalue='true', offvalue='false')
         self.Texture = ttk.Entry(self, textvariable=self.TextureVar)
 
-        PlaceWidget(ttk.Label(self, text='Texture'), 1, 0)
-        PlaceWidget(self.Stretch, 0, 0)
-        PlaceWidget(self.Texture, 1, 1)
+        PlaceWidget(ttk.Label(self, text='Physical'), 0, 0)
+        PlaceWidget(self.Collide, 0, 1)
+        PlaceWidget(ttk.Label(self, text='Stretch'), 1, 0)
+        PlaceWidget(self.Stretch, 1, 1)
+        PlaceWidget(ttk.Label(self, text='Texture'), 2, 0)
+        PlaceWidget(self.Texture, 2, 1)
 
     def Exit(self):
+        self.applied.details['attributes'] = '0x%02x' % (1 & (ATTR['PHYSICAL'] if self.CollideVar.get() else 1))
         self.applied.details['stretch'] = self.StretchVar.get()
         self.applied.details['texture'] = self.TextureVar.get()
         self.destroy()
