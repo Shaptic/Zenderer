@@ -113,13 +113,13 @@ namespace lvl
                     parts = util::split(Parser.PopResult("position", "0,0"), ',');
 
                     Latest.SetDepth(stoi(Parser.PopResult("depth", "1")));
-                    Latest.Move(stod(parts[0]), stod(parts[1]));
+                    Latest.Move(stod(parts[0]), stod(parts[1]), 1.0);
 
                     string_t result = Parser.PopResult("vertex");
                     while(!result.empty())
                     {
                         parts = util::split(result, ',');
-                        Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1])));
+                        Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1]), 0.0));
                         result = Parser.PopResult("vertex");
                     }
 
@@ -136,11 +136,18 @@ namespace lvl
                         /// @todo
                     }
 
-                    gfx::zMaterial M(m_Assets);
-                    result = Parser.PopResult("texture");
-                    M.LoadTextureFromFile(result);
-                    Poly.AttachMaterial(M);
-                    Poly.Create(false);
+                    /// @todo Polygons vs. Entities differentiation.
+                    if(Parser.Exists("texture"))
+                    {
+                        gfx::zMaterial M(m_Assets);
+                        M.LoadTextureFromFile(Parser.PopResult("texture"));
+                        Poly.AddVertex(math::vector_t(0, 0));
+                        Poly.AddVertex(math::vector_t(M.GetTexture().GetWidth(), 0));
+                        Poly.AddVertex(math::vector_t(M.GetTexture().GetWidth(), M.GetTexture().GetHeight()));
+                        Poly.AddVertex(math::vector_t(0, M.GetTexture().GetHeight()));
+                        Poly.AttachMaterial(M);
+                        Poly.Create(false);
+                    }
 
                     result = Parser.PopResult("attributes", "0x00");
                     uint8_t attr = this->ParseAttribute(result);
