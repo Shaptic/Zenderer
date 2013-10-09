@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Zenderer/Core/Subsystem.hpp"
 
 using namespace zen;

@@ -213,10 +213,10 @@ namespace math
         /**
          * Finds the distance between two points (optional `sqrt`).
          * @todo    Investigate potential problems between a signed
-         *          and unsigned `zVector<T>` or `zVector<U>`.
+         *          and unsigned `zVector<R>` or `zVector<S>`.
          **/
-        template<typename T, typename U> static
-        real_t distance(const zVector<T>& A, const zVector<U>& B,
+        template<typename R, typename S> static
+        real_t distance(const zVector<R>& A, const zVector<S>& B,
                         const bool do_sqrt = false);
     };
 

@@ -192,7 +192,7 @@ bool zPolygon::Draw(const bool is_bound /*= false*/)
         // sorting internally anyway and has no effect on visuals.
         (*mp_MVMatrix)[0][3] = m_BoundingBox.x;
         (*mp_MVMatrix)[1][3] = m_BoundingBox.y;
-        //(*mp_MVMatrix)[2][3] = m_Position.z;
+        // (*mp_MVMatrix)[2][3] = m_Position.z;
 
         // Bind our material. If we haven't set one, the default will be used.
         // We need a default texture because otherwise the color would
@@ -285,12 +285,6 @@ void zPolygon::SetColor(const real_t r, const real_t g,
                         const real_t b, const real_t a)
 {
     this->SetColor(color4f_t(r, g, b, a));
-}
-
-{
-    m_Color = Color;
-    for(size_t i = 0; i < m_DrawData.vcount; ++i)
-        m_DrawData.Vertices[i].color = Color;
 }
 
 void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)

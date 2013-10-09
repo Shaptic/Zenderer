@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Zenderer/Math/Shapes.hpp"
 
 using namespace zen;

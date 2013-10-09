@@ -1,3 +1,4 @@
+#include <cstring>
 #include "Zenderer/Math/Matrix.hpp"
 
 using namespace zen;

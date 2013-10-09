@@ -64,7 +64,7 @@ T* zAssetManager::Recreate(const T* const Copier, const void* const owner)
 {
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetMgr") << "Copying '"
-            << filename << "' ... ";
+            << Copier->GetFilename() << "' ... ";
 
     // Create a new asset.
     T* pAsset = new T(owner);

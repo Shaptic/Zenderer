@@ -187,7 +187,7 @@ namespace gui
         FT_Face m_FontFace;
 
         std::map<char, glyph_t> m_glyphData;
-        std::istringstream m_str;
+        std::stringstream m_str;
 
         uint16_t m_size;
         uint16_t m_height;

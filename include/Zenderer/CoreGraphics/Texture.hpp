@@ -27,6 +27,7 @@
 
 #include "stb_image.h"
 
+#include "Zenderer/Assets/AssetManager.hpp"
 #include "Zenderer/Assets/Asset.hpp"
 #include "Zenderer/Utilities/Log.hpp"
 #include "OpenGL.hpp"

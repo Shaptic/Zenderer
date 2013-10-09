@@ -91,6 +91,7 @@ namespace util
         auto choice(InputIterator begin, InputIterator end) -> decltype(*begin)&
         {
             int d = std::distance(begin, end);
+            InputIterator tmp = begin;
             ZEN_ASSERT(d >= 0);
             std::advance(tmp, this->randint(0, d));
             return *tmp;

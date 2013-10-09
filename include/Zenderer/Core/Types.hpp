@@ -28,6 +28,40 @@
 #include <cstdint>
 #include <string>
 
+#ifdef __GNUC__
+
+// For whatever reason, even with -std=c++11,
+// or -std=c++0x, or -std=gnu++11 enabled,
+// these functions aren't found.
+
+#include <sstream>
+namespace std
+{
+    template<typename T>
+    static std::string to_string(const T& t)
+    {
+        std::stringstream ss(t);
+        return ss.str();
+    }
+
+    static int stoi(const std::string& s)
+    {
+        std::stringstream ss(s);
+        int result;
+        ss >> result;
+        return result;
+    }
+
+    static double stod(const std::string& s)
+    {
+        std::stringstream ss(s);
+        double result;
+        ss >> result;
+        return result;
+    }
+}
+#endif // __GNUC__
+
 // Attempt to detect debug or release build.
 #ifndef ZEN_DEBUG_BUILD
   #if defined(_DEBUG) || defined(DEBUG)

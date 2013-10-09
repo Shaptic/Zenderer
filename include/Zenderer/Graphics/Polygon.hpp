@@ -22,6 +22,8 @@
 #ifndef ZENDERER__GRAPHICS__POLYGON_HPP
 #define ZENDERER__GRAPHICS__POLYGON_HPP
 
+#include <algorithm>
+
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/Math/Shapes.hpp"

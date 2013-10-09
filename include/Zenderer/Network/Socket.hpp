@@ -106,7 +106,7 @@ namespace net
     {
     public:
         zSocket(const SocketType& Type) : m_Type(Type),
-            m_socket(-1), m_Log(util::zLog::GetEngineLog()) {}
+            m_Log(util::zLog::GetEngineLog()), m_socket(-1) {}
 
         virtual ~zSocket() { this->Destroy(); }
 

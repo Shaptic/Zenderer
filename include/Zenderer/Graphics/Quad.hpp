@@ -63,11 +63,10 @@ namespace gfx
 
             for(size_t i = 0; i < Other.GetTriangulation().size(); i += 3)
             {
-                math::tri_t t = {
-                    Other.GetTriangulation()[i],
-                    Other.GetTriangulation()[i+1],
-                    Other.GetTriangulation()[i+2]
-                };
+                math::tri_t t;
+                t[0] = Other.GetTriangulation()[i];
+                t[1] = Other.GetTriangulation()[i+1];
+                t[2] = Other.GetTriangulation()[i+2];
 
                 if(us.collides(t)) return true;
             }

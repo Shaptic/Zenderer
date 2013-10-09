@@ -40,7 +40,8 @@ namespace lvl
     {
     public:
         zLevelLoader(gfx::zScene& Scene, asset::zAssetManager& Assets) :
-            m_Scene(Scene), m_Assets(Assets), m_Log(util::zLog::GetEngineLog())
+            m_Log(util::zLog::GetEngineLog()),
+            m_Scene(Scene), m_Assets(Assets)
         {
             m_levels.clear();
         }
@@ -49,6 +50,7 @@ namespace lvl
         {
             for(auto& i : m_levels)
             {
+                /// @todo
                 for(auto& j : i.lights)
                     ;//m_Scene.RemoveLight(j);
 
@@ -128,7 +130,7 @@ namespace lvl
                     gfx::zMaterial M(m_Assets);
                     result = Parser.PopResult("texture");
                     M.LoadTextureFromFile(result);
-                    Poly.AttachMaterial(std::move(M));
+                    Poly.AttachMaterial(M);
                     Poly.Create(false);
 
                     result = Parser.PopResult("attributes", "0x00");
@@ -137,8 +139,14 @@ namespace lvl
 
                     Latest.AddPrimitive(std::move(Poly));
                     level.entities.emplace_back(&Latest);
-                    
-                    if(attr & AttributeType::PHYSICAL)
+
+                    enum class AttributeType : uint8_t
+                    {
+                        NONE     = 0x00,
+                        PHYSICAL = 0x01
+                    };
+
+                    if(attr & static_cast<uint8_t>(AttributeType::PHYSICAL))
                     {
                         level.physical.emplace_back(&Latest);
                     }
@@ -216,7 +224,7 @@ namespace lvl
                             Light.SetMinimumAngle(stod(Parser.PopResult("minangle")));
                         }
                     }
-                    
+
                     Light.Disable();
                 }
 
@@ -243,7 +251,11 @@ namespace lvl
     private:
         uint8_t ParseAttribute(const string_t& hex)
         {
+#ifndef __GNUC__
             return static_cast<uint8_t>(std::stoul(hex, nullptr, 16));
+#else
+            return static_cast<uint8_t>(std::strtoul(hex.c_str(), nullptr, 16));
+#endif // __GNUC__
         }
 
         util::zLog& m_Log;
