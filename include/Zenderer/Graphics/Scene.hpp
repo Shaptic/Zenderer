@@ -4,7 +4,7 @@
  *  intended to abstract away all low-level rendering details.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -166,27 +166,7 @@ namespace gfx
          * @return  `true`  if the entity was moved to a valid index,
          *          `false` if the entity doesn't exist in the scene.
          **/
-        bool ShiftEntity(obj::zEntity& Obj, const uint32_t index)
-        {
-            if(!this->IsValidEntityIndex(index)) return false;
-            auto i = m_allEntities.begin(),
-                 j = m_allEntities.end();
-
-            for( ; i != j; ++i)
-            {
-                if(*i == &Obj)
-                {
-                    m_allEntities.erase(i);
-                    break;
-                }
-            }
-            if(i == j) return false;
-
-            auto tmp = m_allEntities.begin();
-            std::advance(tmp, index);
-            m_allEntities.insert(tmp, &Obj);
-            return true;
-        }
+        bool ShiftEntity(obj::zEntity& Obj, const uint32_t index);
 
         /// Deletes all scene data (lights, objects, effects, etc).
         bool Clear();
