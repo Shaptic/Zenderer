@@ -234,7 +234,7 @@ bool zEntity::Offloaded() const
     return true;
 }
 
-bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
+bool zEntity::Collides(const zEntity& Other, math::vector_t* poi) const
 {
     if(!m_Box.collides(Other.m_Box)) return false;
     for(auto& i : mp_allPrims)
@@ -246,12 +246,12 @@ bool zEntity::Collides(const zEntity& Other, math::vector_t* poi)
     return false;
 }
 
-bool zEntity::Collides(const math::rect_t& other)
+bool zEntity::Collides(const math::rect_t& other) const
 {
     return this->Collides(math::aabb_t(other));
 }
 
-bool zEntity::Collides(const math::aabb_t& other)
+bool zEntity::Collides(const math::aabb_t& other) const
 {
     if(!m_Box.collides(other)) return false;
     for(auto& i : mp_allPrims)
@@ -262,7 +262,7 @@ bool zEntity::Collides(const math::aabb_t& other)
     return false;
 }
 
-bool zEntity::Collides(const math::vector_t& pos)
+bool zEntity::Collides(const math::vector_t& pos) const
 {
     return this->Collides(math::rect_t(pos.x, pos.y, 1, 1));
 }
