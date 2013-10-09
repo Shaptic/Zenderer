@@ -120,6 +120,7 @@ namespace obj
         /// Configures the time, in frames, before showing the next keyframe.
         void SetKeyframeRate(const uint16_t rate);
 
+        /// Checks to see if animation is currently enabled.
         inline bool Playing() const { return !m_stop; }
 
     private:
