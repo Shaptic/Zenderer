@@ -35,6 +35,8 @@
 // these functions aren't found.
 
 #include <sstream>
+#include <cstdlib>
+
 namespace std
 {
     template<typename T>
@@ -47,18 +49,12 @@ namespace std
 
     static int stoi(const std::string& s)
     {
-        std::stringstream ss(s);
-        int result;
-        ss >> result;
-        return result;
+        return std::atoi(s.c_str());
     }
 
     static double stod(const std::string& s)
     {
-        std::stringstream ss(s);
-        double result;
-        ss >> result;
-        return result;
+        return std::atof(s.c_str());
     }
 }
 #endif // __GNUC__
