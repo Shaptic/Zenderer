@@ -23,11 +23,9 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
                                  const bool skip)
 {
     m_results.clear();
-    infile.seekg(start, std::ios::beg);
-    std::string line;
-
     if(!infile || (end != std::streampos(-1) && start >= end)) return false;
 
+    string_t line;
     while((end == std::streampos(-1) || infile.tellg() < end) &&
           std::getline(infile, line))
     {
@@ -41,10 +39,10 @@ bool zFileParser::LoadFromStream(std::ifstream& infile,
         std::size_t index = line.find('=');
         if(index != std::string::npos)
         {
-            m_results.emplace_back(pair_t(
+            m_results.emplace_back(
                 line.substr(0, index),
                 line.substr(index + 1)
-            ));
+            );
         }
     }
 
@@ -59,11 +57,9 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
                                       const bool skip)
 {
     m_results.clear();
-    infile.seekg(start, std::ios::beg);
-    std::string line;
-
     if(!infile) return false;
 
+    string_t line;
     while(std::getline(infile, line) &&
           line.find(end) == std::string::npos)
     {
@@ -97,7 +93,7 @@ string_t zFileParser::PopResult(const string_t& index, string_t def)
         auto it = *i;
         if(it.first == index)
         {
-            def = it.second;
+            def = std::move(it.second);
             m_results.erase(i);
             break;
         }
