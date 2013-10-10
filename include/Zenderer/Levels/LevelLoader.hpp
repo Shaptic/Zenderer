@@ -139,21 +139,17 @@ namespace lvl
                     /// @todo Polygons vs. Entities differentiation.
                     if(Parser.Exists("texture"))
                     {
-                        gfx::zMaterial M(m_Assets);
-                        M.LoadTextureFromFile(Parser.PopResult("texture"));
-                        Poly.AddVertex(math::vector_t(0, 0));
-                        Poly.AddVertex(math::vector_t(M.GetTexture().GetWidth(), 0));
-                        Poly.AddVertex(math::vector_t(M.GetTexture().GetWidth(), M.GetTexture().GetHeight()));
-                        Poly.AddVertex(math::vector_t(0, M.GetTexture().GetHeight()));
-                        Poly.AttachMaterial(M);
-                        Poly.Create(false);
+                        Latest.LoadFromTexture(Parser.PopResult("texture"));
+                    }
+                    else
+                    {
+                        Latest.AddPrimitive(std::move(Poly));
                     }
 
                     result = Parser.PopResult("attributes", "0x00");
                     uint8_t attr = this->ParseAttribute(result);
                     /// @todo
 
-                    Latest.AddPrimitive(std::move(Poly));
                     level.entities.emplace_back(&Latest);
 
                     enum class AttributeType : uint8_t
