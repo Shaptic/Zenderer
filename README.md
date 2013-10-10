@@ -1,5 +1,5 @@
 # Zenderer #
-v4.3.0-alpha  
+v4.3.1-alpha
 Copyright &copy; George Kudrayvtsev 2013
 
 #### About ####
@@ -10,7 +10,7 @@ I wrote from scratch in order to learn the basics of OpenGL. As it starting
 growing into a game I dubbed *Praecursor*, it became more and more unwieldy
 and totally inflexible in most contexts. Thus grew the need for a simpler,
 more user-friendly engine that I could use without worrying about low-level
-details to further pursue development of 
+details to further pursue development of
 [Praecursor](https://github.com/Ruskiy69/Praecursor), or to start a new
 project as I see fit. I know now a ton more than I did when I first started
 creating *IronClad*, so I can guarantee that I will not make any of the
@@ -38,8 +38,8 @@ as follows:
  - libvorbis    (OGG/Vorbis Audio Compression Algorithm)
  - Lua 5.2      (Lua Scripting Language)
 
-All engine assets are stored in the `data` folder of the repository. If you 
-are using Visual Studio in junction with *Zenderer* for your project, the 
+All engine assets are stored in the `data` folder of the repository. If you
+are using Visual Studio in junction with *Zenderer* for your project, the
 included project file will automatically transfer the contents of the `data`
 folder to the `Zenderer` folder of your expected output directory.
 You can see the various `ZENDERER_*_PATH` `#define`s sprinkled throughout the
@@ -48,15 +48,15 @@ For example, shader files are expected to be in `Zenderer/shaders/*`.
 In `Release` mode, the project will attempt to generate documentation, but
 this will likely fail on your system, which is totally okay. I use this for
 myself internally to update the Doxygen docs.
-    
+
 #### More Info ####
 
 *Zenderer* comes with a very well-documented API, which you can easily find
-in the `docs` folder in this repository. It was generated using Doxygen, 
+in the `docs` folder in this repository. It was generated using Doxygen,
 meaning the identical commentary can be found within the source code itself.
 
 Feel free to check out my blog [here](http://zenpandainteractive.blogspot.com).
 You can also follow *Praecursor*'s progress on Twitter
-[here](https://www.twitter.com/PraecursorGame), though it will 
+[here](https://www.twitter.com/PraecursorGame), though it will
 probably be slow going for a while, with my job taking up most of
 my development energy and this engine taking everything else.

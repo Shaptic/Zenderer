@@ -297,5 +297,5 @@ int32_t zScene::GetEntityIndex(const obj::zEntity& D)
 
 bool zScene::IsValidEntityIndex(int32_t i)
 {
-    return (i > 0 && i < m_allEntities.size());
+    return (i >= 0 && i < m_allEntities.size());
 }
