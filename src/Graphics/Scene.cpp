@@ -11,7 +11,8 @@ using gfxcore::BlendFunc;
 zScene::zScene(const uint16_t w, const uint16_t h, asset::zAssetManager& Mgr) :
     zSubsystem("Scene"), m_Assets(Mgr),
     m_Log(util::zLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
-    m_lighting(false), m_ppfx(false), m_through(false)
+    m_Camera(0.0, 0.0, 0.0), m_lighting(false),
+    m_ppfx(false), m_through(false)
 {
 }
 
