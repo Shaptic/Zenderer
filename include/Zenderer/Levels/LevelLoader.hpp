@@ -99,7 +99,7 @@ namespace lvl
             std::vector<string_t> parts;
             while(std::getline(file, line))
             {
-                util::strip(line);
+                util::stripl(line);
                 if(line.empty() || (line.size() >= 2 && line.substr(0, 2) == "//"))
                     continue;
 
@@ -112,21 +112,29 @@ namespace lvl
 
                     parts = util::split(Parser.PopResult("position", "0,0"), ',');
 
-                    Latest.SetDepth(stoi(Parser.PopResult("depth", "1")));
-                    Latest.Move(stod(parts[0]), stod(parts[1]), 1.0);
+                    Latest.Move(stod(parts[0]), stod(parts[1]),
+                                stoi(Parser.PopResult("depth", "1")));
 
                     string_t result = Parser.PopResult("vertex");
                     while(!result.empty())
                     {
                         parts = util::split(result, ',');
-                        Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1]), 0.0));
+                        Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1]), 1.0));
                         result = Parser.PopResult("vertex");
+                    }
+
+                    if(Parser.Exists("color"))
+                    {
+                        std::vector<string_t> parts = util::split(Parser.PopResult("color"), ',');
+                        Poly.SetColor(stod(parts[0]), stod(parts[1]), stod(parts[2]));
                     }
 
                     parts = util::split(Parser.PopResult("indices"), ',');
                     if(!parts.empty())
                     {
-                        std::vector<gfxcore::index_t> indices(parts.size());
+                        std::vector<gfxcore::index_t> indices;
+                        indices.reserve(parts.size());
+                        for(auto& i : parts) indices.emplace_back(stoi(std::move(i)));
                         Poly.SetIndices(indices);
                     }
 
@@ -143,7 +151,7 @@ namespace lvl
                     }
                     else
                     {
-                        Latest.AddPrimitive(std::move(Poly));
+                        Latest.AddPrimitive(std::move(Poly.Create()));
                     }
 
                     result = Parser.PopResult("attributes", "0x00");
