@@ -29,13 +29,13 @@ void util::strip(string_t& text)
 {
     if(!text.empty())
         text = text.substr(text.find_first_not_of(" \t"),
-                           text.find_last_not_of (" \t"));
+                           text.find_last_not_of (" \t")+1);
 }
 
 string_t util::strip(const string_t& text)
 {
     return !text.empty() ? text.substr(text.find_first_not_of(" \t"),
-                                       text.find_last_not_of (" \t"))
+                                       text.find_last_not_of (" \t")+1)
                          : text;
 }
 
