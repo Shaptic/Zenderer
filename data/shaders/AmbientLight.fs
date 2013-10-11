@@ -13,5 +13,5 @@ smooth  out vec4    out_color;  // Output color
 void main()
 {
     out_color   = light_brt * vec4(light_col, 1.0);
-    out_color  *= fs_color;// * texture2D(geometry, fs_texc);
+    out_color  *= fs_color * texture2D(geometry, fs_texc);
 }
