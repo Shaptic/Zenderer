@@ -239,9 +239,7 @@ namespace lvl
 
                     parts = util::split(Parser.PopResult("color", "1,1,1"), ',');
                     Light.SetColor(stod(parts[0]), stod(parts[1]), stod(parts[2]));
-
-                    Light.SetBrightness(stod(
-                        Parser.PopResult("brightness", "0.01")));
+                    Light.SetBrightness(stod(Parser.PopResult("brightness")));
 
                     if(Light.GetType() != gfx::LightType::ZEN_AMBIENT)
                     {

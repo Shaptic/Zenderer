@@ -69,8 +69,9 @@ bool zLight::Init()
             projloc = m_Shader.GetUniformLocation("proj"),
             scrloc  = m_Shader.GetUniformLocation("scr_height");
 
-        if(m_loccol == -1   || m_locbrt == -1 || mvloc == -1 || projloc == -1)
+        if(m_loccol == -1 || m_locbrt == -1 || mvloc == -1 || projloc == -1)
         {
+            m_Shader.Destroy();
             return false;
         }
         else
