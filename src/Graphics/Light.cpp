@@ -65,9 +65,9 @@ bool zLight::Init()
         m_loctmn = m_Shader.GetUniformLocation("light_min");
         m_locatt = m_Shader.GetUniformLocation("light_att");
 
-        GLint mvloc = m_Shader.GetUniformLocation("mv"),
-            projloc = m_Shader.GetUniformLocation("proj"),
-            scrloc  = m_Shader.GetUniformLocation("scr_height");
+        GLint mvloc   = m_Shader.GetUniformLocation("mv"),
+              projloc = m_Shader.GetUniformLocation("proj"),
+              scrloc  = m_Shader.GetUniformLocation("scr_height");
 
         if(m_loccol == -1 || m_locbrt == -1 || mvloc == -1 || projloc == -1)
         {
