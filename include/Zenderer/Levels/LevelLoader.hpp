@@ -231,7 +231,6 @@ namespace lvl
                     else if (t == "SPOT")   lType = gfx::LightType::ZEN_SPOTLIGHT;
 
                     gfx::zLight& Light = m_Scene.AddLight(lType);
-                    Light.Init();
                     Light.Enable();
 
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),
