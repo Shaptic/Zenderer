@@ -184,8 +184,6 @@ bool zScene::Render()
         for(const auto& j : *i)
         {
             auto& M = j->GetMaterial();
-            std::cout << "Drawing '" << M.GetTexture().GetFilename() << "' at "
-                      << i->GetPosition() << "...\n";
             M.Enable();
             M.GetEffect().SetParameter("mv", Tmp);
             j->Draw(true);
@@ -194,7 +192,6 @@ bool zScene::Render()
         // Move back to original position.
         i->Move(i->GetPosition() - m_Camera);
     }
-    std::cout << "===\n";
 
     // Shortcut reference.
     gfxcore::zVertexArray& FS = zRenderer::GetFullscreenVBO();
