@@ -12,7 +12,8 @@ zScene::zScene(const uint16_t w, const uint16_t h, asset::zAssetManager& Mgr) :
     zSubsystem("Scene"), m_Assets(Mgr),
     m_Log(util::zLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
     m_Camera(0.0, 0.0, 0.0), m_lighting(false),
-    m_ppfx(false), m_through(false)
+    m_ppfx(false), m_through(false),
+    m_Geometry(GL_DYNAMIC_DRAW)
 {
 }
 
@@ -116,10 +117,11 @@ bool zScene::ShiftEntity(obj::zEntity& Obj, const uint32_t index)
     {
         if(*i == &Obj)
         {
-            m_allEntities.erase(i);
+            i = m_allEntities.erase(i);
             break;
         }
     }
+
     if(i == j) return false;
 
     auto tmp = m_allEntities.begin();
@@ -184,8 +186,6 @@ bool zScene::Render()
         for(const auto& j : *i)
         {
             auto& M = j->GetMaterial();
-            std::cout << "Drawing '" << M.GetTexture().GetFilename() << "' at "
-                      << i->GetPosition() << "...\n";
             M.Enable();
             M.GetEffect().SetParameter("mv", Tmp);
             j->Draw(true);
@@ -194,7 +194,6 @@ bool zScene::Render()
         // Move back to original position.
         i->Move(i->GetPosition() - m_Camera);
     }
-    std::cout << "===\n";
 
     // Shortcut reference.
     gfxcore::zVertexArray& FS = zRenderer::GetFullscreenVBO();

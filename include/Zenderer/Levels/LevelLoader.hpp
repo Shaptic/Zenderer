@@ -130,7 +130,7 @@ namespace lvl
                     }
 
                     parts = util::split(Parser.PopResult("indices"), ',');
-                    if(!parts.empty())
+                    if(!parts.empty() && !parts[0].empty())
                     {
                         std::vector<gfxcore::index_t> indices;
                         indices.reserve(parts.size());
@@ -188,7 +188,7 @@ namespace lvl
                         /// @todo
                         return false;
                     }
-                    const string_t& t = tyep[0];
+                    const string_t& t = type[1];
 #endif // __GNUC__
 
                     spawn_t point;
@@ -217,13 +217,13 @@ namespace lvl
 #else
                     std::smatch type;
                     if(!std::regex_match(line, type,
-                                         std::regex("<spawn type=\"([A-Z]+)\">",
+                                         std::regex("<light type=\"([A-Z]+)\">",
                                             std::regex_constants::icase)))
                     {
                         /// @todo
                         return false;
                     }
-                    const string_t& t = tyep[0];
+                    const string_t& t = type[1];
 #endif // __GNUC__
 
                     gfx::LightType lType = gfx::LightType::ZEN_AMBIENT;
@@ -231,7 +231,6 @@ namespace lvl
                     else if (t == "SPOT")   lType = gfx::LightType::ZEN_SPOTLIGHT;
 
                     gfx::zLight& Light = m_Scene.AddLight(lType);
-                    Light.Init();
                     Light.Enable();
 
                     Parser.LoadFromStreamUntil(file, "</light>", file.tellg(),

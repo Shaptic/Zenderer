@@ -125,11 +125,12 @@ zOption& zSettings::operator[](const string_t& opt)
     {
         // Create a new blank option and return it.
 #ifndef __GNUC__
-        return m_Options.emplace(hash, zOption);
+        m_Options.emplace(hash, zOption());
+
 #else
         m_Options[hash] = zOption();
-        return m_Options[hash];
 #endif
+        return m_Options[hash];
     }
 
     return iter->second;
