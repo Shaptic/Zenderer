@@ -39,9 +39,18 @@ class Exporter:
 
     @staticmethod
     def ExportPolygon(f, p, i=None):
+        assert len(p) >= 3, 'not a poly'
+
+        start  = p[0]
+        for v in p:
+            if v[0] < start[0] and v[1] < start[1]:
+                start = tuple(v)
+
         final  = '<entity>\n'
+        final += '    position=%d,%d\n' % (int(start[0]), int(start[1]))
         final += '    vertex='
-        final += '\n    vertex='.join('%d,%d' % (int(v[0]), int(v[1])) for v in p)
+        final += '\n    vertex='.join('%d,%d' % (int(v[0] - start[0]),
+                                                 int(v[1] - start[1])) for v in p)
         if i: final += '\n    indices=%s\n' % (','.join([str(x) for x in i]))
         final += '\n</entity>\n\n'
         f.write(final)
