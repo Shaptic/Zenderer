@@ -163,12 +163,18 @@ namespace lvl
                     enum class AttributeType : uint8_t
                     {
                         NONE     = 0x00,
-                        PHYSICAL = 0x01
+                        PHYSICAL = 0x01,
+                        INVISIBLE= 0x02
                     };
 
                     if(attr & static_cast<uint8_t>(AttributeType::PHYSICAL))
                     {
                         level.physical.emplace_back(&Latest);
+                    }
+
+                    if(attr & static_cast<uint8_t>(AttributeType::INVISIBLE))
+                    {
+                        Latest.Disable();
                     }
                 }
 
