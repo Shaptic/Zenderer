@@ -297,6 +297,40 @@ void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
     std::copy(Indices.begin(), Indices.end(), m_DrawData.Indices);
 }
 
+int16_t zPolygon::CalcX() const
+{
+    ZEN_ASSERTM(!m_Verts.empty() || m_DrawData.vcount > 0,
+                "polygon has no vertex data");
+
+    int16_t low = m_Verts.empty() ? m_DrawData.Vertices[0].position.x
+                                  : m_Verts[0].x;
+
+    for(auto& i : m_Verts)
+        low = math::min<int16_t>(low, i.x);
+
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+        low = math::min<int16_t>(low, m_DrawData.Vertices[i].position.x);
+
+    return low;
+}
+
+int16_t zPolygon::CalcY() const
+{
+    ZEN_ASSERTM(!m_Verts.empty() || m_DrawData.vcount > 0,
+                "polygon has no vertex data");
+
+    int16_t low = m_Verts.empty() ? m_DrawData.Vertices[0].position.y
+                                  : m_Verts[0].y;
+
+    for(auto& i : m_Verts)
+        low = math::min<int16_t>(low, i.y);
+
+    for(size_t i = 0; i < m_DrawData.vcount; ++i)
+        low = math::min<int16_t>(low, m_DrawData.Vertices[i].position.y);
+
+    return low;
+}
+
 uint16_t zPolygon::CalcH()
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
@@ -347,6 +381,40 @@ uint16_t zPolygon::CalcW()
     }
 
     return (m_BoundingBox.w = (right - left));
+}
+
+int zPolygon::GetLowPoint() const
+{
+    if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
+
+    int low = m_Verts.empty() ? m_DrawData.Vertices[0].position.y
+                              : m_Verts[0].y;
+
+    for(auto& i : m_Verts) low = math::min<int>(low, i.y);
+    std::for_each(m_DrawData.Vertices,
+                  m_DrawData.Vertices + m_DrawData.vcount,
+                  [&low](const gfxcore::vertex_t& v) {
+                      low = math::min<int>(low, v.position.y);
+                  });
+
+    return low;
+}
+
+int zPolygon::GetLeftPoint() const
+{
+    if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
+
+    int16_t left = m_Verts.empty() ? m_DrawData.Vertices[0].position.x
+                                   : m_Verts[0].x;
+
+    for(auto& i : m_Verts) left = math::min<int>(left, i.x);
+    std::for_each(m_DrawData.Vertices,
+                  m_DrawData.Vertices + m_DrawData.vcount,
+                  [&left](const gfxcore::vertex_t& v) {
+                      left = math::min<int>(left, v.position.x);
+                  });
+
+    return left;
 }
 
 bool zPolygon::IsModifiable() const

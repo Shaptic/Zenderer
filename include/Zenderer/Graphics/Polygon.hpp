@@ -179,6 +179,12 @@ namespace gfx
         /// Gets preset width for the current vertices.
         inline uint16_t GetW() const { return m_BoundingBox.w; }
 
+        /// Calculates the lowest X value for the polygon.
+        int16_t CalcX() const;
+
+        /// Calculates the lowest Y value for the polygon.
+        int16_t CalcY() const;
+
         /// Calculates maximum height for the current vertices.
         /// Caches it for retrieval via GetH().
         uint16_t CalcH();
@@ -187,43 +193,8 @@ namespace gfx
         /// Caches it for retrieval via GetW().
         uint16_t CalcW();
 
-        int GetLowPoint() const
-        {
-            if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
-
-            int low = m_Verts.empty() ?
-                      m_DrawData.Vertices[0].position.y :
-                      m_Verts[0].y;
-
-            for(auto& i : m_Verts) low = math::min<int>(low, i.y);
-            std::for_each(m_DrawData.Vertices,
-                          m_DrawData.Vertices + m_DrawData.vcount,
-                          [&low](const gfxcore::vertex_t& v) {
-                              low = math::min<int>(low, v.position.y);
-                          }
-            );
-
-            return low;
-        }
-
-        int GetLeftPoint() const
-        {
-            if(m_Verts.empty() && m_DrawData.vcount == 0) return 0;
-
-            int16_t left = m_Verts.empty() ?
-                           m_DrawData.Vertices[0].position.x :
-                           m_Verts[0].x;
-
-            for(auto& i : m_Verts) left = math::min<int>(left, i.x);
-            std::for_each(m_DrawData.Vertices,
-                          m_DrawData.Vertices + m_DrawData.vcount,
-                          [&left](const gfxcore::vertex_t& v) {
-                              left = math::min<int>(left, v.position.x);
-                          }
-            );
-
-            return left;
-        }
+        int GetLowPoint() const;
+        int GetLeftPoint() const;
 
         /// Request to see if we can change the internal vertices or not.
         bool IsModifiable() const;
