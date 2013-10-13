@@ -51,7 +51,8 @@ class Exporter:
         final += '    vertex='
         final += '\n    vertex='.join('%d,%d' % (int(v[0] - start[0]),
                                                  int(v[1] - start[1])) for v in p)
-        if i: final += '\n    indices=%s\n' % (','.join([str(x) for x in i]))
+        #if i: final += '\n    indices=%s\n' % (','.join([str(x) for x in i]))
+        final += 'attributes=0x03'
         final += '\n</entity>\n\n'
         f.write(final)
         f.flush()
@@ -101,7 +102,10 @@ class Importer:
                     
                     if line.strip() == '</entity>':
                         if len(verts) > 4 and not ent.filename:
-                            self.verts.append(verts)
+                            final_verts = []
+                            for v in verts:
+                                final_verts.append((v[0] + ent.start[0], v[1] + ent.start[1]))
+                            self.verts.append(final_verts)
                             break
 
                         else:

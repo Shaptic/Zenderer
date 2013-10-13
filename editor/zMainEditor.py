@@ -60,6 +60,7 @@ class Main:
 
         # Set up menus.
         file = tk.Menu(tearoff=0)
+        file.add_command(label='New...',    command=self._New)
         file.add_command(label='Import...', command=self._Import)
         file.add_command(label='Export...', command=self._Export)
         file.add_separator()
@@ -179,6 +180,13 @@ class Main:
         self.SpawnMenu.add_command(label='Properties',
                                     command=self._Evt_ShowSpawnProp)
 
+    def _New(self):
+        self.entities   = []
+        self.lights     = []
+        self.spawns     = []
+        self.polys      = []
+        self.verts      = []
+
     def _Export(self):
         filename = tkfile.asksaveasfilename(
             defaultextension='.zlv',
@@ -226,12 +234,7 @@ class Main:
 
         if not filename: return
 
-        self.entities   = []
-        self.lights     = []
-        self.spawns     = []
-        self.polys      = []
-        self.verts      = []
-
+        self._New()
         data = Importer(self.entities, self.lights, self.spawns, self.polys)
         data.LoadFromFile(filename)
         self.origin = (0, 0)
