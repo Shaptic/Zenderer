@@ -25,7 +25,7 @@
 #include <regex>
 
 #include "Zenderer/Assets/AssetManager.hpp"
-#include "Zenderer/Graphics/Polygon.hpp"
+#include "Zenderer/Graphics/ConcavePolygon.hpp"
 #include "Zenderer/Graphics/Scene.hpp"
 #include "Zenderer/Utilities/Utilities.hpp"
 #include "Zenderer/Utilities/FileParser.hpp"
@@ -38,6 +38,14 @@ namespace lvl
     /// Loads levels (go figure).
     class ZEN_API zLevelLoader
     {
+        enum class AttributeType : uint8_t
+        {
+            NONE     = 0x00,
+            PHYSICAL = 0x01,
+            INVISIBLE= 0x02,
+            ANIMATION= 0x04
+        };
+
     public:
         zLevelLoader(gfx::zScene& Scene, asset::zAssetManager& Assets) :
             m_Log(util::zLog::GetEngineLog()),
@@ -50,9 +58,8 @@ namespace lvl
         {
             for(auto& i : m_levels)
             {
-                /// @todo
                 for(auto& j : i.lights)
-                    ;//m_Scene.RemoveLight(j);
+                    m_Scene.RemoveLight(*j);
 
                 for(auto& j : i.entities)
                     m_Scene.RemoveEntity(*j);
@@ -105,7 +112,7 @@ namespace lvl
 
                 else if(line.find("<entity") == 0)
                 {
-                    gfx::zPolygon Poly(m_Assets);
+                    gfx::zConcavePolygon Poly(m_Assets);
                     obj::zEntity& Latest = m_Scene.AddEntity();
                     Parser.LoadFromStreamUntil(file, "</entity>", file.tellg(),
                                                filename.c_str(), true);
@@ -129,15 +136,6 @@ namespace lvl
                         Poly.SetColor(stod(parts[0]), stod(parts[1]), stod(parts[2]));
                     }
 
-                    parts = util::split(Parser.PopResult("indices"), ',');
-                    if(!parts.empty() && !parts[0].empty())
-                    {
-                        std::vector<gfxcore::index_t> indices;
-                        indices.reserve(parts.size());
-                        for(auto& i : parts) indices.emplace_back(stoi(std::move(i)));
-                        Poly.SetIndices(indices);
-                    }
-
                     result = Parser.PopResult("stretch");
                     if(util::zFileParser::ResultToBool(result))
                     {
@@ -159,13 +157,6 @@ namespace lvl
                     /// @todo
 
                     level.entities.emplace_back(&Latest);
-
-                    enum class AttributeType : uint8_t
-                    {
-                        NONE     = 0x00,
-                        PHYSICAL = 0x01,
-                        INVISIBLE= 0x02
-                    };
 
                     if(attr & static_cast<uint8_t>(AttributeType::PHYSICAL))
                     {

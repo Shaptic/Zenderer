@@ -4,9 +4,9 @@
 #include <cmath>
 
 #include "Zenderer/Zenderer.hpp"
-#define LEVEL_PATH "assets/"
-#define TEXTURE_PATH "assets/textures/"
-#define FONT_PATH "assets/ttf/"
+#define LEVEL_PATH      "assets/"
+#define TEXTURE_PATH    "assets/textures/"
+#define FONT_PATH       "assets/ttf/"
 
 using namespace zen;
 
