@@ -9,7 +9,7 @@ using obj::zEntity;
 zEntity::zEntity(asset::zAssetManager& Assets) :
     m_Assets(Assets), m_Log(util::zLog::GetEngineLog()),
     m_MV(math::matrix4x4_t::GetIdentityMatrix()),
-    m_sort(0), m_depth(1), m_inv(false), m_enabled(true)
+    m_depth(1), m_sort(0), m_inv(false), m_enabled(true)
 {
 }
 
@@ -199,8 +199,6 @@ void zEntity::Move(const math::vector_t& Pos)
 void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 {
     m_depth = z;
-    math::vector_t d = math::vector_t(x, y, z) - this->GetPosition();
-
     for(auto& i : mp_allPrims) i->Move(x, y);
 
     m_MV.Translate(math::vector_t(x, y, z));

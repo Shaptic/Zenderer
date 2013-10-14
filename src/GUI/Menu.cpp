@@ -5,8 +5,8 @@ using gui::zMenu;
 
 zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets) :
     m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),
-    mp_Font(Assets.Create<gui::zFont>()),
-    mp_Bg(nullptr), m_spacing(0)
+    mp_Bg(nullptr), mp_Font(Assets.Create<gui::zFont>()),
+    m_spacing(0)
 {
     m_Scene.Init();
     m_menuActions.clear();

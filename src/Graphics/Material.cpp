@@ -7,9 +7,8 @@ using util::LogMode;
 using gfx::zMaterial;
 
 zMaterial::zMaterial(asset::zAssetManager& Assets) :
-    m_Assets(Assets),
+    m_Assets(Assets), m_Log(zLog::GetEngineLog()),
     mp_Texture(&gfxcore::zTexture::GetDefaultTexture()),
-    m_Log(zLog::GetEngineLog()),
     m_Effect(EffectType::NO_EFFECT, Assets), m_ID(0)
 {
     m_Effect.Init();
@@ -19,8 +18,8 @@ zMaterial::zMaterial(asset::zAssetManager& Assets) :
 zMaterial::zMaterial(const zMaterial& Copy) :
     m_Assets(Copy.m_Assets),
     m_Log(zLog::GetEngineLog()),
-    m_Effect(Copy.m_Effect.GetType(), m_Assets),
-    mp_Texture(&gfxcore::zTexture::GetDefaultTexture())
+    mp_Texture(&gfxcore::zTexture::GetDefaultTexture()),
+    m_Effect(Copy.m_Effect.GetType(), m_Assets)
 {
     m_Effect.Init();
 

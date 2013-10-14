@@ -7,8 +7,8 @@ using gfxcore::index_t;
 using gfx::zPolygon;
 
 zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
-    m_Assets(Assets), mp_VAO(nullptr), m_Material(Assets),
-    mp_MVMatrix(nullptr), m_offset(0), m_internal(false)
+    m_Assets(Assets), mp_VAO(nullptr), mp_MVMatrix(nullptr),
+    m_offset(0), m_Material(Assets), m_internal(false)
 {
     m_DrawData.Vertices = nullptr;
     m_DrawData.Indices  = nullptr;
@@ -22,10 +22,9 @@ zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
 }
 
 zPolygon::zPolygon(const zPolygon& Copy) :
-    m_Assets(Copy.m_Assets),
-    mp_VAO(nullptr), m_Material(m_Assets),
-    mp_MVMatrix(nullptr), m_offset(0),
-    m_internal(false), m_BoundingBox(Copy.m_BoundingBox)
+    m_Assets(Copy.m_Assets), mp_MVMatrix(nullptr),
+    mp_VAO(nullptr), m_offset(0), m_Material(m_Assets),
+    m_BoundingBox(Copy.m_BoundingBox), m_internal(false)
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());
@@ -54,11 +53,9 @@ zPolygon::zPolygon(const zPolygon& Copy) :
 }
 
 zPolygon::zPolygon(zPolygon&& Move) :
-    m_Assets(Move.m_Assets),
-    mp_VAO(nullptr), m_Material(m_Assets),
-    mp_MVMatrix(Move.mp_MVMatrix), m_offset(0),
-    m_internal(false), m_Verts(Move.m_Verts),
-    m_Tris(Move.m_Tris)
+    m_Assets(Move.m_Assets), mp_MVMatrix(Move.mp_MVMatrix),
+    mp_VAO(nullptr), m_offset(0), m_Verts(Move.m_Verts),
+    m_Tris(Move.m_Tris), m_Material(m_Assets), m_internal(false)
 {
     m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());

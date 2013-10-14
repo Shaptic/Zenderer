@@ -177,8 +177,6 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
             Pos.x  = 0; Pos.y -= m_height;
             totals.x = math::max(tmp_tx, totals.x);
             tmp_tx = 0;
-            int16_t tmph = 0;
-
             continue;
         }
 
@@ -452,9 +450,7 @@ uint16_t zFont::GetTextHeight(const string_t& text) const
 {
     if(text.empty()) return 0;
 
-    uint16_t lines = 1;
     uint16_t h = 0, tmp_h = 0;
-
     for(auto& i : text)
     {
         if(i == '\n')

@@ -8,14 +8,14 @@ using gfx::zRenderTarget;
 
 zRenderTarget::zRenderTarget(const math::rect_t& Dimensions) :
     zGLSubsystem("RenderTarget"), m_Log(zLog::GetEngineLog()),
-    m_Viewport(Dimensions.w, Dimensions.h), m_fbo(0), m_texture(0),
-    m_rbos(nullptr), m_rbo_count(0)
+    m_Viewport(Dimensions.w, Dimensions.h), m_texture(0),
+    m_fbo(0), m_rbos(nullptr), m_rbo_count(0)
 {
 }
 
 zRenderTarget::zRenderTarget(const uint16_t w, const uint16_t h) :
     zGLSubsystem("RenderTarget"), m_Log(zLog::GetEngineLog()),
-    m_Viewport(w, h), m_fbo(0), m_texture(0), m_rbos(nullptr), m_rbo_count(0)
+    m_Viewport(w, h), m_texture(0), m_fbo(0), m_rbos(nullptr), m_rbo_count(0)
 {
 }
 

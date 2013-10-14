@@ -15,10 +15,9 @@ real_t          zLight::s_DefaultBrightness = 1.0,
 zLight::zLight(asset::zAssetManager& m_Assets,
                const gfx::LightType& Type,
                const uint16_t window_h /*= 800*/) :
-    m_type(Type), m_Shader(m_Assets), m_height(window_h),
-
+    m_Shader(m_Assets), m_type(Type),
     m_loccol(-1), m_locbrt(-1), m_locpos(-1), m_locatt(-1),
-    m_loctmx(-1), m_loctmn(-1)
+    m_loctmx(-1), m_loctmn(-1), m_height(window_h)
 {
 }
 

@@ -11,8 +11,9 @@ size_t zAsset::s_seed = 0x6915BAD;
 
 zAsset::zAsset(const void* const owner) :
     m_Log(zLog::GetEngineLog()),
-    mp_owner(owner), m_filename_hash(0), m_loaded(false),
-    m_refcount(0), m_id(util::hash(this, sizeof(zAsset), zAsset::s_seed))
+    m_filename_hash(0), m_loaded(false), m_refcount(0),
+    m_id(util::hash(this, sizeof(zAsset), zAsset::s_seed)),
+    mp_owner(owner)
 {}
 
 zAsset::~zAsset() {}

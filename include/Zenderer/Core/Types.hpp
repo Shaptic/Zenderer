@@ -40,19 +40,19 @@
 namespace std
 {
     template<typename T>
-    static std::string to_string(const T& t)
+    static inline std::string to_string(const T& t)
     {
         std::stringstream ss;
         ss << t;
         return ss.str();
     }
 
-    static int stoi(const std::string& s)
+    static inline int stoi(const std::string& s)
     {
         return std::atoi(s.c_str());
     }
 
-    static double stod(const std::string& s)
+    static inline double stod(const std::string& s)
     {
         return std::atof(s.c_str());
     }

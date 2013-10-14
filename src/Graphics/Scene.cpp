@@ -9,11 +9,10 @@ using gfxcore::zRenderer;
 using gfxcore::BlendFunc;
 
 zScene::zScene(const uint16_t w, const uint16_t h, asset::zAssetManager& Mgr) :
-    zSubsystem("Scene"), m_Assets(Mgr),
-    m_Log(util::zLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
+    zSubsystem("Scene"), m_Log(util::zLog::GetEngineLog()), m_Assets(Mgr),
+    m_Geometry(GL_DYNAMIC_DRAW), m_FBO1(w, h), m_FBO2(w, h),
     m_Camera(0.0, 0.0, 0.0), m_lighting(false),
-    m_ppfx(false), m_through(false),
-    m_Geometry(GL_DYNAMIC_DRAW)
+    m_ppfx(false), m_through(false)
 {
 }
 
@@ -296,5 +295,5 @@ int32_t zScene::GetEntityIndex(const obj::zEntity& D)
 
 bool zScene::IsValidEntityIndex(int32_t i)
 {
-    return (i >= 0 && i < m_allEntities.size());
+    return (i >= 0 && static_cast<size_t>(i) < m_allEntities.size());
 }
