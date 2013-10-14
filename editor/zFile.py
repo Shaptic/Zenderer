@@ -53,8 +53,8 @@ class Exporter:
         final += '\n    vertex='.join('%d,%d' % (int(v[0] - start[0]),
                                                  int(v[1] - start[1])) for v in p)
         #if i: final += '\n    indices=%s\n' % (','.join([str(x) for x in i]))
-        final += 'attributes=0x%02x\n' % (ATTR['PHYSICAL'] | ATTR['INVISIBLE'])
-        final += '\n</entity>\n\n'
+        final += '\n    attributes=0x%02x\n' % (ATTR['PHYSICAL'] | ATTR['INVISIBLE'])
+        final += '</entity>\n\n'
         f.write(final)
         f.flush()
 

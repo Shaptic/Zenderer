@@ -218,7 +218,7 @@ class Main:
                     v[1] - self.origin[1]) for v in self.polys[i]
                 ]
 
-                Exporter.ExportPolygon(f, self.polys[i], self.indices[i])
+                Exporter.ExportPolygon(f, self.polys[i])#, self.indices[i])
 
                 self.polys[i] = [(
                     v[0] + self.origin[0],
@@ -279,6 +279,7 @@ class Main:
             tmpverts = []
             tmpinds  = []
 
+            '''
             if geometry.is_concave(self.verts):
                 self.verts = geometry.triangulate(self.verts)
                 for v in self.verts:
@@ -289,6 +290,8 @@ class Main:
             else: tmpverts = self.verts
             self.indices.append(tmpinds)
             self.polys.append(tmpverts)
+            '''
+            self.polys.append(self.verts)
             self.verts = []
 
         elif self.ObjVar.get() == 2 and lit:
