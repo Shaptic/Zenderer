@@ -29,6 +29,11 @@
 
 #include <vector>
 
+// I statically link GLEW when using MinGW.
+#ifdef __GNUC__
+  #define GLEW_STATIC
+#endif // __GNUC__
+
 #include "GL/glew.h"
 #include "GL/glfw3.h"
 

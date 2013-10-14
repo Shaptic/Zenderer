@@ -1,6 +1,6 @@
 // Sample Zenderer level file.
-//  This file contains a simple side-scroller level with 
-//  a single raised platform, a tiled floor, a light, 
+//  This file contains a simple side-scroller level with
+//  a single raised platform, a tiled floor, a light,
 //  a player, and two enemies / spawn points.
 
 // SECTION: Metadata [optional]
@@ -23,68 +23,59 @@ description=A sample level provided for testing purposes
     texture=sky.png
 </entity>
 
-// The ground. This uses a special parameter to indicate that the 
+// The ground. This uses a special parameter to indicate that the
 // entity should tile the texture to fit the vertices, rather than
 // stretching. Here we also see the emergence of the 'attributes' value
 // in the entity specification. This is a flag carrier that has a variety
-// of options that can be enabled in it. In this case, 0x03 indicates
+// of options that can be enabled in it. In this case, 0x01 indicates
 // that the entity reacts physically with the world, with collision
 // detection and such.
 <entity>
     depth=1
     position=0,0
-    
+
     vertex=0,0
     vertex=0,800
     vertex=800,600
     vertex=600,0
-    indices=0,1,3,3,1,2
-    
+
     stretch=false
     texture=rock.png
-    attributes=0x02
-</entity>
-
-// The player mesh. 
-<entity>
-    depth=2
-    texture=player.png
-    attributes=0x03
+    attributes=0x01
 </entity>
 
 // 2 platforms on which the enemies will stand on.
 <entity>
     depth=2
     texture=platform.png
-    attributes=0x02
+    attributes=0x01
 </entity>
 
 // SECTION: Spawn Points
 //  This section contains detailed spawn point info, specifying who's
 //  allowed to spawn where.
 //
-//  The 'whitelist' attribute can be used to specify exactly who is 
+//  The 'whitelist' attribute can be used to specify exactly who is
 //  allowed to spawn at a certain point, whereas 'blacklist' can be
 //  used to allowed all but those on the list to spawn at a point.
-//  Since we try to maintain ambiguity about the functionality of the 
+//  Since we try to maintain ambiguity about the functionality of the
 //  game, white/blacklists can only be defined based on a texture name.
 //
 //  We define the spawn type with an XML-like attribute
-//  syntax. We prefer to use all caps for the values to prevent 
+//  syntax. We prefer to use all caps for the values to prevent
 //  dealing with mixed-case string comparisons when loading.
 
 // Players are defined by a spawn point (or multiple,
-// in which case one is chosen at random), and an entity mesh. Since 
+// in which case one is chosen at random), and an entity mesh. Since
 // we defined the entity mesh above, we must provide the spawn point
 // now, as well.
 <spawn type="PLAYER">
     position=10,400
-    whitelist=player.png
 </spawn>
 
 <spawn type="ENEMY">
     position=100, 300
-    whitelist=enemy1.png
+    whitelist=enemy1.png,enemy2.png
 </spawn>
 
 <spawn type="ENEMY">
@@ -100,7 +91,7 @@ description=A sample level provided for testing purposes
 // Ambient light to illuminate the whole scene slightly.
 <light type="AMBIENT">
     color=1.00,1.00,1.00
-    brightness=0.01
+    brightness=0.50
 </light>
 
 // A "torch," but without a texture.
