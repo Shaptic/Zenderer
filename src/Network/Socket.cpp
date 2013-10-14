@@ -49,7 +49,7 @@ bool zSocket::Init(const string_t& host, const string_t& port)
     {
         if((m_socket = socket(result->ai_family,
                               result->ai_socktype,
-                              result->ai_protocol)) == -1)
+                              result->ai_protocol)) == INVALID_SOCKET)
         {
             continue;
         }
@@ -64,24 +64,24 @@ bool zSocket::Init(const string_t& host, const string_t& port)
     }
 
     freeaddrinfo(tmp);
-    return m_socket != -1;
+    return m_socket != INVALID_SOCKET;
 }
 
 bool zSocket::Destroy()
 {
-    if(m_socket == -1) return false;
+    if(m_socket == INVALID_SOCKET) return false;
 #ifdef _WIN32
     closesocket(m_socket);
 #else
     close(m_socket);
 #endif // _WIN32
-    return (m_socket = -1);
+    return (m_socket = INVALID_SOCKET);
 }
 
 string_t zSocket::RecvFrom(const size_t size, string_t& address,
                            string_t& port)
 {
-    if(m_socket <= 0) return "";
+    if(m_socket == INVALID_SOCKET) return "";
 
     address = "";
     sockaddr_in addr;
@@ -117,7 +117,7 @@ string_t zSocket::RecvFrom(const size_t size, string_t& address,
 int zSocket::SendTo(const string_t& addr, const string_t& port,
                     const string_t& data)
 {
-    if(m_socket < 0 || m_Type == SocketType::TCP) return -1;
+    if(m_socket == INVALID_SOCKET || m_Type == SocketType::TCP) return -1;
 
 #ifdef ZEN_DEBUG_BUILD
     zLog& Log = zLog::GetEngineLog();
@@ -166,7 +166,7 @@ bool zSocket::SetSocketOption(const int type, const int option,
 
 bool zSocket::SetNonblocking(const bool flag)
 {
-    if(m_socket < 0) return false;
+    if(m_socket == INVALID_SOCKET) return false;
 
 #ifdef _WIN32
     unsigned long set = flag ? 1 : 0;

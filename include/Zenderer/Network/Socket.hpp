@@ -34,6 +34,7 @@
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef _WIN32
+  #undef  _WIN32_WINNT
   #define _WIN32_WINNT 0x501
   #include <thread>
   #include <WinSock2.h>
@@ -100,14 +101,23 @@ namespace net
     };
 #endif  // _WIN32
 
+    typedef
+#ifdef _WIN32
+    SOCKET
+#else
+    unsigned int
+#endif // _WIN32
+    socket_t;
+
     enum class SocketType { TCP, UDP, RAW };
 
     /// A low-level socket wrapper.
     class ZEN_API zSocket
     {
     public:
-        zSocket(const SocketType& Type) : m_Type(Type),
-            m_Log(util::zLog::GetEngineLog()), m_socket(-1) {}
+        zSocket(const SocketType& Type) :
+            m_Log(util::zLog::GetEngineLog()),
+            m_Type(Type), m_socket(INVALID_SOCKET) {}
 
         virtual ~zSocket() { this->Destroy(); }
 
@@ -187,7 +197,7 @@ namespace net
         static bool s_init;
         util::zLog& m_Log;
         SocketType m_Type;
-        int m_socket;
+        socket_t m_socket;
     };
 }
 }
