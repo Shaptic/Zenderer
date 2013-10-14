@@ -39,7 +39,7 @@ class EntityPropertyWindow(PropertyWindow):
         PlaceWidget(self.Texture, 2, 1)
 
     def Exit(self):
-        self.applied.details['attributes'] = '0x%02x' % (1 & (ATTR['PHYSICAL'] if self.CollideVar.get() else 1))
+        self.applied.details['attributes'] = '0x%02x' % (1 & (ATTR['PHYSICAL'] if self.CollideVar.get() else 0))
         self.applied.details['stretch'] = self.StretchVar.get()
         self.applied.details['texture'] = self.TextureVar.get()
         self.destroy()
