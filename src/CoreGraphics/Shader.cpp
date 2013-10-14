@@ -82,7 +82,7 @@ bool zShader::LoadFromRaw(const string_t& string)
     GLint length = string.length();
     GL(glShaderSource(shader, 1, &src, &length));
 
-    ZEN_ASSERT(length == string.length());
+    ZEN_ASSERT(static_cast<size_t>(length) == string.length());
 
     GL(glCompileShader(shader));
     GL(glGetShaderiv(shader, GL_COMPILE_STATUS, &error_code));

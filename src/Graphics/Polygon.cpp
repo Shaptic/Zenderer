@@ -7,7 +7,7 @@ using gfxcore::index_t;
 using gfx::zPolygon;
 
 zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
-    m_Assets(Assets), mp_VAO(nullptr), mp_MVMatrix(nullptr),
+    m_Assets(Assets), mp_MVMatrix(nullptr), mp_VAO(nullptr),
     m_offset(0), m_Material(Assets), m_internal(false)
 {
     m_DrawData.Vertices = nullptr;

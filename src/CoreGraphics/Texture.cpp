@@ -34,12 +34,12 @@ bool zTexture::LoadFromFile(const string_t& filename)
     if(comp != 4 && comp != 3)
     {
         m_error_str = "Invalid number of components. "
-            "Textures must be 24-bit (RGB) or 32-bit (RGBA) files.";
+                      "Textures must be 24-bit (RGB) or 32-bit (RGBA) files.";
 
         m_Log << m_Log.SetMode(util::LogMode::ZEN_ERROR)
-              << m_Log.SetSystem("Texture") << m_error_str
-              << zLog::endl;
+              << m_Log.SetSystem("Texture") << m_error_str << zLog::endl;
 
+        stbi_image_free(raw);
         return (m_loaded = false);
     }
 
@@ -47,11 +47,12 @@ bool zTexture::LoadFromFile(const string_t& filename)
 
     m_TextureID = s_ID++;
 
-    ZEN_ASSERTM(s_ID < (1 << 10), "too many textures, material ID can't be unique");
+    ZEN_ASSERTM(s_ID < (1 << 10),
+                "too many textures, material ID can't be unique");
 
     stbi_image_free(raw);
     this->SetFilename(filename);
-    return (m_loaded = true);
+    return ret && (m_loaded = true);
 }
 
 bool zTexture::LoadFromExisting(const zAsset* const pCopy)

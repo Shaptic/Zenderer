@@ -9,8 +9,8 @@ using util::LogMode;
 std::list<zAsset*> zAssetManager::sp_allAssets;
 
 zAssetManager::zAssetManager() :
-    m_Log(zLog::GetEngineLog()),
-    zSubsystem("AssetMgr")
+    zSubsystem("AssetMgr"),
+    m_Log(zLog::GetEngineLog())
 {
     mp_managerAssets.clear();
 }

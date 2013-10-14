@@ -12,8 +12,8 @@ uint16_t zShaderSet::s_ID = 1;
 zShaderSet::zShaderSet(asset::zAssetManager& Assets) :
     zGLSubsystem("ShaderSet"),
     m_AssetManager(Assets), m_Log(zLog::GetEngineLog()),
-    mp_FShader(nullptr), mp_VShader(nullptr), m_program(0),
-    m_error_str(""), m_refcount(0), m_ID(0)
+    mp_VShader(nullptr), mp_FShader(nullptr),
+    m_error_str(""), m_program(0), m_refcount(0), m_ID(0)
 {}
 
 zShaderSet::~zShaderSet()
@@ -23,12 +23,9 @@ zShaderSet::~zShaderSet()
 }
 
 zShaderSet::zShaderSet(const zShaderSet& Copy) :
-    m_Log(Copy.m_Log),
-    m_AssetManager(Copy.m_AssetManager),
-    mp_FShader(Copy.mp_FShader),
-    mp_VShader(Copy.mp_VShader),
-    m_error_str(Copy.GetError()),
-    m_link_log(Copy.GetLinkerLog()),
+    m_AssetManager(Copy.m_AssetManager), m_Log(Copy.m_Log),
+    mp_VShader(Copy.mp_VShader),  mp_FShader(Copy.mp_FShader),
+    m_error_str(Copy.GetError()), m_link_log(Copy.GetLinkerLog()),
     m_program(Copy.m_program)
 {
 }
