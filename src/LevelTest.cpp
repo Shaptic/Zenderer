@@ -53,8 +53,8 @@ public:
     inline real_t GetY() const { return m_Entity.GetY(); }
 
     template<typename T> inline
-    bool Collides(const T& t) const
-    { return m_Entity.Collides(t); }
+    bool Collides(const T& t, math::cquery_t* poi = nullptr) const
+    { return m_Entity.Collides(t, poi); }
 
 private:
     gfx::zScene&    m_Scene;
@@ -116,6 +116,8 @@ public:
         }
     }
 
+    ~gWorld() {}
+
     bool LoadLevel(lvl::level_t level)
     {
         if (!level.valid) return false;
@@ -146,9 +148,6 @@ public:
             m_Player.StopAnimation(0);
         }
 
-        m_Player.Adjust(m_PDelta);
-        m_Trail .Adjust(m_TDelta);
-
         if (!m_allTrails.empty() && m_allTrails.front().Ready())
         {
             const trail_t latest = m_allTrails.front();
@@ -158,6 +157,46 @@ public:
 
         this->HandleGravity(m_Player, m_PDelta);
         this->HandleGravity(m_Trail, m_TDelta);
+
+        if (math::compf(m_PDelta.y, 0.0) && !math::compf(m_PDelta.x, 0.0))
+        {
+            for (auto& i : m_Level.physical)
+            {
+                math::cquery_t poi;
+                i->Adjust(-m_PDelta.x, 5);
+                i->Collides(m_Player, &poi);
+                i->Adjust(m_PDelta.x, -5);
+
+                real_t m = (poi.line1[0].y - poi.line1[1].y) /
+                           (poi.line1[0].x - poi.line1[1].x);
+
+                if (poi.collision)
+                {
+                    std::cout << m << ',' << poi.tri1[0] << std::endl;
+
+                    if (m < -0.5 && m_PDelta.x > 0 ||
+                        m >  0.5 && m_PDelta.x < 0)
+                        m_PDelta.x = 0;
+
+                    else
+                    {
+                        // Not going down a hill?
+                        if(m_PDelta.x < 0 == m < 0)
+                        {
+                            // Hamper speed.
+                            m_PDelta.x *= m;
+                        }
+
+                        m_PDelta.y = m_PDelta.x / m;
+                    }
+
+                    return;
+                }
+            }
+        }
+
+        m_Player.Adjust(m_PDelta);
+        m_Trail .Adjust(m_TDelta);
 
         if (math::compf(m_PDelta.x, 0.0) && math::compf(m_PDelta.y, 0.0))
         {
@@ -199,12 +238,22 @@ public:
 
     void Render()
     {
+        math::cquery_t q;
         for (auto& i : mp_allBullets)
         {
             for (auto& j : m_Level.physical)
             {
-                if (i->Collides(*j))
-                    i->SetRate(i->GetRate().x, -i->GetRate().y);
+                if (i->Collides(*j, &q))
+                {
+                    math::vector_t rate = i->GetRate();
+                    math::vector_t surf = q.line2[1] - q.line2[0];
+                    real_t dot   = rate * surf;
+                    real_t theta = std::acos(dot / (rate.Magnitude() * surf.Magnitude()));
+                    std::cout << math::deg(theta) << std::endl;
+
+                    rate.Rotate(-theta);
+                    i->SetRate(rate.x, rate.y);
+                }
             }
 
             if (i->GetX() > m_Scene.GetWidth()  || i->GetX() < 0.0 ||
@@ -248,7 +297,7 @@ public:
             Evt.type == evt::EventType::KEY_UP       ||
             Evt.type == evt::EventType::MOUSE_DOWN)
         {
-            m_allTrails.emplace_back(Evt, m_tdelay);
+            //m_allTrails.emplace_back(Evt, m_tdelay);
         }
 
         if (Evt.type == evt::EventType::KEY_DOWN &&
@@ -321,6 +370,7 @@ private:
             i->Adjust(0, -tmp);
             ok = Object.Collides(*i);
             i->Adjust(0, tmp);
+            if (ok) break;
         }
 
         if (ok) Rate.y = 0.0;
@@ -396,6 +446,7 @@ int main(int argc, char* argv[])
         World.Update();
         Window.Clear();
         World.Render();
+        Box.Draw();
         Window.Update();
         Timer.Delay();
     }
