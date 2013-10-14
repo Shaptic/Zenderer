@@ -38,7 +38,7 @@ namespace gfx
     {
     public:
         zPolygon(asset::zAssetManager& Assets, const size_t preload = 0);
-        ~zPolygon();
+        virtual ~zPolygon();
 
         zPolygon(const zPolygon& Copy);
         zPolygon(zPolygon&& Move);
