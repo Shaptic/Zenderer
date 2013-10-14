@@ -57,26 +57,50 @@ namespace gfx
         /// @overload
         void Resize(const uint16_t w, const uint16_t h);
 
-        virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr)
+        virtual bool Collides(const zPolygon& Other, math::cquery_t* q) const
         {
             const math::aabb_t us(m_BoundingBox);
-
             for(size_t i = 0; i < Other.GetTriangulation().size(); i += 3)
             {
-                math::tri_t t;
-                t[0] = Other.GetTriangulation()[i];
-                t[1] = Other.GetTriangulation()[i+1];
-                t[2] = Other.GetTriangulation()[i+2];
+                math::tri_t t = {
+                    Other.GetTriangulation()[i],
+                    Other.GetTriangulation()[i+1],
+                    Other.GetTriangulation()[i+2]
+                };
 
-                if(us.collides(t)) return true;
+                if(us.collides(t))
+                {
+                    if(q != nullptr)
+                    {
+                        q->box1 = std::move(us);
+                        q->tri2 = std::move(t);
+                        q->collision = true;
+                    }
+
+                    return true;
+                }
             }
 
             return false;
         }
 
-        bool Collides(const zQuad& Other, math::vector_t* poi = nullptr)
+
+        bool Collides(const zQuad& Other, math::cquery_t* q) const
         {
-            return math::aabb_t(m_BoundingBox).collides(math::aabb_t(Other.m_BoundingBox));
+            math::aabb_t us(m_BoundingBox), them(Other.m_BoundingBox);
+            if(us.collides(them))
+            {
+                if(q != nullptr)
+                {
+                    q->box1 = std::move(us);
+                    q->box2 = std::move(them);
+                    q->collision = true;
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
         bool Collides(const math::aabb_t& other)

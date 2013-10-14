@@ -138,13 +138,13 @@ namespace gfx
          *  box collision detection prior to this.
          *
          * @param   Other   Polygon to check collision with
-         * @param   poi     Optional point of impact specifier.
+         * @param   q       Optional collision info specifier.
          *
          * @return  `true`  if this polygon collides with the given parameter,
          *          `false` otherwise.
          **/
-        virtual bool Collides(const zPolygon& Other, math::vector_t* poi = nullptr);
-        virtual bool Collides(const math::aabb_t& other);   ///< @overload
+        virtual bool Collides(const zPolygon& Other, math::cquery_t* q = nullptr) const;
+        virtual bool Collides(const math::aabb_t& other) const; ///< @overload
 
         /**
          * Overrides default index creation for the added vertices.

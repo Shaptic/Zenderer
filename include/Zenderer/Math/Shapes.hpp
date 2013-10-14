@@ -106,19 +106,49 @@ namespace math
     };
 
     /**
+     * A collision-quering structure.
+     *  This is used by high-level interfaces for interacting directly
+     *  with raw collision data, in order to handle it appropriately.
+     *  It should be implemented with a top-down approach, with each
+     *  subsequent level adding the info that it can.
+     *
+     *  @a Zenderer currently implements it as follows...
+     *  Preface: Object queries collision with another object.
+     *      - Object fills in AABB info.
+     *      - Object queries polygon vs. polygon collision.
+     *      - Polygon fills in triangle info.
+     *      - Polygon queries triangle vs. triangle collision.
+     *      - TvT handler fills in line info.
+     *      - TvT handler queries line vs. line collision.
+     *      - LvL handler fills in point info.
+     *      - Process is moved back up to the object.
+     *      - Object fills in collision state.
+     **/
+    struct cquery_t
+    {
+        aabb_t   box1, box2;
+        line_t 	 line1, line2;
+        tri_t 	 tri1, tri2;
+        vector_t point;
+        bool     collision;
+
+        cquery_t() : collision(false) {}
+    };
+
+    /**
      * Detects collision between two triangles.
      * @param   A   First triangle
      * @param   B   Second triangle
-     * @param   pt  The exact point of intersection (optional)
+     * @param   q   Collision query data (optional)
      * @return  `true` if they collide, `false` otherwise.
      **/
-    bool collides(const tri_t& A, const tri_t& b, vector_t* pt = nullptr);
+    bool collides(const tri_t& A, const tri_t& b, cquery_t* q = nullptr);
 
     /**
      * @overload
      * @see     http://stackoverflow.com/a/565282
      **/
-    bool collides(const line_t& a, const line_t& b, vector_t* pt = nullptr);
+    bool collides(const line_t& a, const line_t& b, cquery_t* q = nullptr);
 
     /**
      * Finds orientation of a given set of points.

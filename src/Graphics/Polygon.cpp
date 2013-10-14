@@ -230,7 +230,7 @@ void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO, const bool keep)
     }
 }
 
-bool zPolygon::Collides(const zPolygon& Other, math::vector_t* poi)
+bool zPolygon::Collides(const zPolygon& Other, math::cquery_t* q) const
 {
     for(size_t i = 0; i < m_Tris.size(); i += 3)
     {
@@ -248,14 +248,24 @@ bool zPolygon::Collides(const zPolygon& Other, math::vector_t* poi)
                 Other.m_Tris[j+2]
             };
 
-            if(math::collides(t1, t2, poi)) return true;
+            if(math::collides(t1, t2, q))
+            {
+                if(q != nullptr)
+                {
+                    q->tri1 = std::move(t1);
+                    q->tri2 = std::move(t2);
+                    q->collision = true;
+                }
+
+                return true;
+            }
         }
     }
 
     return false;
 }
 
-bool zPolygon::Collides(const math::aabb_t& other)
+bool zPolygon::Collides(const math::aabb_t& other) const
 {
     for(size_t i = 0; i < m_Tris.size(); i += 3)
     {

@@ -231,8 +231,8 @@ namespace obj
         /// Checks if the entity has offloaded any vertex data to a GPU buffer.
         bool Offloaded() const;
 
-        /// Checks collision with another entity.
-        bool Collides(const zEntity& Other, math::vector_t* poi = nullptr) const;
+        /// Checks collision with another entity, querying the point-of-impact.
+        bool Collides(const zEntity& Other, math::cquery_t* q = nullptr) const;
         bool Collides(const math::rect_t& other) const; ///< @overload
         bool Collides(const math::aabb_t& other) const; ///< @overload
         bool Collides(const math::vector_t& Pos) const; ///< @overload

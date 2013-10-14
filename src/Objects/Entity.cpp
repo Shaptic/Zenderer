@@ -233,13 +233,25 @@ bool zEntity::Offloaded() const
     return true;
 }
 
-bool zEntity::Collides(const zEntity& Other, math::vector_t* poi) const
+bool zEntity::Collides(const zEntity& Other, math::cquery_t* q) const
 {
     if(!m_Box.collides(Other.m_Box)) return false;
     for(auto& i : mp_allPrims)
     {
         for(auto& j : Other.mp_allPrims)
-            if(i->Collides(*j, poi)) return true;
+        {
+            if(i->Collides(*j, q))
+            {
+                if(q != nullptr)
+                {
+                    q->box1 = m_Box;
+                    q->box2 = Other.m_Box;
+                    q->collision = true;
+                }
+
+                return true;
+            }
+        }
     }
 
     return false;

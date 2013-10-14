@@ -96,7 +96,7 @@ bool aabb_t::collides(const tri_t& tri) const
     return true;
 }
 
-bool math::collides(const tri_t& A, const tri_t& B, vector_t* pt)
+bool math::collides(const tri_t& A, const tri_t& B, cquery_t* q)
 {
     line_t aseg[3] = {
         { A[0], A[1] },
@@ -114,14 +114,23 @@ bool math::collides(const tri_t& A, const tri_t& B, vector_t* pt)
     {
         for(uint8_t j = 0; j < 3; ++j)
         {
-            if(math::collides(aseg[i], bseg[j], pt)) return true;
+            if(math::collides(aseg[i], bseg[j]))
+            {
+                if(q != nullptr)
+                {
+                    q->line1 = std::move(aseg[i]);
+                    q->line2 = std::move(bseg[j]);
+                }
+
+                return true;
+            }
         }
     }
 
     return false;
 }
 
-bool math::collides(const line_t& a, const line_t& b, vector_t* pt)
+bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
 {
     // A = Q -> Q + S
     // B = P -> P + R
@@ -144,7 +153,7 @@ bool math::collides(const line_t& a, const line_t& b, vector_t* pt)
     real_t t = z.Cross2D(s) / d;
     real_t u = zxr / d;
 
-    if(pt != nullptr) *pt = b[0] + (r * t);
+    if(q != nullptr) q->point = b[0] + (r * t);
     return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
 }
 
