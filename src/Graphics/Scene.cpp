@@ -103,7 +103,7 @@ bool zScene::RemoveLight(const gfx::zLight& Light)
         if(*i == &Light)
         {
             delete *i;
-            m_allEntities.erase(i);
+            m_allLights.erase(i);
             return true;
         }
     }
