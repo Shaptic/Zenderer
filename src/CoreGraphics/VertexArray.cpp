@@ -102,29 +102,21 @@ bool zVertexArray::Offload()
     {
         // Copy existing buffer data from GPU to local buffer.
         const vertex_t* const data = this->GetVerticesFromGPU();
-        vertex_t* tmp  = new vertex_t[bsize / sizeof(vertex_t)];
-        memcpy(tmp, data, bsize);
+        const size_t size = bsize / sizeof(vertex_t);
+
+        m_vaoVertices.reserve(m_vaoVertices.size() + size);
+        for(int i = size - 1; i >= 0; --i)
+            m_vaoVertices.insert(m_vaoVertices.begin(), data[i]);
+
+        m_vcount = 0;
         GL(glUnmapBuffer(GL_ARRAY_BUFFER));
-
-        // Allocate enough GPU space for all vertex data, new and old.
-        // Pass the old data directly to it.
-        GL(glBufferData(GL_ARRAY_BUFFER,
-                        bsize + (sizeof(vertex_t) * m_vaoVertices.size()),
-                        tmp, m_type));
-
-        // Pass the latest vertex data at the end of the existing data.
-        GL(glBufferSubData(GL_ARRAY_BUFFER, bsize,
-                           sizeof(vertex_t) * m_vaoVertices.size(),
-                           &m_vaoVertices[0]));
     }
-    // No existing buffer or vertices.
-    else
-    {
-        // Allocate enough space for all vertices on GPU.
-        GL(glBufferData(GL_ARRAY_BUFFER,
-                        sizeof(vertex_t) * m_vaoVertices.size(),
-                        &m_vaoVertices[0], m_type));
-    }
+
+    // Allocate enough GPU space for all vertex data, new and old, and pass
+    // all of the data directly to it.
+    GL(glBufferData(GL_ARRAY_BUFFER,
+                    sizeof(vertex_t) * m_vaoVertices.size(),
+                    &m_vaoVertices[0], m_type));
 
     // Repeat process for index buffer.
     bsize = 0;
@@ -134,29 +126,22 @@ bool zVertexArray::Offload()
     {
         // Copy from GPU to local buffer.
         const index_t* const data = this->GetIndicesFromGPU();
-        index_t* tmp  = new index_t[bsize / sizeof(index_t)];
-        memcpy(tmp, data, bsize);
+        const size_t size = bsize / sizeof(index_t);
+
+        m_vaoIndices.reserve(m_vaoIndices.size() + size);
+        for(int i = size - 1; i >= 0; --i)
+            m_vaoIndices.insert(m_vaoIndices.begin(), data[i]);
+
+        m_icount = 0;
         GL(glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER));
-
-        // Allocate enough GPU space for all vertex data, new and old.
-        // Pass the old data directly to it.
-        GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER,                        // IBO
-                        bsize + (sizeof(index_t) * m_vaoIndices.size()),// Size
-                        tmp,       // Initial data
-                        m_type));  // Access type
-
-        // Pass the latest vertex data at the end of the existing data.
-        GL(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, bsize,
-                           sizeof(index_t) * m_vaoIndices.size(),
-                           &m_vaoIndices[0]));
     }
-    else
-    {
-        // No existing data, so we just write new stuff to the buffer.
-        GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-                        sizeof(index_t) * m_vaoIndices.size(),
-                        &m_vaoIndices[0], m_type));
-    }
+
+    // Allocate enough GPU space for all index data, new and old, and pass
+    // all of the data directly to it.
+    GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER,                // IBO
+                    sizeof(index_t) * m_vaoIndices.size(),  // Size
+                    &m_vaoIndices[0],                       // Initial data
+                    m_type));                               // Access type
 
     // Vertices are arranged in memory like so:
     //

@@ -201,7 +201,7 @@ int zXMLParser::CreateNode(const string_t& line,
                 return -1;
             }
 
-            pNode->name = line.substr(index + 1, math::min(end, end2) - 1);
+            pNode->name = line.substr(index + 1, math::min<size_t>(end, end2)-1);
 
             util::stripl(pNode->name);
             util::stript(pNode->name);

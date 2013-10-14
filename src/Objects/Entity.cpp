@@ -138,6 +138,7 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     pPrimitive->Create();
 
     mp_allPrims.push_back(pPrimitive);
+
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
                                       pPrimitive->GetW(),
                                       pPrimitive->GetH()));
@@ -158,14 +159,14 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     mp_allPrims.push_back(pPoly);
 
     m_PolyBB = math::rect_t(
-        math::max<uint16_t>(pPoly->GetX(), m_PolyBB.x),
-        math::max<uint16_t>(pPoly->GetY(), m_PolyBB.y),
-        math::max<uint16_t>(pPoly->GetW(), m_PolyBB.w),
-        math::max<uint16_t>(pPoly->GetH(), m_PolyBB.h)
+        math::min<int16_t> (pPoly->CalcX(), m_PolyBB.x),
+        math::min<int16_t> (pPoly->CalcY(), m_PolyBB.y),
+        math::max<uint16_t>(pPoly->GetW(),  m_PolyBB.w),
+        math::max<uint16_t>(pPoly->GetH(),  m_PolyBB.h)
     );
 
-    m_Box = math::aabb_t(math::rect_t(this->GetX() + m_PolyBB.x,
-                                      this->GetY() + m_PolyBB.y,
+    m_Box = math::aabb_t(math::rect_t(this->GetX() - m_PolyBB.x,
+                                      this->GetY() - m_PolyBB.y,
                                       m_PolyBB.w, m_PolyBB.h));
 
     // Reset then set the material flag.

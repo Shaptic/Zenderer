@@ -12,7 +12,8 @@ zScene::zScene(const uint16_t w, const uint16_t h, asset::zAssetManager& Mgr) :
     zSubsystem("Scene"), m_Assets(Mgr),
     m_Log(util::zLog::GetEngineLog()), m_FBO1(w, h), m_FBO2(w, h),
     m_Camera(0.0, 0.0, 0.0), m_lighting(false),
-    m_ppfx(false), m_through(false)
+    m_ppfx(false), m_through(false),
+    m_Geometry(GL_DYNAMIC_DRAW)
 {
 }
 
@@ -116,10 +117,11 @@ bool zScene::ShiftEntity(obj::zEntity& Obj, const uint32_t index)
     {
         if(*i == &Obj)
         {
-            m_allEntities.erase(i);
+            i = m_allEntities.erase(i);
             break;
         }
     }
+
     if(i == j) return false;
 
     auto tmp = m_allEntities.begin();

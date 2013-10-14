@@ -41,7 +41,7 @@ bool parse_msg(const string_t& data, PongPacket& P);
 string_t build_packet(PacketType type, const string_t& data);
 
 #if defined(ZEN_DEBUG_BUILD) || !defined(_WIN32)
-int main()
+int main1()
 #elif defined(_WIN32)
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowCmd)
 #endif // ZEN_DEBUG_BUILD

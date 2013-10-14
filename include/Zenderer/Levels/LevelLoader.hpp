@@ -130,7 +130,7 @@ namespace lvl
                     }
 
                     parts = util::split(Parser.PopResult("indices"), ',');
-                    if(!parts.empty())
+                    if(!parts.empty() && !parts[0].empty())
                     {
                         std::vector<gfxcore::index_t> indices;
                         indices.reserve(parts.size());
@@ -163,12 +163,18 @@ namespace lvl
                     enum class AttributeType : uint8_t
                     {
                         NONE     = 0x00,
-                        PHYSICAL = 0x01
+                        PHYSICAL = 0x01,
+                        INVISIBLE= 0x02
                     };
 
                     if(attr & static_cast<uint8_t>(AttributeType::PHYSICAL))
                     {
                         level.physical.emplace_back(&Latest);
+                    }
+
+                    if(attr & static_cast<uint8_t>(AttributeType::INVISIBLE))
+                    {
+                        Latest.Disable();
                     }
                 }
 
@@ -188,7 +194,7 @@ namespace lvl
                         /// @todo
                         return false;
                     }
-                    const string_t& t = tyep[0];
+                    const string_t& t = type[1];
 #endif // __GNUC__
 
                     spawn_t point;
@@ -217,13 +223,13 @@ namespace lvl
 #else
                     std::smatch type;
                     if(!std::regex_match(line, type,
-                                         std::regex("<spawn type=\"([A-Z]+)\">",
+                                         std::regex("<light type=\"([A-Z]+)\">",
                                             std::regex_constants::icase)))
                     {
                         /// @todo
                         return false;
                     }
-                    const string_t& t = tyep[0];
+                    const string_t& t = type[1];
 #endif // __GNUC__
 
                     gfx::LightType lType = gfx::LightType::ZEN_AMBIENT;
