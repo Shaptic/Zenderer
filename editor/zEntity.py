@@ -12,8 +12,9 @@ DEFAULT_ENTITY = {
 }
 
 ATTR = {
-    'PHYSICAL': 0x01,
-    'ANIMABLE': 0x02
+    'PHYSICAL'  : 0x01,
+    'INVISIBLE' : 0x02,
+    'ANIMABLE'  : 0x04
 }
 
 class EntityPropertyWindow(PropertyWindow):
