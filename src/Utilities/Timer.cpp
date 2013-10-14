@@ -33,7 +33,20 @@ util::time_t zTimer::Elapsed()
 /// Sleeps the current thread (defaults to milliseconds).
 void zTimer::Sleep(const util::time_t ticks)
 {
+#ifndef __GNUC__
     std::this_thread::sleep_for(precision_t(ticks));
+#else
+    precision_t ms(ticks);
+    uint64_t diff = 0;
+    timeb start, t;
+    ftime(&start);
+    do
+    {
+        ftime(&t);
+        diff = (t.time     * 1000 + t.millitm) -
+               (start.time * 1000 + start.millitm);
+    } while(precision_t(diff) < ms);
+#endif // __GNUC__
 }
 
 util::time_t zTimer::Delay()
@@ -43,8 +56,7 @@ util::time_t zTimer::Delay()
 
     if(ms < m_delta)
     {
-        precision_t pause(time_t(m_delta - ms));
-        std::this_thread::sleep_for(pause);
+        this->Sleep(time_t(m_delta - ms));
 
 #if defined(ZEN_SHOW_DELAY) && defined(ZEN_DEBUG_BUILD)
         zLog& L = zLog::GetEngineLog();

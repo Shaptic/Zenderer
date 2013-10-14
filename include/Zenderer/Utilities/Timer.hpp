@@ -29,6 +29,11 @@
 #include <thread>
 #include <chrono>
 
+// GCC (or at least the MinGW port) doesn't supply "std::this_thread."
+#ifdef __GNUC__
+  #include <sys/timeb.h>
+#endif // __GNUC__
+
 #include "Zenderer/Core/Types.hpp"
 #include "Log.hpp"
 
