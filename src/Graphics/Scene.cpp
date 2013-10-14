@@ -69,7 +69,7 @@ obj::zEntity& zScene::InsertEntity(const uint32_t index)
     auto i = m_allEntities.begin();
     for(size_t j = 0, s = m_allEntities.size();
         j < s && j != index; ++j, ++i);
-        // No -op
+        // No-op
 
     m_allEntities.insert(i, pNew);
     return *pNew;
@@ -93,6 +93,19 @@ bool zScene::RemoveEntity(const obj::zEntity& Obj)
     return false;
 }
 
+bool zScene::RemoveEntity(const uint32_t index)
+{
+    if(!this->IsValidEntityIndex(index)) return false;
+
+    auto i = m_allEntities.begin();
+    for(size_t j = 0; j <= index; ++j, ++i);
+        // No-op
+
+    delete *i;
+    m_allEntities.erase(i);
+    return true;
+}
+
 bool zScene::RemoveLight(const gfx::zLight& Light)
 {
     auto i = m_allLights.begin(),
@@ -109,19 +122,6 @@ bool zScene::RemoveLight(const gfx::zLight& Light)
     }
 
     return false;
-}
-
-bool zScene::RemoveEntity(const uint32_t index)
-{
-    if(!this->IsValidEntityIndex(index)) return false;
-
-    auto i = m_allEntities.begin();
-    for(size_t j = 0; j <= index; ++j, ++i);
-        // No-op
-
-    delete *i;
-    m_allEntities.erase(i);
-    return true;
 }
 
 bool zScene::ShiftEntity(obj::zEntity& Obj, const uint32_t index)
