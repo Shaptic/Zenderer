@@ -158,7 +158,7 @@ public:
         this->HandleGravity(m_Player, m_PDelta);
         this->HandleGravity(m_Trail, m_TDelta);
 
-        if (math::compf(m_PDelta.y, 0.0) && !math::compf(m_PDelta.x, 0.0))
+        if (!math::compf(m_PDelta.x, 0.0))
         {
             for (auto& i : m_Level.physical)
             {
@@ -167,29 +167,32 @@ public:
                 i->Collides(m_Player, &poi);
                 i->Adjust(m_PDelta.x, -5);
 
-                real_t m = (poi.line1[0].y - poi.line1[1].y) /
-                           (poi.line1[0].x - poi.line1[1].x);
-
+                std::cout << poi.collision << " ... ";
                 if (poi.collision)
                 {
+                    real_t m = (poi.line1[0].y - poi.line1[1].y) /
+                               (poi.line1[0].x - poi.line1[1].x);
+
                     std::cout << m << ',' << poi.tri1[0] << std::endl;
 
-                    if (m < -0.5 && m_PDelta.x > 0 ||
-                        m >  0.5 && m_PDelta.x < 0)
+                    if (m < -1 && m_PDelta.x > 0 ||
+                        m >  1 && m_PDelta.x < 0)
                         m_PDelta.x = 0;
 
                     else
                     {
                         // Not going down a hill?
-                        if(m_PDelta.x < 0 == m < 0)
+                        /*if(m_PDelta.x < 0 == m < 0)
                         {
                             // Hamper speed.
                             m_PDelta.x *= m;
-                        }
+                        }*/
 
-                        m_PDelta.y = m_PDelta.x / m;
+                        m_PDelta.y = m_PDelta.x * m;
+                        m_Player.Adjust(0, -1);
                     }
 
+                    std::cout << m_PDelta << std::endl;
                     return;
                 }
             }
@@ -249,9 +252,7 @@ public:
                     math::vector_t surf = q.line2[1] - q.line2[0];
                     real_t dot   = rate * surf;
                     real_t theta = std::acos(dot / (rate.Magnitude() * surf.Magnitude()));
-                    std::cout << math::deg(theta) << std::endl;
-
-                    rate.Rotate(-theta);
+                    rate.Rotate(-2 * theta);
                     i->SetRate(rate.x, rate.y);
                 }
             }
@@ -323,12 +324,12 @@ private:
                 break;
 
             case evt::Key::D:
-            case evt::Key::LEFT:
+            case evt::Key::RIGHT:
                 Rate.x = 5;
                 break;
 
             case evt::Key::A:
-            case evt::Key::RIGHT:
+            case evt::Key::LEFT:
                 Rate.x = -5;
                 break;
             }
@@ -446,7 +447,6 @@ int main(int argc, char* argv[])
         World.Update();
         Window.Clear();
         World.Render();
-        Box.Draw();
         Window.Update();
         Timer.Delay();
     }
