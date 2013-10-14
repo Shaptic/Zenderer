@@ -150,7 +150,7 @@ namespace math
         inline real_t Magnitude() const;
 
         /**
-         * Rotates the current vector using the rotation matrix.
+         * Rotates the current vector CCW using the rotation matrix.
          *  The rotation matrix (in right-hand Cartesian plane)
          *  is defined as being
          *  | x | | cos(&Theta;), -sin(&Theta;) |
@@ -166,7 +166,7 @@ namespace math
          *      x =  x * cos(&Theta;) + y * sin(&Theta;)
          *      y = -x * sin(&Theta;) + y * cos(&Theta;)
          *
-         * @param   radians The rotation angle in radians.
+         * @param   radians     The rotation angle in radians.
          *
          * @note    The coordinate system adjustment was removed.
          **/
