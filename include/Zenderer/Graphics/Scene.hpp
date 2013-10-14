@@ -156,6 +156,14 @@ namespace gfx
         bool RemoveEntity(const uint32_t index);    ///< @overload
 
         /**
+         * Removes a light instance from the scene, if it exists.
+         *  This method behaves in an identical matter to RemoveEntity().
+         *
+         * @copydoc RemoveEntity(const obj::zEntity& Obj)
+         **/
+        bool RemoveLight(const gfx::zLight& Light);
+
+        /**
          * Puts an entity in a different drawing order position.
          *  If the index is out of range of the scene entity list,
          *  the entity is inserted at the end.

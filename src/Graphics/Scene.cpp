@@ -93,6 +93,24 @@ bool zScene::RemoveEntity(const obj::zEntity& Obj)
     return false;
 }
 
+bool zScene::RemoveLight(const gfx::zLight& Light)
+{
+    auto i = m_allLights.begin(),
+         j = m_allLights.end();
+
+    for( ; i != j; ++i)
+    {
+        if(*i == &Light)
+        {
+            delete *i;
+            m_allEntities.erase(i);
+            return true;
+        }
+    }
+
+    return false;
+}
+
 bool zScene::RemoveEntity(const uint32_t index)
 {
     if(!this->IsValidEntityIndex(index)) return false;
