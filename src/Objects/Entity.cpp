@@ -156,7 +156,7 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     //pPoly->SetInverted(m_inv);
     pPoly->SetColor(Polygon.m_Color);
     pPoly->Create();
-    mp_allPrims.push_back(pPoly);
+    mp_allPrims.emplace_back(pPoly);
 
     m_PolyBB = math::rect_t(
         math::min<int16_t> (pPoly->CalcX(), m_PolyBB.x),
