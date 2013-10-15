@@ -1,8 +1,0 @@
-<map id="zen::gfx::CRenderTarget::Bind" name="zen::gfx::CRenderTarget::Bind">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="231,5,372,46"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="651,137,709,164"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_render_target.html#a1158e22ca14496564a677294ff11cd79" title="Attach depth buffer to render target. " alt="" coords="220,122,383,163"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. " alt="" coords="216,188,387,215"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639" title="zen::gui::CMenu::Update" alt="" coords="435,188,602,215"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="655,188,705,215"/>
-</map>

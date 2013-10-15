@@ -4,6 +4,7 @@ var namespacezen_1_1math =
     [ "rect_t", "structzen_1_1math_1_1rect__t.html", "structzen_1_1math_1_1rect__t" ],
     [ "circle_t", "structzen_1_1math_1_1circle__t.html", "structzen_1_1math_1_1circle__t" ],
     [ "aabb_t", "structzen_1_1math_1_1aabb__t.html", "structzen_1_1math_1_1aabb__t" ],
+    [ "cquery_t", "structzen_1_1math_1_1cquery__t.html", "structzen_1_1math_1_1cquery__t" ],
     [ "zVector", "structzen_1_1math_1_1z_vector.html", "structzen_1_1math_1_1z_vector" ],
     [ "vector_t", "group___math.html#classzen_1_1math_1_1vector__t", null ]
 ];

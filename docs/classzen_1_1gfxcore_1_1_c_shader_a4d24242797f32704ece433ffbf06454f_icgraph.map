@@ -1,5 +1,0 @@
-<map id="zen::gfxcore::CShader::LoadFromRaw" name="zen::gfxcore::CShader::LoadFromRaw">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_shader.html#a3bf9d0ff70a5e7363dfdd51c8039fa1f" title="Loads a shader from a file. " alt="" coords="231,5,382,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a8e898427d6728f87188254d8507034f5" title="Loads a vertex shader from a raw string (no linking). " alt="" coords="215,70,399,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfxcore_1_1_c_shader_set.html#a1e7c9e3be644f5b7e1e53bf17e4edde5" title="Loads a fragment shader from a raw string (no linking). " alt="" coords="206,135,407,177"/>
-</map>

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">3.0.0-alpha</span>
+   &#160;<span id="projectnumber">5.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 10804 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_light_8cpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,62 +126,62 @@ $(document).ready(function(){initNavTree('_light_8cpp_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_light.html#ad01584102556d2e118498489f90d759d">   15</a></span>&#160;zLight::zLight(<a class="code" href="classzen_1_1asset_1_1z_asset_manager.html" title="Controls creation and proper mmeory management of assets. ">asset::zAssetManager</a>&amp; m_Assets,</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;               <span class="keyword">const</span> gfx::LightType&amp; Type,</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;               <span class="keyword">const</span> uint16_t window_h <span class="comment">/*= 800*/</span>) :</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_type(Type), m_Shader(m_Assets), m_height(window_h),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_loccol(-1), m_locbrt(-1), m_locpos(-1), m_locatt(-1),</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    m_loctmx(-1), m_loctmn(-1)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_light.html#a329472a1ad11a363b4427907ab901538">   25</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1z_light.html#a329472a1ad11a363b4427907ab901538">zLight::~zLight</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a16fff3cf9f0b95c199a7c77366cc71c5" title="Destroys the shader program. ">Destroy</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249">   30</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249">zLight::Init</a>()</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> state = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    state = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a3a6244f4374e53a36772e24de1c21efc" title="Loads a vertex shader from a file. ">LoadVertexShaderFromFile</a>(</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;Default.vs&quot;</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">switch</span>(m_type)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_light_8hpp.html#a754448469aed26ac0cd782a899258b3c" title="Uniform ambient light. ">LightType::ZEN_AMBIENT</a>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. ">LoadFragmentShaderFromFile</a>(</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;AmbientLight.fs&quot;</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">case</span> LightType::ZEN_POINT:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. ">LoadFragmentShaderFromFile</a>(</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;PointLight.fs&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_light_8hpp.html#ad641af1cc674c0ff3af09bde37bd3760" title="Angled spot light. ">LightType::ZEN_SPOTLIGHT</a>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. ">LoadFragmentShaderFromFile</a>(</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;SpotLight.fs&quot;</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a3dfcee25bfda15b88549e798a9ac9009" title="Links loaded shaders together into a useable program. ">CreateShaderObject</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span>(state)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        m_loccol = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_col&quot;</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        m_locbrt = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_brt&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_locpos = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_pos&quot;</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        m_loctmx = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_max&quot;</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        m_loctmn = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_min&quot;</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        m_locatt = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_att&quot;</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        GLint mvloc = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;mv&quot;</span>),</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            projloc = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;proj&quot;</span>),</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            scrloc  = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;scr_height&quot;</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>(m_loccol == -1   || m_locbrt == -1 || mvloc == -1 || projloc == -1)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_Shader(m_Assets), m_type(Type),</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    m_loccol(-1), m_locbrt(-1), m_locpos(-1), m_locatt(-1),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_loctmx(-1), m_loctmn(-1), m_height(window_h)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_light.html#a329472a1ad11a363b4427907ab901538">   24</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1z_light.html#a329472a1ad11a363b4427907ab901538">zLight::~zLight</a>()</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a16fff3cf9f0b95c199a7c77366cc71c5" title="Destroys the shader program. ">Destroy</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249">   29</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249">zLight::Init</a>()</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> state = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    state = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a3a6244f4374e53a36772e24de1c21efc" title="Loads a vertex shader from a file. ">LoadVertexShaderFromFile</a>(</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;Default.vs&quot;</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">switch</span>(m_type)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_light_8hpp.html#a754448469aed26ac0cd782a899258b3c" title="Uniform ambient light. ">LightType::ZEN_AMBIENT</a>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. ">LoadFragmentShaderFromFile</a>(</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;AmbientLight.fs&quot;</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">case</span> LightType::ZEN_POINT:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. ">LoadFragmentShaderFromFile</a>(</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;PointLight.fs&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="_light_8hpp.html#ad641af1cc674c0ff3af09bde37bd3760" title="Angled spot light. ">LightType::ZEN_SPOTLIGHT</a>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. ">LoadFragmentShaderFromFile</a>(</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <a class="code" href="group___core_graphics.html#gad13a32464d536179e9bb243578075a0c" title="File path to engine-specific shader files. ">ZENDERER_SHADER_PATH</a><span class="stringliteral">&quot;SpotLight.fs&quot;</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">default</span>: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    state = state &amp;&amp; m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a3dfcee25bfda15b88549e798a9ac9009" title="Links loaded shaders together into a useable program. ">CreateShaderObject</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span>(state)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        m_loccol = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_col&quot;</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        m_locbrt = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_brt&quot;</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        m_locpos = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_pos&quot;</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        m_loctmx = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_max&quot;</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        m_loctmn = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_min&quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        m_locatt = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;light_att&quot;</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        GLint mvloc   = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;mv&quot;</span>),</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;              projloc = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;proj&quot;</span>),</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;              scrloc  = m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#abc37ab2f0335fbb8efc97fb0f88f977d" title="Returns the index of a shader uniform location in VRAM. ">GetUniformLocation</a>(<span class="stringliteral">&quot;scr_height&quot;</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span>(m_loccol == -1 || m_locbrt == -1 || mvloc == -1 || projloc == -1)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            m_Shader.<a class="code" href="classzen_1_1gfxcore_1_1z_shader_set.html#a16fff3cf9f0b95c199a7c77366cc71c5" title="Destroys the shader program. ">Destroy</a>();</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">else</span></div>

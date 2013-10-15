@@ -1,13 +1,13 @@
 <map id="zen::util::zLog::IsInit" name="zen::util::zLog::IsInit">
-<area shape="rect" id="node2" href="$classzen_1_1util_1_1z_log.html#aec0de4bcec78c5a9d2135ae83a19ee7e" title="Opens a file stream with a custom filename given in the ctor. " alt="" coords="206,6,335,33"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18" title="Writes out any leftover data and closes the file stream. " alt="" coords="192,57,349,83"/>
-<area shape="rect" id="node4" href="$classzen_1_1util_1_1z_log.html#ae2f22c964c1677ee9c5d7a1133f0ed31" title="This destructor does nothing but call Destroy(). " alt="" coords="398,6,546,33"/>
-<area shape="rect" id="node5" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. " alt="" coords="438,133,506,159"/>
-<area shape="rect" id="node12" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer. " alt="" coords="635,31,709,58"/>
-<area shape="rect" id="node6" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="798,31,855,58"/>
-<area shape="rect" id="node7" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="798,133,855,159"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_window.html#a5f087fafc6f8367d16913cfe06b83199" title="Initializes the subsystem. " alt="" coords="595,133,749,159"/>
-<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_window.html#a689d967f3f24ff0a45d8cbce5ae41090" title="Enables fullscreen mode. " alt="" coords="603,301,741,343"/>
-<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1z_window.html#a4e18b63bbfc80abe615292e1e5eea72a" title="zen::gfx::zWindow::\lDisableFullscreen" alt="" coords="603,184,741,225"/>
-<area shape="rect" id="node9" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="801,82,852,109"/>
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1z_log.html#aec0de4bcec78c5a9d2135ae83a19ee7e" title="Opens a file stream with a custom filename given in the ctor. " alt="" coords="206,7,335,34"/>
+<area shape="rect" id="node3" href="$classzen_1_1util_1_1z_log.html#a2c680d3d86ea666ae74df9a9e5cbad18" title="Writes out any leftover data and closes the file stream. " alt="" coords="192,58,349,84"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1z_log.html#ae2f22c964c1677ee9c5d7a1133f0ed31" title="This destructor does nothing but call Destroy(). " alt="" coords="398,7,546,34"/>
+<area shape="rect" id="node5" href="$namespacezen.html#ae86875e1420651025bb26cc9132d34b4" title="Initializes the subsystems of Zenderer. " alt="" coords="438,184,506,211"/>
+<area shape="rect" id="node12" href="$namespacezen.html#aca306dcb6040ec015324d8487c031048" title="Destroys all subsystems of Zenderer. " alt="" coords="435,58,509,84"/>
+<area shape="rect" id="node6" href="$_collision_test_8cpp.html#a0e663f52efbc8593793d628b4259ce9b" title="main2" alt="" coords="798,184,855,211"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1z_window.html#a5f087fafc6f8367d16913cfe06b83199" title="Initializes the subsystem. " alt="" coords="595,184,749,211"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_window.html#a689d967f3f24ff0a45d8cbce5ae41090" title="Enables fullscreen mode. " alt="" coords="603,236,741,277"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_window.html#a4e18b63bbfc80abe615292e1e5eea72a" title="zen::gfx::zWindow::\lDisableFullscreen" alt="" coords="603,301,741,342"/>
+<area shape="rect" id="node11" href="$_level_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="647,83,697,110"/>
+<area shape="rect" id="node8" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="798,134,855,160"/>
 </map>

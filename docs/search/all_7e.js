@@ -2,6 +2,8 @@ var searchData=
 [
   ['_7ecfont',['~CFont',['../classzen_1_1gui_1_1_c_font_atlas.html#ac372965ce36455154d00fe05b6d25ffb',1,'zen::gui::CFontAtlas']]],
   ['_7ecsound2d',['~CSound2D',['../classzen_1_1sfx_1_1_c_sound2_d.html#af011d370d19170f5098097accc07b0b4',1,'zen::sfx::CSound2D']]],
+  ['_7egbullet',['~gBullet',['../classg_bullet.html#a42a81cc48419d52e17d3a7b68ebc3f6a',1,'gBullet']]],
+  ['_7egworld',['~gWorld',['../classg_world.html#a8e50f4061f1f06919147b589c7e1a679',1,'gWorld']]],
   ['_7ezallocator',['~zAllocator',['../classzen_1_1z_allocator.html#a52a872b36a2bb398b399af241e2e350f',1,'zen::zAllocator']]],
   ['_7ezanimation',['~zAnimation',['../classzen_1_1obj_1_1z_animation.html#a5e43a113a9b7e662c2fa1f9c3cae3e49',1,'zen::obj::zAnimation']]],
   ['_7ezasset',['~zAsset',['../classzen_1_1asset_1_1z_asset.html#a63e5f41f65f468b3653ae4f5d1b82549',1,'zen::asset::zAsset']]],

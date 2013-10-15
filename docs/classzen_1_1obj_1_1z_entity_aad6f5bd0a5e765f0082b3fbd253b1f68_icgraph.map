@@ -1,4 +1,6 @@
 <map id="zen::obj::zEntity::LoadFromTexture" name="zen::obj::zEntity::LoadFromTexture">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="179,5,237,32"/>
-<area shape="rect" id="node3" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="183,56,233,83"/>
+<area shape="rect" id="node2" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="179,5,325,46"/>
+<area shape="rect" id="node4" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="223,71,281,97"/>
+<area shape="rect" id="node5" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="223,121,281,148"/>
+<area shape="rect" id="node3" href="$_level_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="373,12,424,39"/>
 </map>

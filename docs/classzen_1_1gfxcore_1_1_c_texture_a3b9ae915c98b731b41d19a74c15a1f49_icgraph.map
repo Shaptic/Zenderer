@@ -1,8 +1,0 @@
-<map id="zen::gfxcore::CTexture::Unbind" name="zen::gfxcore::CTexture::Unbind">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a5962ae2836315bf7d6175a43035855a1" title="Disables rendering with the effect/texture. " alt="" coords="208,5,339,46"/>
-<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1_c_material.html#af2d97e02572716bf85f8074b5b7a890d" title="Disables only the texture. " alt="" coords="208,70,339,111"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="822,37,879,64"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. " alt="" coords="387,37,557,64"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639" title="zen::gui::CMenu::Update" alt="" coords="606,88,773,115"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="825,88,876,115"/>
-</map>

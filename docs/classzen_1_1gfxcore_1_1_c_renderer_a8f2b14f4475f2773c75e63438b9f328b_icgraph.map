@@ -1,7 +1,0 @@
-<map id="zen::gfxcore::CRenderer::GetProjectionMatrix" name="zen::gfxcore::CRenderer::GetProjectionMatrix">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html#acaee6bd25adc67f4fbfcc0edf5fb8a7e" title="Draws the primitive on&#45;screen. " alt="" coords="239,5,401,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#a715e34b6c9dc659be418170f7873eacd" title="Attaches an asset manager to the font for loading textures. " alt="" coords="217,71,423,97"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="527,16,585,43"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_menu.html#a28f8f1f055ea88f403855ac3de380afa" title="zen::gui::CMenu::CMenu" alt="" coords="473,68,639,95"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="531,119,581,145"/>
-</map>

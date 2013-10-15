@@ -1,6 +1,8 @@
 <map id="zen::gfxcore::zTexture::GetHeight" name="zen::gfxcore::zTexture::GetHeight">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="379,7,437,34"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="205,21,331,63"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="205,87,331,128"/>
-<area shape="rect" id="node5" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="383,94,433,121"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="423,5,481,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="205,23,331,65"/>
+<area shape="rect" id="node4" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="205,89,331,130"/>
+<area shape="rect" id="node5" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="379,59,525,101"/>
+<area shape="rect" id="node7" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="423,125,481,152"/>
+<area shape="rect" id="node6" href="$_level_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="573,67,624,93"/>
 </map>

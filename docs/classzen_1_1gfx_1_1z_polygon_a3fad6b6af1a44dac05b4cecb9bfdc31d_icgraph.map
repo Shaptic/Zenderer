@@ -1,8 +1,0 @@
-<map id="zen::gfx::zPolygon::GetLowPoint" name="zen::gfx::zPolygon::GetLowPoint">
-<area shape="rect" id="node2" href="$classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="184,57,309,98"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="357,5,557,32"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="393,57,522,98"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="841,121,892,148"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="605,67,789,93"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="838,67,895,93"/>
-</map>

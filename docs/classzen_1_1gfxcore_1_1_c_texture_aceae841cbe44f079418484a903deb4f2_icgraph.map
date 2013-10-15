@@ -1,5 +1,0 @@
-<map id="zen::gfxcore::CTexture::LoadFromExisting" name="zen::gfxcore::CTexture::LoadFromExisting">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="223,5,364,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_material.html#add6be40cd0ce911e65c8ccfcf51f840a" title="zen::gfx::CMaterial\l::CMaterial" alt="" coords="228,70,359,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_material.html#a93c55905dea1adc5e2ee393b35e5ac3a" title="Loads a texture from an existing OpenGL handle. " alt="" coords="208,135,379,177"/>
-</map>

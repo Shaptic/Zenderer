@@ -15,6 +15,7 @@ var searchData=
   ['enabletexture',['EnableTexture',['../classzen_1_1gfxcore_1_1z_renderer.html#a8d3f69c379d55590d11391b2d26836d3',1,'zen::gfxcore::zRenderer::EnableTexture()'],['../classzen_1_1gfx_1_1z_material.html#a6f9b1d7c2df944e3dfa0a70fa3982e7f',1,'zen::gfx::zMaterial::EnableTexture()']]],
   ['end',['end',['../classzen_1_1obj_1_1z_entity.html#adc287a6ea165c9f0d50e159284ec6123',1,'zen::obj::zEntity::end()'],['../classzen_1_1util_1_1z_settings.html#a28b790da88827a5c218b15994e624d55',1,'zen::util::zSettings::end()'],['../classzen_1_1util_1_1z_x_m_l_parser.html#a9c0b31a07388637a385beacb8a43fee1',1,'zen::util::zXMLParser::end()'],['../_keyboard_8hpp.html#a1de54bd922161dd5c6a353647f448fd6',1,'END():&#160;Keyboard.hpp']]],
   ['endl',['endl',['../classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad',1,'zen::util::zLog']]],
+  ['enemy_5fspawn',['ENEMY_SPAWN',['../namespacezen_1_1lvl.html#aa2d0cacbcd853d22cc649f6a775aab8aa085bbb81788460fa0339067cc87c5c75',1,'zen::lvl']]],
   ['engine',['Engine',['../group___engine.html',1,'']]],
   ['enginetest_2ecpp',['EngineTest.cpp',['../_engine_test_8cpp.html',1,'']]],
   ['enter',['ENTER',['../_keyboard_8hpp.html#a137f5235d173df6d58a954b8c3c71b6b',1,'Keyboard.hpp']]],

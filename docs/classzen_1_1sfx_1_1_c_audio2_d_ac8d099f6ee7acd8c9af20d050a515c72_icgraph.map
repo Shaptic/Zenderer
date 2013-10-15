@@ -1,6 +1,0 @@
-<map id="zen::sfx::CAudio2D::UnloadSource" name="zen::sfx::CAudio2D::UnloadSource">
-<area shape="rect" id="node2" href="$classzen_1_1sfx_1_1_c_music2_d.html#aa46b12dc8f5701b3e5bb8fa7667fbc5a" title="zen::sfx::CMusic2D\l::~CMusic2D" alt="" coords="191,5,327,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7" title="Loads an .ogg file from disk. " alt="" coords="191,70,327,111"/>
-<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_sound2_d.html#af011d370d19170f5098097accc07b0b4" title="zen::sfx::CSound2D\l::~CSound2D" alt="" coords="189,135,328,177"/>
-<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded). " alt="" coords="189,201,328,242"/>
-</map>

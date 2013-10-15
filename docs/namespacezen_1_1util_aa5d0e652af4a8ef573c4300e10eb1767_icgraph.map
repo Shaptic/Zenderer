@@ -1,6 +1,7 @@
 <map id="zen::util::strip" name="zen::util::strip">
-<area shape="rect" id="node2" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="361,5,506,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1util_1_1z_file_parser.html#adeb9b19a83a1a6c2827a036318d9c209" title="Parses a portion of a filestream. " alt="" coords="162,99,305,141"/>
-<area shape="rect" id="node5" href="$classzen_1_1util_1_1z_file_parser.html#a6ca2fe02ff85919a2c76dfb4445fc62d" title="Parses a stream until reaching a sequence. " alt="" coords="155,34,311,75"/>
-<area shape="rect" id="node4" href="$classzen_1_1util_1_1z_file_parser.html#a4125da033c5afa59c8987fa74e0b0d60" title="Parses an entire file according to the format specification. " alt="" coords="362,99,505,141"/>
+<area shape="rect" id="node2" href="$classzen_1_1util_1_1z_file_parser.html#a264a42f7c8879c34710f15a31a639bae" title="Parses a portion of a file stream. " alt="" coords="162,5,305,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1util_1_1z_file_parser.html#a8a8e702d15b655d041d949830ca43527" title="Parses a stream until reaching a sequence. " alt="" coords="155,70,311,111"/>
+<area shape="rect" id="node3" href="$classzen_1_1util_1_1z_file_parser.html#a4125da033c5afa59c8987fa74e0b0d60" title="Parses an entire file according to the format specification. " alt="" coords="362,5,505,46"/>
+<area shape="rect" id="node5" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="361,70,506,111"/>
+<area shape="rect" id="node6" href="$_level_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="555,77,605,104"/>
 </map>

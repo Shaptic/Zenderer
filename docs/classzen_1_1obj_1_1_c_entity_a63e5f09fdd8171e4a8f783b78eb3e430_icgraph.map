@@ -1,8 +1,0 @@
-<map id="zen::obj::CEntity::AddPrimitive" name="zen::obj::CEntity::AddPrimitive">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#a309b8c6171a4f29edcad5c63b84530a5" title="zen::gfx::CScene::AddPrimitive" alt="" coords="181,5,384,32"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ac99e1f56b7dc051e8ad7573fb4eeeff5" title="zen::gui::CFontAtlas\l::Render" alt="" coords="212,57,353,98"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_button.html#aa4165c2363eef8f791ca901d62bc9fd9" title="zen::gui::CButton::\lSetBackground" alt="" coords="217,122,348,163"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="671,187,721,213"/>
-<area shape="rect" id="node5" href="$classzen_1_1gui_1_1_c_menu.html#afe6cf555588c62c0bfd1266964738fb4" title="zen::gui::CMenu::AddButton" alt="" coords="432,132,619,159"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="667,132,725,159"/>
-</map>

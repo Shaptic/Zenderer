@@ -3,8 +3,9 @@
 <area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_material.html#af51e284d0d3f9d2aaf6c209223174ae6" title="Disables only the effect. " alt="" coords="217,70,346,111"/>
 <area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="189,136,373,163"/>
 <area shape="rect" id="node6" href="$classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="179,253,384,280"/>
-<area shape="rect" id="node9" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="211,187,352,229"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="485,195,542,221"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="432,249,595,276"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="488,300,539,327"/>
+<area shape="rect" id="node10" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Loads an animation from a texture file. " alt="" coords="211,187,352,229"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="485,173,542,200"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="432,224,595,251"/>
+<area shape="rect" id="node8" href="$classg_world.html#a91c2f296e6096c352eee81e10e2e6b4a" title="gWorld::gWorld" alt="" coords="457,275,569,301"/>
+<area shape="rect" id="node9" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="485,325,542,352"/>
 </map>

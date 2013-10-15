@@ -1,7 +1,0 @@
-<map id="zen::sfx::CAudioManager::FreeSource" name="zen::sfx::CAudioManager::FreeSource">
-<area shape="rect" id="node2" href="$classzen_1_1sfx_1_1_c_audio2_d.html#ac8d099f6ee7acd8c9af20d050a515c72" title="Unloads the OpenAL source handle. " alt="" coords="222,103,357,145"/>
-<area shape="rect" id="node3" href="$classzen_1_1sfx_1_1_c_music2_d.html#aa46b12dc8f5701b3e5bb8fa7667fbc5a" title="zen::sfx::CMusic2D\l::~CMusic2D" alt="" coords="407,5,543,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1sfx_1_1_c_music2_d.html#aea18978c4f032e54668487698bfe78d7" title="Loads an .ogg file from disk. " alt="" coords="407,70,543,111"/>
-<area shape="rect" id="node5" href="$classzen_1_1sfx_1_1_c_sound2_d.html#af011d370d19170f5098097accc07b0b4" title="zen::sfx::CSound2D\l::~CSound2D" alt="" coords="405,135,544,177"/>
-<area shape="rect" id="node6" href="$classzen_1_1sfx_1_1_c_sound2_d.html#aa581f26e77c034a058ba3dfc4ebcbca7" title="Plays the sound effect no matter what (if loaded). " alt="" coords="405,201,544,242"/>
-</map>

@@ -8,7 +8,7 @@
 <area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800" title="Cleans up the subsystem completely. " alt="" coords="421,201,595,228"/>
 <area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_scene.html#a7786082bd291405b9db93956a5aa849e" title="Initializes internal graphical components. " alt="" coords="655,142,801,169"/>
 <area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="861,142,1024,169"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="917,92,968,118"/>
+<area shape="rect" id="node8" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="914,92,971,118"/>
 <area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_scene.html#a3a24abd92b700d27e4f07ecfbdcaae2f" title="zen::gfx::zScene::\l~zScene" alt="" coords="664,194,792,235"/>
 <area shape="rect" id="node11" href="$classzen_1_1gui_1_1z_menu.html#a086c4f2f64c7a8ee522e30810cd96bcd" title="zen::gui::zMenu::~zMenu" alt="" coords="643,260,813,286"/>
 <area shape="rect" id="node14" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="646,92,810,118"/>

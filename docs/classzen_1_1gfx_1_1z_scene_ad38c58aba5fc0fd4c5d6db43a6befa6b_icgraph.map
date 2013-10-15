@@ -1,3 +1,4 @@
 <map id="zen::gfx::zScene::IsValidEntityIndex" name="zen::gfx::zScene::IsValidEntityIndex">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_scene.html#ad3636d08d2f1492469b8af350d0b6062" title="zen::gfx::zScene::Remove\lEntity" alt="" coords="222,5,397,46"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_scene.html#ad3636d08d2f1492469b8af350d0b6062" title="zen::gfx::zScene::Remove\lEntity" alt="" coords="229,5,403,46"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_scene.html#a3d15fe6db75f5b1e8190f28b0fda1d5f" title="Puts an entity in a different drawing order position. " alt="" coords="222,71,410,97"/>
 </map>

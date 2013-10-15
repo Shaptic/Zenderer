@@ -19,7 +19,7 @@ var structzen_1_1math_1_1z_vector =
     [ "Translate", "structzen_1_1math_1_1z_vector.html#a2430d98889cbd1cb518b25b18ec9717e", null ],
     [ "Cross2D", "structzen_1_1math_1_1z_vector.html#a3e6691cee13a4a6667b5ddb300e5fbe3", null ],
     [ "GetNormalized", "structzen_1_1math_1_1z_vector.html#af99254faa132c28fdbfd75e471018891", null ],
-    [ "distance", "structzen_1_1math_1_1z_vector.html#a7e62fe4161570ef2b2dd9e49811bcdbe", null ],
+    [ "distance", "structzen_1_1math_1_1z_vector.html#ab7eebffaaaac96cf48eb6f6139716e75", null ],
     [ "operator=", "structzen_1_1math_1_1z_vector.html#a87cc173f3a71e96a89bc892e2c3ff62f", null ],
     [ "operator==", "structzen_1_1math_1_1z_vector.html#a896d9b7ff98e840e2e7bba3ff0b734fe", null ],
     [ "operator!=", "structzen_1_1math_1_1z_vector.html#a4eede96c16b22cc94a13418fbb471998", null ],

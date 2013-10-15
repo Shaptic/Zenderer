@@ -1,14 +1,14 @@
 <map id="zen::gfxcore::zVertexArray::Bind" name="zen::gfxcore::zVertexArray::Bind">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_vertex_array.html#a034bba15bf34566d6f45358ca78d91c5" title="Offloads local vertex data to the GPU. " alt="" coords="459,61,637,102"/>
-<area shape="rect" id="node9" href="$classzen_1_1gfxcore_1_1z_vertex_array.html#ab7fa4653cb7e9483e4d5bf1ad97b402e" title="Deletes all vertex and index data from the GPU and locally. " alt="" coords="233,178,410,219"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="707,5,837,46"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="687,125,857,152"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="963,71,1021,97"/>
-<area shape="rect" id="node5" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="963,12,1021,39"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="910,125,1074,152"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1125,125,1176,152"/>
-<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_scene.html#af6b595895bdc0cfcd832435f714ec3b6" title="Deletes all scene data (lights, objects, effects, etc). " alt="" coords="469,181,627,208"/>
-<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800" title="Cleans up the subsystem completely. " alt="" coords="685,181,859,208"/>
-<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1z_scene.html#a3a24abd92b700d27e4f07ecfbdcaae2f" title="zen::gfx::zScene::\l~zScene" alt="" coords="928,229,1056,270"/>
-<area shape="rect" id="node13" href="$classzen_1_1gui_1_1z_menu.html#a086c4f2f64c7a8ee522e30810cd96bcd" title="zen::gui::zMenu::~zMenu" alt="" coords="907,177,1077,204"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_vertex_array.html#a034bba15bf34566d6f45358ca78d91c5" title="Offloads local vertex data to the GPU. " alt="" coords="233,95,410,137"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfxcore_1_1z_vertex_array.html#ab7fa4653cb7e9483e4d5bf1ad97b402e" title="Deletes all vertex and index data from the GPU and locally. " alt="" coords="233,223,410,265"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="473,5,604,46"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="669,133,838,160"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="945,77,1002,104"/>
+<area shape="rect" id="node5" href="$_collision_test_8cpp.html#a0e663f52efbc8593793d628b4259ce9b" title="main2" alt="" coords="725,12,782,39"/>
+<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="891,133,1055,160"/>
+<area shape="rect" id="node8" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="1107,133,1165,160"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_scene.html#af6b595895bdc0cfcd832435f714ec3b6" title="Deletes all scene data (lights, objects, effects, etc). " alt="" coords="459,227,618,253"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1z_scene.html#a23003a267b5fc11dc8a59b65d0a3d800" title="Cleans up the subsystem completely. " alt="" coords="667,227,840,253"/>
+<area shape="rect" id="node12" href="$classzen_1_1gfx_1_1z_scene.html#a3a24abd92b700d27e4f07ecfbdcaae2f" title="zen::gfx::zScene::\l~zScene" alt="" coords="909,197,1037,238"/>
+<area shape="rect" id="node13" href="$classzen_1_1gui_1_1z_menu.html#a086c4f2f64c7a8ee522e30810cd96bcd" title="zen::gui::zMenu::~zMenu" alt="" coords="888,263,1059,289"/>
 </map>

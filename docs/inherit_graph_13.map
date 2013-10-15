@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$namespacezen_1_1gfxcore.html#structzen_1_1gfxcore_1_1vertex__t" title="zen::gfxcore::vertex_t" alt="" coords="5,5,152,32"/>
+<area shape="rect" id="node1" href="$classzen_1_1gfx_1_1z_polygon.html" title="An arbitrary n&#45;vertex convex polygon. " alt="" coords="5,31,136,57"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1z_concave_polygon.html" title="An arbitrary n&#45;vertex concave polygon. " alt="" coords="184,5,363,32"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_quad.html" title="A four&#45;sided quadrilateral primitive. " alt="" coords="216,56,331,83"/>
 </map>

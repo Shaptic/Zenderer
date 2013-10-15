@@ -1,6 +1,0 @@
-<map id="zen::gfxcore::CShaderSet::GetUniformLocation" name="zen::gfxcore::CShaderSet::GetUniformLocation">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_effect.html#a4e72b52073995c9449a224a8000a7452" title="Modifies a matrix parameter in the effect. " alt="" coords="230,5,357,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="224,71,363,97"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene. " alt="" coords="411,71,592,97"/>
-<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="641,71,698,97"/>
-</map>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['gbullet',['gBullet',['../classg_bullet.html#ace82350a968fa10022480fd362599f19',1,'gBullet']]],
   ['get',['get',['../classzen_1_1z_allocator.html#a829c780ca192db07a2e536744a648add',1,'zen::zAllocator::get(size_t count=1)'],['../classzen_1_1z_allocator.html#a472973ee0cdbc2965245327333cdc43c',1,'zen::zAllocator::Get()']]],
   ['getassetcount',['GetAssetCount',['../classzen_1_1asset_1_1z_asset_manager.html#a07a0677f1a05e0f76481e447b0292cbe',1,'zen::asset::zAssetManager']]],
   ['getassetid',['GetAssetID',['../classzen_1_1asset_1_1z_asset.html#a938213616b2e467c9957885af5ecae32',1,'zen::asset::zAsset']]],
@@ -33,11 +34,11 @@ var searchData=
   ['getindexcount',['GetIndexCount',['../classzen_1_1gfxcore_1_1z_vertex_array.html#a1f40c5fff5ca6574db24fa6f53146a24',1,'zen::gfxcore::zVertexArray']]],
   ['getindicesfromgpu',['GetIndicesFromGPU',['../classzen_1_1gfxcore_1_1z_vertex_array.html#a64ea4e035b4e5c77a6d8f495cace39af',1,'zen::gfxcore::zVertexArray']]],
   ['getinstance',['GetInstance',['../classzen_1_1evt_1_1z_event_handler.html#a4cf62909dfc2748816282abde1e4486a',1,'zen::evt::zEventHandler']]],
-  ['getleftpoint',['GetLeftPoint',['../classzen_1_1gfx_1_1z_polygon.html#a1952d1ddbb16cae0816d03a4c284f5d6',1,'zen::gfx::zPolygon']]],
+  ['getleftpoint',['GetLeftPoint',['../classzen_1_1gfx_1_1z_polygon.html#a5d5880fa1e14f9b5622db4ef4322d1db',1,'zen::gfx::zPolygon']]],
   ['getlibrary',['GetLibrary',['../classzen_1_1gui_1_1z_font_library.html#aeafc692f64655ec31a3b0dac69d74924',1,'zen::gui::zFontLibrary']]],
   ['getlineheight',['GetLineHeight',['../classzen_1_1gui_1_1z_font.html#a5aa68ad2c5f6d57b8cfca1d6fcc5db5e',1,'zen::gui::zFont']]],
   ['getlinkerlog',['GetLinkerLog',['../classzen_1_1gfxcore_1_1z_shader_set.html#aaab9066add07f23fd160ceb05831eb86',1,'zen::gfxcore::zShaderSet']]],
-  ['getlowpoint',['GetLowPoint',['../classzen_1_1gfx_1_1z_polygon.html#a3fad6b6af1a44dac05b4cecb9bfdc31d',1,'zen::gfx::zPolygon']]],
+  ['getlowpoint',['GetLowPoint',['../classzen_1_1gfx_1_1z_polygon.html#ae9034f5809ff965852ae22fa4d869b19',1,'zen::gfx::zPolygon']]],
   ['getmaterial',['GetMaterial',['../classzen_1_1gfx_1_1z_polygon.html#a54a92a7768eafb28d57909f4313223bc',1,'zen::gfx::zPolygon']]],
   ['getmouseposition',['GetMousePosition',['../classzen_1_1gfx_1_1z_window.html#a842bda949d45c6cedb9c7eabc090e23f',1,'zen::gfx::zWindow::GetMousePosition()'],['../namespacezen_1_1evt.html#a936d1cbb9682e660e2b1da249e137af0',1,'zen::evt::GetMousePosition()']]],
   ['getmousestate',['GetMouseState',['../classzen_1_1gfx_1_1z_window.html#ad2a883491d08d85b6e101dbef3cebef5',1,'zen::gfx::zWindow::GetMouseState()'],['../namespacezen_1_1evt.html#a99695098183c4a3750d66515c95c6103',1,'zen::evt::GetMouseState()']]],
@@ -49,6 +50,7 @@ var searchData=
   ['getpointer',['GetPointer',['../classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d',1,'zen::math::matrix4x4_t']]],
   ['getposition',['GetPosition',['../classzen_1_1gfx_1_1z_light.html#aa9ada375f64ef1578b9be6962d0f650a',1,'zen::gfx::zLight::GetPosition()'],['../classzen_1_1gfx_1_1z_polygon.html#ade8d718f4392ea6f7d36563363d667db',1,'zen::gfx::zPolygon::GetPosition()'],['../classzen_1_1obj_1_1z_entity.html#af6802dca2ddf3532e4e6648ef416e77c',1,'zen::obj::zEntity::GetPosition()']]],
   ['getprojectionmatrix',['GetProjectionMatrix',['../classzen_1_1gfxcore_1_1z_renderer.html#a1e101eb52b27cb1f4d37a30f1bce6c14',1,'zen::gfxcore::zRenderer::GetProjectionMatrix()'],['../classzen_1_1gfx_1_1z_window.html#ac5d44160b572c687abf1d76be0c30ebc',1,'zen::gfx::zWindow::GetProjectionMatrix()']]],
+  ['getrate',['GetRate',['../classg_bullet.html#a910af94772488e88054a93143aaccdb8',1,'gBullet']]],
   ['getresultcount',['GetResultCount',['../classzen_1_1util_1_1z_file_parser.html#a9758037437c028ded13fd2462e5e22e5',1,'zen::util::zFileParser']]],
   ['getresults',['GetResults',['../classzen_1_1util_1_1z_file_parser.html#a9a30a5210c76a64ecd7e131b885c481b',1,'zen::util::zFileParser']]],
   ['getshaderlog',['GetShaderLog',['../classzen_1_1gfxcore_1_1z_shader.html#a4863dc27c0c73c12730178572b441cdd',1,'zen::gfxcore::zShader']]],
@@ -73,7 +75,8 @@ var searchData=
   ['getverticesfromgpu',['GetVerticesFromGPU',['../classzen_1_1gfxcore_1_1z_vertex_array.html#a3d368e58af1958da194c5c85e7086285',1,'zen::gfxcore::zVertexArray']]],
   ['getw',['GetW',['../classzen_1_1gfx_1_1z_polygon.html#ad9810bdc85ac5ccb72b0e07880b075b7',1,'zen::gfx::zPolygon::GetW()'],['../classzen_1_1obj_1_1z_entity.html#a2ca996948f259af706995c06267a4bb8',1,'zen::obj::zEntity::GetW()']]],
   ['getwidth',['GetWidth',['../classzen_1_1gfxcore_1_1z_texture.html#a23cb398f680bd7dd2f4a7451207469e5',1,'zen::gfxcore::zTexture::GetWidth()'],['../classzen_1_1gfx_1_1z_render_target.html#a4a502b9d08550f6cf41f106b85880686',1,'zen::gfx::zRenderTarget::GetWidth()'],['../classzen_1_1gfx_1_1z_scene.html#a894be27d94edac743016a8db6af64e6b',1,'zen::gfx::zScene::GetWidth()'],['../classzen_1_1gfx_1_1z_window.html#ad90088168177bb1e68dd531405b76a2a',1,'zen::gfx::zWindow::GetWidth()']]],
-  ['getx',['GetX',['../classzen_1_1gfx_1_1z_polygon.html#a232d4b4224a1cc30f34c6a56f4d1e1a7',1,'zen::gfx::zPolygon::GetX()'],['../classzen_1_1obj_1_1z_entity.html#aec6363ad5d3af581c4759ad8d68c43c6',1,'zen::obj::zEntity::GetX()']]],
-  ['gety',['GetY',['../classzen_1_1gfx_1_1z_polygon.html#a307c6b9132cae8da193b67e160de2cbe',1,'zen::gfx::zPolygon::GetY()'],['../classzen_1_1obj_1_1z_entity.html#a903736be5f221a26c27505daa4c92854',1,'zen::obj::zEntity::GetY()']]],
-  ['glcheck',['glCheck',['../namespacezen_1_1gfxcore.html#ae4533b6d5c7873ea5ba0de62ad7af968',1,'zen::gfxcore']]]
+  ['getx',['GetX',['../classzen_1_1gfx_1_1z_polygon.html#a232d4b4224a1cc30f34c6a56f4d1e1a7',1,'zen::gfx::zPolygon::GetX()'],['../classzen_1_1obj_1_1z_entity.html#aec6363ad5d3af581c4759ad8d68c43c6',1,'zen::obj::zEntity::GetX()'],['../classg_bullet.html#a494c1047a643846d40f577bccb7bf773',1,'gBullet::GetX()']]],
+  ['gety',['GetY',['../classzen_1_1gfx_1_1z_polygon.html#a307c6b9132cae8da193b67e160de2cbe',1,'zen::gfx::zPolygon::GetY()'],['../classzen_1_1obj_1_1z_entity.html#a903736be5f221a26c27505daa4c92854',1,'zen::obj::zEntity::GetY()'],['../classg_bullet.html#a40c02599fddd70e6a7589275bd044e6a',1,'gBullet::GetY()']]],
+  ['glcheck',['glCheck',['../namespacezen_1_1gfxcore.html#ae4533b6d5c7873ea5ba0de62ad7af968',1,'zen::gfxcore']]],
+  ['gworld',['gWorld',['../classg_world.html#a91c2f296e6096c352eee81e10e2e6b4a',1,'gWorld']]]
 ];

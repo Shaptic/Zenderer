@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">3.0.0-alpha</span>
+   &#160;<span id="projectnumber">5.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 10804 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -136,7 +137,7 @@ $(document).ready(function(){initNavTree('functions_0x69.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -190,15 +191,18 @@ $(document).ready(function(){initNavTree('functions_0x69.html','');});
 <li>Invert()
 : <a class="el" href="classzen_1_1obj_1_1z_entity.html#a5feabee3a6c74a9cb4c75dff978d4752">zen::obj::zEntity</a>
 </li>
+<li>INVISIBLE
+: <a class="el" href="classzen_1_1lvl_1_1z_level_loader.html#a02414b53e633ebb8610d2216f3a09842a5fb351568336ebb294804f81e3c8663d">zen::lvl::zLevelLoader</a>
+</li>
 <li>IsFullscreen()
 : <a class="el" href="classzen_1_1gfx_1_1z_window.html#afc51d4cfd5d173b332591c1237a15014">zen::gfx::zWindow</a>
 </li>
 <li>IsInit()
-: <a class="el" href="classzen_1_1gfx_1_1z_light.html#acb07ba0dc7cfbaed1bd9e868f1bedec3">zen::gfx::zLight</a>
+: <a class="el" href="classzen_1_1z_subsystem.html#ae72732b27debb2c522a676e65099406d">zen::zSubsystem</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_light.html#acb07ba0dc7cfbaed1bd9e868f1bedec3">zen::gfx::zLight</a>
 , <a class="el" href="classzen_1_1util_1_1z_log.html#a0e741f7919523907a62620025030cbc0">zen::util::zLog</a>
 , <a class="el" href="classzen_1_1sfx_1_1z_audio_manager.html#a388a772cf404a540c9f573acd3000497">zen::sfx::zAudioManager</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1z_g_l_subsystem.html#a88c6b9ac3426ca3d6a544507fdaf8088">zen::gfxcore::zGLSubsystem</a>
-, <a class="el" href="classzen_1_1z_subsystem.html#ae72732b27debb2c522a676e65099406d">zen::zSubsystem</a>
 </li>
 <li>IsLoaded()
 : <a class="el" href="classzen_1_1asset_1_1z_asset.html#a23948cdca1812c8fc2bed8a5bf3067e2">zen::asset::zAsset</a>
@@ -210,7 +214,7 @@ $(document).ready(function(){initNavTree('functions_0x69.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1z_window.html#abcb441d17f9b7bd2f3d1ce72c6e8d356">zen::gfx::zWindow</a>
 </li>
 <li>IsOver()
-: <a class="el" href="classzen_1_1gui_1_1z_button.html#a9459ec702c9ea16899626e34a01ed9d1">zen::gui::zButton</a>
+: <a class="el" href="classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8">zen::gui::zButton</a>
 </li>
 <li>IsValidEntityIndex()
 : <a class="el" href="classzen_1_1gfx_1_1z_scene.html#ad38c58aba5fc0fd4c5d6db43a6befa6b">zen::gfx::zScene</a>
