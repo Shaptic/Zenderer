@@ -23,14 +23,16 @@ files found in `Zenderer/include`, and all of the dependency libraries
 you can find in the `lib` directory of the project root. There is
 currently only support for Windows (*gasp*), due to the fact that I use
 Visual Studio and the Microsoft compiler for 95% of my C++ development.
-Thus, I can't guarantee any sort of cross-platform compatibility. But,
-this is obviously a potential `todo` for when everything else has been taken
-care of. The only definite requirement for building *Zenderer* is a
-C++11-compatible compiler with a functional `<regex>` implementation.
+It *has* been tested using MinGW, compiling successfully, but the dependencies
+are not included and it has not been thuroughly tested. I most assuredly can't
+guarantee any sort of cross-platform compatibility. But this is obviously a
+potential `todo` for when everything else has been taken care of. The only
+definite requirement for building *Zenderer* is a C++11-compatible compiler.
 
 There are various binary dependencies for this engine. Luckily, they are all
 cross platform and are relatively easy to build from source. They are
 as follows:
+
  - GLEW         (OpenGL Extension Wrangler Library)
  - GLFW         (OpenGL FrameWork)
  - Freetype 2   (TrueType Font Library)
@@ -55,7 +57,7 @@ myself internally to update the Doxygen docs.
 in the `docs` folder in this repository. It was generated using Doxygen,
 meaning the identical commentary can be found within the source code itself.
 
-Feel free to check out my blog [here](http://zenpandainteractive.blogspot.com).
+Feel free to check out my blog [here](http://abitwise.blogspot.com).
 You can also follow *Praecursor*'s progress on Twitter
 [here](https://www.twitter.com/PraecursorGame), though it will
 probably be slow going for a while, with my job taking up most of
