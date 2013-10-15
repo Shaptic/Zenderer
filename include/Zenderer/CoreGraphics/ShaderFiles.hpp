@@ -49,7 +49,7 @@ namespace gfxcore
         "void main()\n"
         "{\n"
         "    out_color   = light_brt * vec4(light_col, 1.0);\n"
-        "    out_color  *= fs_color;// * texture2D(geometry, fs_texc);\n"
+        "    out_color  *= fs_color * texture2D(geometry, fs_texc);\n"
         "}\n"
     );
 

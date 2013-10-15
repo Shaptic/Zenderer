@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">3.0.0-alpha</span>
+   &#160;<span id="projectnumber">5.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 10804 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -132,7 +133,7 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -145,6 +146,9 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 &#160;
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gBullet()
+: <a class="el" href="classg_bullet.html#ace82350a968fa10022480fd362599f19">gBullet</a>
+</li>
 <li>get()
 : <a class="el" href="classzen_1_1z_allocator.html#a829c780ca192db07a2e536744a648add">zen::zAllocator</a>
 </li>
@@ -182,11 +186,11 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1z_light.html#a71984e9ca8dd2dc36f5572fffb954d80">zen::gfx::zLight</a>
 </li>
 <li>GetData()
-: <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#ab23bea9b2f2e6a20286e3f766084ccf2">zen::gfxcore::zTexture</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#a091550447890ad73c426eddbf6062242">zen::gfxcore::zShader</a>
+, <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#ab23bea9b2f2e6a20286e3f766084ccf2">zen::gfxcore::zTexture</a>
 , <a class="el" href="classzen_1_1gui_1_1z_font.html#a7b0b112028e0b914316708e263dac625">zen::gui::zFont</a>
 , <a class="el" href="classzen_1_1asset_1_1z_asset.html#ad9fed621a513db4d6dabb9c81b09e234">zen::asset::zAsset</a>
 , <a class="el" href="classzen_1_1sfx_1_1z_audio2_d.html#aa7693c34b8ee6c2a327d89ef6726c8fc">zen::sfx::zAudio2D</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1z_shader.html#a091550447890ad73c426eddbf6062242">zen::gfxcore::zShader</a>
 </li>
 <li>GetDefaultEffect()
 : <a class="el" href="classzen_1_1gfxcore_1_1z_renderer.html#abe646457f1ab24a1587af85fa78c8052">zen::gfxcore::zRenderer</a>
@@ -211,11 +215,11 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1z_scene.html#afa62919c59db8f3259878930abeca7a2">zen::gfx::zScene</a>
 </li>
 <li>GetError()
-: <a class="el" href="classzen_1_1asset_1_1z_asset.html#a68034c3411e4241adeb8abc2d12cad2b">zen::asset::zAsset</a>
+: <a class="el" href="classzen_1_1lua_1_1z_lua.html#ad963c21876ef14f52e0de29c6e1900ee">zen::lua::zLua</a>
+, <a class="el" href="classzen_1_1asset_1_1z_asset.html#a68034c3411e4241adeb8abc2d12cad2b">zen::asset::zAsset</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1z_shader_set.html#aff3e355880dc961045b865c2d6ab45cf">zen::gfxcore::zShaderSet</a>
 , <a class="el" href="classzen_1_1gfx_1_1z_effect.html#a9093ad88e23c7b992397ca9e58262f64">zen::gfx::zEffect</a>
 , <a class="el" href="classzen_1_1net_1_1z_socket.html#a0eadf75533c4f4441896063f6f1ad43b">zen::net::zSocket</a>
-, <a class="el" href="classzen_1_1lua_1_1z_lua.html#ad963c21876ef14f52e0de29c6e1900ee">zen::lua::zLua</a>
 </li>
 <li>GetFilename()
 : <a class="el" href="classzen_1_1asset_1_1z_asset.html#aa5ad61f44c4b01ed925ae0a1b3ada59d">zen::asset::zAsset</a>
@@ -265,7 +269,7 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1evt_1_1z_event_handler.html#a4cf62909dfc2748816282abde1e4486a">zen::evt::zEventHandler</a>
 </li>
 <li>GetLeftPoint()
-: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a1952d1ddbb16cae0816d03a4c284f5d6">zen::gfx::zPolygon</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a5d5880fa1e14f9b5622db4ef4322d1db">zen::gfx::zPolygon</a>
 </li>
 <li>GetLibrary()
 : <a class="el" href="classzen_1_1gui_1_1z_font_library.html#aeafc692f64655ec31a3b0dac69d74924">zen::gui::zFontLibrary</a>
@@ -277,7 +281,7 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfxcore_1_1z_shader_set.html#aaab9066add07f23fd160ceb05831eb86">zen::gfxcore::zShaderSet</a>
 </li>
 <li>GetLowPoint()
-: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a3fad6b6af1a44dac05b4cecb9bfdc31d">zen::gfx::zPolygon</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#ae9034f5809ff965852ae22fa4d869b19">zen::gfx::zPolygon</a>
 </li>
 <li>GetMaterial()
 : <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a54a92a7768eafb28d57909f4313223bc">zen::gfx::zPolygon</a>
@@ -289,8 +293,8 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1gfx_1_1z_window.html#ad2a883491d08d85b6e101dbef3cebef5">zen::gfx::zWindow</a>
 </li>
 <li>GetName()
-: <a class="el" href="classzen_1_1z_subsystem.html#a37fecd9c622895cdb971bd41b9a0d37a">zen::zSubsystem</a>
-, <a class="el" href="classzen_1_1gfxcore_1_1z_g_l_subsystem.html#a4348a5db31c5f61c4b1d47f61458953d">zen::gfxcore::zGLSubsystem</a>
+: <a class="el" href="classzen_1_1gfxcore_1_1z_g_l_subsystem.html#a4348a5db31c5f61c4b1d47f61458953d">zen::gfxcore::zGLSubsystem</a>
+, <a class="el" href="classzen_1_1z_subsystem.html#a37fecd9c622895cdb971bd41b9a0d37a">zen::zSubsystem</a>
 </li>
 <li>GetNormalized()
 : <a class="el" href="structzen_1_1math_1_1z_vector.html#af99254faa132c28fdbfd75e471018891">zen::math::zVector&lt; T &gt;</a>
@@ -306,19 +310,22 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 : <a class="el" href="classzen_1_1asset_1_1z_asset.html#aed9c3604b827aa73ad9421bf64ece2dc">zen::asset::zAsset</a>
 </li>
 <li>GetPairs()
-: <a class="el" href="classzen_1_1util_1_1z_parser.html#ab4e14060275feda05d93ccf3013e8355">zen::util::zParser</a>
+: <a class="el" href="classzen_1_1util_1_1z_parser.html#a3eceab5ef792727074250d87d7fdfed9">zen::util::zParser</a>
 </li>
 <li>GetPointer()
 : <a class="el" href="classzen_1_1math_1_1matrix4x4__t.html#a082d67aac74477832c4c9165c2a62b3d">zen::math::matrix4x4_t</a>
 </li>
 <li>GetPosition()
 : <a class="el" href="classzen_1_1gfx_1_1z_light.html#aa9ada375f64ef1578b9be6962d0f650a">zen::gfx::zLight</a>
-, <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#ade8d718f4392ea6f7d36563363d667db">zen::gfx::zPolygon</a>
 , <a class="el" href="classzen_1_1obj_1_1z_entity.html#af6802dca2ddf3532e4e6648ef416e77c">zen::obj::zEntity</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#ade8d718f4392ea6f7d36563363d667db">zen::gfx::zPolygon</a>
 </li>
 <li>GetProjectionMatrix()
 : <a class="el" href="classzen_1_1gfxcore_1_1z_renderer.html#a1e101eb52b27cb1f4d37a30f1bce6c14">zen::gfxcore::zRenderer</a>
 , <a class="el" href="classzen_1_1gfx_1_1z_window.html#ac5d44160b572c687abf1d76be0c30ebc">zen::gfx::zWindow</a>
+</li>
+<li>GetRate()
+: <a class="el" href="classg_bullet.html#a910af94772488e88054a93143aaccdb8">gBullet</a>
 </li>
 <li>GetResultCount()
 : <a class="el" href="classzen_1_1util_1_1z_file_parser.html#a9758037437c028ded13fd2462e5e22e5">zen::util::zFileParser</a>
@@ -396,18 +403,23 @@ $(document).ready(function(){initNavTree('functions_func_0x67.html','');});
 , <a class="el" href="classzen_1_1obj_1_1z_entity.html#a2ca996948f259af706995c06267a4bb8">zen::obj::zEntity</a>
 </li>
 <li>GetWidth()
-: <a class="el" href="classzen_1_1gfx_1_1z_render_target.html#a4a502b9d08550f6cf41f106b85880686">zen::gfx::zRenderTarget</a>
+: <a class="el" href="classzen_1_1gfx_1_1z_scene.html#a894be27d94edac743016a8db6af64e6b">zen::gfx::zScene</a>
 , <a class="el" href="classzen_1_1gfxcore_1_1z_texture.html#a23cb398f680bd7dd2f4a7451207469e5">zen::gfxcore::zTexture</a>
-, <a class="el" href="classzen_1_1gfx_1_1z_scene.html#a894be27d94edac743016a8db6af64e6b">zen::gfx::zScene</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_render_target.html#a4a502b9d08550f6cf41f106b85880686">zen::gfx::zRenderTarget</a>
 , <a class="el" href="classzen_1_1gfx_1_1z_window.html#ad90088168177bb1e68dd531405b76a2a">zen::gfx::zWindow</a>
 </li>
 <li>GetX()
-: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a232d4b4224a1cc30f34c6a56f4d1e1a7">zen::gfx::zPolygon</a>
+: <a class="el" href="classg_bullet.html#a494c1047a643846d40f577bccb7bf773">gBullet</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a232d4b4224a1cc30f34c6a56f4d1e1a7">zen::gfx::zPolygon</a>
 , <a class="el" href="classzen_1_1obj_1_1z_entity.html#aec6363ad5d3af581c4759ad8d68c43c6">zen::obj::zEntity</a>
 </li>
 <li>GetY()
-: <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a307c6b9132cae8da193b67e160de2cbe">zen::gfx::zPolygon</a>
-, <a class="el" href="classzen_1_1obj_1_1z_entity.html#a903736be5f221a26c27505daa4c92854">zen::obj::zEntity</a>
+: <a class="el" href="classzen_1_1obj_1_1z_entity.html#a903736be5f221a26c27505daa4c92854">zen::obj::zEntity</a>
+, <a class="el" href="classg_bullet.html#a40c02599fddd70e6a7589275bd044e6a">gBullet</a>
+, <a class="el" href="classzen_1_1gfx_1_1z_polygon.html#a307c6b9132cae8da193b67e160de2cbe">zen::gfx::zPolygon</a>
+</li>
+<li>gWorld()
+: <a class="el" href="classg_world.html#a91c2f296e6096c352eee81e10e2e6b4a">gWorld</a>
 </li>
 </ul>
 </div><!-- contents -->

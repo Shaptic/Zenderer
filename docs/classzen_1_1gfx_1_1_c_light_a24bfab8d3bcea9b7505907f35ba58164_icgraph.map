@@ -1,6 +1,0 @@
-<map id="zen::gfx::CLight::SetBrightness" name="zen::gfx::CLight::SetBrightness">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="673,5,730,32"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_light.html#adcbc2641c459f93aebd72f3ff99fa0df" title="zen::gfx::CLight::Init" alt="" coords="256,31,395,57"/>
-<area shape="rect" id="node5" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="300,81,351,108"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1_c_scene.html#af230cf55827776babf3608e28a0d447d" title="Creates and adds a managed light instance to the scene. " alt="" coords="443,31,624,57"/>
-</map>

@@ -12,6 +12,8 @@ var classzen_1_1gfx_1_1z_scene =
     [ "InsertEntity", "classzen_1_1gfx_1_1z_scene.html#a1da8d9bef43e37b34a302faa35a986ba", null ],
     [ "RemoveEntity", "classzen_1_1gfx_1_1z_scene.html#a20048957053138cc366344e16c614561", null ],
     [ "RemoveEntity", "classzen_1_1gfx_1_1z_scene.html#ad3636d08d2f1492469b8af350d0b6062", null ],
+    [ "RemoveLight", "classzen_1_1gfx_1_1z_scene.html#ace7ecda0222bcc628b4d1e548fbafb7f", null ],
+    [ "ShiftEntity", "classzen_1_1gfx_1_1z_scene.html#a3d15fe6db75f5b1e8190f28b0fda1d5f", null ],
     [ "Clear", "classzen_1_1gfx_1_1z_scene.html#af6b595895bdc0cfcd832435f714ec3b6", null ],
     [ "Render", "classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1", null ],
     [ "IsValidEntityIndex", "classzen_1_1gfx_1_1z_scene.html#ad38c58aba5fc0fd4c5d6db43a6befa6b", null ],

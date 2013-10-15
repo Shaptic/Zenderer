@@ -1,8 +1,0 @@
-<map id="zen::gui::CFontLibrary::Init" name="zen::gui::CFontLibrary::Init">
-<area shape="rect" id="node2" href="$classzen_1_1gui_1_1_c_font_library.html#a6c34466bb119c5b24ce5ec28d329c059" title="zen::gui::CFontLibrary\l::InitFreetype" alt="" coords="206,34,357,75"/>
-<area shape="rect" id="node3" href="$classzen_1_1gui_1_1_c_font_atlas.html#ad8f2bab0ba9424845c7a6dabade8d4a8" title="zen::gui::CFontAtlas\l::LoadFromFile" alt="" coords="435,5,576,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_font.html#a6bd137b36c357eccb1c87efc0d5931f3" title="Loads a TrueType font from disk. " alt="" coords="406,71,605,97"/>
-<area shape="rect" id="node5" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="873,45,930,72"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1_c_menu.html#aef42a74422a3d63ddfaf073269833472" title="zen::gui::CMenu::SetFont" alt="" coords="653,71,824,97"/>
-<area shape="rect" id="node7" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="876,108,927,135"/>
-</map>

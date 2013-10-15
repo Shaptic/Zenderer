@@ -1,6 +1,0 @@
-<map id="zen::gfxcore::CTexture::GetHeight" name="zen::gfxcore::CTexture::GetHeight">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="385,7,442,34"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file. " alt="" coords="209,21,335,63"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1_c_entity.html#aeb1b9ade210dbb66e7e0c23042e7aa3a" title="Creates an entity from a texture file. " alt="" coords="209,87,335,128"/>
-<area shape="rect" id="node5" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="388,94,439,121"/>
-</map>

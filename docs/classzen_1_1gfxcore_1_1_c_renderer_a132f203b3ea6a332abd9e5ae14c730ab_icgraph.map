@@ -1,4 +1,0 @@
-<map id="zen::gfxcore::CRenderer::GetDefaultTexture" name="zen::gfxcore::CRenderer::GetDefaultTexture">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a4157209929cf41e327d896a5350a7613" title="Creates an instance from another instance. " alt="" coords="216,5,379,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1_c_drawable.html#a0903bde79f0b47d5790c8e0877024df2" title="Reverts to using the default material. " alt="" coords="216,70,379,111"/>
-</map>

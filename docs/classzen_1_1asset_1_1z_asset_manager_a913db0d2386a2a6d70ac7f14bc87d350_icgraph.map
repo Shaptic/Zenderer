@@ -1,32 +1,34 @@
 <map id="zen::asset::zAssetManager::Create" name="zen::asset::zAssetManager::Create">
-<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a5d423c6aa3ea56a99d8b6957ac2a888e" title="Loads a set of shader assets from a file. " alt="" coords="255,5,425,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a3a6244f4374e53a36772e24de1c21efc" title="Loads a vertex shader from a file. " alt="" coords="246,491,434,533"/>
-<area shape="rect" id="node27" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. " alt="" coords="237,557,443,598"/>
-<area shape="rect" id="node28" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a1c010668e2577377184ceffd54dea87a" title="Loads a vertex shader from a raw string (no linking). " alt="" coords="248,855,432,897"/>
-<area shape="rect" id="node29" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a33ee836f28cee358478ced7e55b568f6" title="Loads a fragment shader from a raw string (no linking). " alt="" coords="239,921,441,962"/>
-<area shape="rect" id="node13" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="1839,467,1897,493"/>
-<area shape="rect" id="node30" href="$classzen_1_1gfx_1_1z_material.html#ad2efdd2bd417020f5044d40a81cd7db2" title="Loads a texture from an existing one. " alt="" coords="707,253,837,294"/>
-<area shape="rect" id="node31" href="$classzen_1_1gfx_1_1z_material.html#aceadc7675f220a26dc57ac615ee8a856" title="Loads a texture from disk. " alt="" coords="696,645,848,686"/>
-<area shape="rect" id="node16" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1843,239,1893,265"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_effect.html#a41984ac2a64d8bcb7d83a427f0806dd4" title="zen::gfx::zEffect::Init" alt="" coords="491,488,632,515"/>
-<area shape="rect" id="node25" href="$classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249" title="zen::gfx::zLight::Init" alt="" coords="493,564,629,591"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_material.html#ae762f86069900963a3560d78627f9d47" title="zen::gfx::zMaterial\l::zMaterial" alt="" coords="707,318,837,359"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_material.html#a4bc7f7cf0e7d5b50a2b6c3bb16a50d5a" title="Loads a material from a .zfx file. " alt="" coords="913,122,1042,163"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_material.html#a4cbfde3e3944b735e9e67a4b55fe7594" title="Loads an effect from disk. " alt="" coords="707,383,837,425"/>
-<area shape="rect" id="node22" href="$classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="680,488,864,515"/>
-<area shape="rect" id="node23" href="$classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="1533,340,1739,367"/>
-<area shape="rect" id="node7" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="1101,186,1227,227"/>
-<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116" title="Loads a material from an existing file stream. " alt="" coords="912,318,1043,359"/>
-<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_polygon.html#a671a04f2358287c3d03d5f296bf5077b" title="zen::gfx::zPolygon\l::zPolygon" alt="" coords="912,187,1043,229"/>
-<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1z_polygon.html#a679c54a2052d619caea511cdc1ce4e80" title="Attaches a material to render on top of the primitive. " alt="" coords="912,383,1043,425"/>
-<area shape="rect" id="node21" href="$classzen_1_1gfx_1_1z_polygon.html#a1e58cf0134e0693790713f7791f2d736" title="Reverts to using the default material. " alt="" coords="912,253,1043,294"/>
-<area shape="rect" id="node14" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="1093,485,1235,526"/>
-<area shape="rect" id="node12" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="1091,419,1237,461"/>
-<area shape="rect" id="node15" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="1323,421,1448,462"/>
-<area shape="rect" id="node17" href="$classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="1101,251,1227,293"/>
-<area shape="rect" id="node18" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="1285,239,1485,265"/>
-<area shape="rect" id="node19" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="1321,290,1450,331"/>
-<area shape="rect" id="node20" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="1544,239,1728,265"/>
-<area shape="rect" id="node24" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="1787,340,1949,367"/>
-<area shape="rect" id="node26" href="$classzen_1_1gfx_1_1z_scene.html#a4d1093c4a1572676f2465decfcd61f10" title="Creates and adds a managed light instance to the scene. " alt="" coords="1547,753,1725,780"/>
+<area shape="rect" id="node2" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a5d423c6aa3ea56a99d8b6957ac2a888e" title="Loads a set of shader assets from a file. " alt="" coords="255,6,425,47"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a3a6244f4374e53a36772e24de1c21efc" title="Loads a vertex shader from a file. " alt="" coords="246,557,434,598"/>
+<area shape="rect" id="node29" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a13b0e61cd657bb61da2b606452e74a19" title="Loads a vertex shader from a file. " alt="" coords="237,491,443,533"/>
+<area shape="rect" id="node30" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a1c010668e2577377184ceffd54dea87a" title="Loads a vertex shader from a raw string (no linking). " alt="" coords="248,361,432,402"/>
+<area shape="rect" id="node31" href="$classzen_1_1gfxcore_1_1z_shader_set.html#a33ee836f28cee358478ced7e55b568f6" title="Loads a fragment shader from a raw string (no linking). " alt="" coords="239,426,441,467"/>
+<area shape="rect" id="node12" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="1834,604,1891,631"/>
+<area shape="rect" id="node32" href="$classzen_1_1gfx_1_1z_material.html#ad2efdd2bd417020f5044d40a81cd7db2" title="Loads a texture from an existing one. " alt="" coords="707,342,837,383"/>
+<area shape="rect" id="node33" href="$classzen_1_1gfx_1_1z_material.html#aceadc7675f220a26dc57ac615ee8a856" title="Loads a texture from disk. " alt="" coords="696,615,848,657"/>
+<area shape="rect" id="node17" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="1834,293,1891,320"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_effect.html#a41984ac2a64d8bcb7d83a427f0806dd4" title="zen::gfx::zEffect::Init" alt="" coords="491,259,632,285"/>
+<area shape="rect" id="node27" href="$classzen_1_1gfx_1_1z_light.html#a68545c46d754ff9cee0a55ebe99ba249" title="zen::gfx::zLight::Init" alt="" coords="493,564,629,591"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_material.html#ae762f86069900963a3560d78627f9d47" title="zen::gfx::zMaterial\l::zMaterial" alt="" coords="707,174,837,215"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_material.html#a4bc7f7cf0e7d5b50a2b6c3bb16a50d5a" title="Loads a material from a .zfx file. " alt="" coords="913,211,1042,253"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_material.html#a4cbfde3e3944b735e9e67a4b55fe7594" title="Loads an effect from disk. " alt="" coords="707,407,837,449"/>
+<area shape="rect" id="node23" href="$classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="680,291,864,317"/>
+<area shape="rect" id="node24" href="$classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="1528,109,1733,136"/>
+<area shape="rect" id="node7" href="$classzen_1_1obj_1_1z_entity.html#a12daa37cf2b47890da2540c5d0997f9b" title="Creates an entity mesh from a file. " alt="" coords="1099,311,1224,353"/>
+<area shape="rect" id="node9" href="$classzen_1_1gfx_1_1z_material.html#a767c6590268bef4eec587e49abe91116" title="Loads a material from an existing file stream. " alt="" coords="912,407,1043,449"/>
+<area shape="rect" id="node10" href="$classzen_1_1gfx_1_1z_polygon.html#a671a04f2358287c3d03d5f296bf5077b" title="zen::gfx::zPolygon\l::zPolygon" alt="" coords="912,277,1043,318"/>
+<area shape="rect" id="node11" href="$classzen_1_1gfx_1_1z_polygon.html#a679c54a2052d619caea511cdc1ce4e80" title="Attaches a material to render on top of the primitive. " alt="" coords="912,473,1043,514"/>
+<area shape="rect" id="node22" href="$classzen_1_1gfx_1_1z_polygon.html#a1e58cf0134e0693790713f7791f2d736" title="Reverts to using the default material. " alt="" coords="912,342,1043,383"/>
+<area shape="rect" id="node13" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Loads an animation from a texture file. " alt="" coords="1091,625,1232,666"/>
+<area shape="rect" id="node14" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="1099,473,1224,514"/>
+<area shape="rect" id="node18" href="$classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="1099,377,1224,418"/>
+<area shape="rect" id="node15" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="1307,410,1453,451"/>
+<area shape="rect" id="node16" href="$_level_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1605,417,1656,444"/>
+<area shape="rect" id="node19" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="1280,243,1480,269"/>
+<area shape="rect" id="node20" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="1315,345,1445,386"/>
+<area shape="rect" id="node21" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="1539,352,1723,379"/>
+<area shape="rect" id="node25" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="1781,84,1944,111"/>
+<area shape="rect" id="node26" href="$classg_world.html#a91c2f296e6096c352eee81e10e2e6b4a" title="gWorld::gWorld" alt="" coords="1807,135,1919,161"/>
+<area shape="rect" id="node28" href="$classzen_1_1gfx_1_1z_scene.html#a4d1093c4a1572676f2465decfcd61f10" title="Creates and adds a managed light instance to the scene. " alt="" coords="1291,741,1469,768"/>
 </map>

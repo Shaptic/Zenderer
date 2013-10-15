@@ -12,6 +12,8 @@ var searchData=
   ['bindtexture',['BindTexture',['../classzen_1_1gfx_1_1z_render_target.html#a06f5dba74fd295294e0e3528762265e7',1,'zen::gfx::zRenderTarget']]],
   ['blacklist',['blacklist',['../namespacezen_1_1lvl.html#a4465479c53f0a8cd38ce315f20f5c024',1,'zen::lvl::spawn_t']]],
   ['blendoperation',['BlendOperation',['../classzen_1_1gfxcore_1_1z_renderer.html#aa62f4347b6755ed1d0642fcec027b0b3',1,'zen::gfxcore::zRenderer']]],
+  ['box1',['box1',['../structzen_1_1math_1_1cquery__t.html#acdee2a05c3f7d45509b28fc3be0c25b5',1,'zen::math::cquery_t']]],
+  ['box2',['box2',['../structzen_1_1math_1_1cquery__t.html#a68fd57e277ef67047a8b20b386914f85',1,'zen::math::cquery_t']]],
   ['br',['br',['../structzen_1_1math_1_1aabb__t.html#a7126b98c6462a78d6cb2169390bfdb6f',1,'zen::math::aabb_t']]],
   ['buffer_5fcount',['buffer_count',['../classzen_1_1sfx_1_1z_audio2_d.html#a1129676aaf7cb9160f8dce0a5d5f0e89',1,'zen::sfx::zAudio2D::ALData']]],
   ['buffers',['buffers',['../classzen_1_1sfx_1_1z_audio2_d.html#a7c4845e05581f91360c48d3ace297ab9',1,'zen::sfx::zAudio2D::ALData']]],

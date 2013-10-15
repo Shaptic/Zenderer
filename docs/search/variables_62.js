@@ -7,6 +7,8 @@ var searchData=
   ['bad_5fpair',['BAD_PAIR',['../_entity_8hpp.html#adf8cb8a7fd0b346ab3cf3dc57dfbfa1f',1,'Entity.hpp']]],
   ['bad_5fposition',['BAD_POSITION',['../_entity_8hpp.html#a447a12db570f2f6f3cfc9328daf1d8c6',1,'Entity.hpp']]],
   ['blacklist',['blacklist',['../namespacezen_1_1lvl.html#a4465479c53f0a8cd38ce315f20f5c024',1,'zen::lvl::spawn_t']]],
+  ['box1',['box1',['../structzen_1_1math_1_1cquery__t.html#acdee2a05c3f7d45509b28fc3be0c25b5',1,'zen::math::cquery_t']]],
+  ['box2',['box2',['../structzen_1_1math_1_1cquery__t.html#a68fd57e277ef67047a8b20b386914f85',1,'zen::math::cquery_t']]],
   ['br',['br',['../structzen_1_1math_1_1aabb__t.html#a7126b98c6462a78d6cb2169390bfdb6f',1,'zen::math::aabb_t']]],
   ['buffer_5fcount',['buffer_count',['../classzen_1_1sfx_1_1z_audio2_d.html#a1129676aaf7cb9160f8dce0a5d5f0e89',1,'zen::sfx::zAudio2D::ALData']]],
   ['buffers',['buffers',['../classzen_1_1sfx_1_1z_audio2_d.html#a7c4845e05581f91360c48d3ace297ab9',1,'zen::sfx::zAudio2D::ALData']]],

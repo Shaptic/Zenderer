@@ -1,4 +1,0 @@
-<map id="zen::gfxcore::CTexture::LoadFromFile" name="zen::gfxcore::CTexture::LoadFromFile">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_material.html#a110ab4fb26d36407598d8ea3c18481d1" title="Loads a material from a .zfx file. " alt="" coords="208,5,339,46"/>
-<area shape="rect" id="node3" href="$classzen_1_1obj_1_1_c_entity.html#a566cefb83ad8fd96e459e69e7881c821" title="Creates an entity mesh from a file. " alt="" coords="387,5,514,46"/>
-</map>

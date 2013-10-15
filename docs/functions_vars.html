@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">3.0.0-alpha</span>
+   &#160;<span id="projectnumber">5.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 10804 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_type.html"><span>Typedefs</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -134,7 +135,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -180,6 +181,12 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>blacklist
 : <a class="el" href="namespacezen_1_1lvl.html#a4465479c53f0a8cd38ce315f20f5c024">zen::lvl::spawn_t</a>
 </li>
+<li>box1
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#acdee2a05c3f7d45509b28fc3be0c25b5">zen::math::cquery_t</a>
+</li>
+<li>box2
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#a68fd57e277ef67047a8b20b386914f85">zen::math::cquery_t</a>
+</li>
 <li>br
 : <a class="el" href="structzen_1_1math_1_1aabb__t.html#a7126b98c6462a78d6cb2169390bfdb6f">zen::math::aabb_t</a>
 </li>
@@ -205,6 +212,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>code
 : <a class="el" href="namespacezen_1_1net.html#a726424d15d813920d1f5f43dd0c61606">zen::net::ICMPHeader</a>
+</li>
+<li>collision
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#afc8ce3b4de8e85705e4e8e7c8ba1296c">zen::math::cquery_t</a>
 </li>
 <li>color
 : <a class="el" href="namespacezen_1_1gfxcore.html#a6924733c1ccf66bbc26e0e941f723162">zen::gfxcore::vertex_t</a>
@@ -297,6 +307,12 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
 <li>lights
 : <a class="el" href="namespacezen_1_1lvl.html#a777909f1dafd68efe38e99e32c20cc39">zen::lvl::level_t</a>
+</li>
+<li>line1
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#a520a1e7d3d94d630d9f8e7ef69fda72a">zen::math::cquery_t</a>
+</li>
+<li>line2
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#adb33e9eab6670832dadc0303fef776fa">zen::math::cquery_t</a>
 </li>
 </ul>
 
@@ -436,12 +452,18 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>parent
 : <a class="el" href="namespacezen_1_1util.html#a26448969e6306e4a91ffc71867590f55">zen::util::XMLNode</a>
 </li>
+<li>physical
+: <a class="el" href="namespacezen_1_1lvl.html#ad7d3e124aedb66291a07f84ca038391d">zen::lvl::level_t</a>
+</li>
+<li>point
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#a70b5263e947f4120540dcd6cd167f89d">zen::math::cquery_t</a>
+</li>
 <li>position
-: <a class="el" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a">zen::gfxcore::vertex_t</a>
-, <a class="el" href="namespacezen_1_1lvl.html#a485dcd48c31a1cbedf472dd04d2148ab">zen::lvl::spawn_t</a>
-, <a class="el" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">zen::gui::glyph_t</a>
-, <a class="el" href="namespacezen.html#a9342e3f2e598c3222a5e80ba698a76b9">zen::glyph_t</a>
+: <a class="el" href="namespacezen_1_1gui.html#a4f44e466c9172fc8044c042409a48a30">zen::gui::glyph_t</a>
+, <a class="el" href="namespacezen_1_1gfxcore.html#a039ea684a5c58297a199d4190f926f7a">zen::gfxcore::vertex_t</a>
 , <a class="el" href="structzen_1_1evt_1_1mouse__t.html#a9781ef6800b370ef8e984ba276ce38a3">zen::evt::mouse_t</a>
+, <a class="el" href="namespacezen_1_1lvl.html#a485dcd48c31a1cbedf472dd04d2148ab">zen::lvl::spawn_t</a>
+, <a class="el" href="namespacezen.html#a9342e3f2e598c3222a5e80ba698a76b9">zen::glyph_t</a>
 </li>
 <li>proto
 : <a class="el" href="namespacezen_1_1net.html#a1e01f253f267873c4b49355d54c3323f">zen::net::IPHeader</a>
@@ -513,13 +535,20 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>total_len
 : <a class="el" href="namespacezen_1_1net.html#a78e62c86fd5630ee3becb44a88a2b30c">zen::net::IPHeader</a>
 </li>
+<li>tri1
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#a19350f27be27962c6feedffa68341e05">zen::math::cquery_t</a>
+</li>
+<li>tri2
+: <a class="el" href="structzen_1_1math_1_1cquery__t.html#a06be46d2205712500186115c682eccf9">zen::math::cquery_t</a>
+</li>
 <li>ttl
 : <a class="el" href="namespacezen_1_1net.html#a3bb908d4387b84b906766722cbaeb9cb">zen::net::IPHeader</a>
 </li>
 <li>type
-: <a class="el" href="_pong_8cpp.html#a32d98163424b51c5d9d7576b55266bdf">PongPacket</a>
-, <a class="el" href="namespacezen_1_1net.html#a5e557444e534a575a7a6f73fea946bb5">zen::net::ICMPHeader</a>
+: <a class="el" href="namespacezen_1_1lvl.html#ab23ca0d4cd1931da4928a4411d8c921b">zen::lvl::spawn_t</a>
 , <a class="el" href="structzen_1_1evt_1_1event__t.html#a100566fc0993e22a4a8d694713d99a6e">zen::evt::event_t</a>
+, <a class="el" href="_pong_8cpp.html#a32d98163424b51c5d9d7576b55266bdf">PongPacket</a>
+, <a class="el" href="namespacezen_1_1net.html#a5e557444e534a575a7a6f73fea946bb5">zen::net::ICMPHeader</a>
 </li>
 </ul>
 

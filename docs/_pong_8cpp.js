@@ -25,7 +25,7 @@ var _pong_8cpp =
     [ "make_ball", "_pong_8cpp.html#a98a1b5ac138d1987c46cd622078b22a1", null ],
     [ "parse_msg", "_pong_8cpp.html#a637c70a19336d9c6a75c3b3891e2b334", null ],
     [ "build_packet", "_pong_8cpp.html#a5b10b66252707bc1a2af033fedb13daa", null ],
-    [ "main", "_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4", null ],
+    [ "main1", "_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb", null ],
     [ "MAX_PONG", "_pong_8cpp.html#ae2d1697fd03b28bff8fb7a35ded43576", null ],
     [ "MIN_PONG", "_pong_8cpp.html#a820fea2a5356fb4906694179880791a4", null ],
     [ "RNG", "_pong_8cpp.html#a05b25dc9afee78bc28be5ed318874aee", null ]

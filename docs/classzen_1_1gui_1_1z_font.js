@@ -10,6 +10,7 @@ var classzen_1_1gui_1_1z_font =
     [ "ClearString", "classzen_1_1gui_1_1z_font.html#a9805153394f3cd01041ccfa51eacc8b9", null ],
     [ "AttachManager", "classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777", null ],
     [ "SetColor", "classzen_1_1gui_1_1z_font.html#a8cd1236470fb602bbe20237a8a44398b", null ],
+    [ "SetColor", "classzen_1_1gui_1_1z_font.html#aabe8618c807f1830296c293387a07f95", null ],
     [ "SetSize", "classzen_1_1gui_1_1z_font.html#a3ab8b4e8391ba35b398935bb727ab5f2", null ],
     [ "SetStacking", "classzen_1_1gui_1_1z_font.html#a75c0aba3263ef5c4e305a1a821c5142b", null ],
     [ "GetTextWidth", "classzen_1_1gui_1_1z_font.html#a80e2b87420d997b627faab2c41bdc6f1", null ],

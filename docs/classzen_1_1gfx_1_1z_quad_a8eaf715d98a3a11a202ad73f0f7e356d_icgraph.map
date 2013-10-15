@@ -1,7 +1,0 @@
-<map id="zen::gfx::zQuad::Create" name="zen::gfx::zQuad::Create">
-<area shape="rect" id="node2" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="255,5,313,32"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="403,115,461,141"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="213,107,355,149"/>
-<area shape="rect" id="node5" href="$classzen_1_1obj_1_1z_entity.html#aad6f5bd0a5e765f0082b3fbd253b1f68" title="Creates an entity from a texture file. " alt="" coords="221,173,347,214"/>
-<area shape="rect" id="node6" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="407,209,457,236"/>
-</map>

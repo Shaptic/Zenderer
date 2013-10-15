@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">3.0.0-alpha</span>
+   &#160;<span id="projectnumber">5.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 10804 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,14 +119,14 @@ $(document).ready(function(){initNavTree('_render_target_8cpp_source.html','');}
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a3813d5d93a52624fb69ce1f862898391">    9</a></span>&#160;<a class="code" href="namespacezen_1_1gfx.html#af57946b222f47ca89c92b313f45e382b">zRenderTarget::zRenderTarget</a>(<span class="keyword">const</span> <a class="code" href="structzen_1_1math_1_1rect__t.html" title="Represents a rectangle with position and dimensions. ">math::rect_t</a>&amp; Dimensions) :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    zGLSubsystem(<span class="stringliteral">&quot;RenderTarget&quot;</span>), m_Log(zLog::GetEngineLog()),</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_Viewport(Dimensions.w, Dimensions.h), m_fbo(0), m_texture(0),</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_rbos(nullptr), m_rbo_count(0)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_Viewport(Dimensions.w, Dimensions.h), m_texture(0),</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_fbo(0), m_rbos(nullptr), m_rbo_count(0)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a51b56d7d5a490187403f725b1de883fd">   16</a></span>&#160;<a class="code" href="classzen_1_1gfx_1_1z_render_target.html#a3813d5d93a52624fb69ce1f862898391" title="Creates a render target of the specified dimensions. ">zRenderTarget::zRenderTarget</a>(<span class="keyword">const</span> uint16_t w, <span class="keyword">const</span> uint16_t h) :</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    zGLSubsystem(<span class="stringliteral">&quot;RenderTarget&quot;</span>), m_Log(zLog::GetEngineLog()),</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_Viewport(w, h), m_fbo(0), m_texture(0), m_rbos(nullptr), m_rbo_count(0)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    m_Viewport(w, h), m_texture(0), m_fbo(0), m_rbos(nullptr), m_rbo_count(0)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>

@@ -92,7 +92,7 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>rmdir /S /Q docs &amp; cd $(SolutionDir) &amp; update.py &amp; cd docs/html &amp; del /S *.md5 &amp; xcopy * "$(MSBuildProjectDirectory)/docs" /S /I /C /Y &amp; cd "$(MSBuildProjectDirectory)/data" &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ../docs &amp; cd ..</Command>
+      <Command>rmdir /S /Q docs &amp; cd $(SolutionDir) &amp; python update.py &amp; cd docs/html &amp; del /S *.md5 &amp; xcopy * "$(MSBuildProjectDirectory)/docs" /S /I /C /Y &amp; cd "$(MSBuildProjectDirectory)/data" &amp; xcopy * "$(OutputPath)/Zenderer" /S /I /C /Y &amp; cd ../docs &amp; cd ..</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copying documentation to repo and engine assets to output directory. </Message>

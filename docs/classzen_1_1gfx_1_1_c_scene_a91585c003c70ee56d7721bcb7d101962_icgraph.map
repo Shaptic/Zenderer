@@ -1,9 +1,0 @@
-<map id="zen::gfx::CScene::Clear" name="zen::gfx::CScene::Clear">
-<area shape="rect" id="node2" href="$classzen_1_1gfx_1_1_c_scene.html#a7cd402e9baf35c2819a4351744f6c6bd" title="zen::gfx::CScene::Destroy" alt="" coords="214,71,389,97"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1_c_scene.html#a8a76be972608f2edf4b689eed92a61fd" title="Renders the scene to the screen. " alt="" coords="216,121,387,148"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1_c_scene.html#a8f230d53cbde78e2a0d4a94fca1653b7" title="zen::gfx::CScene::\l~CScene" alt="" coords="460,5,591,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1gui_1_1_c_menu.html#ab2ab7e24e646bcb61ad0b9d8484f2604" title="zen::gui::CMenu::~CMenu" alt="" coords="438,71,613,97"/>
-<area shape="rect" id="node6" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="662,121,719,148"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1_c_menu.html#a50c980590fefd1412c905366ad788639" title="zen::gui::CMenu::Update" alt="" coords="442,172,609,199"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="665,172,716,199"/>
-</map>

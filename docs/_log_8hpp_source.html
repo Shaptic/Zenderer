@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Zenderer Engine
-   &#160;<span id="projectnumber">3.0.0-alpha</span>
+   &#160;<span id="projectnumber">5.0.0-alpha</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 9447 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 10804 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('_log_8hpp_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -179,34 +179,35 @@ $(document).ready(function(){initNavTree('_log_8hpp_source.html','');});
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> IsInit() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="_vector_8inl.html#a918377331bb4fc4ddf8aef82e130b812">operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; Log);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; GetEngineLog();</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad">  184</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; (<a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>::*<a class="code" href="classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad" title="Shortcut to the new line method pointer. ">endl</a>)();</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; Newline();</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        std::stringstream   m_str;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        std::ofstream       m_log;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        LogMode     m_mode;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>    m_system;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>    m_filename;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordtype">bool</span>        m_stdout;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordtype">bool</span>        m_init;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    };</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="comment">// Include definition for the templated operator&lt;&lt;</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_log_8inl.html">Log.inl</a>&quot;</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}   <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#endif // ZENDERER__UTILITIES__LOG_HPP</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">// Detailed documentation for the above class.</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">friend</span> <span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#acdd648d5c98f46e464fac0ca17691dce">  179</a></span>&#160;        <a class="code" href="_vector_8inl.html#a918377331bb4fc4ddf8aef82e130b812">operator&lt;&lt;</a>(std::ostream&amp; o, <span class="keyword">const</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; Log) { <span class="keywordflow">return</span> o; }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; GetEngineLog();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="code" href="classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad">  185</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; (<a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>::*<a class="code" href="classzen_1_1util_1_1z_log.html#aa93dc9b819da9e2bee15100933edfaad" title="Shortcut to the new line method pointer. ">endl</a>)();</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classzen_1_1util_1_1z_log.html" title="Creates a special file stream to store logging information. ">zLog</a>&amp; Newline();</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        std::stringstream   m_str;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        std::ofstream       m_log;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        LogMode     m_mode;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>    m_system;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <a class="code" href="namespacezen.html#a898a006a4d73069f64dfc5306fdc2cee" title="Character sequence representation used throughout the engine. ">string_t</a>    m_filename;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordtype">bool</span>        m_stdout;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">bool</span>        m_init;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    };</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">// Include definition for the templated operator&lt;&lt;</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="_log_8inl.html">Log.inl</a>&quot;</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}   <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#endif // ZENDERER__UTILITIES__LOG_HPP</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">// Detailed documentation for the above class.</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -22,6 +22,7 @@ var searchData=
   ['insert',['INSERT',['../_keyboard_8hpp.html#a7413a7bd185dd81a3b5df334bc212303',1,'Keyboard.hpp']]],
   ['insertentity',['InsertEntity',['../classzen_1_1gfx_1_1z_scene.html#a1da8d9bef43e37b34a302faa35a986ba',1,'zen::gfx::zScene']]],
   ['invert',['Invert',['../classzen_1_1obj_1_1z_entity.html#a5feabee3a6c74a9cb4c75dff978d4752',1,'zen::obj::zEntity']]],
+  ['invisible',['INVISIBLE',['../classzen_1_1lvl_1_1z_level_loader.html#a02414b53e633ebb8610d2216f3a09842a5fb351568336ebb294804f81e3c8663d',1,'zen::lvl::zLevelLoader']]],
   ['ipheader',['IPHeader',['../namespacezen_1_1net.html#structzen_1_1net_1_1_i_p_header',1,'zen::net']]],
   ['is_5fenabled',['IS_ENABLED',['../_renderer_8hpp.html#a697fb96c0a5b3fe358e31b57a15db586',1,'Renderer.hpp']]],
   ['isfullscreen',['IsFullscreen',['../classzen_1_1gfx_1_1z_window.html#afc51d4cfd5d173b332591c1237a15014',1,'zen::gfx::zWindow']]],
@@ -30,5 +31,6 @@ var searchData=
   ['ismodifiable',['IsModifiable',['../classzen_1_1gfx_1_1z_polygon.html#ad957c880eed742790fb244ddf42c54d6',1,'zen::gfx::zPolygon']]],
   ['isopen',['IsOpen',['../classzen_1_1gfx_1_1z_window.html#abcb441d17f9b7bd2f3d1ce72c6e8d356',1,'zen::gfx::zWindow']]],
   ['isover',['IsOver',['../classzen_1_1gui_1_1z_button.html#a2ff8c3d62f78a67ccd18a9cd04e723f8',1,'zen::gui::zButton::IsOver(const math::vector_t &amp;Pos)'],['../classzen_1_1gui_1_1z_button.html#a9459ec702c9ea16899626e34a01ed9d1',1,'zen::gui::zButton::IsOver(const math::rect_t &amp;Box)']]],
-  ['isvalidentityindex',['IsValidEntityIndex',['../classzen_1_1gfx_1_1z_scene.html#ad38c58aba5fc0fd4c5d6db43a6befa6b',1,'zen::gfx::zScene']]]
+  ['isvalidentityindex',['IsValidEntityIndex',['../classzen_1_1gfx_1_1z_scene.html#ad38c58aba5fc0fd4c5d6db43a6befa6b',1,'zen::gfx::zScene']]],
+  ['item_5fspawn',['ITEM_SPAWN',['../namespacezen_1_1lvl.html#aa2d0cacbcd853d22cc649f6a775aab8aa88073cc0d7023b0889799817211b0859',1,'zen::lvl']]]
 ];

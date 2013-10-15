@@ -1,14 +1,15 @@
 <map id="zen::gfx::zEffect::Enable" name="zen::gfx::zEffect::Enable">
-<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="717,151,774,177"/>
-<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_material.html#a8f82d5c3f189e6493b322b43f0fba50c" title="Enables the effect and texture for rendering. " alt="" coords="206,55,335,97"/>
-<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_material.html#afcc38d69492914de07023fdeb680cfa9" title="Enables only the effect. " alt="" coords="206,338,335,379"/>
-<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="179,404,363,431"/>
-<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="186,236,355,263"/>
-<area shape="rect" id="node11" href="$classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="411,340,616,367"/>
-<area shape="rect" id="node13" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="443,173,584,214"/>
-<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="448,5,579,46"/>
-<area shape="rect" id="node5" href="$_collision_test_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="717,12,774,39"/>
-<area shape="rect" id="node9" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="431,289,595,316"/>
-<area shape="rect" id="node10" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="720,289,771,316"/>
-<area shape="rect" id="node12" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="664,340,827,367"/>
+<area shape="rect" id="node2" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="486,136,543,163"/>
+<area shape="rect" id="node3" href="$classzen_1_1gfx_1_1z_material.html#a8f82d5c3f189e6493b322b43f0fba50c" title="Enables the effect and texture for rendering. " alt="" coords="217,5,346,46"/>
+<area shape="rect" id="node6" href="$classzen_1_1gfx_1_1z_material.html#afcc38d69492914de07023fdeb680cfa9" title="Enables only the effect. " alt="" coords="217,289,346,330"/>
+<area shape="rect" id="node7" href="$classzen_1_1gfx_1_1z_scene.html#afe9179ffd2a0e19b01e8d7a83b56f5fb" title="Adds an effect to be rendered on the whole scene. " alt="" coords="189,355,373,381"/>
+<area shape="rect" id="node8" href="$classzen_1_1gfx_1_1z_scene.html#ab58eed1825bbe82791af92ccf45e72a1" title="Renders the scene to the screen. " alt="" coords="197,187,366,213"/>
+<area shape="rect" id="node11" href="$classzen_1_1gui_1_1z_font.html#a7b62160ec76e8daccc2a199b9fc71777" title="Attaches an asset manager to the font for loading textures. " alt="" coords="179,237,384,264"/>
+<area shape="rect" id="node14" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Loads an animation from a texture file. " alt="" coords="211,70,352,111"/>
+<area shape="rect" id="node4" href="$classzen_1_1gfx_1_1z_polygon.html#ab7fb29249ab405cc610bb5e451397fea" title="Draws the primitive on&#45;screen. " alt="" coords="449,5,580,46"/>
+<area shape="rect" id="node5" href="$_collision_test_8cpp.html#a0e663f52efbc8593793d628b4259ce9b" title="main2" alt="" coords="646,12,703,39"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1z_menu.html#aa5b5b8c50bee2a1c707ff991bab7d302" title="zen::gui::zMenu::Update" alt="" coords="433,187,597,213"/>
+<area shape="rect" id="node10" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="646,212,703,239"/>
+<area shape="rect" id="node12" href="$classzen_1_1gui_1_1z_menu.html#a9b3cc6c18244d9e2dc62713b1c4e38b8" title="zen::gui::zMenu::zMenu" alt="" coords="433,288,596,315"/>
+<area shape="rect" id="node13" href="$classg_world.html#a91c2f296e6096c352eee81e10e2e6b4a" title="gWorld::gWorld" alt="" coords="459,339,571,365"/>
 </map>

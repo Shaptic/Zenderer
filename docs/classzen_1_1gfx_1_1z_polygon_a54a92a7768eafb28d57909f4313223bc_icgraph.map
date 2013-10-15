@@ -1,9 +1,11 @@
 <map id="zen::gfx::zPolygon::GetMaterial" name="zen::gfx::zPolygon::GetMaterial">
-<area shape="rect" id="node2" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Creates an entity from a texture file. " alt="" coords="627,5,768,46"/>
-<area shape="rect" id="node4" href="$classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="184,63,309,105"/>
-<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="838,69,895,96"/>
-<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="357,37,557,64"/>
-<area shape="rect" id="node6" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="393,89,522,130"/>
-<area shape="rect" id="node8" href="$_pong_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="841,124,892,151"/>
-<area shape="rect" id="node7" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="605,96,789,123"/>
+<area shape="rect" id="node2" href="$classzen_1_1obj_1_1z_animation.html#a8d9a58895fbc85d08a940d82eb0c156a" title="Loads an animation from a texture file. " alt="" coords="184,5,325,46"/>
+<area shape="rect" id="node4" href="$classzen_1_1obj_1_1z_entity.html#a7c8997abe3efcdcebe92dbb0d1aeff74" title="Creates an entity from an existing primitive, or adds it. " alt="" coords="192,91,317,133"/>
+<area shape="rect" id="node3" href="$_engine_test_8cpp.html#a75c2e94360fa8e46050b4f66fe444d6b" title="main2" alt="" coords="854,137,911,164"/>
+<area shape="rect" id="node5" href="$classzen_1_1gfx_1_1z_scene.html#a21bb49763f47748f0ba0eeee50107311" title="zen::gfx::zScene::AddPrimitive" alt="" coords="373,40,573,67"/>
+<area shape="rect" id="node6" href="$classzen_1_1lvl_1_1z_level_loader.html#abbdb81078346ea39b698975ff9b77c59" title="zen::lvl::zLevelLoader\l::LoadFromFile" alt="" coords="401,91,546,133"/>
+<area shape="rect" id="node8" href="$classzen_1_1gui_1_1z_button.html#a0cb61a9e5c11d230e8c9e6fa3dd20c39" title="zen::gui::zButton::\lSetBackground" alt="" coords="409,157,538,198"/>
+<area shape="rect" id="node10" href="$_pong_8cpp.html#a8006ac13983b83591702d97d584fc0eb" title="main1" alt="" coords="854,192,911,219"/>
+<area shape="rect" id="node7" href="$_level_test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="688,99,739,125"/>
+<area shape="rect" id="node9" href="$classzen_1_1gui_1_1z_menu.html#ad6c29f94e4b0916da9908cb40c48255c" title="zen::gui::zMenu::AddButton" alt="" coords="621,164,805,191"/>
 </map>
