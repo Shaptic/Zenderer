@@ -15,7 +15,7 @@ int main2(int argc, char* argv[])
 
     Window.Init();
 
-    sfx::CSound2D* Sound = Manager.Create<sfx::CSound2D>("Crackle.wav");
+    sfx::zSound2D* Sound = Manager.Create<sfx::zSound2D>("Crackle.wav");
 
     color4f_t Teal(0.0, 1.0, 1.0, 1.0);
 

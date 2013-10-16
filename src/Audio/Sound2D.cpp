@@ -5,17 +5,17 @@ using namespace zen;
 using util::zLog;
 using util::LogMode;
 
-using sfx::CSound2D;
+using sfx::zSound2D;
 
-CSound2D::CSound2D(const void* const owner) : zAudio2D(owner) {}
+zSound2D::zSound2D(const void* const owner) : zAudio2D(owner) {}
 
-CSound2D::~CSound2D()
+zSound2D::~zSound2D()
 {
     this->UnloadSource();
 }
 
 /// @todo Use some standardized WAV loading library.
-bool CSound2D::LoadFromFile(const string_t& filename)
+bool zSound2D::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERT(!filename.empty());
 
@@ -44,7 +44,7 @@ bool CSound2D::LoadFromFile(const string_t& filename)
     return (m_loaded = true);
 }
 
-void CSound2D::Play()
+void zSound2D::Play()
 {
     if(!this->IsLoaded())
     {

@@ -30,10 +30,10 @@ namespace zen
 namespace sfx
 {
     /// Sound effects (`.wav` files)
-    class ZEN_API CSound2D : public zAudio2D
+    class ZEN_API zSound2D : public zAudio2D
     {
     public:
-        virtual ~CSound2D();
+        virtual ~zSound2D();
 
         bool LoadFromFile(const string_t& filename);
         bool LoadFromExisting(const zAsset* const pCopy){ return true; }
@@ -56,8 +56,8 @@ namespace sfx
         friend class ZEN_API asset::zAssetManager;
 
     private:
-        CSound2D(const void* const owner = nullptr);
-        CSound2D(const CSound2D&);
+        zSound2D(const void* const owner = nullptr);
+        zSound2D(const zSound2D&);
     };
 }   // namespace sfx
 }   // namespace zen
@@ -65,7 +65,7 @@ namespace sfx
 #endif // ZENDERER__AUDIO__SOUND_2D_HPP
 
 /**
- * @class zen::sfx::CSound2D
+ * @class zen::sfx::zSound2D
  * @details
  *  This managed audio asset is designed primarily for short,
  *  repetitive sound effects stored in an uncompressed `.wav`
