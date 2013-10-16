@@ -40,10 +40,10 @@ namespace zen
 namespace gui
 {
     /// A TrueType font wrapper class.
-    class ZEN_API zFont : public asset::zAsset
+    class ZEN_API zFont2 : public asset::zAsset
     {
     public:
-        ~zFont();
+        ~zFont2();
 
         /**
          * Streams data for rendering as a string later.
@@ -169,8 +169,8 @@ namespace gui
         friend class ZEN_API asset::zAssetManager;
 
     private:
-        zFont(const void* const owner = nullptr);
-        zFont& operator=(const zFont& F);
+        zFont2(const void* const owner = nullptr);
+        zFont2& operator=(const zFont2& F);
 
         bool Destroy();
         bool LoadGlyph(const char c, const uint16_t index);

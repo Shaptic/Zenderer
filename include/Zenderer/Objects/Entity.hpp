@@ -42,7 +42,8 @@
 namespace zen
 {
 namespace gfx { class ZEN_API zScene; }
-namespace gui { class ZEN_API zFont;  }
+namespace gui { class ZEN_API zFont;
+                class ZEN_API zFont2; }
 
 /// A group of sprite-like objects that operate at a high level of abstraction.
 namespace obj
@@ -262,6 +263,7 @@ namespace obj
         inline void Disable() { m_enabled = false; }
 
         friend class ZEN_API gui::zFont;
+        friend class ZEN_API gui::zFont2;
         friend class ZEN_API gfx::zScene;
 
     protected:

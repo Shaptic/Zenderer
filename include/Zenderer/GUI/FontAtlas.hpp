@@ -1,3 +1,6 @@
+#ifndef ZENDERER__GUI__FONT_ATLAS_HPP
+#define ZENDERER__GUI__FONT_ATLAS_HPP
+
 // Include FreeType2 API.
 #include "ft2build.h"
 #include "freetype/freetype.h"
@@ -14,38 +17,41 @@
 
 namespace zen
 {
-    struct glyph_t
-    {
-        math::rect_t    AtlasMap;
-        math::vector_t  position;
-        uint16_t        advance;
-    };
-    
 namespace gui
 {
-    /** 
+    using util::LogMode;
+    using util::zLog;
+
+    /**
      * A much faster version of the default font class.
-     *  The functionality of this class is identical to zen::gui::CFont,
+     *  The functionality of this class is identical to zen::gui::zFont,
      *  but the internals are much different and the performance
      *  improvement for rendering to an entity is outstanding.
      *
      * @note    This class is fully experimental and untested.
      **/
-    class ZEN_API CFontAtlas
+    class ZEN_API zFont : public asset::zAsset
     {
     public:
-        ~CFont();
+        ~zFont(){}
+
+        template<typename T> inline
+        zFont& operator<<(const T& data)
+        {
+            m_str << data;
+            return (*this);
+        }
 
         bool LoadFromFile(const string_t& filename)
         {
-            const gui::CFontLibrary& Lib = gui::CFontLibrary::InitFreetype();
+            const gui::zFontLibrary& Lib = gui::zFontLibrary::InitFreetype();
 
             if(!Lib.IsInit())
             {
                 m_Log   << m_Log.SetSystem("FreeType")
                         << m_Log.SetMode(LogMode::ZEN_FATAL)
                         << "FreeType2 API is not initialized."
-                        << CLog::endl;
+                        << zLog::endl;
                 return (m_loaded = false);
             }
 
@@ -65,10 +71,10 @@ namespace gui
             if(FT_Set_Char_Size(m_FontFace, m_size << 6, m_size << 6, 96, 96) != 0)
             {
                 m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                        << "Failed to set font size." << CLog::endl;
+                        << "Failed to set font size." << zLog::endl;
                 return (m_loaded = false);
             }
-            
+
             // Set universal line height.
             m_height = m_FontFace->height;
 
@@ -76,7 +82,7 @@ namespace gui
             uint16_t row_w = 0, tmp_w = 0;
             uint16_t atl_h = 10 * m_height;
             uint16_t i = 0;
-            
+
             char s = ' ', e = '~';
             for( ; s <= e; ++s, ++i)
             {
@@ -85,23 +91,26 @@ namespace gui
                     row_w = math::max<uint16_t>(row_w, tmp_w);
                     tmp_w = 0;
                 }
-                
+
                 // Check if the glyph exists for this font.
                 uint32_t index = FT_Get_Char_Index(m_FontFace, s);
                 if(index == 0) continue;
                 tmp_w += this->SizePass(index);
             }
-            
+
             // We've calculated the total texture atlas size, now
             // we can create it and store the bitmaps inside of it.
-            mp_TextureAtlas = mp_Assets->Create<gfxcore::CTexture>();
-            mp_TextureAtlas->LoadFromRaw(GL_RGBA8, GL_RGBA, row_w, atl_h, nullptr);
-            
+            gfxcore::zTexture* tmp = mp_Assets->Create<gfxcore::zTexture>();
+            tmp->LoadFromRaw(GL_RGBA8, GL_RGBA, row_w, atl_h, nullptr);
+            mp_Atlas->LoadTexture(*tmp);
+            mp_Assets->Delete(tmp);
+
             // Loads all printable ASCII characters.
             s = ' ';
+            i = 0;
             uint32_t space = FT_Get_Char_Index(m_FontFace, s);
             math::vector_t Pos;
-            for( ; s <= e; ++s)
+            for( ; s <= e; ++s, ++i)
             {
                 // Check if the glyph exists for this font.
                 uint32_t index = FT_Get_Char_Index(m_FontFace, s);
@@ -110,15 +119,15 @@ namespace gui
                 if(index == 0)
                 {
                     m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) << "Character '" << s
-                            << "' does not exist for this font." << CLog::endl;
+                            << "' does not exist for this font." << zLog::endl;
                     continue;
                 }
 
                 glyph_t G = this->LoadGlyphIntoAtlas(s, index, Pos);
                 m_glyphData[s] = G;
-                
-                Pos.x += G.AtlasMap.w;
-                Pos.y += G.AtlasMap.h;
+
+                Pos.x += G.advance;
+                Pos.y += (i % 10) ? m_height : 0;
             }
 
             m_loaded = true;
@@ -127,8 +136,8 @@ namespace gui
             // Cleanup
             return (m_loaded = FT_Done_Face(m_FontFace) == 0);
         }
-        
-        bool Render(obj::CEntity& Ent, const string_t text = "")
+
+        bool Render(obj::zEntity& Ent, const string_t& to_render = "")
         {
             const string_t& text = to_render.empty() ? m_str.str() : to_render;
             if(text.empty() || !m_loaded) return false;
@@ -147,12 +156,12 @@ namespace gui
 
             math::vectoru16_t totals;
 
-            // Rendering position. By default, we use the line height, because the any 
+            // Rendering position. By default, we use the line height, because the any
             // line of the given text will at the very most be as tall as a line. But,
             // it may be true that there are no full line-height characters, so if there
             // are none then we just start at the lowest one.
             math::vector_t Pos(
-                0.0, 
+                0.0,
                 math::min<uint16_t>(m_height, this->GetTextHeight(text))
             );
 
@@ -161,7 +170,7 @@ namespace gui
             {
                 char c = text[i >> 2];
 
-                // Handle newlines by resetting the x-coordinate and 
+                // Handle newlines by resetting the x-coordinate and
                 // increasing the y by the current font faces line height
                 // property (universal on all glyphs).
                 if(c == '\n')
@@ -177,9 +186,9 @@ namespace gui
                 // Shortcut to glyph data.
                 const glyph_t& gl = m_glyphData[letter];
 
-                real_t x = gl.position.x;   // Store current x-coordinate.
-                real_t h = gl.position.y;   // Store current y-coordinate.
-                Pos.x   += gl.advance;      // Increment position for the next glyph.
+                real_t gx = gl.position.x;  // Store current x-coordinate.
+                real_t gh = gl.position.y;  // Store current y-coordinate.
+                Pos.x    += gl.advance;     // Increment position for the next glyph.
 
                 /*
                  * [i]      : top left
@@ -187,8 +196,8 @@ namespace gui
                  * [i + 2]  : bottom right
                  * [i + 3]  : bottom left
                  */
-                verts[i].position   = math::vector_t(Pos.x,             m_height - gl.position.x);
-                verts[i+1].position = math::vector_t(Pos.x + gl.size.x, m_height - gl.position.x);
+                verts[i].position   = math::vector_t(Pos.x,             m_height - gx);
+                verts[i+1].position = math::vector_t(Pos.x + gl.size.x, m_height - gx);
                 verts[i+2].position = math::vector_t(Pos.x + gl.size.x, m_height);
                 verts[i+3].position = math::vector_t(Pos.x,             m_height);
 
@@ -216,15 +225,15 @@ namespace gui
                 inds[x+5] = i + 1;
 
                 // Track total dimensions.
-                totals.x += math::max<uint16_t>(gl.size.w, gl.advance);
-                totals.y  = math::max<uint16_t>(totals.y, gl.size.h);
+                totals.x += math::max<uint16_t>(gl.size.x, gl.advance);
+                totals.y  = math::max<uint16_t>(totals.y,  gl.size.y);
             }
 
             // Render all of the loaded data onto a texture,
             // then assign that texture to the entity.
             gfxcore::DrawBatch D;
-            gfxcore::CVertexArray VAO(GL_STATIC_DRAW);
-            gfx::CRenderTarget FBO(totals.x, totals.y);
+            gfxcore::zVertexArray VAO(GL_STATIC_DRAW);
+            gfx::zRenderTarget FBO(totals.x, totals.y);
 
             D.Vertices = verts;
             D.vcount   = vlen;
@@ -244,12 +253,11 @@ namespace gui
             VAO.Bind(); FBO.Bind();
             FBO.Clear();
 
-            bool blend = gfxcore::CRenderer::BlendOperation(
+            bool blend = gfxcore::zRenderer::BlendOperation(
                                     gfxcore::BlendFunc::IS_ENABLED);
-            
-            gfxcore::CRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
-            m_AtlasShader.Enable();
-            mp_TextureAtlast->Bind();
+
+            gfxcore::zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+            mp_Atlas->Enable();
 
             for(size_t i = 0, j = text.length(); i < j; ++i)
             {
@@ -257,25 +265,26 @@ namespace gui
                 if(text[i] > '~' || text[i] < ' ') continue;
 
                 const glyph_t& g = m_glyphData[text[i]];
-                m_AtlastShader.SetParameter("offset", g.position.x, g.position.y);
+                const int offset[] = { g.position.x, g.position.y };
+                mp_Atlas->GetEffect().SetParameter("offset", offset, 2);
                 GL(glDrawElements(GL_TRIANGLES, 6, gfxcore::INDEX_TYPE,
                                  (void*)(sizeof(gfxcore::index_t) * i * 6)));
             }
 
             FBO.Unbind();
-            gfxcore::CRenderer::ResetMaterialState();
-            
+            mp_Atlas->Disable();
+
             // Only disable blending if it wasn't enabled prior to calling
             // this method (checked above).
-            if(!blend) gfxcore::CRenderer::BlendOperation(
+            if(!blend) gfxcore::zRenderer::BlendOperation(
                                   gfxcore::BlendFunc::DISABLE_BLEND);
 
             // Now the string has been rendered to the FBO texture, so all we need to
             // do is create a material and attach it to the quad.
-            
+
             // Create a texture wrapper from the texture handle in the FBO.
-            gfxcore::CTexture* pTexture =
-                mp_Assets->Create<gfxcore::CTexture>(this->GetOwner());
+            gfxcore::zTexture* pTexture =
+                mp_Assets->Create<gfxcore::zTexture>(this->GetOwner());
             pTexture->LoadFromExisting(FBO.GetTexture());
 
             // Retrieve the raw data.
@@ -287,7 +296,7 @@ namespace gui
             // to be preserved.
             pTexture->LoadFromRaw(GL_RGBA8, GL_RGBA, totals.x, totals.y, data);
 
-            gfx::CMaterial M(*mp_Assets);
+            gfx::zMaterial M(*mp_Assets);
             if(!M.LoadEffect(gfx::EffectType::GRAYSCALE) ||
                !M.LoadTexture(*pTexture))
             {
@@ -299,7 +308,7 @@ namespace gui
                 return false;
             }
 
-            gfx::CQuad Q(*mp_Assets, totals.x, totals.y);
+            gfx::zQuad Q(*mp_Assets, totals.x, totals.y);
             Q.AttachMaterial(M);
             Q.Create();
             Q.SetColor(color4f_t());
@@ -307,7 +316,6 @@ namespace gui
             Ent.AddPrimitive(Q);
 
             mp_Assets->Delete(pTexture);
-            mp_Assets->Delete(pFinal);
 
             delete[] data;
             delete[] verts;
@@ -315,34 +323,112 @@ namespace gui
 
             return FBO.Destroy() && VAO.Destroy();
         }
-        
-        void AttachManager(asset::CAssetManager& Assets);
 
-        /// Sets the font color.
-        void SetColor(const color4f_t& Color);
+        void SetColor(const color4f_t& Color) { m_Color = Color; }
+        void SetSize(const uint16_t size) { m_size = size; }
+        void SetStacking(const bool flag) {}
 
-        uint16_t GetTextWidth(const string_t&  text) const;
-        uint16_t GetTextHeight(const string_t& text) const;
-
-        friend class ZEN_API asset::CAssetManager;
-        
-    private:
-        CFont(const void* const owner = nullptr)
+        void ClearString()
         {
-            m_AtlasShader.SetType(gfx::EffectType::SPRITESHEET);
-            m_AtlasShader.Init();
-            m_AtlasShader.Enable();
-            m_AtlasShader.SetParameter("proj", gfxcore::CRenderer::GetProjectionMatrix());
-            m_AtlasShader.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-            m_AtlasShader.Disable();
+            m_str.str(std::string());
         }
-        
-        bool Destroy();
+
+        uint16_t GetTextWidth(const string_t& text) const
+        {
+            if(text.empty()) return 0;
+
+            uint16_t w = 0, tmp_w = 0;
+            uint16_t l = text.length();
+
+            for(size_t i = 0; i < l; ++i)
+            {
+                if(text[i] == '\n')
+                {
+                    w = math::max<uint16_t>(w, tmp_w);
+                    tmp_w = 0;
+                }
+                else
+                {
+                    const auto it = m_glyphData.find(text[i]);
+                    if(it != m_glyphData.end())
+                    {
+                        tmp_w += math::max<uint16_t>(it->second.size.x,
+                                                     it->second.advance);
+                    }
+                }
+            }
+
+            return math::max<uint16_t>(w, tmp_w);
+        }
+
+        uint16_t GetTextHeight(const string_t& text) const
+        {
+            if(text.empty()) return 0;
+
+            uint16_t h = 0, tmp_h = 0;
+            for(auto& i : text)
+            {
+                if(i == '\n')
+                {
+                    h = math::max(h, tmp_h);
+                    tmp_h = 0;
+                }
+                else
+                {
+                    const auto g = m_glyphData.find(i);
+                    tmp_h = math::max<uint16_t>(
+                        g->second.size.y + g->second.position.y, tmp_h);
+                }
+            }
+
+            return math::max(h, tmp_h);
+        }
+
+        const void* const GetData() const
+        {
+            return reinterpret_cast<const void* const>(&m_glyphData);
+        }
+
+        uint16_t GetLineHeight() const { return m_height; }
+
+        void AttachManager(asset::zAssetManager& Mgr)
+        {
+            mp_Assets = &Mgr;
+            if(mp_Atlas != nullptr)
+                delete mp_Atlas;
+
+            mp_Atlas = new gfx::zMaterial(Mgr);
+            mp_Atlas->LoadEffect(gfx::EffectType::SPRITESHEET);
+            gfx::zEffect& E = mp_Atlas->GetEffect();
+            E.Enable();
+            E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+            E.SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
+            E.Disable();
+        }
+
+        friend class ZEN_API asset::zAssetManager;
+
+    private:
+        zFont(const void* const owner = nullptr) : zAsset(owner),
+            mp_Atlas(nullptr)
+        {
+        }
+
+        bool Destroy()
+        {
+            if(m_loaded && mp_Atlas)
+            {
+                delete mp_Atlas;
+                m_loaded = (mp_Atlas = nullptr) != nullptr;
+            }
+
+            return !m_loaded;
+        }
 
         uint16_t SizePass(const uint16_t index)
         {
             FT_Glyph g;
-            
+
             // Render as a monochrome bitmap into glyph struct.
             FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);
             FT_Render_Glyph(m_FontFace->glyph, FT_RENDER_MODE_NORMAL);
@@ -350,7 +436,7 @@ namespace gui
 
             return m_FontFace->glyph->bitmap.width;
         }
-        
+
         glyph_t LoadGlyphIntoAtlas(const char c, const uint16_t index, const math::vector_t& Pos)
         {
             FT_Glyph g;
@@ -370,10 +456,10 @@ namespace gui
 
             if(w == 0 || h == 0)
             {
-                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR) 
-                        << "Empty character bitmap for '" << c << '\'' << CLog::endl;
+                m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+                        << "Empty character bitmap for '" << c << '\'' << zLog::endl;
             }
-            
+
             // Create the OpenGL texture and store the FreeType bitmap
             // in it as a monochrome texture.
 
@@ -381,28 +467,28 @@ namespace gui
             GLint pack;
             GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
             GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
-            
-            GL(glTexSubImage2D(GL_TEXTURE_2D, 0, Position.x, Position.y, 
+
+            GL(glTexSubImage2D(GL_TEXTURE_2D, 0, Pos.x, Pos.y,
                                w, h, GL_RGBA, GL_UNSIGNED_BYTE, bitmap.buffer));
 
             GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
 
             glyph_t gl;
-            gl.AtlasMap = math::rect_t(Position.x, Position.y, w, h);
-            gl.position = math::vector_t(slot->metrics.horiBearingY >> 6,
-                                         slot->metrics.horiBearingX >> 6);
+            gl.texture  = nullptr;
+            gl.size     = math::vectoru16_t(w, h);
+            gl.position = math::vectoru16_t(slot->metrics.horiBearingY >> 6,
+                                            slot->metrics.horiBearingX >> 6);
             gl.advance  = slot->advance.x >> 6;
-            
+
             // Clean up TTF data.
             FT_Done_Glyph(g);
-            
+
             return gl;
         }
 
-        asset::CAssetManager*   mp_Assets;
-        gfxcore::CTexture*      mp_TextureAtlas;
-        gfx::CEffect            m_AtlasShader;
-        
+        asset::zAssetManager*   mp_Assets;
+        gfx::zMaterial*         mp_Atlas;
+
         color4f_t m_Color;
         FT_Face m_FontFace;
 
@@ -414,3 +500,5 @@ namespace gui
     };
 }
 }
+
+#endif // ZENDERER__GUI__FONT_ATLAS_HPP

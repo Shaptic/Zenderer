@@ -24,7 +24,7 @@
 #define ZENDERER__GUI__BUTTON_HPP
 
 #include "Zenderer/Graphics/Scene.hpp"
-#include "Font.hpp"
+#include "FontAtlas.hpp"
 
 namespace zen
 {

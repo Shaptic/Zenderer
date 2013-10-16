@@ -4,22 +4,22 @@ using namespace zen;
 
 using util::zLog;
 using util::LogMode;
-using gui::zFont;
+using gui::zFont2;
 
-gfx::zEffect* zFont::s_FontFx = nullptr;
+gfx::zEffect* zFont2::s_FontFx = nullptr;
 
-zFont::zFont(const void* const owner) :
+zFont2::zFont2(const void* const owner) :
     zAsset(owner), mp_Assets(nullptr),
     m_Color(0.0, 0.0, 0.0, 1.0),
     m_size(18), m_height(0), m_stack(false)
 {}
 
-zFont::~zFont()
+zFont2::~zFont2()
 {
     this->Destroy();
 }
 
-bool zFont::LoadFromFile(const string_t& filename)
+bool zFont2::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "Asset manager MUST be attached!");
     if(s_FontFx == nullptr)
@@ -92,14 +92,14 @@ bool zFont::LoadFromFile(const string_t& filename)
     return (m_loaded = FT_Done_Face(m_FontFace) == 0);
 }
 
-const void* const zFont::GetData() const
+const void* const zFont2::GetData() const
 {
     return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
-bool zFont::Render(obj::zEntity& Ent,
-                   const string_t& to_render /*=""*/) const
+bool zFont2::Render(obj::zEntity& Ent, const string_t& to_render) const
 {
+    ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     gfxcore::zTexture& Texture = *mp_Assets->Create<gfxcore::zTexture>();
     if(!this->Render(Texture, to_render))
     {
@@ -124,10 +124,9 @@ bool zFont::Render(obj::zEntity& Ent,
     return true;
 }
 
-bool zFont::Render(gfxcore::zTexture& Texture,
-                   const string_t& to_render /*=""*/) const
+bool zFont2::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
 {
-ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
+    ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
 
     if(text.empty() || !m_loaded || s_FontFx == nullptr) return false;
@@ -308,12 +307,12 @@ ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     return FBO.Destroy() && VAO.Destroy();
 }
 
-void zFont::ClearString()
+void zFont2::ClearString()
 {
     m_str.str(std::string());
 }
 
-bool zFont::Destroy()
+bool zFont2::Destroy()
 {
     m_size = 18;
     for(auto i : m_glyphData)
@@ -323,7 +322,7 @@ bool zFont::Destroy()
     return true;
 }
 
-bool zFont::LoadGlyph(const char c, const uint16_t index)
+bool zFont2::LoadGlyph(const char c, const uint16_t index)
 {
     ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
     FT_Glyph g;
@@ -379,7 +378,7 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     return true;
 }
 
-bool zFont::AttachManager(asset::zAssetManager& Assets)
+bool zFont2::AttachManager(asset::zAssetManager& Assets)
 {
     mp_Assets = &Assets;
     if(s_FontFx == nullptr)
@@ -401,24 +400,24 @@ bool zFont::AttachManager(asset::zAssetManager& Assets)
     return true;
 }
 
-void zFont::SetColor(const color4f_t& Color)
+void zFont2::SetColor(const color4f_t& Color)
 {
     m_Color = Color;
 }
 
-void zFont::SetColor(const real_t r, const real_t g, const real_t b)
+void zFont2::SetColor(const real_t r, const real_t g, const real_t b)
 {
     m_Color.r = r;
     m_Color.g = g;
     m_Color.b = b;
 }
 
-void zFont::SetStacking(const bool flag)
+void zFont2::SetStacking(const bool flag)
 {
     m_stack = flag;
 }
 
-uint16_t zFont::GetTextWidth(const string_t& text) const
+uint16_t zFont2::GetTextWidth(const string_t& text) const
 {
     if(text.empty()) return 0;
 
@@ -446,7 +445,7 @@ uint16_t zFont::GetTextWidth(const string_t& text) const
     return math::max<uint16_t>(w, tmp_w);
 }
 
-uint16_t zFont::GetTextHeight(const string_t& text) const
+uint16_t zFont2::GetTextHeight(const string_t& text) const
 {
     if(text.empty()) return 0;
 

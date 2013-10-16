@@ -29,7 +29,7 @@
 #include "Zenderer/Events/Mouse.hpp"
 #include "Zenderer/Graphics/Scene.hpp"
 
-#include "Font.hpp"
+#include "FontAtlas.hpp"
 #include "Button.hpp"
 
 namespace zen
