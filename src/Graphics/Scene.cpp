@@ -173,7 +173,7 @@ bool zScene::Render()
 
     // Clear our frame buffers from the last drawing.
     // We will be rendering to FBO1 at first.
-    color4f_t Clear = color4f_t(0.0, 0.0, 0.0, m_through ? 0.0 : 1.0);
+    color4f_t Clear = color4f_t(0.1, 0.1, 0.1, m_through ? 0.0 : 1.0);
     m_FBO2.Bind(); m_FBO2.Clear(Clear);
     m_FBO1.Bind(); m_FBO1.Clear(Clear);
 
