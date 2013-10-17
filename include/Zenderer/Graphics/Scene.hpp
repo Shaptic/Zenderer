@@ -181,6 +181,7 @@ namespace gfx
 
         /// Renders the scene to the screen.
         /// @todo   Clipping.
+        /// @todo   Specify optional clear color.
         bool Render();
 
         /// Verifies the given index is within the valid range.
