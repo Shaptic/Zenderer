@@ -160,7 +160,7 @@ bool zScene::Clear()
     return m_Geometry.Clear();
 }
 
-bool zScene::Render()
+bool zScene::Render(color4f_t Clear)
 {
     // Called every frame because there is no more appropriate
     // time to call it. Things won't be offloaded multiple times.
@@ -173,7 +173,7 @@ bool zScene::Render()
 
     // Clear our frame buffers from the last drawing.
     // We will be rendering to FBO1 at first.
-    color4f_t Clear = color4f_t(0.1, 0.1, 0.1, m_through ? 0.0 : 1.0);
+    if (m_through) Clear.a = 0.0;
     m_FBO2.Bind(); m_FBO2.Clear(Clear);
     m_FBO1.Bind(); m_FBO1.Clear(Clear);
 

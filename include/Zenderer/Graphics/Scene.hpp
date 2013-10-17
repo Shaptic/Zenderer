@@ -179,10 +179,30 @@ namespace gfx
         /// Deletes all scene data (lights, objects, effects, etc).
         bool Clear();
 
-        /// Renders the scene to the screen.
-        /// @todo   Clipping.
-        /// @todo   Specify optional clear color.
-        bool Render();
+        /**
+         * Renders the scene to the screen.
+         *  There is an optional parameter to specify the color to
+         *  clear scene contents with. Its alpha component will be ignored
+         *  and set to 0.0 if `SetSeeThrough(true)` has been called.
+         *
+         *  This parameter is useful for when you have lighting effects enabled
+         *  on the scene, but no background geometry. The lighting will not
+         *  show up because it is multiplied by scene content, and multiplying
+         *  the light color by 0 will rendering blackness.
+         *
+         *  The default clearing color is pure black.
+         *
+         * @param   clear_color     The color to clear the scene with (optional)
+         *
+         * @return  `true`  if the scene rendered successfully,
+         *          `false` otherwise.
+         *
+         * @see     SetSeeThrough()
+         * @see     zWindow::Clear()
+         *
+         * @todo    Clipping.
+         **/
+        bool Render(color4f_t clear_color = color4f_t(0.0, 0.0, 0.0));
 
         /// Verifies the given index is within the valid range.
         bool IsValidEntityIndex(int32_t i);
