@@ -181,12 +181,12 @@ bool zEntity::Optimize()
     return false;
 }
 
-bool zEntity::Draw(bool is_bound /*= false*/)
+bool zEntity::Draw(const gfx::RenderState& state)
 {
     if(!m_enabled) return false;
 
     for(auto& i : mp_allPrims)
-        i->Draw(is_bound);
+        i->Draw(state);
 
     return true;
 }
@@ -216,10 +216,10 @@ void zEntity::Adjust(const math::vector_t& delta)
     this->Move(this->GetPosition() + delta);
 }
 
-void zEntity::Offload(gfxcore::zVertexArray& VAO, const bool keep /*= true*/)
+void zEntity::Offload(gfxcore::zVertexArray& VAO, const gfx::VAOState& state)
 {
     for(auto& i : mp_allPrims)
-        i->LoadIntoVAO(VAO, keep);
+        i->LoadIntoVAO(VAO, state);
 }
 
 bool zEntity::Offloaded() const

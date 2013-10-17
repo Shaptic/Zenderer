@@ -33,6 +33,18 @@ namespace zen
 namespace obj { class ZEN_API zEntity; }
 namespace gfx
 {
+    enum class VAOState
+    {
+        PRESERVE_DATA,
+        NO_PRESERVE_DATA
+    };
+
+    enum class RenderState
+    {
+        READY,
+        NOT_READY
+    };
+
     /// An arbitrary n-vertex convex polygon.
     class ZEN_API zPolygon
     {
@@ -117,7 +129,7 @@ namespace gfx
          *
          * @return  `true` if drawing was successful, `false` otherwise.
          **/
-        bool Draw(const bool is_bound = false);
+        bool Draw(const RenderState& is_bound = RenderState::NOT_READY);
 
         /**
          * Shortcut to prevent loading simple objects manually.
@@ -130,7 +142,7 @@ namespace gfx
          * @param   preserve    Should we keep our local vertex data?
          **/
         void LoadIntoVAO(gfxcore::zVertexArray& VAO,
-                         const bool preserve = true);
+                         const VAOState& preserve = VAOState::PRESERVE_DATA);
 
         /**
          * Attempts collision detection with another polygon.

@@ -5,6 +5,8 @@ using gfxcore::zRenderer;
 using gfxcore::index_t;
 
 using gfx::zPolygon;
+using gfx::VAOState;
+using gfx::RenderState;
 
 zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
     m_Assets(Assets), mp_MVMatrix(nullptr), mp_VAO(nullptr),
@@ -159,9 +161,9 @@ zPolygon& zPolygon::Create(const bool do_triangulation)
     return (*this);
 }
 
-bool zPolygon::Draw(const bool is_bound /*= false*/)
+bool zPolygon::Draw(const RenderState& state)
 {
-    if(mp_VAO == nullptr && !is_bound)
+    if(mp_VAO == nullptr && state == RenderState::NOT_READY)
     {
         // Create a vertex array and load our data.
         mp_VAO = new gfxcore::zVertexArray(GL_STATIC_DRAW);
@@ -180,7 +182,7 @@ bool zPolygon::Draw(const bool is_bound /*= false*/)
 
     // If something isn't previously bound, we bind the VAO
     // and the material. If no material, use global default.
-    if(!is_bound)
+    if(state == RenderState::NOT_READY)
     {
         if(!mp_VAO->Bind()) return false;
 
@@ -210,16 +212,18 @@ bool zPolygon::Draw(const bool is_bound /*= false*/)
                       gfxcore::INDEX_TYPE,
                       (void*)(sizeof(index_t) * m_offset)));
 
-    return is_bound ? true : zRenderer::ResetMaterialState() && mp_VAO->Unbind();
+    return state == RenderState::READY ? true
+        : zRenderer::ResetMaterialState() && mp_VAO->Unbind();
 }
 
-void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO, const bool keep)
+void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO,
+                           const VAOState& state)
 {
     if(m_DrawData.Vertices == nullptr ||
        m_DrawData.Indices  == nullptr) return;
 
     gfxcore::index_t i = VAO.AddData(m_DrawData);
-    if(!keep)
+    if(state == VAOState::NO_PRESERVE_DATA)
     {
         delete[] m_DrawData.Vertices;
         delete[] m_DrawData.Indices;

@@ -141,7 +141,8 @@ namespace obj
          *
          *
          **/
-        virtual bool Draw(bool is_bound = false);
+        virtual bool Draw(const gfx::RenderState& state =
+                          gfx::RenderState::NOT_READY);
 
         /// Purely for inheritance compatibility.
         virtual bool Update() { return false; }
@@ -226,7 +227,8 @@ namespace obj
          *
          * @see     gfxcore::zVertexArray::Clear()
          **/
-        void Offload(gfxcore::zVertexArray& VAO, const bool keep = true);
+        void Offload(gfxcore::zVertexArray& VAO,
+                     const gfx::VAOState& keep = gfx::VAOState::PRESERVE_DATA);
 
         /// Checks if the entity has offloaded any vertex data to a GPU buffer.
         bool Offloaded() const;

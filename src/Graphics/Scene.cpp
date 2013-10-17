@@ -166,7 +166,7 @@ bool zScene::Render(color4f_t Clear)
     // time to call it. Things won't be offloaded multiple times.
     for(auto& i : m_allEntities)
     {
-        i->Offload(m_Geometry, false);
+        i->Offload(m_Geometry, VAOState::NO_PRESERVE_DATA);
     }
 
     m_Geometry.Offload();
@@ -204,7 +204,7 @@ bool zScene::Render(color4f_t Clear)
             auto& M = j->GetMaterial();
             M.Enable();
             M.GetEffect().SetParameter("mv", Tmp);
-            j->Draw(true);
+            j->Draw(RenderState::READY);
         }
 
         // Move back to original position.
