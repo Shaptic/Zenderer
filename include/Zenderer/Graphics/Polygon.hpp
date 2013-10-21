@@ -63,6 +63,7 @@ namespace gfx
          * @param   Position    The location to create the next vertex at
          **/
         void AddVertex(const math::vector_t& Position);
+        void AddVertex(const real_t x, const real_t y); ///< @overload
 
         /**
          * Creates the polygon from the internally stored vertices.

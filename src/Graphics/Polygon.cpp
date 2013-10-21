@@ -119,7 +119,13 @@ void zPolygon::RemoveMaterial()
 
 void zPolygon::AddVertex(const math::vector_t& Position)
 {
-    m_Verts.emplace_back(Position);
+    this->AddVertex(Position.x, Position.y);
+}
+
+void zPolygon::AddVertex(const real_t x, const real_t y)
+{
+    m_Verts.emplace_back(x, y, 0.0);
+    m_Verts.shrink_to_fit();
 }
 
 zPolygon& zPolygon::Create(const bool do_triangulation)
