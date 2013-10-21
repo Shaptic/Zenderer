@@ -179,7 +179,6 @@ namespace zen
  *
  * @todo    Test cross-platform compatibility.
  * @todo    Take a stance on `GetHeight()`/`GetWidth()` vs. `GetH()`/`GetW()`
- * @todo    Create `enum`s instead of seemingly arbitrary `bool` parameters.
  *
  * @section prep    Preprocessor Defines
  *  There are several preprocessor directives that can be set to slightly
