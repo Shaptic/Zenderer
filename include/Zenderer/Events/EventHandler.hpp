@@ -38,6 +38,7 @@ namespace zen
 {
 namespace evt
 {
+    /// Handles system events.
     class ZEN_API zEventHandler
     {
     public:
