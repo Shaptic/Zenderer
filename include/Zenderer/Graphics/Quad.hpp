@@ -53,9 +53,7 @@ namespace gfx
          * @pre     Draw() has not been called yet.
          **/
         void Resize(const math::vectoru16_t& Size);
-
-        /// @overload
-        void Resize(const uint16_t w, const uint16_t h);
+        void Resize(const uint16_t w, const uint16_t h); ///< @overload
 
         virtual bool Collides(const zPolygon& Other, math::cquery_t* q) const
         {
@@ -83,7 +81,6 @@ namespace gfx
 
             return false;
         }
-
 
         bool Collides(const zQuad& Other, math::cquery_t* q) const
         {
@@ -140,7 +137,7 @@ namespace gfx
          *
          * @pre     Neither Draw() nor Create() have been called yet.
          **/
-        void SetInverted(const bool flag);
+        virtual void SetInverted(const bool flag);
 
         /**
          * Repeat texture or stretch to fit.

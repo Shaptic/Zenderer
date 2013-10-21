@@ -153,7 +153,7 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
 
     gfx::zPolygon* pPoly = new gfx::zPolygon(Polygon);
     pPoly->AttachMaterial(const_cast<gfx::zMaterial&>(Polygon.GetMaterial()));
-    //pPoly->SetInverted(m_inv);
+    pPoly->SetInverted(m_inv);
     pPoly->SetColor(Polygon.m_Color);
     pPoly->Create();
     mp_allPrims.emplace_back(pPoly);

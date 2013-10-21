@@ -173,6 +173,9 @@ namespace gfx
         void SetColor(const real_t r, const real_t g,
                       const real_t b, const real_t a = 1.0); ///< @overload
 
+        /// These is for zQuad.
+        virtual void SetInverted(const bool) { /* does nothing */ }
+
         inline const std::vector<math::vector_t>&
         GetTriangulation() const { return m_Tris; }
 
