@@ -4,7 +4,7 @@ using namespace zen;
 using gfxcore::zRenderer;
 
 #if defined(ZEN_API) && !defined(_DEBUG) && !defined(ZENDERER_EXPORTS)
-  #pragma comment(lib, "Zenderer.lib")
+#  pragma comment(lib, "Zenderer.lib")
 #endif // ZEN_API
 
 int main2(int argc, char* argv[])

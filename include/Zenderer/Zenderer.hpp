@@ -44,7 +44,7 @@
 #if defined(__GNUC__)       || \
     defined(__MINGW32__)    || \
     defined(__MINGW64__)
-  #warning "Non-regex string parsing has not been tested thoroughly..."
+#  warning "Non-regex string parsing has not been tested thoroughly..."
 #elif                           \
     !(                          \
         defined(WIN32)      ||  \
@@ -52,12 +52,11 @@
         defined(__WIN32__)  ||  \
         defined(__WINDOWS__)    \
     )
-  #warning "Zenderer has only been tested on Windows using MinGW and Visual Studio..."
+#  warning "Zenderer has only been tested on Windows using MinGW and Visual Studio..."
 #else
-  /// Use a uniform macro for Windows builds.
-  #ifndef _WIN32
-    #define _WIN32
-  #endif // _WIN32
+#  ifndef _WIN32    ///< Use a uniform macro for Windows builds.
+#    define _WIN32
+#  endif // _WIN32
 #endif // WIN32
 
 // Core API

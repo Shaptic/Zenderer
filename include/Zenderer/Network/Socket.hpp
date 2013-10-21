@@ -57,7 +57,7 @@ namespace net
 // Windows has a custom ICMP API that avoids the need
 // for raw sockets and administrative rights.
 #ifndef _WIN32
-#pragma pack(1)
+#  pragma pack(1)
     struct IPHeader
     {
         unsigned int    h_len:4;
@@ -82,7 +82,7 @@ namespace net
         uint16_t    seq;
         uint32_t    time;
     };
-#pragma pack()
+#  pragma pack()
 
     enum ICMPReply
     {

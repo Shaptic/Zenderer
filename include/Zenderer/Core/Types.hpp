@@ -61,34 +61,34 @@ namespace std
 
 // Attempt to detect debug or release build.
 #ifndef ZEN_DEBUG_BUILD
-  #if defined(_DEBUG) || defined(DEBUG)
-    #pragma message("Compiling in debug mode...")
-    #define ZEN_DEBUG_BUILD
-  #else
-    #pragma message("Compiling in release mode...")
-  #endif // defined(_DEBUG)
+#  if defined(_DEBUG) || defined(DEBUG)
+#    pragma message("Compiling in debug mode...")
+#    define ZEN_DEBUG_BUILD
+#  else
+#    pragma message("Compiling in release mode...")
+#  endif // defined(_DEBUG)
 #endif // ZEN_DEBUG_BUILD
 
 /// Conditionally build as a DLL.
 #ifndef ZEN_DLL
-  #if defined(ZENDERER_EXPORTS) && defined(_WIN32)
-    #define ZEN_DLL 1
-  #else
-    #define ZEN_DLL 0
-  #endif // ZENDERER_EXPORTS
+#  if defined(ZENDERER_EXPORTS) && defined(_WIN32)
+#    define ZEN_DLL 1
+#  else
+#    define ZEN_DLL 0
+#  endif // ZENDERER_EXPORTS
 #endif // ZEN_DLL
 
 /// The engine can be built as a DLL, then linked with the generated .lib.
 #if ZEN_DLL
-  #define ZEN_API __declspec(dllexport)
+#  define ZEN_API __declspec(dllexport)
 #else
-  #if defined(ZEN_DEBUG_BUILD) && !ZEN_DLL
-    #define ZEN_API
-  #elif ZEN_DLL
-    #define ZEN_API __declspec(dllimport)
-  #else
-    #define ZEN_API
-  #endif // ZEN_DEBUG_BUILD
+#  if defined(ZEN_DEBUG_BUILD) && !ZEN_DLL
+#    define ZEN_API
+#  elif ZEN_DLL
+#    define ZEN_API __declspec(dllimport)
+#  else
+#    define ZEN_API
+#  endif // ZEN_DEBUG_BUILD
 #endif // ZENDERER_EXPORTS
 
 /// An all-encompassing namespace for any and all components of @a Zenderer.
@@ -115,6 +115,7 @@ namespace zen
     typedef std::string string_t;
 
     /**
+     * @fn zen::clamp
      * Clamps a value in the provided range [min, max].
      *
      * @param   val         Value to clamp

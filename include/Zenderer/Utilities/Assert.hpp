@@ -35,18 +35,20 @@
 
 // Assertions only run in debug builds.
 #if defined(ZEN_DEBUG_BUILD) || defined(_DEBUG)
-  /// Assertion macro for convenience
-  #define ZEN_ASSERT(expression) \
-    zen::util::runtime_assert(expression, #expression, __LINE__, __FILE__)
 
-  /// Assertion with a custom message
-  #define ZEN_ASSERTM(expression, msg)    \
-    zen::util::runtime_assert(expression, \
+   /// Assertion macro.
+#  define ZEN_ASSERT(expression)                        \
+    zen::util::runtime_assert(expression, #expression,  \
+                              __LINE__, __FILE__)
+
+   /// Assertion with a custom message
+#  define ZEN_ASSERTM(expression, msg)      \
+    zen::util::runtime_assert(expression,   \
         #expression, __LINE__, __FILE__, msg)
 
 #else
-  #define ZEN_ASSERT(expr)
-  #define ZEN_ASSERTM(expr, msg)
+#  define ZEN_ASSERT(expr)
+#  define ZEN_ASSERTM(expr, msg)
 #endif // _DEBUG
 
 namespace zen
