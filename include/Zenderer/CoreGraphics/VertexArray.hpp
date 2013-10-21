@@ -32,7 +32,7 @@
 
 /**
  * Dirty macro to determine the offset of a field within a struct.
- *  Used throughout the CVertexBuffer class to determine the offsets
+ *  Used throughout the zVertexBuffer class to determine the offsets
  *  of data in the GPU buffers.
  **/
 #define VBO_OFFSET(c, object, field)\

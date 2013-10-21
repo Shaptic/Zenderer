@@ -199,7 +199,7 @@ namespace gui
 #endif // ZENDERER__CORE_GRAPHICS__FONT_HPP
 
 /**
- * @class zen::gfx::zFont
+ * @class zen::gui::zFont
  * @details
  *  Fonts are unique assets that use the FreeType 2 to load TrueType (`.ttf`)
  *  fonts and render them in an OpenGL-compatible matter.
