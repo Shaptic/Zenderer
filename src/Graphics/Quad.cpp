@@ -21,9 +21,7 @@ zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
     m_rep = Copy.m_rep;
 }
 
-zQuad::~zQuad()
-{
-}
+zQuad::~zQuad() {}
 
 gfx::zPolygon& zQuad::Create(const bool triangulate)
 {
@@ -64,6 +62,7 @@ gfx::zPolygon& zQuad::Create(const bool triangulate)
     for(uint8_t i = 0; i < m_DrawData.icount; ++i)
         m_Tris.push_back(m_DrawData.Vertices[m_DrawData.Indices[i]].position);
 
+    m_Verts.clear();
     return (*this);
 }
 

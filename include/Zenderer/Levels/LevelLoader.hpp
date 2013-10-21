@@ -123,11 +123,13 @@ namespace lvl
                                 stoi(Parser.PopResult("depth", "1")));
 
                     string_t result = Parser.PopResult("vertex");
+                    uint16_t poly = 0;
                     while(!result.empty())
                     {
                         parts = util::split(result, ',');
                         Poly.AddVertex(math::vector_t(stod(parts[0]), stod(parts[1]), 1.0));
                         result = Parser.PopResult("vertex");
+                        poly++;
                     }
 
                     if(Parser.Exists("color"))
@@ -143,13 +145,25 @@ namespace lvl
                     }
 
                     /// @todo Polygons vs. Entities differentiation.
-                    if(Parser.Exists("texture"))
+                    if(poly == 0)
                     {
                         Latest.LoadFromTexture(Parser.PopResult("texture"));
                     }
                     else
                     {
-                        Latest.AddPrimitive(std::move(Poly.Create()));
+                        gfx::zQuad Quad(m_Assets, Poly.CalcW(), Poly.CalcH());
+                        Quad.SetRepeating(true);
+                        gfx::zPolygon* pActive = &Poly;
+
+                        if(poly == 4) pActive = &Quad;
+                        if(Parser.Exists("texture"))
+                        {
+                            gfx::zMaterial M(m_Assets);
+                            M.LoadTextureFromFile(Parser.PopResult("texture"));
+                            pActive->AttachMaterial(std::move(M));
+                        }
+
+                        Latest.AddPrimitive(std::move(pActive->Create()));
                     }
 
                     result = Parser.PopResult("attributes", "0x00");
