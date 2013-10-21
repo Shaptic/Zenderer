@@ -21,7 +21,7 @@ zConcavePolygon::zConcavePolygon(asset::zAssetManager& Assets,
 
 zConcavePolygon::~zConcavePolygon() {}
 
-gfx::zPolygon& zConcavePolygon::Create()
+gfx::zPolygon& zConcavePolygon::Create(const bool placeholder)
 {
     if(m_Verts.size() <= 2) return (*this);
 

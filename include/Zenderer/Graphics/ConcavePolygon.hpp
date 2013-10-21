@@ -36,7 +36,7 @@ namespace gfx
         zConcavePolygon(asset::zAssetManager& Assets, const size_t preload=0);
         ~zConcavePolygon();
 
-        virtual zPolygon& Create();
+        virtual zPolygon& Create(const bool do_triangulation = false);
 
         /// For setting things implicitly.
         friend class ZEN_API obj::zEntity;
