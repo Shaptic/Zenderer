@@ -204,6 +204,26 @@ namespace gfx
          **/
         bool Render(color4f_t clear_color = color4f_t(0.0, 0.0, 0.0));
 
+        /**
+         * Pans the map by a certain delta.
+         *
+         * @param   dx  Amount to pan in the x-direction.
+         * @param   dy  Amount to pan in the y-direction.
+         *
+         * @return  The current total camera offset, with the given adjustment.
+         **/
+        math::vector_t PanCamera(const real_t dx, const real_t dy)
+        {
+            m_Camera.x += dx;
+            m_Camera.y += dy;
+            return m_Camera;
+        }
+
+        const math::vector_t& GetCamera() const
+        {
+            return m_Camera;
+        }
+
         /// Verifies the given index is within the valid range.
         bool IsValidEntityIndex(int32_t i);
 
