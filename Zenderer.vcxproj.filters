@@ -419,6 +419,9 @@
     <ClCompile Include="src\Graphics\ConcavePolygon.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\Levels\LevelLoader.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
     <ClCompile Include="src\LevelTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

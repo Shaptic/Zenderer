@@ -168,7 +168,6 @@
     <ClCompile Include="src\Audio\AudioManager.cpp" />
     <ClCompile Include="src\Audio\Music2D.cpp" />
     <ClCompile Include="src\Audio\Sound2D.cpp" />
-    <ClCompile Include="src\CollisionTest.cpp" />
     <ClCompile Include="src\CoreGraphics\OpenGL.cpp" />
     <ClCompile Include="src\CoreGraphics\Renderer.cpp" />
     <ClCompile Include="src\CoreGraphics\Shader.cpp" />
@@ -179,8 +178,6 @@
     <ClCompile Include="src\Core\Allocator.cpp" />
     <ClCompile Include="src\Core\ErrorHandling.cpp" />
     <ClCompile Include="src\Core\Subsystem.cpp" />
-    <ClCompile Include="src\DLLMain.cpp" />
-    <ClCompile Include="src\EngineTest.cpp" />
     <ClCompile Include="src\Events\EventHandler.cpp" />
     <ClCompile Include="src\Events\Mouse.cpp" />
     <ClCompile Include="src\Graphics\ConcavePolygon.cpp" />
@@ -195,14 +192,13 @@
     <ClCompile Include="src\GUI\Button.cpp" />
     <ClCompile Include="src\GUI\Font.cpp" />
     <ClCompile Include="src\GUI\Menu.cpp" />
-    <ClCompile Include="src\LevelTest.cpp" />
+    <ClInclude Include="src\Levels\LevelLoader.cpp" />
     <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
     <ClCompile Include="src\Math\Shapes.cpp" />
     <ClCompile Include="src\Network\Socket.cpp" />
     <ClCompile Include="src\Objects\Animation.cpp" />
     <ClCompile Include="src\Objects\Entity.cpp" />
-    <ClCompile Include="src\Pong.cpp" />
     <ClCompile Include="src\stb_image.c" />
     <ClCompile Include="src\Utilities\Assert.cpp" />
     <ClCompile Include="src\Utilities\FileParser.cpp" />
@@ -213,6 +209,11 @@
     <ClCompile Include="src\Utilities\Timer.cpp" />
     <ClCompile Include="src\Utilities\XMLParser.cpp" />
     <ClCompile Include="src\Zenderer.cpp" />
+    <ClCompile Include="src\LevelTest.cpp" />
+    <ClCompile Include="src\Pong.cpp" />
+    <ClCompile Include="src\DLLMain.cpp" />
+    <ClCompile Include="src\EngineTest.cpp" />
+    <ClCompile Include="src\CollisionTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\shaders\AmbientLight.fs" />
