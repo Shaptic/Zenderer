@@ -255,6 +255,7 @@ namespace lvl
                     }
 
                     Light.Disable();
+                    level.lights.emplace_back(&Light);
                 }
 
                 else
