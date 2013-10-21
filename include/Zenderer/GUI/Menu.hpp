@@ -22,7 +22,7 @@
 #ifndef ZENDERER__GUI__MENU_HPP
 #define ZENDERER__GUI__MENU_HPP
 
-#include <unordered_map>
+#include <vector>
 #include <functional>
 
 #include "Zenderer/Events/EventHandler.hpp"
@@ -36,26 +36,118 @@ namespace zen
 {
 namespace gui
 {
+    /// A high-level menu-creation API.
     class ZEN_API zMenu
     {
     public:
+        /**
+         * Creates a menu instance.
+         *  The given parameters are used in order to create a
+         *  `gfx::zScene` object to represent the menu internally.
+         *
+         * @param   Window  The window you wish to contain the menu
+         * @param   Assets  The asset manager to load data with
+         **/
         zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets);
-
         virtual ~zMenu();
 
+        /**
+         * Handles system events to perform menu actions.
+         *  This method must be called from the object creator whenever
+         *  there are events polled to the application in order to
+         *  have a properly functioning menu.
+         *
+         * @param   Evt     The event to process.
+         *
+         * @return  `true`  if a menu button was clicked,
+         *          `false` otherwise.
+         **/
         virtual bool HandleEvent(const evt::event_t& Evt);
+
+        /**
+         * Adds a button to the menu.
+         *  This will place a button below the current list of buttons,
+         *  if any, based on the padding set or the font size. The given
+         *  callback handler will be triggered whenever the button in
+         *  question is pressed.
+         *  This somewhat functional approach eliminates bloat in terms
+         *  of tracking button states on behalf of the user.
+         *
+         * @param   text    The button shall contain this rendered text
+         * @param   handler Callback to execute when button is pressed
+         *
+         * @return  Unique identifier for the button just added.
+         *          This value also corresponds to the current number
+         *          of buttons added to the menu.
+         *
+         * @see     SetFont()
+         * @see     SetSpacing()
+         **/
         virtual uint16_t AddButton(const string_t& text,
                                    std::function<void(size_t)> handler);
+
+        /**
+         * Adds an entity object directly to the menu.
+         *  This method is in-place to provide access to the underlying
+         *  `gfx::zScene` object. Sometimes menus require more functionality
+         *  or "stuff" than is provided by this API. The accessibility is
+         *  limited to adding objects, but will likely be expanded to allow
+         *  lighting and other effects as well.
+         *
+         *  Direct access to the underlying scene will not be permitted.
+         *
+         * @return  A new entity that was added to the menu.
+         **/
         virtual obj::zEntity& AddEntity();
+
+        /**
+         * Renders data with the internal menu font.
+         *  This allows for the user to use the font they loaded into the
+         *  menu for other rendering operations. For example, it could be
+         *  tied in with `AddEntity()` above to create a scrolling credits
+         *  list.
+         *
+         * @param   Obj     The entity to render text into
+         * @param   str     The string to render
+         *
+         * @return  `true`  if the text was rendered successfully,
+         *          `false` otherwise, or if no font has been loaded yet.
+         *
+         * @see     SetFont()
+         **/
         virtual bool RenderWithFont(obj::zEntity& Obj, const string_t& str);
+
+        /**
+         * Updates the menu state.
+         *  This should be called every frame by the user, in order to
+         *  ensure on-time hovering effects and event handling.
+         **/
         virtual void Update();
 
+        /**
+         * Loads a font for the menu to use.
+         * @param   filename    Path to the font
+         * @param   size        Font size to load
+         * @return  `true`  if it went swell, `false` otherwise.
+         **/
         bool SetFont(const string_t& filename, const uint16_t size=18);
+
+        /// Sets a background for buttons which text will overlay.
         void SetButtonBackground(const obj::zEntity& Bg);
+
+        /// Sets "normal" button state text color.
         void SetNormalButtonTextColor(const color4f_t& Color);
+
+        /// Sets "active" button state text color.
         void SetActiveButtonTextColor(const color4f_t& Color);
+
+        /// Sets the place where buttons will begin to be added.
         void SetInitialButtonPosition(const math::vector_t& Pos);
+
+        /// Renders a menu title in a certain position.
         void SetTitle(const string_t& Title, const math::vector_t& Pos);
+
+        /// Sets spacing between buttons, defaults to font size.
         void SetSpacing(const uint16_t vertical_spacing);
 
     private:
@@ -84,9 +176,7 @@ namespace gui
  * @details
  *  A high-level wrapper that facilitates a simple method of creating
  *  fairly customizable and high-quality menus with custom buttons,
- *  fonts, backgrounds, and other sections.
- *
- * @todo    Document the API.
+ *  fonts, and backgrounds.
  **/
 
 /** @} **/
