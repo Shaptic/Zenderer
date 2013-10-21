@@ -31,11 +31,13 @@
 #include "Mouse.hpp"
 #include "Event.hpp"
 
-/// Forward declaration for callback functions.
+// Forward declaration for callback functions.
 struct GLFWwindow;
 
 namespace zen
 {
+
+/// An API for handling, polling, and accessing system events / state.
 namespace evt
 {
     /// Handles system events.

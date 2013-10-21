@@ -35,6 +35,8 @@
 
 namespace zen
 {
+
+/// An API for easily creating and loading levels.
 namespace lvl
 {
     /// Loads levels (go figure).

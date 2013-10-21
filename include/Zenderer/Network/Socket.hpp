@@ -52,6 +52,8 @@
 
 namespace zen
 {
+
+/// An API for network access, sending / receiving packets.
 namespace net
 {
 // Windows has a custom ICMP API that avoids the need

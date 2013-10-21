@@ -142,7 +142,7 @@ namespace gfxcore
 #endif // ZENDERER__CORE_GRAPHICS__OPENGL_HPP
 
 /**
- * @fn zen::gfxcore::glCheck()
+ * @fn bool zen::gfxcore::glCheck(const char* expr, const uint32_t line, const char* file)
  * @details
  *  Mostly used internally for debugging, this will check valid
  *  execution of an OpenGL call. It should be used in congruence with
