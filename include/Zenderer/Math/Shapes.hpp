@@ -49,7 +49,11 @@ namespace math
         uint32_t w, h;
     };
 
-    /// Represents a circle with position and radius.
+    /**
+     * A representation of a circle to provide an alternative collision
+     * in @a Zenderer for objects or sprites that don't play nicely with
+     * quads.
+     **/
     struct ZEN_API circle_t
     {
         circle_t() : x(0.0), y(0.0), r(0.0) {}
@@ -65,7 +69,16 @@ namespace math
         real_t r;
     };
 
-    /// Represents an axis-aligned bounding box.
+    /**
+     * An axis-aligned bounding box (AABB) representation.
+     *  This is used for basic quad collision detection throughout @a Zenderer
+     *  using the separation of axis theorem. The two components are defined
+     *  by the top-left and the bottom-right points of a standard, unrotated
+     *  quad.
+     *
+     * @see http://gamedev.tutsplus.com/tutorials/implementation/collision-detection-with-the-separating-axis-theorem
+     * @see http://gafferongames.com/game-physics/integration-basics/
+     **/
     struct ZEN_API aabb_t
     {
         aabb_t() {}
