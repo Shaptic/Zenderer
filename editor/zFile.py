@@ -70,6 +70,7 @@ class Exporter:
         f.write(final)
         f.flush()
 
+import os
 import re
 from zEntity    import *
 from zSpawn     import *
@@ -81,7 +82,9 @@ class Importer:
         self.spawns = spawns
         self.verts  = verts
     
-    def LoadFromFile(self, filename):
+    def LoadFromFile(self, filename, cwd=None):
+        cwd = os.getcwd() if not cwd else cwd
+
         f = open(filename, 'r')
         while True:
             line = f.readline()
@@ -134,7 +137,7 @@ class Importer:
                         ent.details['stretch'] = line.split('=')[1]
 
                     elif line.find('texture=') == 0:
-                        ent.Load(filename=line.split('=')[1])
+                        ent.Load(filename=os.path.join(cwd, line.split('=')[1]))
                     
                     elif line.find('attributes=') == 0:
                         ent.details['attributes'] = line.split('=')[1]

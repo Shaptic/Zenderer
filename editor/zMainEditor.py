@@ -49,20 +49,19 @@ class Main:
         self.BaseEntity = None
         self.BaseLight  = None
 
+        self.cwd = os.getcwd()
+
         # Populate entity list by recursively searching for images
         # in the directory provided by the settings module.
-        for root, dirs, files in os.walk(os.getcwd()):
-            self.EntityList['values'] = tuple(
-                list(self.EntityList['values']) + [f for f in files \
-                    if os.path.splitext(f)[1] in VALID_IMAGES and f != 'light.png'
-                ]
-            )
+        self._PopulateTextures()
 
         # Set up menus.
         file = tk.Menu(tearoff=0)
         file.add_command(label='New...',    command=self._New)
         file.add_command(label='Import...', command=self._Import)
         file.add_command(label='Export...', command=self._Export)
+        file.add_separator()
+        file.add_command(label='Set Working Directory...', command=self._SetCWD)
         file.add_separator()
         file.add_command(label='Quit', command=self.Exit)
 
@@ -112,8 +111,11 @@ class Main:
 
             if self.ObjVar.get() == 1 and fn:
                 mp = pygame.mouse.get_pos()
-                if not self.BaseEntity or self.BaseEntity.filename != fn:
-                    self.BaseEntity = Entity().Load(filename=self.EntityList.get())
+                if not self.BaseEntity or \
+                   not os.path.basename(self.BaseEntity.filename) == os.path.basename(fn):
+                    self.BaseEntity = Entity().Load(
+                        filename=os.path.join(self.cwd, self.EntityList.get())
+                    )
 
                 if self.BaseEntity.on: self.BaseEntity.end = mp
                 else: self.BaseEntity.Move(mp)
@@ -192,7 +194,7 @@ class Main:
             defaultextension='.zlv',
             filetypes=[('Zenderer Level files', '*.zlv'),
                        ('All Files', '.*')],
-            initialfile='level.zlv',
+            initialfile='level.zlv', initialdir=self.cwd,
             title='Export Level As...', parent=self.window)
 
         if not filename: return
@@ -227,7 +229,7 @@ class Main:
 
     def _Import(self):
         filename = tkfile.askopenfilename(
-            defaultextension='.zlv',
+            defaultextension='.zlv', initialdir=self.cwd,
             filetypes=[('Zenderer Level files', '*.zlv'),
                        ('All Files', '.*')],
             title='Import Level...', parent=self.window)
@@ -236,22 +238,40 @@ class Main:
 
         self._New()
         data = Importer(self.entities, self.lights, self.spawns, self.polys)
-        data.LoadFromFile(filename)
+        data.LoadFromFile(filename, self.cwd)
         self.origin = (0, 0)
+
+    def _SetCWD(self):
+        d = tkfile.askdirectory(title='Choose a Working Directory', parent=self.window)
+        self.cwd = d
+        self.BaseEntity = None
+        self._PopulateTextures()
+        
+    def _PopulateTextures(self):
+        for root, dirs, files in os.walk(self.cwd):
+            self.EntityList['values'] = tuple(
+                list(self.EntityList['values']) + [
+                    os.path.join(root, f).replace(self.cwd, '')[1:] for f in files \
+                    if os.path.splitext(f)[1] in VALID_IMAGES
+                ]
+            )
 
     def _Evt_AddObject(self, pos):
         if self.ObjVar.get() == 1 and self.EntityList.get():
+            print 'should add'
             if not self.BaseEntity.on:
                 self.BaseEntity.Start(pos)
                 return
 
+            print 'loading'
             self.BaseEntity.Stop(pos)
-            self.entities.append(Entity().Load(filename=self.EntityList.get()))
-            self.entities[-1].pos = pos
-            self.entities[-1].start = self.BaseEntity.start
-            self.entities[-1].end = self.BaseEntity.end
+            e = Entity().Load(filename=os.path.join(self.cwd, self.EntityList.get()))
+            e.pos = pos
+            e.start = self.BaseEntity.start
+            e.end = self.BaseEntity.end
+            self.entities.append(e)
             self.BaseEntity.start = self.BaseEntity.end = pos
-            print self.entities[-1].start, self.entities[-1].end
+            print e.start, e.end
 
         elif self.ObjVar.get() == 2:
             self.lights.append(Light())
@@ -265,7 +285,9 @@ class Main:
             self.verts.append(pos)
 
     def _Evt_LoadEntity(self):
-        self.entities.append(Entity().Load(filename=self.EntityList.get()))
+        self.entities.append(Entity().Load(
+            filename=os.path.join(self.cwd, self.EntityList.get()))
+        )
 
     def _Evt_ShowContextMenu(self, pos):
         wx = self.PyGame.winfo_rootx()
