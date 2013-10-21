@@ -21,6 +21,7 @@ zFont::~zFont()
 
 bool zFont::LoadFromFile(const string_t& filename)
 {
+    ZEN_ASSERT(mp_Parent != nullptr);
     if(s_FontFx == nullptr)
     {
         s_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, *mp_Parent);

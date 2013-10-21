@@ -18,6 +18,7 @@ T* zAssetManager::Create(const string_t& filename, const void* const owner)
 
         // Make sure we allocated successfully.
         ZEN_ASSERTM(pAsset != nullptr, "out of memory");
+        pAsset->mp_Parent = this;
 
         // Load the asset from disk.
         return this->FinalizeAsset(pAsset->LoadFromFile(filename), pAsset);
