@@ -37,6 +37,7 @@ namespace zen
 {
 namespace lvl
 {
+    /// Various spawn type identifiers.
     enum class SpawnType
     {
         PLAYER_SPAWN,
@@ -44,6 +45,7 @@ namespace lvl
         ITEM_SPAWN
     };
 
+    /// Contains spawn point information.
     struct spawn_t
     {
         SpawnType               type;
@@ -52,12 +54,14 @@ namespace lvl
         std::vector<string_t>   blacklist;
     };
 
+    /// Contains level metadata.
     struct metalevel_t
     {
         string_t author;
         string_t description;
     };
 
+    /// Contains all level data.
     struct level_t
     {
         metalevel_t                 metadata;
@@ -78,5 +82,14 @@ namespace lvl
 }
 
 #endif // ZENDERER__LEVELS__LEVEL_HPP
+
+/**
+ * @struct zen::lvl::level_t
+ * @details
+ *  This structure contains all data loaded from level files.
+ *  You can directly access pointers to all objects in the level,
+ *  as well as physical objects (for collision purposes), spawn
+ *  points (for dynamic object placement), lights, and metadata.
+ **/
 
 /** @} **/
