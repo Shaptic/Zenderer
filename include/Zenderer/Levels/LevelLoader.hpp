@@ -144,18 +144,24 @@ namespace lvl
                         /// @todo
                     }
 
-                    /// @todo Polygons vs. Entities differentiation.
+                    // No vertices, so can be loaded from a texture directly.
                     if(poly == 0)
                     {
                         Latest.LoadFromTexture(Parser.PopResult("texture"));
                     }
+
+                    // There are vertices so attach the texture (if any)
+                    // to a polygon instance instead.
                     else
                     {
-                        gfx::zQuad Quad(m_Assets, Poly.CalcW(), Poly.CalcH());
-                        Quad.SetRepeating(true);
                         gfx::zPolygon* pActive = &Poly;
 
+                        // Special case for quads if there are 4 vertices.
+                        gfx::zQuad Quad(m_Assets, Poly.CalcW(), Poly.CalcH());
+                        Quad.SetRepeating(true);
                         if(poly == 4) pActive = &Quad;
+
+                        // Load / Attach a texture to the polygon if we can.
                         if(Parser.Exists("texture"))
                         {
                             gfx::zMaterial M(m_Assets);
@@ -166,10 +172,9 @@ namespace lvl
                         Latest.AddPrimitive(std::move(pActive->Create()));
                     }
 
+                    // Parse and handle attributes as needed.
                     result = Parser.PopResult("attributes", "0x00");
                     uint8_t attr = this->ParseAttribute(result);
-                    /// @todo
-
                     level.entities[
 #ifndef ZEN_DEBUG_BUILD
                         util::string_hash(
@@ -191,6 +196,7 @@ namespace lvl
                     }
                 }
 
+                // Handle spawn points.
                 else if(line.find("<spawn") == 0)
                 {
                     // G++ doesn't have regex support for C++11 yet.
@@ -227,6 +233,7 @@ namespace lvl
                     level.spawnpoints.emplace_back(std::move(point));
                 }
 
+                // Handle lighting.
                 else if(line.find("<light type=\"") == 0)
                 {
 #ifdef __GNUC__

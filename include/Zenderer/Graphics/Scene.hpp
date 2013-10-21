@@ -299,8 +299,6 @@ namespace gfx
  *  explicitly delete them from the scene via one of the `Delete*()`
  *  calls.
  *
- * @todo    Test post-processing.
- *
  * @example Scenes
  *  Here we create a managed scene and draw a single textured entity.
  *
