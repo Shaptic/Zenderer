@@ -31,7 +31,7 @@
 
 // I statically link GLEW when using MinGW.
 #ifdef __GNUC__
-  #define GLEW_STATIC
+#  define GLEW_STATIC
 #endif // __GNUC__
 
 #include "GL/glew.h"
@@ -42,14 +42,14 @@
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef GL
-  #undef GL
+#  undef GL
 #endif // GL
 
 #ifdef ZEN_DEBUG_BUILD
-  /// Error-checking OpenGL function call (debug builds only).
-  #define GL(f) f; zen::gfxcore::glCheck(#f, __LINE__, __FILE__);
+   /// Error-checking OpenGL function call (debug builds only).
+#  define GL(f) f; zen::gfxcore::glCheck(#f, __LINE__, __FILE__);
 #else
-  #define GL(f) f; if(glGetError() != GL_NO_ERROR) return false;
+#  define GL(f) f; if(glGetError() != GL_NO_ERROR) return false;
 #endif // ZEN_DEBUG_BUILD
 
 namespace zen
