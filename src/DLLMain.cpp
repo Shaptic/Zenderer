@@ -26,7 +26,7 @@
 
 #include "Zenderer/Zenderer.hpp"
 #ifdef ZEN_DEBUG_BUILD
-  #undef  ZEN_DEBUG_BUILD
+#  undef ZEN_DEBUG_BUILD
 #endif
 
 /**

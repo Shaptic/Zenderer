@@ -38,17 +38,17 @@
 
 #include <cmath>
 
-#include "Zenderer/Core/Types.hpp"
-
 // Undefine these function macros so we can make our own and
 // not have them conflict.
 #ifdef max
-  #undef max
+#  undef max
 #endif // max
 
 #ifdef min
-  #undef min
+#  undef min
 #endif // min
+
+#include "Zenderer/Core/Types.hpp"
 
 namespace zen
 {

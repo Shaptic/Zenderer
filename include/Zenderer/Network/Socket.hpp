@@ -34,20 +34,20 @@
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef _WIN32
-  #undef  _WIN32_WINNT
-  #define _WIN32_WINNT 0x501
-  #include <thread>
-  #include <WinSock2.h>
-  #include <WS2TCPIP.h>
-  #pragma comment(lib, "ws2_32.lib")
+#  undef  _WIN32_WINNT
+#  define _WIN32_WINNT 0x501
+#  include <thread>
+#  include <WinSock2.h>
+#  include <WS2TCPIP.h>
+#  pragma comment(lib, "ws2_32.lib")
 #else
-  #include <unistd.h>
-  #include <errno.h>
-  #include <netdb.h>
-  #include <sys/types.h>
-  #include <sys/socket.h>
-  #include <netinet/in.h>
-  #include <arpa/inet.h>
+#  include <unistd.h>
+#  include <errno.h>
+#  include <netdb.h>
+#  include <sys/types.h>
+#  include <sys/socket.h>
+#  include <netinet/in.h>
+#  include <arpa/inet.h>
 #endif // _WIN32
 
 namespace zen
