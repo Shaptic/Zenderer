@@ -32,7 +32,10 @@ namespace evt
   #undef DELETE
 #endif // DELETE
 
-    /// @enum Keyboard key identifiers.
+    /**
+     * @enum Key
+     *  Keyboard key identifiers.
+     **/
     enum class ZEN_API Key : int16_t
     {
         // Punctuation
@@ -97,5 +100,13 @@ namespace evt
 }
 
 #endif // ZENDERER__EVENTS__KEYBOARD_HPP
+
+/**
+ * @struct zen::evt::key_t
+ * @details
+ *  Contains information about the state of the keyboard for a specific
+ *  event instance. You can retrieve the key state, its printable
+ *  representation (if any), and keyboard modifiers active at that time.
+ **/
 
 /** @} **/
