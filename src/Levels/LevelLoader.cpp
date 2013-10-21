@@ -9,13 +9,14 @@ using namespace lvl;
 zLevelLoader::zLevelLoader(gfx::zScene& Scene, asset::zAssetManager& Assets) :
     m_Log(util::zLog::GetEngineLog()), m_Scene(Scene), m_Assets(Assets)
 {
-    m_levels.clear();
+    while(!m_levels.empty()) m_levels.pop();
 }
 
 zLevelLoader::~zLevelLoader()
 {
-    for(auto& i : m_levels)
+    while(!m_levels.empty())
     {
+        level_t& i = m_levels.front();
         for(auto& j : i.lights)
             m_Scene.RemoveLight(*j);
 
@@ -23,9 +24,8 @@ zLevelLoader::~zLevelLoader()
             m_Scene.RemoveEntity(*j.second);
 
         i.valid = false;
+        m_levels.pop();
     }
-
-    m_levels.clear();
 }
 
 bool zLevelLoader::LoadFromFile(const string_t& filename)
@@ -258,15 +258,15 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
     }
 
     level.valid = (!level.entities.empty() || !level.lights.empty());
-    if(level.valid) m_levels.emplace_back(std::move(level));
+    if(level.valid) m_levels.emplace(std::move(level));
     return level.valid;
 }
 
 bool zLevelLoader::PopLevel(level_t& lvl)
 {
     if(m_levels.empty()) return false;
-    lvl = m_levels.front();
-    m_levels.erase(m_levels.begin());
+    lvl = std::move(m_levels.front());
+    m_levels.pop();
     return true;
 }
 

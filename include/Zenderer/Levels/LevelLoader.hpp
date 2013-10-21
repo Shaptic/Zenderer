@@ -26,6 +26,8 @@
 #  include <regex>
 #endif // __GNUC__
 
+#include <queue>
+
 #include "Zenderer/Assets/AssetManager.hpp"
 #include "Zenderer/Graphics/ConcavePolygon.hpp"
 #include "Zenderer/Graphics/Scene.hpp"
@@ -75,7 +77,7 @@ namespace lvl
         util::zLog& m_Log;
         gfx::zScene& m_Scene;
         asset::zAssetManager& m_Assets;
-        std::vector<level_t> m_levels;
+        std::queue<level_t> m_levels;
     };
 }
 }
