@@ -70,11 +70,16 @@ class Entity:
         return self
 
     def Collides(self, rect):
-        return pygame.Rect(
-            self.start[0], self.start[1],
-            max(abs(self.end[0] - self.start[0]), self.surface.get_width()),
-            max(abs(self.end[1] - self.start[1]), self.surface.get_height())
-        ).colliderect(rect)
+        us = pygame.Rect(self.start[0], self.start[1],
+                max(abs(self.end[0] - self.start[0]), self.surface.get_width()),
+                max(abs(self.end[1] - self.start[1]), self.surface.get_height())
+        )
+
+        if isinstance(rect, pygame.Rect):
+            return us.colliderect(rect)
+
+        elif isinstance(rect, Entity):
+            return rect.Collides(us)
 
     def Move(self, pos):
         self.end = (self.end[0] + (pos[0] - self.start[0]),

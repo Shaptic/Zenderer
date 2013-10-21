@@ -1,5 +1,6 @@
 # Zenderer level editor.
 import os
+from collections import defaultdict
 
 import Tkinter as tk
 import tkFileDialog as tkfile
@@ -50,6 +51,7 @@ class Main:
         self.BaseLight  = None
 
         self.cwd = '.'
+        self.opts= { 'HIDE': False }
 
         # Populate entity list by recursively searching for images
         # in the directory provided by the settings module.
@@ -60,7 +62,6 @@ class Main:
         file.add_command(label='New...',    command=self._New)
         file.add_command(label='Import...', command=self._Import)
         file.add_command(label='Export...', command=self._Export)
-        file.add_separator()
         file.add_command(label='Set Working Directory...', command=self._SetCWD)
         file.add_separator()
         file.add_command(label='Quit', command=self.Exit)
@@ -90,7 +91,8 @@ class Main:
                         self.BaseEntity.end = evt.pos
 
                 elif evt.type == pygame.KEYDOWN:
-                    if evt.key == pygame.K_f: self.PyGame.focus()
+                    if evt.key == pygame.K_f: self.SideBar.focus()
+                    if evt.key == pygame.K_h: self.opts['HIDE'] = not self.opts['HIDE']
 
             if pygame.mouse.get_focused():
                 self._Evt_HandlePanning(pygame.mouse.get_pos())
@@ -100,8 +102,10 @@ class Main:
 
             for e in self.entities: e.Update(self.screen)
 
-            for p in self.polys:
-                pygame.draw.polygon(self.screen, (255, 255, 255), p)
+            if not self.opts['HIDE']:
+                for p in self.polys:
+                    pygame.draw.polygon(self.screen, (255, 255, 255), p)
+
             for x in xrange(1, len(self.verts)):
                 pygame.draw.line(self.screen, (255, 255, 255),
                                  self.verts[x], self.verts[x-1])
@@ -165,6 +169,23 @@ class Main:
         self.EntityMenu.add_command(label='Delete Object',
                                     command=lambda: self._DelObj(
             self.entities, self._GetObjAt(self.entities, pygame.mouse.get_pos())))
+        
+        self.EntityMenu.add_command(label='Move Back',
+                                    command=lambda: self._MoveObj(
+            self._GetObjAt(self.entities, pygame.mouse.get_pos()), -1))
+        
+        self.EntityMenu.add_command(label='Move Forward',
+                                    command=lambda: self._MoveObj(
+            self._GetObjAt(self.entities, pygame.mouse.get_pos()), 1))
+        
+        self.EntityMenu.add_command(label='Move To Front',
+                                    command=lambda: self._MoveObjToFront(
+            self._GetObjAt(self.entities, pygame.mouse.get_pos())))
+
+        self.EntityMenu.add_command(label='Move To Back',
+                                    command=lambda: self._MoveObjToBack(
+            self._GetObjAt(self.entities, pygame.mouse.get_pos())))
+        
         self.EntityMenu.add_command(label='Properties',
                                     command=self._Evt_ShowEntProp)
 
@@ -249,7 +270,7 @@ class Main:
         self.origin = (0, 0)
 
     def _SetCWD(self):
-        d = tkfile.askdirectory(title='Choose a Working Directory', parent=self.window)
+        d = tkfile.askdirectory(title='Choose a Working Directory...', parent=self.window)
         if not d: return
         self.cwd = d
         self.BaseEntity = None
@@ -335,6 +356,31 @@ class Main:
         elif ent:
             self.EntityMenu.post(pos[0] + wx, pos[1] + wy)
             self.EntityMenu.registered = ent
+
+    def _MoveObj(self, obj, offset):
+        def swap(e, i, j): e[i], e[j] = e[j], e[i]
+
+        if offset == 0: return
+        if offset < 0: self.entities.reverse()
+        i = self.entities.index(obj)
+
+        for e in self.entities[i+1:]:
+            if e.Collides(obj): break
+        else:
+            if offset < 0: self.entities.reverse()
+            return False
+
+        self.entities.pop(i)
+        j = self.entities.index(e)
+        self.entities.insert(j + 1, obj)
+        if offset < 0: self.entities.reverse()
+        return True
+
+    def _MoveObjToBack(self, e):
+        while self._MoveObj(e, -1): pass
+
+    def _MoveObjToFront(self, e):
+        while self._MoveObj(e, 1): pass
 
     def _Evt_ShowEntProp(self):
         EntityPropertyWindow(self.EntityMenu.registered, self.window)
