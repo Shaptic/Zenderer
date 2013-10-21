@@ -68,6 +68,8 @@ namespace gfx
         // Sometimes you don't care about the original position.
         void Adjust(const real_t dx, const real_t dy);
 
+        /// @{
+        /// @pre Enable() must have been called.
         bool SetBrightness(const real_t brightness);
         bool SetColor(const real_t r, const real_t g, const real_t b);
         bool SetColor(const color3f_t& Color);
@@ -77,6 +79,7 @@ namespace gfx
         bool SetPosition(const math::vector_t& Pos);
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
+        /// @}
 
         void SetType(const LightType& Type);
 
@@ -132,7 +135,12 @@ namespace gfx
  *  that can be modified and accessed. See the raw shader files to learn
  *  the specific parameter names, or the specification [here](specs.html).
  *
+ * @warning Prior to ANY calls to the various `Set*()` calls, `Enable()`
+ *          must have been executed. Upon being done setting custom
+ *          parameters, `Disable()` must be called.
+ *
  * @todo    Investigate why the `scr_height` shader parameter is necessary.
+ * @todo    Consider adding this to `zen::gfxcore::zGLSubsystem`.
  **/
 
 /** @} **/
