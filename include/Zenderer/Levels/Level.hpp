@@ -62,7 +62,14 @@ namespace lvl
     {
         metalevel_t                 metadata;
         std::vector<spawn_t>        spawnpoints;
-        std::vector<obj::zEntity*>  entities;
+        std::map<
+#ifdef ZEN_DEBUG_BUILD
+            string_t,
+#else
+            uint32_t,
+#endif // ZEN_DEBUG_BUILD
+            obj::zEntity*
+        >                           entities;
         std::vector<obj::zEntity*>  physical;
         std::vector<gfx::zLight*>   lights;
         bool                        valid;

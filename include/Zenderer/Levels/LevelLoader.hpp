@@ -62,7 +62,7 @@ namespace lvl
                     m_Scene.RemoveLight(*j);
 
                 for(auto& j : i.entities)
-                    m_Scene.RemoveEntity(*j);
+                    m_Scene.RemoveEntity(*j.second);
 
                 i.valid = false;
             }
@@ -160,7 +160,7 @@ namespace lvl
                         {
                             gfx::zMaterial M(m_Assets);
                             M.LoadTextureFromFile(Parser.PopResult("texture"));
-                            pActive->AttachMaterial(std::move(M));
+                            pActive->AttachMaterial(M);
                         }
 
                         Latest.AddPrimitive(std::move(pActive->Create()));
@@ -170,7 +170,15 @@ namespace lvl
                     uint8_t attr = this->ParseAttribute(result);
                     /// @todo
 
-                    level.entities.emplace_back(&Latest);
+                    level.entities[
+#ifndef ZEN_DEBUG_BUILD
+                        util::string_hash(
+#endif // ZEN_DEBUG_BUILD
+                        Parser.PopResult("id", "entity")
+#ifndef ZEN_DEBUG_BUILD
+                        )
+#endif // ZEN_DEBUG_BUILD
+                    ] = &Latest;
 
                     if(attr & static_cast<uint8_t>(AttributeType::PHYSICAL))
                     {
@@ -291,6 +299,17 @@ namespace lvl
             lvl = m_levels.front();
             m_levels.erase(m_levels.begin());
             return true;
+        }
+
+        static obj::zEntity* GetEntityByID(const level_t& level,
+#ifdef ZEN_DEBUG_BUILD
+                                           const string_t& id)
+#else
+                                           const uint32_t id)
+#endif // ZEN_DEBUG_BUILD
+        {
+            auto it = level.entities.find(id);
+            return (it == level.entities.end()) ? nullptr : it->second;
         }
 
     private:
