@@ -86,6 +86,7 @@ namespace gui
         }
 
     private:
+        zFontLibrary() : zSubsystem("FreeType") {}
         FT_Library m_Library;
     };
 
