@@ -31,7 +31,6 @@
 #include "Log.hpp"
 #include "Helpers.hpp"
 #include "INIParser.hpp"
-#include "XMLParser.hpp"
 #include "FileParser.hpp"
 #include "Settings.hpp"
 #include "Timer.hpp"
