@@ -244,7 +244,8 @@ class Main:
 
         self._New()
         data = Importer(self.entities, self.lights, self.spawns, self.polys)
-        data.LoadFromFile(filename, self.cwd)
+        try: data.LoadFromFile(filename, self.cwd)
+        except Exception, e: print '[ERROR]', str(e)
         self.origin = (0, 0)
 
     def _SetCWD(self):
@@ -271,6 +272,7 @@ class Main:
 
             self.BaseEntity.Stop(pos)
             e = Entity().Load(filename=os.path.join(self.cwd, self.EntityList.get()))
+            e.details['texture'] = self.EntityList.get()
             e.pos = pos
             e.start = self.BaseEntity.start
             e.end = self.BaseEntity.end
@@ -293,6 +295,7 @@ class Main:
         self.entities.append(Entity().Load(
             filename=os.path.join(self.cwd, self.EntityList.get()))
         )
+        self.entities[-1].details['texture'] = self.EntityList.get()
 
     def _Evt_ShowContextMenu(self, pos):
         wx = self.PyGame.winfo_rootx()
