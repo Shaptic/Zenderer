@@ -3,12 +3,13 @@ from zEntity    import ATTR
 
 class Exporter:
     @staticmethod
-    def ExportEntity(f, e):
+    def ExportEntity(f, e, cwd):
         final  = '<entity>\n'
         final += '    depth=%d\n' % int(e.details['depth'])
         final += '    position=%d,%d\n' % (int(e.start[0]), int(e.start[1]))
 
-        if e.end[0] != e.start[0] or e.end[1] != e.start[1]:
+        if e.end[0] - e.start[0] > e.surface.get_width() or \
+           e.end[1] - e.start[1] > e.surface.get_height():
             final += '    vertex=0,0\n'
             final += '    vertex=%d,0\n'    % (e.end[0] - e.start[0])
             final += '    vertex=%d,%d\n'   % (e.end[0] - e.start[0],
@@ -16,8 +17,9 @@ class Exporter:
             final += '    vertex=0,%d\n\n'  % (e.end[1] - e.start[1])
 
         final += '    stretch=%s\n' % e.details['stretch']
-        final += '    texture=%s\n' % e.details['texture']
-        final += '    attributes=%s\n' % e.details['attributes']
+        final += '    texture=%s\n' % e.details['texture'].replace(cwd, '')[1:]
+        if e.details['attributes'] != '0x00':
+            final += '    attributes=%s\n' % e.details['attributes']
         final += '</entity>\n\n'
         f.write(final)
         f.flush()
@@ -26,10 +28,12 @@ class Exporter:
     def ExportLight(f, l):
         final  = '<light type="%s">\n' % l.details['type'].upper()
         final += '    color=%s\n' % (make2f(l.details['color']))
-        final += '    position=%d,%d\n' % (int(l.start[0]), int(l.start[1]))
-        final += '    attenuation=%s\n' % (make2f(l.details['attenuation']))
         final += '    brightness=%0.2f\n' % (float(l.details['brightness']))
-        
+
+        if l.details['type'].upper() != 'AMBIENT':
+            final += '    position=%d,%d\n' % (int(l.start[0]), int(l.start[1]))
+            final += '    attenuation=%s\n' % (make2f(l.details['attenuation']))
+
         if l.details['type'].upper() == 'SPOT':
             final += '    maxangle=%0.2f\n' % float(l.details['maxangle'])
             final += '    minangle=%0.2f\n' % float(l.details['minangle'])
