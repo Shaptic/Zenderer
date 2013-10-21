@@ -30,27 +30,79 @@ namespace zen
 {
 namespace gui
 {
+    /// Simulates a hoverable GUI button element.
     class ZEN_API zButton
     {
     public:
+        /**
+         * Creates a button instance.
+         *  The given parameter is a scene object to which all
+         *  button states will attach themselves onto.
+         *
+         * @param   MenuScene   Scene to attach buttons to
+         *
+         * @pre     The `MenuScene` object must have been initialized.
+         * @post    The `MenuScene` object has 2 new entities within it.
+         *
+         * @see     gfx::zScene::Init()
+         **/
         zButton(gfx::zScene& MenuScene);
-
         ~zButton();
 
+        /**
+         * Places a button at a location on the screen.
+         * @param   Pos     Position to place the button at.
+         **/
         void Place(const math::vector_t& Pos);
-        void Place(const real_t x, const real_t y);
+        void Place(const real_t x, const real_t y); ///< @overload
 
+        /**
+         * Creates the button with the given text.
+         *  This will use the previously configured parameters
+         *  (via the various `Set*()` methods) to render and prepare
+         *  a button for live on-screen use within the scene it's
+         *  attached to (from the constructor).
+         *
+         * @param   text    The button text to render.
+         *
+         * @return  `true`  if the button was rendered in both states
+         *                  successfully,
+         *          `false` if there is internal state data missing,
+         *                  such as font, or if the button couldn't
+         *                  render.
+         *
+         * @see     SetFont()
+         * @see     SetActiveColor()
+         * @see     SetNormalColor()
+         * @see     SetBackground()
+         **/
         bool Prepare(const string_t& text);
 
+        /**
+         * Checks if the given position is over the button.
+         * @param   Pos     Position to check over
+         * @return  `true`  if the given position is over the button,
+         *          `false` otherwise.
+         **/
         bool IsOver(const math::vector_t& Pos);
-        bool IsOver(const math::rect_t& Box);
+        bool IsOver(const math::rect_t& Box);   ///< @overload
 
+        /// Enables the "active" button state.
         void SetActive();
+
+        /// Enables the "normal" button state.
         void SetDefault();
 
+        /// Sets the font to use for rendering buttons.
         void SetFont(zFont& Font);
+
+        /// Sets the "active" button state text color.
         void SetActiveColor(const color4f_t& active);
+
+        /// Sets the "normal" button state text color.
         void SetNormalColor(const color4f_t& normal);
+
+        /// Sets the button background to overlay text on.
         void SetBackground(const obj::zEntity& Bg);
 
     private:
@@ -74,8 +126,8 @@ namespace gui
  *  rendered on top of a background, and to easily add effects when
  *  some sort of event occurs, like mouse-over.
  *  This is used internally by zen::gui::zMenu to easily create
- *  dynamic and clean menus, and likely shouldn't really be touched
- *  on its own.
+ *  dynamic and clean menus, and is only really useful on its own
+ *  to create GUI overlays to in-game worlds and such.
  **/
 
 /** @} **/
