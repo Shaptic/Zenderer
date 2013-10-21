@@ -36,11 +36,10 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
     std::ifstream file(filename);
     if(!file)
     {
-        util::zLog& Log = util::zLog::GetEngineLog();
-        Log << Log.SetMode(util::LogMode::ZEN_ERROR)
-            << Log.SetSystem("Level")
-            << "Failed to open level: '" << filename << "'."
-            << util::zLog::endl;
+        m_Log << m_Log.SetMode(LogMode::ZEN_ERROR) << m_Log.SetSystem("Level")
+              << "Failed to open level: '" << filename << "'." << zLog::endl;
+
+        return false;
     }
 
     util::zFileParser Parser;
@@ -111,11 +110,11 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
                 gfx::zQuad Quad(m_Assets, Poly.CalcW(), Poly.CalcH());
                 if(poly == 4)
                 {
-                    if(util::zFileParser::ResultToBool(
-                        Parser.PopResult("stretch", "false")))
-                        Quad.SetRepeating(false);
-
                     Quad.SetRepeating(true);
+                    if(util::zFileParser::ResultToBool(
+                        Parser.PopResult("stretch", "false"))
+                    ) { Quad.SetRepeating(false); }
+
                     pActive = &Quad;
                 }
 
@@ -126,6 +125,10 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
                     M.LoadTextureFromFile(Parser.PopResult("texture"));
                     pActive->AttachMaterial(M);
                 }
+
+                // Set inversion toggle.
+                pActive->SetInverted(util::zFileParser::ResultToBool(
+                    Parser.PopResult("invert", "false")));
 
                 Latest.AddPrimitive(std::move(pActive->Create()));
             }
