@@ -6,6 +6,7 @@ from zGUI import *
 
 DEFAULT_ENTITY = {
     'stretch':  'false',
+    'invert': 'false',
     'depth': '1',
     'attributes': '0x00',
     'id': '',
@@ -24,6 +25,7 @@ class EntityPropertyWindow(PropertyWindow):
 
         self.CollideVar = MakeVar(int(ent.details['attributes'], 16) & ATTR['PHYSICAL'], tk.IntVar)
         self.StretchVar = MakeVar(ent.details['stretch'])
+        self.InvVar     = MakeVar(ent.details['invert'])
         self.IDVar = MakeVar(ent.details['id'])
         self.TextureVar = MakeVar(
             ent.details['texture'] if   ent.details['texture'] \
@@ -33,6 +35,8 @@ class EntityPropertyWindow(PropertyWindow):
         self.Collide = ttk.Checkbutton(self, variable=self.CollideVar)
         self.Stretch = ttk.Checkbutton(self, variable=self.StretchVar,
                                        onvalue='true', offvalue='false')
+        self.Invert  = ttk.Checkbutton(self, variable=self.InvVar,
+                                       onvalue='true', offvalue='false')
         self.Texture = ttk.Entry(self, textvariable=self.TextureVar)
         self.ID      = ttk.Entry(self, textvariable=self.IDVar)
 
@@ -40,17 +44,20 @@ class EntityPropertyWindow(PropertyWindow):
         PlaceWidget(self.Collide, 0, 1)
         PlaceWidget(ttk.Label(self, text='Stretch:'), 1, 0)
         PlaceWidget(self.Stretch, 1, 1)
-        PlaceWidget(ttk.Label(self, text='Texture:'), 2, 0)
-        PlaceWidget(self.Texture, 2, 1)
-        PlaceWidget(ttk.Label(self, text='Identifier:'), 3, 0)
-        PlaceWidget(self.ID, 3, 1)
+        PlaceWidget(ttk.Label(self, text='Invert:'), 2, 0)
+        PlaceWidget(self.Invert, 2, 1)
+        PlaceWidget(ttk.Label(self, text='Texture:'), 3, 0)
+        PlaceWidget(self.Texture, 3, 1)
+        PlaceWidget(ttk.Label(self, text='Identifier:'), 4, 0)
+        PlaceWidget(self.ID, 4, 1)
         self.Texture.config(state='readonly')
 
     def Exit(self):
-        self.applied.details['attributes'] = '0x%02x' % (1 & (ATTR['PHYSICAL'] if self.CollideVar.get() else 0))
-        self.applied.details['stretch'] = self.StretchVar.get()
-        self.applied.details['texture'] = self.TextureVar.get()
-        self.applied.details['id']      = self.IDVar.get()
+        self.applied.details['attributes']  = '0x%02x' % (1 & (ATTR['PHYSICAL'] if self.CollideVar.get() else 0))
+        self.applied.details['stretch']     = self.StretchVar.get()
+        self.applied.details['invert']      = self.InvVar.get()
+        self.applied.details['texture']     = self.TextureVar.get()
+        self.applied.details['id']          = self.IDVar.get()
         self.destroy()
 
 class Entity:

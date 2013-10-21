@@ -16,11 +16,13 @@ class Exporter:
                                                e.end[1] - e.start[1])
             final += '    vertex=0,%d\n\n'  % (e.end[1] - e.start[1])
 
-        final += '    stretch=%s\n' % e.details['stretch']
         final += '    texture=%s\n' % e.details['texture']
         if e.details['attributes'] != '0x00':
             final += '    attributes=%s\n' % e.details['attributes']
-        if e.details['id']: final += '    id=%s\n' % e.details['id']
+
+        if e.details['stretch'] == 'true': final += '    stretch=true\n'
+        if e.details['invert' ] == 'true': final += '    invert=true\n'
+        if e.details['id']:                final += '    id=%s\n' % e.details['id']
 
         final += '</entity>\n\n'
         f.write(final)
