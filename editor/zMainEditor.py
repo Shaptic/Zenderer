@@ -49,7 +49,7 @@ class Main:
         self.BaseEntity = None
         self.BaseLight  = None
 
-        self.cwd = os.getcwd()
+        self.cwd = '.'
 
         # Populate entity list by recursively searching for images
         # in the directory provided by the settings module.
@@ -199,9 +199,15 @@ class Main:
 
         if not filename: return
         with open(filename, 'w') as f:
+            f.write('// This file was generated with a level editor.\n')
+            f.write('// Edit at your own risk.\n')
+            #f.write('author=George Kudrayvtsev\n')
+            #f.write('cwd=%s\n' % self.cwd)
+            f.write('\n')
+
             for e in self.entities:
                 e.Move((e.start[0] - self.origin[0], e.start[1] - self.origin[1]))
-                Exporter.ExportEntity(f, e)
+                Exporter.ExportEntity(f, e, self.cwd)
                 e.Move((e.start[0] + self.origin[0], e.start[1] + self.origin[1]))
 
             for l in self.lights:
@@ -243,6 +249,7 @@ class Main:
 
     def _SetCWD(self):
         d = tkfile.askdirectory(title='Choose a Working Directory', parent=self.window)
+        if not d: return
         self.cwd = d
         self.BaseEntity = None
         self._PopulateTextures()
@@ -251,19 +258,17 @@ class Main:
         for root, dirs, files in os.walk(self.cwd):
             self.EntityList['values'] = tuple(
                 list(self.EntityList['values']) + [
-                    os.path.join(root, f).replace(self.cwd, '')[1:] for f in files \
-                    if os.path.splitext(f)[1] in VALID_IMAGES
+                    os.path.relpath(os.path.join(root, f), start=self.cwd) \
+                    for f in files if os.path.splitext(f)[1] in VALID_IMAGES
                 ]
             )
 
     def _Evt_AddObject(self, pos):
         if self.ObjVar.get() == 1 and self.EntityList.get():
-            print 'should add'
             if not self.BaseEntity.on:
                 self.BaseEntity.Start(pos)
                 return
 
-            print 'loading'
             self.BaseEntity.Stop(pos)
             e = Entity().Load(filename=os.path.join(self.cwd, self.EntityList.get()))
             e.pos = pos
