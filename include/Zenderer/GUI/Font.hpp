@@ -131,27 +131,6 @@ namespace gui
         /// Clears the internal string stream.
         void ClearString();
 
-        /**
-         * Attaches an asset manager to the font for loading textures.
-         *  It's absolutely essential to perform a call to this method
-         *  after constructing a font instance, because it is impossible
-         *  for the font to load and create texture assets without a
-         *  manager. This cannot be done through the constructor, either
-         *  because the manager is in itself an asset, so it must be
-         *  created with a manager :)
-         *
-         *  Please reference the font loading example to see proper
-         *  techniques for using the font API.
-         *
-         * @param   Assets  The asset manager to attach.
-         *
-         * @return  `true`  if the internal font rendering effect loaded
-         *          successfully, `false` otherwise.
-         *
-         * @pre     The given manager must be initialized.
-         **/
-        bool AttachManager(asset::zAssetManager& Assets);
-
         /// Sets the font color.
         void SetColor(const color4f_t& Color);
         void SetColor(const real_t r, const real_t g, const real_t b); ///< @overload
@@ -181,7 +160,6 @@ namespace gui
                         gfxcore::vertex_t* verts,
                         gfxcore::index_t* inds);
 
-        asset::zAssetManager* mp_Assets;
         static gfx::zEffect* s_FontFx;
         color4f_t m_Color;
         FT_Face m_FontFace;
@@ -207,11 +185,6 @@ namespace gui
  *  themselves into obj::zEntity instances that can then be treated as
  *  such.
  *
- * @note    It is absolutely essential that you call gui::zFont::AttachManager()
- *          prior to loading any font instances, to ensure that the font
- *          textures can be created. This is a limitation of the asset API and
- *          may or may not change in the future.
- *
  * @todo    Utilize a texture atlas instead of individual quads
  * @todo    Implement SDFF technique
  *          (https://forum.libcinder.org/topic/signed-distance-field-font-rendering)
@@ -227,13 +200,7 @@ namespace gui
  *  used when creating from an asset manager is 18.
  *
  *  @code
- *  gfxcore::zFont* Font = Assets.Create<gfxcore::zFont>();
- *
- *  // REQUIRED PRIOR TO LOADING!
- *  Font->AttachManager(Assets);
- *
- *  // Error checking omitted for brevity.
- *  Font->LoadFromFile("sample.ttf");
+ *  gui::zFont* Font = Assets.Create<gui::zFont>("sample.ttf");
  *
  *  // Render a string to an entity
  *  obj::zEntity& Score = Scene.AddEntity();
@@ -267,8 +234,7 @@ namespace gui
  *  to `zFont::Resize()` when using the manager.
  *
  *  @code
- *  gfxcore::zFont* Font = Assets.Create<gfxcore::zFont>();
- *  Font->AttachManager(Assets);
+ *  gui::zFont* Font = Assets.Create<gui::zFont>();
  *  Font->SetSize(8);
  *  Font->LoadFromFile("default.ttf");
  *

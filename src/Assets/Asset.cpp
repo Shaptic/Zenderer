@@ -1,19 +1,18 @@
 #include "Zenderer/Assets/Asset.hpp"
 
 using namespace zen;
-
 using util::zLog;
 using util::LogMode;
 
 using asset::zAsset;
 
-size_t zAsset::s_seed = 0x6915BAD;
+size_t zAsset::s_seed = 0x6915BAD;  // lol
 
 zAsset::zAsset(const void* const owner) :
     m_Log(zLog::GetEngineLog()),
     m_filename_hash(0), m_loaded(false), m_refcount(0),
     m_id(util::hash(this, sizeof(zAsset), zAsset::s_seed)),
-    mp_owner(owner)
+    mp_owner(owner), mp_Parent(nullptr)
 {}
 
 zAsset::~zAsset() {}

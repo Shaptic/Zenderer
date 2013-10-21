@@ -12,7 +12,6 @@ zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets) :
     m_menuActions.clear();
     m_Scene.DisableLighting();
     m_Scene.DisablePostProcessing();
-    mp_Font->AttachManager(Assets);
 }
 
 zMenu::~zMenu()

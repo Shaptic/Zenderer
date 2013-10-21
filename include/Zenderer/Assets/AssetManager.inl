@@ -85,6 +85,7 @@ T* zAssetManager::FinalizeAsset(const bool success, T* pAsset)
 
         // Add to containers and return.
         ++pAsset->m_refcount;
+        pAsset->mp_Parent = this;
         zAssetManager::sp_allAssets.push_back(pAsset);
         mp_managerAssets.push_back(pAsset);
         return pAsset;

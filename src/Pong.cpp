@@ -134,9 +134,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     addr_t Connection;
     net::zSocket Socket(net::SocketType::UDP);
 
-    gui::zFont& Font = *Assets.Create<gui::zFont>();
-    Font.AttachManager(Assets);
-    Font.LoadFromFile("assets/ttf/menu.ttf");
+    gui::zFont& Font = *Assets.Create<gui::zFont>("assets/ttf/menu.ttf");
     Font.SetColor(color4f_t(1.0, 1.0, 0.0));
 
     if(join)

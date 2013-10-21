@@ -37,6 +37,9 @@ namespace zen
 /// A namespace encompassing asset-related objects and managers.
 namespace asset
 {
+    /// Forward declaration.
+    class ZEN_API zAssetManager;
+
     /// For unique asset ID.
     typedef uint32_t assetid_t;
 
@@ -113,7 +116,7 @@ namespace asset
         inline void SetFilename(const string_t& filename);
 
         /// Only asset::zAssetManager can create zAsset instances.
-        friend class ZEN_API zAssetManager;
+        friend zAssetManager;
 
     protected:
         /// Only asset::zAssetManager can create zAsset instances.
@@ -133,6 +136,8 @@ namespace asset
         string_t    m_error_str;
         uint32_t    m_filename_hash;
         bool        m_loaded;
+
+        zAssetManager* mp_Parent;
 
     private:
         uint32_t    m_refcount;

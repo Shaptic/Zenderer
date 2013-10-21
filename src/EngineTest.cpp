@@ -98,7 +98,6 @@ int main2(int argc, char* argv[])
 
     obj::zEntity& Ent = Scene.AddEntity();
     gui::zFont* Font = Manager.Create<gui::zFont>();
-    Font->AttachManager(Manager);
     Font->SetSize(18);
     Font->SetColor(color4f_t(0.0, 0.0, 0.0));
     Font->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");

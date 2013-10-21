@@ -9,10 +9,10 @@ using gui::zFont;
 gfx::zEffect* zFont::s_FontFx = nullptr;
 
 zFont::zFont(const void* const owner) :
-    zAsset(owner), mp_Assets(nullptr),
-    m_Color(0.0, 0.0, 0.0, 1.0),
+    zAsset(owner), m_Color(0.0, 0.0, 0.0, 1.0),
     m_size(18), m_height(0), m_stack(false)
-{}
+{
+}
 
 zFont::~zFont()
 {
@@ -21,7 +21,23 @@ zFont::~zFont()
 
 bool zFont::LoadFromFile(const string_t& filename)
 {
-    ZEN_ASSERTM(mp_Assets != nullptr, "Asset manager MUST be attached!");
+    if(s_FontFx == nullptr)
+    {
+        s_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, *mp_Parent);
+        if(!s_FontFx->Init())
+        {
+            delete s_FontFx;
+            s_FontFx = nullptr;
+            return false;
+        }
+
+        s_FontFx->Enable();
+        s_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
+        s_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        s_FontFx->Disable();
+    }
+
+    ZEN_ASSERT(mp_Parent != nullptr);
     if(s_FontFx == nullptr)
     {
         m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
@@ -97,24 +113,23 @@ const void* const zFont::GetData() const
     return reinterpret_cast<const void* const>(&m_glyphData);
 }
 
-bool zFont::Render(obj::zEntity& Ent,
-                   const string_t& to_render /*=""*/) const
+bool zFont::Render(obj::zEntity& Ent, const string_t& to_render) const
 {
-    gfxcore::zTexture& Texture = *mp_Assets->Create<gfxcore::zTexture>();
+    gfxcore::zTexture& Texture = *mp_Parent->Create<gfxcore::zTexture>();
     if(!this->Render(Texture, to_render))
     {
-        mp_Assets->Delete(&Texture);
+        mp_Parent->Delete(&Texture);
         return false;
     }
 
-    gfx::zMaterial M(*mp_Assets);
+    gfx::zMaterial M(*mp_Parent);
     if(!M.LoadTexture(Texture))
     {
-        mp_Assets->Delete(&Texture);
+        mp_Parent->Delete(&Texture);
         return false;
     }
 
-    gfx::zQuad Q(*mp_Assets, Texture.GetWidth(), Texture.GetHeight());
+    gfx::zQuad Q(*mp_Parent, Texture.GetWidth(), Texture.GetHeight());
     Q.AttachMaterial(M);
     Q.SetColor(color4f_t());
     Q.Create();
@@ -124,10 +139,9 @@ bool zFont::Render(obj::zEntity& Ent,
     return true;
 }
 
-bool zFont::Render(gfxcore::zTexture& Texture,
-                   const string_t& to_render /*=""*/) const
+bool zFont::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
 {
-ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
+    ZEN_ASSERT(mp_Parent != nullptr);
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
 
     if(text.empty() || !m_loaded || s_FontFx == nullptr) return false;
@@ -317,7 +331,7 @@ bool zFont::Destroy()
 {
     m_size = 18;
     for(auto i : m_glyphData)
-        mp_Assets->Delete(i.second.texture);
+        mp_Parent->Delete(i.second.texture);
     m_glyphData.clear();
     this->ClearString();
     return true;
@@ -325,7 +339,7 @@ bool zFont::Destroy()
 
 bool zFont::LoadGlyph(const char c, const uint16_t index)
 {
-    ZEN_ASSERTM(mp_Assets != nullptr, "an asset manager must be attached");
+    ZEN_ASSERT(mp_Parent != nullptr);
     FT_Glyph g;
 
     // Render as a monochrome bitmap into glyph struct.
@@ -355,7 +369,7 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 
-    gfxcore::zTexture* pTexture = mp_Assets->Create<gfxcore::zTexture>(this->GetOwner());
+    gfxcore::zTexture* pTexture = mp_Parent->Create<gfxcore::zTexture>(this->GetOwner());
     pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     std::stringstream ss;
     ss << 's' << m_size << " bitmap for '" << c
@@ -375,28 +389,6 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
 
     // Clean up TTF data.
     FT_Done_Glyph(g);
-
-    return true;
-}
-
-bool zFont::AttachManager(asset::zAssetManager& Assets)
-{
-    mp_Assets = &Assets;
-    if(s_FontFx == nullptr)
-    {
-        s_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, Assets);
-        if(!s_FontFx->Init())
-        {
-            delete s_FontFx;
-            s_FontFx = nullptr;
-            return false;
-        }
-
-        s_FontFx->Enable();
-        s_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
-        s_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-        s_FontFx->Disable();
-    }
 
     return true;
 }
