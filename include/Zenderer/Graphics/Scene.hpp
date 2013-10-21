@@ -94,9 +94,7 @@ namespace gfx
          *
          * @param   Type    The light type you wish to create
          *
-         * @return  A created light instance.
-         *
-         * @todo    Fix window size
+         * @return  An light initialized and added to the scene.
          **/
         zLight& AddLight(const LightType& Type);
 

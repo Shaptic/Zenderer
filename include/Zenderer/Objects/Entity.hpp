@@ -20,7 +20,7 @@
  *  A group containing renderable objects with a variety of controllable
  *  options and features like animation and collision detection.
  *  These classes are a step above the simple primitive rendering scheme
- *  set up by the architecture in zen::gfx::zPolygon, and are the most
+ *  set up by the architecture in `zen::gfx::zPolygon`, and are the most
  *  likely to face direct user interaction through the application.
  *
  * @{
@@ -61,7 +61,7 @@ namespace obj
         };
 
     public:
-        explicit zEntity(asset::zAssetManager& Assets);
+        zEntity(asset::zAssetManager& Assets);
         virtual ~zEntity();
 
         /**
@@ -267,8 +267,8 @@ namespace obj
         friend class ZEN_API gfx::zScene;
 
     protected:
-        //zEntity(const zEntity&)                 // not implemented to
-        //zEntity& operator=(const zEntity&)      // prevent compiler default
+        //zEntity(const zEntity&)=delete;             // not implemented to
+        //zEntity& operator=(const zEntity&)=delete;  // prevent compiler default
 
         void Destroy();
         bool FileError(const string_t& filename,
