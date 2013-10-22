@@ -153,17 +153,11 @@
     <ClInclude Include="include\Zenderer\Utilities\INIParser.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\Utilities\XMLParser.hpp">
-      <Filter>Header Files\Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="include\Zenderer\Utilities\Settings.hpp">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="include\Zenderer\CoreGraphics\VertexArray.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Zenderer\Core\Allocator.hpp">
-      <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="include\Zenderer\Math\Matrix.hpp">
       <Filter>Header Files\Math</Filter>
@@ -314,9 +308,6 @@
     <ClCompile Include="src\Utilities\INIParser.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="src\Utilities\XMLParser.cpp">
-      <Filter>Source Files\Utilities</Filter>
-    </ClCompile>
     <ClCompile Include="src\Utilities\Settings.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
@@ -328,9 +319,6 @@
     </ClCompile>
     <ClCompile Include="src\Math\MathCore.cpp">
       <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Allocator.cpp">
-      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Math\Matrix.cpp">
       <Filter>Source Files\Math</Filter>
@@ -419,11 +407,11 @@
     <ClCompile Include="src\Graphics\ConcavePolygon.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\Levels\LevelLoader.cpp">
-      <Filter>Source Files\Levels</Filter>
-    </ClCompile>
     <ClCompile Include="src\LevelTest.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Levels\LevelLoader.cpp">
+      <Filter>Source Files\Levels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
