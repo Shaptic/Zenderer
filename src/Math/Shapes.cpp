@@ -272,7 +272,7 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
         if(eartip < 0) break;
 
         // Create the triangulated piece.
-        for(const auto& i : tri) triangles.emplace_back(std::move(i));
+        for(const auto& i : tri) triangles.push_back(std::move(i));
 
         // Clip the ear from the polygon.
         Polygon.erase(std::find(Polygon.begin(), Polygon.end(), tri[1]));

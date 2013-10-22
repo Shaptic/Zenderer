@@ -52,7 +52,7 @@ std::vector<string_t> util::split(const string_t& text,
     {
         if(*i == delim)
         {
-            splitResults.emplace_back(string_t(last, i));
+            splitResults.emplace_back(last, i);
             last = ++i;
         }
         else
@@ -60,7 +60,7 @@ std::vector<string_t> util::split(const string_t& text,
             ++i;
         }
     }
-    splitResults.emplace_back(string_t(last, j));
+    splitResults.emplace_back(last, j);
     ZEN_ASSERT(!splitResults.empty());
 
     return splitResults;

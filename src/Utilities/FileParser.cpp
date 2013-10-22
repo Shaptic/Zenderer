@@ -73,10 +73,10 @@ bool zFileParser::LoadFromStreamUntil(std::ifstream& infile,
         std::size_t index = line.find('=');
         if(index != std::string::npos)
         {
-            m_results.emplace_back(pair_t(
+            m_results.emplace_back(
                 line.substr(0, index),
                 line.substr(index + 1)
-            ));
+            );
         }
     }
 

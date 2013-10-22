@@ -48,10 +48,10 @@ zPolygon::zPolygon(const zPolygon& Copy) :
         mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
 
     m_Verts.reserve(Copy.m_Verts.size());
-    for(auto i : Copy.m_Verts) m_Verts.emplace_back(i);
+    for(auto i : Copy.m_Verts) m_Verts.emplace_back(i.x, i.y, i.z);
 
     m_Tris.reserve(Copy.m_Tris.size());
-    for(auto i : Copy.m_Tris) m_Tris.emplace_back(i);
+    for(auto i : Copy.m_Tris) m_Tris.emplace_back(i.x, i.y, i.z);
 }
 
 zPolygon::zPolygon(zPolygon&& Move) :
@@ -117,15 +117,14 @@ void zPolygon::RemoveMaterial()
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());
 }
 
-void zPolygon::AddVertex(const math::vector_t& Position)
+void zPolygon::AddVertex(math::vector_t Position)
 {
-    this->AddVertex(Position.x, Position.y);
+    m_Verts.push_back(std::move(Position));
 }
 
 void zPolygon::AddVertex(const real_t x, const real_t y)
 {
     m_Verts.emplace_back(x, y, 0.0);
-    m_Verts.shrink_to_fit();
 }
 
 zPolygon& zPolygon::Create(const bool do_triangulation)

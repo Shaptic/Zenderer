@@ -148,7 +148,7 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
 
             if(attr & static_cast<uint8_t>(AttributeType::PHYSICAL))
             {
-                level.physical.emplace_back(&Latest);
+                level.physical.push_back(&Latest);
             }
 
             if(attr & static_cast<uint8_t>(AttributeType::INVISIBLE))
@@ -192,7 +192,7 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
 
             point.whitelist = util::split(Parser.PopResult("whitelist"), ',');
             point.blacklist = util::split(Parser.PopResult("blacklist"), ',');
-            level.spawnpoints.emplace_back(std::move(point));
+            level.spawnpoints.push_back(std::move(point));
         }
 
         // Handle lighting.
@@ -249,7 +249,7 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
             }
 
             Light.Disable();
-            level.lights.emplace_back(&Light);
+            level.lights.push_back(&Light);
         }
 
         else

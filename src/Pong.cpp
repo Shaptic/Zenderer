@@ -186,7 +186,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
                std::find(allHosts.begin(), allHosts.end(),
                          addr_t(addr, port)) == allHosts.end())
             {
-                allHosts.emplace_back(addr_t(addr, port));
+                allHosts.emplace_back(addr, port);
                 HostList.AddButton(addr, [&host](size_t i) {
                     host = i;
                 });
