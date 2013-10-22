@@ -102,7 +102,6 @@ public:
         m_Trail.AddPrimitive(Q);
 
         mp_Font = m_Assets.Create<gui::zFont>();
-        mp_Font->AttachManager(m_Assets);
         mp_Font->SetSize(16);
         mp_Font->SetColor(1.0, 1.0, 1.0);
 
