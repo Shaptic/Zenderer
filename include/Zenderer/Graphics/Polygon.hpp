@@ -292,14 +292,14 @@ namespace gfx
  *
  *  @code
  *  // Assuming a manager, etc has already been defined prior.
- *  gfx::zPolygon Circle(Manager, 360);
+ *  gfx::zPolygon Circle(Manager, 361);
  *
  *  real_t radius = 32;
  *  Circle.AddVertex(32, 32);   // Center of the circle
  *  for(uint16_t i = 0; i < 360; ++i)
  *  {
- *      Circle.AddVertex(std::sin(math::rad(i)) * radius,
- *                       std::cos(math::rad(i)) * radius);
+ *      Circle.AddVertex(32 + std::sin(math::rad(i)) * radius,
+ *                       32 + std::cos(math::rad(i)) * radius);
  *  }
  *
  *  Circle.Create();
