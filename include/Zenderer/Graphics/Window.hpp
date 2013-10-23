@@ -145,7 +145,7 @@ namespace gfx
 
         bool IsOpen() const;
         bool IsFullscreen() const;
-        void Close()  const;
+        void Close();
 
         /**
          * Sets OpenGL clearing bits.

@@ -182,7 +182,7 @@ bool zWindow::DisableFullscreen(int* const loaded)
 
 bool zWindow::IsOpen() const
 {
-    return !glfwWindowShouldClose(mp_Window);
+    return this->IsInit();
 }
 
 bool zWindow::IsFullscreen() const
@@ -190,10 +190,9 @@ bool zWindow::IsFullscreen() const
     return m_fullscreen;
 }
 
-void zWindow::Close() const
+void zWindow::Close()
 {
-    evt::zEventHandler::WindowCloseCallback(mp_Window);
-    glfwSetWindowShouldClose(mp_Window, true);
+    this->Destroy();
 }
 
 math::vector_t zWindow::GetMousePosition() const
