@@ -79,7 +79,7 @@ void zEventHandler::CharacterCallback(GLFWwindow*, unsigned int c)
     s_Active.key.key    = Key::UNKNOWN;
     s_Active.key.mods   = 0;
     s_Active.key.scan   = -1;
-    s_Active.type       = EventType::PRINTABLE_KEY;
+    s_Active.type       = EventType::KEY_PRINTABLE;
 
     s_evtList.push(s_Active);
     s_Active.Reset();

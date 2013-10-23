@@ -47,7 +47,7 @@ namespace evt
         KEY_DOWN,
         KEY_UP,
         KEY_HOLD,
-        PRINTABLE_KEY,
+        KEY_PRINTABLE,
         MOUSE_DOWN,
         MOUSE_UP,
         MOUSE_MOTION,

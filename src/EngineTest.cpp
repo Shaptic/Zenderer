@@ -232,7 +232,7 @@ int main2(int argc, char* argv[])
                 std::cout << "Key: " << (int16_t)event.key.key << "\n";
                 break;
 
-            case evt::EventType::PRINTABLE_KEY:
+            case evt::EventType::KEY_PRINTABLE:
                 if(event.key.symbol == 'm') zRenderer::ToggleWireframe();
                 else if(event.key.symbol == 'l') Scene.ToggleLighting();
                 std::cout << "Printable: " << event.key.symbol << "\n";
