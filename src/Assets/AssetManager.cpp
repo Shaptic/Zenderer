@@ -103,10 +103,8 @@ bool zAssetManager::Delete(const uint32_t index)
     ZEN_ASSERTM(index < this->GetAssetCount() && index >= 0,
                 "index out of range");
 
-    if(this->GetAssetCount() == 0) return false;
-
     std::list<zAsset*>::iterator it = mp_managerAssets.begin();
-    for(size_t i = 0; i < index; ++i, ++it);
+    std::advance(it, index);
 
     if(it != mp_managerAssets.end())
     {
@@ -116,9 +114,10 @@ bool zAssetManager::Delete(const uint32_t index)
                 << '(' << (*it)->GetFilename() << ")." << zLog::endl;
 
         mp_managerAssets.erase(it);
+        return true;
     }
 
-    return true;
+    return false;
 }
 
 zAsset* zAssetManager::Find(const zen::string_t& filename,
