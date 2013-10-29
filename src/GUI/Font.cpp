@@ -137,6 +137,7 @@ bool zFont::Render(obj::zEntity& Ent, const string_t& to_render) const
 
     if(!m_stack) Ent.Destroy();
     Ent.AddPrimitive(std::move(Q));
+    mp_Parent->Delete(&Texture);
     return true;
 }
 
@@ -332,7 +333,11 @@ bool zFont::Destroy()
 {
     m_size = 18;
     for(auto i : m_glyphData)
+    {
         mp_Parent->Delete(i.second.texture);
+        i.second.texture = nullptr;
+    }
+
     m_glyphData.clear();
     this->ClearString();
     return true;
@@ -384,7 +389,7 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     glyph.texture   = pTexture;
     glyph.size      = math::zVector<uint32_t>(w, h);
     glyph.position  = math::zVector<int32_t>(slot->metrics.horiBearingX >> 6,
-                                            slot->metrics.horiBearingY >> 6);
+                                             slot->metrics.horiBearingY >> 6);
     glyph.advance   = slot->advance.x >> 6;
     m_glyphData[c]  = glyph;
 
