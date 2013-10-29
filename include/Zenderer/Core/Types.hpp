@@ -94,17 +94,7 @@ namespace std
 /// An all-encompassing namespace for any and all components of @a Zenderer.
 namespace zen
 {
-    /**
-     * Specifies whether the engine should use 'double' (64-bit) or 'real_t'
-     * (32-bit) values for real_t numbers.
-     **/
-    typedef
-#ifdef ZEN_DOUBLE_PRECISION
-    double
-#else
-    float
-#endif // ZEN_DOUBLE_PRECISION
-    real_t;
+    typedef float real_t;
 
     /**
      * Character sequence representation used throughout the engine.
