@@ -332,7 +332,7 @@ void zFont::ClearString()
 bool zFont::Destroy()
 {
     m_size = 18;
-    for(auto i : m_glyphData)
+    for(auto& i : m_glyphData)
     {
         mp_Parent->Delete(i.second.texture);
         i.second.texture = nullptr;
@@ -391,7 +391,7 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     glyph.position  = math::zVector<int32_t>(slot->metrics.horiBearingX >> 6,
                                              slot->metrics.horiBearingY >> 6);
     glyph.advance   = slot->advance.x >> 6;
-    m_glyphData[c]  = glyph;
+    m_glyphData[c]  = std::move(glyph);
 
     // Clean up TTF data.
     FT_Done_Glyph(g);
