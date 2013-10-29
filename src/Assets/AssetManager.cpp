@@ -68,9 +68,6 @@ bool zAssetManager::Delete(zAsset* const pAsset)
                     << "Deleting asset: " << Asset.GetAssetID()
                     << " (" << Asset.GetFilename() << ")." << zLog::endl;
 
-            delete *b;
-            mp_managerAssets.erase(b);
-
             auto s = zAssetManager::sp_allAssets.begin(),
                  t = zAssetManager::sp_allAssets.end();
 
@@ -79,7 +76,8 @@ bool zAssetManager::Delete(zAsset* const pAsset)
             {
                 if(*s == pAsset && (*s)->GetOwner() == pAsset->GetOwner())
                 {
-                    // It has already been deleted so just remove from list.
+                    // It will be deleted outside of the loop,
+                    // so just remove from list.
                     sp_allAssets.erase(s);
                     break;
                 }
@@ -87,6 +85,8 @@ bool zAssetManager::Delete(zAsset* const pAsset)
                 ++s;
             }
 
+            delete &Asset;
+            mp_managerAssets.erase(b);
             return true;
         }
 
