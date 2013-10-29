@@ -51,21 +51,22 @@ bool zAssetManager::Delete(zAsset* const pAsset)
     auto b = mp_managerAssets.begin(), e = mp_managerAssets.end();
     for( ; b != e; )
     {
-        if(*b == pAsset && (*b)->GetOwner() == pAsset->GetOwner())
+        zAsset& Asset = **b;
+        if(&Asset == pAsset && Asset.GetOwner() == pAsset->GetOwner())
         {
-            if((*b)->m_refcount > 1)
+            if(Asset.m_refcount > 1)
             {
-                --(*b)->m_refcount;
+                --Asset.m_refcount;
                 m_Log   << m_Log.SetMode(util::LogMode::ZEN_DEBUG)
                         << "Decreasing reference count for asset ("
-                        << (*b)->GetFilename() << "): "
-                        << (*b)->m_refcount << '.' << zLog::endl;
+                        << Asset.GetFilename() << "): "
+                        << Asset.m_refcount << '.' << zLog::endl;
                 return false;
             }
 
             m_Log   << m_Log.SetMode(LogMode::ZEN_INFO)
-                    << "Deleting asset: " << (*b)->GetAssetID()
-                    << " (" << (*b)->GetFilename() << ")." << zLog::endl;
+                    << "Deleting asset: " << Asset.GetAssetID()
+                    << " (" << Asset.GetFilename() << ")." << zLog::endl;
 
             delete *b;
             mp_managerAssets.erase(b);
