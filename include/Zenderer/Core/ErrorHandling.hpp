@@ -25,10 +25,10 @@
 #include <cstdlib>
 
 #ifdef _WIN32
-  #define WIN32_LEAN_AND_MEAN
-  #include <Windows.h>
+#  define WIN32_LEAN_AND_MEAN
+#  include <Windows.h>
 #else
-  #include <iostream>
+#  include <iostream>
 #endif // _WIN32
 
 namespace zen
@@ -42,6 +42,7 @@ namespace zen
      * @see     zen::gfx::error_window
      **/
     void error_fallback(const char* message, const char* title = "Error");
+
 }   // namespace zen
 
 #endif // ZENDERER__CORE__ERROR_HANDLING_HPP
