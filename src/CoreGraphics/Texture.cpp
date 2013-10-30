@@ -12,6 +12,7 @@ uint16_t zTexture::s_ID = 1;
 zTexture::zTexture(const void* const owner) :
     zAsset(owner), m_width(0), m_height(0), m_TextureID(0)
 {
+    if(owner == nullptr) this->SetOwner(glfwGetCurrentContext());
 }
 
 zTexture::~zTexture()
