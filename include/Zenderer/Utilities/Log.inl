@@ -22,7 +22,7 @@ zLog& zLog::operator<<(const T& data)
 
 zLog& zLog::SetMode(const util::LogMode& Mode)
 {
-    m_mode = Mode;
+    if(m_enabled) m_mode = Mode;
     return (*this);
 }
 
@@ -33,7 +33,7 @@ zLog& zLog::SetSystem(const string_t& sys)
     if(m_mode == LogMode::ZEN_DEBUG) return (*this);
 #endif // ZEN_DEBUG_BUILD
 
-    m_system = sys;
+    if(m_enabled) m_system = sys;
     return (*this);
 }
 
