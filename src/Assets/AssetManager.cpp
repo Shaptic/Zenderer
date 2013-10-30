@@ -42,8 +42,7 @@ bool zAssetManager::Destroy()
 
 bool zAssetManager::Delete(zAsset* const pAsset)
 {
-    ZEN_ASSERT(this->IsInit());
-    if(pAsset == nullptr) return false;
+    if(!this->IsInit() || pAsset == nullptr) return false;
 
     m_Log.SetSystem("AssetMgr");
 
@@ -54,6 +53,8 @@ bool zAssetManager::Delete(zAsset* const pAsset)
         zAsset& Asset = **b;
         if(&Asset == pAsset && Asset.GetOwner() == pAsset->GetOwner())
         {
+            ZEN_ASSERTM(Asset.m_loaded, "deleting unloaded asset");
+
             if(Asset.m_refcount > 1)
             {
                 --Asset.m_refcount;

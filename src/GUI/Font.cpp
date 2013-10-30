@@ -30,8 +30,8 @@ bool zFont::LoadFromFile(const string_t& filename)
             mp_FontFx = nullptr;
 
             m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
-                << "Internal font rendering effect not loaded. "
-                << "Check the log for error details." << zLog::endl;
+                    << "Internal font rendering effect not loaded. "
+                    << "Check the log for error details." << zLog::endl;
             return (m_loaded = false);
         }
 

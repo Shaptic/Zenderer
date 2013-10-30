@@ -172,7 +172,7 @@ bool zPolygon::Draw(const RenderState& state)
     {
         // Create a vertex array and load our data.
         mp_VAO = new gfxcore::zVertexArray(GL_STATIC_DRAW);
-        mp_VAO->Init();
+        if(!mp_VAO->Init()) return false;
         m_offset = mp_VAO->AddData(m_DrawData);
         if(!mp_VAO->Offload()) return false;
 

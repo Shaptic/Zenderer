@@ -57,7 +57,7 @@ bool zen::Init()
 #ifdef _WIN32
     Log << "WinSock: ";
 #else
-    Log << "socket API: ";
+    Log << "Socket API: ";
 #endif // _WIN32
     if(!net::zSocket::InitializeLibrary())
     {
