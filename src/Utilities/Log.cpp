@@ -16,7 +16,8 @@ zLog::zLog(const string_t& filename, const bool show_stdout) :
     m_system("Log"),
     m_filename(filename),
     m_stdout(show_stdout),
-    m_init(false)
+    m_init(false),
+    m_enabled(true)
 {}
 
 zLog::~zLog()

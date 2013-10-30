@@ -5,7 +5,7 @@ zLog& zLog::operator<< (zLog& (zLog::*Fn)())
     if(m_mode == LogMode::ZEN_DEBUG) return (*this);
 #endif // ZEN_DEBUG_BUILD
 
-    return (this->*Fn)();
+    return (m_enabled ? (this->*Fn)() : *this);
 }
 
 template<typename T>
