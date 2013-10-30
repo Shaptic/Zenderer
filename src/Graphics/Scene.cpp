@@ -317,18 +317,20 @@ bool zScene::IsValidEntityIndex(int32_t i)
 }
 
 void gfx::error_window(const char* message, const char* title,
-                       const math::vectoru16_t& size)
+                       const uint16_t w, const uint16_t h)
 {
     #define CHECK(fn, extra)                \
         if(!fn) {                           \
             extra;                          \
-            error_fallback(message, title); \
+            std::cout << "check failed.\n"; \
         }
 
+    gui::zFontLibrary::InitFreetype();
+    //util::zLog::GetEngineLog().Disable();
     asset::zAssetManager Assets;
     CHECK(Assets.Init(), ;);
 
-    gfx::zWindow Window(size.x, size.y, title, Assets, false);
+    gfx::zWindow Window(w, h, title, Assets, false);
     CHECK(Window.Init(), ;);
 
     gui::zFont* pErrorFont = Assets.Create<gui::zFont>();
@@ -337,14 +339,20 @@ void gfx::error_window(const char* message, const char* title,
     CHECK(pErrorFont->LoadFromFile(ZENDERER_FONT_PATH"errors.ttf"),
           Window.Destroy());
 
-    gfx::zScene Scene(size.x, size.y, Assets);
+    gfx::zScene Scene(w, h, Assets);
     CHECK(Scene.Init(), Window.Destroy());
 
     obj::zEntity& FontString = Scene.AddEntity();
+
+    // Program exits here...
     CHECK(pErrorFont->Render(FontString, message), Window.Destroy());
 
-    FontString.Move(size.x / 2 - pErrorFont->GetTextWidth(message) / 2,
-                    size.y / 2 - pErrorFont->GetTextHeight(message) / 2);
+    uint16_t msgw = pErrorFont->GetTextWidth(message);
+    uint16_t msgh = pErrorFont->GetTextHeight(message);
+
+    CHECK(msgw < w && msgh < h, Window.Destroy());
+    FontString.Move(w / 2 - msgw / 2,
+                    h / 2 - msgh / 2);
 
     bool quit = false;
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
@@ -364,5 +372,5 @@ void gfx::error_window(const char* message, const char* title,
 
     #undef CHECK
     Assets.Delete(pErrorFont);
-    exit(1);
+    util::zLog::GetEngineLog().Enable();
 }

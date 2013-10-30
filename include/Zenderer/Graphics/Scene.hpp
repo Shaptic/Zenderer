@@ -300,7 +300,7 @@ namespace gfx
      * @see     error_fallback()
      **/
     void error_window(const char* message, const char* title = "Error",
-                      const math::vectoru16_t& size = math::vectoru16_t(300, 200));
+                      const uint16_t w, const uint16_t h);
 
     #include "Scene.inl"
 }
