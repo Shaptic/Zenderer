@@ -86,7 +86,7 @@ namespace asset
          *  copy at a time, calling
          *
          *  @code
-         *      Create<gfx::zTexture>("test.tga");
+         *      Create<gfxcore::zTexture>("test.tga");
          *  @endcode
          *
          *  three times will give the same return value every time.
