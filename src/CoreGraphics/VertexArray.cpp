@@ -54,8 +54,6 @@ bool zVertexArray::Bind() const
 {
     if(!m_init) return false;
     GL(glBindVertexArray(m_vao));
-    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
-    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
     return true;
 }
 
@@ -92,6 +90,10 @@ bool zVertexArray::Offload()
 {
     if(!this->Bind())       return false;
     if(this->Offloaded())   return false;
+
+    // Prepares the buffers and hooks them into the VAO.
+    GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
+    GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
 
     // Check if there's existing data on the buffers.
     GLint bsize = 0;
