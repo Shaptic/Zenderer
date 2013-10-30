@@ -35,6 +35,9 @@ bool zWindow::Init()
         return false;
     }
 
+    // Initialize the asset manager if it hasn't been already.
+    m_Assets.Init();
+
     m_Log   << m_Log.SetSystem("Window")
             << m_Log.SetMode(LogMode::ZEN_INFO)
             << "Set up window (" << m_Dimensions.x << "x"
@@ -119,13 +122,15 @@ bool zWindow::Destroy()
 {
     if(!m_init) return true;
 
+    m_Assets.Destroy();
+
     // We're special.
     const_cast<zEffect&>(gfxcore::zRenderer::GetDefaultEffect()).Destroy();
-
     delete gfxcore::zRenderer::s_DefaultMaterial;
+
     for(auto& i : gfxcore::zGLSubsystem::sp_allGLSystems)
         i->Destroy();
-    m_Assets.Destroy();
+
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
     return !(m_init = false);
