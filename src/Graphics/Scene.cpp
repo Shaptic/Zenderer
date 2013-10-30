@@ -315,3 +315,54 @@ bool zScene::IsValidEntityIndex(int32_t i)
 {
     return (i >= 0 && static_cast<size_t>(i) < m_allEntities.size());
 }
+
+void gfx::error_window(const char* message, const char* title,
+                       const math::vectoru16_t& size)
+{
+    #define CHECK(fn, extra)                \
+        if(!fn) {                           \
+            extra;                          \
+            error_fallback(message, title); \
+        }
+
+    asset::zAssetManager Assets;
+    CHECK(Assets.Init(), ;);
+
+    gfx::zWindow Window(size.x, size.y, title, Assets, false);
+    CHECK(Window.Init(), ;);
+
+    gui::zFont* pErrorFont = Assets.Create<gui::zFont>();
+    pErrorFont->SetSize(22);
+    pErrorFont->SetColor(1.0, 1.0, 1.0);
+    CHECK(pErrorFont->LoadFromFile(ZENDERER_FONT_PATH"errors.ttf"),
+          Window.Destroy());
+
+    gfx::zScene Scene(size.x, size.y, Assets);
+    CHECK(Scene.Init(), Window.Destroy());
+
+    obj::zEntity& FontString = Scene.AddEntity();
+    CHECK(pErrorFont->Render(FontString, message), Window.Destroy());
+
+    FontString.Move(size.x / 2 - pErrorFont->GetTextWidth(message) / 2,
+                    size.y / 2 - pErrorFont->GetTextHeight(message) / 2);
+
+    bool quit = false;
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
+    evt::event_t evt;
+    while(!quit)
+    {
+        Evts.PollEvents();
+        while(Evts.PopEvent(evt))
+        {
+            quit = (evt.type == evt::EventType::WINDOW_CLOSE);
+        }
+
+        Window.Clear();
+        Scene.Render();
+        Window.Update();
+    }
+
+    #undef CHECK
+    Assets.Delete(pErrorFont);
+    exit(1);
+}

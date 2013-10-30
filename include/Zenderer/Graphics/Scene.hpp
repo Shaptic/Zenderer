@@ -30,6 +30,8 @@
 #include "Zenderer/Objects/Entity.hpp"
 #include "Zenderer/Objects/Animation.hpp"
 
+#include "Zenderer/GUI/Font.hpp"
+
 #include "Window.hpp"
 #include "RenderTarget.hpp"
 #include "Effect.hpp"
@@ -274,6 +276,31 @@ namespace gfx
 
         bool m_lighting, m_ppfx, m_through;
     };
+
+    /**
+     * Provies a fancier and cross-platform way of showing errors.
+     *  This function creates a completely independent window and
+     *  displays the given error message. If you know that your error
+     *  is long and will not fit into the default size (300x200),
+     *  you can pass a size parameter accordingly for the window dimensions.
+     *
+     *  If any portion of this error handling routine fails, the fallback
+     *  method will be called.
+     *
+     * @param   message     The message to display
+     * @param   title       Window title
+     * @param   size        Window dimensions (optional)
+     *
+     * @note    This exits the program.
+     * @note    Potential reasons for failure:
+     *              Can't create a 3.3 OpenGL context.
+     *              Can't load the error handling font.
+     *              Can't render the given message w/ the font.
+     *
+     * @see     error_fallback()
+     **/
+    void error_window(const char* message, const char* title = "Error",
+                      const math::vectoru16_t& size = math::vectoru16_t(300, 200));
 
     #include "Scene.inl"
 }

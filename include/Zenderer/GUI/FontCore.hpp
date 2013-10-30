@@ -33,6 +33,9 @@
 #include "Zenderer/CoreGraphics/Texture.hpp"
 #include "Zenderer/Math/Shapes.hpp"
 
+/// File path to engine-specific shader files.
+#define ZENDERER_FONT_PATH "Zenderer/fonts/"
+
 namespace zen
 {
 /// A collection of TrueType font rendering wrapper utilities.
