@@ -63,6 +63,8 @@ bool zLog::Destroy()
 
 zLog& zLog::Newline()
 {
+    static bool in_window = false;
+
     if(!m_enabled || m_str.str().empty() || !this->IsInit())
         return (*this);
 
@@ -90,7 +92,15 @@ zLog& zLog::Newline()
 
     if(m_mode == LogMode::ZEN_FATAL)
     {
-        gfx::error_window(tmp.str().c_str(), "Fatal Error");
+        if(in_window)
+        {
+            error_fallback(tmp.str().c_str(), "Fatal Error");
+        }
+        else
+        {
+            in_window = true;
+            gfx::error_window(tmp.str().c_str(), "Fatal Error");
+        }
 
         // If these aren't cleared, exit() calls ~zLog() which calls Destroy()
         // which calls Newline() so the message would be output twice.
