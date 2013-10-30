@@ -16,7 +16,7 @@ zLog& zLog::operator<<(const T& data)
     if(m_mode == LogMode::ZEN_DEBUG) return (*this);
 #endif // ZEN_DEBUG_BUILD
 
-    m_str << data;
+    if(m_enabled) m_str << data;
     return (*this);
 }
 
@@ -55,4 +55,14 @@ string_t zLog::GetFilename() const
 bool zLog::IsInit() const
 {
     return m_init;
+}
+
+void zLog::Enable()
+{
+    m_enabled = true;
+}
+
+void zLog::Disable()
+{
+    m_enabled = false;
 }

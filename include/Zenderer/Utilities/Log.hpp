@@ -38,6 +38,14 @@
 
 namespace zen
 {
+
+namespace gfx
+{
+    /// Forward declaration for true definition in Zenderer/Scene.hpp.
+    void error_window(const char* msg, const char* cap,
+                      const uint16_t w = 300, const uint16_t h = 200);
+}
+
 namespace util
 {
     /// Log output types
@@ -156,6 +164,12 @@ namespace util
         /// Toggles console output.
         void ToggleStdout();
 
+        /// Disables logging.
+        inline void Disable();
+
+        /// Enables logging.
+        inline void Enable();
+
         /// Sets the output mode to something in util::LogMode.
         virtual inline zLog& SetMode(const LogMode& Mode);
 
@@ -196,6 +210,7 @@ namespace util
         string_t    m_filename;
         bool        m_stdout;
         bool        m_init;
+        bool        m_enabled;
     };
 
     // Include definition for the templated operator<<
