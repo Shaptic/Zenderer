@@ -160,7 +160,7 @@ namespace gui
                         gfxcore::vertex_t* verts,
                         gfxcore::index_t* inds);
 
-        static gfx::zEffect* s_FontFx;
+        gfx::zEffect* mp_FontFx;
         color4f_t m_Color;
         FT_Face m_FontFace;
 

@@ -6,11 +6,10 @@ using util::zLog;
 using util::LogMode;
 using gui::zFont;
 
-gfx::zEffect* zFont::s_FontFx = nullptr;
-
 zFont::zFont(const void* const owner) :
     zAsset(owner), m_Color(0.0, 0.0, 0.0, 1.0),
-    m_size(18), m_height(0), m_stack(false)
+    m_size(18), m_height(0), m_stack(false),
+    mp_FontFx(nullptr)
 {
 }
 
@@ -22,29 +21,24 @@ zFont::~zFont()
 bool zFont::LoadFromFile(const string_t& filename)
 {
     ZEN_ASSERT(mp_Parent != nullptr);
-    if(s_FontFx == nullptr)
+    if(mp_FontFx == nullptr)
     {
-        s_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, *mp_Parent);
-        if(!s_FontFx->Init())
+        mp_FontFx = new gfx::zEffect(gfx::EffectType::ZFONT, *mp_Parent);
+        if(!mp_FontFx->Init())
         {
-            delete s_FontFx;
-            s_FontFx = nullptr;
-            return false;
-        }
+            delete mp_FontFx;
+            mp_FontFx = nullptr;
 
-        s_FontFx->Enable();
-        s_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
-        s_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-        s_FontFx->Disable();
-    }
-
-    ZEN_ASSERT(mp_Parent != nullptr);
-    if(s_FontFx == nullptr)
-    {
-        m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
+            m_Log   << m_Log.SetMode(LogMode::ZEN_ERROR)
                 << "Internal font rendering effect not loaded. "
                 << "Check the log for error details." << zLog::endl;
-        return (m_loaded = false);
+            return (m_loaded = false);
+        }
+
+        mp_FontFx->Enable();
+        mp_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
+        mp_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        mp_FontFx->Disable();
     }
 
     // Logging.
@@ -146,7 +140,7 @@ bool zFont::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
     ZEN_ASSERT(mp_Parent != nullptr);
     const string_t& text = to_render.empty() ? m_str.str() : to_render;
 
-    if(text.empty() || !m_loaded || s_FontFx == nullptr) return false;
+    if(text.empty() || !m_loaded || mp_FontFx == nullptr) return false;
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG) << m_Log.SetSystem("FreeType")
             << "Rendering text string '" << text << "'." << zLog::endl;
@@ -282,8 +276,8 @@ bool zFont::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
     VAO.Bind();
     FBO.Bind();
 
-    s_FontFx->Enable();
-    s_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
+    mp_FontFx->Enable();
+    mp_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
 
     bool blend = gfxcore::zRenderer::BlendOperation(
         gfxcore::BlendFunc::IS_ENABLED);
