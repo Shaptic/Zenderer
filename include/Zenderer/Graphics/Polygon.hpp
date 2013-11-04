@@ -61,9 +61,11 @@ namespace gfx
          *  will not look right if there is any notion of concavity.
          *
          * @param   Position    The location to create the next vertex at
+         *
+         * @return  A reference to oneself for easy chaining.
          **/
-        void AddVertex(math::vector_t Position);
-        void AddVertex(const real_t x, const real_t y); ///< @overload
+        zPolygon& AddVertex(math::vector_t Position);
+        zPolygon& AddVertex(const real_t x, const real_t y); ///< @overload
 
         /**
          * Creates the polygon from the internally stored vertices.
@@ -82,6 +84,8 @@ namespace gfx
          * @pre     >= 3 vertices have been added to the polygon.
          * @post    No temporary vertices are stored until AddVertex()
          *          is called again.
+         *
+         * @return  A reference to oneself for easy chaining.
          **/
         virtual zPolygon& Create(const bool do_triangulation = true);
 
@@ -92,11 +96,11 @@ namespace gfx
          *  there is a default implementation.
          *
          * @param   Position    (x, y) coordinates where you want the object
+         *
+         * @return  A reference to itself to chain calls.
          **/
-        virtual void Move(const math::vector_t& Position);
-
-        /// @overload
-        virtual void Move(const real_t x, const real_t y);
+        virtual zPolygon& Move(const math::vector_t& Position);
+        virtual zPolygon& Move(const real_t x, const real_t y); ///< @overload
 
         /**
          * Attaches a material to render on top of the primitive.
@@ -170,9 +174,9 @@ namespace gfx
         void SetIndices(const std::vector<gfxcore::index_t>& Indices);
 
         /// Sets the vertex color of the created vertices.
-        void SetColor(const color4f_t& Color);
-        void SetColor(const real_t r, const real_t g,
-                      const real_t b, const real_t a = 1.0); ///< @overload
+        zPolygon& SetColor(const color4f_t& Color);
+        zPolygon& SetColor(const real_t r, const real_t g,
+                           const real_t b, const real_t a = 1.0); ///< @overload
 
         /// These is for zQuad.
         virtual void SetInverted(const bool) { /* does nothing */ }

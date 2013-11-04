@@ -83,7 +83,7 @@ zPolygon::~zPolygon()
     m_Verts.clear();
 }
 
-void zPolygon::Move(const math::vector_t& Position)
+zPolygon& zPolygon::Move(const math::vector_t& Position)
 {
     math::vector_t d = Position - math::vector_t(m_BoundingBox.x,
                                                  m_BoundingBox.y);
@@ -92,17 +92,12 @@ void zPolygon::Move(const math::vector_t& Position)
     m_BoundingBox.y = Position.y;
 
     for(auto& i : m_Tris) i = i + d;
+    return (*this);
 }
 
-void zPolygon::Move(const real_t x, const real_t y)
+zPolygon& zPolygon::Move(const real_t x, const real_t y)
 {
-    math::vector_t d = math::vector_t(x, y) - math::vector_t(m_BoundingBox.x,
-                                                             m_BoundingBox.y);
-
-    m_BoundingBox.x = x;
-    m_BoundingBox.y = y;
-
-    for(auto& i : m_Tris) i = i + d;
+    return this->Move(math::vector_t(x, y));
 }
 
 void zPolygon::AttachMaterial(gfx::zMaterial& Material)
@@ -117,14 +112,16 @@ void zPolygon::RemoveMaterial()
     m_Material.LoadTexture(zRenderer::GetDefaultTexture());
 }
 
-void zPolygon::AddVertex(math::vector_t Position)
+zPolygon& zPolygon::AddVertex(math::vector_t Position)
 {
     m_Verts.push_back(std::move(Position));
+    return (*this);
 }
 
-void zPolygon::AddVertex(const real_t x, const real_t y)
+zPolygon& zPolygon::AddVertex(const real_t x, const real_t y)
 {
     m_Verts.emplace_back(x, y, 0.0);
+    return (*this);
 }
 
 zPolygon& zPolygon::Create(const bool do_triangulation)
@@ -290,17 +287,18 @@ bool zPolygon::Collides(const math::aabb_t& other) const
     return false;
 }
 
-void zPolygon::SetColor(const color4f_t& Color)
+zPolygon& zPolygon::SetColor(const color4f_t& Color)
 {
     m_Color = Color;
     for(size_t i = 0; i < m_DrawData.vcount; ++i)
         m_DrawData.Vertices[i].color = Color;
+    return *this;
 }
 
-void zPolygon::SetColor(const real_t r, const real_t g,
-                        const real_t b, const real_t a)
+zPolygon& zPolygon::SetColor(const real_t r, const real_t g,
+                             const real_t b, const real_t a)
 {
-    this->SetColor(color4f_t(r, g, b, a));
+    return this->SetColor(color4f_t(r, g, b, a));
 }
 
 void zPolygon::SetIndices(const std::vector<gfxcore::index_t>& Indices)
