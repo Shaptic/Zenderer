@@ -179,6 +179,16 @@ namespace zen
  *
  * @todo    Test cross-platform compatibility.
  * @todo    Take a stance on `GetHeight()`/`GetWidth()` vs. `GetH()`/`GetW()`
+ * @todo    Look into allowing extra parameters to be passed to `zAsset` child
+ *          class constructors. Maybe via `void*` that corresponds to an
+ *          expected structure? Something like this:
+ *  @code
+ *      gui::zFont::config_t FontOptions;
+ *      FontOptions.size = 16;
+ *
+ *      gui::zFont& Font = Assets.Create<gui::zFont>("font.ttf", nullptr,
+ *          static_cast<void*>(&FontOptions));
+ *  @endcode
  *
  * @section prep    Preprocessor Defines
  *  There are several preprocessor directives that can be set to slightly
