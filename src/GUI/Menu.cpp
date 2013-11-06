@@ -85,6 +85,12 @@ obj::zEntity& zMenu::AddEntity()
     return m_Scene.AddEntity();
 }
 
+gfx::zLight& zMenu::AddLight(const gfx::LightType& type)
+{
+    m_Scene.EnableLighting();
+    return m_Scene.AddLight(type);
+}
+
 bool zMenu::RenderWithFont(obj::zEntity& Obj, const string_t& str)
 {
     return mp_Font->Render(Obj, str);
@@ -99,7 +105,7 @@ bool zMenu::SetFont(const std::string& filename, const uint16_t size)
 {
     mp_Font->SetSize(size);
     bool ret = mp_Font->LoadFromFile(filename);
-    m_spacing = mp_Font->GetLineHeight();
+    m_spacing = mp_Font->GetLineHeight() + 5;
     return ret;
 }
 

@@ -91,14 +91,31 @@ namespace gui
          *  This method is in-place to provide access to the underlying
          *  `gfx::zScene` object. Sometimes menus require more functionality
          *  or "stuff" than is provided by this API. The accessibility is
-         *  limited to adding objects, but will likely be expanded to allow
-         *  lighting and other effects as well.
+         *  limited to adding objects and lighting.
          *
-         *  Direct access to the underlying scene will not be permitted.
+         *  Direct access to the underlying scene is intentionally not
+         *  be permitted.
          *
          * @return  A new entity that was added to the menu.
+         *
+         * @see     gfx::zScene::AddEntity()
+         * @see     AddLight()
          **/
         virtual obj::zEntity& AddEntity();
+
+        /**
+         * Adds a light object directly to the menu,
+         *  Similarly to AddEntity(), this method provides access to the
+         *  functionality of the underlying `gfx::zScene` object.
+         *
+         * @param   type    The type of light to add to the scene
+         *
+         * @return  An initialized light of the given type (if it could
+         *          initialize it) that has been added to the scene.
+         *
+         * @see     gfx::zScene::AddLight()
+         **/
+        virtual gfx::zLight& AddLight(const gfx::LightType& type);
 
         /**
          * Renders data with the internal menu font.
