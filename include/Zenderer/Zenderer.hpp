@@ -186,7 +186,7 @@ namespace zen
  *      gui::zFont::config_t FontOptions;
  *      FontOptions.size = 16;
  *
- *      gui::zFont& Font = Assets.Create<gui::zFont>("font.ttf", nullptr,
+ *      gui::zFont& Font = *Assets.Create<gui::zFont>("font.ttf", nullptr,
  *          static_cast<void*>(&FontOptions));
  *  @endcode
  *
