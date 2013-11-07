@@ -118,7 +118,7 @@ namespace gfxcore
 
         bool Offloaded() const;
 
-        inline bool Draw()
+        inline bool Draw() const
         {
             if(!this->Bind()) return false;
             GL(glDrawElements(GL_TRIANGLES, m_icount, INDEX_TYPE, nullptr));

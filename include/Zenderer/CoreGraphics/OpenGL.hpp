@@ -120,7 +120,7 @@ namespace gfxcore
 
         virtual GLuint GetObjectHandle() const = 0;
 
-        inline bool IsInit() { return m_init; }
+        inline bool IsInit() const { return m_init; }
 
         virtual inline const string_t& GetName() const
         { return m_name; }
