@@ -38,7 +38,6 @@
 
 namespace zen
 {
-
 namespace gfx
 {
     /// Forward declaration for true definition in Zenderer/Scene.hpp.
@@ -162,7 +161,7 @@ namespace util
         virtual bool Destroy();
 
         /// Toggles console output.
-        void ToggleStdout();
+        inline void ToggleStdout();
 
         /// Disables logging.
         inline void Disable();

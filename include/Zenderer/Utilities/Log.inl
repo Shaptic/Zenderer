@@ -57,6 +57,11 @@ bool zLog::IsInit() const
     return m_init;
 }
 
+void zLog::ToggleStdout()
+{
+    m_stdout = !m_stdout;
+}
+
 void zLog::Enable()
 {
     m_enabled = true;
