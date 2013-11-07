@@ -123,6 +123,9 @@ namespace math
         template<typename U> inline
         zVector<T> operator+(const zVector<U>& Other) const;
 
+        template<typename U> inline
+        zVector<T>& operator+=(const zVector<U>& Other);
+
         /**
          * Adds a value to both components of the current vector.
          * @param   value   The value to add

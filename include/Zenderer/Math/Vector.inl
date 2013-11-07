@@ -66,6 +66,14 @@ zVector<T> zVector<T>::operator+(const real_t value) const
 
 template<typename T>
 template<typename U>
+zVector<T>& zVector<T>::operator+=(const zVector<U>& Other)
+{
+    x += Other.x; y += Other.y; z += Other.z;
+    return (*this);
+}
+
+template<typename T>
+template<typename U>
 zVector<T> zVector<T>::operator-(const zVector<U>& Other) const
 {
     return zVector<T>(x - Other.x, y - Other.y, z - Other.z);
