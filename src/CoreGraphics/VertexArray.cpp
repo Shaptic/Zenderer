@@ -5,6 +5,7 @@ using namespace zen::gfxcore;
 zVertexArray::zVertexArray(const GLenum type) :
     zGLSubsystem("Vertex Array"),
     m_icount(0), m_vcount(0),
+    m_icapacity(0), m_vcapacity(0),
     m_vao(0), m_vbo(0), m_ibo(0),
     m_type(type)
 {
@@ -91,59 +92,99 @@ bool zVertexArray::Offload()
     if(!this->Bind())       return false;
     if(this->Offloaded())   return false;
 
+    ZEN_ASSERT(m_vcapacity >= m_vcount);
+    ZEN_ASSERT(m_icapacity >= m_icount);
+
     // Prepares the buffers and hooks them into the VAO.
     GL(glBindBuffer(GL_ARRAY_BUFFER, m_vbo));
     GL(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo));
 
-    // Check if there's existing data on the buffers.
-    GLint bsize = 0;
-    GL(glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bsize));
-
-    // There is!
-    if(bsize > 0)
+    // Do we have space for the additional data or do we need to expand our
+    // buffer further to accommodate the new data?
+    if(m_vcapacity - m_vcount < m_vaoVertices.size())
     {
-        // Copy existing buffer data from GPU to local buffer.
-        const vertex_t* const data = this->GetVerticesFromGPU();
-        const size_t size = bsize / sizeof(vertex_t);
+        if(m_vcount > 0)
+        {
+            // Copy existing buffer data from GPU to local buffer.
+            const vertex_t* const data = this->GetVerticesFromGPU();
 
-        m_vaoVertices.reserve(m_vaoVertices.size() + size);
-        for(int i = size - 1; i >= 0; --i)
-            m_vaoVertices.insert(m_vaoVertices.begin(), data[i]);
+            m_vaoVertices.reserve(m_vaoVertices.size() + m_vcount);
+            for(int i = m_vcount - 1; i >= 0; --i)
+                m_vaoVertices.insert(m_vaoVertices.begin(), data[i]);
 
-        m_vcount = 0;
-        GL(glUnmapBuffer(GL_ARRAY_BUFFER));
+            m_vcount = 0;
+            GL(glUnmapBuffer(GL_ARRAY_BUFFER));
+        }
+
+        printf("Resizing from %d to %d.\n", m_vcapacity,
+               static_cast<uint16_t>(m_vaoVertices.size() * 1.25));
+
+        m_vcapacity = static_cast<uint16_t>(m_vaoVertices.size() * 1.25);
+
+        // Allocate enough GPU space for all vertex data, new and old, in
+        // addition to a 1/4th additional space for more data.
+        GL(glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_t) * m_vcapacity,
+                        nullptr, m_type));
+
+        // Pass all of the data to the buffer.
+        GL(glBufferSubData(GL_ARRAY_BUFFER, 0,
+                           sizeof(vertex_t) * m_vaoVertices.size(),
+                           &m_vaoVertices[0]));
     }
 
-    // Allocate enough GPU space for all vertex data, new and old, and pass
-    // all of the data directly to it.
-    GL(glBufferData(GL_ARRAY_BUFFER,
-                    sizeof(vertex_t) * m_vaoVertices.size(),
-                    &m_vaoVertices[0], m_type));
+    // We still have space for the necessary data.
+    else
+    {
+        printf("Using remaining %d vertices (requested %d).\n",
+               m_vcapacity - m_vcount, m_vaoVertices.size());
+
+        GL(glBufferSubData(GL_ARRAY_BUFFER, sizeof(vertex_t) * m_vcount,
+                           sizeof(vertex_t) * m_vaoVertices.size(),
+                           &m_vaoVertices[0]));
+    }
 
     // Repeat process for index buffer.
-    bsize = 0;
-    GL(glGetBufferParameteriv(GL_ELEMENT_ARRAY_BUFFER, GL_BUFFER_SIZE, &bsize));
-
-    if(bsize > 0)
+    if(m_icapacity - m_icount <= m_vaoIndices.size())
     {
-        // Copy from GPU to local buffer.
-        const index_t* const data = this->GetIndicesFromGPU();
-        const size_t size = bsize / sizeof(index_t);
+        if(m_icount > 0)
+        {
+            // Copy existing buffer data from GPU to local buffer.
+            const index_t* const data = this->GetIndicesFromGPU();
 
-        m_vaoIndices.reserve(m_vaoIndices.size() + size);
-        for(int i = size - 1; i >= 0; --i)
-            m_vaoIndices.insert(m_vaoIndices.begin(), data[i]);
+            m_vaoIndices.reserve(m_vaoIndices.size() + m_icount );
+            for(int i = m_icount - 1; i >= 0; --i)
+                m_vaoIndices.insert(m_vaoIndices.begin(), data[i]);
 
-        m_icount = 0;
-        GL(glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER));
+            m_icount = 0;
+            GL(glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER));
+        }
+
+        printf("Resizing from %d to %d.\n", m_icapacity,
+               static_cast<uint32_t>(m_vaoIndices.size() * 1.5));
+
+        m_icapacity = static_cast<uint16_t>(m_vaoIndices.size() * 1.5);
+
+        // Allocate enough GPU space for all vertex data, new and old, in
+        // addition to a 1/4th additional space for more data.
+        GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index_t) * m_icapacity,
+                        nullptr, m_type));
+
+        // Pass all of the data to the buffer.
+        GL(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0,
+                           sizeof(index_t) * m_vaoIndices.size(),
+                           &m_vaoIndices[0]));
     }
 
-    // Allocate enough GPU space for all index data, new and old, and pass
-    // all of the data directly to it.
-    GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER,                // IBO
-                    sizeof(index_t) * m_vaoIndices.size(),  // Size
-                    &m_vaoIndices[0],                       // Initial data
-                    m_type));                               // Access type
+    // We still have space for the necessary data.
+    else
+    {
+        printf("Using remaining %d indices (requested %d).\n",
+               m_icapacity - m_icount, m_vaoIndices.size());
+
+        GL(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index_t) * m_icount,
+                           sizeof(index_t) * m_vaoIndices.size(),
+                           &m_vaoIndices[0]));
+    }
 
     // Vertices are arranged in memory like so:
     //

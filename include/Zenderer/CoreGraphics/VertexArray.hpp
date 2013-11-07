@@ -130,6 +130,7 @@ namespace gfxcore
         std::vector<vertex_t>   m_vaoVertices;
 
         size_t m_icount, m_vcount;
+        size_t m_icapacity, m_vcapacity;
 
         GLuint m_vao, m_vbo, m_ibo;
         GLenum m_type;
