@@ -116,9 +116,6 @@ bool zVertexArray::Offload()
             GL(glUnmapBuffer(GL_ARRAY_BUFFER));
         }
 
-        printf("Resizing from %d to %d.\n", m_vcapacity,
-               static_cast<uint16_t>(m_vaoVertices.size() * 1.25));
-
         m_vcapacity = static_cast<uint16_t>(m_vaoVertices.size() * 1.25);
 
         // Allocate enough GPU space for all vertex data, new and old, in
@@ -135,9 +132,6 @@ bool zVertexArray::Offload()
     // We still have space for the necessary data.
     else
     {
-        printf("Using remaining %d vertices (requested %d).\n",
-               m_vcapacity - m_vcount, m_vaoVertices.size());
-
         GL(glBufferSubData(GL_ARRAY_BUFFER, sizeof(vertex_t) * m_vcount,
                            sizeof(vertex_t) * m_vaoVertices.size(),
                            &m_vaoVertices[0]));
@@ -159,9 +153,6 @@ bool zVertexArray::Offload()
             GL(glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER));
         }
 
-        printf("Resizing from %d to %d.\n", m_icapacity,
-               static_cast<uint32_t>(m_vaoIndices.size() * 1.5));
-
         m_icapacity = static_cast<uint16_t>(m_vaoIndices.size() * 1.5);
 
         // Allocate enough GPU space for all vertex data, new and old, in
@@ -178,9 +169,6 @@ bool zVertexArray::Offload()
     // We still have space for the necessary data.
     else
     {
-        printf("Using remaining %d indices (requested %d).\n",
-               m_icapacity - m_icount, m_vaoIndices.size());
-
         GL(glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, sizeof(index_t) * m_icount,
                            sizeof(index_t) * m_vaoIndices.size(),
                            &m_vaoIndices[0]));
