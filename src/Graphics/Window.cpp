@@ -122,14 +122,14 @@ bool zWindow::Destroy()
 {
     if(!m_init) return true;
 
-    m_Assets.Destroy();
-
     // We're special.
     const_cast<zEffect&>(gfxcore::zRenderer::GetDefaultEffect()).Destroy();
     delete gfxcore::zRenderer::s_DefaultMaterial;
 
     for(auto& i : gfxcore::zGLSubsystem::sp_allGLSystems)
         i->Destroy();
+
+    m_Assets.Destroy();
 
     glfwDestroyWindow(mp_Window);
     mp_Window = nullptr;
