@@ -25,6 +25,36 @@
 
 #include <vector>
 
+#define MAKE_ENUM_BITFLAG(type)                         \
+                                                        \
+    type& operator|= (type& a, type b)                  \
+    {                                                   \
+        a = static_cast<type>(static_cast<int>(a) |     \
+                              static_cast<int>(b));     \
+        return a;                                       \
+    }                                                   \
+                                                        \
+    type& operator&= (type& a, type b)                  \
+    {                                                   \
+        a = static_cast<type>(static_cast<int>(a) &     \
+                              static_cast<int>(b));     \
+        return a;                                       \
+    }                                                   \
+                                                        \
+    type operator| (type a, type b)                     \
+    {                                                   \
+        type c = a;                                     \
+        c |= b;                                         \
+        return c;                                       \
+    }                                                   \
+                                                        \
+    int operator& (type a, type b)                      \
+    {                                                   \
+        type c = a;                                     \
+        c &= b;                                         \
+        return static_cast<int>(c);                     \
+    }
+
 #include "Zenderer/Core/Types.hpp"
 #include "Assert.hpp"
 
