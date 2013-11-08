@@ -30,7 +30,7 @@
 
 /**
  * Dirty macro to determine the offset of a field within a struct.
- *  Used throughout the zVertexBuffer class to determine the offsets
+ *  Used throughout the `zVertexBuffer` class to determine the offsets
  *  of data in the GPU buffers.
  **/
 #define VBO_OFFSET(c, object, field)\
@@ -47,7 +47,7 @@ namespace gfxcore
     /// Type of indices.
     static const GLenum INDEX_TYPE = GL_UNSIGNED_SHORT;
 
-    /// A collection of drawing data to pass to a zVertexArray.
+    /// A collection of drawing data to pass to a `zVertexArray`.
     struct DrawBatch
     {
         vertex_t*   Vertices;       ///< Vertex array
@@ -72,14 +72,14 @@ namespace gfxcore
          * Adds data to the vertex buffer for drawing.
          *  This will append data to the internal buffers for processing.
          *  Nothing is actually offloaded to the GPU; this must be done
-         *  with an explicit call to Offload().
+         *  with an explicit call to `Offload()`.
          *  It may be desirable to calculate where in the GPU the indices
-         *  were placed, possibly in order to properly call `glDrawElements`
+         *  were placed, possibly in order to properly call `glDrawElements()`
          *  later, so this is given as the return value.
-         *  When using this value for that purpose, be sure to multiplty by
-         *  sizeof(index_t) to get the accurate offset in bytes.
+         *  When using this value for that purpose, be sure to multiply by
+         *  `sizeof(index_t)` to get the accurate offset in bytes.
          *
-         * @param   D       Vertex and index data to store internally
+         * @param   D   Vertex and index data to store internally
          *
          * @return  Internal index buffer offset value.
          **/
@@ -113,9 +113,31 @@ namespace gfxcore
         size_t GetVertexCount() const;
         size_t GetIndexCount()  const;
 
-        const vertex_t* const GetVerticesFromGPU()  const;
-        const index_t*  const GetIndicesFromGPU()   const;
+        /**
+         * This retrieves raw vertex data directly from VRAM.
+         *
+         * @return  An array of `vertex_t` values. The size of this array can
+         *          be determined by `GetVertexCount()`.
+         *
+         * @warning You *MUST* call `glUnmapBuffer(GL_ARRAY_BUFFER)` after
+         *          calling this method, which is why it is ill-advised to mess
+         *          with this.
+         **/
+        const vertex_t* const GetVerticesFromGPU() const;
 
+        /**
+         * This retrieves raw index data directly from VRAM.
+         *
+         * @return  An array of `index _t` values. The size of this array can
+         *          be determined by `GetIndexCount()`.
+         *
+         * @warning You *MUST* call `glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER)`
+         *          after calling this method, which is why it is ill-advised
+         *          to mess with this.
+         **/
+        const index_t* const GetIndicesFromGPU() const;
+
+        /// Tells the caller whether or not all data has been sent to VRAM.
         bool Offloaded() const;
 
         inline bool Draw() const
@@ -157,10 +179,10 @@ namespace gfxcore
  *
  * @subsection db   The `DrawBatch` structure
  *  This is a simple structure that stores vertex and index data for offloading
- *  to the GPU. Since @a Zenderer uses an indexed rendering approach, it's necessary
- *  to supply indices to the corresponding vertices you wish to use. I won't go into
- *  serious detail, but basically the indices act as array indices for the vertex
- *  buffer. Like so:
+ *  to the GPU. Since @a Zenderer uses an indexed rendering approach, it's
+ *  necessary to supply indices to the corresponding vertices you wish to use.
+ *  I won't go into serious detail, but basically the indices act as array
+ *  indices for the vertex buffer. Like so:
  *
  *  @code
  *  // Imagine the GPU vertex buffer is like this:
@@ -179,8 +201,8 @@ namespace gfxcore
  *  To draw vertex data, you need vertices and indices. You can, of course, just
  *  specify 6 vertices to get a quad (two triangles), *or* you can specify 4
  *  vertices and re-use two of them with indices (since they are shared). To get
- *  to the point, fill up the `DrawBatch` struct with your data, and then you can
- *  pass it on to the `zVertexArray` instance for offloading.
+ *  to the point, fill up the `DrawBatch` struct with your data, and then you
+ *  can pass it on to the `zVertexArray` instance for offloading.
  *
  *  @code
  *  using namespace zen::gfxcore;
