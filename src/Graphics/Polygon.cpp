@@ -224,8 +224,16 @@ void zPolygon::LoadIntoVAO(gfxcore::zVertexArray& VAO,
     if(m_DrawData.Vertices == nullptr ||
        m_DrawData.Indices  == nullptr) return;
 
+    if(state & VAOState::EMBED_TRANSFORM)
+    {
+        for(size_t i = 0; i < m_DrawData.vcount; ++i)
+        {
+            m_DrawData.Vertices[i].position += this->GetPosition();
+        }
+    }
+
     gfxcore::index_t i = VAO.AddData(m_DrawData);
-    if(state == VAOState::NO_PRESERVE_DATA)
+    if(state & VAOState::NO_PRESERVE_DATA)
     {
         delete[] m_DrawData.Vertices;
         delete[] m_DrawData.Indices;

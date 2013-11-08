@@ -27,6 +27,7 @@
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/Math/Shapes.hpp"
+#include "Zenderer/Utilities/Helpers.hpp"
 
 namespace zen
 {
@@ -35,8 +36,9 @@ namespace gfx
 {
     enum class VAOState
     {
-        PRESERVE_DATA,
-        NO_PRESERVE_DATA
+        PRESERVE_DATA       = 0x01,
+        NO_PRESERVE_DATA    = 0x02,
+        EMBED_TRANSFORM     = 0x04
     };
 
     enum class RenderState
@@ -44,6 +46,8 @@ namespace gfx
         READY,
         NOT_READY
     };
+
+    MAKE_ENUM_BITFLAG(VAOState);
 
     /// An arbitrary n-vertex convex polygon.
     class ZEN_API zPolygon
