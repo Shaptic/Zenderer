@@ -322,7 +322,7 @@ void gfx::error_window(const char* message, const char* title,
     #define CHECK(fn, extra)                \
         if(!fn) {                           \
             extra;                          \
-            std::cout << "check failed.\n"; \
+            std::cerr << "check failed.\n"; \
         }
 
     gui::zFontLibrary::InitFreetype();

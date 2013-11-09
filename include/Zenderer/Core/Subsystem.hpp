@@ -56,24 +56,18 @@ namespace zen
         virtual bool Destroy() = 0;
 
         /// Returns the sub-system initialization status.
-        inline bool IsInit() const
-        { return m_init; }
-
-        /// Sets a custom output log.
-        inline void SetLog(util::zLog& Log)
-        { m_Log = Log; }
+        inline bool IsInit() const { return m_init; }
 
         /// Retrieves the subsystem name.
-        inline const string_t& GetName() const
-        { return m_name; }
+        inline const string_t& GetName() const { return m_name; }
 
         friend ZEN_API bool Init();
         friend ZEN_API void Quit();
 
     protected:
         /// No copying subsystems.
-        //zSubsystem(const zSubsystem&)            = delete;
-        //zSubsystem& operator=(const zSubsystem&) = delete;
+        zSubsystem(const zSubsystem&)               = delete;
+        zSubsystem& operator=(const zSubsystem&)    = delete;
 
         static std::vector<zSubsystem*> sp_allSystems;
 

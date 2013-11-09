@@ -94,7 +94,7 @@ namespace std
 /// An all-encompassing namespace for any and all components of @a Zenderer.
 namespace zen
 {
-    typedef float real_t;
+    using real_t = float;
 
     /**
      * Character sequence representation used throughout the engine.
@@ -102,7 +102,7 @@ namespace zen
      *  a future implementation in which there is a custom string class
      *  created tailored specifically for the engine.
      **/
-    typedef std::string string_t;
+    using string_t = std::string;
 
     /**
      * @fn zen::clamp

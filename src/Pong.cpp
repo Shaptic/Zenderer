@@ -28,7 +28,7 @@ struct PongPacket
     string_t    data;
 };
 
-typedef std::pair<string_t, string_t> addr_t;
+using addr_t = std::pair<string_t, string_t>;
 
 static const string_t PONG_HOST_PORT("2013");   // When hosting.
 static const string_t PONG_JOIN_PORT("2014");   // When joining.

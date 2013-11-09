@@ -2,7 +2,7 @@
 
 using namespace zen;
 
-int main()
+int main69()
 {
     Init();
 

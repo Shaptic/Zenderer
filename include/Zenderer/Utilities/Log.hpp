@@ -84,8 +84,8 @@ namespace util
         // Deleting member functions is not implemented in VS2012.
 
         /// Copy constructor does not exist.
-        zLog(const zLog& Copy)/* = delete*/ {}
-        zLog& operator=(const zLog& Copy)/* = delete;*/ { return *this; }
+        zLog(const zLog& Copy)              = delete;
+        zLog& operator=(const zLog& Copy)   = delete;
 
         /**
          * This destructor does nothing but call Destroy().

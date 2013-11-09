@@ -41,7 +41,7 @@ namespace asset
     class ZEN_API zAssetManager;
 
     /// For unique asset ID.
-    typedef uint32_t assetid_t;
+    using assetid_t = uint32_t;
 
     /// Used throughout @a Zenderer to act as a managed asset.
     class ZEN_API zAsset
@@ -123,8 +123,8 @@ namespace asset
         zAsset(const void* const owner = nullptr);
 
         /// No copy or assignment of assets.
-        //zAsset(const zAsset& Disabled)            = delete;
-        //zAsset& operator=(const zAsset& Disabled) = delete;
+        zAsset(const zAsset& Disabled)              = delete;
+        zAsset& operator=(const zAsset& Disabled)   = delete;
 
         virtual bool Destroy() = 0;
 

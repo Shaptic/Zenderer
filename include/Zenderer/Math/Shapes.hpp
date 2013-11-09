@@ -35,8 +35,8 @@ namespace zen
 namespace math
 {
     /// A triangle representation.
-    typedef std::array<vector_t, 3> tri_t;
-    typedef std::array<vector_t, 2> line_t;
+    using tri_t  = std::array<vector_t, 3>;
+    using line_t = std::array<vector_t, 2>;
 
     /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t

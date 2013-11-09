@@ -39,7 +39,7 @@ namespace util
     /// @a Zenderer-specific file format parser.
     class ZEN_API zFileParser
     {
-        typedef std::pair<string_t, string_t> pair_t;
+        using pair_t = std::pair<string_t, string_t>;
 
     public:
         zFileParser(){}

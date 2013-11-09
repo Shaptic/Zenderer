@@ -103,13 +103,13 @@ namespace net
     };
 #endif  // _WIN32
 
-    typedef
+    using socket_t =
 #ifdef _WIN32
     SOCKET
 #else
     unsigned int
 #endif // _WIN32
-    socket_t;
+    ;
 
     enum class SocketType { TCP, UDP, RAW };
 

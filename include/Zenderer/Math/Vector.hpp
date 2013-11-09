@@ -226,16 +226,17 @@ namespace math
     #include "Vector.inl"
 
     /// A shortcut for the default vector implementation in the engine.
-    typedef zVector<real_t> vector_t;
+    using vector_t = zVector<real_t>;
 
     /// Floating-point vector shortcut.
-    typedef zVector<real_t> vectorf_t;
+    using vectorf_t = zVector<real_t>;
 
     /// 16-bit unsigned integral vector shortcut.
-    typedef zVector<uint16_t> vectoru16_t;
+    using vectoru16_t = zVector<uint16_t>;
 
     /// Standard 32-bit integral vector shortcut.
-    typedef zVector<int32_t> vectori_t;
+    using vectori_t = zVector<int32_t>;
+
 }   // namespace math
 }   // namespace ic
 

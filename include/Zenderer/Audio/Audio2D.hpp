@@ -59,7 +59,7 @@ namespace sfx
 
     protected:
         zAudio2D(const void* const owner = nullptr);
-        //zAudio2D(const zAudio2D&) = delete;
+        zAudio2D(const zAudio2D&) = delete;
 
         bool Destroy() { this->UnloadSource(); return true; }
 

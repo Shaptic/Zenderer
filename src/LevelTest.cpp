@@ -98,8 +98,7 @@ public:
 
         gfx::zQuad Q(Assets, 32, 32);
         Q.SetColor(0, 0, rgb2f(100));
-        Q.Create();
-        m_Trail.AddPrimitive(Q);
+        m_Trail.AddPrimitive(std::move(Q.Create()));
 
         mp_Font = m_Assets.Create<gui::zFont>();
         mp_Font->SetSize(16);
@@ -128,9 +127,6 @@ public:
                 return point.type == lvl::SpawnType::PLAYER_SPAWN;
             }
         )->position);
-
-        m_Scene.ShiftEntity(m_Trail,  m_Level.entities.size());
-        m_Scene.ShiftEntity(m_Player, m_Scene.GetEntityIndex(m_Trail)+1);
 
         m_Trail.Move(m_Player.GetPosition());
         return m_Level.valid;
@@ -297,7 +293,7 @@ public:
             Evt.type == evt::EventType::KEY_UP       ||
             Evt.type == evt::EventType::MOUSE_DOWN)
         {
-            //m_allTrails.emplace_back(Evt, m_tdelay);
+            m_allTrails.emplace_back(Evt, m_tdelay);
         }
 
         if (Evt.type == evt::EventType::KEY_DOWN &&
@@ -401,7 +397,7 @@ real_t gWorld::s_GRAVITY = 0.5;
 
 #define CHECK(f) { if (!f) return 1; }
 
-int main(int argc, char* argv[])
+int main69(int argc, char* argv[])
 {
     if (!Init()) return 1;
 
@@ -452,4 +448,91 @@ int main(int argc, char* argv[])
 
     Quit();
     return 0;
+}
+
+static const uint8_t BRUSH_SIZE = 10;
+
+int main()
+{
+    Init();
+
+    asset::zAssetManager PaintAssets;
+    gfx::zWindow PaintWindow(800, 600, "Paint", PaintAssets, false);
+
+    PaintWindow.Init();
+
+    gfx::zScene Paint(PaintWindow.GetWidth(),
+                      PaintWindow.GetHeight(),
+                      PaintAssets);
+    Paint.Init();
+
+    const uint16_t FIDELITY = 45;
+    gfx::zPolygon BrushPrim(PaintAssets, FIDELITY+1);
+    for (uint16_t i = 0; i < FIDELITY; ++i)
+    {
+        BrushPrim.AddVertex(BRUSH_SIZE * std::sin(math::rad(i*360/FIDELITY)),
+                            BRUSH_SIZE * std::cos(math::rad(i*360/FIDELITY)));
+    }
+    BrushPrim.SetColor(color4f_t(0, 0, 0));
+
+    obj::zEntity& Brush = Paint.AddEntity();
+    Brush.AddPrimitive(BrushPrim.Create());
+
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
+    evt::event_t Evt;
+    bool quit = false;
+
+    std::vector<gfx::zPolygon*> allInstances;
+    gfxcore::zVertexArray One(GL_DYNAMIC_DRAW); One.Init();
+
+    while (!quit)
+    {
+        Evts.PollEvents();
+        while (Evts.PopEvent(Evt))
+        {
+            if (Evt.type == evt::EventType::WINDOW_CLOSE)
+                quit = true;
+
+            if (GetMouseState(evt::MouseButton::LEFT) &&
+                Evt.type == evt::EventType::MOUSE_MOTION)
+            {
+                if (std::find_if(allInstances.begin(), allInstances.end(),
+                    [&Evt](const gfx::zPolygon* Obj) {
+                        return Obj->GetPosition() == Evt.mouse.position;
+                    }) == allInstances.end())
+                {
+                    gfx::zPolygon* tmp = new gfx::zPolygon(BrushPrim);
+                    allInstances.push_back(tmp);
+                    tmp->Move(Evt.mouse.position);
+                    tmp->LoadIntoVAO(One, gfx::VAOState::EMBED_TRANSFORM |
+                                          gfx::VAOState::NO_PRESERVE_DATA);
+                    One.Offload();
+                }
+            }
+        }
+
+        Brush.Move(evt::GetMousePosition());
+
+        PaintWindow.Clear();
+
+        Paint.Render(color4f_t());
+
+        const gfx::zEffect& E = gfxcore::zRenderer::GetDefaultEffect();
+        E.Enable();
+        E.SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
+        E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        One.Bind();
+
+        for (auto& i : allInstances)
+        {
+            i->Draw(gfx::RenderState::READY);
+        }
+
+        One.Unbind();
+        E.Disable();
+
+        PaintWindow.Update();
+    }
+
+    Quit();
 }

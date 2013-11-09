@@ -90,13 +90,13 @@ namespace util
     /// An array-like wrapper for various settings.
     class ZEN_API zSettings : public zSubsystem
     {
-        typedef std::map<
+        using settings_t = std::map<
 #ifdef ZEN_DEBUG_BUILD
             string_t,
 #else
             uint32_t,
 #endif // ZEN_DEBUG_BUILD
-            zOption> settings_t;
+            zOption>;
 
     public:
         zSettings(const string_t& filename = "");

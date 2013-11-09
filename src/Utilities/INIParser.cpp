@@ -39,7 +39,7 @@ bool zParser::LoadFromStream(std::ifstream& file,
                              const std::streampos& finish,
                              const char* filename)
 {
-    ZEN_ASSERTM(file, "bad file stream");
+    ZEN_ASSERTM(file.good(), "bad file stream");
 
     file.seekg(start, std::ios::beg);
 
@@ -101,7 +101,7 @@ std::streampos zParser::FindInFile(std::ifstream& stream,
                                    const string_t& finder,
                                    const std::streampos& max_pos)
 {
-    ZEN_ASSERTM(stream, "bad file stream");
+    ZEN_ASSERTM(stream.good(), "bad file stream");
 
     string_t line;
     std::streampos start = stream.tellg();

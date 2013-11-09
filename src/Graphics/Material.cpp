@@ -71,7 +71,7 @@ bool zMaterial::LoadFromStream(std::ifstream& f,
                                const std::streampos& start,
                                const std::streampos& end)
 {
-    ZEN_ASSERT(f);
+    ZEN_ASSERT(f.good());
 
     f.seekg(start);
     util::zParser Parser;

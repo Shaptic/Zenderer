@@ -43,7 +43,7 @@ namespace zen
 namespace lua
 {
     /// A shortcut for easily defining the `name -> loader` set.
-    typedef std::map<string_t, lua_CFunction> luaLibs_t;
+    using luaLibs_t = std::map<string_t, lua_CFunction>;
 
     /// Wrapper for the core Lua interpreter.
     class ZEN_API zLua : public zSubsystem
