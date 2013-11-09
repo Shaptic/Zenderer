@@ -154,7 +154,7 @@ bool zLight::SetAttenuation(const math::vector_t& Att)
 bool zLight::SetPosition(const real_t x, const real_t y)
 {
     m_Position = math::vector_t(x, y);
-    GL(glUniform2f(m_locpos, x, y + 200));
+    GL(glUniform2f(m_locpos, x, y));
     return true;
 }
 

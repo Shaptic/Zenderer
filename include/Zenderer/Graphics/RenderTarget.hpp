@@ -69,8 +69,8 @@ namespace gfx
         /// Get the raw render target's texture handle.
         GLuint GetTexture() const;
 
-        inline uint16_t GetHeight() const { return m_Viewport.x; }
-        inline uint16_t GetWidth()  const { return m_Viewport.y; }
+        inline uint16_t GetHeight() const { return m_Viewport.y; }
+        inline uint16_t GetWidth()  const { return m_Viewport.x; }
 
     private:
         util::zLog& m_Log;
