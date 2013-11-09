@@ -174,7 +174,7 @@ namespace zen
  *
  *  The headers for these files are located in the `Zenderer/External/` include
  *  path. By default, this path is added to the include search directories for
- *  the VS2012 project, so if you are using a different build system, be sure
+ *  the VS2013 project, so if you are using a different build system, be sure
  *  to do likewise.
  *
  * @todo    Test cross-platform compatibility.

@@ -41,7 +41,7 @@ as follows:
  - Lua 5.2      (Lua Scripting Language)
 
 All engine assets are stored in the `data` folder of the repository. If you
-are using Visual Studio in junction with *Zenderer* for your project, the
+are using Visual Studio 2013 in junction with *Zenderer* for your project, the
 included project file will automatically transfer the contents of the `data`
 folder to the `Zenderer` folder of your expected output directory.
 You can see the various `ZENDERER_*_PATH` `#define`s sprinkled throughout the
