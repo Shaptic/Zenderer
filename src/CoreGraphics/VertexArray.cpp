@@ -218,7 +218,7 @@ bool zVertexArray::Offload()
 
 bool zVertexArray::Clear()
 {
-    if(!this->Bind()) return false;
+    if(!this->Bind() || m_vcount == 0 || m_icount == 0) return false;
     GL(glBufferData(GL_ARRAY_BUFFER, 0, nullptr, GL_STATIC_DRAW));
     GL(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, nullptr, GL_STATIC_DRAW));
 
