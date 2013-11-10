@@ -325,7 +325,6 @@ void zFont::ClearString()
 
 bool zFont::Destroy()
 {
-    m_size = 18;
     for(auto& i : m_glyphData)
     {
         mp_Parent->Delete(i.second.texture);
