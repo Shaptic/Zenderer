@@ -94,18 +94,25 @@ namespace asset
          *  an asset, and this method will do so.
          *
          * @tparam  T       A child class of asset::zAsset
-         * @param   Copier  Assets to copy
+         * @param   Copier  Assets to copy (filename or object)
          * @param   owner   Address of asset owner (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it copies successfully, and
          *          `nullptr` otherwise.
          *
-         * @warning This relies on the `T` object to have implemented
-         *          zAsset::LoadFromExisting(), which is not guaranteed.
+         * @warning For the object `Recreate()` method, this relies on the `T`
+         *          object to have implemented `zAsset::LoadFromExisting()`,
+         *          which is not guaranteed.
          **/
         template<typename T>
         T* Recreate(const T* const Copier,
                     const void* const owner = nullptr);
+        template<typename T>
+        T* Recreate(const string_t& Copier,
+                    const void* const owner = nullptr);     ///< @overload
+        template<typename T>
+        T* Recreate(const char* Copier,
+                    const void* const owner = nullptr);     ///< @overload
 
         /**
          * Permanently removes an asset from the internal container.

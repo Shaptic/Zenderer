@@ -74,7 +74,32 @@ T* zAssetManager::Recreate(const T* const Copier, const void* const owner)
     ZEN_ASSERTM(pAsset != nullptr, "out of memory");
 
     // Load the asset from an existing one.
+    pAsset->mp_Parent = this;
     return this->FinalizeAsset(pAsset->LoadFromExisting(Copier), pAsset);
+}
+
+template<typename T>
+T* zAssetManager::Recreate(const string_t& filename, const void* const owner)
+{
+    m_Log << m_Log.SetMode(util::LogMode::ZEN_INFO)
+          << m_Log.SetSystem("AssetMgr") << "Copying '"
+          << filename << "' ... ";
+
+    // Create a new asset.
+    T* pAsset = new T(owner);
+
+    // Make sure we allocated successfully.
+    ZEN_ASSERTM(pAsset != nullptr, "out of memory");
+
+    // Load the asset from a file on disk.
+    pAsset->mp_Parent = this;
+    return this->FinalizeAsset(pAsset->LoadFromFile(filename), pAsset);
+}
+
+template<typename T>
+T* zAssetManager::Recreate(const char* filename, const void* const owner)
+{
+    return this->Recreate<T>(string_t(filename), owner);
 }
 
 template<typename T>
