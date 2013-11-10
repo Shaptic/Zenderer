@@ -39,6 +39,11 @@ namespace zen
 {
 namespace gui
 {
+    struct fontcfg_t
+    {
+        uint16_t size;
+    };
+
     /// A TrueType font wrapper class.
     class ZEN_API zFont : public asset::zAsset
     {
@@ -148,7 +153,8 @@ namespace gui
         friend class ZEN_API asset::zAssetManager;
 
     private:
-        zFont(const void* const owner = nullptr);
+        zFont(const void* const owner = nullptr,
+              const void* const settings = nullptr);
         zFont& operator=(const zFont& F);
 
         bool Destroy();

@@ -8,7 +8,8 @@ using asset::zAsset;
 
 size_t zAsset::s_seed = 0x6915BAD;  // lol
 
-zAsset::zAsset(const void* const owner) :
+zAsset::zAsset(const void* const owner,
+               const void* const settings) :
     m_Log(zLog::GetEngineLog()), m_filename_hash(0),
     m_loaded(false), mp_Parent(nullptr), m_refcount(0),
     m_id(util::hash(this, sizeof(zAsset), zAsset::s_seed)),

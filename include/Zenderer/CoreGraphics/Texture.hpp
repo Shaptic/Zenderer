@@ -69,7 +69,8 @@ namespace gfxcore
         friend class ZEN_API asset::zAssetManager;
 
     private:
-        zTexture(const void* const owner = nullptr);
+        zTexture(const void* const owner = nullptr,
+                 const void* const settings = nullptr);
         bool Destroy();
 
         static zTexture s_DefaultTexture;

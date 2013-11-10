@@ -6,7 +6,8 @@ using sfx::zAudio2D;
 using util::zLog;
 using util::LogMode;
 
-zAudio2D::zAudio2D(const void* const owner) :
+zAudio2D::zAudio2D(const void* const owner,
+                   const void* const settings) :
     zAsset(owner), m_error_code(AL_NO_ERROR), m_loop(false)
 {
     m_AL.buffers = new ALuint[1];

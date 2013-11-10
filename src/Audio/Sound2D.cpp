@@ -7,7 +7,10 @@ using util::LogMode;
 
 using sfx::zSound2D;
 
-zSound2D::zSound2D(const void* const owner) : zAudio2D(owner) {}
+zSound2D::zSound2D(const void* const owner,
+                   const void* const settings) : zAudio2D(owner)
+{
+}
 
 zSound2D::~zSound2D()
 {

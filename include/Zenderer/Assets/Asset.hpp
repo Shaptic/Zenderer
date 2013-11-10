@@ -120,7 +120,8 @@ namespace asset
 
     protected:
         /// Only asset::zAssetManager can create zAsset instances.
-        zAsset(const void* const owner = nullptr);
+        zAsset(const void* const owner = nullptr,
+               const void* const settings = nullptr);
 
         /// No copy or assignment of assets.
         zAsset(const zAsset& Disabled)              = delete;

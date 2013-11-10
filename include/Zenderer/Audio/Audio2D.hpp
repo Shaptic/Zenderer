@@ -58,7 +58,8 @@ namespace sfx
         friend class asset::zAssetManager;
 
     protected:
-        zAudio2D(const void* const owner = nullptr);
+        zAudio2D(const void* const owner = nullptr,
+                 const void* const settings = nullptr);
         zAudio2D(const zAudio2D&) = delete;
 
         bool Destroy() { this->UnloadSource(); return true; }

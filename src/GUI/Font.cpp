@@ -6,11 +6,19 @@ using util::zLog;
 using util::LogMode;
 using gui::zFont;
 
-zFont::zFont(const void* const owner) :
+zFont::zFont(const void* const owner,
+             const void* const settings) :
     zAsset(owner), m_Color(0.0, 0.0, 0.0, 1.0),
     m_size(18), m_height(0), m_stack(false),
     mp_FontFx(nullptr)
 {
+    if(settings != nullptr)
+    {
+        const fontcfg_t* const cfg = static_cast<const fontcfg_t* const>(
+            settings);
+
+        m_size = cfg->size;
+    }
 }
 
 zFont::~zFont()

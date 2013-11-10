@@ -9,7 +9,8 @@ using gfxcore::zTexture;
 zTexture zTexture::s_DefaultTexture;
 uint16_t zTexture::s_ID = 1;
 
-zTexture::zTexture(const void* const owner) :
+zTexture::zTexture(const void* const owner,
+                   const void* const settings) :
     zAsset(owner), m_width(0), m_height(0), m_TextureID(0)
 {
     if(owner == nullptr) this->SetOwner(glfwGetCurrentContext());

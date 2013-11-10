@@ -6,7 +6,8 @@ using util::zLog;
 using util::LogMode;
 using gfxcore::zShader;
 
-zShader::zShader(const void* const ptr) :
+zShader::zShader(const void* const ptr,
+                 const void* const settings) :
     zAsset(ptr), m_object(0), m_type(GL_VERTEX_SHADER)
 {}
 

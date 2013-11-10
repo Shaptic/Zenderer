@@ -1,5 +1,7 @@
 template<typename T>
-T* zAssetManager::Create(const string_t& filename, const void* const owner)
+T* zAssetManager::Create(const string_t& filename,
+                         const void* const owner,
+                         const void* const settings)
 {
     ZEN_ASSERT(this->IsInit());
     ZEN_ASSERT(!filename.empty());
@@ -14,7 +16,7 @@ T* zAssetManager::Create(const string_t& filename, const void* const owner)
                 << filename << "' ... ";
 
         // Create a new original asset.
-        T* pAsset = new T(owner);
+        T* pAsset = new T(owner, settings);
 
         // Make sure we allocated successfully.
         ZEN_ASSERTM(pAsset != nullptr, "out of memory");
@@ -36,13 +38,15 @@ T* zAssetManager::Create(const string_t& filename, const void* const owner)
 }
 
 template<typename T>
-T* zAssetManager::Create(const char* const filename, const void* const owner)
+T* zAssetManager::Create(const char* const filename, const void* const owner,
+                         const void* const settings)
 {
-    return this->Create<T>(string_t(filename), owner);
+    return this->Create<T>(string_t(filename), owner, settings);
 }
 
 template<typename T>
-T* zAssetManager::Create(const void* const owner)
+T* zAssetManager::Create(const void* const owner,
+                         const void* const settings)
 {
     ZEN_ASSERT(this->IsInit());
 
@@ -51,7 +55,7 @@ T* zAssetManager::Create(const void* const owner)
             << "Loading raw asset ... ";
 
     // Create a new original asset.
-    T* pAsset = new T(owner);
+    T* pAsset = new T(owner, settings);
 
     // Sanity check, because `new` should throw anyway.
     ZEN_ASSERTM(pAsset != nullptr, "out of memory");
@@ -61,14 +65,15 @@ T* zAssetManager::Create(const void* const owner)
 }
 
 template<typename T>
-T* zAssetManager::Recreate(const T* const Copier, const void* const owner)
+T* zAssetManager::Recreate(const T* const Copier, const void* const owner,
+                           const void* const settings)
 {
     m_Log   << m_Log.SetMode(util::LogMode::ZEN_INFO)
             << m_Log.SetSystem("AssetMgr") << "Copying '"
             << Copier->GetFilename() << "' ... ";
 
     // Create a new asset.
-    T* pAsset = new T(owner);
+    T* pAsset = new T(owner, settings);
 
     // Make sure we allocated successfully.
     ZEN_ASSERTM(pAsset != nullptr, "out of memory");
@@ -79,14 +84,15 @@ T* zAssetManager::Recreate(const T* const Copier, const void* const owner)
 }
 
 template<typename T>
-T* zAssetManager::Recreate(const string_t& filename, const void* const owner)
+T* zAssetManager::Recreate(const string_t& filename, const void* const owner,
+                           const void* const settings)
 {
     m_Log << m_Log.SetMode(util::LogMode::ZEN_INFO)
           << m_Log.SetSystem("AssetMgr") << "Copying '"
           << filename << "' ... ";
 
     // Create a new asset.
-    T* pAsset = new T(owner);
+    T* pAsset = new T(owner, settings);
 
     // Make sure we allocated successfully.
     ZEN_ASSERTM(pAsset != nullptr, "out of memory");
@@ -97,9 +103,10 @@ T* zAssetManager::Recreate(const string_t& filename, const void* const owner)
 }
 
 template<typename T>
-T* zAssetManager::Recreate(const char* filename, const void* const owner)
+T* zAssetManager::Recreate(const char* filename, const void* const owner,
+                           const void* const settings)
 {
-    return this->Recreate<T>(string_t(filename), owner);
+    return this->Recreate<T>(string_t(filename), owner, settings);
 }
 
 template<typename T>

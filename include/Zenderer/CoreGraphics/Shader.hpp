@@ -41,7 +41,8 @@ namespace gfxcore
     class ZEN_API zShader : public asset::zAsset
     {
     public:
-        zShader(const void* const ptr);
+        zShader(const void* const ptr = nullptr,
+                const void* const settings = nullptr);
         ~zShader();
 
         /**

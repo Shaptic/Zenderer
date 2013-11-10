@@ -32,7 +32,7 @@ namespace zen
 {
 namespace asset
 {
-    /// Controls creation and proper mmeory management of assets.
+    /// Controls creation and proper memory management of assets.
     class ZEN_API zAssetManager : public zSubsystem
     {
     public:
@@ -57,28 +57,35 @@ namespace asset
          *  Assets created in different instances of this class are also
          *  considered to be completely separate.
          *
-         * @tparam  T           An asset::zAsset inheriting class type
+         * @tparam  T           An `asset::zAsset` inheriting class type
          * @param   filename    Filename to load asset from
-         * @param   owner       Address of asset owner (optional=`nullptr`)
+         * @param   owner       Address of asset owner      (optional=`nullptr`)
+         * @param   settings    Asset settings (if any)     (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it loaded successfully, and
          *          `nullptr` otherwise.
          **/
         template<typename T>
-        T* Create(const string_t& filename, const void* const owner=nullptr);
+        T* Create(const string_t& filename, const void* const owner = nullptr,
+                  const void* const settings = nullptr);
 
         /// @overload
         template<typename T>
-        T* Create(const char* const filename, const void* const owner=nullptr);
+        T* Create(const char* const filename, const void* const owner = nullptr,
+                  const void* const settings = nullptr);
 
         /**
          * Creates a raw managed asset instance (unloaded).
-         * @tparam  T           An asset::zAsset inheriting class type
-         * @param   owner   The asset's "owner" (optional=`nullptr`)
+         *
+         * @tparam  T       An `asset::zAsset` inheriting class type
+         * @param   owner   The asset's "owner"             (optional=`nullptr`)
+         * @param   settings    Asset settings (if any)     (optional=`nullptr`)
+         *
          * @todo    Make this return a reference.
          **/
         template<typename T>
-        T* Create(const void* const owner = nullptr);
+        T* Create(const void* const owner       = nullptr,
+                  const void* const settings    = nullptr);
 
         /**
          * Creates a copy of an existing asset.
@@ -93,9 +100,10 @@ namespace asset
          *  Sometimes, though, it is desirable to have multiple copies of
          *  an asset, and this method will do so.
          *
-         * @tparam  T       A child class of asset::zAsset
-         * @param   Copier  Assets to copy (filename or object)
-         * @param   owner   Address of asset owner (optional=`nullptr`)
+         * @tparam  T           A child class of asset::zAsset
+         * @param   Copier      Assets to copy (filename or object)
+         * @param   owner       Address of asset owner      (optional=`nullptr`)
+         * @param   settings    Asset settings (if any)     (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it copies successfully, and
          *          `nullptr` otherwise.
@@ -106,13 +114,18 @@ namespace asset
          **/
         template<typename T>
         T* Recreate(const T* const Copier,
-                    const void* const owner = nullptr);
+                    const void* const owner    = nullptr,
+                    const void* const settings = nullptr);
+
         template<typename T>
         T* Recreate(const string_t& Copier,
-                    const void* const owner = nullptr);     ///< @overload
+                    const void* const owner    = nullptr,
+                    const void* const settings = nullptr);  ///< @overload
+
         template<typename T>
         T* Recreate(const char* Copier,
-                    const void* const owner = nullptr);     ///< @overload
+                    const void* const owner    = nullptr,
+                    const void* const settings = nullptr);  ///< @overload
 
         /**
          * Permanently removes an asset from the internal container.
