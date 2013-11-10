@@ -190,10 +190,10 @@ namespace obj
         void Adjust(const math::vector_t& delta);   ///< @overload
 
         /// Transforms the entity with a shear.
-        inline void Shear(const math::vector_t& Angles) { m_MV.Shear(Angles); }
+        inline void Shear(const math::vector_t& Angles)  { m_MV.Shear(Angles); }
 
         /// Transforms the entity with scaling factors.
-        inline void Scale(const math::vector_t& Factors){ m_MV.Scale(Factors);}
+        inline void Scale(const math::vector_t& Factors) { m_MV.Scale(Factors);}
 
         /// Rotate the entity in 2-dimensions (on the Z-axis).
         inline void Rotate(const real_t degrees) { m_MV.RotationZ(degrees); }
