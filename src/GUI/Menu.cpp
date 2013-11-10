@@ -91,8 +91,10 @@ gfx::zLight& zMenu::AddLight(const gfx::LightType& type)
     return m_Scene.AddLight(type);
 }
 
-bool zMenu::RenderWithFont(obj::zEntity& Obj, const string_t& str)
+bool zMenu::RenderWithFont(obj::zEntity& Obj, const string_t& str,
+                           const color4f_t& color)
 {
+    mp_Font->SetColor(color);
     return mp_Font->Render(Obj, str);
 }
 

@@ -126,13 +126,15 @@ namespace gui
          *
          * @param   Obj     The entity to render text into
          * @param   str     The string to render
+         * @param   color   The color to render text with   (optional)
          *
          * @return  `true`  if the text was rendered successfully,
          *          `false` otherwise, or if no font has been loaded yet.
          *
          * @see     SetFont()
          **/
-        virtual bool RenderWithFont(obj::zEntity& Obj, const string_t& str);
+        virtual bool RenderWithFont(obj::zEntity& Obj, const string_t& str,
+                                    const color4f_t& color = color4f_t(0, 0, 0));
 
         /**
          * Updates the menu state.
