@@ -134,8 +134,8 @@ namespace math
      *      - TvT handler fills in line info.
      *      - TvT handler queries line vs. line collision.
      *      - LvL handler fills in point info.
+     *      - LvL handler fills in collision and edge case state.
      *      - Process is moved back up to the object.
-     *      - Object fills in collision state.
      **/
     struct cquery_t
     {
@@ -144,8 +144,10 @@ namespace math
         tri_t 	 tri1, tri2;
         vector_t point;
         bool     collision;
+        bool     edge_case;     // In line-vs-line, is it colliding
+                                // with an end-point?
 
-        cquery_t() : collision(false) {}
+        cquery_t() : collision(false), edge_case(false) {}
     };
 
     /**

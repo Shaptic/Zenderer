@@ -178,8 +178,15 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
     real_t t = z.Cross2D(s) / d;
     real_t u = zxr / d;
 
-    if(q != nullptr) { q->collision = true; q->point = b[0] + (r * t); }
-    return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
+    bool collision = in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
+    if(q != nullptr)
+    {
+        q->collision = collision;
+        q->point = b[0] + (r * t);
+        q->edge_case = (t == 0 || t == 1 || u == 0 || u == 1);
+    }
+
+    return collision;
 }
 
 bool math::orientation(const tri_t& Tri)
