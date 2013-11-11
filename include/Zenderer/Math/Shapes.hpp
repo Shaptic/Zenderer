@@ -157,6 +157,9 @@ namespace math
      **/
     bool collides(const tri_t& A, const tri_t& b, cquery_t* q = nullptr);
 
+    /// @overload
+    bool collides(const line_t& a, const tri_t& b, cquery_t* q = nullptr);
+
     /**
      * @overload
      * @see     http://stackoverflow.com/a/565282

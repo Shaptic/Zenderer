@@ -114,7 +114,7 @@ bool math::collides(const tri_t& A, const tri_t& B, cquery_t* q)
     {
         for(uint8_t j = 0; j < 3; ++j)
         {
-            if(math::collides(aseg[i], bseg[j]))
+            if(math::collides(aseg[i], bseg[j], q))
             {
                 if(q != nullptr)
                 {
@@ -124,6 +124,31 @@ bool math::collides(const tri_t& A, const tri_t& B, cquery_t* q)
 
                 return true;
             }
+        }
+    }
+
+    return false;
+}
+
+bool math::collides(const line_t& A, const tri_t& B, cquery_t* q)
+{
+    line_t bseg[3] = {
+        { B[0], B[1] },
+        { B[1], B[2] },
+        { B[0], B[2] }
+    };
+
+    for(uint8_t i = 0; i < 3; ++i)
+    {
+        if(math::collides(A, bseg[i], q))
+        {
+            if(q != nullptr)
+            {
+                q->line1 = std::move(A);
+                q->line2 = std::move(bseg[i]);
+            }
+
+            return true;
         }
     }
 
@@ -153,7 +178,7 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
     real_t t = z.Cross2D(s) / d;
     real_t u = zxr / d;
 
-    if(q != nullptr) q->point = b[0] + (r * t);
+    if(q != nullptr) { q->collision = true; q->point = b[0] + (r * t); }
     return in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
 }
 
