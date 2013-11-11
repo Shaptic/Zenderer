@@ -397,7 +397,7 @@ real_t gWorld::s_GRAVITY = 0.5;
 
 #define CHECK(f) { if (!f) return 1; }
 
-int main69(int argc, char* argv[])
+int main65(int argc, char* argv[])
 {
     if (!Init()) return 1;
 
@@ -452,7 +452,7 @@ int main69(int argc, char* argv[])
 
 static const uint8_t BRUSH_SIZE = 10;
 
-int main()
+int main_paint()
 {
     Init();
 
@@ -535,8 +535,11 @@ int main()
     }
 
     Quit();
+    return 0;
+}
+
 // Shader toy.
-int main()
+int main_stoy()
 {
     enum class State
     {
@@ -625,7 +628,7 @@ int main()
             if(ToolState == State::EDIT_BRT &&
                Evt.type == evt::EventType::KEY_PRINTABLE)
             {
-
+                InputLabel.Scale(math::vector_t(-1, 1, 1));
             }
         }
 
@@ -653,4 +656,138 @@ int main()
 
     Quit();
     return 0;
+}
+
+int main()
+{
+    using namespace gfx; 
+    using gfxcore::zRenderer;
+    using gfxcore::BlendFunc;
+
+    Init();
+
+    util::zLog::GetEngineLog().ToggleStdout();
+
+    asset::zAssetManager Assets;
+    gfx::zWindow Window(800, 600, "Shadow Test", Assets, false);
+    Window.Init();
+    
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
+    evt::event_t Evt;
+    bool quit = false;
+
+    math::vector_t LPos(400, 300);
+    zQuad Light(Assets, 32, 32);
+    Light.SetColor(color4f_t()).Create().Move(LPos);
+
+    zConcavePolygon Caster(Assets, 16);
+    Caster.AddVertex(0, 0).AddVertex(111, 39).AddVertex(161, 40)
+        .AddVertex(217, 53).AddVertex(274, 53).AddVertex(323, 55)
+        .AddVertex(497, -27).AddVertex(583, -23).AddVertex(589, -4)
+        .AddVertex(581, 32).AddVertex(482, 104).AddVertex(450, 112)
+        .AddVertex(446, 134).AddVertex(478, 144).AddVertex(596, 147)
+        .AddVertex(728, 145).AddVertex(752, 121).AddVertex(757, 88)
+        .AddVertex(779, 65).AddVertex(834, 73).AddVertex(880, 92)
+        .AddVertex(927, 92).AddVertex(957, 84).AddVertex(974, 61)
+        .AddVertex(892, 41).AddVertex(903, -7).AddVertex(917, -12)
+        .AddVertex(1002, -16).AddVertex(1211, 46).AddVertex(1287, 49)
+        .AddVertex(1332, 69).AddVertex(1505, 72).AddVertex(1547, 31)
+        .AddVertex(1577, 28).AddVertex(1572, 164).AddVertex(959, 198)
+        .AddVertex(325, 205).AddVertex(-25, 208).AddVertex(-21, 24)
+        .AddVertex(-4, 3);
+    Caster.Move(0, 450);
+    Caster.SetColor(color4f_t(1, 0, 0));
+    Caster.Create();
+
+    zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
+
+    while(!quit)
+    {
+        Evts.PollEvents();
+        while(Evts.PopEvent(Evt))
+        {
+            if(Evt.type == evt::EventType::WINDOW_CLOSE)
+                quit = true;
+        }
+
+        Window.Clear();
+
+        ////////////////////////////////////////////////////////////////////////
+
+        Caster.Draw();
+        Light.Draw();
+
+        std::vector<real_t> angles;
+        zPolygon ShadowMap(Assets);
+        ShadowMap.AddVertex(LPos);
+
+        auto& tris = Caster.GetTriangulation();
+        angles.reserve(angles.size() + tris.size());
+
+        for(auto& edge : tris)
+        {
+            real_t theta = math::deg(
+                std::atan2(edge.y - LPos.y, edge.x - LPos.x)
+                );
+
+            angles.push_back(theta);
+        }
+
+        angles.push_back(math::deg(std::atan2(-LPos.y, -LPos.x)));
+        angles.push_back(math::deg(std::atan2(800 - LPos.y, -LPos.x)));
+        angles.push_back(math::deg(std::atan2(800 - LPos.y, 600 - LPos.x)));
+        angles.push_back(math::deg(std::atan2(-LPos.y, 600 - LPos.x)));
+
+        std::vector<math::line_t> lines;
+
+        real_t maxlen = math::distance(0, 0, 800, 600);
+        for(auto& d : angles)
+        {
+            math::line_t line { {
+                LPos,
+                LPos + math::vector_t(maxlen * std::cos(d),
+                maxlen * std::sin(d))
+            } };
+
+            for(size_t i = 0; i < tris.size(); i += 3)
+            {
+                math::cquery_t query;
+                math::vector_t end = line[1];
+
+                math::collides(line, math::line_t { { tris[i], tris[i + 1] } }, &query);
+                if(query.collision &&
+                    math::distance(LPos, end, false) >
+                    math::distance(LPos, query.point, false))
+                {
+                    end = query.point;
+                }
+
+                math::collides(line, math::line_t { { tris[i], tris[i + 2] } }, &query);
+                if(query.collision &&
+                    math::distance(LPos, end, false) >
+                    math::distance(LPos, query.point, false))
+                {
+                    end = query.point;
+                }
+
+                math::collides(line, math::line_t { { tris[i + 1], tris[i + 2] } }, &query);
+                if(query.collision &&
+                    math::distance(LPos, end, false) >
+                    math::distance(LPos, query.point, false))
+                {
+                    end = query.point;
+                }
+
+                ShadowMap.AddVertex(end);
+            }
+        }
+
+        ShadowMap.SetColor(color4f_t(0, 1, 0, 0.01)).Create(false).Draw();
+
+        ////////////////////////////////////////////////////////////////////////
+
+        Window.Update();
+    }
+
+    Quit();
 }
