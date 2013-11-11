@@ -658,6 +658,8 @@ int main_stoy()
     return 0;
 }
 
+#include <set>
+
 int main()
 {
     using namespace gfx; 
@@ -680,7 +682,7 @@ int main()
     zQuad Light(Assets, 32, 32);
     Light.SetColor(color4f_t()).Create().Move(LPos);
 
-    zConcavePolygon Caster(Assets, 16);
+    /*zConcavePolygon Caster(Assets, 16);
     Caster.AddVertex(0, 0).AddVertex(111, 39).AddVertex(161, 40)
         .AddVertex(217, 53).AddVertex(274, 53).AddVertex(323, 55)
         .AddVertex(497, -27).AddVertex(583, -23).AddVertex(589, -4)
@@ -697,7 +699,9 @@ int main()
         .AddVertex(-4, 3);
     Caster.Move(0, 450);
     Caster.SetColor(color4f_t(1, 0, 0));
-    Caster.Create();
+    Caster.Create();*/
+    zQuad Caster(Assets, 256, 32);
+    Caster.SetColor(color4f_t(1, 0, 0, 0.2)).Create().Move(250, 150);
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
@@ -708,81 +712,82 @@ int main()
         {
             if(Evt.type == evt::EventType::WINDOW_CLOSE)
                 quit = true;
+
+            else if(Evt.type == evt::EventType::KEY_DOWN && 
+                    Evt.key.key == evt::Key::W)
+                zRenderer::ToggleWireframe();
         }
 
         Window.Clear();
 
         ////////////////////////////////////////////////////////////////////////
 
+        //LPos = Light.GetPosition();
+        //Light.Move(evt::GetMousePosition());
+        //Caster.Move(evt::GetMousePosition());
         Caster.Draw();
         Light.Draw();
 
         std::vector<real_t> angles;
         zPolygon ShadowMap(Assets);
-        ShadowMap.AddVertex(LPos);
 
         auto& tris = Caster.GetTriangulation();
-        angles.reserve(angles.size() + tris.size());
+        angles.reserve(4 + tris.size());
 
         for(auto& edge : tris)
         {
-            real_t theta = math::deg(
-                std::atan2(edge.y - LPos.y, edge.x - LPos.x)
-                );
-
-            angles.push_back(theta);
+            angles.push_back(std::atan2(edge.y - LPos.y, edge.x - LPos.x));
         }
 
-        angles.push_back(math::deg(std::atan2(-LPos.y, -LPos.x)));
-        angles.push_back(math::deg(std::atan2(800 - LPos.y, -LPos.x)));
-        angles.push_back(math::deg(std::atan2(800 - LPos.y, 600 - LPos.x)));
-        angles.push_back(math::deg(std::atan2(-LPos.y, 600 - LPos.x)));
+        angles.push_back(std::atan2(-LPos.y, -LPos.x));
+        angles.push_back(std::atan2(600 - LPos.y, -LPos.x));
+        angles.push_back(std::atan2(600 - LPos.y, 800 - LPos.x));
+        angles.push_back(std::atan2(-LPos.y, 800 - LPos.x));
 
-        std::vector<math::line_t> lines;
+        for(auto& d : angles) d = math::deg(d);
+        std::unique(angles.begin(), angles.end());
+        std::sort(angles.begin(), angles.end(), std::less<real_t>());
 
-        real_t maxlen = math::distance(0, 0, 800, 600);
+        real_t maxlen = 400;
+
+        math::vector_t first;
+        ShadowMap.AddVertex(LPos);
         for(auto& d : angles)
         {
             math::line_t line { {
                 LPos,
-                LPos + math::vector_t(maxlen * std::cos(d),
-                maxlen * std::sin(d))
+                LPos + math::vector_t(maxlen * std::cos(math::rad(d)),
+                                      maxlen * std::sin(math::rad(d)))
             } };
 
+            math::vector_t end = line[1]; end.z = 1;
             for(size_t i = 0; i < tris.size(); i += 3)
             {
                 math::cquery_t query;
-                math::vector_t end = line[1];
+                math::tri_t tri { { tris[i], tris[i + 1], tris[i + 2] } };
 
-                math::collides(line, math::line_t { { tris[i], tris[i + 1] } }, &query);
-                if(query.collision &&
-                    math::distance(LPos, end, false) >
-                    math::distance(LPos, query.point, false))
+                if(math::collides(line, tri, &query) &&
+                   math::distance(LPos, query.point, true) <
+                   math::distance(LPos, end, true))
                 {
                     end = query.point;
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(end);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(end.x + 5 * std::cos(math::rad(i / 360)),
+                                            end.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1)).Create().Draw();
                 }
-
-                math::collides(line, math::line_t { { tris[i], tris[i + 2] } }, &query);
-                if(query.collision &&
-                    math::distance(LPos, end, false) >
-                    math::distance(LPos, query.point, false))
-                {
-                    end = query.point;
-                }
-
-                math::collides(line, math::line_t { { tris[i + 1], tris[i + 2] } }, &query);
-                if(query.collision &&
-                    math::distance(LPos, end, false) >
-                    math::distance(LPos, query.point, false))
-                {
-                    end = query.point;
-                }
-
-                ShadowMap.AddVertex(end);
             }
+
+            ShadowMap.AddVertex(end);
+            if(d == angles.front()) first = end;
         }
 
-        ShadowMap.SetColor(color4f_t(0, 1, 0, 0.01)).Create(false).Draw();
+        ShadowMap.AddVertex(first);
+        ShadowMap.SetColor(color4f_t(0, 1, 0, 0.1)).Create(false).Draw();
 
         ////////////////////////////////////////////////////////////////////////
 
