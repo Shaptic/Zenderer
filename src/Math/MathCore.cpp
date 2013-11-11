@@ -21,7 +21,7 @@ real_t math::distance(const real_t x1, const real_t y1,
                       const real_t x2, const real_t y2,
                       const bool do_sqrt)
 {
-    real_t pyth = (x1 + x2) * (x1 + x2) +
-                  (y1 + y2) * (y1 + y2);
+    real_t pyth = (x1 - x2) * (x1 - x2) +
+                  (y1 - y2) * (y1 - y2);
     return !do_sqrt ? pyth : std::sqrt(pyth);
 }
