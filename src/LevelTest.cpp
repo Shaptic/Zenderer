@@ -102,7 +102,7 @@ public:
 
         mp_Font = m_Assets.Create<gui::zFont>();
         mp_Font->SetSize(16);
-        mp_Font->SetColor(1.0, 1.0, 1.0);
+        mp_Font->SetColor(color4f_t(1.0, 1.0, 1.0));
 
         if (!mp_Font->LoadFromFile(FONT_PATH"game.ttf"))
         {
@@ -162,13 +162,10 @@ public:
                 i->Collides(m_Player, &poi);
                 i->Adjust(m_PDelta.x, -5);
 
-                std::cout << poi.collision << " ... ";
                 if (poi.collision)
                 {
                     real_t m = (poi.line1[0].y - poi.line1[1].y) /
                                (poi.line1[0].x - poi.line1[1].x);
-
-                    std::cout << m << ',' << poi.tri1[0] << std::endl;
 
                     if (m < -1 && m_PDelta.x > 0 ||
                         m >  1 && m_PDelta.x < 0)
@@ -186,8 +183,6 @@ public:
                         m_PDelta.y = m_PDelta.x * m;
                         m_Player.Adjust(0, -1);
                     }
-
-                    std::cout << m_PDelta << std::endl;
                     return;
                 }
             }
@@ -228,37 +223,48 @@ public:
         {
             gBullet* pBullet = new gBullet(m_Scene, m_Target.GetX(), m_Target.GetY(),
                                            m_Trail.GetX(), m_Trail.GetY());
-            mp_allBullets.emplace_back(pBullet);
+            mp_allBullets.push_back(pBullet);
         }
         */
         m_Trail.Adjust(m_tshift, 0.0);
+
+        obj::zEntity* bg = lvl::zLevelLoader::GetEntityByID(m_Level, "background");
+        if (bg != nullptr) bg->Adjust(-1, 0);
     }
 
     void Render()
     {
+        mp_allBullets.erase(
+            std::remove_if(mp_allBullets.begin(), mp_allBullets.end(),
+                           [this](const gBullet* const i) {
+                return (i->GetX() > this->m_Scene.GetWidth()  || i->GetX() < 0.0 ||
+                        i->GetY() > this->m_Scene.GetHeight() || i->GetY() < 0.0);
+            }),
+            mp_allBullets.end()
+        );
+
         math::cquery_t q;
         for (auto& i : mp_allBullets)
         {
+            bool g = true;
             for (auto& j : m_Level.physical)
             {
                 if (i->Collides(*j, &q))
                 {
                     math::vector_t rate = i->GetRate();
                     math::vector_t surf = q.line2[1] - q.line2[0];
-                    real_t dot   = rate * surf;
-                    real_t theta = std::acos(dot / (rate.Magnitude() * surf.Magnitude()));
+                    real_t theta = std::acos(rate * surf /
+                                            (rate.Magnitude() * surf.Magnitude()));
                     rate.Rotate(-2 * theta);
                     i->SetRate(rate.x, rate.y);
+                    g = false;
                 }
             }
 
-            if (i->GetX() > m_Scene.GetWidth()  || i->GetX() < 0.0 ||
-                i->GetY() > m_Scene.GetHeight() || i->GetY() < 0.0)
+            if (g && !math::compf(i->GetRate().x, 0.0))
             {
-                // I'm not sure if this is even valid lol.
-                mp_allBullets.erase(std::find(mp_allBullets.begin(),
-                                              mp_allBullets.end(), i));
-                break;
+                i->SetRate(i->GetRate().x * 0.999,
+                           i->GetRate().y + (gWorld::s_GRAVITY / 50));
             }
 
             i->Update();
@@ -315,7 +321,7 @@ private:
             {
             case evt::Key::W:
             case evt::Key::SPACE:
-                Rate.y = (!math::compf(Rate.y, 0.0)) ? Rate.y : -15.0;
+                Rate.y = (!math::compf(Rate.y, 0.0)) ? Rate.y : -8.0;
                 break;
 
             case evt::Key::D:
@@ -350,7 +356,7 @@ private:
                                            Object.GetX(), Object.GetY(),
                                            Evt.mouse.position.x,
                                            Evt.mouse.position.y);
-            mp_allBullets.emplace_back(pBullet);
+            mp_allBullets.push_back(pBullet);
             break;
         }
         }
@@ -397,53 +403,119 @@ real_t gWorld::s_GRAVITY = 0.5;
 
 #define CHECK(f) { if (!f) return 1; }
 
-int main65(int argc, char* argv[])
+int main21()
 {
-    if (!Init()) return 1;
+    // Boilerplate setup code.
+    // Error-checking omitted for brevity.
+    Init();
 
-    asset::zAssetManager Assets;
-    CHECK(Assets.Init());
+    asset::zAssetManager GameAssets;
+    GameAssets.Init();
 
-    gfx::zWindow Window(800, 600, "Praecursor", Assets);
-    CHECK(Window.Init());
+    gfx::zWindow Window(800, 600, "Test Window", GameAssets, false);
+    Window.Init();
 
-    gfx::zScene GameWorld(800, 600, Assets);
-    CHECK(GameWorld.Init());
-    GameWorld.EnableLighting();
+    // We may want fancy effects later.
+    gfx::zScene Pong(Window.GetWidth(), Window.GetHeight(), GameAssets);
+    Pong.Init();
 
-    string_t level_name(LEVEL_PATH"level2.zlv");
-    if (argc > 1) level_name = string_t(argv[1]);
+    // Create the empty in-game objects.
+    obj::zEntity& Player = Pong.AddEntity();
+    obj::zEntity& Opponent = Pong.AddEntity();
+    obj::zEntity& Ball = Pong.AddEntity();
 
-    lvl::level_t FirstLevel;
-    lvl::zLevelLoader LevelLoader(GameWorld, Assets);
-    CHECK(LevelLoader.LoadFromFile(level_name));
-    CHECK(LevelLoader.PopLevel(FirstLevel));
+    // Create a 64x8 paddle primitive.
+    gfx::zQuad Paddle(GameAssets, 8, 64);
 
-    gWorld World(Window, Assets, GameWorld);
-    CHECK(World.LoadLevel(std::move(FirstLevel)));
+    // The player will be on the left and have a blue paddle.
+    Paddle.SetColor(color4f_t(0.0, 0.0, 1.0));
+    Player.AddPrimitive(Paddle.Create());
+    Player.Move(0, Window.GetHeight() / 2 - Player.GetH() / 2);
 
-    using evt::EventType;
-    util::zTimer Timer(60);
-    evt::event_t Evt;
+    // We can easily just re-use the old primitive, since it still
+    // contains the relevant shape data. AddPrimitive() makes a copy
+    // internally, and we never offloaded things to the GPU.
 
-    std::cout << "Entering main loop...\n";
-    bool quit = false;
-    while (!quit && Window.IsOpen())
+    // The opponent will be on the right and have a red paddle.
+    // We don't need the primitive after this anymore, so we can
+    // move it directly.
+    Paddle.SetColor(color4f_t(1.0, 0.0, 0.0));
+    Opponent.AddPrimitive(std::move(Paddle.Create()));
+    Opponent.Move(Window.GetWidth() - Opponent.GetW(),
+                  Window.GetHeight() / 2 - Opponent.GetH() / 2);
+
+    // The ball will be a white hexagon in the center of the screen.
+    gfx::zPolygon Hex(GameAssets, 6);
+    math::vector_t Center(Window.GetWidth() / 2, Window.GetHeight() / 2);
+    Hex.AddVertex(Center);
+    for (uint8_t i = 0; i <= 6; ++i)
     {
-        Timer.Start();
+        // Hexagon has 6 sides with an angle of 60 degrees (pi/3).
+        // We can use the engine's built-in tools if we didn't know that,
+        // which is shown for the y-value.
+        math::vector_t point(15 * std::cos(i * math::rad(60)),
+                             15 * std::sin(i * math::PI / 3));
+
+        Hex.AddVertex(Center + point);
+    }
+    std::cout << "We're gucci mayne.\n" << std::flush;
+    Ball.AddPrimitive(std::move(Hex.Create()));
+
+    // Load a font.
+    gui::zFont& ButtonFont = *GameAssets.Create<gui::zFont>(FONT_PATH"menu.ttf");
+
+    // Create a button and attach it directly to the game scene.
+    gfx::zScene UI(800, 600, GameAssets);
+    UI.Init(); UI.SetSeeThrough(true);
+
+    gui::zButton PauseButton(UI);
+    PauseButton.SetFont(ButtonFont);
+    PauseButton.SetNormalColor(color4f_t(0.0, 1.0, 0.0));
+    PauseButton.SetActiveColor(color4f_t(1.0, 0.0, 0.0));
+    PauseButton.Prepare("Pause Game");
+
+    // We want it in the top-right corner of the game screen.
+    // We approximate the width of the button via the rendered text,
+    // then add a small padding just to be safe.
+    PauseButton.Place(Window.GetWidth() - ButtonFont.GetTextWidth("Pause Game") - 16, 0);
+
+    // Our pause flag.
+    bool pause = false;
+
+    // Frame rate regulator.
+    util::zTimer Frames(60);
+
+    // Within our game loop, we can do the following to catch button events.
+    // Poll events and pass all to the menu.
+    while (Window.IsOpen())
+    {
+        Frames.Start();
+
+        // Poll events and handle mouse clicks on the button if needed.
+        evt::event_t Evt;
         evt::zEventHandler::PollEvents();
         while(evt::zEventHandler::GetInstance().PopEvent(Evt))
         {
-            quit = (Evt.type    == EventType::WINDOW_CLOSE ||
-                    Evt.key.key == evt::Key::ESCAPE);
-            World.HandleEvent(Evt);
+            if (Evt.type == evt::EventType::WINDOW_CLOSE)
+                Window.Close();
+
+            else if (Evt.type == evt::EventType::MOUSE_DOWN     &&
+                     Evt.mouse.button == evt::MouseButton::LEFT &&
+                     PauseButton.IsOver(Evt.mouse.position))
+                pause = true;
         }
 
-        World.Update();
+        // Remainder of game loop.
         Window.Clear();
-        World.Render();
+        if (!pause)
+        {
+            Pong.Render(color4f_t(0.1, 0.1, 0.1));
+            UI.Render();
+        }
         Window.Update();
-        Timer.Delay();
+
+        // Regulate frame rate.
+        Frames.Delay();
     }
 
     Quit();
@@ -451,7 +523,6 @@ int main65(int argc, char* argv[])
 }
 
 static const uint8_t BRUSH_SIZE = 10;
-
 int main_paint()
 {
     Init();

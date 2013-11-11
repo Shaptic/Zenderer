@@ -180,6 +180,36 @@ namespace gfx
         bool Clear();
 
         /**
+         * Attaches a vertex array to the scene for rendering.
+         *  This vertex array will be rendered *after* all of the internal
+         *  scene geometry, but *before* lighting and post-processing
+         *  (if enabled). There is no way to re-order the vertex arrays
+         *  if multiple are attached to the scene.
+         *
+         *  When this vertex array is rendered on-screen, the default effect
+         *  is enabled and all data is drawn in a single chunk. This means
+         *  that you should store position data directly into the geometry
+         *  buffer, rather than relying on transform
+         *
+         * @param   VAO     The vertex array object to attach to the scene
+         *
+         * @return  `true`  if the given vertex array is valid,
+         *          `false` otherwise.
+         *
+         * @see     zEffect::EffectType::DEFAULT_EFFECT
+         **/
+        bool AddGeometry(const gfxcore::zVertexArray& VAO)
+        {
+            if(VAO.IsInit())
+            {
+                m_extraGeometry.push_back(&VAO);
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
          * Renders the scene to the screen.
          *  There is an optional parameter to specify the color to
          *  clear scene contents with. Its alpha component will be ignored
@@ -273,6 +303,8 @@ namespace gfx
         std::list<zLight*>          m_allLights;
         std::list<zEffect*>         m_allPPFX;
         std::list<obj::zEntity*>    m_allEntities;
+        std::vector<const
+            gfxcore::zVertexArray*> m_extraGeometry;
 
         bool m_lighting, m_ppfx, m_through;
     };

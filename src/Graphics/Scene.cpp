@@ -211,6 +211,14 @@ bool zScene::Render(color4f_t Clear)
         i->Move(i->GetPosition() - m_Camera);
     }
 
+    E.Enable();
+    E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+    E.SetParameter("proj", zRenderer::GetProjectionMatrix());
+    for (auto& i : m_extraGeometry)
+    {
+        i->Draw();
+    }
+
     // Shortcut reference.
     gfxcore::zVertexArray& FS = zRenderer::GetFullscreenVBO();
 
@@ -324,6 +332,8 @@ void gfx::error_window(const char* message, const char* title,
             extra;                          \
             std::cerr << "check failed.\n"; \
         }
+
+    error_fallback(message, title); return;
 
     gui::zFontLibrary::InitFreetype();
     //util::zLog::GetEngineLog().Disable();
