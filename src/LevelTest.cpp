@@ -697,7 +697,7 @@ int main()
         .AddVertex(1577, 28).AddVertex(1572, 164).AddVertex(959, 198)
         .AddVertex(325, 205).AddVertex(-25, 208).AddVertex(-21, 24)
         .AddVertex(-4, 3);
-    Caster.Move(0, 450);
+    Caster.Move(0, 350);
     Caster.SetColor(color4f_t(1, 0, 0));
     Caster.Create();*/
     zQuad Caster(Assets, 256, 32);
@@ -713,9 +713,17 @@ int main()
             if(Evt.type == evt::EventType::WINDOW_CLOSE)
                 quit = true;
 
-            else if(Evt.type == evt::EventType::KEY_DOWN && 
+            else if(Evt.type == evt::EventType::KEY_DOWN &&
                     Evt.key.key == evt::Key::W)
                 zRenderer::ToggleWireframe();
+
+            else if(Evt.type == evt::EventType::KEY_DOWN &&
+                    Evt.key.key == evt::Key::A)
+                Caster.Move(Caster.GetX() - 1, Caster.GetY());
+
+            else if(Evt.type == evt::EventType::KEY_DOWN &&
+                    Evt.key.key == evt::Key::D)
+                Caster.Move(Caster.GetX() + 1, Caster.GetY());
         }
 
         Window.Clear();
@@ -754,8 +762,7 @@ int main()
         ShadowMap.AddVertex(LPos);
         for(auto& d : angles)
         {
-            math::line_t line { {
-                LPos,
+            math::line_t line { { LPos,
                 LPos + math::vector_t(maxlen * std::cos(math::rad(d)),
                                       maxlen * std::sin(math::rad(d)))
             } };
