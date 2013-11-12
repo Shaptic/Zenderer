@@ -729,11 +729,9 @@ int main_stoy()
     return 0;
 }
 
-#include <set>
-
 int main()
 {
-    using namespace gfx; 
+    using namespace gfx;
     using gfxcore::zRenderer;
     using gfxcore::BlendFunc;
 
@@ -744,7 +742,7 @@ int main()
     asset::zAssetManager Assets;
     gfx::zWindow Window(800, 600, "Shadow Test", Assets, false);
     Window.Init();
-    
+
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
     bool quit = false;
@@ -772,7 +770,7 @@ int main()
     Caster.SetColor(color4f_t(1, 0, 0));
     Caster.Create();*/
     zQuad Caster(Assets, 256, 32);
-    Caster.SetColor(color4f_t(1, 0, 0, 0.2)).Create().Move(250, 150);
+    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create().Move(250, 150);
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
@@ -825,7 +823,11 @@ int main()
 
         for(auto& d : angles) d = math::deg(d);
         std::unique(angles.begin(), angles.end());
-        std::sort(angles.begin(), angles.end(), std::less<real_t>());
+        std::sort(angles.begin(), angles.end(),
+                  [](const real_t a, const real_t b) {
+            if(a < 0 != b < 0) return a > b;
+            return a < b;
+        });
 
         real_t maxlen = 400;
 
@@ -843,8 +845,8 @@ int main()
             {
                 math::cquery_t query;
                 math::tri_t tri { { tris[i], tris[i + 1], tris[i + 2] } };
-
-                if(math::collides(line, tri, &query) &&
+                query.collision = math::collides(line, tri, &query);
+                if(query.collision &&
                    math::distance(LPos, query.point, true) <
                    math::distance(LPos, end, true))
                 {
@@ -856,7 +858,9 @@ int main()
                         Collision.AddVertex(end.x + 5 * std::cos(math::rad(i / 360)),
                                             end.y + 5 * std::sin(math::rad(i / 360)));
                     }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1)).Create().Draw();
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    if(query.edge_case) Collision.SetColor(color4f_t(0, 1, 1, 1));
+                    Collision.Create().Draw();
                 }
             }
 
@@ -865,7 +869,7 @@ int main()
         }
 
         ShadowMap.AddVertex(first);
-        ShadowMap.SetColor(color4f_t(0, 1, 0, 0.1)).Create(false).Draw();
+        ShadowMap.SetColor(color4f_t(0, 1, 0, 0.3)).Create(false).Draw();
 
         ////////////////////////////////////////////////////////////////////////
 
