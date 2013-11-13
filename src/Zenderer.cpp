@@ -85,6 +85,7 @@ bool zen::Init()
         }
     }
 
+    atexit(zen::Quit);
     return true;
 }
 
