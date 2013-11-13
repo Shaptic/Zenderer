@@ -149,6 +149,7 @@ namespace gui
         uint16_t GetTextWidth( const string_t& text) const;
         uint16_t GetTextHeight(const string_t& text) const;
         uint16_t GetLineHeight() const { return m_height; }
+        const color4f_t& GetColor() const { return m_Color; }
 
         friend class ZEN_API asset::zAssetManager;
 
