@@ -124,6 +124,9 @@ namespace obj
          **/
         bool Optimize();
 
+        /// Destroys all drawable data within an entity.
+        void Destroy();
+
         /**
          * Draws the entity on-screen.
          *  Since entities are just collections of one or more primitives, this
@@ -267,10 +270,9 @@ namespace obj
         friend class ZEN_API gfx::zScene;
 
     protected:
-        //zEntity(const zEntity&)=delete;             // not implemented to
-        //zEntity& operator=(const zEntity&)=delete;  // prevent compiler default
+        zEntity(const zEntity&) = delete;
+        zEntity& operator=(const zEntity&) = delete;
 
-        void Destroy();
         bool FileError(const string_t& filename,
                        const string_t& line, const uint32_t line_no,
                        const ErrorType& Err = ErrorType::BAD_PAIR);
