@@ -610,7 +610,9 @@ int main_paint()
 }
 
 // Shader toy.
-int main_stoy()
+#include "Zenderer/GUI/EntryField.hpp"
+
+int main()
 {
     enum class State
     {
@@ -669,12 +671,22 @@ int main_stoy()
 
     obj::zEntity& InputLabel = Scene.AddEntity();
 
+    util::zLog::GetEngineLog().ToggleStdout();
     Font.SetColor(color4f_t());
     Font << "Brightness: " << Light.GetBrightness();
     Font.Render(InputLabel);
     InputLabel.Move(Window.GetWidth()  / 2 - Font.GetTextWidth("Brightness: "),
                     Window.GetHeight() / 3 * 2);
     InputLabel.Disable();
+
+    gui::zEntryField BrtInput(UI, Assets);
+    BrtInput.SetColor(color4f_t());
+    BrtInput.SetInputTextColor(color4f_t(0, 0, 0));
+    BrtInput.SetLabel("Brightness Input: ");
+    BrtInput.SetMaxChars(10);
+    BrtInput.Place(100, 400);
+    BrtInput.Create(Font);
+    BrtInput.Focus();
 
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
@@ -701,6 +713,8 @@ int main_stoy()
             {
                 InputLabel.Scale(math::vector_t(-1, 1, 1));
             }
+
+            BrtInput.HandleEvent(Evt);
         }
 
         for(auto& i : Buttons)
@@ -729,7 +743,7 @@ int main_stoy()
     return 0;
 }
 
-int main()
+int main_shadows()
 {
     using namespace gfx;
     using gfxcore::zRenderer;
