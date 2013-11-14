@@ -4,7 +4,7 @@ using namespace zen;
 using gui::zMenu;
 
 zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets) :
-    m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),
+    m_Scene(Window.GetWidth(), Window.GetHeight(), Assets), m_Assets(Assets),
     mp_Bg(nullptr), mp_Font(Assets.Create<gui::zFont>()),
     m_spacing(0)
 {
@@ -29,12 +29,12 @@ bool zMenu::HandleEvent(const evt::event_t& Evt)
         {
             if(i.first->IsOver(Evt.mouse.position))
             {
-                i.first->SetActive();
+                i.first->Focus();
                 break;
             }
             else
             {
-                i.first->SetDefault();
+                i.first->Unfocus();
             }
         }
     }
@@ -60,16 +60,16 @@ bool zMenu::HandleEvent(const evt::event_t& Evt)
 
 uint16_t zMenu::AddButton(const string_t& text, std::function<void(size_t)> handler)
 {
-    zButton* pNew = new zButton(m_Scene);
-    pNew->SetFont(*mp_Font);
-    pNew->SetActiveColor(m_acolor);
-    pNew->SetNormalColor(m_ncolor);
+    zButton* pNew = new zButton(m_Scene, m_Assets);
+    pNew->SetFocusColor(m_acolor);
+    pNew->SetColor(m_ncolor);
 
     if(mp_Bg != nullptr) pNew->SetBackground(*mp_Bg);
 
-    pNew->Prepare(text);
+    pNew->SetText(text);
+    pNew->Create(*mp_Font);
     pNew->Place(m_Position);
-    pNew->SetDefault();
+    pNew->Unfocus();
 
     m_Position.y += m_spacing;
 
@@ -134,4 +134,9 @@ void zMenu::SetInitialButtonPosition(const math::vector_t& Pos)
 void zMenu::SetSpacing(const uint16_t vertical_spacing)
 {
     m_spacing = vertical_spacing;
+}
+
+void zMenu::SetOverlayMode(const bool flag)
+{
+    m_Scene.SetSeeThrough(flag);
 }

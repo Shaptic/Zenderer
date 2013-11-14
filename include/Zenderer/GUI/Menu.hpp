@@ -169,7 +169,11 @@ namespace gui
         /// Sets spacing between buttons, defaults to font size.
         void SetSpacing(const uint16_t vertical_spacing);
 
+        /// Enables the menu for use as an "overlay" (think HUD).
+        void SetOverlayMode(const bool flag);
+
     private:
+        asset::zAssetManager& m_Assets;
         gfx::zScene m_Scene;
         const obj::zEntity* mp_Bg;
         gui::zFont* mp_Font;
@@ -196,6 +200,8 @@ namespace gui
  *  A high-level wrapper that facilitates a simple method of creating
  *  fairly customizable and high-quality menus with custom buttons,
  *  fonts, and backgrounds.
+ *
+ * @todo    Fix wiki documentation after `zElement` re-structuring.
  **/
 
 /** @} **/
