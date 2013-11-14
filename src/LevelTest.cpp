@@ -464,23 +464,17 @@ int main21()
     // Load a font.
     gui::zFont& ButtonFont = *GameAssets.Create<gui::zFont>(FONT_PATH"menu.ttf");
 
-    // Create a button and attach it directly to the game scene.
-    gfx::zScene UI(800, 600, GameAssets);
-    UI.Init(); UI.SetSeeThrough(true);
-
-    gui::zButton PauseButton(UI, GameAssets);
-    PauseButton.SetColor(color4f_t(0.0, 1.0, 0.0));
-    PauseButton.SetFocusColor(color4f_t(1.0, 0.0, 0.0));
-    PauseButton.SetText("Pause Game");
-    PauseButton.Create(ButtonFont);
-
-    // We want it in the top-right corner of the game screen.
-    // We approximate the width of the button via the rendered text,
-    // then add a small padding just to be safe.
-    PauseButton.Place(Window.GetWidth() - ButtonFont.GetTextWidth("Pause Game") - 16, 0);
-
     // Our pause flag.
     bool pause = false;
+
+    // Create an overlay menu.
+    gui::zMenu UI(Window, GameAssets);
+    UI.SetOverlayMode(true);
+
+    UI.SetNormalButtonTextColor(color4f_t(0.0, 1.0, 0.0));
+    UI.SetActiveButtonTextColor(color4f_t(1.0, 0.0, 0.0));
+    UI.SetInitialButtonPosition(Window.GetWidth() - 80, 0);
+    UI.AddButton("Pause Game", [&pause](size_t){ pause = !pause; });
 
     // Frame rate regulator.
     util::zTimer Frames(60);
@@ -499,10 +493,7 @@ int main21()
             if (Evt.type == evt::EventType::WINDOW_CLOSE)
                 Window.Close();
 
-            else if (Evt.type == evt::EventType::MOUSE_DOWN     &&
-                     Evt.mouse.button == evt::MouseButton::LEFT &&
-                     PauseButton.IsOver(Evt.mouse.position))
-                pause = true;
+            UI.HandleEvent(Evt);
         }
 
         // Remainder of game loop.
@@ -510,8 +501,8 @@ int main21()
         if (!pause)
         {
             Pong.Render(color4f_t(0.1, 0.1, 0.1));
-            UI.Render();
         }
+        UI.Update();
         Window.Update();
 
         // Regulate frame rate.
@@ -692,7 +683,7 @@ int main()
         Light.SetMaximumAngle(theta);
         Light.Disable();
     });
-    MaxInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() + 10);
+    MaxInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() + 20);
     MaxInput.Unfocus();
 
     gui::zEntryField MinInput(UI, Assets);
@@ -709,7 +700,7 @@ int main()
         Light.Disable();
     });
     MinInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() +
-                      MaxInput.GetHeight() + 10);
+                      MaxInput.GetHeight() + 30);
     MinInput.Unfocus();
 
     gui::zEntryField* Fields[] { &BrtInput, &AttInput, &MaxInput, &MinInput };
