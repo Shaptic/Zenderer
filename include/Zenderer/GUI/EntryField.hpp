@@ -42,6 +42,7 @@ namespace gui
     {
     public:
         using zElement::IsOver;
+        using zElement::Place;
 
         /// Loads 3 entities into the scene.
         zEntryField(gfx::zScene& MenuScene, asset::zAssetManager& Assets) :
