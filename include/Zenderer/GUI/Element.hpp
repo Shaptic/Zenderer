@@ -80,9 +80,9 @@ namespace gui
          *          `false` otherwise.
          **/
         virtual bool IsOver(const math::rect_t& Box) = 0;
-        inline bool IsOver(const math::vector_t& Pos)   ///< @overload
+        bool IsOver(const math::vector_t& Pos) ///< @overload
         { return this->IsOver(math::rect_t(Pos.x, Pos.y, 1, 1)); }
-        inline bool IsOver(real_t x, real_t y)          ///< @overload
+        bool IsOver(real_t x, real_t y) ///< @overload
         { return this->IsOver(math::rect_t(x, y, 1, 1)); }
 
         /**

@@ -41,6 +41,8 @@ namespace gui
     class ZEN_API zEntryField : public zElement
     {
     public:
+        using zElement::IsOver;
+
         /// Loads 3 entities into the scene.
         zEntryField(gfx::zScene& MenuScene, asset::zAssetManager& Assets) :
             zElement(MenuScene, Assets),  m_Label(m_Scene.AddEntity()),
@@ -91,6 +93,31 @@ namespace gui
             return m_Field.Collides(Rect);
         }
 
+        virtual void Focus()
+        {
+            m_focus = true;
+            m_Field.Destroy();
+            m_Field.AddPrimitive(gfx::zQuad(
+                m_Assets, m_Field.GetW(),
+                mp_Font->GetLineHeight() + 10).SetColor(1, 1, 1).Create()
+            );
+        }
+
+        virtual void Unfocus()
+        {
+            m_focus = false;
+            m_Field.Destroy();
+            m_Field.AddPrimitive(gfx::zQuad(
+                m_Assets, m_Field.GetW(),
+                mp_Font->GetLineHeight() + 10).SetColor(1, 0, 0).Create()
+            );
+        }
+
+        void OnChange(std::function<void(const string_t&)> fun)
+        {
+            m_change = std::move(fun);
+        }
+
         void HandleEvent(const evt::event_t& Event)
         {
             ZEN_ASSERT(mp_Font != nullptr);
@@ -102,14 +129,17 @@ namespace gui
             {
                 if(m_filter(Event.key.symbol))
                 {
+                    m_Text.Destroy();
                     m_Text.Enable();
                     m_input += Event.key.symbol;
                     this->RenderText(m_Text, *mp_Font, m_input, &m_incolor);
+                    m_change(m_input);
                 }
             }
 
-            else if(Event.type == evt::EventType::KEY_DOWN &&
-                    Event.key.key == evt::Key::BACKSPACE)
+            else if((Event.type == evt::EventType::KEY_DOWN  ||
+                     Event.type == evt::EventType::KEY_HOLD) &&
+                     Event.key.key == evt::Key::BACKSPACE)
             {
                 if(m_input.length() <= 1)
                 {
@@ -118,8 +148,10 @@ namespace gui
                 }
                 else
                 {
+                    m_Text.Destroy();
                     m_input = m_input.substr(0, m_input.length() - 1);
                     this->RenderText(m_Text, *mp_Font, m_input, &m_incolor);
+                    m_change(m_input);
                 }
             }
         }
@@ -161,6 +193,14 @@ namespace gui
             return m_input;
         }
 
+        uint16_t GetHeight() const
+        {
+            return math::max<uint16_t>(
+                   math::max<uint16_t>(
+                        m_Text.GetH(), m_Field.GetH()
+                   ), m_Label.GetH());
+        }
+
     private:
         void Destroy()
         {
@@ -182,6 +222,7 @@ namespace gui
         uint32_t        m_limit;
 
         std::function<bool(char)> m_filter;
+        std::function<void(const string_t&)> m_change;
     };
 }   // namespace gui
 }   // namespace zen
