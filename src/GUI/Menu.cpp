@@ -128,7 +128,13 @@ void zMenu::SetActiveButtonTextColor(const color4f_t& Color)
 
 void zMenu::SetInitialButtonPosition(const math::vector_t& Pos)
 {
-    m_Position = Pos;
+    this->SetInitialButtonPosition(Pos.x, Pos.y);
+}
+
+void zMenu::SetInitialButtonPosition(real_t x, real_t y)
+{
+    m_Position.x = x;
+    m_Position.y = y;
 }
 
 void zMenu::SetSpacing(const uint16_t vertical_spacing)

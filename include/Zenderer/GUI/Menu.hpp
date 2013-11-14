@@ -162,6 +162,7 @@ namespace gui
 
         /// Sets the place where buttons will begin to be added.
         void SetInitialButtonPosition(const math::vector_t& Pos);
+        void SetInitialButtonPosition(real_t x, real_t y); ///< @overload
 
         /// Renders a menu title in a certain position.
         void SetTitle(const string_t& Title, const math::vector_t& Pos);
