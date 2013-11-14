@@ -635,58 +635,84 @@ int main()
     gfx::zScene UI(Window.GetWidth(), Window.GetHeight(), Assets);
     UI.Init(); UI.SetSeeThrough(true);
 
-    gfx::zLight& Light = Scene.AddLight(gfx::LightType::ZEN_POINT);
+    gfx::zLight& Light = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
     Light.Enable();
     Light.SetPosition(Window.GetWidth() / 2, Window.GetHeight() / 2);
     Light.SetBrightness(1.0);
+    Light.SetMaximumAngle(0);
+    Light.SetMinimumAngle(359);
     Light.Disable();
 
-    gui::zButton Brightness(UI);
-    gui::zButton Attenuation(UI);
-    gui::zButton Angles(UI);
-
-    std::vector<gui::zButton*> Buttons { &Brightness, &Attenuation, &Angles };
-
     gui::zFont& Font = *Assets.Create<gui::zFont>("C:\\Windows\\Fonts\\Arial.ttf");
-
-    for(auto& i : Buttons) i->SetFont(Font);
-
-    color4f_t black(0.2, 0.2, 0.2, 1);
-    for(auto& i : Buttons)
-    {
-        i->SetActiveColor(black);
-        i->SetNormalColor(color4f_t());
-    }
-
-    Brightness.Prepare  ("Set Brightness");
-    Attenuation.Prepare ("Set Attenuation");
-    Angles.Prepare      ("Set Angles [Spotlight Only]");
-
-    uint16_t y = 0;
-    for(auto& i : Buttons)
-    {
-        i->Place(0, y);
-        y += Font.GetLineHeight() + 10;
-    }
-
-    obj::zEntity& InputLabel = Scene.AddEntity();
-
-    util::zLog::GetEngineLog().ToggleStdout();
-    Font.SetColor(color4f_t());
-    Font << "Brightness: " << Light.GetBrightness();
-    Font.Render(InputLabel);
-    InputLabel.Move(Window.GetWidth()  / 2 - Font.GetTextWidth("Brightness: "),
-                    Window.GetHeight() / 3 * 2);
-    InputLabel.Disable();
 
     gui::zEntryField BrtInput(UI, Assets);
     BrtInput.SetColor(color4f_t());
     BrtInput.SetInputTextColor(color4f_t(0, 0, 0));
     BrtInput.SetLabel("Brightness Input: ");
-    BrtInput.SetMaxChars(10);
-    BrtInput.Place(100, 400);
+    BrtInput.SetMaxChars(4);
     BrtInput.Create(Font);
-    BrtInput.Focus();
+    BrtInput.OnChange([&Light](const string_t& i) {
+        real_t brt = std::stod(i);
+        if(math::compf(brt, 0)) return;
+        Light.Enable();
+        Light.SetBrightness(brt);
+        Light.Disable();
+    });
+    BrtInput.Place(0, 0);
+    BrtInput.Unfocus();
+
+    gui::zEntryField AttInput(UI, Assets);
+    AttInput.SetColor(color4f_t());
+    AttInput.SetInputTextColor(color4f_t(0, 0, 0));
+    AttInput.SetLabel("Attenuation Input: ");
+    AttInput.SetMaxChars(4);
+    AttInput.Create(Font);
+    AttInput.OnChange([&Light](const string_t& i) {
+        std::vector<string_t> values = util::split(i, ',');
+        if(values.size() != 3) return;
+        Light.Enable();
+        Light.SetAttenuation(std::stod(values[0]),
+                             std::stod(values[1]),
+                             std::stod(values[2]));
+        Light.Disable();
+    });
+    AttInput.Place(0, BrtInput.GetHeight() + 10);
+    AttInput.Unfocus();
+
+    gui::zEntryField MaxInput(UI, Assets);
+    MaxInput.SetColor(color4f_t());
+    MaxInput.SetInputTextColor(color4f_t(0, 0, 0));
+    MaxInput.SetLabel("Max Angle Input: ");
+    MaxInput.SetMaxChars(4);
+    MaxInput.Create(Font);
+    MaxInput.OnChange([&Light](const string_t& i) {
+        real_t theta = std::stod(i);
+        if(math::compf(theta, 0)) return;
+        Light.Enable();
+        Light.SetMaximumAngle(theta);
+        Light.Disable();
+    });
+    MaxInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() + 10);
+    MaxInput.Unfocus();
+
+    gui::zEntryField MinInput(UI, Assets);
+    MinInput.SetColor(color4f_t());
+    MinInput.SetInputTextColor(color4f_t(0, 0, 0));
+    MinInput.SetLabel("Min Angle Input: ");
+    MinInput.SetMaxChars(4);
+    MinInput.Create(Font);
+    MinInput.OnChange([&Light](const string_t& i) {
+        real_t theta = std::stod(i);
+        if(math::compf(theta, 0)) return;
+        Light.Enable();
+        Light.SetMinimumAngle(theta);
+        Light.Disable();
+    });
+    MinInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() +
+                      MaxInput.GetHeight() + 10);
+    MinInput.Unfocus();
+
+    gui::zEntryField* Fields[] { &BrtInput, &AttInput, &MaxInput, &MinInput };
 
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
@@ -702,37 +728,23 @@ int main()
 
             if(Evt.type == evt::EventType::MOUSE_DOWN)
             {
-                if(Brightness.IsOver(Evt.mouse.position))
+                for(auto& i : Fields)
                 {
-                    ToolState = State::EDIT_BRT;
+                    if(i->IsOver(Evt.mouse.position))
+                        i->Focus();
+                    else
+                        i->Unfocus();
                 }
             }
 
-            if(ToolState == State::EDIT_BRT &&
-               Evt.type == evt::EventType::KEY_PRINTABLE)
+            for(auto& i : Fields)
             {
-                InputLabel.Scale(math::vector_t(-1, 1, 1));
+                i->HandleEvent(Evt);
             }
-
-            BrtInput.HandleEvent(Evt);
-        }
-
-        for(auto& i : Buttons)
-        {
-            i->SetDefault();
-            if(i->IsOver(evt::GetMousePosition()))
-                i->SetActive();
         }
 
         Window.Clear();
-
-        if(ToolState == State::EDIT_BRT)
-        {
-            InputLabel.Enable();
-        }
-
         Scene.Render(color4f_t(0.1, 0.1, 0.1));
-
         UI.Render();
         Window.Update();
     }
