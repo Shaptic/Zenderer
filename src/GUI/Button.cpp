@@ -3,10 +3,11 @@
 using namespace zen;
 using gui::zButton;
 
-zButton::zButton(gfx::zScene& MenuScene) :
-    m_Scene(MenuScene), m_Active(m_Scene.AddEntity()),
-    m_Normal(m_Scene.AddEntity()), mp_Current(&m_Normal),
-    mp_Font(nullptr)
+zButton::zButton(gfx::zScene& MenuScene,
+                 asset::zAssetManager& Assets) :
+    zElement(MenuScene, Assets),
+    m_Active(m_Scene.AddEntity()), m_Normal(m_Scene.AddEntity()),
+    mp_Current(&m_Normal)
 {
 }
 
@@ -16,71 +17,52 @@ zButton::~zButton()
     m_Scene.RemoveEntity(m_Normal);
 }
 
-void zButton::Place(const math::vector_t& Pos)
-{
-    m_Active.Move(Pos);
-    m_Normal.Move(Pos);
-}
-
 void zButton::Place(const real_t x, const real_t y)
 {
     m_Active.Move(x, y);
     m_Normal.Move(x, y);
 }
 
-bool zButton::Prepare(const string_t& text)
+bool zButton::Create(zFont& Font)
 {
-    if(mp_Font == nullptr || mp_Current == nullptr || text.empty()) return false;
+    if(mp_Current == nullptr || m_text.empty()) return false;
 
-    mp_Font->SetColor(m_ncolor);
-    bool ret = mp_Font->Render(m_Normal, text);
-
-    mp_Font->SetColor(m_acolor);
-    return ret && mp_Font->Render(m_Active, text);
-}
-
-bool zButton::IsOver(const math::vector_t& Pos)
-{
-    return this->IsOver(math::rect_t(Pos.x, Pos.y, 2, 2));
+    this->RenderText(m_Normal, Font, m_text);
+    this->RenderText(m_Normal, Font, m_text, &m_acolor);
+    return true;
 }
 
 bool zButton::IsOver(const math::rect_t& Box)
 {
-    return (mp_Current && mp_Font && mp_Current->Collides(Box));
+    return (mp_Current && mp_Current->Collides(Box));
 }
 
-void zButton::SetActive()
+void zButton::Focus()
 {
-    if(!mp_Font || mp_Current == &m_Active) return;
+    if(mp_Current == &m_Active) return;
 
     mp_Current->Disable();
     mp_Current = &m_Active;
     mp_Current->Enable();
 }
 
-void zButton::SetDefault()
+void zButton::Unfocus()
 {
-    if(!mp_Font || mp_Current == &m_Normal) return;
+    if(mp_Current == &m_Normal) return;
 
     mp_Current->Disable();
     mp_Current = &m_Normal;
     mp_Current->Enable();
 }
 
-void zButton::SetFont(gui::zFont& Font)
+void zButton::SetText(const string_t& text)
 {
-    Font.SetStacking(true);
-    mp_Font = &Font;
+    m_text = text;
 }
 
-void zButton::SetActiveColor(const color4f_t& active)
+void zButton::SetFocusColor(const color4f_t& active)
 {
     m_acolor = active;
-}
-
-void zButton::SetNormalColor(const color4f_t& normal)
-{
-    m_ncolor = normal;
 }
 
 void zButton::SetBackground(const obj::zEntity& Bg)

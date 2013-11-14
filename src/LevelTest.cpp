@@ -468,11 +468,11 @@ int main21()
     gfx::zScene UI(800, 600, GameAssets);
     UI.Init(); UI.SetSeeThrough(true);
 
-    gui::zButton PauseButton(UI);
-    PauseButton.SetFont(ButtonFont);
-    PauseButton.SetNormalColor(color4f_t(0.0, 1.0, 0.0));
-    PauseButton.SetActiveColor(color4f_t(1.0, 0.0, 0.0));
-    PauseButton.Prepare("Pause Game");
+    gui::zButton PauseButton(UI, GameAssets);
+    PauseButton.SetColor(color4f_t(0.0, 1.0, 0.0));
+    PauseButton.SetFocusColor(color4f_t(1.0, 0.0, 0.0));
+    PauseButton.SetText("Pause Game");
+    PauseButton.Create(ButtonFont);
 
     // We want it in the top-right corner of the game screen.
     // We approximate the width of the button via the rendered text,
