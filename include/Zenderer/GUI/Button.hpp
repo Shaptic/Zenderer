@@ -23,17 +23,19 @@
 #ifndef ZENDERER__GUI__BUTTON_HPP
 #define ZENDERER__GUI__BUTTON_HPP
 
-#include "Zenderer/Graphics/Scene.hpp"
-#include "Font.hpp"
+#include "Element.hpp"
 
 namespace zen
 {
 namespace gui
 {
     /// Simulates a hoverable GUI button element.
-    class ZEN_API zButton
+    class ZEN_API zButton : public zElement
     {
     public:
+        using zElement::Place;
+        using zElement::IsOver;
+
         /**
          * Creates a button instance.
          *  The given parameter is a scene object to which all
@@ -46,15 +48,11 @@ namespace gui
          *
          * @see     gfx::zScene::Init()
          **/
-        zButton(gfx::zScene& MenuScene);
+        zButton(gfx::zScene& MenuScene, asset::zAssetManager& Assets);
         ~zButton();
 
-        /**
-         * Places a button at a location on the screen.
-         * @param   Pos     Position to place the button at.
-         **/
-        void Place(const math::vector_t& Pos);
-        void Place(const real_t x, const real_t y); ///< @overload
+        virtual void Place(const real_t x, const real_t y);
+        virtual bool IsOver(const math::rect_t& Box);
 
         /**
          * Creates the button with the given text.
@@ -63,56 +61,37 @@ namespace gui
          *  a button for live on-screen use within the scene it's
          *  attached to (from the constructor).
          *
-         * @param   text    The button text to render.
-         *
          * @return  `true`  if the button was rendered in both states
          *                  successfully,
          *          `false` if there is internal state data missing,
-         *                  such as font, or if the button couldn't
-         *                  render.
+         *                  or if the button couldn't render.
          *
-         * @see     SetFont()
+         * @see     SetText()
          * @see     SetActiveColor()
          * @see     SetNormalColor()
          * @see     SetBackground()
          **/
-        bool Prepare(const string_t& text);
+        virtual bool Create(zFont& Font);
 
-        /**
-         * Checks if the given position is over the button.
-         * @param   Pos     Position to check over
-         * @return  `true`  if the given position is over the button,
-         *          `false` otherwise.
-         **/
-        bool IsOver(const math::vector_t& Pos);
-        bool IsOver(const math::rect_t& Box);   ///< @overload
+        virtual void Focus();
+        virtual void Unfocus();
 
-        /// Enables the "active" button state.
-        void SetActive();
+        /// Sets the button text (before `Create()`).
+        void SetText(const string_t& text);
 
-        /// Enables the "normal" button state.
-        void SetDefault();
-
-        /// Sets the font to use for rendering buttons.
-        void SetFont(zFont& Font);
-
-        /// Sets the "active" button state text color.
-        void SetActiveColor(const color4f_t& active);
-
-        /// Sets the "normal" button state text color.
-        void SetNormalColor(const color4f_t& normal);
+        /// Sets the "focused" button state text color.
+        void SetFocusColor(const color4f_t& active);
 
         /// Sets the button background to overlay text on.
         void SetBackground(const obj::zEntity& Bg);
 
     private:
-        gfx::zScene&    m_Scene;
         obj::zEntity&   m_Active;
         obj::zEntity&   m_Normal;
         obj::zEntity*   mp_Current;
-        gui::zFont*     mp_Font;
 
-        color4f_t m_acolor, m_ncolor;
+        color4f_t m_acolor;
+        string_t m_text;
     };
 }   // namespace gui
 }   // namespace zen
