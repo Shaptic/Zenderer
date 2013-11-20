@@ -31,14 +31,58 @@
 
 #include "Font.hpp"
 #include "Button.hpp"
+#include "EntryField.hpp"
 
 namespace zen
 {
 namespace gui
 {
+    using math::vector_t;
+
+    /**
+     * Menu configuration structure.
+     *  If certain values are not set, the following rules will be used:
+     *
+     *      If `button_f`, `label_f`, or `input_f` are not set,
+     *      `font` will be used for all three.
+     *
+     *      If `button_foccol` or `button_normcol` aren't set, white
+     *      and black are used, respectively.
+     *
+     *      If `input_style` isn't set, `InputStyle::FILLED` is assumed.
+     *
+     *      If `input_boxcol`, `input_col`, or `label_col` are not set,
+     *      white, black, and white are used, respectively.
+     **/
+    struct menucfg_t
+    {
+        string_t    background;     ///< Menu background
+        string_t    title;          ///< Menu title
+        string_t    font;           ///< Menu font
+        uint16_t    font_size;      ///< Menu font size
+        vector_t    title_pos;      ///< Position of title on screen
+
+        string_t    button_f;       ///< Button font
+        uint16_t    button_fs;      ///< Button font size
+        vector_t    button_pos;     ///< Starting position for buttons
+        color4f_t   button_foccol;  ///< Button text focused color
+        color4f_t   button_normcol; ///< Button text normal color
+
+        string_t    label_f;        ///< Label font for inputs
+        string_t    input_f;        ///< Input context font
+        uint16_t    label_fs;       ///< Label font size
+        uint16_t    input_fs;       ///< Input context font size
+        InputStyle  input_style;    ///< Style for entry field boxes
+        color4f_t   input_boxcol;   ///< Input box color (based on style)
+        color4f_t   input_col;      ///< Input text color
+        color4f_t   label_col;      ///< Input box label text color
+    };
+
     /// A high-level menu-creation API.
     class ZEN_API zMenu
     {
+        static menucfg_t DEFAULT_SETTINGS;
+
     public:
         /**
          * Creates a menu instance.
@@ -48,7 +92,8 @@ namespace gui
          * @param   Window  The window you wish to contain the menu
          * @param   Assets  The asset manager to load data with
          **/
-        zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets);
+        zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
+              const menucfg_t& settings = DEFAULT_SETTINGS);
         virtual ~zMenu();
 
         /**
@@ -85,6 +130,12 @@ namespace gui
          **/
         virtual uint16_t AddButton(const string_t& text,
                                    std::function<void(size_t)> handler);
+
+        virtual uint16_t AddEntryField(const string_t& label_text,
+                                       const vector_t& Position,
+                                       std::function<bool(char)> filter =
+                                            [](char) { return true; },
+                                       const string_t& prefill = "");
 
         /**
          * Adds an entity object directly to the menu.
@@ -143,29 +194,8 @@ namespace gui
          **/
         virtual void Update();
 
-        /**
-         * Loads a font for the menu to use.
-         * @param   filename    Path to the font
-         * @param   size        Font size to load
-         * @return  `true`  if it went swell, `false` otherwise.
-         **/
-        bool SetFont(const string_t& filename, const uint16_t size=18);
-
         /// Sets a background for buttons which text will overlay.
         void SetButtonBackground(const obj::zEntity& Bg);
-
-        /// Sets "normal" button state text color.
-        void SetNormalButtonTextColor(const color4f_t& Color);
-
-        /// Sets "active" button state text color.
-        void SetActiveButtonTextColor(const color4f_t& Color);
-
-        /// Sets the place where buttons will begin to be added.
-        void SetInitialButtonPosition(const math::vector_t& Pos);
-        void SetInitialButtonPosition(real_t x, real_t y); ///< @overload
-
-        /// Renders a menu title in a certain position.
-        void SetTitle(const string_t& Title, const math::vector_t& Pos);
 
         /// Sets spacing between buttons, defaults to font size.
         void SetSpacing(const uint16_t vertical_spacing);
@@ -174,12 +204,20 @@ namespace gui
         void SetOverlayMode(const bool flag);
 
     private:
+        bool LoadFont(const string_t&    font_name,
+                      const uint16_t     font_size,
+                      gui::zFont*&       font_ptr,
+                      const uint16_t     font_def_size = 18);
+
         asset::zAssetManager& m_Assets;
         gfx::zScene m_Scene;
-        const obj::zEntity* mp_Bg;
-        gui::zFont* mp_Font;
-        color4f_t m_acolor, m_ncolor;
 
+        gui::zFont* mp_MenuFont;
+        gui::zFont* mp_ButtonFont;
+        gui::zFont* mp_LabelFont;
+        gui::zFont* mp_InputFont;
+
+        std::vector<zEntryField*> m_menuInputs;
         std::vector<
             std::pair<
                 zButton*,
@@ -187,8 +225,9 @@ namespace gui
             >
         > m_menuActions;
 
-        math::vector_t m_Position;
-        uint16_t m_spacing;
+        vector_t    m_Position;
+        menucfg_t   m_settings;
+        uint16_t    m_spacing;
     };
 }   // namespace gui
 }   // namespace zen
