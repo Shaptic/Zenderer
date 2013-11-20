@@ -45,6 +45,8 @@ namespace gui
         zElement(gfx::zScene& GUI, asset::zAssetManager& Assets) :
             m_Scene(GUI), m_Assets(Assets), m_focus(false) {}
 
+        virtual ~zElement() {}
+
         /**
          * Places the GUI element somewhere in the scene.
          *
