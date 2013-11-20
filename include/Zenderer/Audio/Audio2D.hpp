@@ -69,7 +69,7 @@ namespace sfx
             ALuint* buffers;
             size_t  buffer_count;
 
-            ALuint   source;
+            ALuint  source;
             real_t  volume;
         } m_AL; // OpenAL data
 

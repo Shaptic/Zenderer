@@ -58,7 +58,7 @@ namespace sfx
     private:
         zSound2D(const void* const owner = nullptr,
                  const void* const settings = nullptr);
-        zSound2D(const zSound2D&);
+        zSound2D(const zSound2D&) = delete;
     };
 }   // namespace sfx
 }   // namespace zen

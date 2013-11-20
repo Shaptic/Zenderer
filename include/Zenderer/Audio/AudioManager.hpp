@@ -39,14 +39,14 @@
 #include "Zenderer/Utilities/Log.hpp"
 
 #ifdef AL
-  #undef AL
+#  undef AL
 #endif // AL
 
 /// Automatic OpenAL call checking in debug builds.
 #ifdef ZEN_DEBUG_BUILD
-  #define AL(f) f; zen::sfx::zAudioManager::alCheck(#f, __LINE__, __FILE__);
+#  define AL(f) f; zen::sfx::zAudioManager::alCheck(#f, __LINE__, __FILE__);
 #else
-  #define AL(f) f;
+#  define AL(f) f;
 #endif // _DEBUG
 
 namespace zen
@@ -95,7 +95,9 @@ namespace sfx
          * @param   file    File name of function call
          *
          * @return  `true`     if there was no error, and
-         *           `false`    otherwise, though the assertion will exit.
+         *          `false`    otherwise, though the assertion will exit.
+         *
+         * @see     gfxcore::glCheck()
          **/
         static bool alCheck(const char* expr,
                             const uint32_t line,
