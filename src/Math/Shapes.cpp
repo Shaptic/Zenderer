@@ -312,3 +312,11 @@ std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
 
     return triangles;
 }
+
+real_t math::slope(const math::line_t& line)
+{
+    if(compf(line[1].x, line[0].x))
+        return std::numeric_limits<float>::quiet_NaN(); 
+    
+    return (line[1].y - line[0].y) / (line[1].x - line[0].x);
+}

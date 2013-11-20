@@ -787,8 +787,8 @@ int main()
     Caster.SetColor(color4f_t(1, 0, 0));
     Caster.Create();*/
     zQuad Caster(Assets, 256, 32);
-    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create().Move(250, 150);
-
+    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create().Move(245, 150);
+    
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
     while(!quit)
@@ -814,7 +814,150 @@ int main()
 
         Window.Clear();
 
-        ////////////////////////////////////////////////////////////////////////
+        //Light.Move(evt::GetMousePosition());
+        LPos = Light.GetPosition();
+        Caster.Draw();
+        Light.Draw();
+
+        std::vector<math::line_t> rays;
+        zConcavePolygon ShadowMap(Assets);
+
+        auto& tris = Caster.GetTriangulation();
+
+        // Cast a ray from the light to each individual edge on the 
+        // collidable objects. If the ray collides with more than one edge,
+        // discard it. Otherwise, extend it out for an arbitrary amount.
+        for(auto& edge : tris)
+        {
+            std::vector<math::vector_t> collisions;
+            math::line_t ray { { LPos, edge } };
+
+            if(std::find(rays.begin(), rays.end(), ray) != rays.end())
+                continue;
+
+            for(size_t i = 0; i < tris.size(); i += 3)
+            {
+                math::line_t one { { tris[i], tris[i + 1] } };
+                math::line_t two { { tris[i + 1], tris[i + 2] } };
+                math::line_t thr { { tris[i], tris[i + 2] } };
+
+                math::cquery_t q1, q2, q3;
+                if(math::collides(ray, one, &q1) &&
+                   std::find(collisions.begin(), collisions.end(),
+                             q1.point) == collisions.end())
+                {
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(q1.point);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(q1.point.x + 5 * std::cos(math::rad(i / 360)),
+                                            q1.point.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    Collision.Create().Draw();
+                    collisions.push_back(std::move(q1.point));
+                }
+
+                if(math::collides(ray, two, &q2) &&
+                   std::find(collisions.begin(), collisions.end(),
+                             q2.point) == collisions.end())
+                {
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(q2.point);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(q2.point.x + 5 * std::cos(math::rad(i / 360)),
+                                            q2.point.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    Collision.Create().Draw();
+                    collisions.push_back(std::move(q2.point));
+                }
+
+                if(math::collides(ray, thr, &q3) &&
+                   std::find(collisions.begin(), collisions.end(),
+                             q3.point) == collisions.end())
+                {
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(q3.point);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(q3.point.x + 5 * std::cos(math::rad(i / 360)),
+                                            q3.point.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    Collision.Create().Draw();
+                    collisions.push_back(std::move(q3.point));
+                }
+            }
+
+            if(collisions.size() <= 1)
+            {
+                rays.push_back(ray);
+
+                real_t m = math::slope(ray);
+                int factor = ray[0].x > ray[1].x ? -1000 : 1000;
+                ray[1].x += factor;
+                ray[1].y += factor * m;
+
+                rays.push_back(ray);
+            }
+        }
+
+        math::line_t tl { { LPos, math::vector_t(0,     0) } };
+        math::line_t tr { { LPos, math::vector_t(800,   0) } };
+        math::line_t br { { LPos, math::vector_t(800, 600) } };
+        math::line_t bl { { LPos, math::vector_t(0  , 600) } };
+
+        rays.push_back(tl);
+        rays.push_back(tr);
+        rays.push_back(br);
+        rays.push_back(bl);
+        /*
+        std::unique(rays.begin(), rays.end());
+        std::unique(rays.begin(), rays.end(),
+                    [](const math::line_t& a, const math::line_t& b) {
+            real_t t1 = std::atan2(b[0].y - a[1].y, a[0].x - a[1].x);
+            real_t t2 = std::atan2(b[0].y - b[1].y, b[0].x - b[1].x);
+            return math::compf(t1, t2);
+        });
+        */
+        std::sort(rays.begin(), rays.end(),
+                  [](const math::line_t& a, const math::line_t& b) {
+
+            real_t theta = std::atan2(a[0].y - a[1].y, a[0].x - a[1].x);
+            real_t phi   = std::atan2(b[0].y - b[1].y, b[0].x - b[1].x);
+
+            if(math::compf(theta, phi))
+                return a[1].x < a[0].x ?
+                    math::distance(a[0], a[1], false) >
+                    math::distance(b[0], b[1], false) :
+                    math::distance(a[0], a[1], false) <
+                    math::distance(b[0], b[1], false);
+
+            return theta < phi;
+        });
+
+        for(auto& i : rays)
+        {
+            std::cout << "Start: " << i[0] << " ; End: " << i[1] << std::endl;
+        }
+        std::cout << std::endl;
+
+        for(size_t i = 0; i < rays.size() - 1; ++i)
+        {
+            ShadowMap.AddVertex(rays[i][0]);
+            ShadowMap.AddVertex(rays[i][1]);
+            ShadowMap.AddVertex(rays[i+1][1]);
+        }
+        ShadowMap.AddVertex(rays.front()[0]);
+        ShadowMap.AddVertex(rays.front()[1]);
+        ShadowMap.AddVertex(rays.back()[1]);
+
+
+        ShadowMap.SetColor(0, 1, 0, 0.5).Create(false).Draw();
+
+        /*//////////////////////////////////////////////////////////////////////
 
         //LPos = Light.GetPosition();
         //Light.Move(evt::GetMousePosition());
@@ -888,10 +1031,11 @@ int main()
         ShadowMap.AddVertex(first);
         ShadowMap.SetColor(color4f_t(0, 1, 0, 0.3)).Create(false).Draw();
 
-        ////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////*/
 
         Window.Update();
     }
 
     Quit();
+    return 0;
 }

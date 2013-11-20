@@ -25,7 +25,7 @@ gfx::zPolygon& zConcavePolygon::Create(const bool placeholder)
 {
     if(m_Verts.size() <= 2) return (*this);
 
-    m_Tris = math::triangulate(m_Verts);
+    m_Tris = placeholder ? math::triangulate(m_Verts) : std::move(m_Verts);
     std::vector<math::vector_t> verts;
 
     // We minimize the vertices we offload by only storing those

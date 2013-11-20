@@ -203,6 +203,17 @@ namespace math
      * @note    Algorithmic complexity: O(n^3)
      **/
     std::vector<vector_t> triangulate(std::vector<vector_t> Polygon);
+
+    /**
+     * Calculates the slope of a line.
+     *
+     * @param   line1   Line segment
+     *
+     * @return  Calculates slope of the line, returning the quiet NaN signal
+     *          if it's parallel, or 0 if it's horizontal.
+     **/
+    real_t slope(const math::line_t& line);
+
 }   // namespace math
 }   // namespace zen
 

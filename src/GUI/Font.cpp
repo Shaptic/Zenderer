@@ -45,7 +45,7 @@ bool zFont::LoadFromFile(const string_t& filename)
 
         mp_FontFx->Enable();
         mp_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
-        mp_FontFx->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        mp_FontFx->SetParameter("mv",   math::matrix4x4_t::GetIdentityMatrix());
         mp_FontFx->Disable();
     }
 

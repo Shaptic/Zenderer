@@ -1,7 +1,7 @@
 #include "Zenderer/GUI/Menu.hpp"
 
 using namespace zen;
-using gui::zMenu;
+using namespace gui;
 
 #define LOG_ERROR(text)     \
     Log << Log.SetMode(util::LogMode::ZEN_FATAL)    \

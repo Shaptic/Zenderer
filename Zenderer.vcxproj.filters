@@ -261,6 +261,12 @@
     <ClInclude Include="include\Zenderer\Graphics\ConcavePolygon.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\GUI\Element.hpp">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\GUI\EntryField.hpp">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">

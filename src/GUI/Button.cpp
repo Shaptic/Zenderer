@@ -23,7 +23,7 @@ void zButton::Place(const real_t x, const real_t y)
     m_Normal.Move(x, y);
 }
 
-bool zButton::Create(zFont& Font)
+bool zButton::Create(gui::zFont& Font)
 {
     if(mp_Current == nullptr || m_text.empty()) return false;
 

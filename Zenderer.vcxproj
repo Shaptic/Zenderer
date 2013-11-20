@@ -133,6 +133,8 @@
     <ClInclude Include="include\Zenderer\Graphics\Scene.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp" />
     <ClInclude Include="include\Zenderer\GUI\Button.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\Element.hpp" />
+    <ClInclude Include="include\Zenderer\GUI\EntryField.hpp" />
     <ClInclude Include="include\Zenderer\GUI\Font.hpp" />
     <ClInclude Include="include\Zenderer\GUI\FontCore.hpp" />
     <ClInclude Include="include\Zenderer\GUI\Menu.hpp" />
