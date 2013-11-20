@@ -62,10 +62,10 @@ namespace gfxcore
         /// Binds a texture handle.
         inline static bool EnableTexture(const GLuint handle);
 
-        /// Wire frame mode.
+        /// Enables / Disables wireframe mode.
         inline static bool ToggleWireframe();
 
-        /// Resets shader and texture state to nothing.
+        /// Resets shader and texture state to nothing bound.
         inline static bool ResetMaterialState();
 
         /// Disables blending (can also be done via BlendOperation()).
@@ -105,5 +105,15 @@ namespace gfxcore
 }   // namespace zen
 
 #endif // ZENDERER__CORE_GRAPHICS__RENDERER_HPP
+
+/**
+ * @class gfxcore::zRenderer
+ * @details
+ *  This static class allows for cross-API (when I get there) manipulation
+ *  of the current renderer state. From here, you can do useful things like
+ *  change blending mode, bind default textures / shaders, and toggle
+ *  wireframe mode, all without having to worry about direct, low-level
+ *  OpenGL / DirectX API calls.
+ **/
 
 /** @} **/
