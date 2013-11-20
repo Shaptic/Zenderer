@@ -40,7 +40,7 @@ bool zAssetManager::Destroy()
     return !(m_init = false);
 }
 
-bool zAssetManager::Delete(zAsset* const pAsset)
+bool zAssetManager::Delete(zAsset* pAsset)
 {
     if(!this->IsInit() || pAsset == nullptr) return false;
 
@@ -88,6 +88,7 @@ bool zAssetManager::Delete(zAsset* const pAsset)
 
             delete &Asset;
             mp_managerAssets.erase(b);
+            pAsset = nullptr;
             return true;
         }
 

@@ -128,11 +128,11 @@ namespace asset
                     const void* const settings = nullptr);  ///< @overload
 
         /**
-         * Permanently removes an asset from the internal container.
+         * Permanently deletes and removes an asset.
          * @param   pAsset  Asset to remove
          * @return  `true` if it was removed successfully, `false` otherwise.
          **/
-        bool Delete(zAsset* const pAsset);
+        bool Delete(zAsset* pAsset);
 
         /// @overload Delete(zAsset* const pAsset);
         bool Delete(const uint32_t index);
