@@ -81,10 +81,10 @@ namespace asset
          * @param   owner   The asset's "owner"             (optional=`nullptr`)
          * @param   settings    Asset settings (if any)     (optional=`nullptr`)
          *
-         * @todo    Make this return a reference.
+         * @return  A reference to newly created asset of type `T`.
          **/
         template<typename T>
-        T* Create(const void* const owner       = nullptr,
+        T& Create(const void* const owner       = nullptr,
                   const void* const settings    = nullptr);
 
         /**

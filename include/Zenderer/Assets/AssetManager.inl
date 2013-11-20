@@ -45,7 +45,7 @@ T* zAssetManager::Create(const char* const filename, const void* const owner,
 }
 
 template<typename T>
-T* zAssetManager::Create(const void* const owner,
+T& zAssetManager::Create(const void* const owner,
                          const void* const settings)
 {
     ZEN_ASSERT(this->IsInit());
@@ -61,7 +61,7 @@ T* zAssetManager::Create(const void* const owner,
     ZEN_ASSERTM(pAsset != nullptr, "out of memory");
 
     // Store internally.
-    return this->FinalizeAsset(true, pAsset);
+    return *this->FinalizeAsset(true, pAsset);
 }
 
 template<typename T>
