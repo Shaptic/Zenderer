@@ -343,11 +343,10 @@ void gfx::error_window(const char* message, const char* title,
     gfx::zWindow Window(w, h, title, Assets, false);
     CHECK(Window.Init(), ;);
 
-    gui::zFont* pErrorFont = Assets.Create<gui::zFont>();
-    pErrorFont->SetSize(22);
-    pErrorFont->SetColor(1.0, 1.0, 1.0);
-    CHECK(pErrorFont->LoadFromFile(ZENDERER_FONT_PATH"errors.ttf"),
-          Window.Destroy());
+    gui::fontcfg_t f = { 22 };
+    gui::zFont* pErrorFont = Assets.Create<gui::zFont>(
+        ZENDERER_FONT_PATH"errors.ttf", nullptr, &f);
+    CHECK(pErrorFont, Window.Destroy());
 
     gfx::zScene Scene(w, h, Assets);
     CHECK(Scene.Init(), Window.Destroy());

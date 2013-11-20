@@ -21,9 +21,9 @@ int main69()
     gfx::zScene Scene1(Window1.GetWidth(), Window1.GetHeight(), Assets);
     Scene1.Init();
 
-    gui::zFont* pFont = Assets.Create<gui::zFont>();
-    pFont->SetSize(18);
-    pFont->LoadFromFile(ZENDERER_FONT_PATH"errors.ttf");
+    gui::fontcfg_t f = { 18 };
+    gui::zFont* pFont = Assets.Create<gui::zFont>(
+        ZENDERER_FONT_PATH"errors.ttf", nullptr, &f);
     pFont->SetColor(0, 1, 0);
 
     //gfx::zQuad Q(Assets, 32, 32);

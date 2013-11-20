@@ -97,12 +97,12 @@ int main2(int argc, char* argv[])
     Scene.Init(); Scene.SetSeeThrough(true); //Scene.EnableLighting();
 
     obj::zEntity& Ent = Scene.AddEntity();
-    gui::zFont* Font = Manager.Create<gui::zFont>();
-    Font->SetSize(18);
-    Font->SetColor(color4f_t(0.0, 0.0, 0.0));
-    Font->LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
-    (*Font) << "Zenderer! " << 6606 << " lines and\neven More qomments.";
-    Font->Render(Ent);
+    gui::zFont& Font = Manager.Create<gui::zFont>();
+    Font.SetSize(18);
+    Font.SetColor(color4f_t(0.0, 0.0, 0.0));
+    Font.LoadFromFile("C:\\Windows\\Fonts\\segoeuil.ttf");
+    Font << "Zenderer! " << 6606 << " lines and\neven More qomments.";
+    Font.Render(Ent);
     Ent.Move(100, 69);
 
     obj::zEntity& Bg = Scene.AddEntity();
@@ -112,7 +112,7 @@ int main2(int argc, char* argv[])
     obj::zEntity& Ent2 = Scene.AddEntity();
     gfx::zLight& L2 = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
     gfx::zLight& L3 = Scene.AddLight(gfx::LightType::ZEN_POINT);
-    Font->Render(Ent2, "Hi");
+    Font.Render(Ent2, "Hi");
     Ent2.Move(200, 200);
 
     Ent3.LoadFromTexture("sample.png");

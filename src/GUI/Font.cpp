@@ -118,7 +118,7 @@ const void* const zFont::GetData() const
 
 bool zFont::Render(obj::zEntity& Ent, const string_t& to_render) const
 {
-    gfxcore::zTexture& Texture = *mp_Parent->Create<gfxcore::zTexture>();
+    gfxcore::zTexture& Texture = mp_Parent->Create<gfxcore::zTexture>();
     if(!this->Render(Texture, to_render))
     {
         mp_Parent->Delete(&Texture);
@@ -376,18 +376,18 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     GL(glGetIntegerv(GL_UNPACK_ALIGNMENT, &pack));
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
 
-    gfxcore::zTexture* pTexture = mp_Parent->Create<gfxcore::zTexture>(this->GetOwner());
-    pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
+    gfxcore::zTexture& Texture = mp_Parent->Create<gfxcore::zTexture>(this->GetOwner());
+    Texture.LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
     std::stringstream ss;
     ss << 's' << m_size << " bitmap for '" << c
        << "'; " << util::string_hash(m_filename);
-    pTexture->SetFilename(ss.str());
+    Texture.SetFilename(ss.str());
 
     GL(glPixelStorei(GL_UNPACK_ALIGNMENT, pack));
 
     // Store the glyph internally.
     glyph_t glyph;
-    glyph.texture   = pTexture;
+    glyph.texture   = &Texture;
     glyph.size      = math::zVector<uint32_t>(w, h);
     glyph.position  = math::zVector<int32_t>(slot->metrics.horiBearingX >> 6,
                                              slot->metrics.horiBearingY >> 6);

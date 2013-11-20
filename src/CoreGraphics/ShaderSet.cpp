@@ -96,7 +96,7 @@ bool zShaderSet::LoadVertexShaderFromStr(const string_t& str)
 {
     this->DestroyVS();
 
-    mp_VShader = m_AssetManager.Create<zShader>(glfwGetCurrentContext());
+    mp_VShader = &m_AssetManager.Create<zShader>(glfwGetCurrentContext());
     mp_VShader->SetType(GL_VERTEX_SHADER);
     return mp_VShader->LoadFromRaw(str);
 }
@@ -105,7 +105,7 @@ bool zShaderSet::LoadFragmentShaderFromStr(const string_t& str)
 {
     this->DestroyFS();
 
-    mp_FShader = m_AssetManager.Create<zShader>(glfwGetCurrentContext());
+    mp_FShader = &m_AssetManager.Create<zShader>(glfwGetCurrentContext());
     mp_FShader->SetType(GL_FRAGMENT_SHADER);
     return mp_FShader->LoadFromRaw(str);
 }
