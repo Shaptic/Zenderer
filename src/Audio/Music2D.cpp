@@ -112,7 +112,7 @@ void zMusic2D::Play()
     }
 
     m_AL.source = zAudioManager::CreateSource();
-    if(m_AL.source == -1) return;
+    if(m_AL.source == 0) return;
 
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
             << m_Log.SetSystem("Audio") << "Playing '" << m_filename
