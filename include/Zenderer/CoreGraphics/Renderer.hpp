@@ -85,8 +85,8 @@ namespace gfxcore
         friend class ZEN_API gfx::zRenderTarget;    ///< Accesses matrices
 
     private:
-        explicit zRenderer();
-        ~zRenderer();
+        zRenderer() = delete;
+        ~zRenderer() = delete;
 
         /// Only to be called by `gfx::zWindow` ONCE.
         static bool Init(asset::zAssetManager& Assets,
