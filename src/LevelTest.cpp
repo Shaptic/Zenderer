@@ -100,13 +100,11 @@ public:
         Q.SetColor(0, 0, rgb2f(100));
         m_Trail.AddPrimitive(std::move(Q.Create()));
 
-        mp_Font = m_Assets.Create<gui::zFont>();
-        mp_Font->SetSize(16);
-        mp_Font->SetColor(color4f_t(1.0, 1.0, 1.0));
+        gui::fontcfg_t f = { 16 };
+        mp_Font = m_Assets.Create<gui::zFont>(FONT_PATH"game.ttf", nullptr, &f);
 
-        if (!mp_Font->LoadFromFile(FONT_PATH"game.ttf"))
+        if (mp_Font == nullptr)
         {
-            m_Assets.Delete(mp_Font);
             util::zLog& Log = util::zLog::GetEngineLog();
             Log << Log.SetMode(util::LogMode::ZEN_FATAL)
                 << Log.SetSystem("World") << "Failed to load '"
@@ -468,12 +466,14 @@ int main21()
     bool pause = false;
 
     // Create an overlay menu.
-    gui::zMenu UI(Window, GameAssets);
-    UI.SetOverlayMode(true);
+    gui::menucfg_t m;
+    m.button_foccol  = color4f_t(1.0, 0.0, 0.0);
+    m.button_normcol = color4f_t(0.0, 1.0, 0.0);
+    m.button_pos = math::vector_t(Window.GetWidth() - 80, 0);
 
-    UI.SetNormalButtonTextColor(color4f_t(0.0, 1.0, 0.0));
-    UI.SetActiveButtonTextColor(color4f_t(1.0, 0.0, 0.0));
-    UI.SetInitialButtonPosition(Window.GetWidth() - 80, 0);
+    gui::zMenu UI(Window, GameAssets, m);
+
+    UI.SetOverlayMode(true);
     UI.AddButton("Pause Game", [&pause](size_t){ pause = !pause; });
 
     // Frame rate regulator.
@@ -603,7 +603,7 @@ int main_paint()
 // Shader toy.
 #include "Zenderer/GUI/EntryField.hpp"
 
-int main()
+int main_toy()
 {
     enum class State
     {
@@ -746,7 +746,7 @@ int main()
     return 0;
 }
 
-int main_shadows()
+int main()
 {
     using namespace gfx;
     using gfxcore::zRenderer;
@@ -833,10 +833,10 @@ int main_shadows()
             angles.push_back(std::atan2(edge.y - LPos.y, edge.x - LPos.x));
         }
 
-        angles.push_back(std::atan2(-LPos.y, -LPos.x));
-        angles.push_back(std::atan2(600 - LPos.y, -LPos.x));
+        angles.push_back(std::atan2(    - LPos.y,     - LPos.x));
+        angles.push_back(std::atan2(600 - LPos.y,     - LPos.x));
         angles.push_back(std::atan2(600 - LPos.y, 800 - LPos.x));
-        angles.push_back(std::atan2(-LPos.y, 800 - LPos.x));
+        angles.push_back(std::atan2(    - LPos.y, 800 - LPos.x));
 
         for(auto& d : angles) d = math::deg(d);
         std::unique(angles.begin(), angles.end());

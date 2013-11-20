@@ -183,16 +183,18 @@ int main2(int argc, char* argv[])
     P2.Create();
     //P3.Create();
 
-    gui::zMenu MainMenu(Window, Manager);
-    MainMenu.SetFont("C:\\Windows\\Fonts\\segoeuil.ttf");
-    MainMenu.SetNormalButtonTextColor(color4f_t(1, 0, 0, 1));
-    MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 0, 1));
+    gui::menucfg_t m;
+    m.font              = "C:\\Windows\\Fonts\\segoeuil.ttf";
+    m.button_foccol     = color4f_t(0, 1, 0, 1);
+    m.button_normcol    = color4f_t(1, 0, 0, 1);
+
+    gui::zMenu MainMenu(Window, Manager, m);
     MainMenu.SetSpacing(32);
 
     MainMenu.AddButton("Play Game", [](size_t){});
-    MainMenu.AddButton("Load Game",[](size_t){});
-    MainMenu.AddButton("Options", [](size_t){});
-    MainMenu.AddButton("Exit", [&Window](const size_t) {
+    MainMenu.AddButton("Load Game", [](size_t){});
+    MainMenu.AddButton("Options",   [](size_t){});
+    MainMenu.AddButton("Exit",      [&Window](size_t) {
         Window.Close();
     });
 

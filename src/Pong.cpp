@@ -95,11 +95,14 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     bool is_start = false;
 
     // Main menu.
-    gui::zMenu MainMenu(Main, Assets);
-    MainMenu.SetFont("assets/ttf/menu.ttf", 24);
-    MainMenu.SetNormalButtonTextColor(color4f_t(1, 1, 1));
-    MainMenu.SetActiveButtonTextColor(color4f_t(0, 1, 1));
-    MainMenu.SetInitialButtonPosition(math::vector_t(64, 200));
+    gui::menucfg_t m;
+    m.font = "assets/ttf/menu.ttf";
+    m.font_size = 24;
+    m.button_foccol  = color4f_t(0, 1, 1);
+    m.button_normcol = color4f_t(1, 1, 1);
+    m.button_pos = math::vector_t(64, 200);
+
+    gui::zMenu MainMenu(Main, Assets, m);
     MainMenu.SetSpacing(32);
 
     MainMenu.AddButton("Host a Game", [&host](size_t) { host = true; });
@@ -142,11 +145,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         if(!Socket.Init("", PONG_JOIN_PORT)) { return 1; }
         Socket.SetNonblocking(true);
 
-        gui::zMenu HostList(Main, Assets);
-        HostList.SetFont("assets/ttf/menu.ttf");
-        HostList.SetNormalButtonTextColor(color4f_t(1, 1, 1));
-        HostList.SetActiveButtonTextColor(color4f_t(0, 1, 1));
-        HostList.SetInitialButtonPosition(math::vector_t(64, 200));
+        gui::menucfg_t m;
+        m.font = "assets/ttf/menu.ttf";
+        m.button_normcol = color4f_t(1, 1, 1);
+        m.button_foccol  = color4f_t(0, 1, 1);
+        m.button_pos = math::vector_t(64, 200);
+
+        gui::zMenu HostList(Main, Assets, m);
         HostList.SetSpacing(32);
 
         // Add a title to the menu.
