@@ -21,7 +21,8 @@ gui::menucfg_t zMenu::DEFAULT_SETTINGS = {
 
 zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
              const menucfg_t& settings) :
-    m_Scene(Window.GetWidth(), Window.GetHeight(), Assets), m_Assets(Assets),
+    m_Assets(Assets),
+    m_Scene(Window.GetWidth(), Window.GetHeight(), Assets),
     m_settings(settings), m_spacing(0)
 {
     m_Scene.Init();
