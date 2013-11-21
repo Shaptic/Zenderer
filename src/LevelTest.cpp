@@ -821,11 +821,12 @@ int main()
         Window.Clear();
 
         //Light.Move(evt::GetMousePosition());
+        //Caster.Move(evt::GetMousePosition());
         LPos = Light.GetPosition();
         Caster.Draw();
         Light.Draw();
 
-        std::vector<math::line_t> rays;
+        std::vector<math::vector_t> rays;
         zConcavePolygon ShadowMap(Assets);
 
         auto& tris = Caster.GetTriangulation();
@@ -833,12 +834,13 @@ int main()
         // Cast a ray from the light to each individual edge on the
         // collidable objects. If the ray collides with more than one edge,
         // discard it. Otherwise, extend it out for an arbitrary amount.
+        /*
         for(auto& edge : tris)
         {
             std::vector<math::vector_t> collisions;
             math::line_t ray { { LPos, edge } };
 
-            if(std::find(rays.begin(), rays.end(), ray) != rays.end())
+            if(std::find(rays.begin(), rays.end(), edge) != rays.end())
                 continue;
 
             for(size_t i = 0; i < tris.size(); i += 3)
@@ -897,60 +899,127 @@ int main()
                 }
             }
 
-            if(collisions.size() <= 1)
+            real_t m = math::slope(ray);
+            if(collisions.size() <= 1 || std::isnan(m))
             {
-                rays.push_back(ray);
-                math::line_t tmp = ray;
+                rays.push_back(edge);
+                auto tmp = edge;
 
-                real_t m = math::slope(ray);
-                int factor = ray[0].x > ray[1].x ? -1000 : 1000;
+                int factor = LPos.x > edge.x ? -1000 : 1000;
 
                 if(std::isnan(m))
                 {
+                    m = LPos.y > edge.y ? -1000 : 1000;;
                     factor = 1;
-                    m = 1000;
                 }
 
                 ray[1].x += factor;
                 ray[1].y += factor * m;
 
-                rays.push_back(ray);
-                rays.push_back(tmp);
+                rays.push_back(ray[1]);
+                //rays.push_back(tmp);
             }
         }
-
-        math::line_t tl { { LPos, math::vector_t(0, 0) } };
-        math::line_t tr { { LPos, math::vector_t(Window.GetWidth(), 0) } };
-        math::line_t br { { LPos, math::vector_t(Window.GetWidth(), Window.GetHeight()) } };
-        math::line_t bl { { LPos, math::vector_t(0, Window.GetHeight()) } };
-
-        rays.push_back(tl);
-        rays.push_back(tr);
-        rays.push_back(br);
-        rays.push_back(bl);
-        /*
-        std::unique(rays.begin(), rays.end());
-        std::unique(rays.begin(), rays.end(),
-                    [](const math::line_t& a, const math::line_t& b) {
-            real_t t1 = std::atan2(b[0].y - a[1].y, a[0].x - a[1].x);
-            real_t t2 = std::atan2(b[0].y - b[1].y, b[0].x - b[1].x);
-            return math::compf(t1, t2);
-        });
         */
+        rays.reserve(tris.size() + 4);
+        rays.insert(rays.begin(), tris.begin(), tris.end());
+        rays.push_back(math::vector_t(0, 0));
+        rays.push_back(math::vector_t(Window.GetWidth(), 0));
+        rays.push_back(math::vector_t(Window.GetWidth(), Window.GetHeight()));
+        rays.push_back(math::vector_t(0, Window.GetHeight()));
 
+        // Cast a ray from the light to each individual edge on the
+        // collidable objects. If the ray collides with more than one edge,
+        // discard it. Otherwise, extend it out for an arbitrary amount.
+        auto it = rays.begin();
+        //std::advance(it, rays.size() - 4);
+        for( ; it != rays.end(); /* no third */)
+        {
+            auto& edge = *it;
+            std::vector<math::vector_t> collisions;
+            math::line_t ray { { LPos, edge } };
+
+            for(size_t i = 0; i < tris.size(); i += 3)
+            {
+                math::line_t one { { tris[i],       tris[i + 1] } };
+                math::line_t two { { tris[i + 1],   tris[i + 2] } };
+                math::line_t thr { { tris[i],       tris[i + 2] } };
+
+                math::cquery_t q1, q2, q3;
+                if(math::collides(ray, one, &q1) &&
+                   std::find(collisions.begin(), collisions.end(),
+                             q1.point) == collisions.end())
+                {
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(q1.point);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(q1.point.x + 5 * std::cos(math::rad(i / 360)),
+                                            q1.point.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    Collision.Create().Draw();
+                    collisions.push_back(std::move(q1.point));
+                }
+
+                if(math::collides(ray, two, &q2) &&
+                   std::find(collisions.begin(), collisions.end(),
+                             q2.point) == collisions.end())
+                {
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(q2.point);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(q2.point.x + 5 * std::cos(math::rad(i / 360)),
+                                            q2.point.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    Collision.Create().Draw();
+                    collisions.push_back(std::move(q2.point));
+                }
+
+                if(math::collides(ray, thr, &q3) &&
+                   std::find(collisions.begin(), collisions.end(),
+                             q3.point) == collisions.end())
+                {
+                    zPolygon Collision(Assets, 5);
+                    Collision.AddVertex(q3.point);
+                    for(size_t i = 0; i < 5; ++i)
+                    {
+                        Collision.AddVertex(q3.point.x + 5 * std::cos(math::rad(i / 360)),
+                                            q3.point.y + 5 * std::sin(math::rad(i / 360)));
+                    }
+                    Collision.SetColor(color4f_t(0, 0, 1, 1));
+                    Collision.Create().Draw();
+                    collisions.push_back(std::move(q3.point));
+                }
+            }
+
+            if(collisions.size() > 1)
+            {
+                it = rays.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+        std::unique(rays.begin(), rays.end());
         std::sort(rays.begin(), rays.end(),
-                  [](const math::line_t& a, const math::line_t& b) {
+                  [&LPos](const math::vector_t& a,
+                          const math::vector_t& b) {
 
-            real_t theta = std::atan2(a[0].y - a[1].y, a[0].x - a[1].x);
-            real_t phi   = std::atan2(b[0].y - b[1].y, b[0].x - b[1].x);
+            const math::vector_t& l = LPos;
+            real_t theta = std::atan2(l.y - a.y, l.x - a.x);
+            real_t phi   = std::atan2(l.y - b.y, l.x - b.x);
 
             if(math::compf(theta, phi))
             {
-                return a[1].x < a[0].x ?
-                    math::distance(a[0], a[1], false) >
-                    math::distance(b[0], b[1], false) :
-                    math::distance(a[0], a[1], false) <
-                    math::distance(b[0], b[1], false);
+                return a.x < LPos.x ?
+                    math::distance(l, a, false) >
+                    math::distance(l, b, false) :
+                    math::distance(l, a, false) <
+                    math::distance(l, b, false);
             }
             else if(theta < 0 == phi < 0) return theta < phi;
             return theta < phi;
@@ -958,22 +1027,22 @@ int main()
 
         for(auto& i : rays)
         {
-            std::cout << math::deg(std::atan2(i[0].y - i[1].y, i[0].x - i[1].x)) << std::endl;
-            std::cout << "Start: " << i[0] << " ; End: " << i[1] << std::endl;
+            std::cout << math::deg(std::atan2(LPos.y - i.y, LPos.x - i.x)) << std::endl;
+            std::cout << "End: " << i << std::endl;
         }
         std::cout << std::endl;
 
         for(size_t i = 0; i < rays.size() - 1; ++i)
         {
-            ShadowMap.AddVertex(rays[i][0]);
-            ShadowMap.AddVertex(rays[i][1]);
-            ShadowMap.AddVertex(rays[i+1][1]);
+            ShadowMap.AddVertex(LPos);
+            ShadowMap.AddVertex(rays[i]);
+            ShadowMap.AddVertex(rays[i+1]);
         }
-        ShadowMap.AddVertex(rays.front()[0]);
-        ShadowMap.AddVertex(rays.front()[1]);
-        ShadowMap.AddVertex(rays.back()[1]);
+        ShadowMap.AddVertex(LPos);
+        ShadowMap.AddVertex(rays.front());
+        ShadowMap.AddVertex(rays.back());
 
-        ShadowMap.SetColor(0, 1, 0, 0.5).Create(false).Draw();
+        ShadowMap.SetColor(0, 1, 0, 0.3).Create(false).Draw();
 
         /*//////////////////////////////////////////////////////////////////////
 
