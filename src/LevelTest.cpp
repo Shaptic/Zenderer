@@ -401,7 +401,7 @@ real_t gWorld::s_GRAVITY = 0.5;
 
 #define CHECK(f) { if (!f) return 1; }
 
-int main21()
+int main_uitest()
 {
     // Boilerplate setup code.
     // Error-checking omitted for brevity.
@@ -456,17 +456,14 @@ int main21()
 
         Hex.AddVertex(Center + point);
     }
-    std::cout << "We're gucci mayne.\n" << std::flush;
     Ball.AddPrimitive(std::move(Hex.Create()));
-
-    // Load a font.
-    gui::zFont& ButtonFont = *GameAssets.Create<gui::zFont>(FONT_PATH"menu.ttf");
 
     // Our pause flag.
     bool pause = false;
 
     // Create an overlay menu.
     gui::menucfg_t m;
+    m.font = FONT_PATH"menu.ttf";
     m.button_foccol  = color4f_t(1.0, 0.0, 0.0);
     m.button_normcol = color4f_t(0.0, 1.0, 0.0);
     m.button_pos = math::vector_t(Window.GetWidth() - 80, 0);
@@ -764,7 +761,7 @@ int main()
     evt::event_t Evt;
     bool quit = false;
 
-    math::vector_t LPos(400, 300);
+    math::vector_t LPos(Window.GetWidth() / 2, Window.GetHeight() / 2);
     zQuad Light(Assets, 32, 32);
     Light.SetColor(color4f_t()).Create().Move(LPos);
 
@@ -786,9 +783,10 @@ int main()
     Caster.Move(0, 350);
     Caster.SetColor(color4f_t(1, 0, 0));
     Caster.Create();*/
-    zQuad Caster(Assets, 256, 32);
-    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create().Move(245, 150);
-    
+    zQuad Caster(Assets, Window.GetWidth() / 4, 32);
+    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
+          .Move(Window.GetWidth() / 3, Window.GetHeight() / 4);
+
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
     while(!quit)
@@ -810,6 +808,14 @@ int main()
             else if(Evt.type == evt::EventType::KEY_DOWN &&
                     Evt.key.key == evt::Key::D)
                 Caster.Move(Caster.GetX() + 1, Caster.GetY());
+
+            else if(Evt.type == evt::EventType::KEY_HOLD &&
+                    Evt.key.key == evt::Key::D)
+                Caster.Move(Caster.GetX() + 5, Caster.GetY());
+
+            else if(Evt.type == evt::EventType::KEY_HOLD &&
+                    Evt.key.key == evt::Key::A)
+                Caster.Move(Caster.GetX() - 5, Caster.GetY());
         }
 
         Window.Clear();
@@ -824,7 +830,7 @@ int main()
 
         auto& tris = Caster.GetTriangulation();
 
-        // Cast a ray from the light to each individual edge on the 
+        // Cast a ray from the light to each individual edge on the
         // collidable objects. If the ray collides with more than one edge,
         // discard it. Otherwise, extend it out for an arbitrary amount.
         for(auto& edge : tris)
@@ -837,9 +843,9 @@ int main()
 
             for(size_t i = 0; i < tris.size(); i += 3)
             {
-                math::line_t one { { tris[i], tris[i + 1] } };
-                math::line_t two { { tris[i + 1], tris[i + 2] } };
-                math::line_t thr { { tris[i], tris[i + 2] } };
+                math::line_t one { { tris[i],       tris[i + 1] } };
+                math::line_t two { { tris[i + 1],   tris[i + 2] } };
+                math::line_t thr { { tris[i],       tris[i + 2] } };
 
                 math::cquery_t q1, q2, q3;
                 if(math::collides(ray, one, &q1) &&
@@ -894,20 +900,29 @@ int main()
             if(collisions.size() <= 1)
             {
                 rays.push_back(ray);
+                math::line_t tmp = ray;
 
                 real_t m = math::slope(ray);
                 int factor = ray[0].x > ray[1].x ? -1000 : 1000;
+
+                if(std::isnan(m))
+                {
+                    factor = 1;
+                    m = 1000;
+                }
+
                 ray[1].x += factor;
                 ray[1].y += factor * m;
 
                 rays.push_back(ray);
+                rays.push_back(tmp);
             }
         }
 
-        math::line_t tl { { LPos, math::vector_t(0,     0) } };
-        math::line_t tr { { LPos, math::vector_t(800,   0) } };
-        math::line_t br { { LPos, math::vector_t(800, 600) } };
-        math::line_t bl { { LPos, math::vector_t(0  , 600) } };
+        math::line_t tl { { LPos, math::vector_t(0, 0) } };
+        math::line_t tr { { LPos, math::vector_t(Window.GetWidth(), 0) } };
+        math::line_t br { { LPos, math::vector_t(Window.GetWidth(), Window.GetHeight()) } };
+        math::line_t bl { { LPos, math::vector_t(0, Window.GetHeight()) } };
 
         rays.push_back(tl);
         rays.push_back(tr);
@@ -922,6 +937,7 @@ int main()
             return math::compf(t1, t2);
         });
         */
+
         std::sort(rays.begin(), rays.end(),
                   [](const math::line_t& a, const math::line_t& b) {
 
@@ -929,17 +945,20 @@ int main()
             real_t phi   = std::atan2(b[0].y - b[1].y, b[0].x - b[1].x);
 
             if(math::compf(theta, phi))
+            {
                 return a[1].x < a[0].x ?
                     math::distance(a[0], a[1], false) >
                     math::distance(b[0], b[1], false) :
                     math::distance(a[0], a[1], false) <
                     math::distance(b[0], b[1], false);
-
+            }
+            else if(theta < 0 == phi < 0) return theta < phi;
             return theta < phi;
         });
 
         for(auto& i : rays)
         {
+            std::cout << math::deg(std::atan2(i[0].y - i[1].y, i[0].x - i[1].x)) << std::endl;
             std::cout << "Start: " << i[0] << " ; End: " << i[1] << std::endl;
         }
         std::cout << std::endl;
@@ -953,7 +972,6 @@ int main()
         ShadowMap.AddVertex(rays.front()[0]);
         ShadowMap.AddVertex(rays.front()[1]);
         ShadowMap.AddVertex(rays.back()[1]);
-
 
         ShadowMap.SetColor(0, 1, 0, 0.5).Create(false).Draw();
 
