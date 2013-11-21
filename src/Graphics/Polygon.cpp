@@ -157,8 +157,8 @@ zPolygon& zPolygon::Create(const bool do_triangulation)
     m_Verts.clear();
 
     // Calculate lowest and highest x/y-values.
-    m_BoundingBox.h = this->CalcH();
-    m_BoundingBox.w = this->CalcW();
+    m_BoundingBox.h = this->CalcHeight();
+    m_BoundingBox.w = this->CalcWidth();
 
     return (*this);
 }
@@ -353,7 +353,7 @@ int16_t zPolygon::CalcY() const
     return low;
 }
 
-uint16_t zPolygon::CalcH()
+uint16_t zPolygon::CalcHeight()
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 
@@ -379,7 +379,7 @@ uint16_t zPolygon::CalcH()
     return (m_BoundingBox.h = (high - low));
 }
 
-uint16_t zPolygon::CalcW()
+uint16_t zPolygon::CalcWidth()
 {
     if(!(m_Verts.size() || m_DrawData.vcount)) return 0;
 

@@ -175,8 +175,8 @@ namespace obj
          **/
         inline void Center(const gfx::zWindow& Window)
         {
-            this->Move(Window.GetWidth()  / 2 - this->GetW() / 2,
-                       Window.GetHeight() / 2 - this->GetH() / 2);
+            this->Move(Window.GetWidth()  / 2 - this->GetWidth() / 2,
+                       Window.GetHeight() / 2 - this->GetHeight() / 2);
         }
 
         /**
@@ -252,8 +252,8 @@ namespace obj
 
         real_t GetX() const { return m_MV[0][3]; }
         real_t GetY() const { return m_MV[1][3]; }
-        real_t GetW() const { return m_Box.br.x - m_Box.tl.x; }
-        real_t GetH() const { return m_Box.br.y - m_Box.tl.y; }
+        real_t GetWidth() const { return m_Box.br.x - m_Box.tl.x; }
+        real_t GetHeight() const { return m_Box.br.y - m_Box.tl.y; }
 
         uint32_t GetSortFlag() const;
 

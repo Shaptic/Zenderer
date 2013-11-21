@@ -214,7 +214,7 @@ namespace gui
  *  Font->Render(Score, "Score: 0");
  *
  *  // Move it to the top of the screen
- *  Score.Move(0.0, Score.GetH());
+ *  Score.Move(0.0, Score.GetHeight());
  *
  *  // Set a high depth so it's always visible, in case of various
  *  // effects (like shadows) that occlude based on depth.

@@ -73,9 +73,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     RightPaddle.AddPrimitive(Paddle);
     Ball.LoadFromTexture("assets/textures/ball.png");
 
-    LeftPaddle.Move(0, Main.GetHeight() / 2 - LeftPaddle.GetH() / 2);
-    RightPaddle.Move(Main.GetWidth() - RightPaddle.GetW(),
-                     Main.GetHeight() / 2 - RightPaddle.GetH() / 2);
+    LeftPaddle.Move(0, Main.GetHeight() / 2 - LeftPaddle.GetHeight() / 2);
+    RightPaddle.Move(Main.GetWidth() - RightPaddle.GetWidth(),
+                     Main.GetHeight() / 2 - RightPaddle.GetHeight() / 2);
     Ball.Move(Main.GetWidth() / 2, Main.GetHeight() / 2);
 
     BallLight.Enable();
@@ -320,8 +320,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 
         obj::zEntity& Status = Waiter.AddEntity();
         Font.Render(Status, "Awaiting player...");
-        Status.Move(Main.GetWidth()  / 2 - Status.GetW() / 2,
-                    Main.GetHeight() / 2 - Status.GetH() / 2);
+        Status.Move(Main.GetWidth()  / 2 - Status.GetWidth() / 2,
+                    Main.GetHeight() / 2 - Status.GetHeight() / 2);
 
         // Final match for who to actually play with.
         addr_t Match;
@@ -353,8 +353,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
                     Font.ClearString();
                     Font << "Potential match: " << tmpaddr << "\nResolving...";
                     Font.Render(Status);
-                    Status.Move(Main.GetWidth()  / 2 - Status.GetW() / 2,
-                                Main.GetHeight() / 2 - Status.GetH() / 2);
+                    Status.Move(Main.GetWidth()  / 2 - Status.GetWidth() / 2,
+                                Main.GetHeight() / 2 - Status.GetHeight() / 2);
 
                     potential = true;
                     Match = std::make_pair(tmpaddr, tmpport);
@@ -390,7 +390,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 
     obj::zEntity& NetStatus = Field.AddEntity();
     obj::zEntity& Score     = Field.AddEntity();
-    Score.Move(Main.GetWidth() / 2 - Score.GetW() / 2, 0.0);
+    Score.Move(Main.GetWidth() / 2 - Score.GetWidth() / 2, 0.0);
 
     // Now we have established a connection to another peer (host / client
     // is now irrelevant, except for creating the new ball velocity).
@@ -486,7 +486,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         }
 
         // Ball hit the left player's wall.
-        if(Ball.GetX() <= -Ball.GetW() && !scored)
+        if(Ball.GetX() <= -Ball.GetWidth() && !scored)
         {
             Font.ClearString();
             Font << Scores.x << "    |    " << ++Scores.y;
@@ -507,7 +507,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 
         // Ball hit the top / bottom walls.
         else if(Ball.GetY() <= 0.0 ||
-                Ball.GetY() >= Main.GetHeight() - Ball.GetH())
+                Ball.GetY() >= Main.GetHeight() - Ball.GetHeight())
         {
             ball_d.y = -ball_d.y;
         }
@@ -669,8 +669,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         // Light follows the ball position.
         BallLight.Enable();
         BallLight.SetPosition(Ball.GetPosition() +
-                              math::vector_t(Ball.GetW() / 2,
-                                             Ball.GetH() / 2));
+                              math::vector_t(Ball.GetWidth() / 2,
+                                             Ball.GetHeight() / 2));
         BallLight.Disable();
 
         Main.Clear();

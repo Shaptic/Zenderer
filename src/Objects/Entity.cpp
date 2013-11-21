@@ -140,8 +140,8 @@ bool zEntity::LoadFromTexture(const string_t& filename)
     mp_allPrims.push_back(pPrimitive);
 
     m_Box = math::aabb_t(math::rect_t(this->GetX(), this->GetY(),
-                                      pPrimitive->GetW(),
-                                      pPrimitive->GetH()));
+                                      pPrimitive->GetWidth(),
+                                      pPrimitive->GetHeight()));
     return true;
 }
 
@@ -159,10 +159,10 @@ bool zEntity::AddPrimitive(const gfx::zPolygon& Polygon)
     mp_allPrims.push_back(pPoly);
 
     m_PolyBB = math::rect_t(
-        math::min<int16_t> (pPoly->CalcX(), m_PolyBB.x),
-        math::min<int16_t> (pPoly->CalcY(), m_PolyBB.y),
-        math::max<uint16_t>(pPoly->GetW(),  m_PolyBB.w),
-        math::max<uint16_t>(pPoly->GetH(),  m_PolyBB.h)
+        math::min<int16_t> (pPoly->CalcX(),     m_PolyBB.x),
+        math::min<int16_t> (pPoly->CalcY(),     m_PolyBB.y),
+        math::max<uint16_t>(pPoly->GetWidth(),  m_PolyBB.w),
+        math::max<uint16_t>(pPoly->GetHeight(), m_PolyBB.h)
     );
 
     m_Box = math::aabb_t(math::rect_t(this->GetX() - m_PolyBB.x,
@@ -203,7 +203,7 @@ void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
 
     m_MV.Translate(math::vector_t(x, y, z));
     m_Box = math::aabb_t(math::rect_t(x + m_PolyBB.x, y + m_PolyBB.y,
-                                      this->GetW(), this->GetH()));
+                                      this->GetWidth(), this->GetHeight()));
 }
 
 void zEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)

@@ -178,7 +178,6 @@ namespace zen
  *  to do likewise.
  *
  * @todo    Test cross-platform compatibility.
- * @todo    Take a stance on `GetHeight()`/`GetWidth()` vs. `GetH()`/`GetW()`
  * @todo    Look into allowing extra parameters to be passed to `zAsset` child
  *          class constructors. Maybe via `void*` that corresponds to an
  *          expected structure? Something like this:

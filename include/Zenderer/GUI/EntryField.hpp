@@ -58,8 +58,8 @@ namespace gui
         void Place(const real_t x, const real_t y)
         {
             m_Label.Move(x, y);
-            m_Field.Move(x + m_Label.GetW() + 5,
-                         y - (m_Field.GetH() - m_Label.GetH()) / 2);
+            m_Field.Move(x +  m_Label.GetWidth()  + 5,
+                         y - (m_Field.GetHeight() - m_Label.GetHeight()) / 2);
             m_Text.Move(m_Field.GetX() + 5, y + 3);
         }
 
@@ -99,7 +99,7 @@ namespace gui
             m_focus = true;
             m_Field.Destroy();
             m_Field.AddPrimitive(gfx::zQuad(
-                m_Assets, m_Field.GetW(),
+                m_Assets, m_Field.GetWidth(),
                 mp_Font->GetLineHeight() + 10).SetColor(1, 1, 1).Create()
             );
         }
@@ -109,7 +109,7 @@ namespace gui
             m_focus = false;
             m_Field.Destroy();
             m_Field.AddPrimitive(gfx::zQuad(
-                m_Assets, m_Field.GetW(),
+                m_Assets, m_Field.GetWidth(),
                 mp_Font->GetLineHeight() + 10).SetColor(1, 0, 0).Create()
             );
         }
@@ -198,8 +198,8 @@ namespace gui
         {
             return math::max<uint16_t>(
                    math::max<uint16_t>(
-                        m_Text.GetH(), m_Field.GetH()
-                   ), m_Label.GetH());
+                        m_Text.GetHeight(), m_Field.GetHeight()
+                   ), m_Label.GetHeight());
         }
 
     private:

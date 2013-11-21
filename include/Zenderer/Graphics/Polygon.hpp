@@ -198,10 +198,10 @@ namespace gfx
         inline real_t GetY() const { return m_BoundingBox.y; }
 
         /// Gets preset maximum height for the current vertices.
-        inline uint16_t GetH() const { return m_BoundingBox.h; }
+        inline uint16_t GetHeight() const { return m_BoundingBox.h; }
 
         /// Gets preset width for the current vertices.
-        inline uint16_t GetW() const { return m_BoundingBox.w; }
+        inline uint16_t GetWidth() const { return m_BoundingBox.w; }
 
         /// Calculates the lowest X value for the polygon.
         int16_t CalcX() const;
@@ -210,12 +210,12 @@ namespace gfx
         int16_t CalcY() const;
 
         /// Calculates maximum height for the current vertices.
-        /// Caches it for retrieval via GetH().
-        uint16_t CalcH();
+        /// Caches it for retrieval via `GetHeight()`.
+        uint16_t CalcHeight();
 
         /// Calculates width for the current vertices.
-        /// Caches it for retrieval via GetW().
-        uint16_t CalcW();
+        /// Caches it for retrieval via `GetWidth()`.
+        uint16_t CalcWidth();
 
         int GetLowPoint() const;
         int GetLeftPoint() const;

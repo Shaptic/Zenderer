@@ -270,7 +270,7 @@ public:
 
         m_Scene.Render();
         /*
-        uint16_t y = m_Scene.GetHeight() - 200;//m_Ground.GetH();
+        uint16_t y = m_Scene.GetHeight() - 200;//m_Ground.GetHeight();
         obj::zEntity Line(m_Assets);
         gui::zFont& Font = *mp_Font;
 
@@ -285,7 +285,7 @@ public:
             Line.Move(0, y);
             Line.Draw();
 
-            y += Line.GetH();
+            y += Line.GetHeight();
         }
         */
     }
@@ -428,7 +428,7 @@ int main_uitest()
     // The player will be on the left and have a blue paddle.
     Paddle.SetColor(color4f_t(0.0, 0.0, 1.0));
     Player.AddPrimitive(Paddle.Create());
-    Player.Move(0, Window.GetHeight() / 2 - Player.GetH() / 2);
+    Player.Move(0, Window.GetHeight() / 2 - Player.GetHeight() / 2);
 
     // We can easily just re-use the old primitive, since it still
     // contains the relevant shape data. AddPrimitive() makes a copy
@@ -439,8 +439,8 @@ int main_uitest()
     // move it directly.
     Paddle.SetColor(color4f_t(1.0, 0.0, 0.0));
     Opponent.AddPrimitive(std::move(Paddle.Create()));
-    Opponent.Move(Window.GetWidth() - Opponent.GetW(),
-                  Window.GetHeight() / 2 - Opponent.GetH() / 2);
+    Opponent.Move(Window.GetWidth() - Opponent.GetWidth(),
+                  Window.GetHeight() / 2 - Opponent.GetHeight() / 2);
 
     // The ball will be a white hexagon in the center of the screen.
     gfx::zPolygon Hex(GameAssets, 6);

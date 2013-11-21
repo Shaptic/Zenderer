@@ -52,8 +52,8 @@ gfx::zPolygon& zConcavePolygon::Create(const bool placeholder)
         }
     }
 
-    m_BoundingBox.h = this->CalcH();
-    m_BoundingBox.w = this->CalcW();
+    m_BoundingBox.h = this->CalcHeight();
+    m_BoundingBox.w = this->CalcWidth();
 
     m_DrawData.Indices  = indices;
     m_DrawData.icount   = m_Tris.size();

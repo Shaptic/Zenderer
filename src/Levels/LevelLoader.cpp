@@ -107,7 +107,7 @@ bool zLevelLoader::LoadFromFile(const string_t& filename)
                 gfx::zPolygon* pActive = &Poly;
 
                 // Special case for quads if there are 4 vertices.
-                gfx::zQuad Quad(m_Assets, Poly.CalcW(), Poly.CalcH());
+                gfx::zQuad Quad(m_Assets, Poly.CalcWidth(), Poly.CalcHeight());
                 if(poly == 4)
                 {
                     Quad.SetRepeating(true);
