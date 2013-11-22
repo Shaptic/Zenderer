@@ -800,6 +800,10 @@ int main()
                                                   nullptr, &s);
     Font.SetColor(1, 1, 0);
 
+    gfx::zRenderTarget ShadowMap(Window.GetWidth(), Window.GetHeight());
+    ZEN_ASSERT(ShadowMap.Init());
+    ShadowMap.Unbind();
+
     while(!quit)
     {
         Evts.PollEvents();
@@ -849,7 +853,11 @@ int main()
                 real_t m = math::slope(math::line_t { { LPos, i } });
                 math::vector_t ext = i;
 
-                if(i.x > LPos.x)
+                if(math::compf(i.x, LPos.x) || std::isnan(m))
+                {
+                    ext.y += (ext.y > LPos.y) ? 100 : -100;
+                }
+                else if(i.x > LPos.x)
                 {
                     ext.x += 50;
                     ext.y += 50 * m;
@@ -858,10 +866,6 @@ int main()
                 {
                     ext.x -= 50;
                     ext.y -= 50 * m;
-                }
-                else if(math::compf(i.x, LPos.x))
-                {
-                    ext.y -= 100;
                 }
 
                 edges.push_back(ext);
@@ -877,11 +881,8 @@ int main()
 
             if(math::compf(theta, phi))
             {
-                return a.x < LPos.x ?
-                    math::distance(l, a, false) >
-                    math::distance(l, b, false) :
-                    math::distance(l, a, false) <
-                    math::distance(l, b, false);
+                return math::distance(l, a, false) <
+                       math::distance(l, b, false);
             }
             else if(theta < 0 == phi < 0) return theta < phi;
             return theta < phi;
@@ -940,15 +941,18 @@ int main()
 
         std::cout << std::endl;
 
-        gfx::zConcavePolygon ShadowMap(Assets, edges.size() * 3);
+        gfx::zConcavePolygon ShadowGeo(Assets, edges.size() * 3);
         for(size_t i = 0; i < edges.size() - 2; ++i)
         {
-            ShadowMap.AddVertex(edges[i]);
-            ShadowMap.AddVertex(edges[i + 1]);
-            ShadowMap.AddVertex(edges[i + 2]);
+            ShadowGeo.AddVertex(edges[i]);
+            ShadowGeo.AddVertex(edges[i + 1]);
+            ShadowGeo.AddVertex(edges[i + 2]);
         }
 
-        ShadowMap.SetColor(1, 1, 1, 1).Create(false).Draw();
+        ShadowMap.Bind();
+        ShadowGeo.SetColor(1, 1, 1, 1).Create(false).Draw();
+        ShadowMap.Unbind();
+        ShadowGeo.Draw();
 
         obj::zEntity MousePos(Assets);
         std::stringstream ss;
