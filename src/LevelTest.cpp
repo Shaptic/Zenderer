@@ -743,6 +743,12 @@ int main_toy()
     return 0;
 }
 
+struct ray_t
+{
+    math::vector_t pos;
+    bool edge;
+};
+
 int main()
 {
     using namespace gfx;
@@ -789,6 +795,11 @@ int main()
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
+    gui::fontcfg_t s { 12 };
+    gui::zFont& Font = *Assets.Create<gui::zFont>("assets/ttf/game.ttf",
+                                                  nullptr, &s);
+    Font.SetColor(1, 1, 0);
+
     while(!quit)
     {
         Evts.PollEvents();
@@ -826,7 +837,129 @@ int main()
         Caster.Draw();
         Light.Draw();
 
-        std::vector<math::vector_t> rays;
+        auto& tris = Caster.GetTriangulation();
+        std::vector<math::vector_t> edges;
+
+        for(auto& i : tris)
+        {
+            if(std::find(edges.begin(), edges.end(), i) == edges.end())
+            {
+                edges.push_back(i);
+
+                real_t m = math::slope(math::line_t { { LPos, i } });
+                math::vector_t ext = i;
+
+                if(i.x > LPos.x)
+                {
+                    ext.x += 50;
+                    ext.y += 50 * m;
+                }
+                else if(i.x < LPos.x)
+                {
+                    ext.x -= 50;
+                    ext.y -= 50 * m;
+                }
+                else if(math::compf(i.x, LPos.x))
+                {
+                    ext.y -= 100;
+                }
+
+                edges.push_back(ext);
+            }
+        }
+
+        std::sort(edges.begin(), edges.end(),
+                  [&LPos](const math::vector_t& a, const math::vector_t& b) {
+
+            const math::vector_t& l = LPos;
+            real_t theta = std::atan2(l.y - a.y, l.x - a.x);
+            real_t phi = std::atan2(l.y - b.y, l.x - b.x);
+
+            if(math::compf(theta, phi))
+            {
+                return a.x < LPos.x ?
+                    math::distance(l, a, false) >
+                    math::distance(l, b, false) :
+                    math::distance(l, a, false) <
+                    math::distance(l, b, false);
+            }
+            else if(theta < 0 == phi < 0) return theta < phi;
+            return theta < phi;
+        });
+
+        for(auto it = edges.begin(); it != edges.end(); ++(++it))
+        {
+            auto& e = *it;
+
+            std::vector<math::vector_t> collisions;
+            math::line_t ray { { LPos, e } };
+
+            for(size_t i = 0; i < tris.size(); i += 3)
+            {
+                math::line_t one { { tris[i],       tris[i + 1] } };
+                math::line_t two { { tris[i + 1],   tris[i + 2] } };
+                math::line_t thr { { tris[i],       tris[i + 2] } };
+
+                math::cquery_t q1, q2, q3;
+                if(math::collides(ray, one, &q1) &&
+                   std::find(collisions.begin(), collisions.end(),
+                   q1.point) == collisions.end())
+                {
+                    collisions.push_back(std::move(q1.point));
+                }
+
+                if(math::collides(ray, two, &q2) &&
+                   std::find(collisions.begin(), collisions.end(),
+                   q2.point) == collisions.end())
+                {
+                    collisions.push_back(std::move(q2.point));
+                }
+
+                if(math::collides(ray, thr, &q3) &&
+                   std::find(collisions.begin(), collisions.end(),
+                   q3.point) == collisions.end())
+                {
+                    collisions.push_back(std::move(q3.point));
+                }
+            }
+
+            for(auto& c : collisions)
+            {
+                if(math::distance(LPos, c, false) >
+                   math::distance(LPos, e, false))
+                {
+                    e = c;
+                }
+            }
+        }
+
+        for(auto& i : edges)
+        {
+            std::cout << i << std::endl;
+        }
+
+        std::cout << std::endl;
+
+        gfx::zConcavePolygon ShadowMap(Assets, edges.size() * 3);
+        for(size_t i = 0; i < edges.size() - 2; ++i)
+        {
+            ShadowMap.AddVertex(edges[i]);
+            ShadowMap.AddVertex(edges[i + 1]);
+            ShadowMap.AddVertex(edges[i + 2]);
+        }
+
+        ShadowMap.SetColor(1, 1, 1, 1).Create(false).Draw();
+
+        obj::zEntity MousePos(Assets);
+        std::stringstream ss;
+        ss << '(' << evt::GetMousePosition().x << ", "
+                  << evt::GetMousePosition().y << ')';
+        Font.Render(MousePos, ss.str());
+        MousePos.Move(evt::GetMousePosition());
+        MousePos.Draw();
+
+        /*
+        std::vector<ray_t> rays;
         zConcavePolygon ShadowMap(Assets);
 
         auto& tris = Caster.GetTriangulation();
@@ -920,22 +1053,35 @@ int main()
                 //rays.push_back(tmp);
             }
         }
-        */
+        *
         rays.reserve(tris.size() + 4);
-        rays.insert(rays.begin(), tris.begin(), tris.end());
-        rays.push_back(math::vector_t(0, 0));
-        rays.push_back(math::vector_t(Window.GetWidth(), 0));
-        rays.push_back(math::vector_t(Window.GetWidth(), Window.GetHeight()));
-        rays.push_back(math::vector_t(0, Window.GetHeight()));
+        for(auto& i : tris)
+        {
+            bool exists = false;
+            for(auto& j : rays)
+            {
+                if(j.pos == i)
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            if(!exists) rays.push_back(ray_t { i, true });
+        }
+
+        rays.push_back(ray_t { math::vector_t(0, 0), false });
+        rays.push_back(ray_t { math::vector_t(Window.GetWidth(), 0), false });
+        rays.push_back(ray_t { math::vector_t(Window.GetWidth(), Window.GetHeight()), false });
+        rays.push_back(ray_t { math::vector_t(0, Window.GetHeight()), false });
 
         // Cast a ray from the light to each individual edge on the
         // collidable objects. If the ray collides with more than one edge,
         // discard it. Otherwise, extend it out for an arbitrary amount.
         auto it = rays.begin();
         //std::advance(it, rays.size() - 4);
-        for( ; it != rays.end(); /* no third */)
+        for( ; it != rays.end(); /* no third /)
         {
-            auto& edge = *it;
+            const auto& edge = (*it).pos;
             std::vector<math::vector_t> collisions;
             math::line_t ray { { LPos, edge } };
 
@@ -1004,11 +1150,15 @@ int main()
                 ++it;
             }
         }
-        std::unique(rays.begin(), rays.end());
+        std::unique(rays.begin(), rays.end(),
+                    [](const ray_t& a, const ray_t& b) {
+            return a.pos == b.pos;
+        });
         std::sort(rays.begin(), rays.end(),
-                  [&LPos](const math::vector_t& a,
-                          const math::vector_t& b) {
-
+                  [&LPos](const ray_t& ra,
+                          const ray_t& rb) {
+            const auto& a = ra.pos;
+            const auto& b = rb.pos;
             const math::vector_t& l = LPos;
             real_t theta = std::atan2(l.y - a.y, l.x - a.x);
             real_t phi   = std::atan2(l.y - b.y, l.x - b.x);
@@ -1027,24 +1177,24 @@ int main()
 
         for(auto& i : rays)
         {
-            std::cout << math::deg(std::atan2(LPos.y - i.y, LPos.x - i.x)) << std::endl;
-            std::cout << "End: " << i << std::endl;
+            std::cout << math::deg(std::atan2(LPos.y - i.pos.y, LPos.x - i.pos.x)) << std::endl;
+            std::cout << "End: " << i.pos << std::endl;
         }
         std::cout << std::endl;
 
         for(size_t i = 0; i < rays.size() - 1; ++i)
         {
             ShadowMap.AddVertex(LPos);
-            ShadowMap.AddVertex(rays[i]);
-            ShadowMap.AddVertex(rays[i+1]);
+            ShadowMap.AddVertex(rays[i].pos);
+            ShadowMap.AddVertex(rays[i + 1].pos);
         }
         ShadowMap.AddVertex(LPos);
-        ShadowMap.AddVertex(rays.front());
-        ShadowMap.AddVertex(rays.back());
+        ShadowMap.AddVertex(rays.front().pos);
+        ShadowMap.AddVertex(rays.back().pos);
 
         ShadowMap.SetColor(0, 1, 0, 0.3).Create(false).Draw();
 
-        /*//////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
 
         //LPos = Light.GetPosition();
         //Light.Move(evt::GetMousePosition());
