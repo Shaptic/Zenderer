@@ -789,9 +789,10 @@ int main()
     Caster.Move(0, 350);
     Caster.SetColor(color4f_t(1, 0, 0));
     Caster.Create();*/
-    zQuad Caster(Assets, Window.GetWidth() / 4, 32);
+    zQuad Caster(Assets, Window.GetWidth() / 4, 64);
     Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
-          .Move(Window.GetWidth() / 3, Window.GetHeight() / 4);
+          .Move(Window.GetWidth() - 300,
+                Light.GetPosition().y);
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
@@ -813,24 +814,24 @@ int main()
                 quit = true;
 
             else if(Evt.type == evt::EventType::KEY_DOWN &&
-                    Evt.key.key == evt::Key::W)
+                    Evt.key.key == evt::Key::Z)
                 zRenderer::ToggleWireframe();
 
             else if(Evt.type == evt::EventType::KEY_DOWN &&
-                    Evt.key.key == evt::Key::A)
-                Caster.Move(Caster.GetX() - 1, Caster.GetY());
+                    Evt.key.key == evt::Key::W)
+                Caster.Move(Caster.GetX(), Caster.GetY() + 1);
 
             else if(Evt.type == evt::EventType::KEY_DOWN &&
-                    Evt.key.key == evt::Key::D)
-                Caster.Move(Caster.GetX() + 1, Caster.GetY());
+                    Evt.key.key == evt::Key::S)
+                Caster.Move(Caster.GetX(), Caster.GetY() - 1);
 
             else if(Evt.type == evt::EventType::KEY_HOLD &&
-                    Evt.key.key == evt::Key::D)
-                Caster.Move(Caster.GetX() + 5, Caster.GetY());
+                    Evt.key.key == evt::Key::W)
+                    Caster.Move(Caster.GetX(), Caster.GetY() + 5);
 
             else if(Evt.type == evt::EventType::KEY_HOLD &&
-                    Evt.key.key == evt::Key::A)
-                Caster.Move(Caster.GetX() - 5, Caster.GetY());
+                    Evt.key.key == evt::Key::S)
+                    Caster.Move(Caster.GetX(), Caster.GetY() - 5);
         }
 
         Window.Clear();
@@ -844,30 +845,31 @@ int main()
         auto& tris = Caster.GetTriangulation();
         std::vector<math::vector_t> edges;
 
-        for(auto& i : tris)
+        for(const auto& i : tris)
         {
             if(std::find(edges.begin(), edges.end(), i) == edges.end())
             {
-                edges.push_back(i);
+                const int LENGTH = 50;
 
                 real_t m = math::slope(math::line_t { { LPos, i } });
                 math::vector_t ext = i;
 
                 if(math::compf(i.x, LPos.x) || std::isnan(m))
                 {
-                    ext.y += (ext.y > LPos.y) ? 100 : -100;
+                    ext.y += (ext.y > LPos.y) ? LENGTH * 2 : LENGTH * -2;
                 }
                 else if(i.x > LPos.x)
                 {
-                    ext.x += 50;
-                    ext.y += 50 * m;
+                    ext.x += LENGTH;
+                    ext.y += LENGTH * m;
                 }
                 else if(i.x < LPos.x)
                 {
-                    ext.x -= 50;
-                    ext.y -= 50 * m;
+                    ext.x -= LENGTH;
+                    ext.y -= LENGTH * m;
                 }
 
+                edges.push_back(i);
                 edges.push_back(ext);
             }
         }
@@ -877,7 +879,7 @@ int main()
 
             const math::vector_t& l = LPos;
             real_t theta = std::atan2(l.y - a.y, l.x - a.x);
-            real_t phi = std::atan2(l.y - b.y, l.x - b.x);
+            real_t phi   = std::atan2(l.y - b.y, l.x - b.x);
 
             if(math::compf(theta, phi))
             {
@@ -888,9 +890,9 @@ int main()
             return theta < phi;
         });
 
-        for(auto it = edges.begin(); it != edges.end(); ++(++it))
+        for(size_t index = 1; index < edges.size(); index += 2)
         {
-            auto& e = *it;
+            auto& e = edges[index];
 
             std::vector<math::vector_t> collisions;
             math::line_t ray { { LPos, e } };
@@ -902,37 +904,93 @@ int main()
                 math::line_t thr { { tris[i],       tris[i + 2] } };
 
                 math::cquery_t q1, q2, q3;
-                if(math::collides(ray, one, &q1) &&
-                   std::find(collisions.begin(), collisions.end(),
-                   q1.point) == collisions.end())
+                if(math::collides(ray, one, &q1))
                 {
                     collisions.push_back(std::move(q1.point));
+                    gfx::zPolygon P(Assets, 5);
+                    P.AddVertex(q1.point);
+                    for(size_t i = 0; i < 36; ++i)
+                    {
+                        P.AddVertex(q1.point +
+                                    math::vector_t(
+                                        std::cos(math::rad(i / 360)), 
+                                        std::sin(math::rad(i / 360))
+                                    ) * 10);
+                    }
+
+                    P.SetColor(0, 1, 0, 1).Create(false).Draw();
                 }
 
-                if(math::collides(ray, two, &q2) &&
-                   std::find(collisions.begin(), collisions.end(),
-                   q2.point) == collisions.end())
+                if(math::collides(ray, two, &q2))
                 {
                     collisions.push_back(std::move(q2.point));
+                    gfx::zPolygon P(Assets, 5);
+                    P.AddVertex(q1.point);
+                    for(size_t i = 0; i < 36; ++i)
+                    {
+                        P.AddVertex(q1.point +
+                                    math::vector_t(
+                                        std::cos(math::rad(i / 360)),
+                                        std::sin(math::rad(i / 360))
+                                    ) * 10);
+                    }
+
+                    P.SetColor(0, 1, 0, 1).Create(false).Draw();
                 }
 
-                if(math::collides(ray, thr, &q3) &&
-                   std::find(collisions.begin(), collisions.end(),
-                   q3.point) == collisions.end())
+                if(math::collides(ray, thr, &q3))
                 {
                     collisions.push_back(std::move(q3.point));
+                    gfx::zPolygon P(Assets, 5);
+                    P.AddVertex(q1.point);
+                    for(size_t i = 0; i < 36; ++i)
+                    {
+                        P.AddVertex(q1.point +
+                                    math::vector_t(
+                                        std::cos(math::rad(i / 360)),
+                                        std::sin(math::rad(i / 360))
+                                    ) * 10);
+                    }
+
+                    P.SetColor(0, 1, 0, 1).Create(false).Draw();
                 }
             }
 
-            for(auto& c : collisions)
+            math::vector_t& comp = edges[index - 1];
+            for(size_t i = 0; i < collisions.size(); ++i)
             {
-                if(math::distance(LPos, c, false) >
-                   math::distance(LPos, e, false))
+                if(math::distance(LPos, collisions[i], false) >
+                   math::distance(LPos, comp, false))
                 {
-                    e = c;
+                    comp = collisions[i];
                 }
             }
         }
+        /*
+        std::map<real_t, int> angles;
+        std::unique(edges.begin(), edges.end(),
+                    [&LPos, &angles](const math::vector_t& a,
+                                     const math::vector_t& b) {
+            real_t ta = std::atan2(LPos.y - a.y, LPos.x - a.x);
+            real_t tb = std::atan2(LPos.y - b.y, LPos.x - b.x);
+
+            if(math::compf(ta, tb))
+            {
+                auto it = angles.find(ta);
+                if(it == angles.end())
+                {
+                    angles[ta] = 1;
+                    return false;
+                }
+                else
+                {
+                    ++(it->second);
+                    return (it->second) >= 3;
+                }
+            }
+
+            return false;
+        });*/
 
         for(auto& i : edges)
         {
