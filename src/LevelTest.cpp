@@ -837,7 +837,7 @@ int main()
         Window.Clear();
 
         //Light.Move(evt::GetMousePosition());
-        //Caster.Move(evt::GetMousePosition());
+        Caster.Move(evt::GetMousePosition());
         LPos = Light.GetPosition();
         Caster.Draw();
         Light.Draw();
@@ -849,7 +849,7 @@ int main()
         {
             if(std::find(edges.begin(), edges.end(), i) == edges.end())
             {
-                const int LENGTH = 50;
+                const int LENGTH = 500;
 
                 real_t m = math::slope(math::line_t { { LPos, i } });
                 math::vector_t ext = i;
@@ -874,21 +874,45 @@ int main()
             }
         }
 
-        std::sort(edges.begin(), edges.end(),
-                  [&LPos](const math::vector_t& a, const math::vector_t& b) {
-
+        std::function<bool(const math::vector_t&, const math::vector_t&)>
+            alt_sort = [&LPos](const math::vector_t& a,
+                                const math::vector_t& b) {
             const math::vector_t& l = LPos;
             real_t theta = std::atan2(l.y - a.y, l.x - a.x);
-            real_t phi   = std::atan2(l.y - b.y, l.x - b.x);
+            real_t phi = std::atan2(l.y - b.y, l.x - b.x);
 
             if(math::compf(theta, phi))
             {
                 return math::distance(l, a, false) <
                        math::distance(l, b, false);
             }
-            else if(theta < 0 == phi < 0) return theta < phi;
+
+            else if(theta < 0 != phi < 0) return theta > 0;
+
             return theta < phi;
-        });
+        };
+
+        std::function<bool(const math::vector_t&, const math::vector_t&)>
+            reg_sort = [&LPos](const math::vector_t& a,
+                                const math::vector_t& b) {
+            const math::vector_t& l = LPos;
+            real_t theta = std::atan2(l.y - a.y, l.x - a.x);
+            real_t phi = std::atan2(l.y - b.y, l.x - b.x);
+
+            if(math::compf(theta, phi))
+            {
+                return math::distance(l, a, false) <
+                       math::distance(l, b, false);
+            }
+
+            return theta < phi;
+        };
+
+        std::sort(edges.begin(), edges.end(),
+                  (LPos.y > Caster.GetY() &&
+                   LPos.y < Caster.GetY() + Caster.GetHeight() && 
+                   LPos.x < Caster.GetX()) ?
+                  alt_sort : reg_sort);
 
         for(size_t index = 1; index < edges.size(); index += 2)
         {
