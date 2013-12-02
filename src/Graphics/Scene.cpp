@@ -150,8 +150,8 @@ bool zScene::ShiftEntity(obj::zEntity& Obj, const uint32_t index)
 bool zScene::Clear()
 {
     for(auto i : m_allEntities) delete i;
-    for(auto i : m_allLights) delete i;
-    for(auto i : m_allPPFX) delete i;
+    for(auto i : m_allLights)   delete i;
+    for(auto i : m_allPPFX)     delete i;
 
     m_allEntities.clear();
     m_allLights.clear();
