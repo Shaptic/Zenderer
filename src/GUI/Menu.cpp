@@ -48,9 +48,14 @@ zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
         return;
     }
 
-    if(!this->LoadFont(settings.button_f, settings.button_fs, mp_ButtonFont, f.size) ||
-        this->LoadFont(settings.label_f,  settings.label_fs,  mp_LabelFont,  f.size) ||
-        this->LoadFont(settings.input_f,  settings.input_fs,  mp_InputFont,  f.size))
+    if(!this->LoadFont(settings.button_f, settings.button_fs,
+                       mp_ButtonFont, settings.font, f.size) ||
+
+       !this->LoadFont(settings.label_f,  settings.label_fs,
+                       mp_LabelFont,  settings.font, f.size) ||
+
+       !this->LoadFont(settings.input_f,  settings.input_fs,
+                       mp_InputFont,  settings.font, f.size))
     {
         LOG_ERROR("Failed to load a font.");
         return;
@@ -200,6 +205,7 @@ void zMenu::SetOverlayMode(const bool flag)
 bool zMenu::LoadFont(const string_t&    font_name,
                      const uint16_t     font_size,
                      gui::zFont*&       font_ptr,
+                     const string_t&    font_def_name,
                      const uint16_t     font_def_size)
 {
     util::zLog& Log = util::zLog::GetEngineLog();
@@ -207,7 +213,7 @@ bool zMenu::LoadFont(const string_t&    font_name,
     if(font_name == "")
     {
         gui::fontcfg_t f = { (font_size != 0) ? font_size : font_def_size };
-        font_ptr = m_Assets.Create<gui::zFont>(font_name, nullptr, &f);
+        font_ptr = m_Assets.Create<gui::zFont>(font_def_name, nullptr, &f);
 
         if(font_ptr == nullptr)
         {
@@ -227,3 +233,114 @@ bool zMenu::LoadFont(const string_t&    font_name,
 
 #undef LOG_ERROR
 
+menucfg_t zMenu::LoadThemeFromFile(const string_t& filename)
+{
+    util::zFileParser Parser;
+    menucfg_t theme;
+    theme.valid = false;
+
+    if(!Parser.LoadFromFile(filename)) return theme;
+
+    #define parse(str, f)       \
+        if(Parser.Exists(str))  \
+        {                       \
+            theme.f = Parser.GetFirstResult(str); \
+        }                       \
+
+    parse("Background", background);
+    parse("Title",      title);
+    parse("MenuFont",   font);
+    parse("ButtonFont", button_f);
+    parse("LabelFont",  label_f);
+    parse("InputFont",  input_f);
+
+    #undef parse
+
+    theme.valid = (!theme.background.empty() && !theme.font.empty());
+
+    #define parse(str, f)       \
+        if(Parser.Exists(str))  \
+        {                       \
+            int s = std::stoi(Parser.GetFirstResult(str));      \
+            theme.f = (s > 0) ? s : zMenu::DEFAULT_SETTINGS.f;  \
+        }
+
+    parse("MenuFontSize",   font_size);
+    parse("ButtonFontSize", button_fs);
+    parse("InputFontSize",  input_fs);
+    parse("LabelFontSize",  label_fs);
+
+    #undef parse
+    #define parse(str, f)       \
+        if(Parser.Exists(str))  \
+        {                       \
+            std::vector<string_t> parts = util::split(  \
+                    Parser.GetFirstResult(str), ',');   \
+                                                        \
+            if(parts.size() != 2)                       \
+                ;                                       \
+                                                        \
+            else                                        \
+                theme.f = math::vector_t(std::stoi(parts[0]),  \
+                                         std::stoi(parts[1])); \
+        }
+
+    parse("TitlePosition",  title_pos);
+    parse("ButtonPosition", button_pos);
+
+    #undef parse
+    #define parse(str, f)       \
+        if(Parser.Exists(str))  \
+        {                       \
+            std::vector<string_t> parts = util::split(      \
+                    Parser.GetFirstResult(str), ',');       \
+                                                            \
+            if(parts.size() == 1 && parts[0][0] == '#' &&   \
+               parts[0].length() == 7)                      \
+            {                                               \
+                std::stringstream ss;                       \
+                                                            \
+                ss << parts[0][1] << parts[0][2];           \
+                ss >> std::hex >> theme.f.r;                \
+                                                            \
+                ss << parts[0][3] << parts[0][4];           \
+                ss >> std::hex >> theme.f.g;                \
+                                                            \
+                ss << parts[0][5] << parts[0][6];           \
+                ss >> std::hex >> theme.f.b;                \
+            }                                               \
+            else if(parts.size() != 4)                      \
+                ;                                           \
+                                                            \
+            else                                            \
+                theme.f = color4f_t(std::stoi(parts[0]),    \
+                                    std::stoi(parts[1]),    \
+                                    std::stoi(parts[2]),    \
+                                    std::stoi(parts[3]));   \
+        }
+
+    parse("ButtonFocusCol",     button_foccol);
+    parse("ButtonNormalCol",    button_normcol);
+    parse("InputBoxColor",      input_boxcol);
+    parse("InputTextColor",     input_col);
+    parse("LabelColor",         label_col);
+
+    #undef parse
+
+    string_t val = Parser.GetFirstResult("InputStyle", "FILLED");
+
+    if(val == "FILLED")
+    {
+        theme.input_style = InputStyle::FILLED;
+    }
+    else if(val == "BORDERED")
+    {
+        theme.input_style = InputStyle::BORDERED;
+    }
+    else if(val == "HIDDEN")
+    {
+        theme.input_style = InputStyle::HIDDEN;
+    }
+
+    return theme;
+}

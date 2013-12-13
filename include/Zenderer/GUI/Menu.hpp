@@ -24,6 +24,7 @@
 
 #include <vector>
 #include <functional>
+#include <sstream>
 
 #include "Zenderer/Events/EventHandler.hpp"
 #include "Zenderer/Events/Mouse.hpp"
@@ -53,6 +54,36 @@ namespace gui
      *
      *      If `input_boxcol`, `input_col`, or `label_col` are not set,
      *      white, black, and white are used, respectively.
+     *
+     * Theme files should be structured like other Zenderer configuration
+     * files, or simply following an INI-style format.
+     *
+     * Here are the values and their corresponding field in a menu
+     * configuration structure:
+     *
+     * | Label           | Field Name       |
+     * | --------------- | ---------------- |
+     * | Background      | background       |
+     * | Title           | title            |
+     * | MenuFont        | font             |
+     * | MenuFontSize    | font_size        |
+     * | TitlePosition   | title_pos        |
+     * |                 |                  |
+     * | ButtonFont      | button_f         |
+     * | ButtonFontSize  | button_fs        |
+     * | ButtonPosition  | button_pos       |
+     * | ButtonFocusCol  | button_foccol    |
+     * | ButtonNormalCol | button_normcol   |
+     * |                 |                  |
+     * | LabelFont       | label_f          |
+     * | InputFont       | input_f          |
+     * | InputFontSize   | input_fs         |
+     * | LabelFontSize   | label_fs         |
+     * | InputStyle      | input_style      |
+     * | InputBoxColor   | input_boxcol     |
+     * | InputTextColor  | input_col        |
+     * | LabelColro      | input_col        |
+     *
      **/
     struct menucfg_t
     {
@@ -76,6 +107,8 @@ namespace gui
         color4f_t   input_boxcol;   ///< Input box color (based on style)
         color4f_t   input_col;      ///< Input text color
         color4f_t   label_col;      ///< Input box label text color
+
+        bool        valid;          ///< Configuration state
     };
 
     /// A high-level menu-creation API.
@@ -95,6 +128,8 @@ namespace gui
         zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
               const menucfg_t& settings = DEFAULT_SETTINGS);
         virtual ~zMenu();
+
+        static menucfg_t LoadThemeFromFile(const string_t& path);
 
         /**
          * Handles system events to perform menu actions.
@@ -207,6 +242,7 @@ namespace gui
         bool LoadFont(const string_t&    font_name,
                       const uint16_t     font_size,
                       gui::zFont*&       font_ptr,
+                      const string_t&    font_def_name,
                       const uint16_t     font_def_size = 18);
 
         asset::zAssetManager& m_Assets;
