@@ -16,7 +16,8 @@ gui::menucfg_t zMenu::DEFAULT_SETTINGS = {
     color4f_t(), color4f_t(0, 0, 0),
 
     "", "", 0, 0, gui::InputStyle::FILLED,
-    color4f_t(), color4f_t(0, 0, 0), color4f_t()
+    color4f_t(), color4f_t(0.8, 0.8, 0.8),
+    color4f_t(0, 0, 0), color4f_t()
 };
 
 zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
@@ -148,16 +149,18 @@ uint16_t zMenu::AddButton(const string_t& text,
 
 uint16_t zMenu::AddEntryField(const string_t& label_text,
                               const vector_t& Position,
+                              std::function<void(const string_t&)> action,
                               std::function<bool(char)> filter,
                               const string_t& prefill)
 {
     zEntryField* pNew = new zEntryField(m_Scene, m_Assets);
-    pNew->SetInputColor(m_settings.input_boxcol);
+    pNew->SetInputColor(m_settings.input_normcol, m_settings.input_foccol);
     pNew->SetInputTextColor(m_settings.input_col);
     pNew->SetFilterFunction(filter);
-    pNew->SetColor(m_settings.button_normcol);
+    pNew->SetColor(m_settings.label_col);
     pNew->SetLabel(label_text);
     pNew->SetInputStyle(m_settings.input_style);
+    pNew->OnChange(action);
     pNew->Create(*mp_InputFont);
     pNew->Place(Position);
     pNew->Unfocus();
@@ -256,7 +259,7 @@ menucfg_t zMenu::LoadThemeFromFile(const string_t& filename)
 
     #undef parse
 
-    theme.valid = (!theme.background.empty() && !theme.font.empty());
+    theme.valid = (!theme.font.empty() && theme.font_size > 0);
 
     #define parse(str, f)       \
         if(Parser.Exists(str))  \
@@ -321,7 +324,8 @@ menucfg_t zMenu::LoadThemeFromFile(const string_t& filename)
 
     parse("ButtonFocusCol",     button_foccol);
     parse("ButtonNormalCol",    button_normcol);
-    parse("InputBoxColor",      input_boxcol);
+    parse("InputNormalCol",     input_normcol);
+    parse("InputFocusCol",      input_foccol);
     parse("InputTextColor",     input_col);
     parse("LabelColor",         label_col);
 
