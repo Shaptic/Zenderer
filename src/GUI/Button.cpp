@@ -28,7 +28,7 @@ bool zButton::Create(gui::zFont& Font)
     if(mp_Current == nullptr || m_text.empty()) return false;
 
     this->RenderText(m_Normal, Font, m_text);
-    this->RenderText(m_Normal, Font, m_text, &m_acolor);
+    this->RenderText(m_Active, Font, m_text, &m_acolor);
     return true;
 }
 
