@@ -600,7 +600,7 @@ int main_paint()
 // Shader toy.
 #include "Zenderer/GUI/EntryField.hpp"
 
-int main_toy()
+int main()
 {
     enum class State
     {
@@ -620,8 +620,8 @@ int main_toy()
     gfx::zScene Scene(Window.GetWidth(), Window.GetHeight(), Assets);
     Scene.Init(); Scene.EnableLighting();
 
-    gfx::zScene UI(Window.GetWidth(), Window.GetHeight(), Assets);
-    UI.Init(); UI.SetSeeThrough(true);
+    /*gfx::zScene UI(Window.GetWidth(), Window.GetHeight(), Assets);
+    UI.Init(); UI.SetSeeThrough(true);*/
 
     gfx::zLight& Light = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
     Light.Enable();
@@ -631,6 +631,56 @@ int main_toy()
     Light.SetMinimumAngle(359);
     Light.Disable();
 
+    gui::menucfg_t cfg = gui::zMenu::DEFAULT_SETTINGS;
+    cfg.font = "C:\\Windows\\Fonts\\Arial.ttf";
+    cfg.font_size = 22;
+    cfg.button_pos = math::vector_t(32, 256);
+    cfg.button_foccol = color4f_t();
+    cfg.button_normcol = color4f_t(.8, .8, .8);
+    cfg.label_col = color4f_t();
+    cfg.valid = true;
+    //cfg = gui::zMenu::LoadThemeFromFile("basetheme.gui");
+    ZEN_ASSERT(cfg.valid);
+    gui::zMenu StartMenu(Window, Assets, cfg);
+    StartMenu.SetOverlayMode(true);
+    StartMenu.AddEntryField("Brightness: ", math::vector_t(),
+                            [&Light](const string_t& t) {
+        if (!t.empty() && std::stod(t) > 0)
+        {
+            Light.Enable();
+            Light.SetBrightness(std::stod(t));
+            Light.Disable();
+        }
+    }, [](char c) -> bool {
+        std::stringstream ss;
+        ss << c;
+        real_t o = -1.0;
+        return (ss >> o) || c == '.';
+    }, "1.0");
+    StartMenu.AddEntryField("Attenuation: ",   math::vector_t(0, 64),
+                            [](const string_t&){});
+    StartMenu.AddEntryField("Maximum Angle: ", math::vector_t(0, 128),
+                            [&Light](const string_t& t) {
+        if (!t.empty())
+        {
+            Light.Enable();
+            Light.SetMaximumAngle(std::stod(t));
+            Light.Disable();
+        }
+    });
+    StartMenu.AddEntryField("Minumum Angle: ", math::vector_t(0, 128 + 64),
+                            [&Light](const string_t& t) {
+        if (!t.empty())
+        {
+            Light.Enable();
+            Light.SetMinimumAngle(std::stod(t));
+            Light.Disable();
+        }
+    });
+
+    StartMenu.AddButton("Hello, World", [](size_t){});
+
+    /*
     gui::zFont& Font = *Assets.Create<gui::zFont>("C:\\Windows\\Fonts\\Arial.ttf");
 
     gui::zEntryField BrtInput(UI, Assets);
@@ -699,8 +749,8 @@ int main_toy()
     MinInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() +
                       MaxInput.GetHeight() + 30);
     MinInput.Unfocus();
-
-    gui::zEntryField* Fields[] { &BrtInput, &AttInput, &MaxInput, &MinInput };
+    */
+    gui::zEntryField* Fields[] { };//&BrtInput, &AttInput, &MaxInput, &MinInput };
 
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
@@ -729,15 +779,16 @@ int main_toy()
             {
                 i->HandleEvent(Evt);
             }
+
+            StartMenu.HandleEvent(Evt);
         }
 
         Window.Clear();
         Scene.Render(color4f_t(0.1, 0.1, 0.1));
-        UI.Render();
+        //UI.Render();
+        StartMenu.Update();
         Window.Update();
     }
-
-    Scene.Destroy();
 
     Quit();
     return 0;
@@ -749,7 +800,7 @@ struct ray_t
     bool edge;
 };
 
-int main()
+int main_shadows()
 {
     using namespace gfx;
     using gfxcore::zRenderer;
@@ -910,7 +961,7 @@ int main()
 
         std::sort(edges.begin(), edges.end(),
                   (LPos.y > Caster.GetY() &&
-                   LPos.y < Caster.GetY() + Caster.GetHeight() && 
+                   LPos.y < Caster.GetY() + Caster.GetHeight() &&
                    LPos.x < Caster.GetX()) ?
                   alt_sort : reg_sort);
 
@@ -937,7 +988,7 @@ int main()
                     {
                         P.AddVertex(q1.point +
                                     math::vector_t(
-                                        std::cos(math::rad(i / 360)), 
+                                        std::cos(math::rad(i / 360)),
                                         std::sin(math::rad(i / 360))
                                     ) * 10);
                     }
