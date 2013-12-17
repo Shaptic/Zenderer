@@ -1,0 +1,12 @@
+MenuFont=C:\Windows\Fonts\Arial.ttf
+FontSize=22
+Background=#040F2A
+
+ButtonPosition=32,256
+ButtonFocusCol=#BD9B56
+ButtonNormalCol=#6C7EA8
+
+LabelFont=C:\Windows\Fonts\consola.ttf
+LabelColor=#999999
+InputFocusCol=#BD9B56
+InputNormalCol=#6C7EA8
