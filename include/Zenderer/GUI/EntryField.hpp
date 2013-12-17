@@ -100,7 +100,7 @@ namespace gui
             m_Field.Destroy();
             m_Field.AddPrimitive(gfx::zQuad(
                 m_Assets, m_Field.GetWidth(),
-                mp_Font->GetLineHeight() + 10).SetColor(1, 1, 1).Create()
+                mp_Font->GetLineHeight() + 10).SetColor(m_inv_outline).Create()
             );
         }
 
@@ -110,7 +110,7 @@ namespace gui
             m_Field.Destroy();
             m_Field.AddPrimitive(gfx::zQuad(
                 m_Assets, m_Field.GetWidth(),
-                mp_Font->GetLineHeight() + 10).SetColor(1, 0, 0).Create()
+                mp_Font->GetLineHeight() + 10).SetColor(m_outline).Create()
             );
         }
 
@@ -122,6 +122,7 @@ namespace gui
         void HandleEvent(const evt::event_t& Event)
         {
             ZEN_ASSERT(mp_Font != nullptr);
+            ZEN_ASSERT(m_filter.operator bool());
 
             if(!m_focus) return;
 
@@ -134,7 +135,7 @@ namespace gui
                     m_Text.Enable();
                     m_input += Event.key.symbol;
                     this->RenderText(m_Text, *mp_Font, m_input, &m_incolor);
-                    m_change(m_input);
+                    if(m_change) m_change(m_input);
                 }
             }
 
@@ -152,15 +153,16 @@ namespace gui
                     m_Text.Destroy();
                     m_input = m_input.substr(0, m_input.length() - 1);
                     this->RenderText(m_Text, *mp_Font, m_input, &m_incolor);
-                    m_change(m_input);
+                    if(m_change) m_change(m_input);
                 }
             }
         }
 
-        /// Sets entry field color
-        void SetInputColor(color4f_t outline)
+        /// Sets entry field color(s).
+        void SetInputColor(color4f_t normal, color4f_t focused)
         {
-            m_outline = outline;
+            m_outline = normal;
+            m_inv_outline = focused;
         }
 
         void SetInputTextColor(color4f_t outline)
@@ -218,7 +220,7 @@ namespace gui
         zFont*          mp_Font;
         InputStyle      m_Style;
 
-        color4f_t       m_outline, m_incolor;
+        color4f_t       m_outline, m_inv_outline, m_incolor;
         string_t        m_input, m_label;
         uint32_t        m_limit;
 
