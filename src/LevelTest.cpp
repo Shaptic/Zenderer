@@ -620,9 +620,6 @@ int main()
     gfx::zScene Scene(Window.GetWidth(), Window.GetHeight(), Assets);
     Scene.Init(); Scene.EnableLighting();
 
-    /*gfx::zScene UI(Window.GetWidth(), Window.GetHeight(), Assets);
-    UI.Init(); UI.SetSeeThrough(true);*/
-
     gfx::zLight& Light = Scene.AddLight(gfx::LightType::ZEN_SPOTLIGHT);
     Light.Enable();
     Light.SetPosition(Window.GetWidth() / 2, Window.GetHeight() / 2);
@@ -631,19 +628,20 @@ int main()
     Light.SetMinimumAngle(359);
     Light.Disable();
 
-    gui::menucfg_t cfg = gui::zMenu::DEFAULT_SETTINGS;
+    gui::menucfg_t cfg = gui::zMenu::DEFAULT_SETTINGS;/*
     cfg.font = "C:\\Windows\\Fonts\\Arial.ttf";
     cfg.font_size = 22;
     cfg.button_pos = math::vector_t(32, 256);
     cfg.button_foccol = color4f_t();
     cfg.button_normcol = color4f_t(.8, .8, .8);
     cfg.label_col = color4f_t();
-    cfg.valid = true;
-    //cfg = gui::zMenu::LoadThemeFromFile("basetheme.gui");
+    cfg.valid = true;*/
+    cfg = gui::zMenu::LoadThemeFromFile("basetheme.gui");
+    //cfg.button_normcol = color4f_t();
     ZEN_ASSERT(cfg.valid);
     gui::zMenu StartMenu(Window, Assets, cfg);
     StartMenu.SetOverlayMode(true);
-    StartMenu.AddEntryField("Brightness: ", math::vector_t(),
+    StartMenu.AddEntryField("Brightness: ", math::vector_t(10, 0),
                             [&Light](const string_t& t) {
         if (!t.empty() && std::stod(t) > 0)
         {
@@ -657,9 +655,9 @@ int main()
         real_t o = -1.0;
         return (ss >> o) || c == '.';
     }, "1.0");
-    StartMenu.AddEntryField("Attenuation: ",   math::vector_t(0, 64),
+    StartMenu.AddEntryField("Attenuation: ",   math::vector_t(10, 50),
                             [](const string_t&){});
-    StartMenu.AddEntryField("Maximum Angle: ", math::vector_t(0, 128),
+    StartMenu.AddEntryField("Maximum Angle: ", math::vector_t(10, 100),
                             [&Light](const string_t& t) {
         if (!t.empty())
         {
@@ -668,7 +666,7 @@ int main()
             Light.Disable();
         }
     });
-    StartMenu.AddEntryField("Minumum Angle: ", math::vector_t(0, 128 + 64),
+    StartMenu.AddEntryField("Minumum Angle: ", math::vector_t(10, 150),
                             [&Light](const string_t& t) {
         if (!t.empty())
         {
@@ -678,80 +676,7 @@ int main()
         }
     });
 
-    StartMenu.AddButton("Hello, World", [](size_t){});
-
-    /*
-    gui::zFont& Font = *Assets.Create<gui::zFont>("C:\\Windows\\Fonts\\Arial.ttf");
-
-    gui::zEntryField BrtInput(UI, Assets);
-    BrtInput.SetColor(color4f_t());
-    BrtInput.SetInputTextColor(color4f_t(0, 0, 0));
-    BrtInput.SetLabel("Brightness Input: ");
-    BrtInput.SetMaxChars(4);
-    BrtInput.Create(Font);
-    BrtInput.OnChange([&Light](const string_t& i) {
-        real_t brt = std::stod(i);
-        if(math::compf(brt, 0)) return;
-        Light.Enable();
-        Light.SetBrightness(brt);
-        Light.Disable();
-    });
-    BrtInput.Place(0, 0);
-    BrtInput.Unfocus();
-
-    gui::zEntryField AttInput(UI, Assets);
-    AttInput.SetColor(color4f_t());
-    AttInput.SetInputTextColor(color4f_t(0, 0, 0));
-    AttInput.SetLabel("Attenuation Input: ");
-    AttInput.SetMaxChars(4);
-    AttInput.Create(Font);
-    AttInput.OnChange([&Light](const string_t& i) {
-        std::vector<string_t> values = util::split(i, ',');
-        if(values.size() != 3) return;
-        Light.Enable();
-        Light.SetAttenuation(std::stod(values[0]),
-                             std::stod(values[1]),
-                             std::stod(values[2]));
-        Light.Disable();
-    });
-    AttInput.Place(0, BrtInput.GetHeight() + 10);
-    AttInput.Unfocus();
-
-    gui::zEntryField MaxInput(UI, Assets);
-    MaxInput.SetColor(color4f_t());
-    MaxInput.SetInputTextColor(color4f_t(0, 0, 0));
-    MaxInput.SetLabel("Max Angle Input: ");
-    MaxInput.SetMaxChars(4);
-    MaxInput.Create(Font);
-    MaxInput.OnChange([&Light](const string_t& i) {
-        real_t theta = std::stod(i);
-        if(math::compf(theta, 0)) return;
-        Light.Enable();
-        Light.SetMaximumAngle(theta);
-        Light.Disable();
-    });
-    MaxInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() + 20);
-    MaxInput.Unfocus();
-
-    gui::zEntryField MinInput(UI, Assets);
-    MinInput.SetColor(color4f_t());
-    MinInput.SetInputTextColor(color4f_t(0, 0, 0));
-    MinInput.SetLabel("Min Angle Input: ");
-    MinInput.SetMaxChars(4);
-    MinInput.Create(Font);
-    MinInput.OnChange([&Light](const string_t& i) {
-        real_t theta = std::stod(i);
-        if(math::compf(theta, 0)) return;
-        Light.Enable();
-        Light.SetMinimumAngle(theta);
-        Light.Disable();
-    });
-    MinInput.Place(0, BrtInput.GetHeight() + AttInput.GetHeight() +
-                      MaxInput.GetHeight() + 30);
-    MinInput.Unfocus();
-    */
-    gui::zEntryField* Fields[] { };//&BrtInput, &AttInput, &MaxInput, &MinInput };
-
+    StartMenu.AddButton("I am a highlighted button AMA", [](size_t){});
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
     bool quit = false;
@@ -763,22 +688,6 @@ int main()
         {
             if(Evt.type == evt::EventType::WINDOW_CLOSE)
                 ToolState = State::QUIT;
-
-            if(Evt.type == evt::EventType::MOUSE_DOWN)
-            {
-                for(auto& i : Fields)
-                {
-                    if(i->IsOver(Evt.mouse.position))
-                        i->Focus();
-                    else
-                        i->Unfocus();
-                }
-            }
-
-            for(auto& i : Fields)
-            {
-                i->HandleEvent(Evt);
-            }
 
             StartMenu.HandleEvent(Evt);
         }
