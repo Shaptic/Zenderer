@@ -8,7 +8,7 @@ using namespace gui;
         << Log.SetSystem("Menu") << text            \
         << util::zLog::endl;
 
-gui::menucfg_t zMenu::DEFAULT_SETTINGS = {
+const gui::menucfg_t zMenu::DEFAULT_SETTINGS = {
     "", "", ZENDERER_FONT_PATH"default.ttf", 18,
     math::vector_t(),
 
@@ -60,6 +60,13 @@ zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
     {
         LOG_ERROR("Failed to load a font.");
         return;
+    }
+
+    if(zMenu::IsColor(settings.background))
+    {
+        obj::zEntity& E = this->AddEntity();
+        E.AddPrimitive(gfx::zQuad(Assets, Window.GetWidth(), Window.GetHeight())
+                       .SetColor(zMenu::ParseColor(settings.background)).Create());
     }
 
     m_Position = settings.button_pos;
@@ -213,20 +220,13 @@ bool zMenu::LoadFont(const string_t&    font_name,
 {
     util::zLog& Log = util::zLog::GetEngineLog();
 
-    if(font_name == "")
-    {
-        gui::fontcfg_t f = { (font_size != 0) ? font_size : font_def_size };
-        font_ptr = m_Assets.Create<gui::zFont>(font_def_name, nullptr, &f);
+    gui::fontcfg_t f = { (font_size > 0) ? font_size : font_def_size };
+    font_ptr = m_Assets.Create<gui::zFont>(
+            font_name.empty() ? font_def_name : font_name, nullptr, &f);
 
-        if(font_ptr == nullptr)
-        {
-            LOG_ERROR("Failed to load button font.");
-            return false;
-        }
-    }
-
-    else
+    if(font_ptr == nullptr)
     {
+        LOG_ERROR("Failed to load button font.");
         font_ptr = mp_MenuFont;
         return false;
     }
@@ -239,7 +239,7 @@ bool zMenu::LoadFont(const string_t&    font_name,
 menucfg_t zMenu::LoadThemeFromFile(const string_t& filename)
 {
     util::zFileParser Parser;
-    menucfg_t theme;
+    menucfg_t theme = zMenu::DEFAULT_SETTINGS;
     theme.valid = false;
 
     if(!Parser.LoadFromFile(filename)) return theme;
@@ -292,34 +292,10 @@ menucfg_t zMenu::LoadThemeFromFile(const string_t& filename)
     parse("ButtonPosition", button_pos);
 
     #undef parse
-    #define parse(str, f)       \
-        if(Parser.Exists(str))  \
-        {                       \
-            std::vector<string_t> parts = util::split(      \
-                    Parser.GetFirstResult(str), ',');       \
-                                                            \
-            if(parts.size() == 1 && parts[0][0] == '#' &&   \
-               parts[0].length() == 7)                      \
-            {                                               \
-                std::stringstream ss;                       \
-                                                            \
-                ss << parts[0][1] << parts[0][2];           \
-                ss >> std::hex >> theme.f.r;                \
-                                                            \
-                ss << parts[0][3] << parts[0][4];           \
-                ss >> std::hex >> theme.f.g;                \
-                                                            \
-                ss << parts[0][5] << parts[0][6];           \
-                ss >> std::hex >> theme.f.b;                \
-            }                                               \
-            else if(parts.size() != 4)                      \
-                ;                                           \
-                                                            \
-            else                                            \
-                theme.f = color4f_t(std::stoi(parts[0]),    \
-                                    std::stoi(parts[1]),    \
-                                    std::stoi(parts[2]),    \
-                                    std::stoi(parts[3]));   \
+    #define parse(str, f)                                                       \
+        if(Parser.Exists(str) && zMenu::IsColor(Parser.GetFirstResult(str)))    \
+        {                                                                       \
+            theme.f = zMenu::ParseColor(Parser.PopResult(str));                 \
         }
 
     parse("ButtonFocusCol",     button_foccol);
