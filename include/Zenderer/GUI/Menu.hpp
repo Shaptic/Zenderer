@@ -80,7 +80,8 @@ namespace gui
      * | InputFontSize   | input_fs         |
      * | LabelFontSize   | label_fs         |
      * | InputStyle      | input_style      |
-     * | InputBoxColor   | input_boxcol     |
+     * | InputFocusCol   | input_foccol     |
+     * | InputNormalCol  | input_normcol    |
      * | InputTextColor  | input_col        |
      * | LabelColro      | input_col        |
      *
@@ -104,7 +105,8 @@ namespace gui
         uint16_t    label_fs;       ///< Label font size
         uint16_t    input_fs;       ///< Input context font size
         InputStyle  input_style;    ///< Style for entry field boxes
-        color4f_t   input_boxcol;   ///< Input box color (based on style)
+        color4f_t   input_foccol;   ///< Input box color when focused  (based on style)
+        color4f_t   input_normcol;  ///< Input box color when inactive (based on style)
         color4f_t   input_col;      ///< Input text color
         color4f_t   label_col;      ///< Input box label text color
 
@@ -114,9 +116,9 @@ namespace gui
     /// A high-level menu-creation API.
     class ZEN_API zMenu
     {
+    public:
         static menucfg_t DEFAULT_SETTINGS;
 
-    public:
         /**
          * Creates a menu instance.
          *  The given parameters are used in order to create a
@@ -166,8 +168,10 @@ namespace gui
         virtual uint16_t AddButton(const string_t& text,
                                    std::function<void(size_t)> handler);
 
+        /// @todo   Document this.
         virtual uint16_t AddEntryField(const string_t& label_text,
                                        const vector_t& Position,
+                                       std::function<void(const string_t&)> action,
                                        std::function<bool(char)> filter =
                                             [](char) { return true; },
                                        const string_t& prefill = "");
