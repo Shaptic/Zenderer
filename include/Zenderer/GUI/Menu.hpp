@@ -83,7 +83,7 @@ namespace gui
      * | InputFocusCol   | input_foccol     |
      * | InputNormalCol  | input_normcol    |
      * | InputTextColor  | input_col        |
-     * | LabelColro      | input_col        |
+     * | LabelColor      | input_col        |
      *
      **/
     struct menucfg_t
@@ -117,7 +117,7 @@ namespace gui
     class ZEN_API zMenu
     {
     public:
-        static menucfg_t DEFAULT_SETTINGS;
+        static const menucfg_t DEFAULT_SETTINGS;
 
         /**
          * Creates a menu instance.
@@ -243,6 +243,57 @@ namespace gui
         void SetOverlayMode(const bool flag);
 
     private:
+        static bool IsColor(const string_t& c)
+        {
+            if(c.empty()) return false;
+
+            auto parts = util::split(c, ',');
+            if(parts.size() == 4)
+            {
+                return std::find_if(c.begin(), c.end(), [](const char i) {
+                    return !(std::isdigit(i) || i == '.' || i == '-' || i == '+');
+                }) == c.end();
+            }
+
+            if(c.length() == 7 && c[0] == '#')
+            {
+                return std::find_if(c.begin() + 1, c.end(), [](const char i) {
+                    return !(std::isdigit(i) || (std::toupper(i) >= 65 && std::toupper(i) <= 70));
+                }) == c.end();
+            }
+
+            return false;
+        }
+
+        static color4f_t ParseColor(const string_t& s)
+        {
+            color4f_t result;
+
+            auto parts = util::split(s, ',');
+            if(parts.size() == 1 && s[0] == '#' && s.length() == 7)
+            {
+                int num =
+#ifndef __GNUC__
+                    std::stoi(s.substr(1));
+#else
+                    0;
+                std::stringstream ss(s.substr(1));
+                ss >> std::hex >> num;
+#endif // __GNUC__
+                result.r = ((num >> 16) & 0xFF) / 255.0;
+                result.g = ((num >> 8) & 0xFF) / 255.0;
+                result.b =  (num & 0xFF) / 255.0;
+            }
+
+            else if(parts.size() == 4)
+                result = color4f_t(std::stod(parts[0]),
+                                   std::stod(parts[1]),
+                                   std::stod(parts[2]),
+                                   std::stod(parts[3]));
+
+            return result;
+        }
+
         bool LoadFont(const string_t&    font_name,
                       const uint16_t     font_size,
                       gui::zFont*&       font_ptr,
