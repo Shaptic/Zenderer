@@ -244,7 +244,7 @@ GLuint zShaderSet::GetObjectHandle() const
     return this->GetShaderObject();
 }
 
-GLint zShaderSet::GetUniformLocation(const string_t& name) const
+GLint zShaderSet::GetUniformLocation(const string_t& name)
 {
     if(m_program == 0)
     {
@@ -252,9 +252,15 @@ GLint zShaderSet::GetUniformLocation(const string_t& name) const
         return -1;
     }
 
-    GLint loc = -1;
-    GL(loc = glGetUniformLocation(m_program, name.c_str()));
-    return loc;
+    if (m_cache.find(name) == m_cache.end())
+    {
+        GLint loc = -1;
+        GL(loc = glGetUniformLocation(m_program, name.c_str()));
+        if (loc == -1) return loc;
+        m_cache[name] = loc;
+    }
+
+    return m_cache[name];
 }
 
 GLint zShaderSet::GetAttributeLocation(const string_t& name) const

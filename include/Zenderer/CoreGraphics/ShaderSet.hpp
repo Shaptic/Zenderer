@@ -140,7 +140,7 @@ namespace gfxcore
         GLuint GetObjectHandle() const;
 
         /// Returns the index of a shader uniform location in VRAM.
-        GLint GetUniformLocation(const string_t& name) const;
+        GLint GetUniformLocation(const string_t& name);
 
         /// Returns the index of a shader attribute location in VRAM.
         GLint GetAttributeLocation(const string_t& name) const;
@@ -185,6 +185,8 @@ namespace gfxcore
                     << m_Log.SetSystem("ShaderSet")
                     << "No shader program loaded." << zLog::endl;
         }
+
+        std::map<string_t, GLuint> m_cache;
 
         asset::zAssetManager&   m_AssetManager;
         util::zLog&             m_Log;

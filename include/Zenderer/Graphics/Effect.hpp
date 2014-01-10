@@ -153,6 +153,11 @@ namespace gfx
 
         gfxcore::zShaderSet m_Shader;
         EffectType m_type;
+
+        // Cached to preserve const-correctness for the matrix overloads
+        // but still prevent unnecessary lookups.
+        /// @todo Fix this shit.
+        GLint m_mvloc, m_projloc;
     };
 
     #include "Effect.inl"

@@ -11,7 +11,8 @@ using gfx::EffectType;
 zEffect::zEffect(const EffectType Type, asset::zAssetManager& Assets) :
     zGLSubsystem("ShaderSet"),
     m_Log(zLog::GetEngineLog()),
-    m_Shader(Assets), m_type(Type)
+    m_Shader(Assets), m_type(Type),
+    m_mvloc(-1), m_projloc(-1)
 {
 }
 
@@ -109,7 +110,9 @@ bool zEffect::Init()
         return (m_init = false);
     }
 
-    return (m_init = m_Shader.CreateShaderObject());
+    m_mvloc = m_Shader.GetUniformLocation("mv");
+    m_projloc = m_Shader.GetUniformLocation("proj");
+    return (m_init = (m_Shader.CreateShaderObject() && m_mvloc != m_projloc));
 }
 
 bool zEffect::Destroy()
@@ -184,9 +187,20 @@ bool zEffect::SetParameter(const string_t& name,
 
     if(!m_init) return false;
 
-    GLint loc = m_Shader.GetUniformLocation(name);
-    GL(glUniformMatrix4fv(loc, 1, GL_TRUE, Matrix.GetPointer()));
-    return (loc != -1);
+    if(name == "mv")
+    {
+        GL(glUniformMatrix4fv(m_mvloc, 1, GL_TRUE, Matrix.GetPointer()));
+    }
+    else if(name == "proj")
+    {
+        GL(glUniformMatrix4fv(m_projloc, 1, GL_TRUE, Matrix.GetPointer()));
+    }
+    else
+    {
+        ZEN_ASSERTM(false, "non-standard matrices aren't implemented yet");
+    }
+
+    return true;
 }
 
 bool zEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
