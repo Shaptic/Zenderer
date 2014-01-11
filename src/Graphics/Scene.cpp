@@ -54,8 +54,8 @@ zEffect& zScene::AddEffect(const EffectType& Type)
     if(pNew->Init())
     {
         pNew->Enable();
-        pNew->SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-        pNew->SetParameter("proj", zRenderer::GetProjectionMatrix());
+        pNew->SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+        pNew->SetProjectionMatrix(zRenderer::GetProjectionMatrix());
         pNew->Disable();
     }
 
@@ -203,7 +203,7 @@ bool zScene::Render(color4f_t Clear)
         {
             auto& M = j->GetMaterial();
             M.Enable();
-            M.GetEffect().SetParameter("mv", Tmp);
+            M.GetEffect().SetModelMatrix(Tmp);
             j->Draw(RenderState::READY);
         }
 
@@ -212,8 +212,8 @@ bool zScene::Render(color4f_t Clear)
     }
 
     E.Enable();
-    E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-    E.SetParameter("proj", zRenderer::GetProjectionMatrix());
+    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+    E.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
     for (auto& i : m_extraGeometry)
     {
         i->Draw();
@@ -294,8 +294,8 @@ bool zScene::Render(color4f_t Clear)
     GL(glDisable(GL_DEPTH_TEST));
 
     // Make sure the right data is set.
-    E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-    E.SetParameter("proj", zRenderer::GetProjectionMatrix());
+    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+    E.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
 
     FS.Draw();
 

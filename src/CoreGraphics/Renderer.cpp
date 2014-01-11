@@ -22,8 +22,8 @@ bool zRenderer::Init(
     s_DefaultMaterial = new gfx::zMaterial(Assets);
     gfx::zEffect& E = s_DefaultMaterial->GetEffect();
     E.Enable();
-    E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
-    E.SetParameter("proj", s_ProjMatrix);
+    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+    E.SetProjectionMatrix(s_ProjMatrix);
     E.Disable();
 
     // Load a quad into the VAO.

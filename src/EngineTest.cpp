@@ -258,8 +258,8 @@ int main2(int argc, char* argv[])
         Sample.EnableTexture();
         DEffect.Enable();
 
-        DEffect.SetParameter("proj", zRenderer::GetProjectionMatrix());
-        DEffect.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        DEffect.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
+        DEffect.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
 
         RT.Clear();
         Vao.Draw();
@@ -267,14 +267,14 @@ int main2(int argc, char* argv[])
 
         RT.BindTexture();
         DEffect.Enable();
-        DEffect.SetParameter("proj", zRenderer::GetProjectionMatrix());
+        DEffect.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
         FS.Draw();
 
         Sample.Enable();
         math::matrix4x4_t MV = math::matrix4x4_t::CreateIdentityMatrix();
         MV.Translate(math::vector_t(400, 100));
-        Sample.GetEffect().SetParameter("proj", zRenderer::GetProjectionMatrix());
-        Sample.GetEffect().SetParameter("mv", MV);
+        Sample.GetEffect().SetProjectionMatrix(zRenderer::GetProjectionMatrix());
+        Sample.GetEffect().SetModelMatrix(MV);
         Vao.Draw();
         Sample.Disable();
 
@@ -313,8 +313,8 @@ int main2(int argc, char* argv[])
             MV.Shear(math::vector_t(angle += d, 0.0));
             MV.Translate(math::vector_t(300, 300));
 
-            DEffect.SetParameter("proj", zRenderer::GetProjectionMatrix());
-            DEffect.SetParameter("mv", MV);
+            DEffect.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
+            DEffect.SetModelMatrix(MV);
 
             Gr.Draw();
             Grass.Disable();

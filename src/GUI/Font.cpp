@@ -44,8 +44,8 @@ bool zFont::LoadFromFile(const string_t& filename)
         }
 
         mp_FontFx->Enable();
-        mp_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
-        mp_FontFx->SetParameter("mv",   math::matrix4x4_t::GetIdentityMatrix());
+        mp_FontFx->SetProjectionMatrix(gfxcore::zRenderer::GetProjectionMatrix());
+        mp_FontFx->SetModelMatrix(  math::matrix4x4_t::GetIdentityMatrix());
         mp_FontFx->Disable();
     }
 
@@ -285,7 +285,7 @@ bool zFont::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
     FBO.Bind();
 
     mp_FontFx->Enable();
-    mp_FontFx->SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
+    mp_FontFx->SetProjectionMatrix(gfxcore::zRenderer::GetProjectionMatrix());
 
     bool blend = gfxcore::zRenderer::BlendOperation(
         gfxcore::BlendFunc::IS_ENABLED);

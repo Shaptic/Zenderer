@@ -251,14 +251,14 @@ namespace gui
             if(parts.size() == 4)
             {
                 return std::find_if(c.begin(), c.end(), [](const char i) {
-                    return !(std::isdigit(i) || i == '.' || i == '-' || i == '+');
+                    return !(isdigit(i) || i == '.' || i == '-' || i == '+');
                 }) == c.end();
             }
 
             if(c.length() == 7 && c[0] == '#')
             {
                 return std::find_if(c.begin() + 1, c.end(), [](const char i) {
-                    return !(std::isdigit(i) || (std::toupper(i) >= 65 && std::toupper(i) <= 70));
+                    return !(isdigit(i) || (toupper(i) >= 65 && toupper(i) <= 70));
                 }) == c.end();
             }
 
