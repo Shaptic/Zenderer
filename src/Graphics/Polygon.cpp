@@ -202,8 +202,8 @@ bool zPolygon::Draw(const RenderState& state)
         m_Material.Enable();
 
         // All effects have these parameters in the vertex shader.
-        if(!Effect.SetParameter("mv", *mp_MVMatrix) ||
-           !Effect.SetParameter("proj", zRenderer::GetProjectionMatrix()))
+        if(!Effect.SetModelMatrix(*mp_MVMatrix) ||
+           !Effect.SetProjectionMatrix(zRenderer::GetProjectionMatrix()))
         {
             zRenderer::ResetMaterialState();
             return false;
