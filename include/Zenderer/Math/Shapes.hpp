@@ -144,10 +144,11 @@ namespace math
         tri_t 	 tri1, tri2;
         vector_t point;
         bool     collision;
+        bool     colinear;      // In line-vs-line, are we the same line?
         bool     edge_case;     // In line-vs-line, is it colliding
                                 // with an end-point?
 
-        cquery_t() : collision(false), edge_case(false) {}
+        cquery_t() : collision(false), colinear(false), edge_case(false) {}
     };
 
     /**
@@ -169,26 +170,6 @@ namespace math
     bool collides(const line_t& a, const line_t& b, cquery_t* q = nullptr);
 
     /**
-     * Finds orientation of a given set of points.
-     * @param   Triangle    A set of points forming a triangle.
-     * @return `true` if clockwise, `false` if counter-clockwise.
-     **/
-    bool orientation(const tri_t& Tri);
-
-    /**
-     * Tests if a point is contained with a triangle.
-     *  This algorithm uses a formula for Barycentric coordinates.
-     *
-     * @param   V   The point to test to see if it's in `T`
-     * @param   T   Test if this triangle contains `V`
-     *
-     * @return  `true` if `V` is within `T`, `false` otherwise.
-     *
-     * @see     http://stackoverflow.com/a/13301035
-     **/
-    bool triangle_test(const vector_t& V, const tri_t& T);
-
-    /**
      * Triangulates a set of vertices into triples, which form triangles.
      *
      * @param   Polygon     A list of vertices forming a simple polygon
@@ -202,7 +183,7 @@ namespace math
      *
      * @note    Algorithmic complexity: O(n^3)
      **/
-    std::vector<vector_t> triangulate(std::vector<vector_t> Polygon);
+    std::vector<vector_t> triangulate(const std::vector<vector_t>& Polygon);
 
     /**
      * Calculates the slope of a line.

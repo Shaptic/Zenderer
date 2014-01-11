@@ -168,12 +168,24 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
     // Co-linear. Check for overlap.
     if(compf(zxr, 0.0))
     {
-        return ((b[0].x - a[0].x < 0 != b[0].x - a[1].x < 0) ||
-                (b[0].y - a[0].y < 0 != b[0].y - a[1].y < 0));
+        bool ret = ((b[0].x - a[0].x < 0 != b[0].x - a[1].x < 0) ||
+                    (b[0].y - a[0].y < 0 != b[0].y - a[1].y < 0));
+
+        if(ret && q != nullptr)
+        {
+            q->collision = q->colinear = true;
+            q->point = a[0];
+        }
+
+        return ret;
     }
 
     real_t d = r.Cross2D(s);
-    if(compf(d, 0.0)) return false;     // Parallel lines.
+    if(compf(d, 0.0))   // Parallel lines.
+    {
+        if(q != nullptr) q->collision = false;
+        return false;
+    }
 
     real_t t = z.Cross2D(s) / d;
     real_t u = zxr / d;
@@ -183,140 +195,143 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
     {
         q->collision = collision;
         q->point = b[0] + (r * t);
-        q->edge_case = (t == 0 || t == 1 || u == 0 || u == 1);
+        q->edge_case = (compf(t, 0) || compf(t, 1) || compf(u, 0) || compf(u, 1));
     }
 
     return collision;
 }
 
-bool math::orientation(const tri_t& Tri)
+// Helper functions for triangulation algorithm.
+
+real_t area(const std::vector<math::vector_t>& contour)
 {
-    return (Tri[1].x - Tri[0].x) * (Tri[2].y - Tri[0].y) -
-           (Tri[2].x - Tri[0].x) * (Tri[1].y - Tri[0].y) > 0.0;
-}
+    size_t n = contour.size();
 
-bool math::triangle_test(const vector_t& V, const tri_t& T)
-{
-    real_t denom = (T[1].y - T[2].y) * (T[0].x - T[2].x)
-                 + (T[2].x - T[1].x) * (T[0].y - T[2].y);
-
-    // Avoid division by zero.
-    if(compf(denom, 0.0)) return false;
-    denom = 1.0 / denom;
-
-    real_t alpha = denom * ((T[1].y - T[2].y) * (V.x - T[2].x) +
-                            (T[2].x - T[1].x) * (V.y - T[2].y));
-    if(alpha < 0) return false;
-
-    real_t beta  = denom * ((T[2].y - T[0].y) * (V.x - T[2].x) +
-                            (T[0].x - T[2].x) * (V.y - T[2].y));
-
-    return (beta > 0 && alpha + beta >= 1);
-}
-
-std::vector<vector_t> math::triangulate(std::vector<vector_t> Polygon)
-{
-    if(Polygon.size() <= 3) return Polygon;
-
-    // Determine polygon's orientation via top-left-most vertex.
-    size_t index = 0;
-    vector_t left = Polygon[index];
-    for(size_t i = 0; i < Polygon.size(); ++i)
+    real_t A = 0.0f;
+    for(int p = n - 1, q = 0; q < n; p = q++)
     {
-        if(Polygon[i].x < left.x ||
-          (compf(Polygon[i].x, left.x) && Polygon[i].y < left.y))
-        {
-            index = i;
-            left = Polygon[i];
-        }
+        A += contour[p].x * contour[q].y - contour[q].x * contour[p].y;
     }
 
-    tri_t tri = {
-        Polygon[(index > 0) ? index - 1 : Polygon.size() - 1],
-        Polygon[index],
-        Polygon[(index + 1 < Polygon.size()) ? index + 1 : 0]
-    };
+    return A * 0.5f;
+}
 
-    bool ccw = orientation(tri);
+bool in_triangle(float Ax, float Ay, float Bx, float By,
+                 float Cx, float Cy, float Px, float Py)
 
-    std::vector<uint16_t> reflex;
-    std::vector<vector_t> triangles;
+{
+    float ax, ay, bx, by, cx, cy, apx, apy, bpx, bpy, cpx, cpy;
+    float cCROSSap, bCROSScp, aCROSSbp;
 
-    // We know there will be vertex_count - 2 triangles made.
-    triangles.reserve(Polygon.size() - 2);
+    ax = Cx - Bx;  ay = Cy - By;
+    bx = Ax - Cx;  by = Ay - Cy;
+    cx = Bx - Ax;  cy = By - Ay;
+    apx = Px - Ax;  apy = Py - Ay;
+    bpx = Px - Bx;  bpy = Py - By;
+    cpx = Px - Cx;  cpy = Py - Cy;
 
-    while(Polygon.size() >= 3)
+    aCROSSbp = ax*bpy - ay*bpx;
+    cCROSSap = cx*apy - cy*apx;
+    bCROSScp = bx*cpy - by*cpx;
+
+    return ((aCROSSbp >= 0.0f) && (bCROSScp >= 0.0f) && (cCROSSap >= 0.0f));
+};
+
+bool clip(const std::vector<math::vector_t>& contour,
+          int u, int v, int w, int n, int* V)
+{
+    int p;
+    float Ax, Ay, Bx, By, Cx, Cy, Px, Py;
+
+    Ax = contour[V[u]].x;
+    Ay = contour[V[u]].y;
+
+    Bx = contour[V[v]].x;
+    By = contour[V[v]].y;
+
+    Cx = contour[V[w]].x;
+    Cy = contour[V[w]].y;
+
+    if(0.000001 > (((Bx - Ax) * (Cy - Ay)) - ((By - Ay) * (Cx - Ax))))
+        return false;
+
+    for(p = 0; p<n; p++)
     {
-        reflex.clear();
-        int16_t eartip = -1, index = -1;
-        tri_t tri;
+        if((p == u) || (p == v) || (p == w)) continue;
+        Px = contour[V[p]].x;
+        Py = contour[V[p]].y;
 
-        for(auto& i : Polygon)
-        {
-            ++index;
-            if(eartip >= 0) break;
-
-            uint16_t p = (index > 0) ? index - 1 : Polygon.size() - 1;
-            uint16_t n = (index + 1 < Polygon.size()) ? index + 1 : 0;
-
-            tri[0] = Polygon[p]; tri[1] = i; tri[2] = Polygon[n];
-
-            if(orientation(tri) != ccw)
-            {
-                reflex.emplace_back(index);
-                continue;
-            }
-
-            bool ear = true;
-            for(auto& j : reflex)
-            {
-                if(j == p || j == n) continue;
-                if(triangle_test(Polygon[j], tri))
-                {
-                    ear = false;
-                    break;
-                }
-            }
-
-            if(ear)
-            {
-                auto j = Polygon.begin() + index + 1,
-                     k = Polygon.end();
-
-                for( ; j != k; ++j)
-                {
-                    auto& v = *j;
-                    if(&v == &Polygon[p] ||
-                       &v == &Polygon[n] ||
-                       &v == &Polygon[index]) continue;
-
-                    if(triangle_test(v, tri))
-                    {
-                        ear = false;
-                        break;
-                    }
-                }
-            }
-
-            if(ear) eartip = index;
-        }
-
-        if(eartip < 0) break;
-
-        // Create the triangulated piece.
-        for(const auto& i : tri) triangles.push_back(std::move(i));
-
-        // Clip the ear from the polygon.
-        Polygon.erase(std::find(Polygon.begin(), Polygon.end(), tri[1]));
+        if(in_triangle(Ax, Ay, Bx, By, Cx, Cy, Px, Py))
+            return false;
     }
 
-    return triangles;
+    return true;
+}
+
+std::vector<math::vector_t> math::triangulate(
+    const std::vector<math::vector_t>& contour)
+{
+    std::vector<math::vector_t> result;
+
+    /* allocate and initialize list of Vertices in polygon */
+
+    int n = contour.size();
+    if(n < 3) return contour;
+
+    int *V = new int[n];
+
+    /* we want a counter-clockwise polygon in V */
+
+    if(0.0f < area(contour))
+        for(int v = 0; v < n; v++) V[v] = v;
+    else
+        for(int v = 0; v < n; v++) V[v] = (n - 1) - v;
+
+    int nv = n;
+
+    /*  remove nv-2 Vertices, creating 1 triangle every time */
+    int count = 2 * nv;
+
+    for(int m = 0, v = nv - 1; nv > 2;)
+    {
+        /* if we loop, it is probably a non-simple polygon */
+        ZEN_ASSERTM(!(0 >= (count--)), "non-simple polygons unsupported");
+
+        /* three consecutive vertices in current polygon, <u,v,w> */
+        int u = v; if(nv <= u) u = 0;     /* previous */
+        v = u + 1; if(nv <= v) v = 0;     /* new v    */
+        int w = v + 1; if(nv <= w) w = 0;     /* next     */
+
+        if(clip(contour, u, v, w, nv, V))
+        {
+            int a, b, c, s, t;
+
+            /* true names of the vertices */
+            a = V[u]; b = V[v]; c = V[w];
+
+            /* output Triangle */
+            result.push_back(contour[a]);
+            result.push_back(contour[b]);
+            result.push_back(contour[c]);
+
+            m++;
+
+            /* remove v from remaining polygon */
+            for(s = v, t = v + 1; t<nv; s++, t++) V[s] = V[t]; nv--;
+
+            /* reset error detection counter */
+            count = 2 * nv;
+        }
+    }
+    
+    delete V;
+    return result;
 }
 
 real_t math::slope(const math::line_t& line)
 {
-    if(compf(line[1].x, line[0].x))
-        return std::numeric_limits<float>::quiet_NaN(); 
-    
+    if (compf(line[1].x, line[0].x))
+        return std::numeric_limits<float>::quiet_NaN();
+
     return (line[1].y - line[0].y) / (line[1].x - line[0].x);
 }

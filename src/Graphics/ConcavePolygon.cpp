@@ -21,11 +21,11 @@ zConcavePolygon::zConcavePolygon(asset::zAssetManager& Assets,
 
 zConcavePolygon::~zConcavePolygon() {}
 
-gfx::zPolygon& zConcavePolygon::Create(const bool placeholder)
+gfx::zPolygon& zConcavePolygon::Create(const bool do_triangulation)
 {
     if(m_Verts.size() <= 2) return (*this);
 
-    m_Tris = placeholder ? math::triangulate(m_Verts) : std::move(m_Verts);
+    m_Tris = do_triangulation ? math::triangulate(m_Verts) : std::move(m_Verts);
     std::vector<math::vector_t> verts;
 
     // We minimize the vertices we offload by only storing those
