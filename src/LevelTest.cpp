@@ -578,8 +578,8 @@ int main_paint()
 
         const gfx::zEffect& E = gfxcore::zRenderer::GetDefaultEffect();
         E.Enable();
-        E.SetParameter("proj", gfxcore::zRenderer::GetProjectionMatrix());
-        E.SetParameter("mv", math::matrix4x4_t::GetIdentityMatrix());
+        E.SetProjectionMatrix(gfxcore::zRenderer::GetProjectionMatrix());
+        E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
         One.Bind();
 
         for (auto& i : allInstances)
@@ -731,7 +731,7 @@ int main_shadows()
     zQuad Light(Assets, 32, 32);
     Light.SetColor(color4f_t()).Create().Move(LPos);
 
-    /*zConcavePolygon Caster(Assets, 16);
+    zConcavePolygon Caster(Assets, 16);
     Caster.AddVertex(0, 0).AddVertex(111, 39).AddVertex(161, 40)
         .AddVertex(217, 53).AddVertex(274, 53).AddVertex(323, 55)
         .AddVertex(497, -27).AddVertex(583, -23).AddVertex(589, -4)
@@ -745,14 +745,13 @@ int main_shadows()
         .AddVertex(1332, 69).AddVertex(1505, 72).AddVertex(1547, 31)
         .AddVertex(1577, 28).AddVertex(1572, 164).AddVertex(959, 198)
         .AddVertex(325, 205).AddVertex(-25, 208).AddVertex(-21, 24)
-        .AddVertex(-4, 3);
+        .AddVertex(-4, 3)
+        .SetColor(color4f_t(1, 0, 0)).Create(true);
     Caster.Move(0, 350);
-    Caster.SetColor(color4f_t(1, 0, 0));
-    Caster.Create();*/
-    zQuad Caster(Assets, Window.GetWidth() / 4, 64);
-    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
-          .Move(Window.GetWidth() - 300,
-                Light.GetPosition().y);
+
+    //zQuad Caster(Assets, Window.GetWidth() / 4, 64);
+    //Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
+    //      .Move(100, 300);
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
@@ -814,7 +813,7 @@ int main_shadows()
                 real_t m = math::slope(math::line_t { { LPos, i } });
                 math::vector_t ext = i;
 
-                if(math::compf(i.x, LPos.x) || std::isnan(m))
+                if(std::isnan(m))
                 {
                     ext.y += (ext.y > LPos.y) ? LENGTH * 2 : LENGTH * -2;
                 }
@@ -836,7 +835,7 @@ int main_shadows()
 
         std::function<bool(const math::vector_t&, const math::vector_t&)>
             alt_sort = [&LPos](const math::vector_t& a,
-                                const math::vector_t& b) {
+                               const math::vector_t& b) {
             const math::vector_t& l = LPos;
             real_t theta = std::atan2(l.y - a.y, l.x - a.x);
             real_t phi = std::atan2(l.y - b.y, l.x - b.x);
@@ -854,7 +853,7 @@ int main_shadows()
 
         std::function<bool(const math::vector_t&, const math::vector_t&)>
             reg_sort = [&LPos](const math::vector_t& a,
-                                const math::vector_t& b) {
+                               const math::vector_t& b) {
             const math::vector_t& l = LPos;
             real_t theta = std::atan2(l.y - a.y, l.x - a.x);
             real_t phi = std::atan2(l.y - b.y, l.x - b.x);
@@ -869,10 +868,10 @@ int main_shadows()
         };
 
         std::sort(edges.begin(), edges.end(),
-                  (LPos.y > Caster.GetY() &&
-                   LPos.y < Caster.GetY() + Caster.GetHeight() &&
+                  (LPos.y >= Caster.GetY() &&
+                   LPos.y <= Caster.GetY() + Caster.GetHeight() && 
                    LPos.x < Caster.GetX()) ?
-                  alt_sort : reg_sort);
+                   alt_sort : reg_sort);
 
         for(size_t index = 1; index < edges.size(); index += 2)
         {
@@ -881,7 +880,7 @@ int main_shadows()
             std::vector<math::vector_t> collisions;
             math::line_t ray { { LPos, e } };
 
-            for(size_t i = 0; i < tris.size(); i += 3)
+            for(size_t i = 0; i < tris.size() - 2; i += 3)
             {
                 math::line_t one { { tris[i],       tris[i + 1] } };
                 math::line_t two { { tris[i + 1],   tris[i + 2] } };
@@ -909,10 +908,10 @@ int main_shadows()
                 {
                     collisions.push_back(std::move(q2.point));
                     gfx::zPolygon P(Assets, 5);
-                    P.AddVertex(q1.point);
+                    P.AddVertex(q2.point);
                     for(size_t i = 0; i < 36; ++i)
                     {
-                        P.AddVertex(q1.point +
+                        P.AddVertex(q2.point +
                                     math::vector_t(
                                         std::cos(math::rad(i / 360)),
                                         std::sin(math::rad(i / 360))
@@ -926,10 +925,10 @@ int main_shadows()
                 {
                     collisions.push_back(std::move(q3.point));
                     gfx::zPolygon P(Assets, 5);
-                    P.AddVertex(q1.point);
+                    P.AddVertex(q3.point);
                     for(size_t i = 0; i < 36; ++i)
                     {
-                        P.AddVertex(q1.point +
+                        P.AddVertex(q3.point +
                                     math::vector_t(
                                         std::cos(math::rad(i / 360)),
                                         std::sin(math::rad(i / 360))
@@ -966,22 +965,19 @@ int main_shadows()
                     angles[ta] = 1;
                     return false;
                 }
-                else
-                {
-                    ++(it->second);
-                    return (it->second) >= 3;
-                }
+
+                return ++(it->second) >= 3;
             }
 
             return false;
-        });*/
-
+        });
+        */
         for(auto& i : edges)
         {
-            std::cout << i << std::endl;
+            //std::cout << i << std::endl;
         }
 
-        std::cout << std::endl;
+        //std::cout << std::endl;
 
         gfx::zConcavePolygon ShadowGeo(Assets, edges.size() * 3);
         for(size_t i = 0; i < edges.size() - 2; ++i)
@@ -991,10 +987,10 @@ int main_shadows()
             ShadowGeo.AddVertex(edges[i + 2]);
         }
 
-        ShadowMap.Bind();
+        //ShadowMap.Bind();
         ShadowGeo.SetColor(1, 1, 1, 1).Create(false).Draw();
-        ShadowMap.Unbind();
-        ShadowGeo.Draw();
+        //ShadowMap.Unbind();
+        //ShadowGeo.Draw();
 
         obj::zEntity MousePos(Assets);
         std::stringstream ss;
