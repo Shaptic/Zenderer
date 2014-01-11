@@ -117,9 +117,6 @@ namespace gfx
          *  The behavior of this method is identical to that of SetParameter(),
          *  but it modifies a matrix instead of a primitive type
          *  (`int`, `float`, ...)
-         *  This method is set as "const," due to the fact that it doesn't
-         *  change anything about the way the effect functions (currently),
-         *  and is merely there for instancing and projection purposes.
          *
          * @param   name    Name of matrix parameter
          * @param   Matrix  Matrix value to send to effect
@@ -130,7 +127,23 @@ namespace gfx
          * @overload
          **/
         bool SetParameter(const string_t& name,
-                          const math::matrix4x4_t& Matrix) const;
+                          const math::matrix4x4_t& Matrix);
+
+        /**
+         * Updates the projection matrix for the effect.
+         *  This method is set as "const," due to the fact that it doesn't
+         *  change anything about the way the effect functions(currently),
+         *  and is merely there for instancing and projection purposes.
+         *
+         * @param   Projection  New project matrix value
+         **/
+        bool SetProjectionMatrix(const math::matrix4x4_t& Projection) const;
+
+        /**
+         * Updates the model-view matrix (misnomer) for the effect.
+         * @copydoc SetProjectionMatrix()
+         **/
+        bool SetModelMatrix(const math::matrix4x4_t& ModelView) const;
 
         inline bool Enable() const;     ///< A more user-friendly alias for binding.
         inline bool Disable() const;    ///< A more user-friendly alias for unbinding.
@@ -145,6 +158,7 @@ namespace gfx
     private:
         // For the material to be able to load custom shaders.
         bool LoadCustomEffect(const string_t& vs, const string_t& fs);
+        bool SetMatrix(GLint loc, const math::matrix4x4_t& matrix) const;
 
         inline bool Bind() const;
         inline bool Unbind() const;
