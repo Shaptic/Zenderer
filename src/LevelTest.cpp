@@ -601,8 +601,8 @@ int main_paint()
 #include "Zenderer/GUI/EntryField.hpp"
 
 // Super simple quad test.
-//#define TEST_SCENE      // comment this to test raw primitives
-int main()
+#define TEST_SCENE      // comment this to test raw primitives
+int main_basic()
 {
     Init();
 
@@ -691,7 +691,7 @@ int main_gui()
     cfg = gui::zMenu::LoadThemeFromFile("Zenderer/themes/basetheme.gui");
     //cfg.button_normcol = color4f_t();
     ZEN_ASSERT(cfg.valid);
-    gui::zMenu StartMenu(Window, Assets, cfg);/*
+    gui::zMenu StartMenu(Window, Assets, cfg);
     StartMenu.SetOverlayMode(true);
     StartMenu.AddEntryField("Brightness: ", math::vector_t(10, 0),
                             [&Light](const string_t& t) {
@@ -728,7 +728,7 @@ int main_gui()
         }
     });
 
-    StartMenu.AddButton("I am a highlighted button AMA", [](size_t){});*/
+    StartMenu.AddButton("I am a highlighted button AMA", [](size_t){});
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
     bool quit = false;
@@ -761,7 +761,7 @@ struct ray_t
     bool edge;
 };
 
-int main_shadows()
+int main()
 {
     using namespace gfx;
     using gfxcore::zRenderer;
@@ -783,6 +783,7 @@ int main_shadows()
     zQuad Light(Assets, 32, 32);
     Light.SetColor(color4f_t()).Create().Move(LPos);
 
+    /*
     zConcavePolygon Caster(Assets, 16);
     Caster.AddVertex(0, 0).AddVertex(111, 39).AddVertex(161, 40)
         .AddVertex(217, 53).AddVertex(274, 53).AddVertex(323, 55)
@@ -800,10 +801,10 @@ int main_shadows()
         .AddVertex(-4, 3)
         .SetColor(color4f_t(1, 0, 0)).Create(true);
     Caster.Move(0, 350);
-
-    //zQuad Caster(Assets, Window.GetWidth() / 4, 64);
-    //Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
-    //      .Move(100, 300);
+    */
+    zQuad Caster(Assets, 64, 16);
+    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
+          .Move(100, 300);
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
@@ -812,9 +813,65 @@ int main_shadows()
                                                   nullptr, &s);
     Font.SetColor(1, 1, 0);
 
-    gfx::zRenderTarget ShadowMap(Window.GetWidth(), Window.GetHeight());
-    ZEN_ASSERT(ShadowMap.Init());
-    ShadowMap.Unbind();
+    zRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
+
+    // Create FBO with all occluder geometry.
+    gfx::zRenderTarget OccluderFBO(512, 512);
+    OccluderFBO.Init();
+    
+    // Draw everything onto the occluder map.
+    OccluderFBO.Bind();
+    Caster.Move(200, 200);
+    Caster.Draw();
+    OccluderFBO.Unbind();
+
+    // Create 1D shadow map FBO.
+    gfx::zRenderTarget Shadow1D(OccluderFBO.GetWidth(), 1);
+    Shadow1D.Init();
+
+    // Create material to store the texture from this shadow map.
+    gfx::zMaterial Shadow1DTexture(Assets);
+
+    // Draw occlusion texture to the shadow FBO and generate it.
+    
+    // First, we need to create a quad that holds the occlusion texture and
+    // uses the shadow map generating shader.
+    
+    gfx::zMaterial OccluderMaterial(Assets);
+    OccluderMaterial.LoadTextureFromHandle(OccluderFBO.GetTexture());
+    OccluderMaterial.LoadEffect(EffectType::SHADOW_MAP_GENERATOR);
+
+    gfx::zEffect& Shadow1DGen = OccluderMaterial.GetEffect();
+    real_t* vals = new real_t[2] {
+        1.f * OccluderFBO.GetWidth(),
+        1.f * OccluderFBO.GetHeight()
+    };
+    Shadow1DGen.Enable();
+    Shadow1DGen.SetParameter("resolution", vals, 2);
+    Shadow1DGen.Disable();
+    delete[] vals;
+
+    gfx::zQuad Shadow1DQuad(Assets, OccluderFBO.GetWidth(), 1);
+    Shadow1DQuad.AttachMaterial(OccluderMaterial);
+    Shadow1DQuad.Create();
+
+    // Draw the occlusion texture to the shadow FBO.
+
+    Shadow1D.Bind();
+    Shadow1DQuad.Draw();
+    Shadow1D.Unbind();
+
+    // Now Shadow1D contains a texture with valid 1D shadow map info.
+
+    // Create a material to draw lighting, using the 1D shadow map.
+    gfx::zMaterial FinalMaterial(Assets);
+    FinalMaterial.LoadTextureFromHandle(Shadow1D.GetTexture());
+    FinalMaterial.LoadEffect(EffectType::SHADED_LIGHT_RENDERER);
+
+    // Create our quad that will hold this texture.
+    gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
+    Final.AttachMaterial(FinalMaterial);
+    Final.Create();
 
     while(!quit)
     {
@@ -846,203 +903,7 @@ int main_shadows()
         }
 
         Window.Clear();
-
-        //Light.Move(evt::GetMousePosition());
-        Caster.Move(evt::GetMousePosition());
-        LPos = Light.GetPosition();
-        Caster.Draw();
-        Light.Draw();
-
-        auto& tris = Caster.GetTriangulation();
-        std::vector<math::vector_t> edges;
-
-        for(const auto& i : tris)
-        {
-            if(std::find(edges.begin(), edges.end(), i) == edges.end())
-            {
-                const int LENGTH = 500;
-
-                real_t m = math::slope(math::line_t { { LPos, i } });
-                math::vector_t ext = i;
-
-                if(std::isnan(m))
-                {
-                    ext.y += (ext.y > LPos.y) ? LENGTH * 2 : LENGTH * -2;
-                }
-                else if(i.x > LPos.x)
-                {
-                    ext.x += LENGTH;
-                    ext.y += LENGTH * m;
-                }
-                else if(i.x < LPos.x)
-                {
-                    ext.x -= LENGTH;
-                    ext.y -= LENGTH * m;
-                }
-
-                edges.push_back(i);
-                edges.push_back(ext);
-            }
-        }
-
-        std::function<bool(const math::vector_t&, const math::vector_t&)>
-            alt_sort = [&LPos](const math::vector_t& a,
-                               const math::vector_t& b) {
-            const math::vector_t& l = LPos;
-            real_t theta = std::atan2(l.y - a.y, l.x - a.x);
-            real_t phi = std::atan2(l.y - b.y, l.x - b.x);
-
-            if(math::compf(theta, phi))
-            {
-                return math::distance(l, a, false) <
-                       math::distance(l, b, false);
-            }
-
-            else if(theta < 0 != phi < 0) return theta > 0;
-
-            return theta < phi;
-        };
-
-        std::function<bool(const math::vector_t&, const math::vector_t&)>
-            reg_sort = [&LPos](const math::vector_t& a,
-                               const math::vector_t& b) {
-            const math::vector_t& l = LPos;
-            real_t theta = std::atan2(l.y - a.y, l.x - a.x);
-            real_t phi = std::atan2(l.y - b.y, l.x - b.x);
-
-            if(math::compf(theta, phi))
-            {
-                return math::distance(l, a, false) <
-                       math::distance(l, b, false);
-            }
-
-            return theta < phi;
-        };
-
-        std::sort(edges.begin(), edges.end(),
-                  (LPos.y >= Caster.GetY() &&
-                   LPos.y <= Caster.GetY() + Caster.GetHeight() && 
-                   LPos.x < Caster.GetX()) ?
-                   alt_sort : reg_sort);
-
-        for(size_t index = 1; index < edges.size(); index += 2)
-        {
-            auto& e = edges[index];
-
-            std::vector<math::vector_t> collisions;
-            math::line_t ray { { LPos, e } };
-
-            for(size_t i = 0; i < tris.size() - 2; i += 3)
-            {
-                math::line_t one { { tris[i],       tris[i + 1] } };
-                math::line_t two { { tris[i + 1],   tris[i + 2] } };
-                math::line_t thr { { tris[i],       tris[i + 2] } };
-
-                math::cquery_t q1, q2, q3;
-                if(math::collides(ray, one, &q1))
-                {
-                    collisions.push_back(std::move(q1.point));
-                    gfx::zPolygon P(Assets, 5);
-                    P.AddVertex(q1.point);
-                    for(size_t i = 0; i < 36; ++i)
-                    {
-                        P.AddVertex(q1.point +
-                                    math::vector_t(
-                                        std::cos(math::rad(i / 360)),
-                                        std::sin(math::rad(i / 360))
-                                    ) * 10);
-                    }
-
-                    P.SetColor(0, 1, 0, 1).Create(false).Draw();
-                }
-
-                if(math::collides(ray, two, &q2))
-                {
-                    collisions.push_back(std::move(q2.point));
-                    gfx::zPolygon P(Assets, 5);
-                    P.AddVertex(q2.point);
-                    for(size_t i = 0; i < 36; ++i)
-                    {
-                        P.AddVertex(q2.point +
-                                    math::vector_t(
-                                        std::cos(math::rad(i / 360)),
-                                        std::sin(math::rad(i / 360))
-                                    ) * 10);
-                    }
-
-                    P.SetColor(0, 1, 0, 1).Create(false).Draw();
-                }
-
-                if(math::collides(ray, thr, &q3))
-                {
-                    collisions.push_back(std::move(q3.point));
-                    gfx::zPolygon P(Assets, 5);
-                    P.AddVertex(q3.point);
-                    for(size_t i = 0; i < 36; ++i)
-                    {
-                        P.AddVertex(q3.point +
-                                    math::vector_t(
-                                        std::cos(math::rad(i / 360)),
-                                        std::sin(math::rad(i / 360))
-                                    ) * 10);
-                    }
-
-                    P.SetColor(0, 1, 0, 1).Create(false).Draw();
-                }
-            }
-
-            math::vector_t& comp = edges[index - 1];
-            for(size_t i = 0; i < collisions.size(); ++i)
-            {
-                if(math::distance(LPos, collisions[i], false) >
-                   math::distance(LPos, comp, false))
-                {
-                    comp = collisions[i];
-                }
-            }
-        }
-        /*
-        std::map<real_t, int> angles;
-        std::unique(edges.begin(), edges.end(),
-                    [&LPos, &angles](const math::vector_t& a,
-                                     const math::vector_t& b) {
-            real_t ta = std::atan2(LPos.y - a.y, LPos.x - a.x);
-            real_t tb = std::atan2(LPos.y - b.y, LPos.x - b.x);
-
-            if(math::compf(ta, tb))
-            {
-                auto it = angles.find(ta);
-                if(it == angles.end())
-                {
-                    angles[ta] = 1;
-                    return false;
-                }
-
-                return ++(it->second) >= 3;
-            }
-
-            return false;
-        });
-        */
-        for(auto& i : edges)
-        {
-            //std::cout << i << std::endl;
-        }
-
-        //std::cout << std::endl;
-
-        gfx::zConcavePolygon ShadowGeo(Assets, edges.size() * 3);
-        for(size_t i = 0; i < edges.size() - 2; ++i)
-        {
-            ShadowGeo.AddVertex(edges[i]);
-            ShadowGeo.AddVertex(edges[i + 1]);
-            ShadowGeo.AddVertex(edges[i + 2]);
-        }
-
-        //ShadowMap.Bind();
-        ShadowGeo.SetColor(1, 1, 1, 1).Create(false).Draw();
-        //ShadowMap.Unbind();
-        //ShadowGeo.Draw();
+        Final.Draw();
 
         obj::zEntity MousePos(Assets);
         std::stringstream ss;
@@ -1051,319 +912,6 @@ int main_shadows()
         Font.Render(MousePos, ss.str());
         MousePos.Move(evt::GetMousePosition());
         MousePos.Draw();
-
-        /*
-        std::vector<ray_t> rays;
-        zConcavePolygon ShadowMap(Assets);
-
-        auto& tris = Caster.GetTriangulation();
-
-        // Cast a ray from the light to each individual edge on the
-        // collidable objects. If the ray collides with more than one edge,
-        // discard it. Otherwise, extend it out for an arbitrary amount.
-        /*
-        for(auto& edge : tris)
-        {
-            std::vector<math::vector_t> collisions;
-            math::line_t ray { { LPos, edge } };
-
-            if(std::find(rays.begin(), rays.end(), edge) != rays.end())
-                continue;
-
-            for(size_t i = 0; i < tris.size(); i += 3)
-            {
-                math::line_t one { { tris[i],       tris[i + 1] } };
-                math::line_t two { { tris[i + 1],   tris[i + 2] } };
-                math::line_t thr { { tris[i],       tris[i + 2] } };
-
-                math::cquery_t q1, q2, q3;
-                if(math::collides(ray, one, &q1) &&
-                   std::find(collisions.begin(), collisions.end(),
-                             q1.point) == collisions.end())
-                {
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(q1.point);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(q1.point.x + 5 * std::cos(math::rad(i / 360)),
-                                            q1.point.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    Collision.Create().Draw();
-                    collisions.push_back(std::move(q1.point));
-                }
-
-                if(math::collides(ray, two, &q2) &&
-                   std::find(collisions.begin(), collisions.end(),
-                             q2.point) == collisions.end())
-                {
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(q2.point);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(q2.point.x + 5 * std::cos(math::rad(i / 360)),
-                                            q2.point.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    Collision.Create().Draw();
-                    collisions.push_back(std::move(q2.point));
-                }
-
-                if(math::collides(ray, thr, &q3) &&
-                   std::find(collisions.begin(), collisions.end(),
-                             q3.point) == collisions.end())
-                {
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(q3.point);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(q3.point.x + 5 * std::cos(math::rad(i / 360)),
-                                            q3.point.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    Collision.Create().Draw();
-                    collisions.push_back(std::move(q3.point));
-                }
-            }
-
-            real_t m = math::slope(ray);
-            if(collisions.size() <= 1 || std::isnan(m))
-            {
-                rays.push_back(edge);
-                auto tmp = edge;
-
-                int factor = LPos.x > edge.x ? -1000 : 1000;
-
-                if(std::isnan(m))
-                {
-                    m = LPos.y > edge.y ? -1000 : 1000;;
-                    factor = 1;
-                }
-
-                ray[1].x += factor;
-                ray[1].y += factor * m;
-
-                rays.push_back(ray[1]);
-                //rays.push_back(tmp);
-            }
-        }
-        *
-        rays.reserve(tris.size() + 4);
-        for(auto& i : tris)
-        {
-            bool exists = false;
-            for(auto& j : rays)
-            {
-                if(j.pos == i)
-                {
-                    exists = true;
-                    break;
-                }
-            }
-            if(!exists) rays.push_back(ray_t { i, true });
-        }
-
-        rays.push_back(ray_t { math::vector_t(0, 0), false });
-        rays.push_back(ray_t { math::vector_t(Window.GetWidth(), 0), false });
-        rays.push_back(ray_t { math::vector_t(Window.GetWidth(), Window.GetHeight()), false });
-        rays.push_back(ray_t { math::vector_t(0, Window.GetHeight()), false });
-
-        // Cast a ray from the light to each individual edge on the
-        // collidable objects. If the ray collides with more than one edge,
-        // discard it. Otherwise, extend it out for an arbitrary amount.
-        auto it = rays.begin();
-        //std::advance(it, rays.size() - 4);
-        for( ; it != rays.end(); /* no third /)
-        {
-            const auto& edge = (*it).pos;
-            std::vector<math::vector_t> collisions;
-            math::line_t ray { { LPos, edge } };
-
-            for(size_t i = 0; i < tris.size(); i += 3)
-            {
-                math::line_t one { { tris[i],       tris[i + 1] } };
-                math::line_t two { { tris[i + 1],   tris[i + 2] } };
-                math::line_t thr { { tris[i],       tris[i + 2] } };
-
-                math::cquery_t q1, q2, q3;
-                if(math::collides(ray, one, &q1) &&
-                   std::find(collisions.begin(), collisions.end(),
-                             q1.point) == collisions.end())
-                {
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(q1.point);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(q1.point.x + 5 * std::cos(math::rad(i / 360)),
-                                            q1.point.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    Collision.Create().Draw();
-                    collisions.push_back(std::move(q1.point));
-                }
-
-                if(math::collides(ray, two, &q2) &&
-                   std::find(collisions.begin(), collisions.end(),
-                             q2.point) == collisions.end())
-                {
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(q2.point);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(q2.point.x + 5 * std::cos(math::rad(i / 360)),
-                                            q2.point.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    Collision.Create().Draw();
-                    collisions.push_back(std::move(q2.point));
-                }
-
-                if(math::collides(ray, thr, &q3) &&
-                   std::find(collisions.begin(), collisions.end(),
-                             q3.point) == collisions.end())
-                {
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(q3.point);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(q3.point.x + 5 * std::cos(math::rad(i / 360)),
-                                            q3.point.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    Collision.Create().Draw();
-                    collisions.push_back(std::move(q3.point));
-                }
-            }
-
-            if(collisions.size() > 1)
-            {
-                it = rays.erase(it);
-            }
-            else
-            {
-                ++it;
-            }
-        }
-        std::unique(rays.begin(), rays.end(),
-                    [](const ray_t& a, const ray_t& b) {
-            return a.pos == b.pos;
-        });
-        std::sort(rays.begin(), rays.end(),
-                  [&LPos](const ray_t& ra,
-                          const ray_t& rb) {
-            const auto& a = ra.pos;
-            const auto& b = rb.pos;
-            const math::vector_t& l = LPos;
-            real_t theta = std::atan2(l.y - a.y, l.x - a.x);
-            real_t phi   = std::atan2(l.y - b.y, l.x - b.x);
-
-            if(math::compf(theta, phi))
-            {
-                return a.x < LPos.x ?
-                    math::distance(l, a, false) >
-                    math::distance(l, b, false) :
-                    math::distance(l, a, false) <
-                    math::distance(l, b, false);
-            }
-            else if(theta < 0 == phi < 0) return theta < phi;
-            return theta < phi;
-        });
-
-        for(auto& i : rays)
-        {
-            std::cout << math::deg(std::atan2(LPos.y - i.pos.y, LPos.x - i.pos.x)) << std::endl;
-            std::cout << "End: " << i.pos << std::endl;
-        }
-        std::cout << std::endl;
-
-        for(size_t i = 0; i < rays.size() - 1; ++i)
-        {
-            ShadowMap.AddVertex(LPos);
-            ShadowMap.AddVertex(rays[i].pos);
-            ShadowMap.AddVertex(rays[i + 1].pos);
-        }
-        ShadowMap.AddVertex(LPos);
-        ShadowMap.AddVertex(rays.front().pos);
-        ShadowMap.AddVertex(rays.back().pos);
-
-        ShadowMap.SetColor(0, 1, 0, 0.3).Create(false).Draw();
-
-        ////////////////////////////////////////////////////////////////////////
-
-        //LPos = Light.GetPosition();
-        //Light.Move(evt::GetMousePosition());
-        //Caster.Move(evt::GetMousePosition());
-        Caster.Draw();
-        Light.Draw();
-
-        std::vector<real_t> angles;
-        zPolygon ShadowMap(Assets);
-
-        auto& tris = Caster.GetTriangulation();
-        angles.reserve(4 + tris.size());
-
-        for(auto& edge : tris)
-        {
-            angles.push_back(std::atan2(edge.y - LPos.y, edge.x - LPos.x));
-        }
-
-        angles.push_back(std::atan2(    - LPos.y,     - LPos.x));
-        angles.push_back(std::atan2(600 - LPos.y,     - LPos.x));
-        angles.push_back(std::atan2(600 - LPos.y, 800 - LPos.x));
-        angles.push_back(std::atan2(    - LPos.y, 800 - LPos.x));
-
-        for(auto& d : angles) d = math::deg(d);
-        std::unique(angles.begin(), angles.end());
-        std::sort(angles.begin(), angles.end(),
-                  [](const real_t a, const real_t b) {
-            if(a < 0 != b < 0) return a > b;
-            return a < b;
-        });
-
-        real_t maxlen = 400;
-
-        math::vector_t first;
-        ShadowMap.AddVertex(LPos);
-        for(auto& d : angles)
-        {
-            math::line_t line { { LPos,
-                LPos + math::vector_t(maxlen * std::cos(math::rad(d)),
-                                      maxlen * std::sin(math::rad(d)))
-            } };
-
-            math::vector_t end = line[1]; end.z = 1;
-            for(size_t i = 0; i < tris.size(); i += 3)
-            {
-                math::cquery_t query;
-                math::tri_t tri { { tris[i], tris[i + 1], tris[i + 2] } };
-                query.collision = math::collides(line, tri, &query);
-                if(query.collision &&
-                   math::distance(LPos, query.point, true) <
-                   math::distance(LPos, end, true))
-                {
-                    end = query.point;
-                    zPolygon Collision(Assets, 5);
-                    Collision.AddVertex(end);
-                    for(size_t i = 0; i < 5; ++i)
-                    {
-                        Collision.AddVertex(end.x + 5 * std::cos(math::rad(i / 360)),
-                                            end.y + 5 * std::sin(math::rad(i / 360)));
-                    }
-                    Collision.SetColor(color4f_t(0, 0, 1, 1));
-                    if(query.edge_case) Collision.SetColor(color4f_t(0, 1, 1, 1));
-                    Collision.Create().Draw();
-                }
-            }
-
-            ShadowMap.AddVertex(end);
-            if(d == angles.front()) first = end;
-        }
-
-        ShadowMap.AddVertex(first);
-        ShadowMap.SetColor(color4f_t(0, 1, 0, 0.3)).Create(false).Draw();
-
-        //////////////////////////////////////////////////////////////////////*/
-
         Window.Update();
     }
 
