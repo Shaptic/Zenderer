@@ -600,7 +600,59 @@ int main_paint()
 // Shader toy.
 #include "Zenderer/GUI/EntryField.hpp"
 
+// Super simple quad test.
+//#define TEST_SCENE      // comment this to test raw primitives
 int main()
+{
+    Init();
+
+    asset::zAssetManager Assets;
+    gfx::zWindow Window(800, 600, "Basic Test", Assets, false);
+    Window.Init();
+
+#ifdef TEST_SCENE
+    gfx::zScene Scene(Window.GetWidth(), Window.GetHeight(), Assets);
+    Scene.Init();
+    obj::zEntity& E = Scene.AddEntity();
+#else
+    obj::zEntity E(Assets);
+#endif 
+
+    gfx::zQuad Quad(Assets, 64, 64);
+    Quad.SetColor(1.0, 0, 0).Create();
+    E.AddPrimitive(std::move(Quad));
+
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
+    evt::event_t Evt;
+    bool quit = false;
+
+    while(!quit)
+    {
+        Evts.PollEvents();
+        while (Evts.PopEvent(Evt))
+        {
+            if (Evt.type == evt::EventType::WINDOW_CLOSE)
+                quit = true;
+        }
+
+        Window.Clear();
+
+#ifdef TEST_SCENE
+        Scene.Render(color4f_t(0.1, 0.1, 0.1));
+#else
+        Quad.Draw();
+        E.Move(100, 100);
+        E.Draw();
+#endif
+
+        Window.Update();
+    }
+
+    Quit();
+    return 0;
+}
+
+int main_gui()
 {
     enum class State
     {
@@ -636,10 +688,10 @@ int main()
     cfg.button_normcol = color4f_t(.8, .8, .8);
     cfg.label_col = color4f_t();
     cfg.valid = true;*/
-    cfg = gui::zMenu::LoadThemeFromFile("basetheme.gui");
+    cfg = gui::zMenu::LoadThemeFromFile("Zenderer/themes/basetheme.gui");
     //cfg.button_normcol = color4f_t();
     ZEN_ASSERT(cfg.valid);
-    gui::zMenu StartMenu(Window, Assets, cfg);
+    gui::zMenu StartMenu(Window, Assets, cfg);/*
     StartMenu.SetOverlayMode(true);
     StartMenu.AddEntryField("Brightness: ", math::vector_t(10, 0),
                             [&Light](const string_t& t) {
@@ -666,7 +718,7 @@ int main()
             Light.Disable();
         }
     });
-    StartMenu.AddEntryField("Minumum Angle: ", math::vector_t(10, 150),
+    StartMenu.AddEntryField("Minimum Angle: ", math::vector_t(10, 150),
                             [&Light](const string_t& t) {
         if (!t.empty())
         {
@@ -676,7 +728,7 @@ int main()
         }
     });
 
-    StartMenu.AddButton("I am a highlighted button AMA", [](size_t){});
+    StartMenu.AddButton("I am a highlighted button AMA", [](size_t){});*/
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
     bool quit = false;
