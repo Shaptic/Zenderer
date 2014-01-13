@@ -30,12 +30,13 @@ bool zEffect::Init()
     {
         m_Log << m_Log.SetMode(LogMode::ZEN_ERROR) << m_Log.SetSystem("Effect")
               << "ZEN_EFFECT_COUNT is not a valid effect." << zLog::endl;
-        return (m_init = false);
+        return false;
     }
 
 //#ifdef ZEN_DEBUG_BUILD
     // All effects currently use the default vertex shader.
-    m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs");
+    if (!m_Shader.LoadVertexShaderFromFile(ZENDERER_SHADER_PATH"Default.vs"))
+        return false;
 
     if(m_type == EffectType::NO_EFFECT)
         m_init = m_Shader.LoadFragmentShaderFromFile(
@@ -97,7 +98,7 @@ bool zEffect::Init()
                 << "Custom effects can only be loaded from .zfx files via the "
                 <<  "zen::gfx::zMaterial object." << zLog::endl;
 
-        return(m_init = false);
+        return false;
     }
 
     else
@@ -107,12 +108,15 @@ bool zEffect::Init()
                 << "Invalid effect type: " << static_cast<int16_t>(m_type)
                 << "." << zLog::endl;
 
-        return (m_init = false);
+        return false;
     }
+
+    if(!m_Shader.CreateShaderObject())
+        return false;
 
     m_mvloc = m_Shader.GetUniformLocation("mv");
     m_projloc = m_Shader.GetUniformLocation("proj");
-    return (m_init = (m_Shader.CreateShaderObject() && m_mvloc != m_projloc));
+    return (m_init = (m_mvloc != m_projloc));
 }
 
 bool zEffect::Destroy()
