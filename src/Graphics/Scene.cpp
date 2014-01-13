@@ -68,8 +68,9 @@ obj::zEntity& zScene::InsertEntity(const uint32_t index)
     obj::zEntity* pNew = new obj::zEntity(m_Assets);
     auto i = m_allEntities.begin();
     for(size_t j = 0, s = m_allEntities.size();
-        j < s && j != index; ++j, ++i);
-        // No-op
+        j < s && j != index; ++j, ++i)
+
+        ; // No-op
 
     m_allEntities.insert(i, pNew);
     return *pNew;
