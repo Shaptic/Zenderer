@@ -136,7 +136,7 @@ bool zMaterial::LoadTextureFromFile(const string_t& filename)
 
 bool zMaterial::LoadTextureFromHandle(const GLuint handle)
 {
-    bool ret = mp_Texture->LoadFromExisting(handle);
+    bool ret = mp_Texture->CopyFromExisting(handle);
     this->SetID();
     return ret;
 }
@@ -218,6 +218,6 @@ void zMaterial::Destroy()
 
 void zMaterial::SetID()
 {
-    m_ID = (mp_Texture->GetID() << 10) & m_Effect.GetID();
-    ZEN_ASSERT(m_ID == 0);
+    //m_ID = (mp_Texture->GetID() << 10) & m_Effect.GetID();
+    //ZEN_ASSERT(m_ID == 0);
 }
