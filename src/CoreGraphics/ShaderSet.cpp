@@ -203,8 +203,8 @@ bool zShaderSet::CreateShaderObject()
     ++m_refcount;
     m_ID = s_ID++;
 
-    ZEN_ASSERTM(s_ID < (1 << 6),
-        "too many shader programs; material ID will not be unique");
+//    ZEN_ASSERTM(s_ID < (1 << 6),
+//        "too many shader programs; material ID will not be unique");
 
     s_shaderPrograms[this] = m_program;
     return (m_init = true);

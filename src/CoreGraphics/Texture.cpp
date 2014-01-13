@@ -27,11 +27,12 @@ bool zTexture::LoadFromFile(const string_t& filename)
 
     int32_t w, h, comp;
     unsigned char* raw = stbi_load(filename.c_str(), &w, &h, &comp,
-        4 /* force 32-bit image (4 x 8-bit) */);
+                                   4 /* force alpha channel. */);
     if(raw == nullptr) return false;
 
     ZEN_ASSERT(w > 0 && h > 0);
 
+    // flip on the y axis in order to use OpenGL coordinate system.
     stbi_flip_y(w, h, 4, raw);
     if(comp != 4 && comp != 3)
     {
@@ -49,8 +50,8 @@ bool zTexture::LoadFromFile(const string_t& filename)
 
     m_TextureID = s_ID++;
 
-    ZEN_ASSERTM(s_ID < (1 << 10),
-                "too many textures, material ID can't be unique");
+//    ZEN_ASSERTM(s_ID < (1 << 10),
+//              "too many textures, material ID can't be unique");
 
     stbi_image_free(raw);
     this->SetFilename(filename);
