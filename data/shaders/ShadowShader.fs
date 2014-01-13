@@ -1,8 +1,8 @@
 #version 330
 #define PI 3.14159
 
-//inputs from vertex shader
 in vec2 fs_texc;
+out vec4 out_color;
 
 //uniform values
 uniform sampler2D u_texture;
@@ -42,5 +42,5 @@ void main(void)
         }
     } 
 
-    gl_FragColor = vec4(vec3(distance), 1.0);
+    out_color = vec4(vec3(distance), 1.0);
 }

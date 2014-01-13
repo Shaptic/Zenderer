@@ -1,9 +1,9 @@
 #version 330
 #define PI 3.14159
 
-//inputs from vertex shader
 in vec2 fs_texc;
 in vec4 fs_color;
+out vec4 out_color;
 
 //uniform values
 uniform sampler2D u_texture;
@@ -53,5 +53,5 @@ void main(void)
     
     // multiply the summed amount by our distance, which gives us a radial falloff
     // then multiply by vertex (light) color  
-    gl_FragColor = fs_color * vec4(vec3(1.0), sum * smoothstep(1.0, 0.0, r));
+    out_color = fs_color * vec4(vec3(1.0), sum * smoothstep(1.0, 0.0, r));
 }
