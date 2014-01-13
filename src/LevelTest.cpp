@@ -802,9 +802,8 @@ int main()
         .SetColor(color4f_t(1, 0, 0)).Create(true);
     Caster.Move(0, 350);
     */
-    zQuad Caster(Assets, 64, 16);
-    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create()
-          .Move(100, 300);
+    zQuad Caster(Assets, 32, 32);
+    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create();
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
@@ -813,15 +812,13 @@ int main()
                                                   nullptr, &s);
     Font.SetColor(1, 1, 0);
 
-    zRenderer::BlendOperation(BlendFunc::ADDITIVE_BLEND);
-
     // Create FBO with all occluder geometry.
     gfx::zRenderTarget OccluderFBO(512, 512);
     OccluderFBO.Init();
     
     // Draw everything onto the occluder map.
     OccluderFBO.Bind();
-    Caster.Move(200, 200);
+    Caster.Move(256, 300);
     Caster.Draw();
     OccluderFBO.Unbind();
 
@@ -872,7 +869,7 @@ int main()
     gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
     Final.AttachMaterial(FinalMaterial);
     Final.Create();
-
+    
     while(!quit)
     {
         Evts.PollEvents();
@@ -903,7 +900,9 @@ int main()
         }
 
         Window.Clear();
+
         Final.Draw();
+        Caster.Draw();
 
         obj::zEntity MousePos(Assets);
         std::stringstream ss;

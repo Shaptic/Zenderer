@@ -2,8 +2,8 @@
 #define PI 3.14159
 
 //inputs from vertex shader
-varying vec2 fs_texc;
-varying vec4 fs_color;
+in vec2 fs_texc;
+in vec4 fs_color;
 
 //uniform values
 uniform sampler2D u_texture;
