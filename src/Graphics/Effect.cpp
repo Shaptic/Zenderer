@@ -60,11 +60,20 @@ bool zEffect::Init()
 
     else if(m_type == EffectType::ZFONT)
         m_init = m_Shader.LoadFragmentShaderFromFile(
-        ZENDERER_SHADER_PATH"zFont.fs");
+            ZENDERER_SHADER_PATH"zFont.fs");
 
     else if(m_type == EffectType::RIPPLE)
         m_init = m_Shader.LoadFragmentShaderFromFile(
             ZENDERER_SHADER_PATH"Ripple.fs");
+
+    else if(m_type == EffectType::SHADOW_MAP_GENERATOR)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"ShadowShader.fs");
+
+    else if (m_type == EffectType::SHADED_LIGHT_RENDERER)
+        m_init = m_Shader.LoadFragmentShaderFromFile(
+            ZENDERER_SHADER_PATH"ShadowLight.fs");
+
     /*
 #else
     // All effects currently use the default vertex shader.

@@ -53,6 +53,8 @@ namespace gfx
         ZFONT,              ///< Special effect for rendering TrueType fonts
         FADE,               ///< Fades the target in/out
         RIPPLE,             ///< Creates a centered ripple effect
+        SHADOW_MAP_GENERATOR,
+        SHADED_LIGHT_RENDERER,
         ZEN_EFFECT_COUNT    ///< Total amount of effects
     };
 
