@@ -225,6 +225,8 @@
     <None Include="data\shaders\Grayscale.fs" />
     <None Include="data\shaders\PointLight.fs" />
     <None Include="data\shaders\Ripple.fs" />
+    <None Include="data\shaders\ShadowLight.fs" />
+    <None Include="data\shaders\ShadowShader.fs" />
     <None Include="data\shaders\SpotLight.fs" />
     <None Include="data\shaders\Spritesheet.fs" />
     <None Include="data\shaders\zFont.fs" />

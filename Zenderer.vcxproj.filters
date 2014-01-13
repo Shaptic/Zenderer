@@ -491,5 +491,11 @@
     <None Include="data\shaders\Spritesheet.fs">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="data\shaders\ShadowShader.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="data\shaders\ShadowLight.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
