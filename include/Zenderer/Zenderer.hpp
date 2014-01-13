@@ -59,6 +59,10 @@
 #  endif // _WIN32
 #endif // WIN32
 
+#ifdef _WIN32
+#  define _HAS_EXCEPTIONS 0
+#endif // _WIN32
+
 // Core API
 #include "Core/Types.hpp"
 #include "Math/Math.hpp"
@@ -93,9 +97,9 @@
 
 // Link debug-specific libraries.
 #ifdef ZEN_DEBUG_BUILD
-  #pragma comment(lib, "GLFW3_DBG.lib")
+#  pragma comment(lib, "GLFW3_DBG.lib")
 #else
-  #pragma comment(lib, "GLFW3.lib")
+#  pragma comment(lib, "GLFW3.lib")
 #endif // _DEBUG
 
 namespace zen

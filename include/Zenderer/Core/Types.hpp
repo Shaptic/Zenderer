@@ -28,8 +28,6 @@
 #include <cstdint>
 #include <string>
 
-#define _HAS_EXCEPTIONS 0
-
 #ifdef __GNUC__
 
 // For whatever reason, even with -std=c++11,
