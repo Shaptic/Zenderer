@@ -278,7 +278,7 @@ namespace gui
             {
                 int num =
 #ifndef __GNUC__
-                    std::stoi(s.substr(1));
+                    std::stoi(s.substr(1), nullptr, 16);
 #else
                     0;
                 std::stringstream ss(s.substr(1));
