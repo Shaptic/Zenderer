@@ -265,6 +265,10 @@ namespace gui
             return false;
         }
 
+        /**
+         * @todo Get your shit together with error handling.
+         *       An exception is thrown using MSVC on a bad `std::stoi()` call.
+         **/
         static color4f_t ParseColor(const string_t& s)
         {
             color4f_t result;
