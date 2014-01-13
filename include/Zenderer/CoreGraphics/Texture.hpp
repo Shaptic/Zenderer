@@ -45,7 +45,22 @@ namespace gfxcore
     public:
         ~zTexture();
 
+        /**
+         * Loads a texture from an image file.
+         *  The image must be in RGB or RGBA format. All loaded images are
+         *  automatically converted to RGBA, regardless of whether or not they
+         *  already have an alpha channel.
+         *
+         * @param   filename    Path to image
+         *
+         * @return  `true`  if the image loaded successfully,
+         *          `false` otherwise.
+         **/
         bool LoadFromFile(const string_t& filename);
+
+        /**
+         *
+         **/
         bool LoadFromExisting(const zAsset* const pCopy);
         bool LoadFromExisting(const GLuint handle);
         bool CopyFromExisting(const GLuint handle);
