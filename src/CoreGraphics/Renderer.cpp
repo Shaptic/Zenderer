@@ -14,9 +14,8 @@ math::matrix4x4_t       zRenderer::s_ProjMatrix;
 bool                    zRenderer::s_blend = false;
 bool                    zRenderer::s_wf = false;
 
-bool zRenderer::Init(
-    asset::zAssetManager& Assets,
-    const uint16_t w, const uint16_t h)
+bool zRenderer::Init(asset::zAssetManager& Assets,
+                     const uint16_t w, const uint16_t h)
 {
     // Load the default effect.
     s_DefaultMaterial = new gfx::zMaterial(Assets);

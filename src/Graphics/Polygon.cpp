@@ -174,8 +174,8 @@ bool zPolygon::Draw(const RenderState& state)
         if(!mp_VAO->Offload()) return false;
 
         // Create our model-view matrix.
-        mp_MVMatrix = new math::matrix4x4_t(math::
-            matrix4x4_t::GetIdentityMatrix());
+        mp_MVMatrix = new math::matrix4x4_t(math::matrix4x4_t
+                                                ::GetIdentityMatrix());
 
         // So we can differentiate between a VAO from a `zScene`
         // and the one we made ourselves.
@@ -266,8 +266,8 @@ bool zPolygon::Collides(const zPolygon& Other, math::cquery_t* q) const
             {
                 if(q != nullptr)
                 {
-                    q->tri1 = std::move(t1);
-                    q->tri2 = std::move(t2);
+                    q->tri1 = t1;
+                    q->tri2 = t2;
                     q->collision = true;
                 }
 
@@ -413,8 +413,7 @@ int zPolygon::GetLowPoint() const
                               : m_Verts[0].y;
 
     for(auto& i : m_Verts) low = math::min<int>(low, i.y);
-    std::for_each(m_DrawData.Vertices,
-                  m_DrawData.Vertices + m_DrawData.vcount,
+    std::for_each(m_DrawData.Vertices, m_DrawData.Vertices + m_DrawData.vcount,
                   [&low](const gfxcore::vertex_t& v) {
                       low = math::min<int>(low, v.position.y);
                   });
@@ -430,8 +429,7 @@ int zPolygon::GetLeftPoint() const
                                    : m_Verts[0].x;
 
     for(auto& i : m_Verts) left = math::min<int>(left, i.x);
-    std::for_each(m_DrawData.Vertices,
-                  m_DrawData.Vertices + m_DrawData.vcount,
+    std::for_each(m_DrawData.Vertices, m_DrawData.Vertices + m_DrawData.vcount,
                   [&left](const gfxcore::vertex_t& v) {
                       left = math::min<int>(left, v.position.x);
                   });

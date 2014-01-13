@@ -252,7 +252,7 @@ GLint zShaderSet::GetUniformLocation(const string_t& name)
         return -1;
     }
 
-    if (m_cache.find(name) == m_cache.end())
+    if(m_cache.find(name) == m_cache.end())
     {
         GLint loc = -1;
         GL(loc = glGetUniformLocation(m_program, name.c_str()));
