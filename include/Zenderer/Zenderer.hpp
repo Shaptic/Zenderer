@@ -59,10 +59,6 @@
 #  endif // _WIN32
 #endif // WIN32
 
-#ifdef _WIN32
-#  define _HAS_EXCEPTIONS 0
-#endif // _WIN32
-
 // Core API
 #include "Core/Types.hpp"
 #include "Math/Math.hpp"

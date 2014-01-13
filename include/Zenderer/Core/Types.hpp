@@ -28,6 +28,10 @@
 #include <cstdint>
 #include <string>
 
+#if defined(_WIN32) && defined(_MSC_VER)
+#  define _HAS_EXCEPTIONS 0
+#endif // _WIN32
+
 #ifdef __GNUC__
 
 // For whatever reason, even with -std=c++11,
