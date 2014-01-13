@@ -198,7 +198,7 @@ bool zEffect::SetParameter(const string_t& name,
 
 bool zEffect::SetProjectionMatrix(const math::matrix4x4_t& Projection) const
 {
-    return this->SetMatrix(m_mvloc, Projection);
+    return this->SetMatrix(m_projloc, Projection);
 }
 
 bool zEffect::SetModelMatrix(const math::matrix4x4_t& ModelView) const
