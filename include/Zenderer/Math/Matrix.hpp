@@ -3,7 +3,7 @@
  *  Zenderer/Math/Matrix.hpp - A 4x4 matrix class wrapper for handling
  *  various graphical math operations.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

@@ -2,7 +2,7 @@
  * @file
  *  Zenderer/GUI/Element.hpp - An abstract base class for GUI elements.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

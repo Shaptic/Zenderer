@@ -3,7 +3,7 @@
  *  Zenderer/Objects/Entity.hpp - A generic entity class wrapping drawable
  *  primitives, materials, and easy sprite-like functionality together.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

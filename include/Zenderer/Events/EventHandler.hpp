@@ -3,7 +3,7 @@
  *  Zenderer/Events/EventHandler.hpp - Defines an event-handling singleton
  *  object that stores and processes system events from a stack.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

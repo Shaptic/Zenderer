@@ -3,7 +3,7 @@
  *  Zenderer/CoreGraphics/Texture.hpp - A low-level texture asset wrapper
  *  around OpenGL textures.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -50,6 +50,17 @@ namespace gfxcore
          *  The image must be in RGB or RGBA format. All loaded images are
          *  automatically converted to RGBA, regardless of whether or not they
          *  already have an alpha channel.
+         *
+         *  After loading the image, inversion on the Y axis is performed,
+         *  in order to insure normal rendering with the OpenGL texture system
+         *  (which treats the first row of an image buffer as being at the bottom).
+         *
+         *  This means that any textures created using OpenGL (via FBOs, etc. [see
+         *  gfx::zRenderTarget]) should have inversion performed on them manually.
+         *  This can be done by calling `zTexture::FlipY()`. This is a slow operation,
+         *  as it actually inverts the entire texture buffer manually. A faster method
+         *  is loading the texture into a `gfx::zQuad` instance and calling `FlipY()`
+         *  there, as that will just modify the texture coordinates.
          *
          * @param   filename    Path to image
          *

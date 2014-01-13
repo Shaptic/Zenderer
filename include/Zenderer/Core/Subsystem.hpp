@@ -3,7 +3,7 @@
  *  Zenderer/Core/Subsystem.hpp - An abstract base class for all 'systems'
  *  in the engine, like the asset manager, file handler, etc.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

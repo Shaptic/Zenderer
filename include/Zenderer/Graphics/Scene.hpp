@@ -3,7 +3,7 @@
  *  Zenderer/Graphics/Scene.hpp - A high-level graphics rendering interface
  *  intended to abstract away all low-level rendering details.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

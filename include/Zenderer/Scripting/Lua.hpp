@@ -3,7 +3,7 @@
  *  Zenderer/Scripting/Lua.hpp - A wrapper around core Lua API interactions
  *  and embedding.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

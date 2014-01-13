@@ -3,7 +3,7 @@
  *  Zenderer/CoreGraphics/OpenGL.hpp - Includes necessary OpenGL-related
  *  headers and defines convenience functions.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

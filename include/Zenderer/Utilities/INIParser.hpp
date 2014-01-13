@@ -3,7 +3,7 @@
  *  Zenderer/Utilities/INIParser.hpp - A `key=value` pair file parser used
  *  throughout @a Zenderer to load various things.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

@@ -2,7 +2,7 @@
  * @file
  *    DLLMain.cpp - Contains the DLL entry point for the @a Zenderer engine.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").\n

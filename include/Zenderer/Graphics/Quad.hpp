@@ -2,7 +2,7 @@
  * @file
  *  Zenderer/Graphics/Quad.hpp - A drawable primitive with 4 vertices.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      George (@_Shaptic)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -151,6 +151,14 @@ namespace gfx
          * @pre     Neither Draw() nor Create() have been called yet.
          **/
         void SetRepeating(const bool flag);
+
+        /**
+         * Flips a attached texture on the Y axis.
+         *  If
+         *
+         * @see     gfxcore::zTexture::FlipY()
+         **/
+        void FlipY();
 
     private:
         void LoadRegularVertices();     // Standard quad
