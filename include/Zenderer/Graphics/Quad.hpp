@@ -29,18 +29,24 @@ namespace zen
 {
 namespace gfx
 {
+    enum class Axis : uint8_t { NONE, X, Y, Z };
+    MAKE_ENUM_BITFLAG(Axis);
+
     /// A four-sided quadrilateral primitive.
     class ZEN_API zQuad : public gfx::zPolygon
     {
     public:
         zQuad(asset::zAssetManager&, const math::rect_t& Size);
         zQuad(asset::zAssetManager&, const uint16_t w, const uint16_t h);
+        zQuad(asset::zAssetManager&, const GLuint handle,
+              const EffectType Effect = gfx::EffectType::NO_EFFECT);
+        zQuad(asset::zAssetManager&, gfxcore::zTexture& Texture,
+              const EffectType Effect = gfx::EffectType::NO_EFFECT);
         zQuad(const zQuad& Copy);
 
         ~zQuad();
 
         /// @copydoc    gfx::zPolygon::Create()
-        /// @warning    This method ignores the `triangulate` parameter.
         gfx::zPolygon& Create(const bool triangluate = true);
 
         /// @todo   Make it work properly when `zQuad` is inverted.
@@ -50,60 +56,14 @@ namespace gfx
         /**
          * Resizes the quad to a new dimension.
          * @param   Size    New quad size (in pixels)
-         * @pre     Draw() has not been called yet.
+         * @pre     `Draw()` has not been called yet.
          **/
         void Resize(const math::vectoru16_t& Size);
         void Resize(const uint16_t w, const uint16_t h); ///< @overload
 
-        virtual bool Collides(const zPolygon& Other, math::cquery_t* q) const
-        {
-            const math::aabb_t us(m_BoundingBox);
-            for(size_t i = 0; i < Other.GetTriangulation().size(); i += 3)
-            {
-                math::tri_t t = {
-                    Other.GetTriangulation()[i],
-                    Other.GetTriangulation()[i+1],
-                    Other.GetTriangulation()[i+2]
-                };
-
-                if(us.collides(t))
-                {
-                    if(q != nullptr)
-                    {
-                        q->box1 = std::move(us);
-                        q->tri2 = std::move(t);
-                        q->collision = true;
-                    }
-
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        bool Collides(const zQuad& Other, math::cquery_t* q) const
-        {
-            math::aabb_t us(m_BoundingBox), them(Other.m_BoundingBox);
-            if(us.collides(them))
-            {
-                if(q != nullptr)
-                {
-                    q->box1 = std::move(us);
-                    q->box2 = std::move(them);
-                    q->collision = true;
-                }
-
-                return true;
-            }
-
-            return false;
-        }
-
-        bool Collides(const math::aabb_t& other)
-        {
-            return other.collides(m_BoundingBox);
-        }
+        virtual bool Collides(const zPolygon& Other, math::cquery_t* q) const;
+        bool Collides(const zQuad& Other, math::cquery_t* q) const;
+        bool Collides(const math::aabb_t& other);
 
         /**
          * Makes the vertices have non-zero y values.
@@ -153,12 +113,15 @@ namespace gfx
         void SetRepeating(const bool flag);
 
         /**
-         * Flips a attached texture on the Y axis.
-         *  If
+         * Flips the quadrilateral on a certain axis (or combination of axes).
+         *  Passing `gfx::Axis::NONE` will remove all flipping.
+         *  Flips do not "stack," meaning call to flip on Y followed by a call
+         *  to flip on X will only flip on X. Use bitwise operators to combine
+         *  flips, instead.
          *
-         * @see     gfxcore::zTexture::FlipY()
+         * @param   axes    Axis (or axes) to flip on
          **/
-        void FlipY();
+        void FlipOn(const Axis& axes);
 
     private:
         void LoadRegularVertices();     // Standard quad
@@ -166,6 +129,7 @@ namespace gfx
         void LoadRegularTC();           // Tex-coords to match standard quad
         void LoadInvertedTC();          // Tex-coords to match inverted quad
 
+        Axis m_flips;
         bool m_inv, m_rep;
     };
 }   // namespace gfx
