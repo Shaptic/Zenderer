@@ -19,23 +19,19 @@ zQuad::zQuad(asset::zAssetManager& Assets, const GLuint handle,
              const gfx::EffectType Effect) :
     zPolygon(Assets), m_inv(false), m_rep(false)
 {
-    gfx::zMaterial Material(Assets);
-    ZEN_ASSERT(Material.LoadEffect(Effect) &&
-               Material.LoadTextureFromHandle(handle));
-    this->Resize(Material.GetTexture().GetWidth(),
-                 Material.GetTexture().GetHeight());
-    this->AttachMaterial(Material);
+    ZEN_ASSERT(m_Material.LoadEffect(Effect) &&
+               m_Material.LoadTextureFromHandle(handle));
+    this->Resize(m_Material.GetTexture().GetWidth(),
+                 m_Material.GetTexture().GetHeight());
 }
 
 zQuad::zQuad(asset::zAssetManager& Assets, gfxcore::zTexture& Texture,
              const gfx::EffectType Effect) :
     zPolygon(Assets), m_inv(false), m_rep(false)
 {
-    gfx::zMaterial Material(Assets);
-    ZEN_ASSERT(Material.LoadEffect(Effect) &&
-               Material.LoadTexture(Texture));
+    ZEN_ASSERT(m_Material.LoadEffect(Effect) &&
+               m_Material.LoadTexture(Texture));
     this->Resize(Texture.GetWidth(), Texture.GetHeight());
-    this->AttachMaterial(Material);
 }
 
 zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
