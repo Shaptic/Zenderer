@@ -28,8 +28,8 @@ zPolygon::zPolygon(const zPolygon& Copy) :
     mp_VAO(nullptr), m_offset(0), m_Material(m_Assets),
     m_BoundingBox(Copy.m_BoundingBox), m_internal(false)
 {
-    m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
-    m_Material.LoadTexture(zRenderer::GetDefaultTexture());
+    m_Material.LoadEffect(Copy.m_Material.GetEffect().GetType());
+    m_Material.LoadTexture(Copy.m_Material.GetTexture());
 
     m_DrawData.vcount   = Copy.m_DrawData.vcount;
     m_DrawData.icount   = Copy.m_DrawData.icount;
@@ -59,8 +59,8 @@ zPolygon::zPolygon(zPolygon&& Move) :
     mp_VAO(nullptr), m_offset(0), m_Verts(Move.m_Verts),
     m_Tris(Move.m_Tris), m_Material(m_Assets), m_internal(false)
 {
-    m_Material.LoadEffect(gfx::EffectType::NO_EFFECT);
-    m_Material.LoadTexture(zRenderer::GetDefaultTexture());
+    m_Material.LoadEffect(Move.m_Material.GetEffect().GetType());
+    m_Material.LoadTexture(Move.m_Material.GetTexture());
 
     m_DrawData.vcount   = Move.m_DrawData.vcount;
     m_DrawData.icount   = Move.m_DrawData.icount;
