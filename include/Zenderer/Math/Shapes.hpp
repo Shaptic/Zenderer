@@ -194,7 +194,6 @@ namespace math
      *          if it's parallel, or 0 if it's horizontal.
      **/
     real_t slope(const math::line_t& line);
-
 }   // namespace math
 }   // namespace zen
 

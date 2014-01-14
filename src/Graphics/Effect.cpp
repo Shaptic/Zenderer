@@ -199,7 +199,7 @@ bool zEffect::SetParameter(const string_t& name,
     ZEN_ASSERT(!name.empty());
     ZEN_ASSERTM(name != "mv" && name != "proj",
         "deprecated functionality, use Set[Projection|Model]Matrix instead");
-    
+
     if(!m_init) return false;
     GLint loc = m_Shader.GetUniformLocation(name);
     return this->SetMatrix(loc, Matrix);

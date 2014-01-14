@@ -367,7 +367,6 @@ namespace gfxcore
         "}\n"
 
     );
-
 }
 }
 

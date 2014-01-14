@@ -38,7 +38,6 @@ zQuad::zQuad(asset::zAssetManager& Assets, gfxcore::zTexture& Texture,
     this->AttachMaterial(Material);
 }
 
-
 zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
 {
     m_inv = Copy.m_inv;
@@ -177,7 +176,7 @@ void zQuad::LoadRegularVertices()
         m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w,
                                                          m_BoundingBox.h);
         m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w, 0);
-        m_DrawData.Vertices[3].position = math::vector_t(0, 0); 
+        m_DrawData.Vertices[3].position = math::vector_t(0, 0);
     }
     else
     {
