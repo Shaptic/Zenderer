@@ -868,8 +868,9 @@ int main()
     // Create our quad that will hold this texture.
     gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
     Final.AttachMaterial(FinalMaterial);
+    Final.FlipOn(gfx::Axis::Y);
     Final.Create();
-    
+
     while(!quit)
     {
         Evts.PollEvents();
@@ -892,11 +893,11 @@ int main()
 
             else if(Evt.type == evt::EventType::KEY_HOLD &&
                     Evt.key.key == evt::Key::W)
-                    Caster.Move(Caster.GetX(), Caster.GetY() + 5);
+                Caster.Move(Caster.GetX(), Caster.GetY() + 5);
 
             else if(Evt.type == evt::EventType::KEY_HOLD &&
                     Evt.key.key == evt::Key::S)
-                    Caster.Move(Caster.GetX(), Caster.GetY() - 5);
+                Caster.Move(Caster.GetX(), Caster.GetY() - 5);
         }
 
         Window.Clear();
