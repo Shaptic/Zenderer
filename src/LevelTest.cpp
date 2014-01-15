@@ -616,7 +616,7 @@ int main_basic()
     obj::zEntity& E = Scene.AddEntity();
 #else
     obj::zEntity E(Assets);
-#endif 
+#endif
 
     gfx::zQuad Quad(Assets, 64, 64);
     Quad.SetColor(1.0, 0, 0).Create();
@@ -761,7 +761,12 @@ struct ray_t
     bool edge;
 };
 
-int main()
+asset::zAssetManager Assets;
+gfx::zQuad CreateShadowMap(gfx::zQuad& Caster,
+                           const math::vectoru16_t& fidelity =
+                                math::vectoru16_t(512, 512));
+
+int main_shadows()
 {
     using namespace gfx;
     using gfxcore::zRenderer;
@@ -771,7 +776,6 @@ int main()
 
     util::zLog::GetEngineLog().ToggleStdout();
 
-    asset::zAssetManager Assets;
     gfx::zWindow Window(800, 600, "Shadow Test", Assets, false);
     Window.Init();
 
@@ -804,21 +808,23 @@ int main()
     */
     zQuad Caster(Assets, 32, 32);
     Caster.SetColor(color4f_t(1, 0, 0, 1)).Create();
-
-    zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
+    Caster.Move(150, 256);
 
     gui::fontcfg_t s { 12 };
     gui::zFont& Font = *Assets.Create<gui::zFont>("assets/ttf/game.ttf",
                                                   nullptr, &s);
     Font.SetColor(1, 1, 0);
 
+    math::vectoru16_t fidelity(512, 512);
+
+    gfxcore::zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+
     // Create FBO with all occluder geometry.
-    gfx::zRenderTarget OccluderFBO(512, 512);
+    gfx::zRenderTarget OccluderFBO(fidelity.x, fidelity.y);
     OccluderFBO.Init();
-    
+
     // Draw everything onto the occluder map.
     OccluderFBO.Bind();
-    Caster.Move(256, 300);
     Caster.Draw();
     OccluderFBO.Unbind();
 
@@ -830,10 +836,10 @@ int main()
     gfx::zMaterial Shadow1DTexture(Assets);
 
     // Draw occlusion texture to the shadow FBO and generate it.
-    
+
     // First, we need to create a quad that holds the occlusion texture and
     // uses the shadow map generating shader.
-    
+
     gfx::zMaterial OccluderMaterial(Assets);
     OccluderMaterial.LoadTextureFromHandle(OccluderFBO.GetTexture());
     OccluderMaterial.LoadEffect(EffectType::SHADOW_MAP_GENERATOR);
@@ -869,9 +875,23 @@ int main()
     gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
     Final.AttachMaterial(FinalMaterial);
     Final.Create();
-    
+
+    // Create a debugging quad to render the 1D map to the screen.
+    gfx::zQuad Shadow1D_DBG(Assets, Shadow1D.GetWidth(), Shadow1D.GetHeight());
+    gfx::zMaterial Temp(Assets);
+    Temp.LoadTextureFromHandle(Shadow1D.GetTexture());
+    Shadow1D_DBG.AttachMaterial(Temp);
+    Shadow1D_DBG.Create();
+
+    OccluderFBO.Destroy();
+    Shadow1D.Destroy();
+
+    //gfx::zQuad Final(CreateShadowMap(Caster));
+
     while(!quit)
     {
+        math::vector_t Old = Caster.GetPosition();
+
         Evts.PollEvents();
         while(Evts.PopEvent(Evt))
         {
@@ -890,18 +910,35 @@ int main()
                     Evt.key.key == evt::Key::S)
                 Caster.Move(Caster.GetX(), Caster.GetY() - 1);
 
+            else if(Evt.type == evt::EventType::KEY_DOWN &&
+                    Evt.key.key == evt::Key::D)
+                Caster.Move(Caster.GetX() + 1, Caster.GetY());
+
             else if(Evt.type == evt::EventType::KEY_HOLD &&
                     Evt.key.key == evt::Key::W)
-                    Caster.Move(Caster.GetX(), Caster.GetY() + 5);
+                Caster.Move(Caster.GetX(), Caster.GetY() + 5);
 
             else if(Evt.type == evt::EventType::KEY_HOLD &&
                     Evt.key.key == evt::Key::S)
-                    Caster.Move(Caster.GetX(), Caster.GetY() - 5);
+                Caster.Move(Caster.GetX(), Caster.GetY() - 5);
+
+            else if(Evt.type == evt::EventType::KEY_HOLD &&
+                    Evt.key.key == evt::Key::D)
+                Caster.Move(Caster.GetX() + 5, Caster.GetY());
         }
+
+        /*
+        if(Old != Caster.GetPosition())
+        {
+            gfx::zQuad Tmp = CreateShadowMap(Caster);
+            Final.AttachMaterial(const_cast<gfx::zMaterial&>(Tmp.GetMaterial()));
+            Final.Create();
+        }*/
 
         Window.Clear();
 
         Final.Draw();
+        Shadow1D_DBG.Draw();
         Caster.Draw();
 
         obj::zEntity MousePos(Assets);
@@ -911,6 +948,214 @@ int main()
         Font.Render(MousePos, ss.str());
         MousePos.Move(evt::GetMousePosition());
         MousePos.Draw();
+
+        Window.Update();
+    }
+
+    Quit();
+    return 0;
+}
+
+gfx::zQuad CreateShadowMap(gfx::zQuad& Caster,
+                           const math::vectoru16_t& fidelity)
+{
+    using gfx::EffectType;
+
+    gfxcore::zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
+
+    // Create FBO with all occluder geometry.
+    gfx::zRenderTarget OccluderFBO(fidelity.x, fidelity.y);
+    OccluderFBO.Init();
+
+    // Draw everything onto the occluder map.
+    OccluderFBO.Bind();
+    Caster.Draw();
+    OccluderFBO.Unbind();
+
+    // Create 1D shadow map FBO.
+    gfx::zRenderTarget Shadow1D(OccluderFBO.GetWidth(), 1);
+    Shadow1D.Init();
+
+    // Create material to store the texture from this shadow map.
+    gfx::zMaterial Shadow1DTexture(Assets);
+
+    // Draw occlusion texture to the shadow FBO and generate it.
+
+    // First, we need to create a quad that holds the occlusion texture and
+    // uses the shadow map generating shader.
+
+    gfx::zMaterial OccluderMaterial(Assets);
+    OccluderMaterial.LoadTextureFromHandle(OccluderFBO.GetTexture());
+    OccluderMaterial.LoadEffect(EffectType::SHADOW_MAP_GENERATOR);
+
+    gfx::zEffect& Shadow1DGen = OccluderMaterial.GetEffect();
+    real_t* vals = new real_t[2] {
+        1.f * OccluderFBO.GetWidth(),
+        1.f * OccluderFBO.GetHeight()
+    };
+    Shadow1DGen.Enable();
+    Shadow1DGen.SetParameter("resolution", vals, 2);
+    Shadow1DGen.Disable();
+    delete[] vals;
+
+    gfx::zQuad Shadow1DQuad(Assets, OccluderFBO.GetWidth(), 1);
+    Shadow1DQuad.AttachMaterial(OccluderMaterial);
+    Shadow1DQuad.Create();
+
+    // Draw the occlusion texture to the shadow FBO.
+
+    Shadow1D.Bind();
+    Shadow1DQuad.Draw();
+    Shadow1D.Unbind();
+
+    // Now Shadow1D contains a texture with valid 1D shadow map info.
+
+    // Create a material to draw lighting, using the 1D shadow map.
+    gfx::zMaterial FinalMaterial(Assets);
+    FinalMaterial.LoadTextureFromHandle(Shadow1D.GetTexture());
+    FinalMaterial.LoadEffect(EffectType::SHADED_LIGHT_RENDERER);
+
+    // Create our quad that will hold this texture.
+    gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
+    Final.AttachMaterial(FinalMaterial);
+    Final.Create();
+
+    OccluderFBO.Destroy();
+    Shadow1D.Destroy();
+
+    return Final;
+}
+
+namespace fx
+{
+    template<uint16_t ParticleCount, typename Type>
+    class zParticlePool
+    {
+    public:
+        zParticlePool(asset::zAssetManager& Assets,
+                      const uint16_t active = ParticleCount) :
+            m_Assets(Assets), m_active(active)
+        {
+            m_Pool.reserve(ParticleCount);
+            for(size_t i = 0; i < active; ++i)
+            {
+                m_Pool.emplace_back(Assets, m_RNG);
+            }
+        }
+
+        void PlaceAt(const math::vector_t& pos)
+        {
+            for(auto& i : m_Pool)
+            {
+                math::vector_t variation(
+                    0, 0//m_RNG.randreal(1.0, 3.0),
+                    //m_RNG.randreal(1.0, 3.0)
+                );
+
+                i.m_Part.Move(pos + variation);
+            }
+        }
+
+        uint16_t Update()
+        {
+            uint16_t done = 0;
+            for(uint16_t i = 0; i < m_active; ++i)
+            {
+                if (m_Pool[i].IsActive())
+                {
+                    m_Pool[i].Update();
+                    ++done;
+                }
+            }
+
+            return done;
+        }
+
+    private:
+        asset::zAssetManager& m_Assets;
+        uint16_t m_active;
+        std::vector<Type> m_Pool;
+        util::zRandom<> m_RNG;
+    };
+
+    class zSmoke// : public zParticle
+    {
+    public:
+        zSmoke(asset::zAssetManager& Assets, util::zRandom<>& rng) :
+            m_Assets(Assets), m_Effect(Assets), m_Part(Assets, 4, 4),
+            m_rng(rng), m_active(true)
+        {
+            //m_Effect.LoadEffect(gfx::EffectType::PARTICLE_SMOKE);
+            //m_Effect.LoadTexture(ZENDERER_TEXTURE_PATH"smoke.png");
+            m_Part.AttachMaterial(m_Effect);
+            m_Part.SetColor(1, 0, 0);
+            m_Part.Create();
+
+            bool neg = m_rng.randint(0, 1) == 1;
+            m_Rate.x = (neg ? -1 : 1) * m_rng.randreal(0.5, 2.0);
+            m_Rate.y = -m_rng.randreal(0.5, 2.0);
+        }
+
+        virtual void Update()
+        {
+            m_Part.Move(m_Part.GetPosition() + m_Rate);
+            m_Part.Draw();
+
+            // Do we wanna change our x-direction?
+            bool change = m_rng.randint(0, 1) == 1;
+            if(change)
+            {
+                m_Rate.x = (m_Rate.x > 0 ? -1 : 1) * m_rng.randreal(0.5, 2.0);
+            }
+
+            //m_Rate.x *= 1.0 / (m_Part.GetPosition().y - m_starty);
+        }
+
+        inline bool IsActive() const { return m_active; }
+
+        template<uint16_t, typename> friend class zParticlePool;
+
+    protected:
+        asset::zAssetManager& m_Assets;
+        gfx::zMaterial  m_Effect;
+        gfx::zQuad      m_Part;
+        util::zRandom<>&m_rng;
+        math::vector_t  m_Rate;
+        bool            m_active;
+
+    private:
+        real_t          m_starty;
+    };
+}
+
+int main()
+{
+    Init();
+
+    util::zLog::GetEngineLog().ToggleStdout();
+    asset::zAssetManager Assets;
+    gfx::zWindow Window(800, 600, "Basic Test", Assets, false);
+    Window.Init();
+
+    //Particle.SetActiveCount(100);
+    fx::zParticlePool<1000, fx::zSmoke> ParticlePool(Assets, 100);
+    ParticlePool.PlaceAt(math::vector_t(200, 200));
+
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
+    evt::event_t Evt;
+    bool quit = false;
+
+    while(!quit)
+    {
+        Evts.PollEvents();
+        while (Evts.PopEvent(Evt))
+        {
+            if (Evt.type == evt::EventType::WINDOW_CLOSE)
+                quit = true;
+        }
+
+        Window.Clear();
+        ParticlePool.Update();
         Window.Update();
     }
 
