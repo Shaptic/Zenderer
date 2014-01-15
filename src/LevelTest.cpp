@@ -951,7 +951,7 @@ int main()
                   << evt::GetMousePosition().y << ')';
         Font.Render(MousePos, ss.str());
         MousePos.Move(evt::GetMousePosition());
-        MousePos.Draw();
+        //MousePos.Draw();
 
         Window.Update();
     }

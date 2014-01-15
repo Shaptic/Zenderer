@@ -180,8 +180,9 @@ namespace math
      *
      * @see http://abitwise.blogspot.com/2013/09/triangulating-concave-and-convex.html
      * @see http://gist.github.com/Ruskiy69/6526805
+     * @see http://www.flipcode.com/archives/Efficient_Polygon_Triangulation.shtml
      *
-     * @note    Algorithmic complexity: O(n^3)
+     * @note    Worst-case algorithmic complexity: O(n<sup>3</sup>)
      **/
     std::vector<vector_t> triangulate(const std::vector<vector_t>& Polygon);
 
