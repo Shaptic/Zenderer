@@ -761,13 +761,16 @@ struct ray_t
     bool edge;
 };
 
-gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets, gfx::zQuad Caster,
+gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets,
+                           gfx::zQuad Caster,
                            const math::vectoru16_t& fidelity =
                                 math::vectoru16_t(512, 512))
 {
     using namespace gfx;
     using gfxcore::zRenderer;
     using gfxcore::BlendFunc;
+
+    zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
     // Create FBO with all occluder geometry.
     gfx::zRenderTarget OccluderFBO(fidelity.x, fidelity.y);
@@ -922,31 +925,24 @@ int main()
                 Caster.Move(Caster.GetX(), Caster.GetY() - 5);
 
             else if(Evt.type == evt::EventType::MOUSE_MOTION)
-            {
                 Caster.Move(Evt.mouse.position);
-                Final.AttachMaterial(const_cast<gfx::zMaterial&>(
-                    CreateShadowMap(Assets, Caster).GetMaterial()));
-                Final.FlipOn(gfx::Axis::Y);
-                auto& E = const_cast<zEffect&>(Final.GetMaterial().GetEffect());
-                E.Enable();
-                E.SetParameter("resolution", vals, 2);
-                E.Disable();
-                Final.Create();
-            }
         }
 
-        /*
         if(Old != Caster.GetPosition())
         {
-            gfx::zQuad Tmp = CreateShadowMap(Caster);
-            Final.AttachMaterial(const_cast<gfx::zMaterial&>(Tmp.GetMaterial()));
+            Final.AttachMaterial(const_cast<gfx::zMaterial&>(
+                CreateShadowMap(Assets, Caster).GetMaterial()));
+            Final.FlipOn(gfx::Axis::Y);
+            auto& E = const_cast<zEffect&>(Final.GetMaterial().GetEffect());
+            E.Enable();
+            E.SetParameter("resolution", vals, 2);
+            E.Disable();
             Final.Create();
-        }*/
+        }
 
         Window.Clear();
 
         Final.Draw();
-        Shadow1D_DBG.Draw();
         Caster.Draw();
 
         obj::zEntity MousePos(Assets);
@@ -962,76 +958,6 @@ int main()
 
     Quit();
     return 0;
-}
-
-gfx::zQuad CreateShadowMap(gfx::zQuad& Caster,
-                           const math::vectoru16_t& fidelity)
-{
-    using gfx::EffectType;
-
-    gfxcore::zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
-
-    // Create FBO with all occluder geometry.
-    gfx::zRenderTarget OccluderFBO(fidelity.x, fidelity.y);
-    OccluderFBO.Init();
-
-    // Draw everything onto the occluder map.
-    OccluderFBO.Bind();
-    Caster.Draw();
-    OccluderFBO.Unbind();
-
-    // Create 1D shadow map FBO.
-    gfx::zRenderTarget Shadow1D(OccluderFBO.GetWidth(), 1);
-    Shadow1D.Init();
-
-    // Create material to store the texture from this shadow map.
-    gfx::zMaterial Shadow1DTexture(Assets);
-
-    // Draw occlusion texture to the shadow FBO and generate it.
-
-    // First, we need to create a quad that holds the occlusion texture and
-    // uses the shadow map generating shader.
-
-    gfx::zMaterial OccluderMaterial(Assets);
-    OccluderMaterial.LoadTextureFromHandle(OccluderFBO.GetTexture());
-    OccluderMaterial.LoadEffect(EffectType::SHADOW_MAP_GENERATOR);
-
-    gfx::zEffect& Shadow1DGen = OccluderMaterial.GetEffect();
-    real_t* vals = new real_t[2] {
-        1.f * OccluderFBO.GetWidth(),
-        1.f * OccluderFBO.GetHeight()
-    };
-    Shadow1DGen.Enable();
-    Shadow1DGen.SetParameter("resolution", vals, 2);
-    Shadow1DGen.Disable();
-    delete[] vals;
-
-    gfx::zQuad Shadow1DQuad(Assets, OccluderFBO.GetWidth(), 1);
-    Shadow1DQuad.AttachMaterial(OccluderMaterial);
-    Shadow1DQuad.Create();
-
-    // Draw the occlusion texture to the shadow FBO.
-
-    Shadow1D.Bind();
-    Shadow1DQuad.Draw();
-    Shadow1D.Unbind();
-
-    // Now Shadow1D contains a texture with valid 1D shadow map info.
-
-    // Create a material to draw lighting, using the 1D shadow map.
-    gfx::zMaterial FinalMaterial(Assets);
-    FinalMaterial.LoadTextureFromHandle(Shadow1D.GetTexture());
-    FinalMaterial.LoadEffect(EffectType::SHADED_LIGHT_RENDERER);
-
-    // Create our quad that will hold this texture.
-    gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
-    Final.AttachMaterial(FinalMaterial);
-    Final.Create();
-
-    OccluderFBO.Destroy();
-    Shadow1D.Destroy();
-
-    return Final;
 }
 
 namespace fx
@@ -1136,7 +1062,7 @@ namespace fx
     };
 }
 
-int main()
+int main_fx()
 {
     Init();
 
