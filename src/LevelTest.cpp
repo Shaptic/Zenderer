@@ -761,63 +761,13 @@ struct ray_t
     bool edge;
 };
 
-asset::zAssetManager Assets;
-gfx::zQuad CreateShadowMap(gfx::zQuad& Caster,
+gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets, gfx::zQuad Caster,
                            const math::vectoru16_t& fidelity =
-                                math::vectoru16_t(512, 512));
-
-int main_shadows()
+                                math::vectoru16_t(512, 512))
 {
     using namespace gfx;
     using gfxcore::zRenderer;
     using gfxcore::BlendFunc;
-
-    Init();
-
-    util::zLog::GetEngineLog().ToggleStdout();
-
-    gfx::zWindow Window(800, 600, "Shadow Test", Assets, false);
-    Window.Init();
-
-    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
-    evt::event_t Evt;
-    bool quit = false;
-
-    math::vector_t LPos(Window.GetWidth() / 2, Window.GetHeight() / 2);
-    zQuad Light(Assets, 32, 32);
-    Light.SetColor(color4f_t()).Create().Move(LPos);
-
-    /*
-    zConcavePolygon Caster(Assets, 16);
-    Caster.AddVertex(0, 0).AddVertex(111, 39).AddVertex(161, 40)
-        .AddVertex(217, 53).AddVertex(274, 53).AddVertex(323, 55)
-        .AddVertex(497, -27).AddVertex(583, -23).AddVertex(589, -4)
-        .AddVertex(581, 32).AddVertex(482, 104).AddVertex(450, 112)
-        .AddVertex(446, 134).AddVertex(478, 144).AddVertex(596, 147)
-        .AddVertex(728, 145).AddVertex(752, 121).AddVertex(757, 88)
-        .AddVertex(779, 65).AddVertex(834, 73).AddVertex(880, 92)
-        .AddVertex(927, 92).AddVertex(957, 84).AddVertex(974, 61)
-        .AddVertex(892, 41).AddVertex(903, -7).AddVertex(917, -12)
-        .AddVertex(1002, -16).AddVertex(1211, 46).AddVertex(1287, 49)
-        .AddVertex(1332, 69).AddVertex(1505, 72).AddVertex(1547, 31)
-        .AddVertex(1577, 28).AddVertex(1572, 164).AddVertex(959, 198)
-        .AddVertex(325, 205).AddVertex(-25, 208).AddVertex(-21, 24)
-        .AddVertex(-4, 3)
-        .SetColor(color4f_t(1, 0, 0)).Create(true);
-    Caster.Move(0, 350);
-    */
-    zQuad Caster(Assets, 32, 32);
-    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create();
-    Caster.Move(150, 256);
-
-    gui::fontcfg_t s { 12 };
-    gui::zFont& Font = *Assets.Create<gui::zFont>("assets/ttf/game.ttf",
-                                                  nullptr, &s);
-    Font.SetColor(1, 1, 0);
-
-    math::vectoru16_t fidelity(512, 512);
-
-    gfxcore::zRenderer::BlendOperation(gfxcore::BlendFunc::STANDARD_BLEND);
 
     // Create FBO with all occluder geometry.
     gfx::zRenderTarget OccluderFBO(fidelity.x, fidelity.y);
@@ -874,19 +824,68 @@ int main_shadows()
     // Create our quad that will hold this texture.
     gfx::zQuad Final(Assets, OccluderFBO.GetWidth(), OccluderFBO.GetHeight());
     Final.AttachMaterial(FinalMaterial);
+    Final.FlipOn(gfx::Axis::Y);
     Final.Create();
+    return Final;
+}
 
-    // Create a debugging quad to render the 1D map to the screen.
-    gfx::zQuad Shadow1D_DBG(Assets, Shadow1D.GetWidth(), Shadow1D.GetHeight());
-    gfx::zMaterial Temp(Assets);
-    Temp.LoadTextureFromHandle(Shadow1D.GetTexture());
-    Shadow1D_DBG.AttachMaterial(Temp);
-    Shadow1D_DBG.Create();
+int main()
+{
+    using namespace gfx;
+    using gfxcore::zRenderer;
+    using gfxcore::BlendFunc;
 
-    OccluderFBO.Destroy();
-    Shadow1D.Destroy();
+    Init();
 
-    //gfx::zQuad Final(CreateShadowMap(Caster));
+    util::zLog::GetEngineLog().ToggleStdout();
+
+    asset::zAssetManager Assets;
+    gfx::zWindow Window(800, 600, "Shadow Test", Assets, false);
+    Window.Init();
+
+    evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
+    evt::event_t Evt;
+    bool quit = false;
+
+    math::vector_t LPos(Window.GetWidth() / 2, Window.GetHeight() / 2);
+    zQuad Light(Assets, 32, 32);
+    Light.SetColor(color4f_t()).Create().Move(LPos);
+
+    gui::fontcfg_t s { 12 };
+    gui::zFont& Font = *Assets.Create<gui::zFont>("assets/ttf/game.ttf",
+                                                  nullptr, &s);
+    Font.SetColor(1, 1, 0);
+
+    /*
+    zConcavePolygon Caster(Assets, 16);
+    Caster.AddVertex(0, 0).AddVertex(111, 39).AddVertex(161, 40)
+        .AddVertex(217, 53).AddVertex(274, 53).AddVertex(323, 55)
+        .AddVertex(497, -27).AddVertex(583, -23).AddVertex(589, -4)
+        .AddVertex(581, 32).AddVertex(482, 104).AddVertex(450, 112)
+        .AddVertex(446, 134).AddVertex(478, 144).AddVertex(596, 147)
+        .AddVertex(728, 145).AddVertex(752, 121).AddVertex(757, 88)
+        .AddVertex(779, 65).AddVertex(834, 73).AddVertex(880, 92)
+        .AddVertex(927, 92).AddVertex(957, 84).AddVertex(974, 61)
+        .AddVertex(892, 41).AddVertex(903, -7).AddVertex(917, -12)
+        .AddVertex(1002, -16).AddVertex(1211, 46).AddVertex(1287, 49)
+        .AddVertex(1332, 69).AddVertex(1505, 72).AddVertex(1547, 31)
+        .AddVertex(1577, 28).AddVertex(1572, 164).AddVertex(959, 198)
+        .AddVertex(325, 205).AddVertex(-25, 208).AddVertex(-21, 24)
+        .AddVertex(-4, 3)
+        .SetColor(color4f_t(1, 0, 0)).Create(true);
+    Caster.Move(0, 300);
+
+    */zQuad Caster(Assets, 32, 32);
+    Caster.SetColor(color4f_t(1, 0, 0, 1)).Create();
+    Caster.Move(256, 300);
+
+    math::vectoru16_t fidelity(512, 512);
+    gfx::zQuad Final(CreateShadowMap(Assets, Caster, fidelity));
+    real_t* vals = new real_t[2] { 512, 512 };
+    auto& E = const_cast<zEffect&>(Final.GetMaterial().GetEffect());
+    E.Enable();
+    E.SetParameter("resolution", vals, 2);
+    E.Disable();
 
     while(!quit)
     {
@@ -922,9 +921,18 @@ int main_shadows()
                     Evt.key.key == evt::Key::S)
                 Caster.Move(Caster.GetX(), Caster.GetY() - 5);
 
-            else if(Evt.type == evt::EventType::KEY_HOLD &&
-                    Evt.key.key == evt::Key::D)
-                Caster.Move(Caster.GetX() + 5, Caster.GetY());
+            else if(Evt.type == evt::EventType::MOUSE_MOTION)
+            {
+                Caster.Move(Evt.mouse.position);
+                Final.AttachMaterial(const_cast<gfx::zMaterial&>(
+                    CreateShadowMap(Assets, Caster).GetMaterial()));
+                Final.FlipOn(gfx::Axis::Y);
+                auto& E = const_cast<zEffect&>(Final.GetMaterial().GetEffect());
+                E.Enable();
+                E.SetParameter("resolution", vals, 2);
+                E.Disable();
+                Final.Create();
+            }
         }
 
         /*

@@ -56,6 +56,8 @@ namespace gfx
         zPolygon(asset::zAssetManager& Assets, const size_t preload = 0);
         virtual ~zPolygon();
 
+        /// @note   Copying polygon will copy material data, but no settings
+        ///         will be preserved.
         zPolygon(const zPolygon& Copy);
         zPolygon(zPolygon&& Move);
 

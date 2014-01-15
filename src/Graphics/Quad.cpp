@@ -15,6 +15,25 @@ zQuad::zQuad(asset::zAssetManager& Mgr, const uint16_t w, const uint16_t h) :
     m_BoundingBox = math::rect_t(0, 0, w, h);
 }
 
+zQuad::zQuad(asset::zAssetManager& Assets, const GLuint handle,
+             const gfx::EffectType Effect) :
+    zPolygon(Assets), m_inv(false), m_rep(false)
+{
+    ZEN_ASSERT(m_Material.LoadEffect(Effect) &&
+               m_Material.LoadTextureFromHandle(handle));
+    this->Resize(m_Material.GetTexture().GetWidth(),
+                 m_Material.GetTexture().GetHeight());
+}
+
+zQuad::zQuad(asset::zAssetManager& Assets, gfxcore::zTexture& Texture,
+             const gfx::EffectType Effect) :
+    zPolygon(Assets), m_inv(false), m_rep(false)
+{
+    ZEN_ASSERT(m_Material.LoadEffect(Effect) &&
+               m_Material.LoadTexture(Texture));
+    this->Resize(Texture.GetWidth(), Texture.GetHeight());
+}
+
 zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
 {
     m_inv = Copy.m_inv;
@@ -80,6 +99,56 @@ void zQuad::Resize(const uint16_t w, const uint16_t h)
     m_BoundingBox.h = h;
 }
 
+bool zQuad::Collides(const zPolygon& Other, math::cquery_t* q) const
+{
+    const math::aabb_t us(m_BoundingBox);
+    for(size_t i = 0; i < Other.GetTriangulation().size(); i += 3)
+    {
+        math::tri_t t = {
+            Other.GetTriangulation()[i],
+            Other.GetTriangulation()[i + 1],
+            Other.GetTriangulation()[i + 2]
+        };
+
+        if(us.collides(t))
+        {
+            if(q != nullptr)
+            {
+                q->box1 = us;
+                q->tri2 = t;
+                q->collision = true;
+            }
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool zQuad::Collides(const zQuad& Other, math::cquery_t* q) const
+{
+    math::aabb_t us(m_BoundingBox), them(Other.m_BoundingBox);
+    if(us.collides(them))
+    {
+        if(q != nullptr)
+        {
+            q->box1 = us;
+            q->box2 = them;
+            q->collision = true;
+        }
+
+        return true;
+    }
+
+    return false;
+}
+
+bool zQuad::Collides(const math::aabb_t& other)
+{
+    return other.collides(m_BoundingBox);
+}
+
 void zQuad::SetInverted(const bool flag)
 {
     m_inv = flag;
@@ -90,13 +159,29 @@ void zQuad::SetRepeating(const bool flag)
     m_rep = flag;
 }
 
+void zQuad::FlipOn(const gfx::Axis& axes)
+{
+    m_flips = axes;
+}
+
 void zQuad::LoadRegularVertices()
 {
-    m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-    m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w, 0);
-    m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w,
-                                                     m_BoundingBox.h);
-    m_DrawData.Vertices[3].position = math::vector_t(0, m_BoundingBox.h);
+    if(m_flips & gfx::Axis::Y)
+    {
+        m_DrawData.Vertices[0].position = math::vector_t(0, m_BoundingBox.h);
+        m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w,
+                                                         m_BoundingBox.h);
+        m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w, 0);
+        m_DrawData.Vertices[3].position = math::vector_t(0, 0);
+    }
+    else
+    {
+        m_DrawData.Vertices[0].position = math::vector_t(0, 0);
+        m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w, 0);
+        m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w,
+                                                         m_BoundingBox.h);
+        m_DrawData.Vertices[3].position = math::vector_t(0, m_BoundingBox.h);
+    }
 }
 
 void zQuad::LoadInvertedVertices()

@@ -42,7 +42,6 @@ namespace zen
      * @see     zen::gfx::error_window
      **/
     void error_fallback(const char* message, const char* title = "Error");
-
 }   // namespace zen
 
 #endif // ZENDERER__CORE__ERROR_HANDLING_HPP

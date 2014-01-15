@@ -236,7 +236,6 @@ namespace math
 
     /// Standard 32-bit integral vector shortcut.
     using vectori_t = zVector<int32_t>;
-
 }   // namespace math
 }   // namespace ic
 

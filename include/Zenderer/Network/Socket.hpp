@@ -52,7 +52,6 @@
 
 namespace zen
 {
-
 /// An API for network access, sending / receiving packets.
 namespace net
 {
