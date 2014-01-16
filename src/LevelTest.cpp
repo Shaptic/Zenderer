@@ -602,7 +602,8 @@ int main_paint()
 
 // Super simple quad test.
 #define TEST_SCENE      // comment this to test raw primitives
-int main_basic()
+#define TEST_FONTS      // uncomment this to test text rendering
+int main()
 {
     Init();
 
@@ -618,9 +619,14 @@ int main_basic()
     obj::zEntity E(Assets);
 #endif
 
-    gfx::zQuad Quad(Assets, 64, 64);
-    Quad.SetColor(1.0, 0, 0).Create();
-    E.AddPrimitive(std::move(Quad));
+#ifdef TEST_FONTS
+    obj::zEntity Text(Assets);
+    gui::zFont& Arial = *Assets.Create<gui::zFont>("C:\\Windows\\Fonts\\Arial.ttf");
+    Arial.SetColor(0, 1, 0);
+    Arial.Render(Text, "Hello, World!");
+#endif // TEST_FONTS
+
+    E.LoadFromTexture(ZENDERER_TEXTURE_PATH"grass.png");
 
     evt::zEventHandler& Evts = evt::zEventHandler::GetInstance();
     evt::event_t Evt;
@@ -635,15 +641,19 @@ int main_basic()
                 quit = true;
         }
 
-        Window.Clear();
+        Window.Clear(color4f_t(1, 1, 1));
 
 #ifdef TEST_SCENE
-        Scene.Render(color4f_t(0.1, 0.1, 0.1));
+        Scene.Render(color4f_t(1, 1, 1));
 #else
         Quad.Draw();
         E.Move(100, 100);
         E.Draw();
 #endif
+#ifdef TEST_FONTS
+        Text.Move(evt::GetMousePosition());
+        Text.Draw();
+#endif // TEST_FONTS
 
         Window.Update();
     }
@@ -762,7 +772,7 @@ struct ray_t
 };
 
 gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets,
-                           std::vector<gfx::zQuad*>& Casters,
+                           std::vector<gfx::zQuad*> Casters,
                            const math::vector_t& LightPosition,
                            const gfx::zWindow& Window,
                            const math::vectoru16_t& fidelity =
@@ -842,7 +852,7 @@ gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets,
     return Final;
 }
 
-int main()
+int main_shadows()
 {
     using namespace gfx;
     using gfxcore::zRenderer;
