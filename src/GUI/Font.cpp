@@ -135,6 +135,7 @@ bool zFont::Render(obj::zEntity& Ent, const string_t& to_render) const
     gfx::zQuad Q(*mp_Parent, Texture.GetWidth(), Texture.GetHeight());
     Q.AttachMaterial(M);
     Q.SetColor(color4f_t());
+    Q.FlipOn(gfx::Axis::Y);
     Q.Create();
 
     if(!m_stack) Ent.Destroy();
