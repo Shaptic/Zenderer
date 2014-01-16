@@ -100,3 +100,8 @@ zVertexArray& zRenderer::GetFullscreenVBO()
 {
     return s_FullscreenQuad;
 }
+
+void zRenderer::SetProjectionMatrix(const math::matrix4x4_t& Proj)
+{
+    s_ProjMatrix = Proj;
+}

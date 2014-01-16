@@ -74,6 +74,9 @@ namespace gfxcore
         /// Disables any bound texture (also via `EnableTexture(0)`).
         inline static bool DisableTexture();
 
+        /// Sets the projection matrix for rendering.
+        inline static void SetProjectionMatrix(const math::matrix4x4_t& Proj);
+
         inline static const gfx::zMaterial&     GetDefaultMaterial();
         inline static const gfx::zEffect&       GetDefaultEffect();
         inline static const gfxcore::zTexture&  GetDefaultTexture();
