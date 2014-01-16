@@ -38,6 +38,7 @@ zQuad::zQuad(const zQuad& Copy) : zPolygon(Copy)
 {
     m_inv = Copy.m_inv;
     m_rep = Copy.m_rep;
+    m_flips = Copy.m_flips;
 }
 
 zQuad::~zQuad() {}
@@ -166,22 +167,11 @@ void zQuad::FlipOn(const gfx::Axis& axes)
 
 void zQuad::LoadRegularVertices()
 {
-    if(m_flips & gfx::Axis::Y)
-    {
-        m_DrawData.Vertices[0].position = math::vector_t(0, m_BoundingBox.h);
-        m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w,
-                                                         m_BoundingBox.h);
-        m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w, 0);
-        m_DrawData.Vertices[3].position = math::vector_t(0, 0);
-    }
-    else
-    {
-        m_DrawData.Vertices[0].position = math::vector_t(0, 0);
-        m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w, 0);
-        m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w,
-                                                         m_BoundingBox.h);
-        m_DrawData.Vertices[3].position = math::vector_t(0, m_BoundingBox.h);
-    }
+    m_DrawData.Vertices[0].position = math::vector_t(0, 0);
+    m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w, 0);
+    m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w,
+                                                     m_BoundingBox.h);
+    m_DrawData.Vertices[3].position = math::vector_t(0, m_BoundingBox.h);
 }
 
 void zQuad::LoadInvertedVertices()
@@ -207,10 +197,20 @@ void zQuad::LoadRegularTC()
         tc_h = m_BoundingBox.h / real_t(h);
     }
 
-    m_DrawData.Vertices[0].tc = math::vector_t(0.0, tc_h);
-    m_DrawData.Vertices[1].tc = math::vector_t(tc_w, tc_h);
-    m_DrawData.Vertices[2].tc = math::vector_t(tc_w, 0.0);
-    m_DrawData.Vertices[3].tc = math::vector_t(0.0, 0.0);
+    if(m_flips & gfx::Axis::Y)
+    {
+        m_DrawData.Vertices[0].tc = math::vector_t(0.0,  tc_h);
+        m_DrawData.Vertices[1].tc = math::vector_t(tc_w, tc_h);
+        m_DrawData.Vertices[2].tc = math::vector_t(tc_w, 1.0 - tc_h);
+        m_DrawData.Vertices[3].tc = math::vector_t(0.0,  1.0 - tc_h);
+    }
+    else
+    {
+        m_DrawData.Vertices[0].tc = math::vector_t(0.0, tc_h);
+        m_DrawData.Vertices[1].tc = math::vector_t(tc_w, tc_h);
+        m_DrawData.Vertices[2].tc = math::vector_t(tc_w, 0.0);
+        m_DrawData.Vertices[3].tc = math::vector_t(0.0, 0.0);
+    }
 }
 
 void zQuad::LoadInvertedTC()
