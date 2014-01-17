@@ -5,11 +5,11 @@ zen::evt::mouse_t::mouse_t() :
 {
 }
 
-zen::math::vector_t zen::evt::GetMousePosition()
+glm::vec2 zen::evt::GetMousePosition()
 {
     double x, y;
     glfwGetCursorPos(glfwGetCurrentContext(), &x, &y);
-    return zen::math::vector_t(x, y);
+    return glm::vec2(x, y);
 }
 
 bool zen::evt::GetMouseState(const evt::MouseButton& Btn)

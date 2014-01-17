@@ -23,12 +23,13 @@
 #ifndef ZENDERER__GRAPHICS__EFFECT_HPP
 #define ZENDERER__GRAPHICS__EFFECT_HPP
 
-#include "Zenderer/Core/Types.hpp"
+#include "Zenderer/Math/Math.hpp"
 #include "Zenderer/Assets/AssetManager.hpp"
-#include "Zenderer/Math/Matrix.hpp"
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/CoreGraphics/ShaderSet.hpp"
 #include "Zenderer/CoreGraphics/ShaderFiles.hpp"
+
+#include "Camera.hpp"
 
 namespace zen
 {
@@ -128,27 +129,23 @@ namespace gfx
          *
          * @overload
          **/
-        bool SetParameter(const string_t& name,
-                          const math::matrix4x4_t& Matrix);
+        bool SetParameter(const string_t& name, const glm::mat4& Matrix);
 
         /**
-         * Updates the projection matrix for the effect.
-         *  This method is set as "const," due to the fact that it doesn't
-         *  change anything about the way the effect functions(currently),
-         *  and is merely there for instancing and projection purposes.
+         * Updates the camera settings to use during rendering.
+         *  Cameras contain important render data such as projection and view
+         *  matrices, panning offsets, and other data necessary to accurately
+         *  render a scene.
+         *  If this is never called, the default camera is used (created when
+         *  you create a window). Basically, whatever
+         *  `gfxcore::zRenderer::GetCamera()` returns.
          *
-         * @param   Projection  New project matrix value
+         * @param   Camera      New camera to use during rendering
          **/
-        bool SetProjectionMatrix(const math::matrix4x4_t& Projection) const;
+        bool SetCamera(const gfx::zCamera& Camera) const;
 
-        /**
-         * Updates the model-view matrix (misnomer) for the effect.
-         * @copydoc SetProjectionMatrix()
-         **/
-        bool SetModelMatrix(const math::matrix4x4_t& ModelView) const;
-
-        inline bool Enable() const;     ///< A more user-friendly alias for binding.
-        inline bool Disable() const;    ///< A more user-friendly alias for unbinding.
+        inline bool Enable() const; ///< A more user-friendly alias for binding.
+        inline bool Disable() const;///< A more user-friendly alias for unbinding.
 
         inline GLuint GetObjectHandle() const;
         inline const string_t& GetError() const;
@@ -160,7 +157,7 @@ namespace gfx
     private:
         // For the material to be able to load custom shaders.
         bool LoadCustomEffect(const string_t& vs, const string_t& fs);
-        bool SetMatrix(GLint loc, const math::matrix4x4_t& matrix) const;
+        bool SetMatrix(GLint loc, const glm::mat4& matrix) const;
 
         inline bool Bind() const;
         inline bool Unbind() const;

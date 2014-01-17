@@ -12,16 +12,16 @@ bool aabb_t::collides(const aabb_t& b) const
 
 bool aabb_t::collides(const tri_t& tri) const
 {
-    vector_t halfsize((br - tl) * 0.5);
-    vector_t center(tl + halfsize);
+    glm::vec2 halfsize((br - tl) * static_cast<real_t>(0.5f));
+    glm::vec2 center(tl + halfsize);
 
-    vector_t verts[3] = {
+    glm::vec2 verts[3] = {
         tri[0] - center,
         tri[1] - center,
         tri[2] - center
     };
 
-    vector_t edges[3] = {
+    glm::vec2 edges[3] = {
         verts[1] - verts[0],
         verts[2] - verts[1],
         verts[0] - verts[2]
@@ -159,11 +159,11 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
 {
     // A = Q -> Q + S
     // B = P -> P + R
-    vector_t r = b[1] - b[0];
-    vector_t s = a[1] - a[0];
-    vector_t z = a[0] - b[0];
+    glm::vec2 r = b[1] - b[0];
+    glm::vec2 s = a[1] - a[0];
+    glm::vec2 z = a[0] - b[0];
 
-    real_t zxr = z.Cross2D(r);
+    real_t zxr = glm::cross(glm::vec3(z, 1.0), glm::vec3(r, 1.0)).length();
 
     // Co-linear. Check for overlap.
     if(compf(zxr, 0.0))
@@ -180,14 +180,14 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
         return ret;
     }
 
-    real_t d = r.Cross2D(s);
+    real_t d = glm::cross(glm::vec3(r, 1.0), glm::vec3(s, 1.0)).length();
     if(compf(d, 0.0))   // Parallel lines.
     {
         if(q != nullptr) q->collision = false;
         return false;
     }
 
-    real_t t = z.Cross2D(s) / d;
+    real_t t = glm::cross(glm::vec3(z, 1.0), glm::vec3(s, 1.0)).length() / d;
     real_t u = zxr / d;
 
     bool collision = in_range<real_t>(t, 0, 1) && in_range<real_t>(u, 0, 1);
@@ -203,7 +203,7 @@ bool math::collides(const line_t& a, const line_t& b, cquery_t* q)
 
 // Helper functions for triangulation algorithm.
 
-real_t area(const std::vector<math::vector_t>& contour)
+real_t area(const std::vector<glm::vec2>& contour)
 {
     size_t n = contour.size();
 
@@ -237,7 +237,7 @@ bool in_triangle(float Ax, float Ay, float Bx, float By,
     return ((aCROSSbp >= 0.0f) && (bCROSScp >= 0.0f) && (cCROSSap >= 0.0f));
 };
 
-bool clip(const std::vector<math::vector_t>& contour,
+bool clip(const std::vector<glm::vec2>& contour,
           int u, int v, int w, int n, int* V)
 {
     int p;
@@ -268,10 +268,10 @@ bool clip(const std::vector<math::vector_t>& contour,
     return true;
 }
 
-std::vector<math::vector_t> math::triangulate(
-    const std::vector<math::vector_t>& contour)
+std::vector<glm::vec2> math::triangulate(
+    const std::vector<glm::vec2>& contour)
 {
-    std::vector<math::vector_t> result;
+    std::vector<glm::vec2> result;
 
     /* allocate and initialize list of Vertices in polygon */
 
@@ -323,7 +323,7 @@ std::vector<math::vector_t> math::triangulate(
             count = 2 * nv;
         }
     }
-    
+
     delete V;
     return result;
 }

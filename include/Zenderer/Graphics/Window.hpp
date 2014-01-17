@@ -31,8 +31,7 @@
 
 #include "Zenderer/Core/Subsystem.hpp"
 #include "Zenderer/Utilities/Log.hpp"
-#include "Zenderer/Math/Vector.hpp"
-#include "Zenderer/Math/Matrix.hpp"
+#include "Zenderer/Math/Math.hpp"
 
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
@@ -159,13 +158,10 @@ namespace gfx
          **/
         void SetClearBits(const uint32_t bits);
 
-        inline const math::matrix4x4_t& GetProjectionMatrix() const
-        { return m_ProjMatrix; }
-
         inline uint16_t GetWidth()  const { return m_Dimensions.x; }
         inline uint16_t GetHeight() const { return m_Dimensions.y; }
 
-        math::vector_t GetMousePosition() const;
+        glm::u16vec2 GetMousePosition() const;
         bool GetMouseState(const evt::MouseButton& Btn) const;
 
         static bool ToggleVSYNC();
@@ -181,8 +177,7 @@ namespace gfx
         util::zLog&             m_Log;
         asset::zAssetManager&   m_Assets;
 
-        math::zVector<uint16_t>  m_Dimensions;
-        math::matrix4x4_t       m_ProjMatrix;
+        glm::u16vec2            m_Dimensions;
         string_t                m_caption;
 
         uint32_t        m_clearbits;

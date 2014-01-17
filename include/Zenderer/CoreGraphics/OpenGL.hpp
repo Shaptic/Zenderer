@@ -38,7 +38,7 @@
 #include "GL/glfw3.h"
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/Vector.hpp"
+#include "Zenderer/Math/Math.hpp"
 #include "Zenderer/Utilities/Assert.hpp"
 
 #ifdef GL
@@ -100,9 +100,9 @@ namespace gfxcore
 
     struct ZEN_API vertex_t
     {
-        math::vector_t  position;   ///< Vertex position
-        math::vector_t  tc;         ///< Vertex texture coordinates
-        color4f_t       color;      ///< Vertex color
+        glm::vec2   position;   ///< Vertex position
+        glm::vec2   tc;         ///< Vertex texture coordinates
+        color4f_t   color;      ///< Vertex color
     };
 
     /// A wrapper for OpenGL objects with proper cleanup.

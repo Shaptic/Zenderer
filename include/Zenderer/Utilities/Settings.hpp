@@ -68,6 +68,7 @@ namespace util
         inline operator real_t() const { return atof(m_value.c_str()); }
 
         /// Implicit conversion to `bool`
+        /// @todo Improve this.
         inline operator bool() const { return m_value != "0"; }
 
         /// Comparison to an option value.

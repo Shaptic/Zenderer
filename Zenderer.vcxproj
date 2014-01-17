@@ -123,6 +123,7 @@
     <ClInclude Include="include\Zenderer\Events\EventHandler.hpp" />
     <ClInclude Include="include\Zenderer\Events\Keyboard.hpp" />
     <ClInclude Include="include\Zenderer\Events\Mouse.hpp" />
+    <ClInclude Include="include\Zenderer\Graphics\Camera.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\ConcavePolygon.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />
@@ -142,7 +143,6 @@
     <ClInclude Include="include\Zenderer\Levels\LevelLoader.hpp" />
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
-    <ClInclude Include="include\Zenderer\Math\Matrix.hpp" />
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp" />
     <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
     <ClInclude Include="include\Zenderer\Network\Socket.hpp" />
@@ -192,7 +192,6 @@
     <ClCompile Include="src\GUI\Font.cpp" />
     <ClCompile Include="src\GUI\Menu.cpp" />
     <ClCompile Include="src\Levels\LevelLoader.cpp" />
-    <ClCompile Include="src\Math\Matrix.cpp" />
     <ClCompile Include="src\Math\MathCore.cpp" />
     <ClCompile Include="src\Math\Shapes.cpp" />
     <ClCompile Include="src\MultiWindowTest.cpp" />

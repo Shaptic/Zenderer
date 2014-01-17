@@ -66,9 +66,9 @@ bool zRenderTarget::Init()
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glBindTexture(GL_TEXTURE_2D, 0));
 
-    m_Main = gfxcore::zRenderer::s_ProjMatrix;
-    m_ProjMatrix = math::matrix4x4_t::Projection2D(
-        m_Viewport.x, m_Viewport.y, 16, 1);
+    m_Main = gfxcore::zRenderer::GetCamera();
+    m_Camera = gfx::zCamera();
+    m_Camera.SetProjectionMatrix(glm::ortho(0, 0, m_Viewport.x, m_Viewport.y));
 
     return m_init = (status == GL_FRAMEBUFFER_COMPLETE);
 }
@@ -93,7 +93,7 @@ bool zRenderTarget::Bind() const
     // Bind the framebuffer and set our view port.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));
     GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));
-    gfxcore::zRenderer::s_ProjMatrix = m_ProjMatrix;
+    gfxcore::zRenderer::SetCamera(m_Camera);
 
     return true;
 }
@@ -101,7 +101,7 @@ bool zRenderTarget::Bind() const
 bool zRenderTarget::Unbind() const
 {
     // Unbind the framebuffer and reset the view port.
-    gfxcore::zRenderer::s_ProjMatrix = m_Main;
+    gfxcore::zRenderer::SetCamera(m_Main);
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));
     return true;

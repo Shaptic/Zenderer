@@ -49,16 +49,12 @@ namespace gfx
         /// @copydoc    gfx::zPolygon::Create()
         gfx::zPolygon& Create(const bool triangluate = true);
 
-        /// @todo   Make it work properly when `zQuad` is inverted.
-        //void Move(const real_t x, const real_t y, const real_t z = 1.0);
-        //void Move(const math::vector_t& Position);
-
         /**
          * Resizes the quad to a new dimension.
          * @param   Size    New quad size (in pixels)
          * @pre     `Draw()` has not been called yet.
          **/
-        void Resize(const math::vectoru16_t& Size);
+        void Resize(const glm::u16vec2& Size);
         void Resize(const uint16_t w, const uint16_t h); ///< @overload
 
         virtual bool Collides(const zPolygon& Other, math::cquery_t* q) const;

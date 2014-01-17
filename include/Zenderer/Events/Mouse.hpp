@@ -24,7 +24,7 @@
 #define ZENDERER__EVENTS__MOUSE_HPP
 
 #include "Zenderer/Core/Types.hpp"
-#include "Zenderer/Math/Vector.hpp"
+#include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/OpenGL.hpp"
 
 namespace zen
@@ -52,14 +52,14 @@ namespace evt
     struct ZEN_API mouse_t
     {
         mouse_t();
-        math::vector_t position;    /// Event location
-        MouseButton button;         /// Event's mouse button
-        bool down;                  /// Is the mouse button down?
-        int mods;                   /// Any key modifiers held during event.
+        glm::vec2 position;    /// Event location
+        MouseButton button;    /// Event's mouse button
+        bool down;             /// Is the mouse button down?
+        int mods;              /// Any key modifiers held during event.
     };
 
     /// Retrieves the current mouse position on the active context.
-    ZEN_API math::vector_t GetMousePosition();
+    ZEN_API glm::vec2 GetMousePosition();
 
     /// Returns `true` if the mouse button is pressed.
     ZEN_API bool GetMouseState(const evt::MouseButton& Btn);

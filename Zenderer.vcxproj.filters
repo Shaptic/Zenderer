@@ -114,9 +114,6 @@
     <ClInclude Include="include\Zenderer\Graphics\Window.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\Math\Vector.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
@@ -158,9 +155,6 @@
     </ClInclude>
     <ClInclude Include="include\Zenderer\CoreGraphics\VertexArray.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Zenderer\Math\Matrix.hpp">
-      <Filter>Header Files\Math</Filter>
     </ClInclude>
     <ClInclude Include="include\Zenderer\CoreGraphics\ShaderSet.hpp">
       <Filter>Header Files\CoreGraphics</Filter>
@@ -267,6 +261,12 @@
     <ClInclude Include="include\Zenderer\GUI\EntryField.hpp">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="include\Zenderer\Graphics\Camera.hpp">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Zenderer\Math\Vector.hpp">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -324,9 +324,6 @@
       <Filter>Source Files\CoreGraphics</Filter>
     </ClCompile>
     <ClCompile Include="src\Math\MathCore.cpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Math\Matrix.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\CoreGraphics\Shader.cpp">
@@ -430,9 +427,6 @@
     <None Include="include\Zenderer\Math\MathCore.inl">
       <Filter>Header Files\Math</Filter>
     </None>
-    <None Include="include\Zenderer\Math\Vector.inl">
-      <Filter>Header Files\Math</Filter>
-    </None>
     <None Include="include\Zenderer\Assets\Asset.inl">
       <Filter>Header Files\Assets</Filter>
     </None>
@@ -496,6 +490,9 @@
     </None>
     <None Include="data\shaders\ShadowLight.fs">
       <Filter>Shaders</Filter>
+    </None>
+    <None Include="include\Zenderer\Math\Vector.inl">
+      <Filter>Header Files\Math</Filter>
     </None>
   </ItemGroup>
 </Project>

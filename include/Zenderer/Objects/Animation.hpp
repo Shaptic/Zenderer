@@ -115,7 +115,7 @@ namespace obj
 
         /// Configures the dimensions of a single frame.
         void SetKeyframeSize(const uint16_t w, const uint16_t h);
-        void SetKeyframeSize(const math::vectoru16_t& Size);    /// @overload
+        void SetKeyframeSize(const glm::u16vec2& Size);    /// @overload
 
         /// Configures the time, in frames, before showing the next keyframe.
         void SetKeyframeRate(const uint16_t rate);
@@ -130,7 +130,7 @@ namespace obj
         std::function<void()> m_callback;
 
         // A single frame's dimensions.
-        math::vectoru16_t m_Size;
+        glm::u16vec2 m_Size;
 
         // Texture coordinate scalar (normalize(frames * size))
         real_t m_texc;

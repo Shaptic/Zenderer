@@ -27,16 +27,12 @@
 #include <cmath>
 #include <ostream>
 
-#include "Zenderer/Core/Types.hpp"
 #include "MathCore.hpp"
 
 namespace zen
 {
 namespace math
 {
-    /// Forward declaration of a 4x4 matrix for use in 2D vector translation.
-    class ZEN_API matrix4x4_t;
-
     /// Represents a point in 3D rectangular-coordinate space.
     template<typename T>
     struct ZEN_API zVector
@@ -53,6 +49,10 @@ namespace math
         /// Copies vector components from one to another.
         template<typename U>
         zVector(const zVector<U>& C) : x(C.x), y(C.y), z(C.z) {}
+
+        /// Implicitly casts a vector object to a GLM-compatible one.
+        inline template<typename U>
+        operator glm::vec2() { return glm::vec2(this->x, this->y); }
 
         /// Assigns one vector to another.
         template<typename U> inline
@@ -176,12 +176,6 @@ namespace math
         inline void Rotate(const real_t radians);
 
         /**
-         * Translates the current vector by a matrix.
-         * @param   TransMat    Translation matrix
-         **/
-        void Translate(const matrix4x4_t& TransMat);
-
-        /**
          * Returns a scalar cross product value between two 2D vectors.
          *  Given a vector v = <x1, y1> and a vector w = <x2, y2>, their
          *  cross-product is determined as <0, 0, x1*y2 - y1*x2>.
@@ -273,6 +267,10 @@ namespace math
  *          vectors but not vice-versa.
  *
  * @see     @ref USE_DOUBLE_PRECISION
+ *
+ * @deprecated
+ *  This is left purely in case users would like to use it. The entire framework
+ *  has been adapted to use [GLM](http://glm.g-truc.net/0.9.5/index.html).
  **/
 
 /** @} **/

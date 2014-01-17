@@ -10,7 +10,7 @@ gfx::zMaterial*         zRenderer::s_DefaultMaterial = nullptr;
 
 gfxcore::zVertexArray   zRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
 gfxcore::BlendFunc      zRenderer::s_LastBlend = gfxcore::BlendFunc::DISABLE_BLEND;
-math::matrix4x4_t       zRenderer::s_ProjMatrix;
+gfx::zCamera            zRenderer::s_Camera;
 bool                    zRenderer::s_blend = false;
 bool                    zRenderer::s_wf = false;
 
@@ -21,8 +21,7 @@ bool zRenderer::Init(asset::zAssetManager& Assets,
     s_DefaultMaterial = new gfx::zMaterial(Assets);
     gfx::zEffect& E = s_DefaultMaterial->GetEffect();
     E.Enable();
-    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
-    E.SetProjectionMatrix(s_ProjMatrix);
+    E.SetCamera(s_Camera);
     E.Disable();
 
     // Load a quad into the VAO.
@@ -35,15 +34,15 @@ bool zRenderer::Init(asset::zAssetManager& Assets,
     D.Indices   = i;
     D.icount    = 6;
 
-    D.Vertices[0].position = math::vector_t(0, 0);
-    D.Vertices[1].position = math::vector_t(w, 0);
-    D.Vertices[2].position = math::vector_t(w, h);
-    D.Vertices[3].position = math::vector_t(0, h);
+    D.Vertices[0].position = glm::vec2(0, 0);
+    D.Vertices[1].position = glm::vec2(w, 0);
+    D.Vertices[2].position = glm::vec2(w, h);
+    D.Vertices[3].position = glm::vec2(0, h);
 
-    D.Vertices[0].tc = math::vector_t(0.0, 1.0);
-    D.Vertices[1].tc = math::vector_t(1.0, 1.0);
-    D.Vertices[2].tc = math::vector_t(1.0, 0.0);
-    D.Vertices[3].tc = math::vector_t(0.0, 0.0);
+    D.Vertices[0].tc = glm::vec2(0.0, 1.0);
+    D.Vertices[1].tc = glm::vec2(1.0, 1.0);
+    D.Vertices[2].tc = glm::vec2(1.0, 0.0);
+    D.Vertices[3].tc = glm::vec2(0.0, 0.0);
 
     D.Vertices[0].color =
     D.Vertices[1].color =

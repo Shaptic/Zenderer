@@ -108,11 +108,9 @@ bool zWindow::Init()
 
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
 
-    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
-                                                   m_Dimensions.y,
-                                                   16, 1);
+    zCamera& Cam = gfxcore::zRenderer::GetCamera();
+    Cam.SetProjectionMatrix(glm::ortho<real_t>(0., 0., m_Dimensions.x, m_Dimensions.y));
 
-    gfxcore::zRenderer::s_ProjMatrix = m_ProjMatrix;
     return (m_init = gfxcore::zRenderer::Init(m_Assets,
                                               m_Dimensions.x,
                                               m_Dimensions.y));
@@ -200,11 +198,11 @@ void zWindow::Close()
     this->Destroy();
 }
 
-math::vector_t zWindow::GetMousePosition() const
+glm::vec2 zWindow::GetMousePosition() const
 {
     double x, y;
     glfwGetCursorPos(mp_Window, &x, &y);
-    return math::vector_t(x, y);
+    return glm::vec2(x, y);
 }
 
 bool zWindow::GetMouseState(const evt::MouseButton& Btn) const

@@ -194,7 +194,7 @@ bool zEffect::SetParameter(const string_t& name,
 }
 
 bool zEffect::SetParameter(const string_t& name,
-                           const math::matrix4x4_t& Matrix)
+                           const glm::mat4& Matrix)
 {
     ZEN_ASSERT(!name.empty());
     ZEN_ASSERTM(name != "mv" && name != "proj",
@@ -203,16 +203,6 @@ bool zEffect::SetParameter(const string_t& name,
     if(!m_init) return false;
     GLint loc = m_Shader.GetUniformLocation(name);
     return this->SetMatrix(loc, Matrix);
-}
-
-bool zEffect::SetProjectionMatrix(const math::matrix4x4_t& Projection) const
-{
-    return this->SetMatrix(m_projloc, Projection);
-}
-
-bool zEffect::SetModelMatrix(const math::matrix4x4_t& ModelView) const
-{
-    return this->SetMatrix(m_mvloc, ModelView);
 }
 
 bool zEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
@@ -224,9 +214,9 @@ bool zEffect::LoadCustomEffect(const string_t& vs, const string_t& fs)
     return m_init;
 }
 
-bool zEffect::SetMatrix(GLint loc, const math::matrix4x4_t& matrix) const
+bool zEffect::SetMatrix(GLint loc, const glm::mat4& matrix) const
 {
     if(loc == -1 || !m_init) return false;
-    GL(glUniformMatrix4fv(loc, 1, GL_TRUE, matrix.GetPointer()));
+    GL(glUniformMatrix4fv(loc, 1, GL_TRUE, glm::value_ptr<glm::mat4>(matrix)));
     return true;
 }

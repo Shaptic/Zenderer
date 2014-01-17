@@ -75,8 +75,8 @@ namespace gfx
     private:
         util::zLog& m_Log;
 
-        math::vectoru16_t m_OldViewport, m_Viewport;
-        math::matrix4x4_t m_ProjMatrix, m_Main;
+        glm::u16vec2 m_OldViewport, m_Viewport;
+        gfx::zCamera m_Camera, m_Main;
 
         string_t m_error_str;
 

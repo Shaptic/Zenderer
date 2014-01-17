@@ -163,7 +163,7 @@ namespace gui
 
         /// @todo Write this.
         void RenderLine(const string_t& line,
-                        const math::vectoru16_t& start,
+                        const glm::u16vec2& start,
                         gfxcore::vertex_t* verts,
                         gfxcore::index_t* inds);
 

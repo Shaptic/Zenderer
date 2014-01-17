@@ -9,7 +9,7 @@ using gfx::VAOState;
 using gfx::RenderState;
 
 zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
-    m_Assets(Assets), mp_MVMatrix(nullptr), mp_VAO(nullptr),
+    m_Assets(Assets), mp_Camera(nullptr), mp_VAO(nullptr),
     m_offset(0), m_Material(Assets), m_internal(false)
 {
     m_DrawData.Vertices = nullptr;
@@ -24,7 +24,7 @@ zPolygon::zPolygon(asset::zAssetManager& Assets, const size_t preload) :
 }
 
 zPolygon::zPolygon(const zPolygon& Copy) :
-    m_Assets(Copy.m_Assets), mp_MVMatrix(nullptr),
+    m_Assets(Copy.m_Assets), mp_Camera(nullptr),
     mp_VAO(nullptr), m_offset(0), m_Material(m_Assets),
     m_BoundingBox(Copy.m_BoundingBox), m_internal(false)
 {

@@ -70,7 +70,7 @@ namespace gfx
          *
          * @return  A reference to oneself for easy chaining.
          **/
-        zPolygon& AddVertex(math::vector_t Position);
+        zPolygon& AddVertex(glm::vec2 Position);
         zPolygon& AddVertex(const real_t x, const real_t y); ///< @overload
 
         /**
@@ -105,7 +105,7 @@ namespace gfx
          *
          * @return  A reference to itself to chain calls.
          **/
-        virtual zPolygon& Move(const math::vector_t& Position);
+        virtual zPolygon& Move(const glm::vec2& Position);
         virtual zPolygon& Move(const real_t x, const real_t y); ///< @overload
 
         /**
@@ -187,11 +187,11 @@ namespace gfx
         /// These is for zQuad.
         virtual void SetInverted(const bool) { /* does nothing */ }
 
-        inline const std::vector<math::vector_t>&
+        inline const std::vector<glm::vec2>&
         GetTriangulation() const { return m_Tris; }
 
-        inline math::vector_t GetPosition() const
-        { return math::vector_t(m_BoundingBox.x, m_BoundingBox.y); }
+        inline glm::vec2 GetPosition() const
+        { return glm::vec2(m_BoundingBox.x, m_BoundingBox.y); }
 
         inline const math::rect_t&
         GetBoundingBox() const { return m_BoundingBox; }
@@ -232,14 +232,14 @@ namespace gfx
 
     private:
         asset::zAssetManager&   m_Assets;
-        math::matrix4x4_t*      mp_MVMatrix;
+        gfx::zCamera*           mp_Camera;
         gfxcore::zVertexArray*  mp_VAO;
         gfxcore::index_t        m_offset;
 
     protected:
         virtual void MapTexCoords() { ZEN_ASSERTM(false, "not implemented"); }
 
-        std::vector<math::vector_t> m_Verts, m_Tris;
+        std::vector<glm::vec2> m_Verts, m_Tris;
         gfx::zMaterial      m_Material;
         math::rect_t        m_BoundingBox;
         gfxcore::DrawBatch  m_DrawData;

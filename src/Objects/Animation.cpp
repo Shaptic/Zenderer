@@ -36,7 +36,6 @@ bool zAnimation::LoadFromTexture(const string_t& filename)
         gfx::zEffect& e = const_cast<gfx::zEffect&>(pQ->GetMaterial().GetEffect());
         e.Enable();
         e.SetParameter("tc_offset", &m_texc, 1);
-        e.SetProjectionMatrix(gfxcore::zRenderer::GetProjectionMatrix());
         e.Disable();
 
         // For collision.
@@ -82,7 +81,7 @@ void zAnimation::SetKeyframeCount(const uint16_t frames)
     m_framecount = frames;
 }
 
-void zAnimation::SetKeyframeSize(const math::vectoru16_t& Size)
+void zAnimation::SetKeyframeSize(const glm::u16vec2& Size)
 {
     this->SetKeyframeSize(Size.x, Size.y);
 }

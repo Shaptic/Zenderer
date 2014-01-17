@@ -775,8 +775,8 @@ gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets,
                            std::vector<gfx::zQuad*> Casters,
                            const math::vector_t& LightPosition,
                            const gfx::zWindow& Window,
-                           const math::vectoru16_t& fidelity =
-                                math::vectoru16_t(512, 512))
+                           const glm::u16vec2& fidelity =
+                                glm::u16vec2(512, 512))
 {
     using namespace gfx;
     using gfxcore::zRenderer;
@@ -890,7 +890,7 @@ int main_shadows()
     //LPos.x = 400; LPos.y = 300;
 
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
-    math::vectoru16_t fidelity(300, 300);
+    glm::u16vec2 fidelity(300, 300);
     gfx::zQuad Final(CreateShadowMap(Assets, std::vector<gfx::zQuad*> {
         &Caster, &Caster2
     }, LPos, Window, fidelity));

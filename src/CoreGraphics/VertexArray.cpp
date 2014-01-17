@@ -184,7 +184,7 @@ bool zVertexArray::Offload()
     // According to the diagram shown above, the vertex position
     // would start at index 0.
     GL(glVertexAttribPointer(0,                 /* Attribute index  */
-                             3,                 /* Number of values */
+                             2,                 /* Number of values */
                              GL_FLOAT,          /* Type of value    */
                              GL_FALSE,          /* Normalized?      */
                              sizeof(vertex_t),  /* Size of field    */
@@ -195,7 +195,7 @@ bool zVertexArray::Offload()
 
     // Specify texture coordinate position arrangement.
     // According to the diagram, texture coordinates start at index 3.
-    GL(glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
+    GL(glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
                              VBO_OFFSET(0, vertex_t, tc)));
     GL(glEnableVertexAttribArray(1));
 

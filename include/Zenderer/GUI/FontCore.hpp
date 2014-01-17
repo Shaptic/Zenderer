@@ -97,8 +97,8 @@ namespace gui
     struct glyph_t
     {
         gfxcore::zTexture*  texture;    ///< Raw bitmap
-        math::vectoru16_t   size;       ///< Raw bitmap size
-        math::vectoru16_t   position;   ///< Position on baseline to render
+        glm::u16vec2   size;       ///< Raw bitmap size
+        glm::u16vec2   position;   ///< Position on baseline to render
         uint16_t            advance;    ///< Pixels until next character
     };
 }   // namespace gfx

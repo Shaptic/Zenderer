@@ -19,10 +19,10 @@
  * @addtogroup Math
  *  This group contains essentials for manipulation of objects throughout
  *  the rendering engine. Actions such as moving an entity are performed
- *  with a combination of user-level contribution of `zen::math::vector_t`,
+ *  with a combination of user-level contribution of `zen::glm::vec2`,
  *  and a low-level manipulation of `zen::math::matrix4x4_t`. Collision
  *  detection and physical reactions require the `zen::math::aabb_t` object,
- *  which itself depends on `zen::math::vector_t`, as well. Do you want to
+ *  which itself depends on `zen::glm::vec2`, as well. Do you want to
  *  locate the angle for firing a shot? Well then you likely need
  *  `zen::math::rad` and `zen::math::deg` to get sensible values for
  *  trigonometric functions. \n
@@ -37,6 +37,10 @@
 #define ZENDERER__MATH__MATH_CORE_HPP
 
 #include <cmath>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 // Undefine these function macros so we can make our own and
 // not have them conflict.

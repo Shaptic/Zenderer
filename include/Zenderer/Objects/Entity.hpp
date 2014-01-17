@@ -160,7 +160,7 @@ namespace obj
          *
          * @todo    Support a variety of primitive depths.
          **/
-        void Move(const math::vector_t& Pos);
+        void Move(const glm::vec2& Pos);
 
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
@@ -184,22 +184,12 @@ namespace obj
          *
          * @param   dx      Change in the x-direction
          * @param   dy      Change in the y-direction
-         * @param   dz      Change in the z-direction
          *
          * @note    This is equivalent to calling
-         *          `Move(GetPosition() + math::vector_t(dx, dy, dz));`
+         *          `Move(GetPosition() + glm::vec2(dx, dy));`
          **/
-        void Adjust(const real_t dx, const real_t dy, const real_t dz = 0.0);
-        void Adjust(const math::vector_t& delta);   ///< @overload
-
-        /// Transforms the entity with a shear.
-        inline void Shear(const math::vector_t& Angles)  { m_MV.Shear(Angles); }
-
-        /// Transforms the entity with scaling factors.
-        inline void Scale(const math::vector_t& Factors) { m_MV.Scale(Factors);}
-
-        /// Rotate the entity in 2-dimensions (on the Z-axis).
-        inline void Rotate(const real_t degrees) { m_MV.RotationZ(degrees); }
+        void Adjust(const real_t dx, const real_t dy);
+        void Adjust(const glm::vec2& delta);   ///< @overload
 
         /**
          * Inverts the vertex and texture coordinates of internal primitives.
@@ -240,15 +230,13 @@ namespace obj
         bool Collides(const zEntity& Other, math::cquery_t* q = nullptr) const;
         bool Collides(const math::rect_t& other) const; ///< @overload
         bool Collides(const math::aabb_t& other) const; ///< @overload
-        bool Collides(const math::vector_t& Pos) const; ///< @overload
+        bool Collides(const glm::vec2& Pos) const;      ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(const uint8_t depth);
 
-        /// Retrieves an immutable reference to the transformation matrix.
-        const math::matrix4x4_t& GetTransformation() const;
         const math::aabb_t& GetBox() const;
-        math::vector_t GetPosition() const;
+        glm::vec2 GetPosition() const;
 
         real_t GetX() const { return m_MV[0][3]; }
         real_t GetY() const { return m_MV[1][3]; }
@@ -280,7 +268,6 @@ namespace obj
         asset::zAssetManager&       m_Assets;
         util::zLog&                 m_Log;
 
-        math::matrix4x4_t           m_MV;
         math::aabb_t                m_Box;
         math::rect_t                m_PolyBB;
         std::vector<gfx::zPolygon*> mp_allPrims;

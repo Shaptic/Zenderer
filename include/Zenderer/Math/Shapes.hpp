@@ -28,15 +28,14 @@
 #include "Zenderer/Core/Types.hpp"
 #include "Zenderer/Utilities/Assert.hpp"
 #include "MathCore.hpp"
-#include "Vector.hpp"
 
 namespace zen
 {
 namespace math
 {
     /// A triangle representation.
-    using tri_t  = std::array<vector_t, 3>;
-    using line_t = std::array<vector_t, 2>;
+    using tri_t  = std::array<glm::vec2, 3>;
+    using line_t = std::array<glm::vec2, 2>;
 
     /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t
@@ -83,8 +82,8 @@ namespace math
     {
         aabb_t() {}
 
-        aabb_t(const vector_t& Pos,
-               const zVector<uint32_t>& Size) :
+        aabb_t(const glm::vec2& Pos,
+               const glm::vec2& Size) :
             tl(Pos), br(Pos + Size) {}
 
         aabb_t(const rect_t& Data) :
@@ -114,8 +113,8 @@ namespace math
          **/
         bool collides(const tri_t& tri) const;
 
-        vector_t tl;      ///< Top-left point.
-        vector_t br;      ///< Bottom-right point.
+        glm::vec2 tl;      ///< Top-left point.
+        glm::vec2 br;      ///< Bottom-right point.
     };
 
     /**
@@ -142,7 +141,7 @@ namespace math
         aabb_t   box1, box2;
         line_t 	 line1, line2;
         tri_t 	 tri1, tri2;
-        vector_t point;
+        glm::vec2 point;
         bool     collision;
         bool     colinear;      // In line-vs-line, are we the same line?
         bool     edge_case;     // In line-vs-line, is it colliding
@@ -184,7 +183,7 @@ namespace math
      *
      * @note    Worst-case algorithmic complexity: O(n<sup>3</sup>)
      **/
-    std::vector<vector_t> triangulate(const std::vector<vector_t>& Polygon);
+    std::vector<glm::vec2> triangulate(const std::vector<glm::vec2>& Polygon);
 
     /**
      * Calculates the slope of a line.

@@ -22,7 +22,7 @@
 #ifndef ZENDERER__GRAPHICS__LIGHT_HPP
 #define ZENDERER__GRAPHICS__LIGHT_HPP
 
-#include "Zenderer/Math/Matrix.hpp"
+#include "Zenderer/Math/Math.hpp"
 #include "Zenderer/CoreGraphics/Renderer.hpp"
 #include "Zenderer/CoreGraphics/ShaderSet.hpp"
 
@@ -36,7 +36,7 @@ namespace gfx
         ZEN_NO_LIGHT = -1,  ///< An invalid light type
         ZEN_AMBIENT,        ///< Uniform ambient light
         ZEN_SPOTLIGHT,      ///< Angled spot light
-        ZEN_POINT           ///< Omnidirectional point light
+        ZEN_POINT           ///< Omni directional point light
     };
 
     /// Represents a light object acting on a graphical scene.
@@ -74,36 +74,36 @@ namespace gfx
         bool SetColor(const real_t r, const real_t g, const real_t b);
         bool SetColor(const color3f_t& Color);
         bool SetAttenuation(const real_t c, const real_t l, const real_t q);
-        bool SetAttenuation(const math::vector_t& Att);
+        bool SetAttenuation(const glm::vec2& Att);
         bool SetPosition(const real_t x, const real_t y);
-        bool SetPosition(const math::vector_t& Pos);
+        bool SetPosition(const glm::vec2& Pos);
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
         /// @}
 
         void SetType(const LightType& Type);
 
-        real_t                  GetBrightness() const;
-        const color3f_t&        GetColor()      const;
-        const math::vector_t&   GetPosition()   const;
-        LightType               GetType()       const;
+        real_t             GetBrightness() const;
+        const color3f_t&   GetColor()      const;
+        const glm::vec2&   GetPosition()   const;
+        LightType          GetType()       const;
 
     private:
         // Default values
-        static math::vector_t   s_DefaultAttenuation;
-        static math::vector_t   s_DefaultPosition;
-        static color3f_t        s_DefaultColor;
-        static real_t           s_DefaultBrightness;
-        static real_t           s_DefaultMaxAngle;
-        static real_t           s_DefaultMinAngle;
+        static glm::vec2   s_DefaultAttenuation;
+        static glm::vec2   s_DefaultPosition;
+        static color3f_t   s_DefaultColor;
+        static real_t      s_DefaultBrightness;
+        static real_t      s_DefaultMaxAngle;
+        static real_t      s_DefaultMinAngle;
 
         // We don't use the high-level effect to get more control
         // and minimize uniform parameter lookups.
         gfxcore::zShaderSet m_Shader;
 
-        math::vector_t  m_Att, m_Position, m_Max, m_Min;
-        color3f_t       m_Color;
-        real_t          m_brt;
+        glm::vec2  m_Att, m_Position, m_Max, m_Min;
+        color3f_t  m_Color;
+        real_t     m_brt;
 
         LightType m_type;
 

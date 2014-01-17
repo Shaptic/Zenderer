@@ -8,7 +8,6 @@ using obj::zEntity;
 
 zEntity::zEntity(asset::zAssetManager& Assets) :
     m_Assets(Assets), m_Log(util::zLog::GetEngineLog()),
-    m_MV(math::matrix4x4_t::GetIdentityMatrix()),
     m_depth(1), m_sort(0), m_inv(false), m_enabled(true)
 {
 }
@@ -191,7 +190,7 @@ bool zEntity::Draw(const gfx::RenderState& state)
     return true;
 }
 
-void zEntity::Move(const math::vector_t& Pos)
+void zEntity::Move(const glm::vec2& Pos)
 {
     this->Move(Pos.x, Pos.y, Pos.z);
 }
@@ -201,17 +200,17 @@ void zEntity::Move(const real_t x, const real_t y, const real_t z /*= 1.0*/)
     m_depth = z;
     for(auto& i : mp_allPrims) i->Move(x, y);
 
-    m_MV.Translate(math::vector_t(x, y, z));
+    m_MV.Translate(glm::vec2(x, y));
     m_Box = math::aabb_t(math::rect_t(x + m_PolyBB.x, y + m_PolyBB.y,
                                       this->GetWidth(), this->GetHeight()));
 }
 
-void zEntity::Adjust(const real_t dx, const real_t dy, const real_t dz /*= 0.0*/)
+void zEntity::Adjust(const real_t dx, const real_t dy)
 {
-    this->Move(this->GetPosition() + math::vector_t(dx, dy, dz));
+    this->Move(this->GetPosition() + glm::vec2(dx, dy));
 }
 
-void zEntity::Adjust(const math::vector_t& delta)
+void zEntity::Adjust(const glm::vec2& delta)
 {
     this->Move(this->GetPosition() + delta);
 }
@@ -273,7 +272,7 @@ bool zEntity::Collides(const math::aabb_t& other) const
     return false;
 }
 
-bool zEntity::Collides(const math::vector_t& pos) const
+bool zEntity::Collides(const glm::vec2& pos) const
 {
     return this->Collides(math::rect_t(pos.x, pos.y, 1, 1));
 }
@@ -287,14 +286,9 @@ void zEntity::SetDepth(uint8_t depth)
     //m_sort |= (depth << gfxcore::zSorter::DEPTH_OFFSET);
 }
 
-const math::matrix4x4_t& zEntity::GetTransformation() const
+glm::vec2 zEntity::GetPosition() const
 {
-    return m_MV;
-}
-
-math::vector_t zEntity::GetPosition() const
-{
-    return math::vector_t(m_MV[0][3], m_MV[1][3], m_MV[2][3]);
+    return glm::vec2(m_MV[0][3], m_MV[1][3]);
 }
 
 const math::aabb_t& zEntity::GetBox() const
