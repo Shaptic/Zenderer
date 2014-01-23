@@ -269,7 +269,6 @@ namespace obj
         util::zLog&                 m_Log;
 
         math::mat4_t                m_Model;
-        math::vector_t              m_Position;
 
         math::aabb_t                m_Box;
         math::rect_t                m_PolyBB;

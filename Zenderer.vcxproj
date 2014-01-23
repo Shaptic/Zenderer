@@ -102,6 +102,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Graphics\Camera.hpp" />
     <ClInclude Include="include\Zenderer\Assets\Asset.hpp" />
     <ClInclude Include="include\Zenderer\Assets\AssetManager.hpp" />
     <ClInclude Include="include\Zenderer\Audio\Audio2D.hpp" />
