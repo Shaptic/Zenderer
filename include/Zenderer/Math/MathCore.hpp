@@ -38,6 +38,7 @@
 
 #include <cmath>
 
+#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
@@ -77,18 +78,8 @@ namespace math
         vector_t(const vector_t& v) : glm::vec3(v.x, v.y, v.z) {}
     };*/
 
-    class mat4x4_t : public glm::mat4
-    {
-    public:
-        mat4x4_t() : glm::mat4(1.0) {}
-        mat4x4_t(const glm::mat4& m) : glm::mat4(m) {}
-        mat4x4_t& operator=(const glm::mat4& m)
-        { glm::mat4::operator=(m); return *this; }
-        const float* const AsPtr() const
-        { return glm::value_ptr(*this); }
-    };
-
-    typedef mat4x4_t mat4_t;
+    typedef glm::mat4 mat4x4_t;
+    typedef glm::mat4 mat4_t;
 
     /// Famous mathematical constant.
     static const real_t PI = 3.1415926535897932384626;
