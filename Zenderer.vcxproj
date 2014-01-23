@@ -144,7 +144,6 @@
     <ClInclude Include="include\Zenderer\Math\Math.hpp" />
     <ClInclude Include="include\Zenderer\Math\MathCore.hpp" />
     <ClInclude Include="include\Zenderer\Math\Shapes.hpp" />
-    <ClInclude Include="include\Zenderer\Math\Vector.hpp" />
     <ClInclude Include="include\Zenderer\Network\Socket.hpp" />
     <ClInclude Include="include\Zenderer\Objects\Animation.hpp" />
     <ClInclude Include="include\Zenderer\Objects\Entity.hpp" />
@@ -235,7 +234,6 @@
     <None Include="include\Zenderer\Graphics\Effect.inl" />
     <None Include="include\Zenderer\Graphics\Scene.inl" />
     <None Include="include\Zenderer\Math\MathCore.inl" />
-    <None Include="include\Zenderer\Math\Vector.inl" />
     <None Include="include\Zenderer\Utilities\INIParser.inl" />
     <None Include="include\Zenderer\Utilities\Log.inl" />
     <None Include="README.md" />

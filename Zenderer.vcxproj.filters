@@ -264,9 +264,6 @@
     <ClInclude Include="include\Zenderer\Graphics\Camera.hpp">
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\Math\Vector.hpp">
-      <Filter>Header Files\Math</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
@@ -490,9 +487,6 @@
     </None>
     <None Include="data\shaders\ShadowLight.fs">
       <Filter>Shaders</Filter>
-    </None>
-    <None Include="include\Zenderer\Math\Vector.inl">
-      <Filter>Header Files\Math</Filter>
     </None>
   </ItemGroup>
 </Project>
