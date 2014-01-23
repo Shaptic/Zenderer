@@ -63,6 +63,8 @@ namespace zen
 /// Defines math-related functions and objects used throughout @a Zenderer.
 namespace math
 {
+    typedef glm::vec2 vector_t;
+
     /// Famous mathematical constant.
     static const real_t PI = 3.1415926535897932384626;
 
