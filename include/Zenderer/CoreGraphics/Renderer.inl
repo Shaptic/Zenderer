@@ -16,9 +16,9 @@ const gfxcore::zTexture& zRenderer::GetDefaultTexture()
     return s_DefaultMaterial->GetTexture();
 }
 
-const math::mat4_t& zRenderer::GetProjectionMatrix()
+gfx::zCamera& zRenderer::GetGlobalCamera()
 {
-    return s_ProjMatrix;
+    return s_Camera;
 }
 
 bool zRenderer::ResetMaterialState()
@@ -101,7 +101,12 @@ zVertexArray& zRenderer::GetFullscreenVBO()
     return s_FullscreenQuad;
 }
 
-void zRenderer::SetProjectionMatrix(const math::mat4_t& Proj)
+void zRenderer::SetGlobalCamera(const gfx::zCamera&& Cam)
 {
-    s_ProjMatrix = Proj;
+    s_Camera = Cam;
+}
+
+void zRenderer::SetGlobalCamera(const gfx::zCamera& Cam)
+{
+    s_Camera = Cam;
 }

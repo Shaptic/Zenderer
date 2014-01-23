@@ -24,7 +24,7 @@
 #define ZENDERER__CORE_GRAPHICS__RENDERER_HPP
 
 #include "Zenderer/Utilities/Settings.hpp"
-#include "Zenderer/Math/Math.hpp"
+#include "Zenderer/Graphics/Camera.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "OpenGL.hpp"
 #include "VertexArray.hpp"
@@ -74,21 +74,21 @@ namespace gfxcore
         /// Disables any bound texture (also via `EnableTexture(0)`).
         inline static bool DisableTexture();
 
-        /// Sets the projection matrix for rendering.
-        inline static void SetProjectionMatrix(const math::mat4_t& Proj);
+        /// Sets the global camera state for rendering.
+        inline static void SetGlobalCamera(const gfx::zCamera& Camera);
 
         inline static const gfx::zMaterial&     GetDefaultMaterial();
         inline static const gfx::zEffect&       GetDefaultEffect();
         inline static const gfxcore::zTexture&  GetDefaultTexture();
 
-        inline static const math::mat4_t&  GetProjectionMatrix();
+        inline static gfx::zCamera&             GetGlobalCamera();
         inline static zVertexArray&             GetFullscreenVBO();
 
         friend class ZEN_API gfx::zWindow;          ///< Accesses material
         friend class ZEN_API gfx::zRenderTarget;    ///< Accesses matrices
 
     private:
-        zRenderer() = delete;
+        zRenderer()  = delete;
         ~zRenderer() = delete;
 
         /// Only to be called by `gfx::zWindow` ONCE.
@@ -97,7 +97,7 @@ namespace gfxcore
 
         static zVertexArray         s_FullscreenQuad;
         static gfx::zMaterial*      s_DefaultMaterial;
-        static math::mat4_t    s_ProjMatrix;
+        static gfx::zCamera         s_Camera;
         static BlendFunc            s_LastBlend;
         static bool                 s_blend;
         static bool                 s_wf;

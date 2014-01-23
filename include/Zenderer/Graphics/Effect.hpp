@@ -127,7 +127,22 @@ namespace gfx
          *
          * @overload
          **/
-        bool SetParameter(const string_t& name, const glm::mat4& Matrix);
+        bool SetParameter(const string_t& name, const math::mat4_t& Matrix);
+
+        /**
+         * @todo docs
+         **/
+        bool UseGlobalCamera()
+        {
+            return this->SetCamera(gfxcore::zRenderer::GetCamera());
+        }
+
+        bool SetCamera(const gfx::zCamera& Camera)
+        {
+            return (this->Enable() &&
+                    this->SetParameter("ViewProj", Camera.GetCombinedMatrix()) &&
+                    this->Disable());
+        }
 
         inline bool Enable() const; ///< A more user-friendly alias for binding.
         inline bool Disable() const;///< A more user-friendly alias for unbinding.
@@ -137,12 +152,13 @@ namespace gfx
         inline EffectType GetType() const { return m_type; }
         inline uint16_t GetID() const { return m_Shader.GetID(); }
         inline void SetType(const EffectType Type);
+
         friend class ZEN_API zMaterial;
 
     private:
         // For the material to be able to load custom shaders.
         bool LoadCustomEffect(const string_t& vs, const string_t& fs);
-        bool SetMatrix(GLint loc, const glm::mat4& matrix) const;
+        bool SetMatrix(GLint loc, const math::mat4_t& matrix) const;
 
         inline bool Bind() const;
         inline bool Unbind() const;
