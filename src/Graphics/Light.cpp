@@ -163,18 +163,14 @@ bool zLight::SetPosition(const math::vector_t& Pos)
 
 bool zLight::SetMaximumAngle(const real_t degrees)
 {
-    m_Max = math::vector_t(1, 0, 0);
-    m_Max.Rotate(math::rad(degrees));
-
+    m_Max = glm::rotateZ(math::vector_t(1, 0, 0), math::rad(degrees));
     GL(glUniform2f(m_loctmx, m_Max.x, m_Max.y));
     return true;
 }
 
 bool zLight::SetMinimumAngle(const real_t degrees)
 {
-    m_Min = math::vector_t(1, 0, 0);
-    m_Min.Rotate(math::rad(degrees));
-
+    m_Min = glm::rotateZ(math::vector_t(1, 0, 0), math::rad(degrees));
     GL(glUniform2f(m_loctmn, m_Min.x, m_Min.y));
     return true;
 }

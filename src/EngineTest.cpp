@@ -316,7 +316,7 @@ int main2(int argc, char* argv[])
                 d = -d;
 
             MV = glm::translate(MV, glm::vec3(300, 300, 0));
-            MV.Shear(math::vector_t(angle += d, 0.0));
+            MV = glm::shearX3D(MV, angle += d, 0.f);
 
             DEffect.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
             DEffect.SetModelMatrix(MV);
