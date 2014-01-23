@@ -29,8 +29,6 @@
 #include "Zenderer/CoreGraphics/ShaderSet.hpp"
 #include "Zenderer/CoreGraphics/ShaderFiles.hpp"
 
-#include "Camera.hpp"
-
 namespace zen
 {
 namespace gfx
@@ -130,19 +128,6 @@ namespace gfx
          * @overload
          **/
         bool SetParameter(const string_t& name, const glm::mat4& Matrix);
-
-        /**
-         * Updates the camera settings to use during rendering.
-         *  Cameras contain important render data such as projection and view
-         *  matrices, panning offsets, and other data necessary to accurately
-         *  render a scene.
-         *  If this is never called, the default camera is used (created when
-         *  you create a window). Basically, whatever
-         *  `gfxcore::zRenderer::GetCamera()` returns.
-         *
-         * @param   Camera      New camera to use during rendering
-         **/
-        bool SetCamera(const gfx::zCamera& Camera) const;
 
         inline bool Enable() const; ///< A more user-friendly alias for binding.
         inline bool Disable() const;///< A more user-friendly alias for unbinding.
