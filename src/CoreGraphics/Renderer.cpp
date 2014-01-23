@@ -21,7 +21,7 @@ bool zRenderer::Init(asset::zAssetManager& Assets,
     s_DefaultMaterial = new gfx::zMaterial(Assets);
     gfx::zEffect& E = s_DefaultMaterial->GetEffect();
     E.Enable();
-    E.SetModelMatrix(math::mat4x4_t())
+    E.SetModelMatrix(math::mat4x4_t());
     E.SetProjectionMatrix(s_ProjMatrix);
     E.Disable();
 

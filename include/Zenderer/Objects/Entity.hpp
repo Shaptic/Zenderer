@@ -238,8 +238,8 @@ namespace obj
         const math::aabb_t& GetBox() const;
         math::vector_t GetPosition() const;
 
-        real_t GetX() const { return m_MV[0][3]; }
-        real_t GetY() const { return m_MV[1][3]; }
+        real_t GetX() const { ZEN_ASSERT(false); return 0; }
+        real_t GetY() const { ZEN_ASSERT(false); return 0; }
         real_t GetWidth() const { return m_Box.br.x - m_Box.tl.x; }
         real_t GetHeight() const { return m_Box.br.y - m_Box.tl.y; }
 

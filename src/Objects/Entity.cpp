@@ -288,7 +288,8 @@ void zEntity::SetDepth(uint8_t depth)
 
 math::vector_t zEntity::GetPosition() const
 {
-    return math::vector_t(m_MV[0][3], m_MV[1][3]);
+    ZEN_ASSERT(false);
+    return math::vector_t();
 }
 
 const math::aabb_t& zEntity::GetBox() const

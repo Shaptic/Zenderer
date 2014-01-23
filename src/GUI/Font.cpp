@@ -166,7 +166,7 @@ bool zFont::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
     // any, we stop max()-ing the bearing.
     // Thus the (0, 0, 1) coordinate is the top of the line. Any subsequent
     // lines just add their height to the y coordinate and keep rendering.
-    math::zVector<int16_t> Pos;
+    glm::i16vec2 Pos;
 
     for(auto& i : text)
     {
@@ -383,9 +383,9 @@ bool zFont::LoadGlyph(const char c, const uint16_t index)
     // Store the glyph internally.
     glyph_t glyph;
     glyph.texture   = &Texture;
-    glyph.size      = math::zVector<uint32_t>(w, h);
-    glyph.position  = math::zVector<int32_t>(slot->metrics.horiBearingX >> 6,
-                                             slot->metrics.horiBearingY >> 6);
+    glyph.size      = glm::u32vec2(w, h);
+    glyph.position  = glm::i32vec2(slot->metrics.horiBearingX >> 6,
+                                   slot->metrics.horiBearingY >> 6);
     glyph.advance   = slot->advance.x >> 6;
     m_glyphData[c]  = std::move(glyph);
 

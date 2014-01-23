@@ -271,8 +271,7 @@ int main2(int argc, char* argv[])
         FS.Draw();
 
         Sample.Enable();
-        glm::mat4 MV(1.0);
-        MV.Translate(math::vector_t(400, 100));
+        glm::mat4 MV(glm::translate(math::mat4_t(), math::vector_t(400, 100)));
         Sample.GetEffect().SetProjectionMatrix(zRenderer::GetProjectionMatrix());
         Sample.GetEffect().SetModelMatrix(MV);
         Vao.Draw();
@@ -293,9 +292,15 @@ int main2(int argc, char* argv[])
         if((GrassDT.z > 0 && GrassT.z > 45.0) ||
            (GrassDT.z < 0 && GrassT.z < -45.0)) GrassDT.z = -GrassDT.z;
 
-        Grass1.Shear(math::vector_t(GrassT.x += GrassDT.x, 0.0));
-        Grass2.Shear(math::vector_t(GrassT.y += GrassDT.y, 0.0));
-        Grass3.Shear(math::vector_t(GrassT.z += GrassDT.z, 0.0));
+        /*
+        auto g1 = glm::shearX3D(math::mat4_t(), GrassT.x += GrassDT.x, 0.f);
+        auto g2 = glm::shearX3D(math::mat4_t(), GrassT.y += GrassDT.y, 0.f);
+        auto g3 = glm::shearX3D(math::mat4_t(), GrassT.z += GrassDT.z, 0.f);
+
+        Grass1.SetTranslationMatrix(g1);
+        Grass2.SetTranslationMatrix(g2);
+        Grass3.SetTranslationMatrix(g3);
+        */
 
         Scene.Render();
 
