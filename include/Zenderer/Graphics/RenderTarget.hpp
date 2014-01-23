@@ -76,7 +76,7 @@ namespace gfx
         util::zLog& m_Log;
 
         glm::u16vec2 m_OldViewport, m_Viewport;
-        gfx::zCamera m_Camera, m_Main;
+        glm::mat4 m_Main;
 
         string_t m_error_str;
 
