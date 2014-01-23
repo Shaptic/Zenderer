@@ -123,7 +123,6 @@
     <ClInclude Include="include\Zenderer\Events\EventHandler.hpp" />
     <ClInclude Include="include\Zenderer\Events\Keyboard.hpp" />
     <ClInclude Include="include\Zenderer\Events\Mouse.hpp" />
-    <ClInclude Include="include\Zenderer\Graphics\Camera.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\ConcavePolygon.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Effect.hpp" />
     <ClInclude Include="include\Zenderer\Graphics\Light.hpp" />

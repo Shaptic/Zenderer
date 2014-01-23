@@ -261,9 +261,6 @@
     <ClInclude Include="include\Zenderer\GUI\EntryField.hpp">
       <Filter>Header Files\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="include\Zenderer\Graphics\Camera.hpp">
-      <Filter>Header Files\Graphics</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Utilities\Log.cpp">
