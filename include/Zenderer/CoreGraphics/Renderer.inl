@@ -16,9 +16,9 @@ const gfxcore::zTexture& zRenderer::GetDefaultTexture()
     return s_DefaultMaterial->GetTexture();
 }
 
-gfx::zCamera& zRenderer::GetCamera()
+const math::matrix4x4_t& zRenderer::GetProjectionMatrix()
 {
-    return s_Camera;
+    return s_ProjMatrix;
 }
 
 bool zRenderer::ResetMaterialState()
@@ -99,4 +99,9 @@ bool zRenderer::DisableTexture()
 zVertexArray& zRenderer::GetFullscreenVBO()
 {
     return s_FullscreenQuad;
+}
+
+void zRenderer::SetProjectionMatrix(const math::matrix4x4_t& Proj)
+{
+    s_ProjMatrix = Proj;
 }
