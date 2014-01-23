@@ -66,9 +66,7 @@ bool zRenderTarget::Init()
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glBindTexture(GL_TEXTURE_2D, 0));
 
-    m_Main = gfxcore::zRenderer::GetCamera();
-    m_Camera = gfx::zCamera();
-    m_Camera.SetProjectionMatrix(glm::ortho(0, 0, m_Viewport.x, m_Viewport.y));
+    m_Main = gfxcore::zRenderer::GetProjectionMatrix();
 
     return m_init = (status == GL_FRAMEBUFFER_COMPLETE);
 }

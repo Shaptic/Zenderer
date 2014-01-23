@@ -158,10 +158,13 @@ namespace gfx
          **/
         void SetClearBits(const uint32_t bits);
 
+        inline const math::matrix4x4_t& GetProjectionMatrix() const
+        { return m_ProjMatrix; }
+
         inline uint16_t GetWidth()  const { return m_Dimensions.x; }
         inline uint16_t GetHeight() const { return m_Dimensions.y; }
 
-        glm::u16vec2 GetMousePosition() const;
+        math::vector_t GetMousePosition() const;
         bool GetMouseState(const evt::MouseButton& Btn) const;
 
         static bool ToggleVSYNC();
@@ -178,6 +181,7 @@ namespace gfx
         asset::zAssetManager&   m_Assets;
 
         glm::u16vec2            m_Dimensions;
+        math::matrix4x4_t       m_ProjMatrix;
         string_t                m_caption;
 
         uint32_t        m_clearbits;
