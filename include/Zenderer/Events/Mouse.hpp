@@ -53,9 +53,9 @@ namespace evt
     {
         mouse_t();
         math::vector_t position;    /// Event location
-        MouseButton button;    /// Event's mouse button
-        bool down;             /// Is the mouse button down?
-        int mods;              /// Any key modifiers held during event.
+        MouseButton button;         /// Event's mouse button
+        bool down;                  /// Is the mouse button down?
+        int mods;                   /// Any key modifiers held during event.
     };
 
     /// Retrieves the current mouse position on the active context.
