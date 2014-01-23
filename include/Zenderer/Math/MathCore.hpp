@@ -19,10 +19,10 @@
  * @addtogroup Math
  *  This group contains essentials for manipulation of objects throughout
  *  the rendering engine. Actions such as moving an entity are performed
- *  with a combination of user-level contribution of `zen::glm::vec2`,
- *  and a low-level manipulation of `zen::math::matrix4x4_t`. Collision
+ *  with a combination of user-level contribution of `zen::vector_t`,
+ *  and a low-level manipulation of `zen::math::mat4_t`. Collision
  *  detection and physical reactions require the `zen::math::aabb_t` object,
- *  which itself depends on `zen::glm::vec2`, as well. Do you want to
+ *  which itself depends on `zen::vector_t`, as well. Do you want to
  *  locate the angle for firing a shot? Well then you likely need
  *  `zen::math::rad` and `zen::math::deg` to get sensible values for
  *  trigonometric functions. \n
@@ -40,6 +40,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 // Undefine these function macros so we can make our own and
@@ -63,7 +64,29 @@ namespace zen
 /// Defines math-related functions and objects used throughout @a Zenderer.
 namespace math
 {
-    typedef glm::vec2 vector_t;
+    typedef glm::vec3 vector_t; /*
+    class vector_t : public glm::vec3
+    {
+    public:
+        vector_t() : glm::vec3(0, 0, 0) {}
+        vector_t(real_t x, real_t y, real_t z = 0.0) :
+            glm::vec3(x, y, z) {}
+        vector_t(glm::vec2& v) : glm::vec3(v.x, v.y, 1.0) {}
+        vector_t(const vector_t& v) : glm::vec3(v.x, v.y, v.z) {}
+    };*/
+
+    class mat4x4_t : public glm::mat4
+    {
+    public:
+        mat4x4_t() : glm::mat4(1.0) {}
+        mat4x4_t(const glm::mat4& m) : glm::mat4(m) {}
+        mat4x4_t& operator=(const glm::mat4& m)
+        { glm::mat4::operator=(m); return *this; }
+        const float* const AsPtr() const
+        { return glm::value_ptr(*this); }
+    };
+
+    typedef mat4x4_t mat4_t;
 
     /// Famous mathematical constant.
     static const real_t PI = 3.1415926535897932384626;
