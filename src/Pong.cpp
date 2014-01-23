@@ -36,7 +36,7 @@ static const uint16_t MAX_PONG = sizeof(PongPacket)+254;
 static const uint16_t MIN_PONG = 9;
 
 util::zRandom<> RNG;
-glm::vec2 make_ball();
+math::vector_t make_ball();
 bool parse_msg(const string_t& data, PongPacket& P);
 string_t build_packet(PacketType type, const string_t& data);
 
@@ -86,7 +86,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     BallLight.Disable();
 
     real_t dy = 0.0;
-    glm::vec2 ball_d = make_ball();
+    math::vector_t ball_d = make_ball();
 
     bool host = false, join = false;
 
@@ -100,7 +100,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     m.font_size = 24;
     m.button_foccol  = color4f_t(0, 1, 1);
     m.button_normcol = color4f_t(1, 1, 1);
-    m.button_pos = glm::vec2(64, 200);
+    m.button_pos = math::vector_t(64, 200);
 
     gui::zMenu MainMenu(Main, Assets, m);
     MainMenu.SetSpacing(32);
@@ -149,7 +149,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         m.font = "assets/ttf/menu.ttf";
         m.button_normcol = color4f_t(1, 1, 1);
         m.button_foccol  = color4f_t(0, 1, 1);
-        m.button_pos = glm::vec2(64, 200);
+        m.button_pos = math::vector_t(64, 200);
 
         gui::zMenu HostList(Main, Assets, m);
         HostList.SetSpacing(32);
@@ -280,7 +280,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
                         std::vector<string_t> parts = util::split(response.data, ';');
 
                         Ball.Move(stod(parts[0]), stod(parts[1]));
-                        ball_d = glm::vec2(stod(parts[2]), stod(parts[3]), 0.0);
+                        ball_d = math::vector_t(stod(parts[2]), stod(parts[3]), 0.0);
                         Connection = std::move(allHosts[host]);
                         allHosts.clear();
 
@@ -400,7 +400,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     uint32_t last  = 0;
 
     // Track the scores of both players.
-    math::zVector<uint16_t> Scores;
+    glm::u16vec2 Scores;
     Font.ClearString();
     Font << Scores.x << "    |    " << Scores.y;
     Font.Render(Score);
@@ -599,7 +599,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
 
                 // If we are inaccurate, we should probably think about
                 // syncing with the other player.
-                glm::vec2 Pos(std::stod(parts[0]), std::stod(parts[1]));
+                math::vector_t Pos(std::stod(parts[0]), std::stod(parts[1]));
                 if(Pos != Ball.GetPosition())
                 {
                     std::stringstream ss;
@@ -627,9 +627,9 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
                 // Parse new ball data.
                 std::vector<string_t> parts = util::split(resp.data, ';');
 
-                glm::vec2 BallPosTmp(std::stod(parts[0]),
+                math::vector_t BallPosTmp(std::stod(parts[0]),
                                           std::stod(parts[1]));
-                glm::vec2 BallDTmp  (std::stod(parts[2]),
+                math::vector_t BallDTmp  (std::stod(parts[2]),
                                           std::stod(parts[3]));
 
                 // Is the temporary velocity identical to ours?
@@ -669,8 +669,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
         // Light follows the ball position.
         BallLight.Enable();
         BallLight.SetPosition(Ball.GetPosition() +
-                              glm::vec2(Ball.GetWidth() / 2,
-                                        Ball.GetHeight() / 2));
+                              math::vector_t(Ball.GetWidth() / 2,
+                                             Ball.GetHeight() / 2));
         BallLight.Disable();
 
         Main.Clear();
@@ -684,13 +684,13 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmd, int nShowC
     return 0;
 }
 
-glm::vec2 make_ball()
+math::vector_t make_ball()
 {
-    math::zVector<int8_t> dirs(RNG.randint(-1, 1), RNG.randint(-1, 1));
+    glm::u8vec2 dirs(RNG.randint(-1, 1), RNG.randint(-1, 1));
     if(dirs.x == 0) dirs.x = -1;
     if(dirs.y == 0) dirs.y = -1;
 
-    return glm::vec2(dirs.x * (RNG.randint(2, 7)),
+    return math::vector_t(dirs.x * (RNG.randint(2, 7)),
                      dirs.y * (RNG.randint(2, 7)));
 }
 

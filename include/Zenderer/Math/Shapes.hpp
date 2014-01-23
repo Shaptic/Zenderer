@@ -34,8 +34,8 @@ namespace zen
 namespace math
 {
     /// A triangle representation.
-    using tri_t  = std::array<glm::vec2, 3>;
-    using line_t = std::array<glm::vec2, 2>;
+    using tri_t  = std::array<math::vector_t, 3>;
+    using line_t = std::array<math::vector_t, 2>;
 
     /// Represents a rectangle with position and dimensions.
     struct ZEN_API rect_t
@@ -82,12 +82,12 @@ namespace math
     {
         aabb_t() {}
 
-        aabb_t(const glm::vec2& Pos,
-               const glm::vec2& Size) :
+        aabb_t(const math::vector_t& Pos,
+               const math::vector_t& Size) :
             tl(Pos), br(Pos + Size) {}
 
         aabb_t(const rect_t& Data) :
-            tl(Data.x, Data.y), br(Data.x + Data.w, Data.y + Data.h) {}
+            tl(Data.x, Data.y), br(Data.x + Data.w, Data.y + Data.h, 0) {}
 
         /// Detects collision with another AABB.
         bool collides(const aabb_t& b) const;
@@ -113,8 +113,8 @@ namespace math
          **/
         bool collides(const tri_t& tri) const;
 
-        glm::vec2 tl;      ///< Top-left point.
-        glm::vec2 br;      ///< Bottom-right point.
+        math::vector_t tl;      ///< Top-left point.
+        math::vector_t br;      ///< Bottom-right point.
     };
 
     /**
@@ -141,7 +141,7 @@ namespace math
         aabb_t   box1, box2;
         line_t 	 line1, line2;
         tri_t 	 tri1, tri2;
-        glm::vec2 point;
+        math::vector_t point;
         bool     collision;
         bool     colinear;      // In line-vs-line, are we the same line?
         bool     edge_case;     // In line-vs-line, is it colliding
@@ -183,7 +183,7 @@ namespace math
      *
      * @note    Worst-case algorithmic complexity: O(n<sup>3</sup>)
      **/
-    std::vector<glm::vec2> triangulate(const std::vector<glm::vec2>& Polygon);
+    std::vector<math::vector_t> triangulate(const std::vector<math::vector_t>& Polygon);
 
     /**
      * Calculates the slope of a line.

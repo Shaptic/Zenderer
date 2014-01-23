@@ -218,17 +218,17 @@ bool zFont::Render(gfxcore::zTexture& Texture, const string_t& to_render) const
          * [i + 3]  : bottom left
          */
         uint16_t start_y    = std::abs(gl.position.y + Pos.y);
-        verts[i].position   = glm::vec2(Pos.x,           start_y);
-        verts[i+1].position = glm::vec2(Pos.x+gl.size.x, start_y);
-        verts[i+2].position = glm::vec2(Pos.x+gl.size.x, start_y+gl.size.y);
-        verts[i+3].position = glm::vec2(Pos.x,           start_y+gl.size.y);
+        verts[i].position   = math::vector_t(Pos.x,           start_y);
+        verts[i+1].position = math::vector_t(Pos.x+gl.size.x, start_y);
+        verts[i+2].position = math::vector_t(Pos.x+gl.size.x, start_y+gl.size.y);
+        verts[i+3].position = math::vector_t(Pos.x,           start_y+gl.size.y);
 
         // The glyph textures are stored upside-down, so we set the texture
         // coordinates to flip them back appropriately.
-        verts[i].tc     = glm::vec2(0, 0);
-        verts[i+1].tc   = glm::vec2(1, 0);
-        verts[i+2].tc   = glm::vec2(1, 1);
-        verts[i+3].tc   = glm::vec2(0, 1);
+        verts[i].tc     = math::vector_t(0, 0);
+        verts[i+1].tc   = math::vector_t(1, 0);
+        verts[i+2].tc   = math::vector_t(1, 1);
+        verts[i+3].tc   = math::vector_t(0, 1);
 
         // Uniform font color.
         for(size_t j = i; j < i + 4; ++j) verts[j].color = m_Color;

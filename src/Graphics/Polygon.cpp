@@ -45,7 +45,7 @@ zPolygon::zPolygon(const zPolygon& Copy) :
         m_DrawData.Vertices[v] = Copy.m_DrawData.Vertices[v];
 
     if(Copy.mp_MVMatrix != nullptr)
-        mp_MVMatrix = new math::matrix4x4_t(*Copy.mp_MVMatrix);
+        mp_MVMatrix = new math::mat4_t(*Copy.mp_MVMatrix);
 
     m_Verts.reserve(Copy.m_Verts.size());
     for(auto i : Copy.m_Verts) m_Verts.emplace_back(i.x, i.y, i.z);
@@ -174,8 +174,7 @@ bool zPolygon::Draw(const RenderState& state)
         if(!mp_VAO->Offload()) return false;
 
         // Create our model-view matrix.
-        mp_MVMatrix = new math::matrix4x4_t(math::matrix4x4_t
-                                                ::GetIdentityMatrix());
+        mp_MVMatrix = new math::mat4_t();
 
         // So we can differentiate between a VAO from a `zScene`
         // and the one we made ourselves.

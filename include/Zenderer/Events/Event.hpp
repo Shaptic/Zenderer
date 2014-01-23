@@ -84,7 +84,7 @@ namespace evt
         event_t& Reset()
         {
             type            = EventType::NONE;
-            mouse.position  = glm::vec2();
+            mouse.position  = math::vector_t();
             mouse.button    = MouseButton::UNKNOWN;
             mouse.mods      = 0;
             mouse.down      = false;

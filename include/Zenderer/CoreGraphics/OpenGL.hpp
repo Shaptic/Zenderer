@@ -100,9 +100,9 @@ namespace gfxcore
 
     struct ZEN_API vertex_t
     {
-        glm::vec2   position;   ///< Vertex position
-        glm::vec2   tc;         ///< Vertex texture coordinates
-        color4f_t   color;      ///< Vertex color
+        math::vector_t   position;   ///< Vertex position
+        math::vector_t   tc;         ///< Vertex texture coordinates
+        color4f_t        color;      ///< Vertex color
     };
 
     /// A wrapper for OpenGL objects with proper cleanup.

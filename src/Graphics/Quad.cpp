@@ -167,21 +167,21 @@ void zQuad::FlipOn(const gfx::Axis& axes)
 
 void zQuad::LoadRegularVertices()
 {
-    m_DrawData.Vertices[0].position = glm::vec2(0, 0);
-    m_DrawData.Vertices[1].position = glm::vec2(m_BoundingBox.w, 0);
-    m_DrawData.Vertices[2].position = glm::vec2(m_BoundingBox.w,
+    m_DrawData.Vertices[0].position = math::vector_t(0, 0);
+    m_DrawData.Vertices[1].position = math::vector_t(m_BoundingBox.w, 0);
+    m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w,
                                                      m_BoundingBox.h);
-    m_DrawData.Vertices[3].position = glm::vec2(0, m_BoundingBox.h);
+    m_DrawData.Vertices[3].position = math::vector_t(0, m_BoundingBox.h);
 }
 
 void zQuad::LoadInvertedVertices()
 {
-    m_DrawData.Vertices[0].position = glm::vec2(0, 0);
-    m_DrawData.Vertices[1].position = glm::vec2(0,
+    m_DrawData.Vertices[0].position = math::vector_t(0, 0);
+    m_DrawData.Vertices[1].position = math::vector_t(0,
                                         -static_cast<int>(m_BoundingBox.h));
-    m_DrawData.Vertices[2].position = glm::vec2(m_BoundingBox.w,
+    m_DrawData.Vertices[2].position = math::vector_t(m_BoundingBox.w,
                                         -static_cast<int>(m_BoundingBox.h));
-    m_DrawData.Vertices[3].position = glm::vec2(m_BoundingBox.w, 0);
+    m_DrawData.Vertices[3].position = math::vector_t(m_BoundingBox.w, 0);
 }
 
 void zQuad::LoadRegularTC()
@@ -199,17 +199,17 @@ void zQuad::LoadRegularTC()
 
     if(m_flips & gfx::Axis::Y)
     {
-        m_DrawData.Vertices[0].tc = glm::vec2(0.0,  tc_h);
-        m_DrawData.Vertices[1].tc = glm::vec2(tc_w, tc_h);
-        m_DrawData.Vertices[2].tc = glm::vec2(tc_w, 1.0 - tc_h);
-        m_DrawData.Vertices[3].tc = glm::vec2(0.0,  1.0 - tc_h);
+        m_DrawData.Vertices[0].tc = math::vector_t(0.0,  tc_h);
+        m_DrawData.Vertices[1].tc = math::vector_t(tc_w, tc_h);
+        m_DrawData.Vertices[2].tc = math::vector_t(tc_w, 1.0 - tc_h);
+        m_DrawData.Vertices[3].tc = math::vector_t(0.0,  1.0 - tc_h);
     }
     else
     {
-        m_DrawData.Vertices[0].tc = glm::vec2(0.0, tc_h);
-        m_DrawData.Vertices[1].tc = glm::vec2(tc_w, tc_h);
-        m_DrawData.Vertices[2].tc = glm::vec2(tc_w, 0.0);
-        m_DrawData.Vertices[3].tc = glm::vec2(0.0, 0.0);
+        m_DrawData.Vertices[0].tc = math::vector_t(0.0, tc_h);
+        m_DrawData.Vertices[1].tc = math::vector_t(tc_w, tc_h);
+        m_DrawData.Vertices[2].tc = math::vector_t(tc_w, 0.0);
+        m_DrawData.Vertices[3].tc = math::vector_t(0.0, 0.0);
     }
 }
 
@@ -226,8 +226,8 @@ void zQuad::LoadInvertedTC()
         tc_h = m_BoundingBox.h / real_t(h);
     }
 
-    m_DrawData.Vertices[0].tc = glm::vec2(0.0, 0.0);
-    m_DrawData.Vertices[1].tc = glm::vec2(0.0, tc_h);
-    m_DrawData.Vertices[2].tc = glm::vec2(tc_w, tc_h);
-    m_DrawData.Vertices[3].tc = glm::vec2(tc_w, 0.0);
+    m_DrawData.Vertices[0].tc = math::vector_t(0.0, 0.0);
+    m_DrawData.Vertices[1].tc = math::vector_t(0.0, tc_h);
+    m_DrawData.Vertices[2].tc = math::vector_t(tc_w, tc_h);
+    m_DrawData.Vertices[3].tc = math::vector_t(tc_w, 0.0);
 }

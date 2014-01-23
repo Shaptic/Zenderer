@@ -252,7 +252,7 @@ public:
                     math::vector_t rate = i->GetRate();
                     math::vector_t surf = q.line2[1] - q.line2[0];
                     real_t theta = std::acos(rate * surf /
-                                            (rate.Magnitude() * surf.Magnitude()));
+                                            (rate.length() * surf.length()));
                     rate.Rotate(-2 * theta);
                     i->SetRate(rate.x, rate.y);
                     g = false;
@@ -579,7 +579,7 @@ int main_paint()
         const gfx::zEffect& E = gfxcore::zRenderer::GetDefaultEffect();
         E.Enable();
         E.SetProjectionMatrix(gfxcore::zRenderer::GetProjectionMatrix());
-        E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+        E.SetModelMatrix(math::mat4_t(1.0));
         One.Bind();
 
         for (auto& i : allInstances)
@@ -782,7 +782,7 @@ gfx::zQuad CreateShadowMap(asset::zAssetManager& Assets,
     using gfxcore::zRenderer;
     using gfxcore::BlendFunc;
 
-    math::vector_t Center(LightPosition - (fidelity / 2));
+    math::vector_t Center(LightPosition - (fidelity / 2U));
     zRenderer::BlendOperation(BlendFunc::STANDARD_BLEND);
 
     // Create FBO with all occluder geometry.

@@ -160,7 +160,7 @@ namespace obj
          *
          * @todo    Support a variety of primitive depths.
          **/
-        void Move(const glm::vec2& Pos);
+        void Move(const math::vector_t& Pos);
 
         /// @overload
         void Move(const real_t x, const real_t y, const real_t z = 1.0);
@@ -186,10 +186,10 @@ namespace obj
          * @param   dy      Change in the y-direction
          *
          * @note    This is equivalent to calling
-         *          `Move(GetPosition() + glm::vec2(dx, dy));`
+         *          `Move(GetPosition() + math::vector_t(dx, dy));`
          **/
         void Adjust(const real_t dx, const real_t dy);
-        void Adjust(const glm::vec2& delta);   ///< @overload
+        void Adjust(const math::vector_t& delta);   ///< @overload
 
         /**
          * Inverts the vertex and texture coordinates of internal primitives.
@@ -230,13 +230,13 @@ namespace obj
         bool Collides(const zEntity& Other, math::cquery_t* q = nullptr) const;
         bool Collides(const math::rect_t& other) const; ///< @overload
         bool Collides(const math::aabb_t& other) const; ///< @overload
-        bool Collides(const glm::vec2& Pos) const;      ///< @overload
+        bool Collides(const math::vector_t& Pos) const;      ///< @overload
 
         /// Sets the depth of the entity, for shadows or masking later on.
         void SetDepth(const uint8_t depth);
 
         const math::aabb_t& GetBox() const;
-        glm::vec2 GetPosition() const;
+        math::vector_t GetPosition() const;
 
         real_t GetX() const { return m_MV[0][3]; }
         real_t GetY() const { return m_MV[1][3]; }
@@ -267,6 +267,9 @@ namespace obj
 
         asset::zAssetManager&       m_Assets;
         util::zLog&                 m_Log;
+
+        math::mat4_t                m_Model;
+        math::vector_t              m_Position;
 
         math::aabb_t                m_Box;
         math::rect_t                m_PolyBB;

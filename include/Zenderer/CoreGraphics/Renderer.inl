@@ -16,7 +16,7 @@ const gfxcore::zTexture& zRenderer::GetDefaultTexture()
     return s_DefaultMaterial->GetTexture();
 }
 
-const math::matrix4x4_t& zRenderer::GetProjectionMatrix()
+const math::mat4_t& zRenderer::GetProjectionMatrix()
 {
     return s_ProjMatrix;
 }
@@ -101,7 +101,7 @@ zVertexArray& zRenderer::GetFullscreenVBO()
     return s_FullscreenQuad;
 }
 
-void zRenderer::SetProjectionMatrix(const math::matrix4x4_t& Proj)
+void zRenderer::SetProjectionMatrix(const math::mat4_t& Proj)
 {
     s_ProjMatrix = Proj;
 }

@@ -259,7 +259,7 @@ int main2(int argc, char* argv[])
         DEffect.Enable();
 
         DEffect.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
-        DEffect.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+        DEffect.SetModelMatrix(glm::mat4(1.0));
 
         RT.Clear();
         Vao.Draw();
@@ -271,7 +271,7 @@ int main2(int argc, char* argv[])
         FS.Draw();
 
         Sample.Enable();
-        math::matrix4x4_t MV = math::matrix4x4_t::CreateIdentityMatrix();
+        glm::mat4 MV(1.0);
         MV.Translate(math::vector_t(400, 100));
         Sample.GetEffect().SetProjectionMatrix(zRenderer::GetProjectionMatrix());
         Sample.GetEffect().SetModelMatrix(MV);
@@ -305,13 +305,13 @@ int main2(int argc, char* argv[])
         {
             Grass.Enable();
 
-            math::matrix4x4_t MV = math::matrix4x4_t::GetIdentityMatrix();
+            glm::mat4 MV(1.0);
 
             if((d > 0 && angle > 45.0) || (d < 0 && angle < -45.0))
                 d = -d;
 
+            MV = glm::translate(MV, glm::vec3(300, 300, 0));
             MV.Shear(math::vector_t(angle += d, 0.0));
-            MV.Translate(math::vector_t(300, 300));
 
             DEffect.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
             DEffect.SetModelMatrix(MV);

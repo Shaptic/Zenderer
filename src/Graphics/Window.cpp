@@ -108,9 +108,8 @@ bool zWindow::Init()
 
     GL(glViewport(0, 0, m_Dimensions.x, m_Dimensions.y));
 
-    m_ProjMatrix = math::matrix4x4_t::Projection2D(m_Dimensions.x,
-                                                   m_Dimensions.y,
-                                                   16, 1);
+    m_ProjMatrix = glm::ortho(0.f, m_Dimensions.x, m_Dimensions.y,
+                              0.f, 0.5f, 16.f);
 
     gfxcore::zRenderer::s_ProjMatrix = m_ProjMatrix;
     return (m_init = gfxcore::zRenderer::Init(m_Assets,

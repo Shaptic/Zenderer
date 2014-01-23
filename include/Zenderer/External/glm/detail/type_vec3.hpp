@@ -123,7 +123,7 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec3(
 			T const & s1,
 			T const & s2,
-			T const & s3);
+			T const & s3 = static_cast<T>(0));
 
 		//////////////////////////////////////
 		// Conversion scalar constructors
@@ -133,7 +133,7 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec3(
 			U const & x,
 			V const & y,
-			W const & z);
+            W const & z = static_cast<T>(0));
 
 		//////////////////////////////////////
 		// Conversion vector constructors

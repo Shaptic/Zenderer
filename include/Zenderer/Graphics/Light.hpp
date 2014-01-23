@@ -74,9 +74,9 @@ namespace gfx
         bool SetColor(const real_t r, const real_t g, const real_t b);
         bool SetColor(const color3f_t& Color);
         bool SetAttenuation(const real_t c, const real_t l, const real_t q);
-        bool SetAttenuation(const glm::vec2& Att);
+        bool SetAttenuation(const math::vector_t& Att);
         bool SetPosition(const real_t x, const real_t y);
-        bool SetPosition(const glm::vec2& Pos);
+        bool SetPosition(const math::vector_t& Pos);
         bool SetMaximumAngle(const real_t degrees);
         bool SetMinimumAngle(const real_t degrees);
         /// @}
@@ -85,13 +85,13 @@ namespace gfx
 
         real_t             GetBrightness() const;
         const color3f_t&   GetColor()      const;
-        const glm::vec2&   GetPosition()   const;
+        const math::vector_t&   GetPosition()   const;
         LightType          GetType()       const;
 
     private:
         // Default values
-        static glm::vec2   s_DefaultAttenuation;
-        static glm::vec2   s_DefaultPosition;
+        static math::vector_t   s_DefaultAttenuation;
+        static math::vector_t   s_DefaultPosition;
         static color3f_t   s_DefaultColor;
         static real_t      s_DefaultBrightness;
         static real_t      s_DefaultMaxAngle;
@@ -101,7 +101,7 @@ namespace gfx
         // and minimize uniform parameter lookups.
         gfxcore::zShaderSet m_Shader;
 
-        glm::vec2  m_Att, m_Position, m_Max, m_Min;
+        math::vector_t  m_Att, m_Position, m_Max, m_Min;
         color3f_t  m_Color;
         real_t     m_brt;
 

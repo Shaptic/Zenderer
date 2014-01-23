@@ -91,15 +91,12 @@ bool zRenderTarget::Bind() const
     // Bind the framebuffer and set our view port.
     GL(glBindFramebuffer(GL_FRAMEBUFFER, m_fbo));
     GL(glViewport(0, 0, m_Viewport.x, m_Viewport.y));
-    gfxcore::zRenderer::SetCamera(m_Camera);
-
     return true;
 }
 
 bool zRenderTarget::Unbind() const
 {
     // Unbind the framebuffer and reset the view port.
-    gfxcore::zRenderer::SetCamera(m_Main);
     GL(glBindFramebuffer(GL_FRAMEBUFFER, 0));
     GL(glViewport(0, 0, m_OldViewport.x, m_OldViewport.y));
     return true;

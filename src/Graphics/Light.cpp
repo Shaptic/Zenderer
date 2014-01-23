@@ -79,12 +79,10 @@ bool zLight::Init()
             if(!m_Shader.Bind()) return false;
 
             GL(glUniformMatrix4fv(mvloc, 1, GL_TRUE,
-                math::matrix4x4_t
-                    ::GetIdentityMatrix().GetPointer()));
+                math::mat4_t().AsPtr()));
 
             GL(glUniformMatrix4fv(projloc, 1, GL_TRUE,
-                gfxcore::zRenderer
-                       ::GetProjectionMatrix().GetPointer()));
+                gfxcore::zRenderer::GetProjectionMatrix().AsPtr()));
 
             // This isn't in all lights but we set it if it was found.
             GL(glUniform1i(scrloc, m_height));
@@ -165,7 +163,7 @@ bool zLight::SetPosition(const math::vector_t& Pos)
 
 bool zLight::SetMaximumAngle(const real_t degrees)
 {
-    m_Max = math::vector_t(1, 0);
+    m_Max = math::vector_t(1, 0, 0);
     m_Max.Rotate(math::rad(degrees));
 
     GL(glUniform2f(m_loctmx, m_Max.x, m_Max.y));
@@ -174,7 +172,7 @@ bool zLight::SetMaximumAngle(const real_t degrees)
 
 bool zLight::SetMinimumAngle(const real_t degrees)
 {
-    m_Min = math::vector_t(1, 0);
+    m_Min = math::vector_t(1, 0, 0);
     m_Min.Rotate(math::rad(degrees));
 
     GL(glUniform2f(m_loctmn, m_Min.x, m_Min.y));

@@ -24,7 +24,7 @@
 #define ZENDERER__CORE_GRAPHICS__RENDERER_HPP
 
 #include "Zenderer/Utilities/Settings.hpp"
-#include "Zenderer/Math/Matrix.hpp"
+#include "Zenderer/Math/Math.hpp"
 #include "Zenderer/Graphics/Material.hpp"
 #include "OpenGL.hpp"
 #include "VertexArray.hpp"
@@ -75,13 +75,13 @@ namespace gfxcore
         inline static bool DisableTexture();
 
         /// Sets the projection matrix for rendering.
-        inline static void SetProjectionMatrix(const math::matrix4x4_t& Proj);
+        inline static void SetProjectionMatrix(const math::mat4_t& Proj);
 
         inline static const gfx::zMaterial&     GetDefaultMaterial();
         inline static const gfx::zEffect&       GetDefaultEffect();
         inline static const gfxcore::zTexture&  GetDefaultTexture();
 
-        inline static const math::matrix4x4_t&  GetProjectionMatrix();
+        inline static const math::mat4_t&  GetProjectionMatrix();
         inline static zVertexArray&             GetFullscreenVBO();
 
         friend class ZEN_API gfx::zWindow;          ///< Accesses material
@@ -97,7 +97,7 @@ namespace gfxcore
 
         static zVertexArray         s_FullscreenQuad;
         static gfx::zMaterial*      s_DefaultMaterial;
-        static math::matrix4x4_t    s_ProjMatrix;
+        static math::mat4_t    s_ProjMatrix;
         static BlendFunc            s_LastBlend;
         static bool                 s_blend;
         static bool                 s_wf;

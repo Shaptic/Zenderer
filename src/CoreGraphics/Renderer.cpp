@@ -10,7 +10,7 @@ gfx::zMaterial*         zRenderer::s_DefaultMaterial = nullptr;
 
 gfxcore::zVertexArray   zRenderer::s_FullscreenQuad(GL_STATIC_DRAW);
 gfxcore::BlendFunc      zRenderer::s_LastBlend = gfxcore::BlendFunc::DISABLE_BLEND;
-math::matrix4x4_t       zRenderer::s_ProjMatrix;
+math::mat4_t       zRenderer::s_ProjMatrix;
 bool                    zRenderer::s_blend = false;
 bool                    zRenderer::s_wf = false;
 
@@ -21,7 +21,7 @@ bool zRenderer::Init(asset::zAssetManager& Assets,
     s_DefaultMaterial = new gfx::zMaterial(Assets);
     gfx::zEffect& E = s_DefaultMaterial->GetEffect();
     E.Enable();
-    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+    E.SetModelMatrix(math::mat4x4_t())
     E.SetProjectionMatrix(s_ProjMatrix);
     E.Disable();
 

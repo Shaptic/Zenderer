@@ -158,7 +158,7 @@ namespace gfx
          **/
         void SetClearBits(const uint32_t bits);
 
-        inline const math::matrix4x4_t& GetProjectionMatrix() const
+        inline const math::mat4_t& GetProjectionMatrix() const
         { return m_ProjMatrix; }
 
         inline uint16_t GetWidth()  const { return m_Dimensions.x; }
@@ -180,8 +180,8 @@ namespace gfx
         util::zLog&             m_Log;
         asset::zAssetManager&   m_Assets;
 
-        glm::u16vec2            m_Dimensions;
-        math::matrix4x4_t       m_ProjMatrix;
+        math::vector_t          m_Dimensions;
+        math::mat4_t            m_ProjMatrix;
         string_t                m_caption;
 
         uint32_t        m_clearbits;

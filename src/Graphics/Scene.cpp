@@ -54,7 +54,7 @@ zEffect& zScene::AddEffect(const EffectType& Type)
     if(pNew->Init())
     {
         pNew->Enable();
-        pNew->SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+        pNew->SetModelMatrix(math::mat4_t());
         pNew->SetProjectionMatrix(zRenderer::GetProjectionMatrix());
         pNew->Disable();
     }
@@ -198,7 +198,7 @@ bool zScene::Render(color4f_t Clear)
         i->Move(i->GetPosition() + m_Camera);
 
         // Set the matrix for transformation.
-        const math::matrix4x4_t& Tmp = i->GetTransformation();
+        const math::mat4_t& Tmp = i->GetTransformation();
 
         for(const auto& j : *i)
         {
@@ -213,7 +213,7 @@ bool zScene::Render(color4f_t Clear)
     }
 
     E.Enable();
-    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+    E.SetModelMatrix(math::mat4_t());
     E.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
     for (auto& i : m_extraGeometry)
     {
@@ -295,7 +295,7 @@ bool zScene::Render(color4f_t Clear)
     GL(glDisable(GL_DEPTH_TEST));
 
     // Make sure the right data is set.
-    E.SetModelMatrix(math::matrix4x4_t::GetIdentityMatrix());
+    E.SetModelMatrix(math::mat4_t());
     E.SetProjectionMatrix(zRenderer::GetProjectionMatrix());
 
     FS.Draw();
