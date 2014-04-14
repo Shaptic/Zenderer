@@ -39,9 +39,8 @@ zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
         return;
     }
 
-    gui::fontcfg_t f = { settings.font_size };
     mp_MenuFont = Assets.Create<gui::zFont>(settings.font, nullptr,
-                                            static_cast<void*>(&f));
+                                            settings.font_size);
 
     if(mp_MenuFont == nullptr)
     {
@@ -50,13 +49,13 @@ zMenu::zMenu(gfx::zWindow& Window, asset::zAssetManager& Assets,
     }
 
     if(!this->LoadFont(settings.button_f, settings.button_fs,
-                       mp_ButtonFont, settings.font, f.size) ||
+                       mp_ButtonFont, settings.font, settings.font_size) ||
 
        !this->LoadFont(settings.label_f,  settings.label_fs,
-                       mp_LabelFont,  settings.font, f.size) ||
+                       mp_LabelFont,  settings.font, settings.font_size) ||
 
        !this->LoadFont(settings.input_f,  settings.input_fs,
-                       mp_InputFont,  settings.font, f.size))
+                       mp_InputFont,  settings.font, settings.font_size))
     {
         LOG_ERROR("Failed to load a font.");
         return;
@@ -220,9 +219,10 @@ bool zMenu::LoadFont(const string_t&    font_name,
 {
     util::zLog& Log = util::zLog::GetEngineLog();
 
-    gui::fontcfg_t f = { (font_size > 0) ? font_size : font_def_size };
     font_ptr = m_Assets.Create<gui::zFont>(
-            font_name.empty() ? font_def_name : font_name, nullptr, &f);
+        font_name.empty() ? font_def_name : font_name, nullptr,
+        font_size > 0     ? font_size     : font_def_size
+    );
 
     if(font_ptr == nullptr)
     {

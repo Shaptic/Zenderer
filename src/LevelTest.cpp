@@ -100,8 +100,7 @@ public:
         Q.SetColor(0, 0, rgb2f(100));
         m_Trail.AddPrimitive(std::move(Q.Create()));
 
-        gui::fontcfg_t f = { 16 };
-        mp_Font = m_Assets.Create<gui::zFont>(FONT_PATH"game.ttf", nullptr, &f);
+        mp_Font = m_Assets.Create<gui::zFont>(FONT_PATH"game.ttf", nullptr, 16);
 
         if (mp_Font == nullptr)
         {
@@ -874,9 +873,8 @@ int main_shadows()
     zQuad Light(Assets, 32, 32);
     Light.SetColor(color4f_t()).Create().Move(LPos);
 
-    gui::fontcfg_t s { 12 };
     gui::zFont& Font = *Assets.Create<gui::zFont>("assets/ttf/game.ttf",
-                                                  nullptr, &s);
+                                                  nullptr, 12);
     Font.SetColor(1, 1, 0);
 
     zQuad Caster(Assets, 32, 32);
