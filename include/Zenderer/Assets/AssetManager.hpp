@@ -24,6 +24,7 @@
 #define ZENDERER__ASSETS__ASSET_MANAGER_HPP
 
 #include <list>
+#include <typeinfo>
 
 #include "Zenderer/Core/Subsystem.hpp"
 #include "Asset.hpp"
@@ -46,46 +47,60 @@ namespace asset
         bool Destroy();
 
         /**
+         * Creates a raw managed asset instance (unloaded).
+         *  If you're setting an `owner` for the asset, it must be the first
+         *  parameter. For example:
+         *
+         *  @code
+         *      auto font = zAssetManager::Create<zFont>(&MyScene, 16);
+         *  @endcode
+         *
+         * @tparam  T   An `asset::zAsset` inheriting class type
+         * @tparam  S   The asset's various settings and "owner"
+         *
+         * @return  A reference to newly created asset of type `T`.
+         **/
+        template<typename T, typename... S>
+        T& Create(const S&... args);
+
+        /**
          * Creates an asset from a filename.
-         *  Assets are set up on the zen::asset::zAsset base class, which
+         *  Assets are set up on the `zen::asset::zAsset` base class, which
          *  guarantees the ability to load from a file. That's what this
-         *  method will do: load an asset from a file. Since assets may be
-         *  identical but claimed by different parts of the engine, such as
-         *  vertex buffer and mesh data for unique scenes, it is possible
-         *  to specify an "owner" for the asset. This is entirely optional,
-         *  and the asset will default to having no unique owner.
+         *  method will do: load an asset from a file.
+         *
+         *  Since assets may be identical but claimed by different parts of
+         *  the engine, such as vertex buffer and mesh data for unique scenes,
+         *  it is possible to specify an "owner" for the asset. This is
+         *  entirely optional, and the asset will default to having no unique
+         *  owner.
+         *
+         *  If you wish to specify an owner, it must be the first parameter
+         *  to this function. If you are passing arguments to the asset
+         *  directly, you *must* include an owner parameter, since the
+         *  first argument will be treated as an owner by default.
+         *
          *  Assets created in different instances of this class are also
          *  considered to be completely separate.
          *
          * @tparam  T           An `asset::zAsset` inheriting class type
+         * @tparam  S           Various params to pass on to the created asset
          * @param   filename    Filename to load asset from
          * @param   owner       Address of asset owner      (optional=`nullptr`)
-         * @param   settings    Asset settings (if any)     (optional=`nullptr`)
          *
          * @return  A dynamically created asset if it loaded successfully, and
          *          `nullptr` otherwise.
          **/
-        template<typename T>
-        T* Create(const string_t& filename, const void* const owner = nullptr,
-                  const void* const settings = nullptr);
+        template<typename T, typename... S>
+        T* Create(const string_t& filename, const S&... args);
 
         /// @overload
-        template<typename T>
-        T* Create(const char* const filename, const void* const owner = nullptr,
-                  const void* const settings = nullptr);
+        template<typename T, typename... S>
+        T* Create(const char* const filename, const S&... args);
 
-        /**
-         * Creates a raw managed asset instance (unloaded).
-         *
-         * @tparam  T       An `asset::zAsset` inheriting class type
-         * @param   owner   The asset's "owner"             (optional=`nullptr`)
-         * @param   settings    Asset settings (if any)     (optional=`nullptr`)
-         *
-         * @return  A reference to newly created asset of type `T`.
-         **/
-        template<typename T>
-        T& Create(const void* const owner       = nullptr,
-                  const void* const settings    = nullptr);
+        ///< @overload
+        template<typename T> T* Create(const string_t& filename);
+        template<typename T> T* Create(const char* const filename);
 
         /**
          * Creates a copy of an existing asset.
@@ -100,7 +115,8 @@ namespace asset
          *  Sometimes, though, it is desirable to have multiple copies of
          *  an asset, and this method will do so.
          *
-         * @tparam  T           A child class of asset::zAsset
+         * @tparam  T           A child class of `asset::zAsset`
+         * @tparam  S           Parameters to pass to the new asset
          * @param   Copier      Assets to copy (filename or object)
          * @param   owner       Address of asset owner      (optional=`nullptr`)
          * @param   settings    Asset settings (if any)     (optional=`nullptr`)
@@ -111,21 +127,12 @@ namespace asset
          * @warning For the object `Recreate()` method, this relies on the `T`
          *          object to have implemented `zAsset::LoadFromExisting()`,
          *          which is not guaranteed.
+         *
+         * @todo    Well, this.
          **/
-        template<typename T>
-        T* Recreate(const T* const Copier,
-                    const void* const owner    = nullptr,
-                    const void* const settings = nullptr);
-
-        template<typename T>
-        T* Recreate(const string_t& Copier,
-                    const void* const owner    = nullptr,
-                    const void* const settings = nullptr);  ///< @overload
-
-        template<typename T>
-        T* Recreate(const char* Copier,
-                    const void* const owner    = nullptr,
-                    const void* const settings = nullptr);  ///< @overload
+        template<typename T, typename... S>
+        T* Recreate(const T* const Copier, const void* const owner,
+                    const S&... args);
 
         /**
          * Permanently deletes and removes an asset.
@@ -138,8 +145,9 @@ namespace asset
         bool Delete(const uint32_t index);
 
         /// Finds an asset by filename, if it exists.
-        zAsset* Find(const string_t& filename,
-                     const void* const owner = nullptr) const;
+        template<typename... S>
+        zAsset* Find(const string_t& filename, const void* const owner,
+                     const S&... args) const;
 
         /// Finds an asset by ID, if it exists.
         /// @overload

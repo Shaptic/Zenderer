@@ -122,31 +122,6 @@ bool zAssetManager::Delete(const uint32_t index)
     return false;
 }
 
-zAsset* zAssetManager::Find(const zen::string_t& filename,
-                            const void* const owner) const
-{
-    ZEN_ASSERT(this->IsInit());
-    ZEN_ASSERT(!filename.empty());
-
-    m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
-            << m_Log.SetSystem("AssetMgr") << "Searching for '"
-            << filename << "':" << owner << "." << zLog::endl;
-
-    uint32_t hash = util::string_hash(filename);
-
-    // Speed comparisons: http://ideone.com/eaIbCB
-    // Above is out-dated: http://ideone.com/droMcn
-    for(auto b : mp_managerAssets)
-    {
-        if(b->GetFilenameHash() == hash && b->GetOwner() == owner)
-        {
-            return b;
-        }
-    }
-
-    return nullptr;
-}
-
 zAsset* zAssetManager::Find(const assetid_t id) const
 {
     m_Log   << m_Log.SetMode(LogMode::ZEN_DEBUG)
