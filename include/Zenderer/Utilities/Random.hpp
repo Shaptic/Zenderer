@@ -40,17 +40,18 @@ namespace util
     public:
         zRandom()
         {
-            m_RNG.seed(SEED == 0 ? time(nullptr) : SEED);
+            std::random_device rd;
+            m_RNG.seed(SEED == 0 ? rd() : SEED);
         }
 
         /**
-         * Generates a random integer from the range [`low`, `hi`).
+         * Generates a random integer from the range [`low`, `hi`].
          *
          * @tparam  T       An integer type (`long`, `uinnt16_t`, etc.)
-         * @param   low     The lower bound
-         * @param   hi      The upper bound
+         * @param   low     The lower bound (inclusive)
+         * @param   hi      The upper bound (inclusive)
          *
-         * @return  An integer of type `T` in the range [low, hi).
+         * @return  An integer of type `T` in the range [low, hi].
          **/
         template<typename T>
         T randint(const T& low, const T& hi)
@@ -60,13 +61,13 @@ namespace util
         }
 
         /**
-         * Generates a random real number from the range [`low`, `hi`).
+         * Generates a random real number from the range [`low`, `hi`].
          *
          * @tparam  T       A floating-point type (`double`, `real_t`, etc.)
-         * @param   low     The lower bound
-         * @param   hi      The upper bound
+         * @param   low     The lower bound (inclusive)
+         * @param   hi      The upper bound (inclusive)
          *
-         * @return  A real number of type `T` in the range [low, hi).
+         * @return  A real number of type `T` in the range [low, hi].
          **/
         template<typename T>
         T randreal(const T& low, const T& hi)
@@ -78,7 +79,7 @@ namespace util
         /**
          * Chooses a random element in the given iterator range.
          *
-         * @tparam  InputIterator   An iterable type, typically deduced.
+         * @tparam  InputIterator   An iterable type, typically deduced
          * @param   begin           The starting iterator
          * @param   end             The ending iterator
          *
@@ -115,7 +116,7 @@ namespace util
  *  a random element of a container.
  *
  *  Here's the difference between creating a random integer in
- *  the range [1, 10) between this wrapper and the standard STL:
+ *  the range [1, 10] between this wrapper and the standard STL:
  *
  *  @code
  *  // STL
@@ -177,7 +178,7 @@ namespace util
  *
  *  // Change a random element to 69:
  *  int& element = Generator.choice(lotsOfStuff.begin(),
- *                                 lotsOfStuff.end());
+ *                                  lotsOfStuff.end());
  *  element = 69;
  *  @endcode
  **/
