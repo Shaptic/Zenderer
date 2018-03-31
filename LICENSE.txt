@@ -1,4 +1,4 @@
-Copyright (c) George Kudrayvtsev 2013
+Copyright (c) george 2013
 
 Apache License
 

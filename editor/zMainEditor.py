@@ -16,7 +16,7 @@ from zFile      import Exporter, Importer
 import zGeometry as geometry
 
 __version__ = '0.0.1-dev'
-__author__ = 'George Kudrayvtsev'
+__author__ = 'george'
 
 VALID_IMAGES = ['.png', '.tga']
 

@@ -2,7 +2,7 @@
  * @file
  *  Zenderer/Zenderer.hpp - Includes the user-exposed portions of the engine.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -130,7 +130,7 @@ namespace zen
  *      same mistakes again.
  *
  * @subsection about_me     About Me
- *      My name is George Kudrayvtsev and I have been programming for a
+ *      My name is george and I have been programming for a
  *      hobby for around 5 years now. I started out with C++, dropped it
  *      for Python, then came back around. I've been developing games
  *      with C++ for about 2 years, and have grown from using the SDL API
@@ -529,7 +529,7 @@ namespace zen
  *
  *  // Metadata, ignored.
  *  filename=sample.znt
- *  author=George Kudrayvtsev
+ *  author=george
  *  version=1.0
  *
  *  // Position on-screen

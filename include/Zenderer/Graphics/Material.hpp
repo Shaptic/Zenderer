@@ -2,7 +2,7 @@
  * @file
  *  Zenderer/Graphics/Material.hpp - Defines a material structure for rendering different images and effects.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

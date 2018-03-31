@@ -2,7 +2,7 @@
  * @file
  *  Zenderer/Levels/LevelLoader.hpp - A loader for @a Zenderer level files.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

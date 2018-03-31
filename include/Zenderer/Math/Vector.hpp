@@ -4,7 +4,7 @@
  *  in 3D (or 2D) space, fully supporting the mathematical operations
  *  typical of such a structure.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     1.5.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

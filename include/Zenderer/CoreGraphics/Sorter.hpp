@@ -3,7 +3,7 @@
  *  Zenderer/CoreGraphics/Sorter.hpp - Sorts entites in a variety of
  *  different ways, such as by material and by alpha component.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

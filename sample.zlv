@@ -7,7 +7,7 @@
 //  This is typically ignored, but could be used for providing
 //  the player with details while the level is being loaded.
 
-author=George Kudrayvtsev
+author=george
 description=A sample level provided for testing purposes
 
 // SECTION: Entities

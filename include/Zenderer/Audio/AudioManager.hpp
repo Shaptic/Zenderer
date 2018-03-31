@@ -3,7 +3,7 @@
  *  Zenderer/Audio/AudioManager.hpp - Convenience functions for the audio
  *  library.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

@@ -3,7 +3,7 @@
  *  Zenderer/Graphics/Window.hpp - An OpenGL context wrapper that the
  *  engine performs operations on.
  *
- * @author      George Kudrayvtsev (halcyon)
+ * @author      george (halcyon)
  * @version     2.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
